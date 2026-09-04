@@ -176,6 +176,57 @@ These papers must be checked again immediately before submission. The goal is no
 
 This is main-track material only if items 2 and 3 expose a robust, interpretable pattern. A pure benchmark table is more naturally a Findings contribution.
 
+## Upgrade from an evaluation paper to a method paper
+
+The benchmark should be the **instrument**, rather than the headline contribution. The preferred main-track framing is:
+
+> **From Dialogue to Joint Policies: Solver-Guided Commitment and Repair for LLM Agent Teams**
+
+### Method
+
+1. Agents receive a natural-language decentralized task description and their local information constraints.
+2. They synthesize explicit local policy trees or finite-state controllers, rather than only chat-based next actions.
+3. A classical evaluator verifies that each controller depends only on information legally available to that agent and computes the controller’s value.
+4. The evaluator returns a structured counterexample: the local observation history and policy decision responsible for the highest value loss or a coordination violation.
+5. Agents revise only the implicated local-policy fragment, then recommit under a fixed repair and token budget.
+
+### Scientific question
+
+Can solver-guided policy commitment and local repair reduce **coordination excess loss** more efficiently than free-form dialogue, additional test-time reasoning, independent policies, or classical local search?
+
+### Guardrails against an invalid claim
+
+- Never claim that LLMs solve general Dec-POMDPs better than solvers.
+- Never allow centralized state or other agents’ private histories into an agent’s policy at execution time.
+- Compare against token-matched free-form chat and solver-only local search.
+- Retain the centralized ceiling and decomposition to show improvement is genuinely decentralized coordination, not leaked information or better parsing.
+
+If the repair loop fails but the decomposition exposes a robust structural pattern, retain the evaluation/Findings paper. If policy commitment works but counterexample repair does not, write a narrower communication-protocol paper.
+
+## Venue strategy and upcoming workshops (checked 5 September 2026)
+
+### Best archival target: AAMAS 2027 main track
+
+Submit the method version to **SOPS + GAAI**. It directly fits decentralized planning, planning under uncertainty, hybrid classic-generative agents, and agentic interaction protocols. Main-paper deadline: **8 October 2026 AoE**; abstract deadline: **1 October 2026 AoE**. The conference also automatically considers non-selected submissions for Findings unless authors opt out. [Official CFP](https://warwick.ac.uk/fac/sci/dcs/aamas2027/calls/call-for-main-track/)
+
+### Best immediate workshop option: FAST at NeurIPS 2026
+
+**Foundations of Agentic Systems Theory (FAST)** is unusually well aligned: it explicitly seeks theory for system-level agentic behavior, evaluation/detection/bounding of emergent failure modes, and hybrid scaffolding. It accepts a **four-page short paper** for early-stage ideas, benchmarks, and datasets, and a seven-page full paper for mature work. It is non-archival, so it can be developed into an AAMAS submission later. The listed deadline is **5 September 2026 AoE**; only submit if a rigorous pilot and an honestly scoped short paper are ready. [FAST CFP](https://fast-workshop.github.io/)
+
+Suggested FAST short-paper scope:
+
+- formalize the optimum-grounded decomposition;
+- release two rendered, machine-evaluable Dec-POMDP instances;
+- report a small, fully controlled pilot;
+- state the solver-guided commitment/repair hypothesis as future work, rather than claiming unrun results.
+
+### Workshops to monitor, not submit to blindly
+
+- **AAMAS 2027 workshops:** no relevant paper CFP was listed on the official AAMAS calls page when checked. Monitor the official calls page; an EMAS, planning, coordination, or generative-agent workshop could be a natural non-archival feedback venue. [AAMAS calls](https://warwick.ac.uk/fac/sci/dcs/aamas2027/calls/)
+- **NeurIPS 2026 Resource-Aware Agentic AI:** relevant only if the paper emphasizes token cost per regret reduction, but its listed deadline was **29 August 2026 AoE**, so it is no longer an option. [Workshop page](https://resource-aware-workshop.github.io/)
+
+Do not submit an abbreviated version to any archival workshop while planning an AAMAS main-track submission; check the workshop’s archival policy first. FAST explicitly states that it is non-archival.
+
 ## Suggested eight-page outline
 
 1. Problem and failure of relative-only evaluation.
