@@ -1,8 +1,24 @@
 # Sanctioning Under Unreliable Blame
 
+> **RETRACTED 8 Sep 2026 — do not build this as specified.**
+> The headline result (RQ1/H1, the threshold `a*`) was located empirically by
+> Grechenig, Nicklisch & Thoeni (2010), *Journal of Empirical Legal Studies* 7(4):847-867,
+> who swept signal accuracy directly and found welfare under noisy punishment equal to
+> no-punishment at ~0.9 and *below* it at 0.5. Replicated by Ambrus & Greiner (AER 2012).
+> Closed-form error-rate thresholds for reputation norms also exist in
+> Glynatsi, Hilbe & Murase (PLoS Comp Bio 2025). H3's mechanism is owned by
+> Ensign et al. (FAT* 2018). See `03_novelty_review.md` for the full verdict.
+>
+> Surviving fragment: nobody has measured the *error kernel* of an LLM failure
+> attributor (H2), and prior noisy-sanctioning work assumes symmetric noise.
+> That is a Findings-scale contribution, not a main-track paper.
+>
+> Modeling flaw also flagged: latent competence is fixed with no strategic effort
+> choice, so sanctioning here is screening, not deterrence.
+
 ## Decision
 
-**Recommended target for AAMAS 2027 main track.** Selected over six other surviving candidates after a four-slice traversal of ~1,360 corpus entries (see `_survey/` notes and the occupancy table below).
+~~**Recommended target for AAMAS 2027 main track.**~~ **Retracted — see banner above.** Selected over six other surviving candidates after a four-slice traversal of ~1,360 corpus entries (see `_survey/` notes and the occupancy table below).
 
 Working title: **When Blame Is Wrong More Often Than Right: Accuracy Thresholds for Reputation and Sanctioning in LLM Agent Systems**
 
