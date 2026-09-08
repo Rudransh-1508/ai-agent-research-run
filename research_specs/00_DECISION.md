@@ -104,3 +104,44 @@ classical-literature check: **do not submit a "we are first to X" paper from thi
    defensible (if unusual) thing to have learned in a week, and cheaper than a sixth candidate.
 
 17 Sep 2026 OpenReview author registration remains a hard gate independent of which path is chosen.
+
+---
+
+## Update 8 Sep 2026 (later): sixth candidate found, checked, and split
+
+After spec 01 also eroded under classical re-examination (see above), a fresh sweep deliberately
+avoided the "import a classical AAMAS concept" shape and hunted three LLM-substrate-specific
+directions instead (`hunt_A/B/C_*.md`). The strongest survivor,
+`04_factual_attrition_mechanism.md`, went through one more adversarial round
+(`04_classical_check.md`, `04_scoop_check.md`, `04_venue_fit_check.md`).
+
+**Result: split verdict, not a kill.**
+
+- **H1/H1-alt** (recall-probe dissociation of attentional loss vs. motivated suppression) is
+  **closed**. It is Tulving & Pearlstone (1966), "Availability versus accessibility of information
+  in memory" - the founding free-recall-vs-cued-recall paradigm - applied to LLM agents rather than
+  a new mechanism. The paper's own stated defense ("no way to ask this for a human subject") is
+  factually wrong. Spiral-of-silence/pluralistic-ignorance research separately anticipates the
+  "motivated suppression" half.
+- **H1/H1-alt is also the wrong shape for AAMAS regardless of novelty** - it is a single-agent
+  recall/attention probe that does not require a second agent to exist, confirmed by calibrating
+  against actual AAMAS 2026 GAAI/COINE accepted-paper samples (all interaction-effect papers; none
+  resembling "probe one model, compare to what it said"). Both anchor papers read as NLP-benchmark
+  work (one confirmed accepted at EMNLP 2026), not AAMAS-audience work.
+- **H2 (compaction hits peer-established commitments specifically) and H3 (shared-transcript vs.
+  relay architecture shapes attrition differently) survive both checks clean.** Neither has a
+  classical antecedent - they depend on context compaction, an artifact that only exists for LLMs.
+  Both are genuinely multi-agent - they require a group converging on a stance to exist at all.
+  Scoop check: nothing published since the June 2026 anchor papers closes either.
+
+**Revised recommendation**: restructure the paper to lead with H2/H3 as the headline, demote the
+recall probe to a diagnostic instrument embedded within that study rather than a standalone result,
+and instrument actual attention weights over the KV-cache as data (the current design only asserts
+this mechanism, never measures it - flagged as the single biggest remaining execution risk). Check
+arXiv:2602.17674 ("Lost Before Translation," AI-AI relay chains) directly before finalizing scope -
+possible partial H3 overlap. Re-check two NeurIPS 2026 agent-evaluation workshops once their
+decisions post (expected before 8 Oct) - the one remaining blind spot in the scoop check.
+
+This is the first candidate in the entire sweep where the classical and modern checks did NOT
+converge on "kill everything" - they converged on "cut exactly one hypothesis and keep the rest."
+That is a meaningfully different, more usable outcome than candidates one through five.
