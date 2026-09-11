@@ -1,0 +1,16 @@
+{
+  "name": "mastra-repro-server",
+  "private": true,
+  "type": "module",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "mastra dev",
+    "build": "mastra build",
+    "start": "mastra start"
+  },
+  "dependencies": {
+    "@mastra/core": "^1.66.0",
+    "mastra": "^1.29.0",
+    "zod": "^4.6.2"
+  }
+}
