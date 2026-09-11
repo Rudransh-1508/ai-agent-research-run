@@ -1,0 +1,9 @@
+{
+  "name": "mastra-repro-17439",
+  "private": true,
+  "type": "module",
+  "version": "0.0.0",
+  "dependencies": {
+    "@mastra/core": "^1.38.0"
+  }
+}

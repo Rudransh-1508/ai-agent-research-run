@@ -1,0 +1,13 @@
+{
+  "name": "mastra-repro-17439-live",
+  "private": true,
+  "type": "module",
+  "version": "0.0.0",
+  "dependencies": {
+    "@ai-sdk/openai": "^3.0.67",
+    "@mastra/core": "^1.38.0",
+    "@mastra/pg": "^1.12.0",
+    "pg": "^8.23.0",
+    "zod": "^4.6.2"
+  }
+}
