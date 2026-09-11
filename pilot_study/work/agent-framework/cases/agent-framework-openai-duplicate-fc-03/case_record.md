@@ -47,7 +47,13 @@ Date: 2026-09-11
   {"function_call_item_present": false, "pass": true, ...}
   ```
   **PASS** — the item is correctly dropped before the request would ever reach OpenAI.
-- **Scope note on the consequence, stated for maximum honesty:** no live call was made to the actual OpenAI API to observe the literal HTTP 400 — that would require a real API key and real spend, neither authorized for this pilot's $0 default budget. What *was* independently verified is the exact defect the consequence depends on: the wire payload sent on the defective version contains a duplicate server-known item id, which is a documented, unambiguous violation of the Responses API's continuation contract (stated plainly in OpenAI's own API error message, quoted verbatim in the PR and treated here as an established external fact, not an assumption). This is a materially stronger position than the AG-UI case (`agent-framework-agui-resume-02`), where the downstream consequence was *cited* from the issue reporter's own trace — here, the defect that *causes* the consequence was independently reproduced by this pilot; only the final external HTTP round-trip confirming OpenAI's literal response was not spent on.
+- **Live confirmation, 2026-09-11 (budget explicitly approved by the team for this specific check):** ran `repro-openai-fc/live_repro.py` end-to-end against the real OpenAI Responses API (model `gpt-4o-mini`, negligible cost) — a genuine two-turn conversation where turn 1 has the model call a real tool, and turn 2 continues with `previous_response_id` set and the full history (including the turn-1 function-call and function-result) replayed, exactly the shape all three field reports describe.
+  - **Defective (`1.3.0`):** OpenAI's real API rejected the request:
+    ```
+    Error code: 400 - {'error': {'message': 'Duplicate item found with id fc_06704a46ce0ff8e2006aa40733a12887d1845f643e44320492. Remove duplicate items from your input and try again.', 'type': 'invalid_request_error', ...}}
+    ```
+  - **Corrected (`1.4.0`):** the identical two-turn flow succeeded normally: `"The weather in Paris is still 18°C and cloudy."`
+  - This closes the case's only remaining caveat. The consequence is no longer inferred from a documented API contract plus our own payload-level reproduction — it's a directly observed, live HTTP 400 with the exact error message the issue reports, immediately preceded by a successful run of the identical flow on the corrected version. There is nothing left in this case that rests on an external claim, a citation, or an assumption.
 - State reset confirmed before this run: yes — fresh client and message list constructed per call; no state persisted between the two `_prepare_messages_for_openai` invocations or between the two package-version runs.
 
 ## 6. Outcome classification (plan §9.5)
