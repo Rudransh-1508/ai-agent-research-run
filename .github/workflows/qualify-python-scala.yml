@@ -15,48 +15,53 @@ jobs:
           git sparse-checkout set tasks/python-scala-translation
           git checkout 9a1f4dd5f7659f75707435da3ce854b6e48321d1
 
-      - name: Build task Docker image
+      - name: Build task Docker image (context = environment/)
         run: |
           cd skillsbench/tasks/python-scala-translation
-          docker build -t python-scala-translation -f environment/Dockerfile .
+          docker build -t python-scala-translation -f environment/Dockerfile environment/
 
-      - name: Run oracle and verifier on correct submission
+      - name: Start a long-lived container
         run: |
-          cd skillsbench/tasks/python-scala-translation
-          docker run --name qualify-run python-scala-translation bash -lc '
-            set -ex
-            bash oracle/solve.sh
-            bash verifier/test.sh
-            echo "--- reward.txt (correct submission) ---"
-            cat /logs/verifier/reward.txt || cat reward.txt || true
-            echo "--- sbt/scalac presence check ---"
-            which sbt || echo "sbt NOT FOUND"
-            which scalac || echo "scalac NOT FOUND"
-          '
-          docker commit qualify-run python-scala-translation:after-correct-run
+          docker run -d --name qualify-run python-scala-translation sleep infinity
 
-      - name: Run verifier on deliberately broken submission
+      - name: Copy oracle and run it (generates /root/Tokenizer.scala)
         run: |
           cd skillsbench/tasks/python-scala-translation
-          docker run --name qualify-run-broken python-scala-translation:after-correct-run bash -lc '
-            set -x
-            # Break the translated Tokenizer.scala so it should fail closed
-            find / -iname "Tokenizer.scala" -not -path "*/node_modules/*" 2>/dev/null | head -5
-            BROKEN_FILE=$(find / -iname "Tokenizer.scala" -not -path "*/node_modules/*" 2>/dev/null | head -1)
-            if [ -n "$BROKEN_FILE" ]; then
-              echo "def thisIsBroken(: = {" >> "$BROKEN_FILE"
-            fi
-            bash verifier/test.sh
-            echo "--- reward.txt (broken submission) ---"
-            cat /logs/verifier/reward.txt || cat reward.txt || true
-          '
+          docker cp oracle/solve.sh qualify-run:/root/solve.sh
+          docker exec -w /root qualify-run bash /root/solve.sh
+          echo "--- Generated Tokenizer.scala (first 20 lines) ---"
+          docker exec qualify-run head -20 /root/Tokenizer.scala
+
+      - name: Copy verifier in and run it against the correct submission
+        run: |
+          cd skillsbench/tasks/python-scala-translation
+          docker exec qualify-run mkdir -p /verifier
+          docker cp verifier/test.sh qualify-run:/verifier/test.sh
+          docker cp verifier/test_outputs.py qualify-run:/verifier/test_outputs.py
+          docker exec -w /root qualify-run bash /verifier/test.sh || true
+          echo "--- reward.txt (correct submission) ---"
+          docker exec qualify-run cat /logs/verifier/reward.txt || echo "reward.txt not found"
+          echo "--- verifier output.log ---"
+          docker exec qualify-run cat /logs/verifier/output.log || echo "output.log not found"
+          echo "--- sbt/scalac presence inside container ---"
+          docker exec qualify-run bash -lc 'export PATH="$HOME/.local/share/coursier/bin:$PATH"; which sbt || echo "sbt NOT FOUND"; which scalac || echo "scalac NOT FOUND"'
+
+      - name: Corrupt the submission and re-run the verifier (expect fail-closed)
+        run: |
+          cd skillsbench/tasks/python-scala-translation
+          docker exec qualify-run bash -c 'echo "def thisIsDeliberatelyBroken(: = {" >> /root/Tokenizer.scala'
+          docker exec -w /root qualify-run bash /verifier/test.sh || true
+          echo "--- reward.txt (broken submission) ---"
+          docker exec qualify-run cat /logs/verifier/reward.txt || echo "reward.txt not found"
+          echo "--- verifier output.log (broken submission) ---"
+          docker exec qualify-run cat /logs/verifier/output.log || echo "output.log not found"
 
       - name: Collect logs as artifact
         if: always()
         run: |
           mkdir -p collected-logs
-          docker cp qualify-run:/logs collected-logs/correct-run-logs 2>/dev/null || true
-          docker cp qualify-run-broken:/logs collected-logs/broken-run-logs 2>/dev/null || true
+          docker cp qualify-run:/logs collected-logs/ 2>/dev/null || true
+          docker cp qualify-run:/root/Tokenizer.scala collected-logs/Tokenizer.scala 2>/dev/null || true
 
       - uses: actions/upload-artifact@v4
         if: always()
@@ -64,3 +69,7 @@ jobs:
           name: python-scala-collections-qualification-logs
           path: collected-logs/
           retention-days: 14
+
+      - name: Clean up
+        if: always()
+        run: docker rm -f qualify-run || true
