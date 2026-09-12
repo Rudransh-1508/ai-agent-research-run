@@ -1,0 +1,80 @@
+name: Qualify RecordBatch held-out instance (python-scala-collections) on x86_64
+
+on:
+  workflow_dispatch: {}
+
+jobs:
+  qualify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Sparse-checkout pinned SkillsBench base Dockerfile
+        run: |
+          git clone --filter=blob:none --no-checkout https://github.com/benchflow-ai/skillsbench.git skillsbench
+          cd skillsbench
+          git sparse-checkout init --cone
+          git sparse-checkout set tasks/python-scala-translation/environment
+          git checkout 9a1f4dd5f7659f75707435da3ce854b6e48321d1
+
+      - name: Build the same base toolchain image used for the primary instance
+        run: |
+          cd skillsbench/tasks/python-scala-translation
+          docker build -t python-scala-base -f environment/Dockerfile environment/
+
+      - name: Start a long-lived container
+        run: docker run -d --name heldout-run python-scala-base sleep infinity
+
+      - name: Copy in the held-out sbt project (correct reference solution)
+        run: |
+          docker exec heldout-run mkdir -p /root/recordbatch-project
+          docker cp SE4AgenticAI/held_out_instances/python-scala-translation/localtest/. heldout-run:/root/recordbatch-project/
+
+      - name: Install sbt via coursier (same as verifier/test.sh does) and run tests on the correct solution
+        run: |
+          docker exec -w /root heldout-run bash -c '
+            set -e
+            curl -fL https://github.com/coursier/coursier/releases/download/v2.1.25-M23/cs-x86_64-pc-linux.gz | gzip -d > cs
+            chmod +x cs
+            ./cs setup --yes
+            export PATH="$HOME/.local/share/coursier/bin:$PATH"
+            which sbt
+            which scalac
+          '
+          docker exec -w /root/recordbatch-project heldout-run bash -c '
+            export PATH="$HOME/.local/share/coursier/bin:$PATH"
+            sbt test
+          ' | tee correct-run.log
+          echo "CORRECT_EXIT=${PIPESTATUS[0]}" >> "$GITHUB_ENV" || true
+
+      - name: Corrupt the reference solution and re-run tests (expect fail-closed)
+        run: |
+          docker exec heldout-run bash -c '
+            echo "def thisIsDeliberatelyBroken(: = {" >> /root/recordbatch-project/src/main/scala/recordbatch/RecordBatch.scala
+          '
+          docker exec -w /root/recordbatch-project heldout-run bash -c '
+            export PATH="$HOME/.local/share/coursier/bin:$PATH"
+            sbt test
+          ' | tee broken-run.log || true
+
+      - name: Show results
+        if: always()
+        run: |
+          echo "=== Correct-solution sbt test output ==="
+          cat correct-run.log || true
+          echo
+          echo "=== Broken-solution sbt test output ==="
+          cat broken-run.log || true
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: recordbatch-heldout-qualification-logs
+          path: |
+            correct-run.log
+            broken-run.log
+          retention-days: 14
+
+      - name: Clean up
+        if: always()
+        run: docker rm -f heldout-run || true
