@@ -1,0 +1,66 @@
+name: Qualify python-scala-collections on x86_64
+
+on:
+  workflow_dispatch: {}
+
+jobs:
+  qualify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Sparse-checkout pinned SkillsBench task
+        run: |
+          git clone --filter=blob:none --no-checkout https://github.com/benchflow-ai/skillsbench.git skillsbench
+          cd skillsbench
+          git sparse-checkout init --cone
+          git sparse-checkout set tasks/python-scala-translation
+          git checkout 9a1f4dd5f7659f75707435da3ce854b6e48321d1
+
+      - name: Build task Docker image
+        run: |
+          cd skillsbench/tasks/python-scala-translation
+          docker build -t python-scala-translation -f environment/Dockerfile .
+
+      - name: Run oracle and verifier on correct submission
+        run: |
+          cd skillsbench/tasks/python-scala-translation
+          docker run --name qualify-run python-scala-translation bash -lc '
+            set -ex
+            bash oracle/solve.sh
+            bash verifier/test.sh
+            echo "--- reward.txt (correct submission) ---"
+            cat /logs/verifier/reward.txt || cat reward.txt || true
+            echo "--- sbt/scalac presence check ---"
+            which sbt || echo "sbt NOT FOUND"
+            which scalac || echo "scalac NOT FOUND"
+          '
+          docker commit qualify-run python-scala-translation:after-correct-run
+
+      - name: Run verifier on deliberately broken submission
+        run: |
+          cd skillsbench/tasks/python-scala-translation
+          docker run --name qualify-run-broken python-scala-translation:after-correct-run bash -lc '
+            set -x
+            # Break the translated Tokenizer.scala so it should fail closed
+            find / -iname "Tokenizer.scala" -not -path "*/node_modules/*" 2>/dev/null | head -5
+            BROKEN_FILE=$(find / -iname "Tokenizer.scala" -not -path "*/node_modules/*" 2>/dev/null | head -1)
+            if [ -n "$BROKEN_FILE" ]; then
+              echo "def thisIsBroken(: = {" >> "$BROKEN_FILE"
+            fi
+            bash verifier/test.sh
+            echo "--- reward.txt (broken submission) ---"
+            cat /logs/verifier/reward.txt || cat reward.txt || true
+          '
+
+      - name: Collect logs as artifact
+        if: always()
+        run: |
+          mkdir -p collected-logs
+          docker cp qualify-run:/logs collected-logs/correct-run-logs 2>/dev/null || true
+          docker cp qualify-run-broken:/logs collected-logs/broken-run-logs 2>/dev/null || true
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: python-scala-collections-qualification-logs
+          path: collected-logs/
+          retention-days: 14
