@@ -52,7 +52,7 @@ All 8 are from the single accepted source, SkillsBench, pinned commit `9a1f4dd5f
 
 Every candidate above has been qualified only against its **original** SkillsBench task instance. The plan's target is 2 instances per candidate (original + held-out) to distinguish a genuine repair effect from overfitting to one dataset's quirks.
 
-**Update:** held-out instances for the 4 fully-qualified primary candidates have now been constructed and validated by execution — real command output in [GATE0_QUALIFICATION_AND_SECOND_SOURCE_2026-09-12.md](GATE0_QUALIFICATION_AND_SECOND_SOURCE_2026-09-12.md) Section 12, artifacts persisted at `SE4AgenticAI/held_out_instances/<task>/`. This was **single-reviewer** construction only — the two-person validation this section still requires has not happened yet.
+**Update:** held-out instances for all 5 primary candidates have now been constructed and validated by execution — real command output in [GATE0_QUALIFICATION_AND_SECOND_SOURCE_2026-09-12.md](GATE0_QUALIFICATION_AND_SECOND_SOURCE_2026-09-12.md) Sections 12 and 14, artifacts persisted at `SE4AgenticAI/held_out_instances/<task>/`. This was **single-reviewer** construction only — the two-person validation this section still requires has not happened yet.
 
 | Candidate | Held-out instance requirement | Status |
 |---|---|---|
@@ -60,7 +60,7 @@ Every candidate above has been qualified only against its **original** SkillsBen
 | `d3-visualization` | New stock dataset, same schema and interaction contract | **Constructed, execution-validated**, with a scope caveat: same 50 tickers/10 ETFs (verifier hardcodes these counts), values multiplicatively perturbed per-ticker rather than new companies. Pending second-reviewer check. |
 | `dc-power-flow` | Second network/scenario, restricted to the narrowed claim's measured quantities | **Constructed, execution-validated** (3-bus network engineered so the oracle's hardcoded 64->1501 scenario line is genuinely binding, cost reduction confirmed by independent hand computation before execution). Pending second-reviewer check. |
 | `mesh-analysis` | Second mesh with known volume/material, unit convention pinned identically to the primary instance | **Constructed, execution-validated**, with a derived verifier (cm-only, dual cm/mm accept removed) empirically confirmed to reject the mm-scale value the original verifier would have wrongly accepted. Pending second-reviewer check. |
-| `python-scala-collections` | Held-out inputs for behavior comparison, gated on the x86_64 re-verification above | Not started — gated on x86_64 access. |
+| `python-scala-collections` | Held-out inputs for behavior comparison | **Constructed as a derived task** (`RecordBatch.py`/`.scala` — record grouping/dedup/aggregation, new module since the original's fixed `TokenizerSpec.scala` asserts exact behaviors of the specific `Tokenizer.py` and cannot grade a different source; 10-case spec, expected values derived by actually running the Python source, x86_64-validated via GitHub Actions: 10/10 pass on correct solution, correctly fails closed on a corrupted one). Pending second-reviewer check. |
 | `pymatgen` | Held-out CIF structures, split by pre-specified structure family, not repeated calls to the same file | Not started, deprioritized behind the 4 primary candidates. |
 | `dialogue-graph` | Held-out dialogue satisfying the same explicit grammar; note the existing verifier has fixed narrative IDs and cannot simply be pointed at new data unmodified | Not started, deprioritized behind the 4 primary candidates. |
 | `reflow-profile-compliance-toolkit` | Pre-specified numerical outputs with audited handbook-derived expectations, restricted to Q01-Q04/schema per the narrowed claim | Not started, deprioritized behind the 4 primary candidates. |
@@ -102,8 +102,8 @@ Every outcome is read against the **narrowed claim** recorded in Section 2 for t
 
 **Required calibration step before Phase 3 (full matrix):**
 
-1. Pick the primary candidates with held-out instances ready first: `fuzzy-match`, `d3-visualization`, `dc-power-flow`, `mesh-analysis` (all 4 have validated held-out instances as of Section 3); `python-scala-collections` is now fully qualified on the original instance but has no held-out instance constructed yet, so it joins calibration once one exists.
-2. Run a small calibration batch: 4 candidates x 1 task instance (original only) x 2 arms (O, N — cheapest pair, no repair generation needed yet) x 1 model x 1 repetition = 8 episodes.
+1. All 5 primary candidates now have validated held-out instances (Section 3): `fuzzy-match`, `d3-visualization`, `dc-power-flow`, `mesh-analysis`, `python-scala-collections`.
+2. Run a small calibration batch: 5 candidates x 1 task instance (original only) x 2 arms (O, N — cheapest pair, no repair generation needed yet) x 1 model x 1 repetition = 10 episodes.
 3. Measure real per-episode: wall-clock time, token cost, tool-call count, infra failure rate.
 4. From measured per-episode cost, compute the dollar cap for the full matrix (Section 8's illustrative 256-episode figure, or a reduced version — see below) and get explicit approval before Phase 3 begins.
 5. Calibration episodes are **not** confirmatory evidence. Do not fold them into the main analysis, per the plan's explicit warning (Section 10).
@@ -143,7 +143,7 @@ Evaluate the pilot's outcome against the three paths in the plan's Section 10, d
 ## 10. Remaining gate before Phase 3 can start
 
 1. ~~`python-scala-collections` x86_64 re-verification~~ **DONE (2026-09-13)** — confirmed on native x86_64 via GitHub Actions (`ubuntu-latest`): correct submission compiled, 10/10 tests passed, `reward.txt=1`; corrupted submission correctly failed closed, `reward.txt=0`. This candidate is now fully qualified alongside the other 7 — see Section 2.1. **No longer a Gate 0 blocker.**
-2. Held-out task instance construction and second-reviewer validation for the primary candidates (Section 3). **Construction done and execution-validated for 4 of 5** (fuzzy-match, d3-visualization, dc-power-flow, mesh-analysis) — see Section 3 and the qualification log Section 12. `python-scala-collections` has no held-out instance yet (newly fully-qualified, not yet prioritized for this step). **Second-reviewer validation is still open** for all constructed instances; single-reviewer construction does not satisfy this item.
+2. Held-out task instance construction and second-reviewer validation for the primary candidates (Section 3). **Construction done and execution-validated for all 5** (fuzzy-match, d3-visualization, dc-power-flow, mesh-analysis, python-scala-collections) — see Section 3 and the qualification log Sections 12 and 14. **Second-reviewer validation is still open** for all constructed instances; single-reviewer construction does not satisfy this item.
 3. Repair generation (L, G) for those same candidates, with second-reviewer scope checks (Section 4-5). **Still open** — requires LLM API spend, explicitly held pending separate authorization.
 4. Calibration batch executed and dollar cap approved (Section 7). **Still open** — requires LLM API spend, explicitly held pending separate authorization.
 5. Two execution models selected and frozen (Section 8). **Still open.**
