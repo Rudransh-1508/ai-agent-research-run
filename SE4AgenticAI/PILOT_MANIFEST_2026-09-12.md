@@ -103,7 +103,7 @@ Every outcome is read against the **narrowed claim** recorded in Section 2 for t
 **Required calibration step before Phase 3 (full matrix):**
 
 1. All 5 primary candidates now have validated held-out instances (Section 3): `fuzzy-match`, `d3-visualization`, `dc-power-flow`, `mesh-analysis`, `python-scala-collections`.
-2. Run a small calibration batch: 5 candidates x 1 task instance (original only) x 2 arms (O, N — cheapest pair, no repair generation needed yet) x 1 model x 1 repetition = 10 episodes.
+2. Run a small calibration batch: 5 candidates x 1 task instance (original only) x 2 arms (O, N — cheapest pair, no repair generation needed yet) x 1 model x 1 repetition = 10 episodes. Use **Mistral Nemo 12B** for this batch (the cheaper of the two frozen models, Section 8) — this is a cost/mechanics measurement, not an outcome measurement, so which model runs it doesn't bias anything; the cheaper one just makes the calibration spend smaller.
 3. Measure real per-episode: wall-clock time, token cost, tool-call count, infra failure rate.
 4. From measured per-episode cost, compute the dollar cap for the full matrix (Section 8's illustrative 256-episode figure, or a reduced version — see below) and get explicit approval before Phase 3 begins.
 5. Calibration episodes are **not** confirmatory evidence. Do not fold them into the main analysis, per the plan's explicit warning (Section 10).
@@ -116,11 +116,23 @@ Scoped to the 4-5 primary substantive candidates only (Section 2.1) for the conf
 
 - **Primary (5 — `python-scala-collections` now fully qualified, held-out instance pending):** candidates x 2 task instances x 4 arms x 2 models x 2 repetitions = 5 x 2 x 4 x 2 x 2 = **160 episodes**.
 - **Comparator + controls (3):** candidates x 2 task instances x 3 arms (O/L/N) x 2 models x 2 repetitions = 3 x 2 x 3 x 2 x 2 = **72 episodes**.
-- **Total: up to 232 episodes**, excluding repair-generation calls, the 8-episode calibration batch, and infrastructure retries.
+- **Total: up to 232 episodes**, excluding repair-generation calls, the 10-episode calibration batch, and infrastructure retries.
 
 This is a planning number, not a locked commitment — it is explicitly subordinate to the calibration gate in Section 7 and may be reduced if measured cost makes the full figure infeasible within the deadline (Section 10).
 
-Two models: not yet selected. Decide and freeze before Phase 2, choosing models that differ enough to avoid over-generalizing a single-model artifact (plan Section 10: "do not generalize a single-model artifact to agents as a whole"), while staying within whatever the approved dollar cap allows for 232 episodes at two models' pricing.
+**Two models: selected and frozen (2026-09-14).**
+
+| Model | Params (active) | Context | Price (in/out per M) | Provider |
+|---|---|---|---|---|
+| Mistral Nemo 12B | 12B dense | 131K | ~$0.019 / $0.030 | OpenRouter (routes to DeepInfra) |
+| Qwen3 Coder 30B-A3B | 30.5B MoE (3B active) | 160K | ~$0.07 / $0.27 | OpenRouter (routes to SiliconFlow-class backends) |
+
+**Selection rationale, recorded before any episode runs, per plan Section 10's ban on generalizing a single-model artifact:**
+- **Genuine capability spread**: a smaller dense general-purpose model (Nemo) paired with a larger, code/agentic-tuned MoE model (Qwen3 Coder) — not two models expected to behave identically, so a replicated effect across both is actually informative about generality, and a divergent result across both is itself reportable (plan Section 10: "do not require every model to show the same numerical effect").
+- **Reproducibility**: both are open-weight and archivable at a pinned checkpoint, unlike a proprietary API model that can be silently updated or deprecated before anyone attempts to reproduce this study.
+- **Cost**: both are inexpensive relative to frontier-proprietary or near-SOTA open-weight models (e.g. GLM 5.3), which matters directly for the calibration-to-full-matrix cost curve at up to 232 episodes plus repair-generation calls.
+- **Explicitly not selected for expected effect size.** Neither model was chosen because it was predicted to show or fail to show a particular result, and the choice will not be revisited based on any interim outcome once Phase 2/3 begin — doing so would be exactly the "select the final hypothesis after seeing which one produces a favorable result" practice Section 6 of the plan prohibits, applied to model choice instead of analysis choice.
+- **Claim scope this implies**: results from this pair support a claim scoped to smaller/cost-sensitive open-weight agent deployments, not a claim that generalizes to frontier-class agents. This scoping must be stated explicitly in the eventual paper's threats-to-validity section, not discovered by a reviewer.
 
 Two repetitions is a screening budget, not enough for precise per-candidate reliability claims (plan Section 10) — treat any single-candidate result as a lead for the main study, not a standalone finding, unless cluster-aware analysis across the full corpus shows an effect that survives.
 
@@ -146,7 +158,7 @@ Evaluate the pilot's outcome against the three paths in the plan's Section 10, d
 2. Held-out task instance construction and second-reviewer validation for the primary candidates (Section 3). **Construction done and execution-validated for all 5** (fuzzy-match, d3-visualization, dc-power-flow, mesh-analysis, python-scala-collections) — see Section 3 and the qualification log Sections 12 and 14. **Second-reviewer validation is still open** for all constructed instances; single-reviewer construction does not satisfy this item.
 3. Repair generation (L, G) for those same candidates, with second-reviewer scope checks (Section 4-5). **Still open** — requires LLM API spend, explicitly held pending separate authorization.
 4. Calibration batch executed and dollar cap approved (Section 7). **Still open** — requires LLM API spend, explicitly held pending separate authorization.
-5. Two execution models selected and frozen (Section 8). **Still open.**
+5. ~~Two execution models selected and frozen~~ **DONE (2026-09-14)** — Mistral Nemo 12B + Qwen3 Coder 30B-A3B, via OpenRouter. See Section 8 for rationale and pricing.
 6. Practical-significance margin for the negligible-effect path set numerically (Section 9). **Still open.**
 
 Once items 1-6 are complete, Gate 0 as defined by the research plan's Section 9 pass condition is satisfied by this manifest plus the qualification log it depends on, and Phase 3 (the actual pilot matrix) can begin under the frozen protocol above. Nothing in this manifest authorizes spending yet — items 1-6 are the actual remaining work.
