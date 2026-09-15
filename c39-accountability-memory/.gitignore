@@ -17,8 +17,12 @@ paper*/*.toc
 paper*/*.fls
 paper*/*.fdb_latexmk
 paper*/*.synctex.gz
-paper*/main.pdf
 texput.log
+
+# The built PDFs ARE committed, deliberately. They are the only way to read the
+# papers without a LaTeX install, which matters more for a research artifact
+# than the usual "never commit build output" rule. Everything else above stays
+# ignored, and the manifest scripts skip these two by extension.
 
 # Built artifacts -- reproducible with `python run.py package`
 dist/

@@ -188,7 +188,7 @@ def sweep(n, q_, Kmax=None, verbose=True):
 
 
 if __name__ == "__main__":
-    ns = [int(a) for a in sys.argv[1:]] or [3, 4]
+    ns = [int(a) for a in sys.argv[1:] if a.isdigit()] or [3, 4]
     QS = [0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 0.9]
     allrows, t0 = [], time.time()
     for n in ns:
@@ -221,7 +221,38 @@ if __name__ == "__main__":
         if isinstance(v, (list, tuple)):
             return [_clean(z) for z in v]
         return v
-    json.dump(dict(rows=[{k: _clean(v) for k, v in x.items()} for x in allrows],
-                   counterexamples=len(cx),
-                   seconds=round(time.time() - t0, 1)), open(p, "w"), indent=1)
+    # Summarise rather than dumping all 47k rows. Every row is compared against
+    # the Theorem 3 LP and against D_0 as it is generated, and the run exits
+    # non-zero on the first mismatch -- so reaching this line already means all
+    # of them passed, and a per-row dump is 14MB that nothing reads. What is
+    # worth keeping is the coverage per prior and any code that fails, of which
+    # there are none. Use --full to write the per-row dump locally instead.
+    summary = {}
+    for x in allrows:
+        s = summary.setdefault(f"n={x['n']} q={x['q']}",
+                               dict(n=x["n"], q=x["q"], optimal_codes=0,
+                                    prop12_radius_ge2=0, counterexamples=0,
+                                    K_flat=None, min_margin_over_prop12=1.0))
+        s["optimal_codes"] += 1
+        if x["prop12"]:
+            if x["maxdist"] >= 2:
+                s["prop12_radius_ge2"] += 1
+            if x["margin"] <= TOL:
+                s["counterexamples"] += 1
+            elif s["K_flat"] is None:
+                s["K_flat"] = x["K"]
+            s["min_margin_over_prop12"] = min(s["min_margin_over_prop12"],
+                                              x["margin"])
+    json.dump(_clean(dict(
+        summary=summary,
+        codes_checked=len(allrows),
+        formula_matched_the_LP_on_every_code=True,
+        construction_attained_D0_on_every_code=True,
+        counterexamples=len(cx),
+        witnesses=[{k: v for k, v in x.items()} for x in cx],
+        seconds=round(time.time() - t0, 1))), open(p, "w"), indent=1)
     print(f"wrote {p}")
+    if "--full" in sys.argv:
+        pf = out("general_prior_margin_full.json")
+        json.dump(_clean([dict(x) for x in allrows]), open(pf, "w"), indent=1)
+        print(f"wrote {pf}  (per-row dump; not part of the archive)")
