@@ -892,3 +892,134 @@ layout and not just a pile of names, and the archive unzips into the same
 structure. Verified end to end: a clean extract of the zip runs `run.py all` and
 gives MANIFEST EXACT, ALL CHECKS PASSED, EVERY AUDITED NUMBER MATCHES, and all
 [D] predictions holding.
+
+## E41 — The LLM-agent experiment: one real result, one failed instrument (2026-09-15)
+
+Three agents review a code change; S_i = 1 means reading the diff and citing
+identifiers, S_i = 0 means confident generic review written without it and not
+admitting it. A coordinator ships or holds. Five records, a judge that predicts
+who actually worked, and the paper's instruments applied to the induced channel.
+Model codestral-2508, temperature 0, seed 20260915. 32 usable episodes, exactly
+4 per profile, 1 failure, 139k prompt + 30k completion tokens.
+
+The task was rewritten from incident analysis to code review because the
+available key is Codestral-issued; declared as addendum 3a **before** any episode
+ran.
+
+### The result that stands
+
+| record | bytes | attribution error (bits of 3) |
+|---|---|---|
+| full_trace | 2585 | **0.406** |
+| per_agent_summary | 639 | 0.312 |
+| artifact_multiset | 2555 | 1.375 |
+| global_summary | 598 | 0.875 |
+| final_output | 513 | 1.281 |
+
+`full_trace` and `artifact_multiset` contain **the same reviews**, differing by
+about 30 bytes of `Reviewer N:` labels. Attribution error is **0.969 bits worse**
+without them, 95% bootstrap CI [0.625, 1.281] over 20,000 resamples, excluding
+zero. On text a real model wrote, removing authorship and nothing else costs
+about a third of the attributable signal.
+
+### The instrument that failed, and why
+
+**L5's pre-registered failure condition fired: gamma(full_trace) = 0.** Per the
+pre-registration the margin analysis is reported as INCONCLUSIVE rather than
+ranked. L1, L2 and L3 are recorded as falsified, and L4 as not evaluable, but
+none of those verdicts means anything while the estimator is broken.
+
+The cause is now understood and it is not the model. gamma is a *minimum over
+agents* of an LP on the estimated channel. For agent 2 with teammates 010 the
+judge returned (0,1,1) in all four episodes **both with and without** that
+agent's effort, so d_i = 0 exactly and gamma_i collapses to 0. Seven such
+exact-tie cells exist across the five records at four episodes per profile.
+
+The key property: coincidental ties can only push the estimate **down**, never
+up. Small-sample gamma is therefore a one-sided artefact, not a measurement, and
+a gamma of zero is uninformative about the true margin. `D_judge` averages
+instead of minimising and is well behaved at this sample size, which is why the
+attribution result survives and the margin result does not.
+
+The scorer now prints the tie diagnostic and the bootstrap interval, so the
+weakness is visible in the output rather than buried in a caveat.
+
+### What this changes
+
+* For the paper: report the attribution gap, not the margin, from this
+  experiment. It is the quantity the reviewer asked for and the one the data
+  supports.
+* `experiment_llm.py --append` now tops each profile up to a target instead of
+  restarting, so more episodes are cheap. Roughly 24 per profile should make
+  exact ties rare enough for gamma to be estimable; that is 192 episodes, about
+  50 minutes and well under a dollar.
+* The run died at episode 33 when the machine slept and then memory pressure
+  killed the process. Nothing was lost -- episodes are written as they complete.
+
+## E42 — The LLM experiment completed: 192 episodes, and four wrong predictions (2026-09-15)
+
+Continued to 24 episodes per profile, 192 usable, 1 failure, 837k prompt +
+179k completion tokens. **Zero exact-tie cells**, so the margin estimator that
+failed at four per profile is now clean.
+
+### The estimator recovered exactly as diagnosed
+
+| episodes/profile | tie cells | gamma(full_trace) |
+|---|---|---|
+| 4 | 7 | 0.000 — L5 failure fired |
+| 10 | 1 | 0.088 |
+| 17 | 1 | 0.108 |
+| 24 | **0** | 0.075 |
+
+The zero was a sampling artefact, not a judge blind spot. **L5 is now CONFIRMED**
+and the experiment is not inconclusive.
+
+### The result that holds, across a sixfold increase in data
+
+| episodes | attribution gap | 95% CI |
+|---|---|---|
+| 32 | 0.969 | [0.625, 1.281] |
+| 80 | 0.900 | [0.675, 1.125] |
+| 136 | 0.941 | [0.772, 1.110] |
+| **192** | **0.943** | **[0.802, 1.089]** |
+
+`full_trace` and `artifact_multiset` contain the same reviews, ~30 bytes of
+`Reviewer N:` labels apart, and attribution error is 0.391 against 1.333 bits of
+3. Removing authorship and nothing else costs about a third of the attributable
+signal. The interval tightened around a stable value rather than drifting.
+
+### L1-L4 falsified, and the reason is my task design, not the records
+
+The margin ordering came out scrambled: per_agent_summary 0.292 >
+artifact_multiset 0.207 > global_summary 0.083 > full_trace 0.075 >
+final_output 0. `full_trace` is second from bottom, which contradicts L1 and
+reverses L2.
+
+Decomposing gamma by agent explains it. In `full_trace` the worst single-cell
+total variation is 0.958 for agent 0 and 0.792 for agent 1, but **0.125 for
+agent 2**. gamma is a minimum over agents, so agent 2 alone sets it — for every
+record.
+
+Agent 2's sub-question is "what specific behaviour is now untested or
+incorrectly invalidated?", and a shirking answer ("add tests for the changed
+behaviour and verify invalidation") is nearly indistinguishable from a real one.
+The other two sub-questions ask for a named defect and a named resource problem,
+which a content-free answer cannot fake.
+
+**So the gamma ordering across records measures the audit difficulty of my
+question set, not the records.** It should not be reported as a property of
+record types. `D_judge` averages over agents instead of minimising, which is
+exactly why it reflects the record and is stable.
+
+### What goes in the paper
+
+* The attribution gap, with its interval. That is the identity-versus-volume
+  claim on real model output.
+* The methodological point, stated plainly: an all-agents margin is only as
+  informative as the *least auditable* sub-task, so an empirical gamma needs
+  sub-tasks of comparable auditability. Ours were not, and we say so.
+* Not the gamma ordering across records.
+
+A fixed version would equalise auditability across sub-questions -- each asking
+for a specific named artefact from the diff. That is a redesign, not a re-run,
+and it is not needed for the claim the experiment is being used to support.

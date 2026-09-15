@@ -24,3 +24,10 @@ dist/
 .vscode/
 .DS_Store
 Thumbs.db
+
+# Secrets -- never commit. The LLM experiment reads its key from the environment
+# or from .env.local, which stays out of git.
+.env
+.env.*
+*.key
+secrets.json

@@ -27,6 +27,15 @@ We state these plainly; each bounds a claim made above.
       \ref{rem:counting} explains why they must be excluded for the tradeoff to
       have content.
 
+\item \textbf{Measuring $\gamma$ empirically needs matched sub-tasks.}
+      Section~\ref{sec:llm} found that an all-teammate-profile margin is only as
+      informative as the least auditable sub-task in the episode: one of our
+      three review questions was far harder to audit than the others, and
+      because $\gamma$ is a minimum over agents it set the margin for every
+      record. Any empirical $\gamma$ must control for sub-task auditability
+      before it can be attributed to the record. We report attribution error
+      there instead, which averages over agents rather than minimising.
+
 \item \textbf{The experiment is exact, and synthetic.}
       Section~\ref{sec:experiment} enumerates every profile, so its numbers carry
       no sampling error---but the mechanisms are stylised compaction rules on a

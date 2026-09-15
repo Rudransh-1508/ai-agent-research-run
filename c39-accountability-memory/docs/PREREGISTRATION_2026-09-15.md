@@ -249,3 +249,121 @@ into two named halves should recover roughly a factor of two over a global count
 * If H1a fails at any $n$, the identity-vs-volume claim is downgraded from a
   headline contribution to an observation at $n = 3,5$, and Section 8's rule R1
   is rewritten.
+
+---
+
+# Addendum 3 — the LLM-agent experiment
+
+**Written 2026-09-15, before the harness was written and before any model was
+called.** Fourth declared addition. The three earlier experiments stand as
+already scored.
+
+## Why this one exists
+
+Every result so far is synthetic. The episode experiment put a coordinator and
+artifacts between the effort profile and the record, but the artifacts were
+draws from a two-point distribution we chose. The obvious objection is that
+nothing about real agent output has been tested, and that the ordering of record
+types might be an artifact of the generative model rather than of what the
+records retain. This runs the same comparison on artifacts produced by an actual
+language model.
+
+## Design
+
+Three agents, so the effort profile ranges over all $2^3 = 8$ values and every
+teammate profile is visited. Each agent is assigned a distinct sub-question over
+supplied source material and produces a **real artifact**:
+
+* $S_i = 1$ — the agent is given the material and asked to answer properly.
+* $S_i = 0$ — the agent is asked to produce a confident, plausible answer
+  **without** consulting the material. This is shirking in the sense the paper
+  means: the artifact still looks like work.
+
+A coordinator reads the artifacts and emits a final output with a ship/no-ship
+decision. The record types are the ones under test:
+
+| record | keeps identity? |
+|---|---|
+| `full_trace` — every artifact, attributed | yes |
+| `per_agent_summary` — a model-written summary per agent, attributed | yes |
+| `global_summary` — one model-written summary of the whole episode | no |
+| `artifact_multiset` — every artifact, shuffled, attribution stripped | no |
+| `final_output` — the coordinator's output alone | no |
+
+`artifact_multiset` is the decisive one: it contains **exactly the same text** as
+`full_trace` and differs only in whether you can tell who wrote what.
+
+## Measurement
+
+A judge model reads a record and predicts each agent's effort bit, giving
+$\hat S$. Compaction and judge together induce a channel on the cube, estimated
+from episodes, and then the paper's own instruments apply unchanged:
+$D = \E[\dH(S,\hat S)]$, and $\gamma$ from the Theorem 3 LP on the estimated
+channel. Storage is the record's actual size in bytes, not a label count.
+
+## Predictions
+
+**L1 [U]** The margin ordering matches the synthetic episode experiment:
+`full_trace` $\ge$ `per_agent_summary` $>$ `artifact_multiset` $\ge$
+`global_summary` $\ge$ `final_output`.
+
+**L2 [U]** `artifact_multiset` has a strictly smaller margin than `full_trace`
+despite containing the same text. This is the cleanest possible test of the
+identity claim: same bytes, same content, attribution removed. We predict the
+margin drops by at least a third.
+
+**L3 [U]** `final_output` has a margin near zero but not exactly zero, as in the
+synthetic case.
+
+**L4 [U]** Reconstruction error $D$ is *not* ordered the same way as $\gamma$.
+We expect `artifact_multiset` to reconstruct the *number* of shirkers about as
+well as `full_trace` while failing to say *which*, so its $D$ should be much
+closer to `full_trace`'s than its margin is.
+
+**L5 [U]** The judge is imperfect even on `full_trace`, so $\gamma$ there will be
+well below the $0.5$ of the synthetic construction. We are not predicting a
+value. If it is near zero the experiment has failed to produce a usable signal
+and we will say so rather than reporting the ordering of noise.
+
+## Rules fixed in advance
+
+* Model, temperature and seed pinned and recorded in the output JSON.
+* Every episode's raw artifacts are saved, so the judging can be re-run or
+  re-scored without re-generating.
+* 8 profiles, equal episodes per profile; the count is set by budget and
+  recorded. Any episode that errors is retried once, then recorded as failed.
+* If L5's failure condition triggers, the experiment is reported as
+  inconclusive. It will not be quietly dropped.
+
+## Addendum 3a — declared amendment, before any episode was run
+
+The key available is Codestral-issued: it authenticates only against
+`codestral.mistral.ai` and returns 429 on `api.mistral.ai`. Codestral is a
+code-specialised model, and the task registered above is prose incident
+analysis whose judge must distinguish generic writing from writing that cites
+specifics. That is the weakest possible match, and the judge is the measurement
+instrument, so a poor judge would trigger L5's failure condition for a reason
+that says nothing about the paper.
+
+**The task therefore changes to multi-agent code review, and this is recorded
+before a single episode was generated.** Three agents each review a distinct
+aspect of one code change:
+
+* $S_i = 1$ — the agent is given the diff and must cite specific identifiers or
+  line numbers.
+* $S_i = 0$ — the agent is given only the aspect to review, and produces
+  confident generic review advice without the code, not admitting it.
+
+Everything else is unchanged: the same five records, the same judge-induced
+channel, the same instruments, and predictions **L1 through L5 stand exactly as
+written**. The decisive comparison is still `full_trace` against
+`artifact_multiset` -- identical text, attribution removed.
+
+One prediction is added, specific to the new task:
+
+**L6 [U]** Shirking is *easier to detect* here than in the prose task, because a
+review that never names a symbol from the diff is conspicuous. We therefore
+expect a larger $\gamma$ on `full_trace` than the prose design would have given,
+and we flag that this makes the experiment a more favourable setting for
+attribution than a typical deployment -- an upper bound on what a record buys,
+not a typical value.

@@ -72,7 +72,7 @@ after every batch.
       section: preserve agent identity; keep an independent witness per agent
       where possible; do not rely on global counts; more retained content does
       not mean more accountability.
-- [ ] 23. **A real LLM-agent experiment.** A genuine multi-agent task, agents
+- [x] 23. **A real LLM-agent experiment.** A genuine multi-agent task, agents
       producing artifacts, then compare full trace / per-agent summaries / global
       summary / artifact multiset / ID-preserving compression / final-output-only,
       measuring attribution explicitly.
@@ -138,3 +138,30 @@ under-sampled records named.
 * 26 — **page budget is now the binding problem.** Body is 10 pages against a
   limit of 8. This needs a decision, not more trimming: the round-2 list adds
   roughly three pages to a paper that was already exactly at the limit.
+
+### 2026-09-15 — item 23 closed
+
+192 episodes, 24 per effort profile, codestral-2508 at temperature 0, 837k
+prompt + 179k completion tokens, 1 failure. Written up as §7.2, audited against
+`results/experiment_llm_scored.json` like every other table.
+
+**The result:** two records holding the *same reviews*, 30 bytes of authorship
+labels apart, differ by 0.943 bits of attribution error (95% CI [0.802, 1.089]).
+Stable across a sixfold increase in data: 0.969 -> 0.900 -> 0.941 -> 0.943.
+
+**Four of five predictions falsified, and the reason is ours.** gamma is a
+minimum over agents, and one of our three review sub-questions ("what is now
+untested?") is far harder to audit than the other two -- worst-cell TV of 0.125
+against 0.958 and 0.792. That single sub-question sets gamma for every record,
+so the gamma ordering measures our question set rather than compression. The
+paper says this and reports attribution error instead. It is now also a stated
+limitation.
+
+**L5 confirmed after the estimator recovered.** At 4 episodes/profile gamma was
+0 with 7 exact-tie cells; at 24 it is 0.075 with none. The failure condition
+registered in advance did its job -- it stopped a noise ordering being reported
+as a finding at the pause point.
+
+Still open: 17, 18 (diagrams), 20, 21 (promotions), 24 (novelty audit, not
+started), 25 (reference re-check), 26 (**page budget: body is now 11 pages
+against a limit of 8**).

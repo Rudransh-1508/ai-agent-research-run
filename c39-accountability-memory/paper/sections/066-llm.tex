@@ -1,0 +1,72 @@
+\subsection{Artifacts a model actually wrote}
+\label{sec:llm}
+
+Both experiments above generate artifacts from a distribution we chose. This one
+does not. Three agents review a real code change --- a connection-pool size
+reduction shipped alongside an unrelated fix --- each taking a distinct aspect.
+With $S_i = 1$ the agent is given the diff and must cite identifiers or line
+numbers; with $S_i = 0$ it is told to produce confident, professional review
+guidance \emph{without} the code and not to admit it. That is shirking in the
+sense this paper means: the artifact still looks like work. A coordinator reads
+the three reviews and ships or holds. The records are derived from the episode
+exactly as in Section~\ref{sec:episodes}, a judge model predicts which agents
+actually read the diff, and the paper's instruments are applied to the induced
+channel. Model \texttt{codestral-2508} at temperature $0$; $192$ episodes, $24$
+per effort profile; all artifacts, records and verdicts are in the artifact.
+
+\begin{table}[t]
+\centering
+\caption{Attribution error on model-written reviews, $192$ episodes. The first
+and third rows contain \emph{the same text}, differing only by ``Reviewer $k$:''
+labels.}
+\label{tab:llm}
+\small
+\begin{tabular}{@{}lrr@{}}
+\toprule
+record & bytes & attribution error (of 3 bits) \\
+\midrule
+full trace              & $2612$ & $0.391$ \\
+per-agent summary       & $661$  & $0.260$ \\
+artifact multiset       & $2582$ & $1.333$ \\
+global summary          & $609$  & $1.000$ \\
+final output only       & $507$  & $1.193$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Thirty bytes of authorship.}
+The full trace and the artifact multiset hold the same five reviews. They differ
+by about $30$ bytes of attribution labels, a $1.2\%$ difference in size, and by
+$0.943$ bits of attribution error --- $95\%$ bootstrap interval
+$[0.802, 1.089]$ over $20{,}000$ resamples, excluding zero. Roughly a third of
+the recoverable per-agent signal lives in the labels rather than in the content,
+on text a language model wrote. This is the identity-versus-volume finding of
+Section~\ref{sec:episodes} reproduced outside the generative model that produced
+it, and it is the claim this experiment is offered to support.
+
+\paragraph{What we do not claim from it, and why.}
+The measured margins do \emph{not} order as the synthetic experiments do: the
+full trace comes second from bottom. Decomposing $\gamma$ by agent shows why, and
+the cause is our task rather than the records. The worst single-cell total
+variation is $0.958$ for the first agent and $0.792$ for the second, but $0.125$
+for the third, whose sub-question asks what is now untested --- a question whose
+content-free answer is nearly indistinguishable from a real one. Because
+$\gamma$ is a \emph{minimum} over agents, that one sub-question sets the margin
+for every record, and the ordering across records is then a statement about our
+question set, not about compression.
+
+We record this as a methodological constraint on measuring $\gamma$ empirically
+at all: an all-teammate-profile margin is only as informative as the
+\emph{least auditable} sub-task in the episode, so sub-tasks must be matched for
+auditability before any measured $\gamma$ can be attributed to the record.
+Attribution error, which averages over agents rather than minimising, does not
+have this defect, which is why Table~\ref{tab:llm} reports it.
+
+\paragraph{One honest artefact of sample size.}
+At four episodes per profile the same estimator returned
+$\gamma(\text{full trace}) = 0$, triggering the failure condition registered
+before the run. The cause was seven cells in which the judge happened to give
+identical verdicts with and without some agent's effort, forcing an exact zero;
+such ties can only bias $\gamma$ downward. They fell to one cell at ten episodes
+per profile and to none at twenty-four. The attribution gap, by contrast, moved
+from $0.969$ to $0.943$ across that sixfold increase in data.

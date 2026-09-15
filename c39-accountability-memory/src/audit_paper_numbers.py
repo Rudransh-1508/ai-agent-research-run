@@ -305,6 +305,39 @@ if erows:
               f"paper says {m.group(1)}, measured worst {worst:.4f}")
 
 
+print("\nTable 6 (LLM episodes) against experiment_llm_scored.json")
+try:
+    llm = json.load(open(data("experiment_llm_scored.json")))
+except OSError as e:
+    claim("experiment_llm_scored.json present", False, str(e)); llm = {}
+LLM_NAME = {"full trace": "full_trace", "per-agent summary": "per_agent_summary",
+            "artifact multiset": "artifact_multiset",
+            "global summary": "global_summary", "final output only": "final_output"}
+llm_rows = re.findall(r"^([a-z][a-z -]+?)\s*&\s*\$(\d+)\$\s*&\s*\$([0-9.]+)\$\s*\\\\", tex("066-llm.tex"), re.MULTILINE)
+llm_rows = [r for r in llm_rows if r[0].strip() in LLM_NAME]
+claim("Table 6 parsed all five rows", len(llm_rows) == 5,
+      f"parsed {[r[0].strip() for r in llm_rows]}")
+for name, by, err in llm_rows:
+    r = llm.get(LLM_NAME[name.strip()])
+    if r is None:
+        UNSOURCED.append(f"Table 6 row {name}"); continue
+    ok = abs(int(by) - r["bytes"]) <= 1 and abs(float(err) - r["D_judge"]) < 5e-4
+    claim(f"Table 6 row {name.strip()} matches the artifact", ok,
+          f"paper {by}B/{err}  artifact {r[chr(98)+chr(121)+chr(116)+chr(101)+chr(115)]:.0f}B/{r[chr(68)+chr(95)+chr(106)+chr(117)+chr(100)+chr(103)+chr(101)]:.3f}")
+gapinfo = llm.get("_attribution_gap")
+if gapinfo:
+    m = re.search(r"by\s+\$([0-9.]+)\$\s+bits\s+of\s+attribution\s+error", tex("066-llm.tex"))
+    claim("the quoted attribution gap matches the artifact",
+          m is not None and abs(float(m.group(1)) - gapinfo["difference"]) < 5e-4,
+          f"paper {m.group(1) if m else None}  artifact {gapinfo[chr(100)+chr(105)+chr(102)+chr(102)+chr(101)+chr(114)+chr(101)+chr(110)+chr(99)+chr(101)]:.3f}")
+    ci = re.search(r"\$\[([0-9.]+), ([0-9.]+)\]\$", tex("066-llm.tex"))
+    claim("the quoted bootstrap interval matches the artifact",
+          ci is not None
+          and abs(float(ci.group(1)) - gapinfo["ci95"][0]) < 5e-4
+          and abs(float(ci.group(2)) - gapinfo["ci95"][1]) < 5e-4,
+          f"paper [{ci.group(1)}, {ci.group(2)}]" if ci else "not found")
+
+
 # ------------------------------------------------- environment and check count
 print("\nEnvironment and check-count consistency")
 env = json.load(open(data("environment.json")))
