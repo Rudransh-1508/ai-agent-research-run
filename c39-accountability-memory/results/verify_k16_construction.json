@@ -1,0 +1,16 @@
+{
+ "n": 5,
+ "K": 16,
+ "D": 0.4999999999999992,
+ "D0_target": 0.5,
+ "per_agent_margin": [
+  0.8,
+  0.8,
+  0.8,
+  0.8,
+  0.8
+ ],
+ "min_margin": 0.8,
+ "flat": true,
+ "payments_binary": true
+}

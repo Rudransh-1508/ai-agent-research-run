@@ -1,0 +1,100 @@
+\section{The one-bit frontier}
+\label{sec:onebit}
+
+The smallest interesting record keeps a single bit. Here the frontier is exact,
+closed-form, and---perhaps surprisingly---\emph{linear} in the required margin.
+
+\begin{theorem}[One-bit frontier]
+\label{thm:onebit}
+Let $n$ be odd, $S$ uniform on $\cube$, $K = 2$, with arbitrary bounded payment
+decoders and arbitrary reconstruction. Put
+\[
+  \Mn \;=\; 2^{-n}\sum_{k=0}^{n}\binom{n}{k}\min(k,\,n-k)
+       \;=\; \E\bigl[\min(|S|, n-|S|)\bigr].
+\]
+Then for $0 \le \gamma \le 1/n$,
+\[
+  \Dopt(2,\gamma) \;=\; \Mn + n\gamma\Bigl(\tfrac{n-1}{2} - \Mn\Bigr),
+\]
+and no record implements margin $\gamma > 1/n$ at all, whatever the payment.
+\end{theorem}
+
+\paragraph{Why it is linear.}
+For $K = 2$ the record is a single function $\enc : \cube \to [0,1]$, and the
+margin condition factors into a per-agent orientation. Aligning the orientations
+by input flips --- valid precisely because the uniform prior is flip-invariant
+and Hamming loss flip-equivariant --- turns the feasible set into an affine shift
+of the monotone cone, on which the objective is linear for a fixed reconstruction
+pair. A linear objective on a shifted cone is what produces a straight frontier
+rather than a curved one. The optimal record is a mixture of two classical
+objects, \emph{majority} and a \emph{random-bit sampler}; neither is new, and the
+content of Theorem~\ref{thm:onebit} is that nothing else does better.
+Appendix~\ref{app:onebit} carries the derivation in full.
+
+\paragraph{Order of argument (this matters).}
+Under \emph{optimal} decoding, $D(\enc)$ is a minimum of linear functionals and
+hence \emph{concave} in $\enc$, so permutation-averaging can only
+\emph{increase} it: a symmetrisation applied before the decoder is fixed runs
+the wrong way for a lower bound. The correct order, used above and in
+Appendix~\ref{app:onebit}, is: fix the reconstruction pair, for which the
+objective is linear in $\enc$; optimise over $\enc$; and only then minimise over
+reconstruction pairs.
+
+That last step is carried out for general~$n$ in
+Proposition~\ref{prop:antipodal}. Write $\Delta_{a,b}(s) = \dH(s,b) - \dH(s,a)$
+and split the coordinates of the pair into the $p$ positions with
+$(a_i,b_i) = (0,1)$ and the $m$ with $(1,0)$. The term of the objective that the
+record can still influence is controlled by $\E[\Delta_{a,b}(S)^-]$, and that
+quantity equals $\tfrac12 \E|R_{p+m}|$, where $R_k$ is a sum of $k$ independent
+Rademacher variables. Since $\E|R_k|$ is nondecreasing in $k$ and $p + m \le n$,
+every pair is dominated by the antipodal one, where $p = n$. The proof needs no
+averaging step and no orbit enumeration; the reduction of pairs under $S_n$ to
+the $\binom{n+3}{3}$ orbits indexed by $(n_{00},n_{01},n_{10},n_{11})$ is used
+only to verify it.
+
+\paragraph{Verification.}
+Table~\ref{tab:onebit} reports an independent check: for each $n$ and each
+$\gamma$ on a grid spanning $[0, 1/n]$, an LP over $\enc$ for every
+reconstruction orbit, compared against the closed form. The orbit reduction was
+itself cross-checked against complete enumeration of all $4^n$ pairs at $n = 3$
+and $n = 5$ (agreement to $0$), and orientation invariance was confirmed across
+all eight sign patterns at $n = 3$ (spread $0$). In every case the optimiser
+landed exactly on the conjectured record
+$\enc(s) = \gamma|s| + (1-n\gamma)\ind{|s| > n/2}$.
+
+\begin{table}[t]
+\centering
+\caption{Theorem~\ref{thm:onebit} against exhaustive-orbit LP.
+Recomputed in the pinned environment (Python 3.10.11, NumPy 2.2.6,
+SciPy 1.15.3).}
+\label{tab:onebit}
+\begin{tabular}{@{}lrrr@{}}
+\toprule
+$n$ & $\Mn$ & $\gamma$ range & max deviation \\
+\midrule
+3 & 0.750000 & $[0, 1/3]$ & $0$ \\
+5 & 1.562500 & $[0, 1/5]$ & $0$ \\
+7 & 2.406250 & $[0, 1/7]$ & $4.4\times10^{-16}$ \\
+9 & 3.269531 & $[0, 1/9]$ & $3.1\times10^{-15}$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[t]
+\centering
+\input{figures/frontier}
+\caption{The exact one-bit frontier. Each line is
+Theorem~\ref{thm:onebit} over its whole admissible range and terminates at the
+marked point $(1/n,\,(n-1)/2)$, beyond which no record implements the required
+margin. Generated from the closed form by \texttt{make\_figures.py}.}
+\label{fig:frontier}
+\end{figure}
+
+\begin{remark}[Endpoint]
+\label{rem:endpoint}
+Substituting $\gamma = 1/n$ collapses the formula to $\Dopt(2,1/n) = (n-1)/2$,
+independently of $\Mn$: at the maximum implementable margin the record is worth
+exactly half a bit per agent less than guessing, whatever $n$ is. The frontier therefore runs from $(0,\Mn)$ to $(1/n,(n-1)/2)$ and is
+determined by its endpoints; Figure~\ref{fig:frontier} plots it for
+$n = 3,5,7,9$.
+\end{remark}

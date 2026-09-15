@@ -1,0 +1,1478 @@
+{
+ "3": {
+  "q0.5_eta0.0": [
+   {
+    "mechanism": "full",
+    "K": 8,
+    "D": 0.0,
+    "gamma": 1.0,
+    "D0_channel": 0.0,
+    "D0_unrestricted": 0.0,
+    "flat": true,
+    "optimal_in_class": true
+   },
+   {
+    "mechanism": "count",
+    "K": 4,
+    "D": 0.75,
+    "gamma": 0.33333333333333337,
+    "D0_channel": 0.5,
+    "D0_unrestricted": 0.5,
+    "flat": false,
+    "optimal_in_class": false
+   },
+   {
+    "mechanism": "threshold",
+    "K": 2,
+    "D": 0.75,
+    "gamma": 0.0,
+    "D0_channel": 0.75,
+    "D0_unrestricted": 0.75,
+    "flat": false,
+    "optimal_in_class": true
+   },
+   {
+    "mechanism": "prefix2",
+    "K": 4,
+    "D": 0.5,
+    "gamma": 0.0,
+    "D0_channel": 0.5,
+    "D0_unrestricted": 0.5,
+    "flat": false,
+    "optimal_in_class": true
+   },
+   {
+    "mechanism": "prefix1",
+    "K": 2,
+    "D": 1.0,
+    "gamma": 0.0,
+    "D0_channel": 0.75,
+    "D0_unrestricted": 0.75,
+    "flat": false,
+    "optimal_in_class": false
+   },
+   {
+    "mechanism": "top1",
+    "K": 4,
+    "D": 0.625,
+    "gamma": 0.0,
+    "D0_channel": 0.5,
+    "D0_unrestricted": 0.5,
+    "flat": false,
+    "optimal_in_class": false
+   },
+   {
+    "mechanism": "hash4",
+    "K": 4,
+    "D": 0.5,
+    "gamma": 0.0,
+    "D0_channel": 0.5,
+    "D0_unrestricted": 0.5,
+    "flat": false,
+    "optimal_in_class": true
+   },
+   {
+    "mechanism": "flat",
+    "K": 4,
+    "D": 0.5,
+    "gamma": 0.6666666666666666,
+    "D0_channel": 0.5,
+    "D0_unrestricted": 0.5,
+    "flat": true,
+    "optimal_in_class": true
+   },
+   {
+    "mechanism": "kmedian",
+    "K": 4,
+    "D": 0.5,
+    "gamma": 0.0,
+    "D0_channel": 0.5,
+    "D0_unrestricted": 0.5,
+    "flat": false,
+    "optimal_in_class": true
+   }
+  ],
+  "q0.5_eta0.05": [
+   {
+    "mechanism": "full",
+    "K": 8,
+    "D": 0.15,
+    "gamma": 0.8999999999999999,
+    "D0_channel": 0.15,
+    "D0_unrestricted": 0.0,
+    "flat": false,
+    "optimal_in_class": true
+   },
+   {
+    "mechanism": "count",
+    "K": 4,
+    "D": 0.825,
+    "gamma": 0.29999999999999993,
+    "D0_channel": 0.6,
+    "D0_unrestricted": 0.5,
+    "flat": false,
+    "optimal_in_class": false
+   },
+   {
+    "mechanism": "threshold",
+    "K": 2,
+    "D": 0.825,
+    "gamma": 0.08549999999999995,
+    "D0_channel": 0.8249999999999998,
+    "D0_unrestricted": 0.75,
+    "flat": false,
+    "optimal_in_class": true
+   },
+   {
+    "mechanism": "prefix2",
+    "K": 4,
+    "D": 0.5999999999999999,
+    "gamma": 0.0,
+    "D0_channel": 0.6,
+    "D0_unrestricted": 0.5,
+    "flat": false,
+    "optimal_in_class": true
+   },
+   {
+    "mechanism": "prefix1",
+    "K": 2,
+    "D": 1.0499999999999998,
+    "gamma": 0.0,
+    "D0_channel": 0.8249999999999998,
+    "D0_unrestricted": 0.75,
+    "flat": false,
+    "optimal_in_class": false
+   },
+   {
+    "mechanism": "top1",
+    "K": 4,
+    "D": 0.7125,
+    "gamma": 0.0022500000000000003,
+    "D0_channel": 0.6,
+    "D0_unrestricted": 0.5,
+    "flat": false,
+    "optimal_in_class": false
+   },
+   {
+    "mechanism": "hash4",
+    "K": 4,
+    "D": 0.5999999999999999,
+    "gamma": 0.0,
+    "D0_channel": 0.6,
+    "D0_unrestricted": 0.5,
+    "flat": false,
+    "optimal_in_class": true
+   },
+   {
+    "mechanism": "flat",
+    "K": 4,
+    "D": 0.6,
+    "gamma": 0.5999999999999999,
+    "D0_channel": 0.6,
+    "D0_unrestricted": 0.5,
+    "flat": false,
+    "optimal_in_class": true
+   },
+   {
+    "mechanism": "kmedian",
+    "K": 4,
+    "D": 0.6000000000000001,
+    "gamma": 0.08549999999999995,
+    "D0_channel": 0.6,
+    "D0_unrestricted": 0.5,
+    "flat": false,
+    "optimal_in_class": true
+   }
+  ],
+  "q0.5_eta0.1": [
+   {
+    "mechanism": "full",
+    "K": 8,
+    "D": 0.30000000000000004,
+    "gamma": 0.8000000000000003,
+    "D0_channel": 0.3000000000000001,
+    "D0_unrestricted": 0.0,
+    "flat": false,
+    "optimal_in_class": true
+   },
+   {
+    "mechanism": "count",
+    "K": 4,
+    "D": 0.9000000000000001,
+    "gamma": 0.2666666666666667,
+    "D0_channel": 0.7000000000000002,
+    "D0_unrestricted": 0.5,
+    "flat": false,
+    "optimal_in_class": false
+   },
+   {
+    "mechanism": "threshold",
+    "K": 2,
+    "D": 0.9000000000000001,
+    "gamma": 0.1439999999999999,
+    "D0_channel": 0.9000000000000001,
+    "D0_unrestricted": 0.75,
+    "flat": false,
+    "optimal_in_class": true
+   },
+   {
+    "mechanism": "prefix2",
+    "K": 4,
+    "D": 0.7000000000000002,
+    "gamma": 0.0,
+    "D0_channel": 0.7000000000000002,
+    "D0_unrestricted": 0.5,
+    "flat": false,
+    "optimal_in_class": true
+   },
+   {
+    "mechanism": "prefix1",
+    "K": 2,
+    "D": 1.1,
+    "gamma": 0.0,
+    "D0_channel": 0.9000000000000001,
+    "D0_unrestricted": 0.75,
+    "flat": false,
+    "optimal_in_class": false
+   },
+   {
+    "mechanism": "top1",
+    "K": 4,
+    "D": 0.8,
+    "gamma": 0.008000000000000002,
+    "D0_channel": 0.7000000000000002,
+    "D0_unrestricted": 0.5,
+    "flat": false,
+    "optimal_in_class": false
+   },
+   {
+    "mechanism": "hash4",
+    "K": 4,
+    "D": 0.7000000000000002,
+    "gamma": 0.0,
+    "D0_channel": 0.7000000000000002,
+    "D0_unrestricted": 0.5,
+    "flat": false,
+    "optimal_in_class": true
+   },
+   {
+    "mechanism": "flat",
+    "K": 4,
+    "D": 0.7000000000000002,
+    "gamma": 0.5333333333333334,
+    "D0_channel": 0.7000000000000002,
+    "D0_unrestricted": 0.5,
+    "flat": false,
+    "optimal_in_class": true
+   },
+   {
+    "mechanism": "kmedian",
+    "K": 4,
+    "D": 0.7000000000000002,
+    "gamma": 0.14399999999999996,
+    "D0_channel": 0.7000000000000002,
+    "D0_unrestricted": 0.5,
+    "flat": false,
+    "optimal_in_class": true
+   }
+  ],
+  "q0.5_eta0.2": [
+   {
+    "mechanism": "full",
+    "K": 8,
+    "D": 0.6000000000000001,
+    "gamma": 0.6000000000000002,
+    "D0_channel": 0.6000000000000002,
+    "D0_unrestricted": 0.0,
+    "flat": false,
+    "optimal_in_class": true
+   },
+   {
+    "mechanism": "count",
+    "K": 4,
+    "D": 1.0500000000000003,
+    "gamma": 0.20000000000000007,
+    "D0_channel": 0.9000000000000004,
+    "D0_unrestricted": 0.5,
+    "flat": false,
+    "optimal_in_class": false
+   },
+   {
+    "mechanism": "threshold",
+    "K": 2,
+    "D": 1.0500000000000003,
+    "gamma": 0.192,
+    "D0_channel": 1.0500000000000003,
+    "D0_unrestricted": 0.75,
+    "flat": false,
+    "optimal_in_class": true
+   },
+   {
+    "mechanism": "prefix2",
+    "K": 4,
+    "D": 0.9000000000000001,
+    "gamma": 0.0,
+    "D0_channel": 0.9000000000000004,
+    "D0_unrestricted": 0.5,
+    "flat": false,
+    "optimal_in_class": true
+   },
+   {
+    "mechanism": "prefix1",
+    "K": 2,
+    "D": 1.2000000000000002,
+    "gamma": 0.0,
+    "D0_channel": 1.0500000000000003,
+    "D0_unrestricted": 0.75,
+    "flat": false,
+    "optimal_in_class": false
+   },
+   {
+    "mechanism": "top1",
+    "K": 4,
+    "D": 0.9750000000000002,
+    "gamma": 0.024000000000000007,
+    "D0_channel": 0.9000000000000004,
+    "D0_unrestricted": 0.5,
+    "flat": false,
+    "optimal_in_class": false
+   },
+   {
+    "mechanism": "hash4",
+    "K": 4,
+    "D": 0.9000000000000001,
+    "gamma": 0.0,
+    "D0_channel": 0.9000000000000004,
+    "D0_unrestricted": 0.5,
+    "flat": false,
+    "optimal_in_class": true
+   },
+   {
+    "mechanism": "flat",
+    "K": 4,
+    "D": 0.9000000000000001,
+    "gamma": 0.4,
+    "D0_channel": 0.9000000000000004,
+    "D0_unrestricted": 0.5,
+    "flat": false,
+    "optimal_in_class": true
+   },
+   {
+    "mechanism": "kmedian",
+    "K": 4,
+    "D": 0.9000000000000004,
+    "gamma": 0.192,
+    "D0_channel": 0.9000000000000004,
+    "D0_unrestricted": 0.5,
+    "flat": false,
+    "optimal_in_class": true
+   }
+  ],
+  "q0.7_eta0.0": [
+   {
+    "mechanism": "full",
+    "K": 8,
+    "D": 0.0,
+    "gamma": 1.0,
+    "D0_channel": 0.0,
+    "D0_unrestricted": 0.0,
+    "flat": true,
+    "optimal_in_class": true
+   },
+   {
+    "mechanism": "count",
+    "K": 4,
+    "D": 0.63,
+    "gamma": 0.33333333333333337,
+    "D0_channel": 0.24300000000000008,
+    "D0_unrestricted": 0.24300000000000008,
+    "flat": false,
+    "optimal_in_class": false
+   },
+   {
+    "mechanism": "threshold",
+    "K": 2,
+    "D": 0.63,
+    "gamma": 0.0,
+    "D0_channel": 0.6000000000000001,
+    "D0_unrestricted": 0.6000000000000001,
+    "flat": false,
+    "optimal_in_class": false
+   },
+   {
+    "mechanism": "prefix2",
+    "K": 4,
+    "D": 0.30000000000000004,
+    "gamma": 0.0,
+    "D0_channel": 0.24300000000000008,
+    "D0_unrestricted": 0.24300000000000008,
+    "flat": false,
+    "optimal_in_class": false
+   },
+   {
+    "mechanism": "prefix1",
+    "K": 2,
+    "D": 0.6000000000000001,
+    "gamma": 0.0,
+    "D0_channel": 0.6000000000000001,
+    "D0_unrestricted": 0.6000000000000001,
+    "flat": false,
+    "optimal_in_class": true
+   },
+   {
+    "mechanism": "top1",
+    "K": 4,
+    "D": 0.48300000000000004,
+    "gamma": 0.0,
+    "D0_channel": 0.24300000000000008,
+    "D0_unrestricted": 0.24300000000000008,
+    "flat": false,
+    "optimal_in_class": false
+   },
+   {
+    "mechanism": "hash4",
+    "K": 4,
+    "D": 0.30000000000000004,
+    "gamma": 0.0,
+    "D0_channel": 0.24300000000000008,
+    "D0_unrestricted": 0.24300000000000008,
+    "flat": false,
+    "optimal_in_class": false
+   },
+   {
+    "mechanism": "flat",
+    "K": 4,
+    "D": 0.46799999999999997,
+    "gamma": 0.6666666666666666,
+    "D0_channel": 0.24300000000000008,
+    "D0_unrestricted": 0.24300000000000008,
+    "flat": false,
+    "optimal_in_class": false
+   },
+   {
+    "mechanism": "kmedian",
+    "K": 4,
+    "D": 0.24300000000000005,
+    "gamma": 0.0,
+    "D0_channel": 0.24300000000000008,
+    "D0_unrestricted": 0.24300000000000008,
+    "flat": false,
+    "optimal_in_class": true
+   }
+  ],
+  "q0.7_eta0.05": [
+   {
+    "mechanism": "full",
+    "K": 8,
+    "D": 0.14999999999999997,
+    "gamma": 0.8999999999999999,
+    "D0_channel": 0.15,
+    "D0_unrestricted": 0.0,
+    "flat": false,
+    "optimal_in_class": true
+   },
+   {
+    "mechanism": "count",
+    "K": 4,
+    "D": 0.6964800000000001,
+    "gamma": 0.29999999999999993,
+    "D0_channel": 0.36440000000000006,
+    "D0_unrestricted": 0.24300000000000008,
+    "flat": false,
+    "optimal_in_class": false
+   },
+   {
+    "mechanism": "threshold",
+    "K": 2,
+    "D": 0.69648,
+    "gamma": 0.08549999999999995,
+    "D0_channel": 0.6499999999999999,
+    "D0_unrestricted": 0.6000000000000001,
+    "flat": false,
+    "optimal_in_class": false
+   },
+   {
+    "mechanism": "prefix2",
+    "K": 4,
+    "D": 0.4,
+    "gamma": 0.0,
+    "D0_channel": 0.36440000000000006,
+    "D0_unrestricted": 0.24300000000000008,
+    "flat": false,
+    "optimal_in_class": false
+   },
+   {
+    "mechanism": "prefix1",
+    "K": 2,
+    "D": 0.65,
+    "gamma": 0.0,
+    "D0_channel": 0.6499999999999999,
+    "D0_unrestricted": 0.6000000000000001,
+    "flat": false,
+    "optimal_in_class": true
+   },
+   {
+    "mechanism": "top1",
+    "K": 4,
+    "D": 0.5444,
+    "gamma": 0.0022500000000000003,
+    "D0_channel": 0.36440000000000006,
+    "D0_unrestricted": 0.24300000000000008,
+    "flat": false,
+    "optimal_in_class": false
+   },
+   {
+    "mechanism": "hash4",
+    "K": 4,
+    "D": 0.4,
+    "gamma": 0.0,
+    "D0_channel": 0.36440000000000006,
+    "D0_unrestricted": 0.24300000000000008,
+    "flat": false,
+    "optimal_in_class": false
+   },
+   {
+    "mechanism": "flat",
+    "K": 4,
+    "D": 0.5740799999999999,
+    "gamma": 0.5999999999999999,
+    "D0_channel": 0.36440000000000006,
+    "D0_unrestricted": 0.24300000000000008,
+    "flat": false,
+    "optimal_in_class": false
+   },
+   {
+    "mechanism": "kmedian",
+    "K": 4,
+    "D": 0.36440000000000006,
+    "gamma": 0.0022500000000000003,
+    "D0_channel": 0.36440000000000006,
+    "D0_unrestricted": 0.24300000000000008,
+    "flat": false,
+    "optimal_in_class": true
+   }
+  ],
+  "q0.7_eta0.1": [
+   {
+    "mechanism": "full",
+    "K": 8,
+    "D": 0.30000000000000004,
+    "gamma": 0.8000000000000003,
+    "D0_channel": 0.3000000000000001,
+    "D0_unrestricted": 0.0,
+    "flat": false,
+    "optimal_in_class": true
+   },
+   {
+    "mechanism": "count",
+    "K": 4,
+    "D": 0.7694400000000001,
+    "gamma": 0.2666666666666667,
+    "D0_channel": 0.48088000000000014,
+    "D0_unrestricted": 0.24300000000000008,
+    "flat": false,
+    "optimal_in_class": false
+   },
+   {
+    "mechanism": "threshold",
+    "K": 2,
+    "D": 0.7694400000000001,
+    "gamma": 0.1439999999999999,
+    "D0_channel": 0.7000000000000002,
+    "D0_unrestricted": 0.6000000000000001,
+    "flat": false,
+    "optimal_in_class": false
+   },
+   {
+    "mechanism": "prefix2",
+    "K": 4,
+    "D": 0.5000000000000001,
+    "gamma": 0.0,
+    "D0_channel": 0.48088000000000014,
+    "D0_unrestricted": 0.24300000000000008,
+    "flat": false,
+    "optimal_in_class": false
+   },
+   {
+    "mechanism": "prefix1",
+    "K": 2,
+    "D": 0.7000000000000002,
+    "gamma": 0.0,
+    "D0_channel": 0.7000000000000002,
+    "D0_unrestricted": 0.6000000000000001,
+    "flat": false,
+    "optimal_in_class": true
+   },
+   {
+    "mechanism": "top1",
+    "K": 4,
+    "D": 0.6088800000000002,
+    "gamma": 0.008000000000000002,
+    "D0_channel": 0.48088000000000014,
+    "D0_unrestricted": 0.24300000000000008,
+    "flat": false,
+    "optimal_in_class": false
+   },
+   {
+    "mechanism": "hash4",
+    "K": 4,
+    "D": 0.5000000000000001,
+    "gamma": 0.0,
+    "D0_channel": 0.48088000000000014,
+    "D0_unrestricted": 0.24300000000000008,
+    "flat": false,
+    "optimal_in_class": false
+   },
+   {
+    "mechanism": "flat",
+    "K": 4,
+    "D": 0.67952,
+    "gamma": 0.5333333333333334,
+    "D0_channel": 0.48088000000000014,
+    "D0_unrestricted": 0.24300000000000008,
+    "flat": false,
+    "optimal_in_class": false
+   },
+   {
+    "mechanism": "kmedian",
+    "K": 4,
+    "D": 0.4808800000000001,
+    "gamma": 0.008000000000000002,
+    "D0_channel": 0.48088000000000014,
+    "D0_unrestricted": 0.24300000000000008,
+    "flat": false,
+    "optimal_in_class": true
+   }
+  ],
+  "q0.7_eta0.2": [
+   {
+    "mechanism": "full",
+    "K": 8,
+    "D": 0.6000000000000001,
+    "gamma": 0.6000000000000002,
+    "D0_channel": 0.6000000000000001,
+    "D0_unrestricted": 0.0,
+    "flat": false,
+    "optimal_in_class": true
+   },
+   {
+    "mechanism": "count",
+    "K": 4,
+    "D": 0.8566800000000003,
+    "gamma": 0.20000000000000007,
+    "D0_channel": 0.6995600000000002,
+    "D0_unrestricted": 0.24300000000000008,
+    "flat": false,
+    "optimal_in_class": false
+   },
+   {
+    "mechanism": "threshold",
+    "K": 2,
+    "D": 0.9000000000000004,
+    "gamma": 0.192,
+    "D0_channel": 0.8000000000000003,
+    "D0_unrestricted": 0.6000000000000001,
+    "flat": false,
+    "optimal_in_class": false
+   },
+   {
+    "mechanism": "prefix2",
+    "K": 4,
+    "D": 0.7000000000000002,
+    "gamma": 0.0,
+    "D0_channel": 0.6995600000000002,
+    "D0_unrestricted": 0.24300000000000008,
+    "flat": false,
+    "optimal_in_class": false
+   },
+   {
+    "mechanism": "prefix1",
+    "K": 2,
+    "D": 0.8000000000000002,
+    "gamma": 0.0,
+    "D0_channel": 0.8000000000000003,
+    "D0_unrestricted": 0.6000000000000001,
+    "flat": false,
+    "optimal_in_class": true
+   },
+   {
+    "mechanism": "top1",
+    "K": 4,
+    "D": 0.7475600000000002,
+    "gamma": 0.024000000000000007,
+    "D0_channel": 0.6995600000000002,
+    "D0_unrestricted": 0.24300000000000008,
+    "flat": false,
+    "optimal_in_class": false
+   },
+   {
+    "mechanism": "hash4",
+    "K": 4,
+    "D": 0.7000000000000002,
+    "gamma": 0.0,
+    "D0_channel": 0.6995600000000002,
+    "D0_unrestricted": 0.24300000000000008,
+    "flat": false,
+    "optimal_in_class": false
+   },
+   {
+    "mechanism": "flat",
+    "K": 4,
+    "D": 0.88848,
+    "gamma": 0.4,
+    "D0_channel": 0.6995600000000002,
+    "D0_unrestricted": 0.24300000000000008,
+    "flat": false,
+    "optimal_in_class": false
+   },
+   {
+    "mechanism": "kmedian",
+    "K": 4,
+    "D": 0.6995600000000002,
+    "gamma": 0.024000000000000007,
+    "D0_channel": 0.6995600000000002,
+    "D0_unrestricted": 0.24300000000000008,
+    "flat": false,
+    "optimal_in_class": true
+   }
+  ]
+ },
+ "5": {
+  "q0.5_eta0.0": [
+   {
+    "mechanism": "full",
+    "K": 32,
+    "D": 0.0,
+    "gamma": 1.0,
+    "D0_channel": 0.0,
+    "D0_unrestricted": 0.0,
+    "flat": true,
+    "optimal_in_class": true
+   },
+   {
+    "mechanism": "count",
+    "K": 6,
+    "D": 1.5625,
+    "gamma": 0.2,
+    "D0_channel": 0.8749999999999855,
+    "D0_unrestricted": 0.8749999999999855,
+    "flat": false,
+    "optimal_in_class": false
+   },
+   {
+    "mechanism": "threshold",
+    "K": 2,
+    "D": 1.5625,
+    "gamma": 0.0,
+    "D0_channel": 1.5625,
+    "D0_unrestricted": 1.5625,
+    "flat": false,
+    "optimal_in_class": true
+   },
+   {
+    "mechanism": "prefix4",
+    "K": 16,
+    "D": 0.5,
+    "gamma": 0.0,
+    "D0_channel": 0.5,
+    "D0_unrestricted": 0.5,
+    "flat": false,
+    "optimal_in_class": true
+   },
+   {
+    "mechanism": "prefix2",
+    "K": 4,
+    "D": 1.5,
+    "gamma": 0.0,
+    "D0_channel": 1.125,
+    "D0_unrestricted": 1.125,
+    "flat": false,
+    "optimal_in_class": false
+   },
+   {
+    "mechanism": "top2",
+    "K": 16,
+    "D": 0.71875,
+    "gamma": 0.0,
+    "D0_channel": 0.5,
+    "D0_unrestricted": 0.5,
+    "flat": false,
+    "optimal_in_class": false
+   },
+   {
+    "mechanism": "hash10",
+    "K": 10,
+    "D": 1.5,
+    "gamma": 0.0,
+    "D0_channel": 0.6875,
+    "D0_unrestricted": 0.6875,
+    "flat": false,
+    "optimal_in_class": false
+   },
+   {
+    "mechanism": "flat",
+    "K": 10,
+    "D": 0.6874999999999999,
+    "gamma": 0.5,
+    "D0_channel": 0.6875,
+    "D0_unrestricted": 0.6875,
+    "flat": true,
+    "optimal_in_class": true
+   },
+   {
+    "mechanism": "kmedian",
+    "K": 10,
+    "D": 0.6875,
+    "gamma": 0.0,
+    "D0_channel": 0.6875,
+    "D0_unrestricted": 0.6875,
+    "flat": false,
+    "optimal_in_class": true
+   }
+  ],
+  "q0.5_eta0.05": [
+   {
+    "mechanism": "full",
+    "K": 32,
+    "D": 0.25,
+    "gamma": 0.8999999999999992,
+    "D0_channel": 0.25,
+    "D0_unrestricted": 0.0,
+    "flat": false,
+    "optimal_in_class": true
+   },
+   {
+    "mechanism": "count",
+    "K": 6,
+    "D": 1.6562499999999998,
+    "gamma": 0.17999999999999997,
+    "D0_channel": 1.0374999999999999,
+    "D0_unrestricted": 0.8749999999999855,
+    "flat": false,
+    "optimal_in_class": false
+   },
+   {
+    "mechanism": "threshold",
+    "K": 2,
+    "D": 1.6562499999999996,
+    "gamma": 0.01218375000000008,
+    "D0_channel": 1.65625,
+    "D0_unrestricted": 1.5625,
+    "flat": false,
+    "optimal_in_class": true
+   },
+   {
+    "mechanism": "prefix4",
+    "K": 16,
+    "D": 0.6999999999999995,
+    "gamma": 0.0,
+    "D0_channel": 0.7,
+    "D0_unrestricted": 0.5,
+    "flat": false,
+    "optimal_in_class": true
+   },
+   {
+    "mechanism": "prefix2",
+    "K": 4,
+    "D": 1.5999999999999994,
+    "gamma": 0.0,
+    "D0_channel": 1.2625,
+    "D0_unrestricted": 1.125,
+    "flat": false,
+    "optimal_in_class": false
+   },
+   {
+    "mechanism": "top2",
+    "K": 16,
+    "D": 0.8968749999999995,
+    "gamma": 0.000433125,
+    "D0_channel": 0.7,
+    "D0_unrestricted": 0.5,
+    "flat": false,
+    "optimal_in_class": false
+   },
+   {
+    "mechanism": "hash10",
+    "K": 10,
+    "D": 1.5999999999999996,
+    "gamma": 0.0,
+    "D0_channel": 0.8687499999999999,
+    "D0_unrestricted": 0.6875,
+    "flat": false,
+    "optimal_in_class": false
+   },
+   {
+    "mechanism": "flat",
+    "K": 10,
+    "D": 0.8687500000000001,
+    "gamma": 0.5196397499999998,
+    "D0_channel": 0.8687499999999999,
+    "D0_unrestricted": 0.6875,
+    "flat": false,
+    "optimal_in_class": true
+   },
+   {
+    "mechanism": "kmedian",
+    "K": 10,
+    "D": 0.8687499999999997,
+    "gamma": 0.08967375,
+    "D0_channel": 0.8687499999999999,
+    "D0_unrestricted": 0.6875,
+    "flat": false,
+    "optimal_in_class": true
+   }
+  ],
+  "q0.5_eta0.1": [
+   {
+    "mechanism": "full",
+    "K": 32,
+    "D": 0.49999999999999994,
+    "gamma": 0.8000000000000005,
+    "D0_channel": 0.49999999999999994,
+    "D0_unrestricted": 0.0,
+    "flat": false,
+    "optimal_in_class": true
+   },
+   {
+    "mechanism": "count",
+    "K": 6,
+    "D": 1.75,
+    "gamma": 0.15999999999999998,
+    "D0_channel": 1.1999999999999913,
+    "D0_unrestricted": 0.8749999999999855,
+    "flat": false,
+    "optimal_in_class": false
+   },
+   {
+    "mechanism": "threshold",
+    "K": 2,
+    "D": 1.7500000000000002,
+    "gamma": 0.038879999999999956,
+    "D0_channel": 1.75,
+    "D0_unrestricted": 1.5625,
+    "flat": false,
+    "optimal_in_class": true
+   },
+   {
+    "mechanism": "prefix4",
+    "K": 16,
+    "D": 0.9,
+    "gamma": 0.0,
+    "D0_channel": 0.9,
+    "D0_unrestricted": 0.5,
+    "flat": false,
+    "optimal_in_class": true
+   },
+   {
+    "mechanism": "prefix2",
+    "K": 4,
+    "D": 1.6999999999999997,
+    "gamma": 0.0,
+    "D0_channel": 1.4000000000000483,
+    "D0_unrestricted": 1.125,
+    "flat": false,
+    "optimal_in_class": false
+   },
+   {
+    "mechanism": "top2",
+    "K": 16,
+    "D": 1.075,
+    "gamma": 0.002960000000000001,
+    "D0_channel": 0.9,
+    "D0_unrestricted": 0.5,
+    "flat": false,
+    "optimal_in_class": false
+   },
+   {
+    "mechanism": "hash10",
+    "K": 10,
+    "D": 1.7000000000000004,
+    "gamma": 0.0,
+    "D0_channel": 1.05,
+    "D0_unrestricted": 0.6875,
+    "flat": false,
+    "optimal_in_class": false
+   },
+   {
+    "mechanism": "flat",
+    "K": 10,
+    "D": 1.05,
+    "gamma": 0.5062719999999998,
+    "D0_channel": 1.05,
+    "D0_unrestricted": 0.6875,
+    "flat": false,
+    "optimal_in_class": true
+   },
+   {
+    "mechanism": "kmedian",
+    "K": 10,
+    "D": 1.05,
+    "gamma": 0.19728,
+    "D0_channel": 1.05,
+    "D0_unrestricted": 0.6875,
+    "flat": false,
+    "optimal_in_class": true
+   }
+  ],
+  "q0.5_eta0.2": [
+   {
+    "mechanism": "full",
+    "K": 32,
+    "D": 1.0000000000000002,
+    "gamma": 0.6000000000000003,
+    "D0_channel": 1.0000000000000004,
+    "D0_unrestricted": 0.0,
+    "flat": false,
+    "optimal_in_class": true
+   },
+   {
+    "mechanism": "count",
+    "K": 6,
+    "D": 1.9375000000000007,
+    "gamma": 0.13056,
+    "D0_channel": 1.5249999999999675,
+    "D0_unrestricted": 0.8749999999999855,
+    "flat": false,
+    "optimal_in_class": false
+   },
+   {
+    "mechanism": "threshold",
+    "K": 2,
+    "D": 1.9375000000000009,
+    "gamma": 0.09216000000000002,
+    "D0_channel": 1.9375000000000007,
+    "D0_unrestricted": 1.5625,
+    "flat": false,
+    "optimal_in_class": true
+   },
+   {
+    "mechanism": "prefix4",
+    "K": 16,
+    "D": 1.3000000000000003,
+    "gamma": 0.0,
+    "D0_channel": 1.3000000000000007,
+    "D0_unrestricted": 0.5,
+    "flat": false,
+    "optimal_in_class": true
+   },
+   {
+    "mechanism": "prefix2",
+    "K": 4,
+    "D": 1.9000000000000004,
+    "gamma": 0.0,
+    "D0_channel": 1.6749999999999758,
+    "D0_unrestricted": 1.125,
+    "flat": false,
+    "optimal_in_class": false
+   },
+   {
+    "mechanism": "top2",
+    "K": 16,
+    "D": 1.4312500000000006,
+    "gamma": 0.016320000000000008,
+    "D0_channel": 1.3000000000000007,
+    "D0_unrestricted": 0.5,
+    "flat": false,
+    "optimal_in_class": false
+   },
+   {
+    "mechanism": "hash10",
+    "K": 10,
+    "D": 1.9000000000000004,
+    "gamma": 0.0,
+    "D0_channel": 1.4125000000000005,
+    "D0_unrestricted": 0.6875,
+    "flat": false,
+    "optimal_in_class": false
+   },
+   {
+    "mechanism": "flat",
+    "K": 10,
+    "D": 1.4125000000000005,
+    "gamma": 0.41750400000000004,
+    "D0_channel": 1.4125000000000005,
+    "D0_unrestricted": 0.6875,
+    "flat": false,
+    "optimal_in_class": true
+   },
+   {
+    "mechanism": "kmedian",
+    "K": 10,
+    "D": 1.4125000000000005,
+    "gamma": 0.21120000000000014,
+    "D0_channel": 1.4125000000000005,
+    "D0_unrestricted": 0.6875,
+    "flat": false,
+    "optimal_in_class": true
+   }
+  ],
+  "q0.7_eta0.0": [
+   {
+    "mechanism": "full",
+    "K": 32,
+    "D": 0.0,
+    "gamma": 1.0,
+    "D0_channel": 0.0,
+    "D0_unrestricted": 0.0,
+    "flat": true,
+    "optimal_in_class": true
+   },
+   {
+    "mechanism": "count",
+    "K": 6,
+    "D": 1.2705000000000002,
+    "gamma": 0.2,
+    "D0_channel": 0.6402000000000001,
+    "D0_unrestricted": 0.6402000000000001,
+    "flat": false,
+    "optimal_in_class": false
+   },
+   {
+    "mechanism": "threshold",
+    "K": 2,
+    "D": 1.2705000000000004,
+    "gamma": 0.0,
+    "D0_channel": 1.2000000000000002,
+    "D0_unrestricted": 1.2000000000000002,
+    "flat": false,
+    "optimal_in_class": false
+   },
+   {
+    "mechanism": "prefix4",
+    "K": 16,
+    "D": 0.30000000000000004,
+    "gamma": 0.0,
+    "D0_channel": 0.19152000000000008,
+    "D0_unrestricted": 0.19152000000000008,
+    "flat": false,
+    "optimal_in_class": false
+   },
+   {
+    "mechanism": "prefix2",
+    "K": 4,
+    "D": 0.9000000000000001,
+    "gamma": 0.0,
+    "D0_channel": 0.8301600000000001,
+    "D0_unrestricted": 0.8301600000000001,
+    "flat": false,
+    "optimal_in_class": false
+   },
+   {
+    "mechanism": "top2",
+    "K": 16,
+    "D": 0.65709,
+    "gamma": 0.0,
+    "D0_channel": 0.19152000000000008,
+    "D0_unrestricted": 0.19152000000000008,
+    "flat": false,
+    "optimal_in_class": false
+   },
+   {
+    "mechanism": "hash10",
+    "K": 10,
+    "D": 0.8892000000000002,
+    "gamma": 0.0,
+    "D0_channel": 0.3815100000000001,
+    "D0_unrestricted": 0.3815100000000001,
+    "flat": false,
+    "optimal_in_class": false
+   },
+   {
+    "mechanism": "flat",
+    "K": 10,
+    "D": 0.7123000000000002,
+    "gamma": 0.5,
+    "D0_channel": 0.3815100000000001,
+    "D0_unrestricted": 0.3815100000000001,
+    "flat": false,
+    "optimal_in_class": false
+   },
+   {
+    "mechanism": "kmedian",
+    "K": 10,
+    "D": 0.3815100000000001,
+    "gamma": 0.0,
+    "D0_channel": 0.3815100000000001,
+    "D0_unrestricted": 0.3815100000000001,
+    "flat": false,
+    "optimal_in_class": true
+   }
+  ],
+  "q0.7_eta0.05": [
+   {
+    "mechanism": "full",
+    "K": 32,
+    "D": 0.25000000000000006,
+    "gamma": 0.8999999999999992,
+    "D0_channel": 0.25,
+    "D0_unrestricted": 0.0,
+    "flat": false,
+    "optimal_in_class": true
+   },
+   {
+    "mechanism": "count",
+    "K": 6,
+    "D": 1.3441062400000001,
+    "gamma": 0.17999999999999997,
+    "D0_channel": 0.7874374399998993,
+    "D0_unrestricted": 0.6402000000000001,
+    "flat": false,
+    "optimal_in_class": false
+   },
+   {
+    "mechanism": "threshold",
+    "K": 2,
+    "D": 1.34410624,
+    "gamma": 0.01218375000000008,
+    "D0_channel": 1.2499999999999996,
+    "D0_unrestricted": 1.2000000000000002,
+    "flat": false,
+    "optimal_in_class": false
+   },
+   {
+    "mechanism": "prefix4",
+    "K": 16,
+    "D": 0.5,
+    "gamma": 0.0,
+    "D0_channel": 0.42760768000000005,
+    "D0_unrestricted": 0.19152000000000008,
+    "flat": false,
+    "optimal_in_class": false
+   },
+   {
+    "mechanism": "prefix2",
+    "K": 4,
+    "D": 0.9999999999999998,
+    "gamma": 0.0,
+    "D0_channel": 0.9583672319999997,
+    "D0_unrestricted": 0.8301600000000001,
+    "flat": false,
+    "optimal_in_class": false
+   },
+   {
+    "mechanism": "top2",
+    "K": 16,
+    "D": 0.7802803199999996,
+    "gamma": 0.000433125,
+    "D0_channel": 0.42760768000000005,
+    "D0_unrestricted": 0.19152000000000008,
+    "flat": false,
+    "optimal_in_class": false
+   },
+   {
+    "mechanism": "hash10",
+    "K": 10,
+    "D": 1.0469792,
+    "gamma": 0.0,
+    "D0_channel": 0.5828716799999976,
+    "D0_unrestricted": 0.3815100000000001,
+    "flat": false,
+    "optimal_in_class": false
+   },
+   {
+    "mechanism": "flat",
+    "K": 10,
+    "D": 0.8927001087999998,
+    "gamma": 0.5196397499999998,
+    "D0_channel": 0.5828716799999976,
+    "D0_unrestricted": 0.3815100000000001,
+    "flat": false,
+    "optimal_in_class": false
+   },
+   {
+    "mechanism": "kmedian",
+    "K": 10,
+    "D": 0.58287168,
+    "gamma": 0.008341874999999999,
+    "D0_channel": 0.5828716799999976,
+    "D0_unrestricted": 0.3815100000000001,
+    "flat": false,
+    "optimal_in_class": true
+   }
+  ],
+  "q0.7_eta0.1": [
+   {
+    "mechanism": "full",
+    "K": 32,
+    "D": 0.5000000000000001,
+    "gamma": 0.8000000000000005,
+    "D0_channel": 0.5000000000000001,
+    "D0_unrestricted": 0.0,
+    "flat": false,
+    "optimal_in_class": true
+   },
+   {
+    "mechanism": "count",
+    "K": 6,
+    "D": 1.4229641600000003,
+    "gamma": 0.15999999999999998,
+    "D0_channel": 0.9331910719999819,
+    "D0_unrestricted": 0.6402000000000001,
+    "flat": false,
+    "optimal_in_class": false
+   },
+   {
+    "mechanism": "threshold",
+    "K": 2,
+    "D": 1.4321196800000005,
+    "gamma": 0.038879999999999956,
+    "D0_channel": 1.3000000000000003,
+    "D0_unrestricted": 1.2000000000000002,
+    "flat": false,
+    "optimal_in_class": false
+   },
+   {
+    "mechanism": "prefix4",
+    "K": 16,
+    "D": 0.7000000000000002,
+    "gamma": 0.0,
+    "D0_channel": 0.6561421440000001,
+    "D0_unrestricted": 0.19152000000000008,
+    "flat": false,
+    "optimal_in_class": false
+   },
+   {
+    "mechanism": "prefix2",
+    "K": 4,
+    "D": 1.1000000000000005,
+    "gamma": 0.0,
+    "D0_channel": 1.0703791999999994,
+    "D0_unrestricted": 0.8301600000000001,
+    "flat": false,
+    "optimal_in_class": false
+   },
+   {
+    "mechanism": "top2",
+    "K": 16,
+    "D": 0.9100564160000002,
+    "gamma": 0.002960000000000001,
+    "D0_channel": 0.6561421440000001,
+    "D0_unrestricted": 0.19152000000000008,
+    "flat": false,
+    "optimal_in_class": false
+   },
+   {
+    "mechanism": "hash10",
+    "K": 10,
+    "D": 1.1920768000000004,
+    "gamma": 0.0,
+    "D0_channel": 0.7779083839999993,
+    "D0_unrestricted": 0.3815100000000001,
+    "flat": false,
+    "optimal_in_class": false
+   },
+   {
+    "mechanism": "flat",
+    "K": 10,
+    "D": 1.0724444416,
+    "gamma": 0.5062719999999998,
+    "D0_channel": 0.7779083839999993,
+    "D0_unrestricted": 0.3815100000000001,
+    "flat": false,
+    "optimal_in_class": false
+   },
+   {
+    "mechanism": "kmedian",
+    "K": 10,
+    "D": 0.7779083840000002,
+    "gamma": 0.027440000000000006,
+    "D0_channel": 0.7779083839999993,
+    "D0_unrestricted": 0.3815100000000001,
+    "flat": false,
+    "optimal_in_class": true
+   }
+  ],
+  "q0.7_eta0.2": [
+   {
+    "mechanism": "full",
+    "K": 32,
+    "D": 0.9999999999999999,
+    "gamma": 0.6000000000000003,
+    "D0_channel": 1.0000000000000004,
+    "D0_unrestricted": 0.0,
+    "flat": false,
+    "optimal_in_class": true
+   },
+   {
+    "mechanism": "count",
+    "K": 6,
+    "D": 1.4736614400000008,
+    "gamma": 0.13056,
+    "D0_channel": 1.2199907359999693,
+    "D0_unrestricted": 0.6402000000000001,
+    "flat": false,
+    "optimal_in_class": false
+   },
+   {
+    "mechanism": "threshold",
+    "K": 2,
+    "D": 1.5000000000000009,
+    "gamma": 0.09216000000000002,
+    "D0_channel": 1.4000000000000008,
+    "D0_unrestricted": 1.2000000000000002,
+    "flat": false,
+    "optimal_in_class": false
+   },
+   {
+    "mechanism": "prefix4",
+    "K": 16,
+    "D": 1.1000000000000005,
+    "gamma": 0.0,
+    "D0_channel": 1.0871014720000005,
+    "D0_unrestricted": 0.19152000000000008,
+    "flat": false,
+    "optimal_in_class": false
+   },
+   {
+    "mechanism": "prefix2",
+    "K": 4,
+    "D": 1.3000000000000007,
+    "gamma": 0.0,
+    "D0_channel": 1.2853928000000006,
+    "D0_unrestricted": 0.8301600000000001,
+    "flat": false,
+    "optimal_in_class": false
+   },
+   {
+    "mechanism": "top2",
+    "K": 16,
+    "D": 1.1904010080000005,
+    "gamma": 0.016320000000000008,
+    "D0_channel": 1.0871014720000005,
+    "D0_unrestricted": 0.19152000000000008,
+    "flat": false,
+    "optimal_in_class": false
+   },
+   {
+    "mechanism": "hash10",
+    "K": 10,
+    "D": 1.4000000000000006,
+    "gamma": 0.0,
+    "D0_channel": 1.1501221919999958,
+    "D0_unrestricted": 0.3815100000000001,
+    "flat": false,
+    "optimal_in_class": false
+   },
+   {
+    "mechanism": "flat",
+    "K": 10,
+    "D": 1.4170059008000007,
+    "gamma": 0.41750400000000004,
+    "D0_channel": 1.1501221919999958,
+    "D0_unrestricted": 0.3815100000000001,
+    "flat": false,
+    "optimal_in_class": false
+   },
+   {
+    "mechanism": "kmedian",
+    "K": 10,
+    "D": 1.1501221920000004,
+    "gamma": 0.07008000000000002,
+    "D0_channel": 1.1501221919999958,
+    "D0_unrestricted": 0.3815100000000001,
+    "flat": false,
+    "optimal_in_class": true
+   }
+  ]
+ }
+}

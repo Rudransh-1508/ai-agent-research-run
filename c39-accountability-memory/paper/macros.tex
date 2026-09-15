@@ -1,0 +1,44 @@
+% acmart (and the AAMAS class derived from it) already loads amsmath and a font
+% package that defines \Bbbk, so amssymb must be let in carefully.
+\let\Bbbk\relax
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{booktabs}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+
+% acmart predefines most of these; only declare the ones that are missing, so
+% the file works both standalone and under the conference class.
+\makeatletter
+\@ifundefined{theorem}{\newtheorem{theorem}{Theorem}}{}
+\@ifundefined{lemma}{\newtheorem{lemma}[theorem]{Lemma}}{}
+\@ifundefined{proposition}{\newtheorem{proposition}[theorem]{Proposition}}{}
+\@ifundefined{corollary}{\newtheorem{corollary}[theorem]{Corollary}}{}
+\theoremstyle{definition}
+\@ifundefined{definition}{\newtheorem{definition}[theorem]{Definition}}{}
+\@ifundefined{remark}{\newtheorem{remark}[theorem]{Remark}}{}
+\makeatother
+
+% --- the objects of the paper ---------------------------------------
+\newcommand{\cube}{\{0,1\}^n}          % effort profiles
+\newcommand{\Qn}{Q_n}                  % the n-cube as a graph
+\newcommand{\gtwo}{\gamma_2}           % 2-domination number
+\newcommand{\Kflat}{K_{\mathrm{flat}}} % flatness threshold
+\newcommand{\Dopt}{D^\ast}             % constrained optimum
+\newcommand{\Dnull}{D_0}               % unconstrained optimum
+\newcommand{\Mn}{M_n}                  % E[min(|S|, n-|S|)]
+\newcommand{\labels}{[K]}
+\newcommand{\enc}{q}                   % stochastic encoder
+\newcommand{\pay}{p}                   % bounded payment decoder
+\newcommand{\rec}{\hat{s}}             % reconstruction decoder
+\newcommand{\dH}{d_{\mathrm{H}}}       % Hamming distance
+\newcommand{\TV}{\mathrm{TV}}
+\newcommand{\simplex}{\Delta}
+\newcommand{\dmin}{d_{\min}}
+\providecommand{\E}{}\renewcommand{\E}{\mathbb{E}}
+\providecommand{\Prob}{}\renewcommand{\Prob}{\mathbb{P}}
+\providecommand{\R}{}\renewcommand{\R}{\mathbb{R}}
+\newcommand{\ind}[1]{\mathbf{1}\{#1\}}
+\newcommand{\sminus}{s_{-i}}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}

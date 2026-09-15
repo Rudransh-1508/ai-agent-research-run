@@ -1,0 +1,28 @@
+Multi-agent systems routinely discard their own execution histories: sub-agents
+return summaries rather than transcripts, and orchestrators compact their context
+to fit a fixed window. What survives is then the only evidence available when the
+system must later decide what each agent actually did. We study that conflict
+exactly. A record with $K$ labels must simultaneously (i)~permit reconstruction
+of the joint effort profile $S \in \cube$ with small expected Hamming error and
+(ii)~retain enough about each agent's unilateral contribution that a bounded
+payment computed from the record alone rewards effort by at least $\gamma$,
+whatever the teammates did.
+
+Our first result removes the payment rule from the problem: a record admits a
+bounded $\gamma$-margin payment for agent~$i$ if and only if every unilateral
+deviation by~$i$ moves the retained label distribution by at least $\gamma$ in
+total variation, minimised over mixtures of teammate profiles. Accountability is
+exactly a lower bound on the record's sensitivity to each individual. From it we
+obtain the exact one-bit frontier,
+$\Dopt(2,\gamma) = \Mn + n\gamma\bigl(\tfrac{n-1}{2} - \Mn\bigr)$, and an exact
+identification of the threshold at which accountability becomes free:
+$\Kflat(n) = \gtwo(\Qn)$, the 2-domination number of the $n$-cube, attained by an
+explicit record with margin $1 - 1/\dmin \ge 1/2$. Hence $\Kflat(7) = 32$ and
+$97 \le \Kflat(9) \le 128$, with machine-checkable certificates. We then show the
+symmetry is load-bearing: for \emph{any} tilted product prior the threshold is
+$2^n - (n-1)$, so the free compression ratio collapses from $\Theta(n)$ to
+$1 + O(n2^{-n})$. Escaping the tension already costs about $85\%$ of per-agent
+resolution at $n = 20$ under the most favourable prior, and nearly everything
+otherwise. Evaluating concrete compaction mechanisms---counts, thresholds,
+hashes, partial per-agent retention---we find records that are
+reconstruction-optimal yet admit no payment rule with positive margin at all.

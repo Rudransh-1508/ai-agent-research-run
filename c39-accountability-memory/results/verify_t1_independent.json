@@ -1,0 +1,245 @@
+{
+ "3": {
+  "seconds": 0.44870734214782715,
+  "rows": [
+   {
+    "gamma": 0.0,
+    "D_milp": 0.7500000000000007,
+    "mip_gap": 0.0,
+    "D_enum": 0.75,
+    "D_exp1b": 0.75,
+    "D_closed_form": 0.75,
+    "dev_milp_vs_exp1b": 6.661338147750939e-16,
+    "dev_milp_vs_closed": 6.661338147750939e-16,
+    "dev_enum_vs_milp": -6.661338147750939e-16
+   },
+   {
+    "gamma": 0.08333333333333333,
+    "D_milp": 0.8124999999999928,
+    "mip_gap": 0.0,
+    "D_enum": 0.8125,
+    "D_exp1b": 0.8125,
+    "D_closed_form": 0.8125,
+    "dev_milp_vs_exp1b": -7.216449660063518e-15,
+    "dev_milp_vs_closed": -7.216449660063518e-15,
+    "dev_enum_vs_milp": 7.216449660063518e-15
+   },
+   {
+    "gamma": 0.16666666666666666,
+    "D_milp": 0.875,
+    "mip_gap": 0.0,
+    "D_enum": 0.875,
+    "D_exp1b": 0.875,
+    "D_closed_form": 0.875,
+    "dev_milp_vs_exp1b": 0.0,
+    "dev_milp_vs_closed": 0.0,
+    "dev_enum_vs_milp": 0.0
+   },
+   {
+    "gamma": 0.25,
+    "D_milp": 0.9375,
+    "mip_gap": 0.0,
+    "D_enum": 0.9375,
+    "D_exp1b": 0.9375,
+    "D_closed_form": 0.9375,
+    "dev_milp_vs_exp1b": 0.0,
+    "dev_milp_vs_closed": 0.0,
+    "dev_enum_vs_milp": 0.0
+   },
+   {
+    "gamma": 0.3333333333333333,
+    "D_milp": 1.0000000000000002,
+    "mip_gap": 0.0,
+    "D_enum": 1.0,
+    "D_exp1b": 1.0,
+    "D_closed_form": 1.0,
+    "dev_milp_vs_exp1b": 2.220446049250313e-16,
+    "dev_milp_vs_closed": 2.220446049250313e-16,
+    "dev_enum_vs_milp": -2.220446049250313e-16
+   }
+  ]
+ },
+ "5": {
+  "seconds": 7.953719854354858,
+  "rows": [
+   {
+    "gamma": 0.0,
+    "D_milp": 1.5624999999999996,
+    "mip_gap": 0.0,
+    "D_enum": 1.5625,
+    "D_exp1b": 1.5625,
+    "D_closed_form": 1.5625,
+    "dev_milp_vs_exp1b": -4.440892098500626e-16,
+    "dev_milp_vs_closed": -4.440892098500626e-16,
+    "dev_enum_vs_milp": 4.440892098500626e-16
+   },
+   {
+    "gamma": 0.05,
+    "D_milp": 1.6718749999999996,
+    "mip_gap": 0.0,
+    "D_enum": 1.671875,
+    "D_exp1b": 1.671875,
+    "D_closed_form": 1.671875,
+    "dev_milp_vs_exp1b": -4.440892098500626e-16,
+    "dev_milp_vs_closed": -4.440892098500626e-16,
+    "dev_enum_vs_milp": 4.440892098500626e-16
+   },
+   {
+    "gamma": 0.1,
+    "D_milp": 1.7812499999999996,
+    "mip_gap": 0.0,
+    "D_enum": 1.78125,
+    "D_exp1b": 1.78125,
+    "D_closed_form": 1.78125,
+    "dev_milp_vs_exp1b": -4.440892098500626e-16,
+    "dev_milp_vs_closed": -4.440892098500626e-16,
+    "dev_enum_vs_milp": 4.440892098500626e-16
+   },
+   {
+    "gamma": 0.15,
+    "D_milp": 1.890625,
+    "mip_gap": 0.0,
+    "D_enum": 1.890625,
+    "D_exp1b": 1.890625,
+    "D_closed_form": 1.890625,
+    "dev_milp_vs_exp1b": 0.0,
+    "dev_milp_vs_closed": 0.0,
+    "dev_enum_vs_milp": 0.0
+   },
+   {
+    "gamma": 0.2,
+    "D_milp": 1.9999999999999998,
+    "mip_gap": 0.0,
+    "D_enum": 2.0,
+    "D_exp1b": 2.0,
+    "D_closed_form": 2.0,
+    "dev_milp_vs_exp1b": -2.220446049250313e-16,
+    "dev_milp_vs_closed": -2.220446049250313e-16,
+    "dev_enum_vs_milp": 2.220446049250313e-16
+   }
+  ]
+ },
+ "7": {
+  "seconds": 8.991926193237305,
+  "rows": [
+   {
+    "gamma": 0.0,
+    "D_milp": 2.406249999999997,
+    "mip_gap": 0.0,
+    "D_enum": null,
+    "D_exp1b": 2.40625,
+    "D_closed_form": 2.40625,
+    "dev_milp_vs_exp1b": -3.1086244689504383e-15,
+    "dev_milp_vs_closed": -3.1086244689504383e-15,
+    "dev_enum_vs_milp": null
+   },
+   {
+    "gamma": 0.03571428571428571,
+    "D_milp": 2.5546874999999774,
+    "mip_gap": 0.0,
+    "D_enum": null,
+    "D_exp1b": 2.5546874999999996,
+    "D_closed_form": 2.5546875,
+    "dev_milp_vs_exp1b": -2.220446049250313e-14,
+    "dev_milp_vs_closed": -2.2648549702353193e-14,
+    "dev_enum_vs_milp": null
+   },
+   {
+    "gamma": 0.07142857142857142,
+    "D_milp": 2.7031249999999156,
+    "mip_gap": 0.0,
+    "D_enum": null,
+    "D_exp1b": 2.7031250000000004,
+    "D_closed_form": 2.703125,
+    "dev_milp_vs_exp1b": -8.482103908136196e-14,
+    "dev_milp_vs_closed": -8.43769498715119e-14,
+    "dev_enum_vs_milp": null
+   },
+   {
+    "gamma": 0.10714285714285714,
+    "D_milp": 2.8515624999999982,
+    "mip_gap": 0.0,
+    "D_enum": null,
+    "D_exp1b": 2.8515625,
+    "D_closed_form": 2.8515625,
+    "dev_milp_vs_exp1b": -1.7763568394002505e-15,
+    "dev_milp_vs_closed": -1.7763568394002505e-15,
+    "dev_enum_vs_milp": null
+   },
+   {
+    "gamma": 0.14285714285714285,
+    "D_milp": 3.0,
+    "mip_gap": 0.0,
+    "D_enum": null,
+    "D_exp1b": 3.0,
+    "D_closed_form": 3.0,
+    "dev_milp_vs_exp1b": 0.0,
+    "dev_milp_vs_closed": 0.0,
+    "dev_enum_vs_milp": null
+   }
+  ]
+ },
+ "9": {
+  "seconds": 1449.8817126750946,
+  "rows": [
+   {
+    "gamma": 0.0,
+    "D_milp": 3.2695312499999996,
+    "mip_gap": 0.0,
+    "D_enum": null,
+    "D_exp1b": 3.26953125,
+    "D_closed_form": 3.26953125,
+    "dev_milp_vs_exp1b": -4.440892098500626e-16,
+    "dev_milp_vs_closed": -4.440892098500626e-16,
+    "dev_enum_vs_milp": null
+   },
+   {
+    "gamma": 0.027777777777777776,
+    "D_milp": 3.4521484374999867,
+    "mip_gap": 0.2612377509758711,
+    "D_enum": null,
+    "D_exp1b": 3.452148437499997,
+    "D_closed_form": 3.4521484375,
+    "dev_milp_vs_exp1b": -1.021405182655144e-14,
+    "dev_milp_vs_closed": -1.3322676295501878e-14,
+    "dev_enum_vs_milp": null
+   },
+   {
+    "gamma": 0.05555555555555555,
+    "D_milp": 3.634765624999998,
+    "mip_gap": 0.0,
+    "D_enum": null,
+    "D_exp1b": 3.6347656250000013,
+    "D_closed_form": 3.634765625,
+    "dev_milp_vs_exp1b": -3.552713678800501e-15,
+    "dev_milp_vs_closed": -2.220446049250313e-15,
+    "dev_enum_vs_milp": null
+   },
+   {
+    "gamma": 0.08333333333333333,
+    "D_milp": 3.8173828125,
+    "mip_gap": 0.0,
+    "D_enum": null,
+    "D_exp1b": 3.8173828125,
+    "D_closed_form": 3.8173828125,
+    "dev_milp_vs_exp1b": 0.0,
+    "dev_milp_vs_closed": 0.0,
+    "dev_enum_vs_milp": null
+   },
+   {
+    "gamma": 0.1111111111111111,
+    "D_milp": 4.0,
+    "mip_gap": 0.0,
+    "D_enum": null,
+    "D_exp1b": 4.000000000000001,
+    "D_closed_form": 4.0,
+    "dev_milp_vs_exp1b": -8.881784197001252e-16,
+    "dev_milp_vs_closed": 0.0,
+    "dev_enum_vs_milp": null
+   }
+  ]
+ },
+ "max_dev_milp_vs_exp1b": 8.482103908136196e-14,
+ "max_dev_milp_vs_closed_form": 8.43769498715119e-14,
+ "max_dev_enum_vs_milp": 7.216449660063518e-15
+}

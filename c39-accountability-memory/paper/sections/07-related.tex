@@ -1,0 +1,82 @@
+\section{Related work}
+\label{sec:related}
+
+\paragraph{Moral hazard in teams.}
+The classical statement of the problem we study is Holmstr\"{o}m's
+\cite{holmstrom1982}: a team produces joint output, individual effort cannot be
+recovered from it, and no budget-balanced sharing rule makes effort a best
+response. The difference is where the information goes. There, individual effort
+is unobservable \emph{in principle} --- the production technology never produced a
+per-agent signal. Here the full profile existed and was destroyed by a budget,
+and the object of study is how much of it must survive. Holmstr\"{o}m relaxes
+budget balance to restore incentives; we hold the payment bounded and ask what
+the \emph{record} must retain. The contract-theoretic literature takes the
+information structure as given; our question is what information structure is
+purchasable at a given size.
+
+\paragraph{Distributed source coding.}
+The binary CEO problem~\cite{berger1996ceo,binaryceologloss} is the closest
+classical relative: $n$ distributed
+encoders, each seeing a noisy copy of a hidden source, send rate-limited messages
+to a fusion centre that reconstructs under Hamming distortion. Majority decoding
+and Hamming-distortion analysis both appear there. The settings differ where it
+matters: we have a \emph{single} encoder that sees $S$ exactly, we estimate $S$
+itself rather than a source behind noise, we work one-shot at finite $K$ rather
+than asymptotically, and---decisively---we impose a lower bound on the summary's
+sensitivity to each \emph{individual} input bit. No result in that literature
+constrains per-coordinate sensitivity, and the incentive condition has no
+analogue there. The unconstrained baseline $\Dnull(K)$ is classical
+$K$-median quantisation and we claim nothing about it.
+
+\paragraph{Domination and covering codes.}
+$\gtwo$ is a well-studied invariant~\cite{chellalisurvey,bujtasjasko}. The counting bound
+$\gamma_k(G) \ge k|V|/(\Delta+k)$ is due to Fink and
+Jacobson~\cite{finkjacobson1985} and we attribute it there; our
+Lemma~\ref{lem:shell} strictly strengthens its
+specialisation to $\Qn$ by accounting for outer shells. Work on $\gtwo$ for special classes of hypercubes, enhanced hypercubes and
+Kn\"odel graphs exists~\cite{arulanand2023}. We claim no novelty for the
+invariant or for any of its values: the contribution here is the reduction of
+the accountability threshold to $\gtwo$, and the values in
+Table~ef{tab:certificates} are computed independently and ship with
+machine-checkable certificates so that they can be compared against any
+published evaluation. The natural coding
+counterpart is the theory of \emph{multiple
+coverings}~\cite{coveringcodes}: a $\mu$-fold $r$-covering
+requires every word to lie within distance $r$ of at least $\mu$ codewords. The
+dual condition---at \emph{most} $\mu$---is multifold packing~\cite{krotovpotapov};
+our constraint is of covering type, so that literature bounds a different
+quantity and none of its bounds apply here.
+A $2$-fold $1$-covering is 2-domination \emph{plus} the requirement that
+codewords themselves be covered twice; the two differ exactly by that
+internal-edge condition, and our $n = 9$ code---which has no internal edges---is
+2-dominating but not a $2$-fold $1$-covering.
+
+\paragraph{Provenance and failure attribution in multi-agent systems.}
+Recent work asks whether attribution survives the loss of execution metadata,
+under the same ``only the final artifact survives'' assumption we
+make~\cite{finaltextsurvives}: agents
+are honest but the trace is gone, and the question is whether provenance can be
+recovered. Failure-attribution frameworks likewise assume access to complete
+trajectories. Our question is complementary and strategic rather than forensic:
+not whether attribution is \emph{recoverable} from a compressed record, but what
+a record must retain for a bounded payment computed from it to remain
+accountable.
+
+\paragraph{Trace compression for agents.}
+Several 2026 systems~\cite{trace2026,tracer2026} learn what to retain
+from an agent trajectory under a budget, optimising retention against
+downstream task performance. None carries an
+incentive term, and none gives a limit: they select good compression policies,
+whereas we characterise which compressions are possible at all.
+
+\paragraph{Credit assignment under collapsed reward.}
+Cooperative multi-agent reinforcement learning shares a single team reward across
+all agents, and value decomposition methods~\cite{qmix,coma,vdn} exist
+precisely to undo that collapse; sequence-level RLHF rewards raise the same
+problem at token
+granularity. Recent work carries the same problem into long-horizon LLM agents, tracing
+credit back to actions through verifier-derived dependency
+edges~\cite{vict2026}. These exhibit the \emph{consequence} we study without its
+\emph{mechanism}: their per-agent signal was never present to be discarded---the
+environment or the reward model never produced one---whereas our record begins
+with the full profile and loses it to a budget.

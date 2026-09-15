@@ -1,0 +1,41 @@
+=== p-median D0 vs generic D0Model ===
+   {'n': 3, 'K': 1, 'pmedian': 1.5, 'pmed_recomp': 1.5, 'gap': 0.0, 'sec': 0.01, 'generic': 1.5, 'generic_gap': 0.0, 'generic_sec': 0.0, 'dev': 0.0}
+   {'n': 3, 'K': 2, 'pmedian': 0.75, 'pmed_recomp': 0.75, 'gap': 0.0, 'sec': 0.01, 'generic': 0.75, 'generic_gap': 0.0, 'generic_sec': 0.03, 'dev': 0.0}
+   {'n': 3, 'K': 3, 'pmedian': 0.625, 'pmed_recomp': 0.625, 'gap': 0.0, 'sec': 0.01, 'generic': 0.624999999999979, 'generic_gap': 0.0, 'generic_sec': 0.2, 'dev': 2.098321516541546e-14}
+   {'n': 3, 'K': 4, 'pmedian': 0.5, 'pmed_recomp': 0.5, 'gap': 0.0, 'sec': 0.01, 'generic': 0.4999999999999505, 'generic_gap': 0.0, 'generic_sec': 0.54, 'dev': 4.951594689828198e-14}
+   {'n': 3, 'K': 5, 'pmedian': 0.375, 'pmed_recomp': 0.375, 'gap': 0.0, 'sec': 0.0, 'generic': 0.37499999999991457, 'generic_gap': 0.0, 'generic_sec': 3.11, 'dev': 8.54316617449058e-14}
+   {'n': 3, 'K': 6, 'pmedian': 0.25, 'pmed_recomp': 0.25, 'gap': 0.0, 'sec': 0.01, 'generic': 0.24999999997480263, 'generic_gap': 0.0, 'generic_sec': 11.33, 'dev': 2.5197371966712012e-11}
+   {'n': 3, 'K': 7, 'pmedian': 0.125, 'pmed_recomp': 0.125, 'gap': 0.0, 'sec': 0.0, 'generic': 0.12499999977694207, 'generic_gap': 0.0, 'generic_sec': 21.55, 'dev': 2.230579332351823e-10}
+   {'n': 3, 'K': 8, 'pmedian': 0.0, 'pmed_recomp': 0.0, 'gap': 0.0, 'sec': 0.0, 'generic': 0.0, 'generic_gap': 0.0, 'generic_sec': 0.3, 'dev': 0.0}
+   {'n': 5, 'K': 1, 'pmedian': 2.5, 'pmed_recomp': 2.5, 'gap': 0.0, 'sec': 0.03, 'generic': 2.5, 'generic_gap': 0.0, 'generic_sec': 0.0, 'dev': 0.0}
+   {'n': 5, 'K': 2, 'pmedian': 1.562500000000005, 'pmed_recomp': 1.5625, 'gap': 0.0, 'sec': 0.03, 'generic': 1.5624999999999774, 'generic_gap': 0.0, 'generic_sec': 0.26, 'dev': 2.2648549702353193e-14}
+   {'n': 5, 'K': 3, 'pmedian': 1.3749999999999984, 'pmed_recomp': 1.375, 'gap': 0.0, 'sec': 0.91, 'generic': 1.3749999999999527, 'generic_gap': 0.0, 'generic_sec': 5.24, 'dev': 4.729550084903167e-14}
+   {'n': 5, 'K': 4, 'pmedian': 1.125, 'pmed_recomp': 1.125, 'gap': 0.0, 'sec': 0.21, 'generic': 1.1249999999998672, 'generic_gap': 0.0, 'generic_sec': 121.05, 'dev': 1.3278267374516872e-13}
+   {'n': 5, 'K': 5, 'pmedian': 1.0312499999999927, 'pmed_recomp': 1.03125, 'gap': 0.0, 'sec': 1.06}
+   {'n': 5, 'K': 6, 'pmedian': 0.8749999999999738, 'pmed_recomp': 0.875, 'gap': 0.0, 'sec': 1.03}
+   {'n': 5, 'K': 7, 'pmedian': 0.78125, 'pmed_recomp': 0.78125, 'gap': 0.0, 'sec': 0.19}
+   {'n': 5, 'K': 8, 'pmedian': 0.75, 'pmed_recomp': 0.75, 'gap': 0.0, 'sec': 0.17}
+   {'n': 5, 'K': 9, 'pmedian': 0.71875, 'pmed_recomp': 0.71875, 'gap': 0.0, 'sec': 0.05}
+   {'n': 5, 'K': 10, 'pmedian': 0.6875, 'pmed_recomp': 0.6875, 'gap': 0.0, 'sec': 0.03}
+   {'n': 5, 'K': 11, 'pmedian': 0.65625, 'pmed_recomp': 0.65625, 'gap': 0.0, 'sec': 0.02}
+   {'n': 5, 'K': 12, 'pmedian': 0.625, 'pmed_recomp': 0.625, 'gap': 0.0, 'sec': 0.03}
+   {'n': 5, 'K': 13, 'pmedian': 0.59375, 'pmed_recomp': 0.59375, 'gap': 0.0, 'sec': 0.02}
+   {'n': 5, 'K': 14, 'pmedian': 0.5625, 'pmed_recomp': 0.5625, 'gap': 0.0, 'sec': 0.03}
+   {'n': 5, 'K': 15, 'pmedian': 0.53125, 'pmed_recomp': 0.53125, 'gap': 0.0, 'sec': 0.02}
+   {'n': 5, 'K': 16, 'pmedian': 0.5, 'pmed_recomp': 0.5, 'gap': 0.0, 'sec': 0.02}
+   {'n': 5, 'K': 17, 'pmedian': 0.46875, 'pmed_recomp': 0.46875, 'gap': 0.0, 'sec': 0.03}
+   {'n': 5, 'K': 18, 'pmedian': 0.4375, 'pmed_recomp': 0.4375, 'gap': 0.0, 'sec': 0.03}
+   {'n': 5, 'K': 19, 'pmedian': 0.40625, 'pmed_recomp': 0.40625, 'gap': 0.0, 'sec': 0.02}
+   {'n': 5, 'K': 20, 'pmedian': 0.375, 'pmed_recomp': 0.375, 'gap': 0.0, 'sec': 0.03}
+   {'n': 5, 'K': 21, 'pmedian': 0.34375, 'pmed_recomp': 0.34375, 'gap': 0.0, 'sec': 0.02}
+   {'n': 5, 'K': 22, 'pmedian': 0.3125, 'pmed_recomp': 0.3125, 'gap': 0.0, 'sec': 0.03}
+   {'n': 5, 'K': 23, 'pmedian': 0.28125, 'pmed_recomp': 0.28125, 'gap': 0.0, 'sec': 0.03}
+   {'n': 5, 'K': 24, 'pmedian': 0.25, 'pmed_recomp': 0.25, 'gap': 0.0, 'sec': 0.02}
+   {'n': 5, 'K': 25, 'pmedian': 0.21875, 'pmed_recomp': 0.21875, 'gap': 0.0, 'sec': 0.02}
+   {'n': 5, 'K': 26, 'pmedian': 0.1875, 'pmed_recomp': 0.1875, 'gap': 0.0, 'sec': 0.02}
+   {'n': 5, 'K': 27, 'pmedian': 0.15625, 'pmed_recomp': 0.15625, 'gap': 0.0, 'sec': 0.02}
+   {'n': 5, 'K': 28, 'pmedian': 0.125, 'pmed_recomp': 0.125, 'gap': 0.0, 'sec': 0.03}
+   {'n': 5, 'K': 29, 'pmedian': 0.09375, 'pmed_recomp': 0.09375, 'gap': 0.0, 'sec': 0.02}
+   {'n': 5, 'K': 30, 'pmedian': 0.0625, 'pmed_recomp': 0.0625, 'gap': 0.0, 'sec': 0.02}
+   {'n': 5, 'K': 31, 'pmedian': 0.03125, 'pmed_recomp': 0.03125, 'gap': 0.0, 'sec': 0.02}
+   {'n': 5, 'K': 32, 'pmedian': 0.0, 'pmed_recomp': 0.0, 'gap': 0.0, 'sec': 0.01}

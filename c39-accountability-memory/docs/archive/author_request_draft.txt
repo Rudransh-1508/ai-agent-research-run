@@ -1,0 +1,65 @@
+DRAFT ONLY — NOT SENT.
+
+Before sending, fill in the recipient address. It was not obtainable from any
+source reached during the search (the Inderscience article page exposes no
+contact details, dblp returned Access Denied, and the RAIRO PDF returned 403).
+Likely routes to the address: the first page of the IJNVO article itself, the
+authors' institutional pages (R. Sundara Rajan and S. Arulanand — Department of
+Mathematics, Hindustan Institute of Technology and Science, Chennai;
+S. Prabhu — Rajalakshmi Engineering College, Chennai), or their ResearchGate
+profiles. Confirm the corresponding author before sending rather than guessing.
+
+---
+
+To:      [corresponding author address — TO BE FILLED IN]
+Cc:      [co-authors, optional]
+Subject: Request for a copy — 2-domination number of hypercubes (IJNVO 29(2), 2023)
+
+Dear Dr Sundara Rajan, Dr Arulanand and Dr Prabhu,
+
+I am working on a problem in information theory that reduces, unexpectedly, to
+the 2-domination number of the hypercube, and your paper
+
+    S. Arulanand, R. Sundara Rajan, S. Prabhu,
+    "2-domination number for special classes of hypercubes, enhanced hypercubes
+    and Knodel graphs",
+    International Journal of Networking and Virtual Organisations 29(2),
+    168-182, 2023
+
+is the closest work I have been able to identify. Unfortunately I do not have
+institutional access to IJNVO and could not find a preprint. Would you be
+willing to send me a copy of the paper? I would be very grateful.
+
+If it is easier to answer directly than to send the paper, the specific points
+I am trying to settle are:
+
+1. Which "special classes" of hypercubes does the paper cover — that is, for
+   which dimensions n do you determine gamma_2(Q_n)?
+
+2. Do you obtain exact values, and if so what are they for small n? By direct
+   computation I get the following, and I would like to know whether these
+   agree with yours or are already in your paper:
+
+       n            1   2   3   4   5   6   7
+       gamma_2(Q_n) 2   2   4   7  10  16  32
+
+   (n = 1..4 verified by complete enumeration of all subsets; n = 5..7 by
+   integer programming with proved infeasibility below each value.)
+
+3. Your abstract states that the Fink-Jacobson (1985) lower bound
+   gamma_k(G) >= kn/(Delta + k) is "quite precise" for these classes. I find it
+   is attained exactly at n = 1, 2, 3, 5, 6, but not at n = 4 (bound 6, value 7)
+   or n = 7 (bound 28.44, value 32). I would like to understand whether your
+   classes are ones where the bound is attained, or whether "quite precise"
+   refers to a ratio rather than equality.
+
+I would of course cite the paper, and I am happy to share what I have if any of
+it is useful to you — in particular a parity-check construction that gives
+gamma_2(Q_n) <= 2^(n - floor(log2(n/2 + 1))), which is tight at n = 3 and n = 7.
+
+Thank you for your time.
+
+With best regards,
+[name]
+[affiliation]
+[contact]

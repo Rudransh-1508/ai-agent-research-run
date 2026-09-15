@@ -1,0 +1,31 @@
+n=3 gamma=0.000000  milpA=0.750000000000 (gap 0.0e+00)  enumB=0.750000000000  exp1b=0.750000000000  closed=0.750000000000  d(A,exp1b)=+6.661e-16  d(A,cf)=+6.661e-16
+n=3 gamma=0.083333  milpA=0.812500000000 (gap 0.0e+00)  enumB=0.812500000000  exp1b=0.812500000000  closed=0.812500000000  d(A,exp1b)=-7.216e-15  d(A,cf)=-7.216e-15
+n=3 gamma=0.166667  milpA=0.875000000000 (gap 0.0e+00)  enumB=0.875000000000  exp1b=0.875000000000  closed=0.875000000000  d(A,exp1b)=+0.000e+00  d(A,cf)=+0.000e+00
+n=3 gamma=0.250000  milpA=0.937500000000 (gap 0.0e+00)  enumB=0.937500000000  exp1b=0.937500000000  closed=0.937500000000  d(A,exp1b)=+0.000e+00  d(A,cf)=+0.000e+00
+n=3 gamma=0.333333  milpA=1.000000000000 (gap 0.0e+00)  enumB=1.000000000000  exp1b=1.000000000000  closed=1.000000000000  d(A,exp1b)=+2.220e-16  d(A,cf)=+2.220e-16
+  [n=3 done in 0.4s]
+
+n=5 gamma=0.000000  milpA=1.562500000000 (gap 0.0e+00)  enumB=1.562500000000  exp1b=1.562500000000  closed=1.562500000000  d(A,exp1b)=-4.441e-16  d(A,cf)=-4.441e-16
+n=5 gamma=0.050000  milpA=1.671875000000 (gap 0.0e+00)  enumB=1.671875000000  exp1b=1.671875000000  closed=1.671875000000  d(A,exp1b)=-4.441e-16  d(A,cf)=-4.441e-16
+n=5 gamma=0.100000  milpA=1.781250000000 (gap 0.0e+00)  enumB=1.781250000000  exp1b=1.781250000000  closed=1.781250000000  d(A,exp1b)=-4.441e-16  d(A,cf)=-4.441e-16
+n=5 gamma=0.150000  milpA=1.890625000000 (gap 0.0e+00)  enumB=1.890625000000  exp1b=1.890625000000  closed=1.890625000000  d(A,exp1b)=+0.000e+00  d(A,cf)=+0.000e+00
+n=5 gamma=0.200000  milpA=2.000000000000 (gap 0.0e+00)  enumB=2.000000000000  exp1b=2.000000000000  closed=2.000000000000  d(A,exp1b)=-2.220e-16  d(A,cf)=-2.220e-16
+  [n=5 done in 8.0s]
+
+n=7 gamma=0.000000  milpA=2.406250000000 (gap 0.0e+00)  enumB=n/a  exp1b=2.406250000000  closed=2.406250000000  d(A,exp1b)=-3.109e-15  d(A,cf)=-3.109e-15
+n=7 gamma=0.035714  milpA=2.554687500000 (gap 0.0e+00)  enumB=n/a  exp1b=2.554687500000  closed=2.554687500000  d(A,exp1b)=-2.220e-14  d(A,cf)=-2.265e-14
+n=7 gamma=0.071429  milpA=2.703125000000 (gap 0.0e+00)  enumB=n/a  exp1b=2.703125000000  closed=2.703125000000  d(A,exp1b)=-8.482e-14  d(A,cf)=-8.438e-14
+n=7 gamma=0.107143  milpA=2.851562500000 (gap 0.0e+00)  enumB=n/a  exp1b=2.851562500000  closed=2.851562500000  d(A,exp1b)=-1.776e-15  d(A,cf)=-1.776e-15
+n=7 gamma=0.142857  milpA=3.000000000000 (gap 0.0e+00)  enumB=n/a  exp1b=3.000000000000  closed=3.000000000000  d(A,exp1b)=+0.000e+00  d(A,cf)=+0.000e+00
+  [n=7 done in 9.0s]
+
+n=9 gamma=0.000000  milpA=3.269531250000 (gap 0.0e+00)  enumB=n/a  exp1b=3.269531250000  closed=3.269531250000  d(A,exp1b)=-4.441e-16  d(A,cf)=-4.441e-16
+n=9 gamma=0.027778  milpA=3.452148437500 (gap 2.6e-01)  enumB=n/a  exp1b=3.452148437500  closed=3.452148437500  d(A,exp1b)=-1.021e-14  d(A,cf)=-1.332e-14
+n=9 gamma=0.055556  milpA=3.634765625000 (gap 0.0e+00)  enumB=n/a  exp1b=3.634765625000  closed=3.634765625000  d(A,exp1b)=-3.553e-15  d(A,cf)=-2.220e-15
+n=9 gamma=0.083333  milpA=3.817382812500 (gap 0.0e+00)  enumB=n/a  exp1b=3.817382812500  closed=3.817382812500  d(A,exp1b)=+0.000e+00  d(A,cf)=+0.000e+00
+n=9 gamma=0.111111  milpA=4.000000000000 (gap 0.0e+00)  enumB=n/a  exp1b=4.000000000000  closed=4.000000000000  d(A,exp1b)=-8.882e-16  d(A,cf)=+0.000e+00
+  [n=9 done in 1450.0s]
+
+max |A - exp1b|       = 8.482e-14
+max |A - closed form| = 8.438e-14
+max |B - A|           = 7.216e-15

@@ -1,0 +1,116 @@
+\section{Introduction}
+\label{sec:intro}
+
+In a contemporary multi-agent system, a coordinator that fans work out to several
+sub-agents does not keep what they did. Each sub-agent runs in its own context
+and returns a summary; the messy part stays behind. When the coordinator's own
+context approaches its limit, it is compacted---older exchanges, including
+whatever it retained about its sub-agents, are replaced by a summary of
+themselves. The budget forcing this is a fixed context window, and unlike a
+storage bill it cannot be paid off. Sampling, the standard answer to trace
+volume, is not available either: one cannot discard $99.9\%$ of the episode that
+is currently running.
+
+What survives is then the only evidence there is. Any later question about the
+episode---which sub-agent's work to trust, which to re-run, what to report, whom
+to credit or pay---is answered from the compressed artifact, after the fact. The
+same object must therefore do two jobs at once:
+
+\begin{enumerate}
+\item \textbf{Reconstruction.} Recover what the team did, accurately enough to
+      act on.
+\item \textbf{Accountability.} Retain enough about each agent's own contribution
+      that a later, bounded payment still rewards effort---whatever the
+      teammates did.
+\end{enumerate}
+
+These pull in opposite directions. Reconstruction spends a small label budget
+well by \emph{merging} profiles that are cheap to confuse. Accountability
+requires the opposite: each agent, acting alone, must visibly move the record.
+This paper measures that collision exactly.
+
+\paragraph{Settling from a merged record is already a live failure.}
+Not at a size bound---we know of no deployed system that both pays money and
+compresses across agents under one---but the \emph{accountability} half of the
+problem is already paid for. In Bittensor~\cite{bittensorweightcopier},
+validators score miners by submitting weight vectors; those vectors are merged by
+consensus, and validator dividends are keyed to agreement with the merged result.
+A validator that evaluates nothing and submits the stake-weighted average of
+everyone else's vector is, in the record, indistinguishable from one that did the
+work---and reportedly does better: optimised weight copiers earn higher dividends
+per stake than honest validators~\cite{bittensorfreeriding}. The deployed remedy
+was not more monitoring but a change to the \emph{record}: weights are encrypted
+until stale, so copies fall away from consensus~\cite{bittensorcommitreveal}.
+We cite this as evidence that settling from a merged record destroys unilateral
+sensitivity in practice, and as nothing more. Its binding constraint is temporal
+and cryptoeconomic, not a bound on record size, so it is not an instance of the
+frontier computed here; Section~\ref{sec:limitations} says so again.
+
+\paragraph{Contributions.}
+\begin{enumerate}
+\item \textbf{Payment-decoder elimination} (Theorem~\ref{thm:elim}). A minimax
+      argument removes the payment rule from the problem, leaving a condition on
+      the record alone: \emph{every unilateral deviation must move the retained
+      label distribution by at least $\gamma$ in total variation.} This is the
+      general statement of the phenomenon, and it turns a bilinear search into a
+      feasibility question over $2^n$ binary variables.
+\item \textbf{The exact one-bit frontier} (Theorem~\ref{thm:onebit}):
+      $\Dopt(2,\gamma) = \Mn + n\gamma(\frac{n-1}{2} - \Mn)$ for
+      $0 \le \gamma \le 1/n$, linear in $\gamma$, for arbitrary bounded payments
+      and arbitrary reconstruction.
+\item \textbf{The exact flatness threshold} (Theorem~\ref{thm:kflat}):
+      $\Kflat(n) = \gtwo(\Qn)$, with an explicit optimal record attaining margin
+      $1 - 1/\dmin \ge 1/2$. The reduction is the contribution; the invariant is
+      classical and we claim no novelty for it or for its values. Evaluating it
+      gives $\Kflat(3)=4$, $\Kflat(5)=10$, $\Kflat(7)=32$ and
+      $97 \le \Kflat(9) \le 128$, each with a certificate. The bracket at
+      $n = 9$ is a gap in what is known about $\gtwo$, not a gap in the
+      theorem: the identity is exact at every $n$, and only the invariant's
+      value is open there.
+\item \textbf{The uniform prior is load-bearing} (Theorem~\ref{thm:prior},
+      Corollary~\ref{cor:tilt}). The threshold is characterised for every
+      full-support prior. For any \emph{tilted} product prior it equals
+      $2^n - (n-1)$, whatever the tilt: the free compression ratio collapses
+      from $\Theta(n)$ to $1 + O(n2^{-n})$. The symmetric case is the most
+      favourable one for accountability, not a neutral choice.
+\item \textbf{The engineering reading} (Section~\ref{sec:agents}). The free
+      compression ratio is $\Theta(n)$ and at most $(n+2)/2$: a record escapes
+      the tension only by retaining about $85\%$ of per-agent resolution at
+      $n = 20$. One retained bit per agent is always safe; an aggregate such as
+      ``how many agents succeeded'' is far inside the tension regime.
+\item \textbf{Mechanisms, measured} (Section~\ref{sec:experiment}). We evaluate
+      compaction mechanisms nobody designed to be optimal---counts, thresholds,
+      hashes, partial per-agent retention---by computing their exact margin
+      through Theorem~\ref{thm:elim}. Records exist that are
+      reconstruction-optimal at their budget and admit \emph{no} positive margin
+      at any price; an aggregate count has margin exactly $1/n$; and retaining a
+      strict subset of agents' bits is worth exactly nothing.
+\end{enumerate}
+
+\paragraph{Reproducibility.}
+Every numerical claim is re-derived by an independent implementation that shares
+no code with the one that produced it: $145$ checks, no solver and no search,
+plus an audit that compares each number printed here against the artifact it came
+from. The predictions in Section~\ref{sec:experiment} were registered and hashed
+before the harness was written; two were wrong and are reported as wrong.
+
+\paragraph{Roadmap: four moves.}
+\begin{enumerate}
+\item \textbf{Theorem~\ref{thm:elim} removes the payment rule.} What is left is
+      a condition on the record alone, so everything after it is a question about
+      compression rather than about mechanisms.
+\item \textbf{Theorem~\ref{thm:onebit} gives the exact tradeoff under extreme
+      compression} --- one surviving bit --- for arbitrary bounded payments and
+      arbitrary reconstruction.
+\item \textbf{Theorem~\ref{thm:kflat} gives the point at which the tradeoff
+      disappears}, and identifies it with a classical graph invariant.
+      Theorem~\ref{thm:prior} then shows how much of that depends on symmetry.
+\item \textbf{Section~\ref{sec:experiment} shows real compaction mechanisms
+      behave as predicted}, and that the thing they lose is agent identity.
+\end{enumerate}
+Section~\ref{sec:agents} converts the thresholds into bits per agent,
+Section~\ref{sec:design} states the design rules that follow,
+Section~\ref{sec:related} places the result, and
+Section~\ref{sec:limitations} states what the model does not cover. Proofs
+omitted for space, and the reproducibility package, are in
+Appendix~\ref{app:proofs}.

@@ -1,0 +1,58 @@
+\section{Design implications}
+\label{sec:design}
+
+The mathematics above answers a question a system designer actually has: given a
+budget on what survives an episode, what must be kept so that someone can still
+be paid, credited or blamed for their own work. Four rules follow, each traceable
+to a specific result rather than to intuition.
+
+\paragraph{R1. Preserve agent identity before preserving content.}
+This is the sharpest empirical finding of Section~\ref{sec:episodes} and it is
+not what a compression-minded engineer expects. The record that keeps every
+artifact in full and discards only \emph{who produced each one} retains more of
+the trace than a single bit per agent, and has less than a third of the
+accountability margin ($0.1425$ against $0.5000$ at $n=5$; at $n = 3$ it has
+\emph{more} labels and still less than half the margin). Attribution is what is
+being bought, and content is not a substitute for it. The magnitude varies: across
+$n = 3,\dots,7$ the cost of removing identity, measured against the storage it
+saves, is reliably greater than one but usually between $1.4$ and $2.3$ rather
+than the near-sixfold figure that case gives. The direction is the rule; the
+size is not.
+
+\paragraph{R2. Keep one witness per agent, for every agent.}
+One retained bit per agent is flat with margin $1$: the tension does not exist
+there. Under the episode model it is not even a compromise, matching the full
+trace on both reconstruction and margin while using $32$ labels instead of $243$
+(Table~\ref{tab:episodes}). The important word is \emph{every}: a record that
+keeps per-agent bits for a fixed subset and drops the rest has margin exactly
+zero, because the margin is a minimum over agents and the dropped ones are
+invisible (Table~\ref{tab:mechanisms}). Partial per-agent retention on a schedule
+fixed in advance buys nothing at all.
+
+\paragraph{R3. Do not settle from a global count.}
+An aggregate such as ``how many subtasks completed'' has accountability margin
+exactly $1/n$ --- it decays with the size of the team, which is precisely the
+regime where deferred settlement matters most. Note this is weaker than the
+single-deviation intuition suggests: one agent always moves the count by one, yet
+mixtures of teammate behaviour cancel the intermediate shifts
+(Section~\ref{sec:experiment}). Counts are cheap and feel informative; they are
+close to worthless for attribution at scale.
+
+\paragraph{R4. More retained content does not mean more accountability.}
+The two axes are close to independent, and the paper's central object is a pair
+of records that makes this concrete: at $n = 5$ two ten-label records incur
+\emph{identical} distortion $\Dnull(10)$, and one supports margin $1/2$ while the
+other supports none at any price. A designer comparing candidate records on
+reconstruction quality alone---which is the natural thing to measure---cannot
+tell them apart. Accountability has to be measured separately, and
+Theorem~\ref{thm:elim} makes that measurement cheap: one linear program per
+agent, no search over payment rules.
+
+\paragraph{A caveat that cuts the other way.}
+Two of these rules are robustness claims, and Section~\ref{sec:experiment} found
+one boundary. Selection that \emph{depends on what agents did} is much better
+than selection fixed in advance: retaining bits for the top half of agents by
+observed quality keeps $0.2624$ of the available $0.5000$, not the zero that R2's
+fixed-subset case gives, because an agent who shirks changes its own probability
+of being recorded. If a budget forces dropping agents, drop them on the basis of
+the episode rather than on a schedule.

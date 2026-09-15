@@ -1,0 +1,96 @@
+{
+ "7": {
+  "2": {
+   "verdict": "EXCLUDED (no C satisfies the local condition)",
+   "status": 2,
+   "seconds": 1.8,
+   "proved_infeasible": true
+  },
+  "3": {
+   "verdict": "EXCLUDED (no C satisfies the local condition)",
+   "status": 2,
+   "seconds": 2.17,
+   "proved_infeasible": true
+  },
+  "4": {
+   "verdict": "EXCLUDED (no C satisfies the local condition)",
+   "status": 2,
+   "seconds": 1.55,
+   "proved_infeasible": true
+  },
+  "5": {
+   "verdict": "EXCLUDED (no C satisfies the local condition)",
+   "status": 2,
+   "seconds": 3.3,
+   "proved_infeasible": true
+  }
+ },
+ "9": {
+  "2": {
+   "verdict": "EXCLUDED (no C satisfies the local condition)",
+   "status": 2,
+   "seconds": 133.97,
+   "proved_infeasible": true
+  },
+  "3": {
+   "verdict": "EXCLUDED (no C satisfies the local condition)",
+   "status": 2,
+   "seconds": 145.39,
+   "proved_infeasible": true
+  },
+  "4": {
+   "verdict": "EXCLUDED (no C satisfies the local condition)",
+   "status": 2,
+   "seconds": 132.3,
+   "proved_infeasible": true
+  },
+  "5": {
+   "verdict": "EXCLUDED (no C satisfies the local condition)",
+   "status": 2,
+   "seconds": 156.11,
+   "proved_infeasible": true
+  },
+  "6": {
+   "verdict": "EXCLUDED (no C satisfies the local condition)",
+   "status": 2,
+   "seconds": 20.5,
+   "proved_infeasible": true
+  },
+  "7": {
+   "verdict": "EXCLUDED (no C satisfies the local condition)",
+   "status": 2,
+   "seconds": 49.04,
+   "proved_infeasible": true
+  },
+  "8": {
+   "verdict": "EXCLUDED (no C satisfies the local condition)",
+   "status": 2,
+   "seconds": 38.37,
+   "proved_infeasible": true
+  },
+  "9": {
+   "verdict": "not excluded (a local-condition C exists)",
+   "status": 0,
+   "seconds": 2.69,
+   "proved_infeasible": false
+  },
+  "10": {
+   "verdict": "not excluded (a local-condition C exists)",
+   "status": 0,
+   "seconds": 7.17,
+   "proved_infeasible": false
+  },
+  "11": {
+   "verdict": "EXCLUDED (no C satisfies the local condition)",
+   "status": 2,
+   "seconds": 277.79,
+   "proved_infeasible": true
+  },
+  "12": {
+   "verdict": "EXCLUDED (no C satisfies the local condition)",
+   "status": 2,
+   "seconds": 164.55,
+   "proved_infeasible": true
+  }
+ }
+}

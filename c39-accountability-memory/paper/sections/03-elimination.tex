@@ -1,0 +1,77 @@
+\section{Eliminating the payment rule}
+\label{sec:elimination}
+
+The feasibility question of Section~\ref{sec:model} couples two unknowns: the
+record $\enc$ and the payment decoders $\pay_i$. Products of the two make the
+natural formulation bilinear, and a direct search over both does not scale. Our
+first result removes $\pay_i$ entirely.
+
+\begin{theorem}[Payment-decoder elimination]
+\label{thm:elim}
+Fix a record $\enc$ and an agent $i$. There exists a bounded decoder
+$\pay_i \in [0,1]^K$ satisfying \eqref{eq:margin} if and only if
+\[
+  \min_{\lambda \in \simplex(\{0,1\}^{n-1})}
+  \tfrac{1}{2}\bigl\|\,\E_{\lambda}\bigl[d_i\bigr]\,\bigr\|_1 \;\ge\; \gamma ,
+\]
+where $\E_\lambda[d_i] = \sum_{\sminus} \lambda(\sminus)\, d_i(\sminus)$.
+\end{theorem}
+
+\begin{proof}
+Feasibility of \eqref{eq:margin} for agent $i$ says exactly
+\[
+  \max_{\pay \in [0,1]^K} \; \min_{\sminus} \; \langle \pay, d_i(\sminus)\rangle
+  \;\ge\; \gamma .
+\]
+The inner minimum is over a finite set, so it equals the minimum over its convex
+hull, i.e.\ over $\lambda \in \simplex(\{0,1\}^{n-1})$. The map
+$(\pay,\lambda) \mapsto \langle \pay, \E_\lambda[d_i]\rangle$ is bilinear and both
+$[0,1]^K$ and the simplex are convex and compact, so von Neumann's minimax
+theorem applies:
+\[
+  \max_{\pay} \min_{\lambda} \langle \pay, \E_\lambda[d_i]\rangle
+  \;=\; \min_{\lambda} \max_{\pay} \langle \pay, \E_\lambda[d_i]\rangle
+  \;=\; \min_{\lambda} \sum_y \bigl(\E_\lambda[d_i]\bigr)_y^{+},
+\]
+the last step because maximising a linear form over the unit cube puts
+$\pay_y = 1$ on positive coordinates and $\pay_y = 0$ elsewhere. Finally each
+$d_i(\sminus)$ is a difference of two probability vectors, so
+$\sum_y d_i(\sminus)_y = 0$, and the same holds for any mixture; for a
+zero-sum vector $v$ we have $\sum_y v_y^+ = \tfrac12\|v\|_1$.
+\end{proof}
+
+Three things follow, and the third is the one to remember.
+
+\begin{corollary}[Edge condition]
+\label{cor:edge}
+Taking $\lambda$ a point mass gives a necessary condition: for every agent $i$
+and every teammate profile $\sminus$,
+\[
+  \TV\bigl(\enc[(1,\sminus),\cdot],\; \enc[(0,\sminus),\cdot]\bigr)
+  \;\ge\; \gamma .
+\]
+\end{corollary}
+
+\noindent\textbf{(i) The problem becomes an optimisation over the record alone.}
+Theorem~\ref{thm:elim} replaces a bilinear search over $(\enc, \pay)$ by a
+condition on $\enc$. Computationally this is what makes
+Section~\ref{sec:threshold} reachable: a bilinear formulation did not terminate
+at $n = 7$, whereas the reduced question is a feasibility problem over $2^n$
+binary variables and runs in milliseconds.
+
+\noindent\textbf{(ii) Impossibility results become cheap.}
+If a record maps some profile and all of its $n$ unilateral neighbours to the
+same label, every edge total variation at that profile is $0$, so by
+Corollary~\ref{cor:edge} no bounded payment achieves any positive margin---for
+any decoder, not merely a binary one.
+
+\noindent\textbf{(iii) What accountability \emph{is}.}
+Corollary~\ref{cor:edge} is the general statement of the phenomenon this paper
+is about:
+\begin{quote}
+\emph{A record supports accountability exactly to the extent that each agent,
+acting alone, visibly moves it.}
+\end{quote}
+Reconstruction wants the opposite---it merges profiles that are cheap to confuse
+in order to spend its $K$ labels well. The rest of the paper measures the
+collision between those two demands.

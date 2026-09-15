@@ -1,0 +1,17 @@
+=== METHOD X (complete enumeration of all subsets) vs METHOD M (MILP) ===
+  n=1: METHOD X = 2 (4 subsets, 0.00s) | METHOD M = 2 | AGREE
+  n=2: METHOD X = 2 (16 subsets, 0.00s) | METHOD M = 2 | AGREE
+  n=3: METHOD X = 4 (256 subsets, 0.00s) | METHOD M = 4 | AGREE
+  n=4: METHOD X = 7 (65536 subsets, 0.03s) | METHOD M = 7 | AGREE
+
+=== MILP for n = 5, 6, 7 (with independent recheck of each witness) ===
+  n=5 K=9: INFEASIBLE (proved)  [0.0s]
+  n=5 K=10: FEASIBLE, recheck min_deg=2 is_2_dom=True [0.01s]
+  n=6 K=16: FEASIBLE, recheck min_deg=2 is_2_dom=True [0.0s]
+  n=7 K=28: INFEASIBLE (proved)  [0.01s]
+  n=7 K=29: INFEASIBLE (proved)  [0.53s]
+  n=7 K=30: INFEASIBLE (proved)  [1.06s]
+  n=7 K=31: INFEASIBLE (proved)  [12.58s]
+  n=7 K=32: FEASIBLE, recheck min_deg=2 is_2_dom=True [0.33s]
+
+gamma_2(Q_n) for n=1..7: [2, 2, 4, 7, 10, 16, 32]

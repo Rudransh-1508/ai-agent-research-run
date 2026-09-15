@@ -1,0 +1,41 @@
+{
+ "environment": {
+  "python": "3.10.11",
+  "numpy": "2.2.6",
+  "scipy": "1.15.3"
+ },
+ "claim": "gamma_2(Q_9) >= 97, i.e. K_flat(9) >= 97",
+ "rows": {
+  "92": {
+   "feasible": false,
+   "status": 2,
+   "seconds": 0.07,
+   "agrees_with_prepin": true
+  },
+  "93": {
+   "feasible": false,
+   "status": 2,
+   "seconds": 0.07,
+   "agrees_with_prepin": true
+  },
+  "94": {
+   "feasible": false,
+   "status": 2,
+   "seconds": 11.44,
+   "agrees_with_prepin": true
+  },
+  "95": {
+   "feasible": false,
+   "status": 2,
+   "seconds": 12.67,
+   "agrees_with_prepin": true
+  },
+  "96": {
+   "feasible": false,
+   "status": 2,
+   "seconds": 70.64,
+   "agrees_with_prepin": true
+  }
+ },
+ "all_agree_with_prepinned": true
+}

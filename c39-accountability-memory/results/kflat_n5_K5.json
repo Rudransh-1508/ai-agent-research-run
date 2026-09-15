@@ -1,0 +1,51 @@
+{
+ "D0": {
+  "model": "D0_pmedian",
+  "n": 5,
+  "K": 5,
+  "status": 0,
+  "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+  "seconds": 1.53,
+  "value": 1.0312499999999927,
+  "gap": 0.0,
+  "D_recomputed": 1.03125,
+  "n_centers": 5,
+  "centers": [
+   [
+    0,
+    0,
+    1,
+    1,
+    1
+   ],
+   [
+    0,
+    1,
+    0,
+    0,
+    1
+   ],
+   [
+    0,
+    1,
+    1,
+    0,
+    0
+   ],
+   [
+    1,
+    0,
+    0,
+    0,
+    0
+   ],
+   [
+    1,
+    0,
+    0,
+    1,
+    0
+   ]
+  ]
+ }
+}

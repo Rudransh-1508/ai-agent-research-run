@@ -1,0 +1,193 @@
+n=3  prior q=0.5  noise eta=0.0
+    full         K=8    D=0.000000  D0=0.000000  D0|chan=0.000000  gamma=1.000000  FLAT
+    count        K=4    D=0.750000  D0=0.500000  D0|chan=0.500000  gamma=0.333333  
+    threshold    K=2    D=0.750000  D0=0.750000  D0|chan=0.750000  gamma=0.000000  opt-in-class
+    prefix2      K=4    D=0.500000  D0=0.500000  D0|chan=0.500000  gamma=0.000000  opt-in-class
+    prefix1      K=2    D=1.000000  D0=0.750000  D0|chan=0.750000  gamma=0.000000  
+    top1         K=4    D=0.625000  D0=0.500000  D0|chan=0.500000  gamma=0.000000  
+    hash4        K=4    D=0.500000  D0=0.500000  D0|chan=0.500000  gamma=0.000000  opt-in-class
+    flat         K=4    D=0.500000  D0=0.500000  D0|chan=0.500000  gamma=0.666667  FLAT
+    kmedian      K=4    D=0.500000  D0=0.500000  D0|chan=0.500000  gamma=0.000000  opt-in-class
+  [0.1s]
+
+n=3  prior q=0.5  noise eta=0.05
+    full         K=8    D=0.150000  D0=0.000000  D0|chan=0.150000  gamma=0.900000  opt-in-class
+    count        K=4    D=0.825000  D0=0.500000  D0|chan=0.600000  gamma=0.300000  
+    threshold    K=2    D=0.825000  D0=0.750000  D0|chan=0.825000  gamma=0.085500  opt-in-class
+    prefix2      K=4    D=0.600000  D0=0.500000  D0|chan=0.600000  gamma=0.000000  opt-in-class
+    prefix1      K=2    D=1.050000  D0=0.750000  D0|chan=0.825000  gamma=0.000000  
+    top1         K=4    D=0.712500  D0=0.500000  D0|chan=0.600000  gamma=0.002250  
+    hash4        K=4    D=0.600000  D0=0.500000  D0|chan=0.600000  gamma=0.000000  opt-in-class
+    flat         K=4    D=0.600000  D0=0.500000  D0|chan=0.600000  gamma=0.600000  opt-in-class
+    kmedian      K=4    D=0.600000  D0=0.500000  D0|chan=0.600000  gamma=0.085500  opt-in-class
+  [0.1s]
+
+n=3  prior q=0.5  noise eta=0.1
+    full         K=8    D=0.300000  D0=0.000000  D0|chan=0.300000  gamma=0.800000  opt-in-class
+    count        K=4    D=0.900000  D0=0.500000  D0|chan=0.700000  gamma=0.266667  
+    threshold    K=2    D=0.900000  D0=0.750000  D0|chan=0.900000  gamma=0.144000  opt-in-class
+    prefix2      K=4    D=0.700000  D0=0.500000  D0|chan=0.700000  gamma=0.000000  opt-in-class
+    prefix1      K=2    D=1.100000  D0=0.750000  D0|chan=0.900000  gamma=0.000000  
+    top1         K=4    D=0.800000  D0=0.500000  D0|chan=0.700000  gamma=0.008000  
+    hash4        K=4    D=0.700000  D0=0.500000  D0|chan=0.700000  gamma=0.000000  opt-in-class
+    flat         K=4    D=0.700000  D0=0.500000  D0|chan=0.700000  gamma=0.533333  opt-in-class
+    kmedian      K=4    D=0.700000  D0=0.500000  D0|chan=0.700000  gamma=0.144000  opt-in-class
+  [0.1s]
+
+n=3  prior q=0.5  noise eta=0.2
+    full         K=8    D=0.600000  D0=0.000000  D0|chan=0.600000  gamma=0.600000  opt-in-class
+    count        K=4    D=1.050000  D0=0.500000  D0|chan=0.900000  gamma=0.200000  
+    threshold    K=2    D=1.050000  D0=0.750000  D0|chan=1.050000  gamma=0.192000  opt-in-class
+    prefix2      K=4    D=0.900000  D0=0.500000  D0|chan=0.900000  gamma=0.000000  opt-in-class
+    prefix1      K=2    D=1.200000  D0=0.750000  D0|chan=1.050000  gamma=0.000000  
+    top1         K=4    D=0.975000  D0=0.500000  D0|chan=0.900000  gamma=0.024000  
+    hash4        K=4    D=0.900000  D0=0.500000  D0|chan=0.900000  gamma=0.000000  opt-in-class
+    flat         K=4    D=0.900000  D0=0.500000  D0|chan=0.900000  gamma=0.400000  opt-in-class
+    kmedian      K=4    D=0.900000  D0=0.500000  D0|chan=0.900000  gamma=0.192000  opt-in-class
+  [0.1s]
+
+n=3  prior q=0.7  noise eta=0.0
+    full         K=8    D=0.000000  D0=0.000000  D0|chan=0.000000  gamma=1.000000  FLAT
+    count        K=4    D=0.630000  D0=0.243000  D0|chan=0.243000  gamma=0.333333  
+    threshold    K=2    D=0.630000  D0=0.600000  D0|chan=0.600000  gamma=0.000000  
+    prefix2      K=4    D=0.300000  D0=0.243000  D0|chan=0.243000  gamma=0.000000  
+    prefix1      K=2    D=0.600000  D0=0.600000  D0|chan=0.600000  gamma=0.000000  opt-in-class
+    top1         K=4    D=0.483000  D0=0.243000  D0|chan=0.243000  gamma=0.000000  
+    hash4        K=4    D=0.300000  D0=0.243000  D0|chan=0.243000  gamma=0.000000  
+    flat         K=4    D=0.468000  D0=0.243000  D0|chan=0.243000  gamma=0.666667  
+    kmedian      K=4    D=0.243000  D0=0.243000  D0|chan=0.243000  gamma=0.000000  opt-in-class
+  [0.1s]
+
+n=3  prior q=0.7  noise eta=0.05
+    full         K=8    D=0.150000  D0=0.000000  D0|chan=0.150000  gamma=0.900000  opt-in-class
+    count        K=4    D=0.696480  D0=0.243000  D0|chan=0.364400  gamma=0.300000  
+    threshold    K=2    D=0.696480  D0=0.600000  D0|chan=0.650000  gamma=0.085500  
+    prefix2      K=4    D=0.400000  D0=0.243000  D0|chan=0.364400  gamma=0.000000  
+    prefix1      K=2    D=0.650000  D0=0.600000  D0|chan=0.650000  gamma=0.000000  opt-in-class
+    top1         K=4    D=0.544400  D0=0.243000  D0|chan=0.364400  gamma=0.002250  
+    hash4        K=4    D=0.400000  D0=0.243000  D0|chan=0.364400  gamma=0.000000  
+    flat         K=4    D=0.574080  D0=0.243000  D0|chan=0.364400  gamma=0.600000  
+    kmedian      K=4    D=0.364400  D0=0.243000  D0|chan=0.364400  gamma=0.002250  opt-in-class
+  [0.1s]
+
+n=3  prior q=0.7  noise eta=0.1
+    full         K=8    D=0.300000  D0=0.000000  D0|chan=0.300000  gamma=0.800000  opt-in-class
+    count        K=4    D=0.769440  D0=0.243000  D0|chan=0.480880  gamma=0.266667  
+    threshold    K=2    D=0.769440  D0=0.600000  D0|chan=0.700000  gamma=0.144000  
+    prefix2      K=4    D=0.500000  D0=0.243000  D0|chan=0.480880  gamma=0.000000  
+    prefix1      K=2    D=0.700000  D0=0.600000  D0|chan=0.700000  gamma=0.000000  opt-in-class
+    top1         K=4    D=0.608880  D0=0.243000  D0|chan=0.480880  gamma=0.008000  
+    hash4        K=4    D=0.500000  D0=0.243000  D0|chan=0.480880  gamma=0.000000  
+    flat         K=4    D=0.679520  D0=0.243000  D0|chan=0.480880  gamma=0.533333  
+    kmedian      K=4    D=0.480880  D0=0.243000  D0|chan=0.480880  gamma=0.008000  opt-in-class
+  [0.2s]
+
+n=3  prior q=0.7  noise eta=0.2
+    full         K=8    D=0.600000  D0=0.000000  D0|chan=0.600000  gamma=0.600000  opt-in-class
+    count        K=4    D=0.856680  D0=0.243000  D0|chan=0.699560  gamma=0.200000  
+    threshold    K=2    D=0.900000  D0=0.600000  D0|chan=0.800000  gamma=0.192000  
+    prefix2      K=4    D=0.700000  D0=0.243000  D0|chan=0.699560  gamma=0.000000  
+    prefix1      K=2    D=0.800000  D0=0.600000  D0|chan=0.800000  gamma=0.000000  opt-in-class
+    top1         K=4    D=0.747560  D0=0.243000  D0|chan=0.699560  gamma=0.024000  
+    hash4        K=4    D=0.700000  D0=0.243000  D0|chan=0.699560  gamma=0.000000  
+    flat         K=4    D=0.888480  D0=0.243000  D0|chan=0.699560  gamma=0.400000  
+    kmedian      K=4    D=0.699560  D0=0.243000  D0|chan=0.699560  gamma=0.024000  opt-in-class
+  [0.1s]
+
+n=5  prior q=0.5  noise eta=0.0
+    full         K=32   D=0.000000  D0=0.000000  D0|chan=0.000000  gamma=1.000000  FLAT
+    count        K=6    D=1.562500  D0=0.875000  D0|chan=0.875000  gamma=0.200000  
+    threshold    K=2    D=1.562500  D0=1.562500  D0|chan=1.562500  gamma=0.000000  opt-in-class
+    prefix4      K=16   D=0.500000  D0=0.500000  D0|chan=0.500000  gamma=0.000000  opt-in-class
+    prefix2      K=4    D=1.500000  D0=1.125000  D0|chan=1.125000  gamma=0.000000  
+    top2         K=16   D=0.718750  D0=0.500000  D0|chan=0.500000  gamma=0.000000  
+    hash10       K=10   D=1.500000  D0=0.687500  D0|chan=0.687500  gamma=0.000000  
+    flat         K=10   D=0.687500  D0=0.687500  D0|chan=0.687500  gamma=0.500000  FLAT
+    kmedian      K=10   D=0.687500  D0=0.687500  D0|chan=0.687500  gamma=0.000000  opt-in-class
+  [2.0s]
+
+n=5  prior q=0.5  noise eta=0.05
+    full         K=32   D=0.250000  D0=0.000000  D0|chan=0.250000  gamma=0.900000  opt-in-class
+    count        K=6    D=1.656250  D0=0.875000  D0|chan=1.037500  gamma=0.180000  
+    threshold    K=2    D=1.656250  D0=1.562500  D0|chan=1.656250  gamma=0.012184  opt-in-class
+    prefix4      K=16   D=0.700000  D0=0.500000  D0|chan=0.700000  gamma=0.000000  opt-in-class
+    prefix2      K=4    D=1.600000  D0=1.125000  D0|chan=1.262500  gamma=0.000000  
+    top2         K=16   D=0.896875  D0=0.500000  D0|chan=0.700000  gamma=0.000433  
+    hash10       K=10   D=1.600000  D0=0.687500  D0|chan=0.868750  gamma=0.000000  
+    flat         K=10   D=0.868750  D0=0.687500  D0|chan=0.868750  gamma=0.519640  opt-in-class
+    kmedian      K=10   D=0.868750  D0=0.687500  D0|chan=0.868750  gamma=0.089674  opt-in-class
+  [2.0s]
+
+n=5  prior q=0.5  noise eta=0.1
+    full         K=32   D=0.500000  D0=0.000000  D0|chan=0.500000  gamma=0.800000  opt-in-class
+    count        K=6    D=1.750000  D0=0.875000  D0|chan=1.200000  gamma=0.160000  
+    threshold    K=2    D=1.750000  D0=1.562500  D0|chan=1.750000  gamma=0.038880  opt-in-class
+    prefix4      K=16   D=0.900000  D0=0.500000  D0|chan=0.900000  gamma=0.000000  opt-in-class
+    prefix2      K=4    D=1.700000  D0=1.125000  D0|chan=1.400000  gamma=0.000000  
+    top2         K=16   D=1.075000  D0=0.500000  D0|chan=0.900000  gamma=0.002960  
+    hash10       K=10   D=1.700000  D0=0.687500  D0|chan=1.050000  gamma=0.000000  
+    flat         K=10   D=1.050000  D0=0.687500  D0|chan=1.050000  gamma=0.506272  opt-in-class
+    kmedian      K=10   D=1.050000  D0=0.687500  D0|chan=1.050000  gamma=0.197280  opt-in-class
+  [2.2s]
+
+n=5  prior q=0.5  noise eta=0.2
+    full         K=32   D=1.000000  D0=0.000000  D0|chan=1.000000  gamma=0.600000  opt-in-class
+    count        K=6    D=1.937500  D0=0.875000  D0|chan=1.525000  gamma=0.130560  
+    threshold    K=2    D=1.937500  D0=1.562500  D0|chan=1.937500  gamma=0.092160  opt-in-class
+    prefix4      K=16   D=1.300000  D0=0.500000  D0|chan=1.300000  gamma=0.000000  opt-in-class
+    prefix2      K=4    D=1.900000  D0=1.125000  D0|chan=1.675000  gamma=0.000000  
+    top2         K=16   D=1.431250  D0=0.500000  D0|chan=1.300000  gamma=0.016320  
+    hash10       K=10   D=1.900000  D0=0.687500  D0|chan=1.412500  gamma=0.000000  
+    flat         K=10   D=1.412500  D0=0.687500  D0|chan=1.412500  gamma=0.417504  opt-in-class
+    kmedian      K=10   D=1.412500  D0=0.687500  D0|chan=1.412500  gamma=0.211200  opt-in-class
+  [2.5s]
+
+n=5  prior q=0.7  noise eta=0.0
+    full         K=32   D=0.000000  D0=0.000000  D0|chan=0.000000  gamma=1.000000  FLAT
+    count        K=6    D=1.270500  D0=0.640200  D0|chan=0.640200  gamma=0.200000  
+    threshold    K=2    D=1.270500  D0=1.200000  D0|chan=1.200000  gamma=0.000000  
+    prefix4      K=16   D=0.300000  D0=0.191520  D0|chan=0.191520  gamma=0.000000  
+    prefix2      K=4    D=0.900000  D0=0.830160  D0|chan=0.830160  gamma=0.000000  
+    top2         K=16   D=0.657090  D0=0.191520  D0|chan=0.191520  gamma=0.000000  
+    hash10       K=10   D=0.889200  D0=0.381510  D0|chan=0.381510  gamma=0.000000  
+    flat         K=10   D=0.712300  D0=0.381510  D0|chan=0.381510  gamma=0.500000  
+    kmedian      K=10   D=0.381510  D0=0.381510  D0|chan=0.381510  gamma=0.000000  opt-in-class
+  [1.1s]
+
+n=5  prior q=0.7  noise eta=0.05
+    full         K=32   D=0.250000  D0=0.000000  D0|chan=0.250000  gamma=0.900000  opt-in-class
+    count        K=6    D=1.344106  D0=0.640200  D0|chan=0.787437  gamma=0.180000  
+    threshold    K=2    D=1.344106  D0=1.200000  D0|chan=1.250000  gamma=0.012184  
+    prefix4      K=16   D=0.500000  D0=0.191520  D0|chan=0.427608  gamma=0.000000  
+    prefix2      K=4    D=1.000000  D0=0.830160  D0|chan=0.958367  gamma=0.000000  
+    top2         K=16   D=0.780280  D0=0.191520  D0|chan=0.427608  gamma=0.000433  
+    hash10       K=10   D=1.046979  D0=0.381510  D0|chan=0.582872  gamma=0.000000  
+    flat         K=10   D=0.892700  D0=0.381510  D0|chan=0.582872  gamma=0.519640  
+    kmedian      K=10   D=0.582872  D0=0.381510  D0|chan=0.582872  gamma=0.008342  opt-in-class
+  [1.7s]
+
+n=5  prior q=0.7  noise eta=0.1
+    full         K=32   D=0.500000  D0=0.000000  D0|chan=0.500000  gamma=0.800000  opt-in-class
+    count        K=6    D=1.422964  D0=0.640200  D0|chan=0.933191  gamma=0.160000  
+    threshold    K=2    D=1.432120  D0=1.200000  D0|chan=1.300000  gamma=0.038880  
+    prefix4      K=16   D=0.700000  D0=0.191520  D0|chan=0.656142  gamma=0.000000  
+    prefix2      K=4    D=1.100000  D0=0.830160  D0|chan=1.070379  gamma=0.000000  
+    top2         K=16   D=0.910056  D0=0.191520  D0|chan=0.656142  gamma=0.002960  
+    hash10       K=10   D=1.192077  D0=0.381510  D0|chan=0.777908  gamma=0.000000  
+    flat         K=10   D=1.072444  D0=0.381510  D0|chan=0.777908  gamma=0.506272  
+    kmedian      K=10   D=0.777908  D0=0.381510  D0|chan=0.777908  gamma=0.027440  opt-in-class
+  [1.8s]
+
+n=5  prior q=0.7  noise eta=0.2
+    full         K=32   D=1.000000  D0=0.000000  D0|chan=1.000000  gamma=0.600000  opt-in-class
+    count        K=6    D=1.473661  D0=0.640200  D0|chan=1.219991  gamma=0.130560  
+    threshold    K=2    D=1.500000  D0=1.200000  D0|chan=1.400000  gamma=0.092160  
+    prefix4      K=16   D=1.100000  D0=0.191520  D0|chan=1.087101  gamma=0.000000  
+    prefix2      K=4    D=1.300000  D0=0.830160  D0|chan=1.285393  gamma=0.000000  
+    top2         K=16   D=1.190401  D0=0.191520  D0|chan=1.087101  gamma=0.016320  
+    hash10       K=10   D=1.400000  D0=0.381510  D0|chan=1.150122  gamma=0.000000  
+    flat         K=10   D=1.417006  D0=0.381510  D0|chan=1.150122  gamma=0.417504  
+    kmedian      K=10   D=1.150122  D0=0.381510  D0|chan=1.150122  gamma=0.070080  opt-in-class
+  [2.4s]
+
+wrote experiment_agents.json

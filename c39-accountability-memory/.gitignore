@@ -1,0 +1,26 @@
+# Pinned environment -- recreate from environment.json, do not commit
+.venv310/
+__pycache__/
+*.pyc
+
+# LaTeX build output. Note the narrow paths: results/logs/*.log are experiment
+# evidence and MUST stay tracked, so *.log is never ignored globally.
+paper/*.aux
+paper/*.log
+paper/*.out
+paper/*.bbl
+paper/*.blg
+paper/*.toc
+paper/*.fls
+paper/*.fdb_latexmk
+paper/*.synctex.gz
+paper/main.pdf
+
+# Built artifacts -- reproducible with `python run.py package`
+dist/
+
+# Editor and OS noise
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db

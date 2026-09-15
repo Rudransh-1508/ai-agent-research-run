@@ -1,0 +1,228 @@
+{
+ "n3_K4": {
+  "info": {
+   "status": 0,
+   "seconds": 0.0,
+   "K": 4,
+   "n": 3
+  },
+  "check": {
+   "size": 4,
+   "min_deg_outside": 3,
+   "is_2_dominating": true,
+   "internal_edges": 0,
+   "n_outside": 4
+  },
+  "verify": {
+   "valid": true,
+   "n": 3,
+   "K": 4,
+   "D": 0.5,
+   "D0": 0.5,
+   "flat": true,
+   "min_margin": 0.6666666666666666,
+   "per_agent_margin": [
+    0.6666666666666666,
+    0.6666666666666666,
+    0.6666666666666666
+   ],
+   "predicted_margin": null
+  },
+  "centers": [
+   1,
+   2,
+   4,
+   7
+  ]
+ },
+ "n3_gamma2": 4,
+ "n5_K10": {
+  "info": {
+   "status": 0,
+   "seconds": 0.01,
+   "K": 10,
+   "n": 5
+  },
+  "check": {
+   "size": 10,
+   "min_deg_outside": 2,
+   "is_2_dominating": true,
+   "internal_edges": 0,
+   "n_outside": 22
+  },
+  "verify": {
+   "valid": true,
+   "n": 5,
+   "K": 10,
+   "D": 0.6874999999999999,
+   "D0": 0.6875,
+   "flat": true,
+   "min_margin": 0.5,
+   "per_agent_margin": [
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5
+   ],
+   "predicted_margin": null
+  },
+  "centers": [
+   2,
+   5,
+   9,
+   12,
+   15,
+   16,
+   19,
+   22,
+   26,
+   29
+  ]
+ },
+ "n5_gamma2": 10,
+ "n7_detail": {
+  "28": {
+   "feasible": false,
+   "status": 2,
+   "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+   "seconds": 0.01,
+   "K": 28,
+   "n": 7
+  },
+  "29": {
+   "feasible": false,
+   "status": 2,
+   "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+   "seconds": 0.99,
+   "K": 29,
+   "n": 7
+  },
+  "30": {
+   "feasible": false,
+   "status": 2,
+   "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+   "seconds": 2.04,
+   "K": 30,
+   "n": 7
+  },
+  "31": {
+   "feasible": false,
+   "status": 2,
+   "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+   "seconds": 24.1,
+   "K": 31,
+   "n": 7
+  },
+  "32": {
+   "feasible": true,
+   "check": {
+    "size": 32,
+    "min_deg_outside": 2,
+    "is_2_dominating": true,
+    "internal_edges": 16,
+    "n_outside": 96
+   },
+   "verify": {
+    "valid": true,
+    "n": 7,
+    "K": 32,
+    "D": 0.75,
+    "D0": 0.75,
+    "flat": true,
+    "min_margin": 0.5,
+    "per_agent_margin": [
+     1.0,
+     0.5,
+     0.5,
+     0.5,
+     0.5,
+     0.5,
+     0.5
+    ],
+    "predicted_margin": null
+   },
+   "centers": [
+    0,
+    6,
+    11,
+    13,
+    17,
+    23,
+    26,
+    28,
+    35,
+    37,
+    40,
+    46,
+    50,
+    52,
+    57,
+    63,
+    64,
+    70,
+    75,
+    77,
+    81,
+    87,
+    90,
+    92,
+    99,
+    101,
+    104,
+    110,
+    114,
+    116,
+    121,
+    127
+   ],
+   "status": 0,
+   "seconds": 0.6,
+   "K": 32,
+   "n": 7
+  }
+ },
+ "n7_gamma2": 32,
+ "n9_detail": {
+  "92": {
+   "feasible": false,
+   "status": 2,
+   "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+   "seconds": 0.13,
+   "K": 92,
+   "n": 9
+  },
+  "93": {
+   "feasible": false,
+   "status": 2,
+   "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+   "seconds": 0.12,
+   "K": 93,
+   "n": 9
+  },
+  "94": {
+   "feasible": false,
+   "status": 2,
+   "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+   "seconds": 23.02,
+   "K": 94,
+   "n": 9
+  },
+  "95": {
+   "feasible": false,
+   "status": 2,
+   "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+   "seconds": 25.37,
+   "K": 95,
+   "n": 9
+  },
+  "96": {
+   "feasible": false,
+   "status": 2,
+   "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+   "seconds": 122.48,
+   "K": 96,
+   "n": 9
+  }
+ }
+}

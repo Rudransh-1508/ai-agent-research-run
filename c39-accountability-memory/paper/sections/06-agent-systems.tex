@@ -1,0 +1,89 @@
+\section{What this says about agent systems}
+\label{sec:agents}
+
+\subsection{The free compression ratio}
+
+Define the \emph{compression ratio} of a flat record,
+$C(n) = 2^n / \Kflat(n)$: how much smaller the record is than the full effort
+profile. Dividing the bounds of Section~\ref{sec:threshold} through by $2^n$,
+\[
+  2^{\lfloor \log_2(n/2+1)\rfloor} \;\le\; C(n) \;\le\; \frac{n+2}{2}.
+\]
+Both ends are $\Theta(n)$, so the safe zone does widen as the team grows---but
+only linearly, against an exponentially large baseline.
+
+\begin{table}[t]
+\centering
+\caption{The same numbers under two normalisations. $(n+2)/2$ is an upper bound
+on $C(n)$, not its value; the measured ratio sits at or below it, and the gap is
+real at $n=7$.}
+\label{tab:ratio}
+\begin{tabular}{@{}lrrrrrr@{}}
+\toprule
+$n$ & 3 & 5 & 7 & 9 & 20 & 50 \\
+\midrule
+$C(n)$        & 2.00 & 3.20 & 4.00 & 4.00--5.28 & 8--11 & 16--26 \\
+$(n+2)/2$     & 2.50 & 3.50 & 4.50 & 5.50 & 11 & 26 \\
+free bits     & 1.00 & 1.68 & 2.00 & 2.00--2.40 & 3.00--3.46 & 4.00--4.70 \\
+as \% of $n$  & 33.3 & 33.6 & 28.6 & 22--27 & 15.0--17.3 & 8.0--9.4 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Two normalisations, both correct}
+
+Measured as a \emph{state-space ratio}, the safe zone widens: at $n=5$ one may
+compress $3.2\times$ for free, at $n=50$ about $26\times$. Measured in
+\emph{bits}---the unit a record is actually sized in---the free allowance is
+$\log_2 C(n) \approx \log_2(n/2)$ bits out of $n$, so the \emph{fraction} of
+per-agent resolution one may discard for free \emph{shrinks} with team size
+(Table~\ref{tab:ratio}). Linear growth of a ratio against an exponential baseline
+is logarithmic growth in bits; both statements describe the same numbers.
+
+Everything in this section is computed under the uniform prior, which
+Section~\ref{sec:priors} shows is the most favourable case: under any tilted
+product prior the free ratio is $1 + O(n2^{-n})$ and the numbers below become
+``retain essentially the whole profile''. Read them as an upper bound on how
+much compression is safe, not an estimate of it.
+
+Concretely: at $n = 20$, flatness requires $K$ between $95{,}326$ and $131{,}072$
+labels---retaining $16.5$--$17.0$ of the $20$ bits, i.e.\ $83$--$85\%$ of
+per-agent resolution. At $n = 50$ it requires retaining $45.3$--$46.0$ of the
+$50$ bits, i.e.\ $91$--$92\%$.
+
+\subsection{Consequences for system design}
+
+\paragraph{Keep one bit per agent and the problem disappears.}
+A record that retains a single effort bit per agent is flat, with margin
+$1$, and no tension exists. This is the first thing the theory says, and it is
+worth saying plainly: the results below are about what happens when that is not
+affordable.
+
+\paragraph{Aggregates are far inside the tension regime.}
+A statistic such as ``how many agents succeeded'' carries $\log_2(n+1)$ bits---
+$5.7$ bits at $n = 50$, about $11\%$ of per-agent resolution---which is an order
+of magnitude below the flatness threshold. By Theorem~\ref{thm:elim}\,(ii), any
+record that maps a profile and all $n$ of its unilateral neighbours to one label
+admits no positive margin under any bounded payment.
+
+\paragraph{Summaries that aggregate across agents.}
+The compaction step described in Section~\ref{sec:intro} replaces a $k$-agent
+fan-out with a paragraph. We have not measured how many bits of per-agent
+resolution such a paragraph retains, and the theory cannot tell us: what it gives
+is the bar such a record has to clear. A $20$-agent episode escapes the tension
+only by retaining $16.5$ of $20$ bits of \emph{per-agent} resolution under the
+most favourable prior, and essentially all $20$ under any other. Whenever a
+summarisation step falls short of that---a question about a particular system,
+settled by measuring it---the two uses of the record genuinely trade off, and
+Theorem~\ref{thm:onebit} gives the rate of that trade at the extreme end.
+Section~\ref{sec:experiment} measures where a family of concrete compaction
+mechanisms lands.
+
+\paragraph{Where the trade is made deliberately.}
+Bittensor's concealment interval~\cite{bittensorcommitreveal}, tuned to roughly $1800$ blocks, is the clearest
+deployed instance of an operator selecting a point on this curve: more
+concealment, more incentive margin, slower evaluation. We note honestly that its
+binding constraint is temporal and cryptoeconomic rather than a size bound---it
+evidences the \emph{consequence} of settling from a merged record, while the
+context-window argument above evidences the \emph{mechanism}. Neither alone
+makes the case; together they do.

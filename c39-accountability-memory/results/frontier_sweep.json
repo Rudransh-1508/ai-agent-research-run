@@ -1,0 +1,131 @@
+{
+ "3": {
+  "M_n": 0.75,
+  "K_flat": 4,
+  "curves": {
+   "2": {
+    "D0": 0.75,
+    "points": [
+     {
+      "gamma": 0.0,
+      "D": 0.75,
+      "feasible": true
+     },
+     {
+      "gamma": 0.05555555555555555,
+      "D": 0.7916666666666667,
+      "feasible": true
+     },
+     {
+      "gamma": 0.1111111111111111,
+      "D": 0.8333333333333333,
+      "feasible": true
+     },
+     {
+      "gamma": 0.16666666666666666,
+      "D": 0.8749999999999999,
+      "feasible": true
+     },
+     {
+      "gamma": 0.2222222222222222,
+      "D": 0.9166666666666667,
+      "feasible": true
+     },
+     {
+      "gamma": 0.27777777777777773,
+      "D": 0.9583333333333333,
+      "feasible": true
+     },
+     {
+      "gamma": 0.3333333333333333,
+      "D": 0.9999999999999999,
+      "feasible": true
+     }
+    ],
+    "seconds": 5.89633584022522
+   },
+   "3": {
+    "D0": 0.625,
+    "points": [
+     {
+      "gamma": 0.0,
+      "D": 0.625,
+      "feasible": true
+     },
+     {
+      "gamma": 0.16666666666666666,
+      "D": 0.6874999999999999,
+      "feasible": true
+     },
+     {
+      "gamma": 0.3333333333333333,
+      "D": 0.7499999999999999,
+      "feasible": true
+     },
+     {
+      "gamma": 0.5,
+      "D": null,
+      "feasible": false
+     },
+     {
+      "gamma": 0.6666666666666666,
+      "D": null,
+      "feasible": false
+     },
+     {
+      "gamma": 0.8333333333333334,
+      "D": null,
+      "feasible": false
+     },
+     {
+      "gamma": 1.0,
+      "D": null,
+      "feasible": false
+     }
+    ],
+    "seconds": 15.66408371925354
+   },
+   "4": {
+    "D0": 0.5,
+    "points": [
+     {
+      "gamma": 0.0,
+      "D": 0.5,
+      "feasible": true
+     },
+     {
+      "gamma": 0.16666666666666666,
+      "D": 0.49999999999999994,
+      "feasible": true
+     },
+     {
+      "gamma": 0.3333333333333333,
+      "D": 0.4999999999999999,
+      "feasible": true
+     },
+     {
+      "gamma": 0.5,
+      "D": 0.5,
+      "feasible": true
+     },
+     {
+      "gamma": 0.6666666666666666,
+      "D": 0.5,
+      "feasible": true
+     },
+     {
+      "gamma": 0.8333333333333334,
+      "D": null,
+      "feasible": false
+     },
+     {
+      "gamma": 1.0,
+      "D": null,
+      "feasible": false
+     }
+    ],
+    "seconds": 29.119710683822632
+   }
+  }
+ }
+}

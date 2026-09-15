@@ -1,0 +1,13 @@
+=== sanity: the shell bound must NOT exclude the known flat points ===
+  n=3 K=4: shell_lower=4  N*D0=4  -> ok, not excluded
+  n=5 K=10: shell_lower=22  N*D0=22  -> ok, not excluded
+  n=7 K=32: shell_lower=96  N*D0=96  -> ok, not excluded
+
+n=3: K=2..3  not excluded by shell bound: []
+        newly excluded vs session-1 bound: []
+n=5: K=2..9  not excluded by shell bound: []
+        newly excluded vs session-1 bound: []
+n=7: K=2..31  not excluded by shell bound: [29, 30, 31]
+        newly excluded vs session-1 bound: [2, 3, 4, 5]
+n=9: K=2..96  not excluded by shell bound: [94, 95, 96]
+        newly excluded vs session-1 bound: [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]

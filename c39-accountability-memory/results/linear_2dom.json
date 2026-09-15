@@ -1,0 +1,300 @@
+{
+ "3": {
+  "meta": {
+   "m": 1,
+   "columns": [
+    1,
+    1,
+    1
+   ],
+   "syndrome_counts": {
+    "1": 3
+   },
+   "size": 4
+  },
+  "check": {
+   "size": 4,
+   "min_deg_outside": 3,
+   "is_2_dominating": true,
+   "internal_edges": 0,
+   "n_outside": 4
+  },
+  "verify": {
+   "valid": true,
+   "n": 3,
+   "K": 4,
+   "D": 0.5,
+   "D0": 0.5,
+   "flat": true,
+   "min_margin": 0.6666666666666666,
+   "per_agent_margin": [
+    0.6666666666666666,
+    0.6666666666666666,
+    0.6666666666666666
+   ],
+   "predicted_margin": null
+  }
+ },
+ "5": {
+  "meta": {
+   "m": 1,
+   "columns": [
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "syndrome_counts": {
+    "1": 5
+   },
+   "size": 16
+  },
+  "check": {
+   "size": 16,
+   "min_deg_outside": 5,
+   "is_2_dominating": true,
+   "internal_edges": 0,
+   "n_outside": 16
+  },
+  "verify": {
+   "valid": true,
+   "n": 5,
+   "K": 16,
+   "D": 0.4999999999999992,
+   "D0": 0.5,
+   "flat": true,
+   "min_margin": 0.8,
+   "per_agent_margin": [
+    0.8,
+    0.8,
+    0.8,
+    0.8,
+    0.8
+   ],
+   "predicted_margin": null
+  }
+ },
+ "7": {
+  "meta": {
+   "m": 2,
+   "columns": [
+    1,
+    2,
+    3,
+    1,
+    2,
+    3,
+    1
+   ],
+   "syndrome_counts": {
+    "1": 3,
+    "2": 2,
+    "3": 2
+   },
+   "size": 32
+  },
+  "check": {
+   "size": 32,
+   "min_deg_outside": 2,
+   "is_2_dominating": true,
+   "internal_edges": 0,
+   "n_outside": 96
+  },
+  "verify": {
+   "valid": true,
+   "n": 7,
+   "K": 32,
+   "D": 0.7499999999999994,
+   "D0": 0.75,
+   "flat": true,
+   "min_margin": 0.5,
+   "per_agent_margin": [
+    0.6666666666666666,
+    0.5,
+    0.5,
+    0.6666666666666666,
+    0.5,
+    0.5,
+    0.6666666666666666
+   ],
+   "predicted_margin": null
+  }
+ },
+ "9": {
+  "meta": {
+   "m": 2,
+   "columns": [
+    1,
+    2,
+    3,
+    1,
+    2,
+    3,
+    1,
+    2,
+    3
+   ],
+   "syndrome_counts": {
+    "1": 3,
+    "2": 3,
+    "3": 3
+   },
+   "size": 128
+  },
+  "check": {
+   "size": 128,
+   "min_deg_outside": 3,
+   "is_2_dominating": true,
+   "internal_edges": 0,
+   "n_outside": 384
+  },
+  "verify": {
+   "valid": true,
+   "n": 9,
+   "K": 128,
+   "D": 0.7499999999999915,
+   "D0": 0.75,
+   "flat": true,
+   "min_margin": 0.6666666666666666,
+   "per_agent_margin": [
+    0.6666666666666666,
+    0.6666666666666666,
+    0.6666666666666666,
+    0.6666666666666666,
+    0.6666666666666666,
+    0.6666666666666666,
+    0.6666666666666666,
+    0.6666666666666666,
+    0.6666666666666666
+   ],
+   "predicted_margin": null
+  }
+ },
+ "11": {
+  "meta": {
+   "m": 2,
+   "columns": [
+    1,
+    2,
+    3,
+    1,
+    2,
+    3,
+    1,
+    2,
+    3,
+    1,
+    2
+   ],
+   "syndrome_counts": {
+    "1": 4,
+    "2": 4,
+    "3": 3
+   },
+   "size": 512
+  },
+  "check": {
+   "size": 512,
+   "min_deg_outside": 3,
+   "is_2_dominating": true,
+   "internal_edges": 0,
+   "n_outside": 1536
+  },
+  "verify": {
+   "valid": true,
+   "n": 11,
+   "K": 512,
+   "D": 0.7499999999999858,
+   "D0": 0.75,
+   "flat": true,
+   "min_margin": 0.6666666666666666,
+   "per_agent_margin": [
+    0.75,
+    0.75,
+    0.6666666666666666,
+    0.75,
+    0.75,
+    0.6666666666666666,
+    0.75,
+    0.75,
+    0.6666666666666666,
+    0.75,
+    0.75
+   ],
+   "predicted_margin": null
+  }
+ },
+ "13": {
+  "meta": {
+   "m": 2,
+   "columns": [
+    1,
+    2,
+    3,
+    1,
+    2,
+    3,
+    1,
+    2,
+    3,
+    1,
+    2,
+    3,
+    1
+   ],
+   "syndrome_counts": {
+    "1": 5,
+    "2": 4,
+    "3": 4
+   },
+   "size": 2048
+  },
+  "check": {
+   "size": 2048,
+   "min_deg_outside": 4,
+   "is_2_dominating": true,
+   "internal_edges": 0,
+   "n_outside": 6144
+  }
+ },
+ "15": {
+  "meta": {
+   "m": 3,
+   "columns": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    1
+   ],
+   "syndrome_counts": {
+    "1": 3,
+    "2": 2,
+    "3": 2,
+    "4": 2,
+    "5": 2,
+    "6": 2,
+    "7": 2
+   },
+   "size": 4096
+  },
+  "check": {
+   "size": 4096,
+   "min_deg_outside": 2,
+   "is_2_dominating": true,
+   "internal_edges": 0,
+   "n_outside": 28672
+  }
+ }
+}

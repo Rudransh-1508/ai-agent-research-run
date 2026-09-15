@@ -1,0 +1,101 @@
+n=3  (L=3 quality levels, 27 artifact tuples)
+    full_trace        K=27    bits= 4.75  D=0.750000  gamma=0.500000  [0.0s]
+    recency_k         K=9     bits= 3.17  D=1.000000  gamma=0.000000  [0.0s]
+    role_rollup       K=6     bits= 2.58  D=0.925000  gamma=0.250000  [0.0s]
+    quality_only      K=5     bits= 2.32  D=1.158750  gamma=0.189474  [0.0s]
+    per_agent_bit     K=8     bits= 3.00  D=0.750000  gamma=0.500000  [0.0s]
+    per_agent_coarse  K=12    bits= 3.58  D=0.780625  gamma=0.320000  [0.0s]
+    global_summary    K=10    bits= 3.32  D=1.091250  gamma=0.231667  [0.0s]
+    aggregate         K=4     bits= 2.00  D=1.158750  gamma=0.189474  [0.0s]
+    final_output      K=2     bits= 1.00  D=1.158750  gamma=0.090000  [0.0s]
+    [200000 episodes] full_trace        dD=0.0056  dgamma=0.0017
+    [200000 episodes] recency_k         dD=0.0035  dgamma=0.0025
+    [200000 episodes] role_rollup       dD=0.0012  dgamma=0.0029
+    [200000 episodes] quality_only      dD=0.0008  dgamma=0.0014
+    [200000 episodes] per_agent_bit     dD=0.0002  dgamma=0.0071
+    [200000 episodes] per_agent_coarse  dD=0.0012  dgamma=0.0034
+    [200000 episodes] global_summary    dD=0.0001  dgamma=0.0030
+    [200000 episodes] aggregate         dD=0.0004  dgamma=0.0013
+    [200000 episodes] final_output      dD=0.0001  dgamma=0.0013
+
+n=4  (L=3 quality levels, 81 artifact tuples)
+    full_trace        K=81    bits= 6.34  D=1.000000  gamma=0.500000  [0.0s]
+    recency_k         K=9     bits= 3.17  D=1.500000  gamma=0.000000  [0.0s]
+    role_rollup       K=9     bits= 3.17  D=1.350000  gamma=0.250000  [0.0s]
+    quality_only      K=6     bits= 2.58  D=1.556375  gamma=0.143787  [0.0s]
+    per_agent_bit     K=16    bits= 4.00  D=1.000000  gamma=0.500000  [0.0s]
+    per_agent_coarse  K=24    bits= 4.58  D=1.101063  gamma=0.176000  [0.0s]
+    global_summary    K=15    bits= 3.91  D=1.529375  gamma=0.177125  [0.0s]
+    aggregate         K=5     bits= 2.32  D=1.556375  gamma=0.143787  [0.0s]
+    final_output      K=2     bits= 1.00  D=1.556375  gamma=0.121500  [0.0s]
+    [200000 episodes] full_trace        dD=0.0100  dgamma=0.0002
+    [200000 episodes] recency_k         dD=0.0061  dgamma=0.0015
+    [200000 episodes] role_rollup       dD=0.0029  dgamma=0.0030
+    [200000 episodes] quality_only      dD=0.0014  dgamma=0.0024
+    [200000 episodes] per_agent_bit     dD=0.0012  dgamma=0.0107
+    [200000 episodes] per_agent_coarse  dD=0.0026  dgamma=0.0101
+    [200000 episodes] global_summary    dD=0.0020  dgamma=0.0008
+    [200000 episodes] aggregate         dD=0.0013  dgamma=0.0008
+    [200000 episodes] final_output      dD=0.0010  dgamma=0.0027
+
+n=5  (L=3 quality levels, 243 artifact tuples)
+    full_trace        K=243   bits= 7.92  D=1.250000  gamma=0.500000  [0.3s]
+    recency_k         K=27    bits= 4.75  D=1.750000  gamma=0.000000  [0.1s]
+    role_rollup       K=12    bits= 3.58  D=1.833750  gamma=0.189474  [0.1s]
+    quality_only      K=7     bits= 2.81  D=2.019406  gamma=0.119020  [0.0s]
+    per_agent_bit     K=32    bits= 5.00  D=1.250000  gamma=0.500000  [0.1s]
+    per_agent_coarse  K=80    bits= 6.32  D=1.292339  gamma=0.262400  [0.1s]
+    global_summary    K=21    bits= 4.39  D=1.971766  gamma=0.142510  [0.0s]
+    aggregate         K=6     bits= 2.58  D=2.019406  gamma=0.119020  [0.0s]
+    final_output      K=2     bits= 1.00  D=2.111828  gamma=0.024300  [0.0s]
+    [200000 episodes] full_trace        dD=0.0241  dgamma=0.0023
+    [200000 episodes] recency_k         dD=0.0118  dgamma=0.0046
+    [200000 episodes] role_rollup       dD=0.0004  dgamma=0.0034
+    [200000 episodes] quality_only      dD=0.0016  dgamma=0.0005
+    [200000 episodes] per_agent_bit     dD=0.0001  dgamma=0.0240
+    [200000 episodes] per_agent_coarse  dD=0.0043  dgamma=0.0182
+    [200000 episodes] global_summary    dD=0.0034  dgamma=0.0002
+    [200000 episodes] aggregate         dD=0.0018  dgamma=0.0032
+    [200000 episodes] final_output      dD=0.0014  dgamma=0.0016
+
+n=6  (L=3 quality levels, 729 artifact tuples)
+    full_trace        K=729   bits= 9.51  D=1.500000  gamma=0.500000  [2.3s]
+    recency_k         K=27    bits= 4.75  D=2.250000  gamma=0.000000  [0.3s]
+    role_rollup       K=16    bits= 4.00  D=2.317500  gamma=0.189474  [0.3s]
+    quality_only      K=8     bits= 3.00  D=2.495377  gamma=0.102017  [0.2s]
+    per_agent_bit     K=64    bits= 6.00  D=1.500000  gamma=0.500000  [0.4s]
+    per_agent_coarse  K=160   bits= 7.32  D=1.601131  gamma=0.158720  [0.8s]
+    global_summary    K=28    bits= 4.81  D=2.420857  gamma=0.118961  [0.2s]
+    aggregate         K=7     bits= 2.81  D=2.495377  gamma=0.102017  [0.2s]
+    final_output      K=2     bits= 1.00  D=2.495377  gamma=0.036450  [0.2s]
+    [200000 episodes] full_trace        dD=0.0454  dgamma=0.0089
+    [200000 episodes] recency_k         dD=0.0176  dgamma=0.0012
+    [200000 episodes] role_rollup       dD=0.0013  dgamma=0.0150
+    [200000 episodes] quality_only      dD=0.0021  dgamma=0.0062
+    [200000 episodes] per_agent_bit     dD=0.0027  dgamma=0.0362
+    [200000 episodes] per_agent_coarse  dD=0.0113  dgamma=0.0511
+    [200000 episodes] global_summary    dD=0.0059  dgamma=0.0055
+    [200000 episodes] aggregate         dD=0.0009  dgamma=0.0074
+    [200000 episodes] final_output      dD=0.0025  dgamma=0.0068
+
+n=7  (L=3 quality levels, 2187 artifact tuples)
+    full_trace        K=2187  bits=11.09  D=1.750000  gamma=0.500000  [25.3s]
+    recency_k         K=81    bits= 6.34  D=2.500000  gamma=0.000000  [2.0s]
+    role_rollup       K=20    bits= 4.32  D=2.715125  gamma=0.143787  [1.3s]
+    quality_only      K=9     bits= 3.17  D=2.925991  gamma=0.091282  [1.1s]
+    per_agent_bit     K=128   bits= 7.00  D=1.750000  gamma=0.500000  [2.3s]
+    per_agent_coarse  K=560   bits= 9.13  D=1.796613  gamma=0.227840  [7.8s]
+    global_summary    K=36    bits= 5.17  D=2.873653  gamma=0.106236  [1.2s]
+    aggregate         K=8     bits= 3.00  D=2.925991  gamma=0.091282  [0.9s]
+    final_output      K=2     bits= 1.00  D=3.087891  gamma=0.007290  [1.0s]
+    [200000 episodes] full_trace        dD=0.0909  dgamma=0.0194
+    [200000 episodes] recency_k         dD=0.0343  dgamma=0.0060
+    [200000 episodes] role_rollup       dD=0.0002  dgamma=0.0152
+    [200000 episodes] quality_only      dD=0.0026  dgamma=0.0146
+    [200000 episodes] per_agent_bit     dD=0.0000  dgamma=0.0445
+    [200000 episodes] per_agent_coarse  dD=0.0219  dgamma=0.0688
+    [200000 episodes] global_summary    dD=0.0024  dgamma=0.0065
+    [200000 episodes] aggregate         dD=0.0015  dgamma=0.0110
+    [200000 episodes] final_output      dD=0.0005  dgamma=0.0002
+
+wrote experiment_episodes.json

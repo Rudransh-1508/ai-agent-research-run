@@ -1,0 +1,50 @@
+% =====================================================================
+%  C39 -- AAMAS 2027 main track (COINE)
+%
+%  CLASS: AAMAS ships its own template (an acmart derivative). Download it
+%  from the AAMAS 2027 site and replace the \documentclass line below.
+%  Everything real lives in sections/, so swapping the class is a one-line
+%  change and nothing else moves.
+%
+%  Limit: 8 pages excluding references. LaTeX is mandatory.
+%  Build: pdflatex main && bibtex main && pdflatex main && pdflatex main
+% =====================================================================
+\documentclass[sigconf, nonacm]{acmart}
+
+\input{macros}
+
+\begin{document}
+
+\title{How Much Memory Does Accountability Cost?}
+\subtitle{Exact Reconstruction--Incentive Frontiers for Compressed Multi-Agent Records}
+
+% \author{...}  \affiliation{...}  \email{...}
+
+\begin{abstract}
+\input{sections/00-abstract}
+\end{abstract}
+
+\keywords{organizational memory; accountability; credit assignment; deferred
+settlement; information-theoretic limits; domination number}
+
+\maketitle
+
+\input{sections/01-intro}
+\input{sections/02-model}
+\input{sections/03-elimination}
+\input{sections/04-onebit}
+\input{sections/05-threshold}
+\input{sections/05b-priors}
+\input{sections/06-agent-systems}
+\input{sections/065-experiment}
+\input{sections/07-design}
+\input{sections/07-related}
+\input{sections/08-limitations}
+
+\bibliographystyle{ACM-Reference-Format}
+\bibliography{refs}
+
+\appendix
+\input{sections/A-proofs}
+
+\end{document}

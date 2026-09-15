@@ -1,0 +1,18 @@
+{
+ "python": "3.10.11 (tags/v3.10.11:7d4cc5a, Apr  5 2023, 00:38:17) [MSC v.1929 64 bit (AMD64)]",
+ "python_short": "3.10.11",
+ "numpy": "2.2.6",
+ "scipy": "1.15.3",
+ "platform": "Windows-10-10.0.26200-SP0",
+ "machine": "AMD64",
+ "cpu_count": 16,
+ "venv": ".venv310",
+ "pinned_target": {
+  "python": "3.10.11",
+  "numpy": "2.2.6",
+  "scipy": "1.15.3"
+ },
+ "matches_pinned": true,
+ "milp_backend": "HiGHS via scipy.optimize.milp",
+ "date_utc": "2026-09-13"
+}

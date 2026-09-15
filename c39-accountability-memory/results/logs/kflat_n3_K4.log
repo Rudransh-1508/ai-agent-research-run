@@ -1,0 +1,5 @@
+=== n=3 K=4 symbreak=True time_limit=300.0s ===
+D0: value=0.4999999999999505 gap=0.0 recomputed=0.50000000000021 status=0 [0.55s]
+gamma=0.16666666666: probe status=0 D_recomp=0.5000000010002079 min_margin=0.16666666666000207 -> FLAT_CERTIFIED   [1.7s]
+gamma=0.3333333333: probe status=0 D_recomp=0.500000001000214 min_margin=0.33333333329997195 -> FLAT_CERTIFIED   [3.4s]
+gamma=0.5: probe status=0 D_recomp=0.5000000018003813 min_margin=0.49999999759948066 -> FLAT_CERTIFIED   [1.7s]

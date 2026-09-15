@@ -1,0 +1,16 @@
+K=  8: D0=1.437500 gap=1.544658121217609e-16  N*D0=184.00 vs rhs=212.00  -> FLATNESS IMPOSSIBLE   [2.5s]
+K= 12: D0=1.156250 gap=0.0  N*D0=148.00 vs rhs=190.00  -> FLATNESS IMPOSSIBLE   [4.73s]
+K= 14: D0=1.031250 gap=0.0  N*D0=132.00 vs rhs=179.00  -> FLATNESS IMPOSSIBLE   [500.33s]
+K= 16: D0=0.875000 gap=0.0  N*D0=112.00 vs rhs=168.00  -> FLATNESS IMPOSSIBLE   [0.29s]
+K= 20: D0=0.843750 gap=0.0  N*D0=108.00 vs rhs=146.00  -> FLATNESS IMPOSSIBLE   [1.45s]
+K= 24: D0=0.812500 gap=0.0  N*D0=104.00 vs rhs=124.00  -> FLATNESS IMPOSSIBLE   [0.99s]
+K= 26: D0=0.796875 gap=0.0  N*D0=102.00 vs rhs=113.00  -> FLATNESS IMPOSSIBLE   [0.83s]
+K= 27: D0=0.789062 gap=0.0  N*D0=101.00 vs rhs=107.50  -> FLATNESS IMPOSSIBLE   [0.67s]
+K= 28: D0=0.781250 gap=0.0  N*D0=100.00 vs rhs=102.00  -> FLATNESS IMPOSSIBLE   [0.61s]
+K= 29: D0=0.773438 gap=3.0144237274670823e-15  N*D0=99.00 vs rhs=96.50  -> not excluded   [0.65s]
+K= 30: D0=0.765625 gap=0.0  N*D0=98.00 vs rhs=91.00  -> not excluded   [0.57s]
+K= 32: D0=0.750000 gap=0.0  N*D0=96.00 vs rhs=80.00  -> not excluded   [0.54s]
+
+excluded (proved not flat): [8, 12, 14, 16, 20, 24, 26, 27, 28]
+not excluded              : [29, 30, 32]
+=> K_flat(7) >= 29 among the K tested (lower bound; the constructive side is untested)

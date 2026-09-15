@@ -1,0 +1,53 @@
+=== METHOD B vs METHOD E (complete enumeration) ===
+  n=3: exhaustive 0.0s (256 subsets), bnb 0.0s (0 nodes) -> IDENTICAL
+  n=4: exhaustive 0.8s (65536 subsets), bnb 0.0s (15 nodes) -> IDENTICAL
+  method B validated: True
+
+=== brute force vs exp_kflat.solve_D0_pmedian ===
+  n=3 reference by exhaustive (complete enumeration), 0.0s
+    K=  2  brute=0.7500000000  fast=0.7500000000  diff=+0.00e+00  gap=0.0ok
+    K=  3  brute=0.6250000000  fast=0.6250000000  diff=+0.00e+00  gap=0.0ok
+    K=  4  brute=0.5000000000  fast=0.5000000000  diff=+0.00e+00  gap=0.0ok
+    K=  5  brute=0.3750000000  fast=0.3750000000  diff=+0.00e+00  gap=0.0ok
+    K=  6  brute=0.2500000000  fast=0.2500000000  diff=+0.00e+00  gap=0.0ok
+    K=  7  brute=0.1250000000  fast=0.1250000000  diff=+0.00e+00  gap=0.0ok
+    K=  8  brute=0.0000000000  fast=0.0000000000  diff=+0.00e+00  gap=0.0ok
+      [K=3: 55 nodes, lb=43, best=44]
+      [K=4: 8 nodes, lb=36, best=36]
+      [K=5: 4176 nodes, lb=29, best=33]
+      [K=6: 19650 nodes, lb=26, best=28]
+      [K=7: 293 nodes, lb=25, best=25]
+  n=5 reference by branch and bound (exact), 0.7s
+    K=  2  brute=1.5625000000  fast=1.5625000000  diff=+0.00e+00  gap=0.0ok
+    K=  3  brute=1.3750000000  fast=1.3750000000  diff=+0.00e+00  gap=0.0ok
+    K=  4  brute=1.1250000000  fast=1.1250000000  diff=+0.00e+00  gap=0.0ok
+    K=  5  brute=1.0312500000  fast=1.0312500000  diff=+0.00e+00  gap=0.0ok
+    K=  6  brute=0.8750000000  fast=0.8750000000  diff=+0.00e+00  gap=0.0ok
+    K=  7  brute=0.7812500000  fast=0.7812500000  diff=+0.00e+00  gap=0.0ok
+    K=  8  brute=0.7500000000  fast=0.7500000000  diff=+0.00e+00  gap=0.0ok
+    K=  9  brute=0.7187500000  fast=0.7187500000  diff=+0.00e+00  gap=0.0ok
+    K= 10  brute=0.6875000000  fast=0.6875000000  diff=+0.00e+00  gap=0.0ok
+    K= 11  brute=0.6562500000  fast=0.6562500000  diff=+0.00e+00  gap=0.0ok
+    K= 12  brute=0.6250000000  fast=0.6250000000  diff=+0.00e+00  gap=0.0ok
+    K= 13  brute=0.5937500000  fast=0.5937500000  diff=+0.00e+00  gap=0.0ok
+    K= 14  brute=0.5625000000  fast=0.5625000000  diff=+0.00e+00  gap=0.0ok
+    K= 15  brute=0.5312500000  fast=0.5312500000  diff=+0.00e+00  gap=0.0ok
+    K= 16  brute=0.5000000000  fast=0.5000000000  diff=+0.00e+00  gap=0.0ok
+    K= 17  brute=0.4687500000  fast=0.4687500000  diff=+0.00e+00  gap=0.0ok
+    K= 18  brute=0.4375000000  fast=0.4375000000  diff=+0.00e+00  gap=0.0ok
+    K= 19  brute=0.4062500000  fast=0.4062500000  diff=+0.00e+00  gap=0.0ok
+    K= 20  brute=0.3750000000  fast=0.3750000000  diff=+0.00e+00  gap=0.0ok
+    K= 21  brute=0.3437500000  fast=0.3437500000  diff=+0.00e+00  gap=0.0ok
+    K= 22  brute=0.3125000000  fast=0.3125000000  diff=+0.00e+00  gap=0.0ok
+    K= 23  brute=0.2812500000  fast=0.2812500000  diff=+0.00e+00  gap=0.0ok
+    K= 24  brute=0.2500000000  fast=0.2500000000  diff=+0.00e+00  gap=0.0ok
+    K= 25  brute=0.2187500000  fast=0.2187500000  diff=+0.00e+00  gap=0.0ok
+    K= 26  brute=0.1875000000  fast=0.1875000000  diff=+0.00e+00  gap=0.0ok
+    K= 27  brute=0.1562500000  fast=0.1562500000  diff=+0.00e+00  gap=0.0ok
+    K= 28  brute=0.1250000000  fast=0.1250000000  diff=+0.00e+00  gap=0.0ok
+    K= 29  brute=0.0937500000  fast=0.0937500000  diff=+0.00e+00  gap=0.0ok
+    K= 30  brute=0.0625000000  fast=0.0625000000  diff=+0.00e+00  gap=0.0ok
+    K= 31  brute=0.0312500000  fast=0.0312500000  diff=+0.00e+00  gap=0.0ok
+    K= 32  brute=0.0000000000  fast=0.0000000000  diff=+0.00e+00  gap=0.0ok
+
+VERDICT: all K at n=3 and n=5 match: True

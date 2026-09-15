@@ -1,0 +1,108 @@
+\subsection{How much of this is the uniform prior?}
+\label{sec:priors}
+
+Condition~\eqref{eq:margin} is an all-teammate-profile condition: it never
+mentions the prior. Only $D$ and $\Dnull$ do. The threshold question is
+therefore well posed for any full-support prior $\pi$, and both lemmas above
+survive verbatim.
+
+\begin{theorem}[General prior]
+\label{thm:prior}
+For every full-support prior $\pi$ on $\cube$,
+\begin{multline*}
+  \Kflat(\pi) \;=\; \min\bigl\{\, K : \text{some } \pi\text{-optimal} \\
+  K\text{-median set of size } K \text{ is 2-dominating} \,\bigr\}.
+\end{multline*}
+\end{theorem}
+
+\begin{proof}
+Necessity is Lemma~\ref{lem:necessity}, whose argument is prior-free: it uses
+only that attaining $\Dnull(K)$ forces each profile's label mass onto its
+nearest centres, which holds for any full-support prior, and then that the
+resulting edge derivative vanishes. So a flat record's centre set is
+$\pi$-optimal and 2-dominating. Conversely a 2-dominating $C$ is dominating, so
+the record of Lemma~\ref{lem:sufficiency} places every non-centre's mass on
+centres at distance $1$ and costs exactly $1 - \pi(C)$; that equals $\Dnull(K)$
+precisely when $C$ is $\pi$-optimal, and the margin computation never used the
+prior.
+\end{proof}
+
+Under the uniform prior every dominating $K$-set is optimal, the condition
+collapses to ``a 2-dominating set of size $K$ exists'', and
+Theorem~\ref{thm:kflat} is recovered. The generalisation is not decoration: the
+threshold moves, and it moves a long way.
+
+\begin{corollary}[Tilted product prior]
+\label{cor:tilt}
+Let $\pi$ be a product Bernoulli prior with parameter
+$q \in (0,1)$, $q \ne 1/2$, and let $n \ge 3$. Then
+\[
+  \Kflat(\pi) \;=\; 2^n - (n-1),
+\]
+attained with margin exactly $1/2$.
+\end{corollary}
+
+\begin{proof}
+Assume $q > 1/2$; otherwise complement every coordinate. Since $q \in (0,1)$ the
+prior has full support and Theorem~\ref{thm:prior} applies; $\pi$ is strictly
+increasing in $|s|$, so the maximum-mass $K$-sets are exactly the sets of $K$
+heaviest vertices, and their complements are the $2^n - K$ lightest: $0^n$
+first, then weight-one vertices. Note that no parity assumption is used, which
+is why $n$ here is not restricted to odd values as it is in
+Theorem~\ref{thm:onebit}.
+
+\emph{Lower bound.} If $2^n - K \ge n$, every minimum-mass complement contains
+$0^n$ together with at least $n-1$ of the $n$ weight-one vertices, so $0^n$
+keeps at most one neighbour in $C$ and $C$ is not 2-dominating. By
+Theorem~\ref{thm:prior} there is no flat record at that $K$.
+
+\emph{Upper bound.} At $K = 2^n - (n-1)$ take $C$ to be the complement of
+$\{0^n, e_1, \dots, e_{n-2}\}$. It is a maximum-mass $K$-set; each excluded
+weight-one vertex has its $n-1$ weight-two neighbours in $C$; and $0^n$ retains
+exactly two neighbours, $e_{n-1}$ and $e_n$. So $C$ is 2-dominating with
+$\dmin = 2$, and Lemma~\ref{lem:sufficiency} gives margin $1 - 1/2 = 1/2$.
+\end{proof}
+
+\begin{table}[t]
+\centering
+\caption{The threshold under the uniform prior and under any tilted product
+prior. The last two columns are the free compression ratios $C(n) = 2^n/\Kflat$.
+Verified against a weighted-median MILP at $n = 3,5,7$ and solver-free at
+$n \le 13$.}
+\label{tab:tilt}
+\small
+\begin{tabular}{@{}lrrrr@{}}
+\toprule
+ & \multicolumn{2}{c}{$\Kflat$} & \multicolumn{2}{c}{$C(n)$} \\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}
+$n$ & uniform & tilted & uniform & tilted \\
+\midrule
+3  & $4$        & $6$    & $2.00$ & $1.33$ \\
+5  & $10$       & $28$   & $3.20$ & $1.14$ \\
+7  & $32$       & $122$  & $4.00$ & $1.05$ \\
+9  & $[97,128]$ & $504$  & $4.0$--$5.3$ & $1.02$ \\
+20 & $\ge 9.5{\cdot}10^{4}$ & $2^{20}{-}19$ & $8$--$11$ & $1.00002$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The free compression ratio under tilt is
+$2^n/(2^n - n + 1) = 1 + O(n2^{-n})$: it collapses to $1$. Where the uniform
+analysis grants a $\Theta(n)$ safe zone, an arbitrarily small asymmetry in how
+likely agents are to exert effort removes almost all of it---at $n = 20$ the
+free allowance falls from $3.0$--$3.5$ bits to $2.6\times10^{-5}$ bits
+(Table~\ref{tab:tilt}). Note the discontinuity: the bound does not degrade
+smoothly as $q \to 1/2$, because for every $q \ne 1/2$ the ordering of the
+profiles by mass is strict and the argument above applies unchanged.
+
+The mechanism is visible in the proof. Optimal reconstruction under a tilted
+prior spends its labels on the profiles that are likely, and the profiles it
+abandons are exactly the ones that then become invisible to a unilateral
+deviation. Symmetry is what let the uniform record abandon profiles evenly.
+
+Two readings, and both belong in the record. First, the uniform prior is the
+\emph{most favourable} case for accountability rather than a neutral modelling
+choice, so the engineering conclusions of Section~\ref{sec:agents} are
+conservative---the real safe zone is smaller than the one we compute there.
+Second, any claim of the form ``records above $\gtwo(\Qn)$ are safe'' is a
+statement about exact symmetry, and should not be quoted without it.

@@ -1,0 +1,46 @@
+n=3 gamma=0.000000  LP=0.7500000000  claimed=0.7500000000  gap=+0.000e+00  q=conj:True
+n=3 gamma=0.083333  LP=0.8125000000  claimed=0.8125000000  gap=+0.000e+00  q=conj:True
+n=3 gamma=0.166667  LP=0.8750000000  claimed=0.8750000000  gap=+0.000e+00  q=conj:True
+n=3 gamma=0.250000  LP=0.9375000000  claimed=0.9375000000  gap=+0.000e+00  q=conj:True
+n=3 gamma=0.333333  LP=1.0000000000  claimed=1.0000000000  gap=+0.000e+00  q=conj:True
+  [n=3 done in 0.2s]
+
+n=5 gamma=0.000000  LP=1.5625000000  claimed=1.5625000000  gap=+0.000e+00  q=conj:True
+n=5 gamma=0.050000  LP=1.6718750000  claimed=1.6718750000  gap=+0.000e+00  q=conj:True
+n=5 gamma=0.100000  LP=1.7812500000  claimed=1.7812500000  gap=+0.000e+00  q=conj:True
+n=5 gamma=0.150000  LP=1.8906250000  claimed=1.8906250000  gap=+0.000e+00  q=conj:True
+n=5 gamma=0.200000  LP=2.0000000000  claimed=2.0000000000  gap=+0.000e+00  q=conj:True
+  [n=5 done in 0.7s]
+
+n=7 gamma=0.000000  LP=2.4062500000  claimed=2.4062500000  gap=+0.000e+00  q=conj:True
+n=7 gamma=0.035714  LP=2.5546875000  claimed=2.5546875000  gap=-4.441e-16  q=conj:True
+n=7 gamma=0.071429  LP=2.7031250000  claimed=2.7031250000  gap=+4.441e-16  q=conj:True
+n=7 gamma=0.107143  LP=2.8515625000  claimed=2.8515625000  gap=+0.000e+00  q=conj:True
+n=7 gamma=0.142857  LP=3.0000000000  claimed=3.0000000000  gap=+0.000e+00  q=conj:True
+  [n=7 done in 3.1s]
+
+n=9 gamma=0.000000  LP=3.2695312500  claimed=3.2695312500  gap=+0.000e+00  q=conj:True
+n=9 gamma=0.027778  LP=3.4521484375  claimed=3.4521484375  gap=-3.109e-15  q=conj:True
+n=9 gamma=0.055556  LP=3.6347656250  claimed=3.6347656250  gap=+1.332e-15  q=conj:True
+n=9 gamma=0.083333  LP=3.8173828125  claimed=3.8173828125  gap=+0.000e+00  q=conj:True
+n=9 gamma=0.111111  LP=4.0000000000  claimed=4.0000000000  gap=+8.882e-16  q=conj:True
+  [n=9 done in 38.2s]
+
+orbit-vs-full cross-check:
+  n=3 gamma=0.0000  orbit=0.7500000000 full=0.7500000000 diff=+0.00e+00
+  n=3 gamma=0.1667  orbit=0.8750000000 full=0.8750000000 diff=+0.00e+00
+  n=3 gamma=0.3333  orbit=1.0000000000 full=1.0000000000 diff=+0.00e+00
+  n=5 gamma=0.0000  orbit=1.5625000000 full=1.5625000000 diff=+0.00e+00
+  n=5 gamma=0.1000  orbit=1.7812500000 full=1.7812500000 diff=+0.00e+00
+  n=5 gamma=0.2000  orbit=2.0000000000 full=2.0000000000 diff=+0.00e+00
+
+orientation invariance n=3 gamma=1/6:
+  (1, 1, 1) -> 0.8750000000
+  (1, 1, -1) -> 0.8750000000
+  (1, -1, 1) -> 0.8750000000
+  (1, -1, -1) -> 0.8750000000
+  (-1, 1, 1) -> 0.8750000000
+  (-1, 1, -1) -> 0.8750000000
+  (-1, -1, 1) -> 0.8750000000
+  (-1, -1, -1) -> 0.8750000000
+  spread: 0.0

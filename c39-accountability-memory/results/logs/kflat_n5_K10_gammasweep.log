@@ -1,0 +1,10 @@
+D0 strictly decreasing over K=1..32: True  (Lemma 2 premise)
+
+--- n=5 K=10  D0=0.6875  counting: N*D0=22.0000 vs rhs=19.0000 -> not excluded
+    optimal codes satisfying Lemma 3: 16 (exhaustive=True)
+    gamma=0.25: FLAT_CERTIFIED  (code #0, D=0.687500, binary-p margin=0.250000, general-p margin=0.250000)
+    gamma=0.3: FLAT_CERTIFIED  (code #0, D=0.687500, binary-p margin=0.300000, general-p margin=0.300000)
+    gamma=0.4: FLAT_CERTIFIED  (code #0, D=0.687500, binary-p margin=0.400000, general-p margin=0.400000)
+    gamma=0.5: FLAT_CERTIFIED  (code #0, D=0.687500, binary-p margin=0.500000, general-p margin=0.500000)
+    gamma=0.6: no construction among 16 codes (exhaustive=True)
+    gamma=0.8: no construction among 16 codes (exhaustive=True)

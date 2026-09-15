@@ -1,0 +1,180 @@
+\section{When is accountability free?}
+\label{sec:threshold}
+
+Below some record size the two demands genuinely conflict; above it they do not.
+This section identifies that threshold exactly, and it turns out not to be a
+quantity of information theory at all.
+
+\subsection{Necessity: flat records are 2-dominating}
+
+Call a record \emph{flat} at $(n,K)$ if it attains the unconstrained optimum
+$\Dnull(K)$ while implementing some margin $\gamma > 0$. Write $C \subseteq \cube$
+for its set of \emph{centres}, the reconstruction targets of the $K$ labels.
+
+\begin{lemma}[Necessity]
+\label{lem:necessity}
+Let $\Dnull$ be strictly decreasing at $K$, so the $K$ centres are distinct.
+If some non-centre $s$ has a \emph{unique} nearest centre, the record is not
+flat---for \emph{any} bounded payment decoders.
+\end{lemma}
+
+\begin{proof}[Proof sketch]
+Let $d(s,C) = r \ge 1$ with unique nearest centre $c$, and flip one bit of $s$
+towards $c$ to obtain $s'$, so $d(s',c) = r-1$. Uniqueness forces
+$d(s,c') \ge r+1$ for every other centre $c'$, hence $d(s',c') \ge r > r-1$: the
+nearest centre of $s'$ is again $c$, again uniquely. Attaining $\Dnull(K)$ forces
+each profile's label distribution onto its nearest centres, so $\enc[s,\cdot]$
+and $\enc[s',\cdot]$ are both point masses on $c$'s label. That edge therefore
+has $d_i = 0$, and $\langle \pay_i, d_i \rangle = 0 < \gamma$ for
+\emph{every} $\pay_i \in [0,1]^K$ --- this is Theorem~\ref{thm:elim}\,(ii).
+Uniqueness propagates, so the argument reaches every non-centre.
+\end{proof}
+
+When $C$ is dominating---every non-centre at distance $1$---Lemma~\ref{lem:necessity}
+says precisely that every vertex outside $C$ has at least \emph{two} neighbours
+in $C$: $C$ is a \emph{2-dominating set} of the hypercube $\Qn$.
+
+\subsection{Sufficiency: every 2-dominating set gives a flat record}
+
+\begin{lemma}[Sufficiency]
+\label{lem:sufficiency}
+Let $C$ be 2-dominating, $|C| = K$. (Being 2-dominating, $C$ is in particular
+dominating, so $K \ge \gamma(\Qn)$ automatically; no separate hypothesis is
+needed here.) Define
+\[
+  \enc[c,\cdot] = \delta_{\ell(c)} \ \ (c \in C), \qquad
+  \enc[t,\cdot] = \mathrm{Unif}\bigl(\ell(N(t) \cap C)\bigr) \ \ (t \notin C),
+\]
+and pay agent $i$ the reconstructed $i$-th bit, $\pay_i[y] = (\text{centre of } y)_i$.
+Then $D = \Dnull(K)$ exactly, and the all-teammate-profile margin is exactly
+$1 - 1/\dmin$, where $\dmin = \min_{t \notin C}|N(t)\cap C| \ge 2$.
+\end{lemma}
+
+\begin{proof}[Proof sketch]
+Every non-centre is at distance $1$ and its mass sits on nearest centres, so the
+Bayes reconstruction errs exactly on non-centres and by exactly one bit:
+$D = (2^n - K)/2^n = \Dnull(K)$. For the margin, take an edge
+$s_1 = s_0 + e_i$ and check four cases. Both endpoints in $C$: margin $1$. One
+endpoint in $C$, say $s_1$: the centre-neighbours of $s_0$ are $s_1$, whose
+$i$-th bit is $1$, and others $s_0 + e_j$, $j \ne i$, whose $i$-th bit is $0$;
+the margin is $1 - 1/|N(s_0)\cap C|$. Neither endpoint in $C$: every
+centre-neighbour of $s_1$ other than $s_0$ has $i$-th bit $1$ and $s_0$ is not a
+centre, so that average is $1$, and symmetrically $s_0$'s is $0$; margin $1$.
+\end{proof}
+
+Because $\dmin \ge 2$ the margin is always at least $1/2$: where accountability
+is free, it is not merely positive but bounded away from zero.
+
+\subsection{The threshold is a graph invariant}
+
+\begin{theorem}[Flatness threshold]
+\label{thm:kflat}
+Restricted to $K \ge \gamma(\Qn)$ --- the \emph{dominating regime}, in which some
+optimal $K$-median code is dominating ---
+\[
+  \Kflat(n) \;=\; \gtwo(\Qn),
+\]
+the 2-domination number of the $n$-cube, with margin $1 - 1/\dmin \ge 1/2$
+attained by the record of Lemma~\ref{lem:sufficiency}.
+\end{theorem}
+
+The restriction belongs to the \emph{necessity} half, and we state where
+precisely. Sufficiency needs nothing extra: a 2-dominating set is dominating, so
+Lemma~\ref{lem:sufficiency} applies wherever it applies at all. What fails below
+$\gamma(\Qn)$ is the converse: optimal codes there are not dominating, and
+Lemma~\ref{lem:necessity} then yields only ``two nearest centres at the same
+radius'', which is weaker than 2-domination. Small $K$ is therefore excluded
+separately, by the counting bound of Section~\ref{sec:shell}, and every value we
+report records which $K$ were covered by which argument. The restriction is never
+binding at those values: $\gamma(\Qn)$ is known exactly for
+$n \le 9$~\cite{ostergardblass2001}, taking the values $2, 7, 16, 62$ at
+$n = 3,5,7,9$, each far below the corresponding entry of
+Table~\ref{tab:certificates}.
+
+\begin{remark}[What is exact, and what is merely known]
+\label{rem:exactness}
+Theorem~\ref{thm:kflat} is an exact identity: the threshold \emph{is} the
+invariant, for every $n$. It is not a claim that we know the invariant's value.
+$\gtwo(\Qn)$ has no closed form, so Table~\ref{tab:certificates} reports our
+computational knowledge of it --- exact at $n = 3,5,7$, bracketed at $n = 9$.
+The bracket at $n=9$ is a gap in what is \emph{known about $\gtwo$}, not a gap in
+the theorem, and it would close the moment someone evaluated the invariant.
+\end{remark}
+
+Theorem~\ref{thm:kflat} converts the threshold from the output of a search over
+records and payment rules into the value of a classical, well-studied invariant.
+That is the paper's main conceptual claim. It also has a practical consequence:
+once $\Kflat = \gtwo(\Qn)$, computing values is \emph{evaluating a known
+invariant} rather than proving a new combinatorial result, and we make no
+novelty claim for the numbers in Table~\ref{tab:certificates}.
+
+\subsection{A shell counting bound}
+\label{sec:shell}
+
+\begin{lemma}[Shell bound]
+\label{lem:shell}
+Let the record be flat with centre set $C$, $|C| = K$. Then every profile at
+distance $r$ from $C$ has at least two centres \emph{at distance $r$}, and there
+are at most $K\binom{n}{r}$ such (profile, centre) pairs. Hence shell $r$ holds at most $\lfloor K\binom{n}{r}/2 \rfloor$ profiles.
+Filling shells from the inside gives a lower bound on $2^n \Dnull$; if it exceeds
+an upper bound on $2^n \Dnull(K)$, flatness at $(n,K)$ is impossible.
+\end{lemma}
+
+The bound reduces to the incidence-counting bound of Fink and Jacobson~\cite{finkjacobson1985} when
+everything fits inside shell~$1$, and it is \emph{tight}---not merely valid---at
+all three known flat points, excluding none of them: at $(n,K) = (3,4)$,
+$(5,10)$ and $(7,32)$ the shell lower bound equals $2^n\Dnull$ exactly
+($4$, $22$ and $96$).
+
+\subsection{Values, with certificates}
+
+\begin{table}[t]
+\centering
+\caption{Certificate chain for each $n$. ``Shell'' = excluded by
+Lemma~\ref{lem:shell} with no search; ``proved infeasible'' = 2-domination MILP
+returning infeasibility (not a time limit); ``code'' = explicit 2-dominating set,
+verified without a solver. At $n = 5$ the shell bound already excludes $K = 9$,
+so the MILP row there only corroborates it; every other infeasibility row is
+doing work the shell bound cannot do.}
+\label{tab:certificates}
+\begin{tabular}{@{}lllll@{}}
+\toprule
+$n$ & excluded & proved infeasible & attained & $\Kflat$ \\
+\midrule
+3 & $K \le 3$ (shell)  & ---                 & $K=4$ (code)   & $4$ \\
+5 & $K \le 9$ (shell)  & $K = 9$ (redundant) & $K=10$ (code)  & $10$ \\
+7 & $K \le 28$ (shell) & $K = 29,30,31$      & $K=32$ (code)  & $32$ \\
+9 & $K \le 93$ (shell) & $K = 94,95,96$      & $K=128$ (code) & $[97,128]$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+One coincidence is worth disarming before it is noticed: $\gtwo(Q_3) = 4$,
+$\gtwo(Q_6) = 16$ and $\gtwo(Q_7) = 32$ equal the known $\gamma(Q_4)$,
+$\gamma(Q_7)$ and $\gamma(Q_8)$~\cite{ostergardblass2001}. It is not a relation.
+At $n = 5$ it fails: $\gtwo(Q_5) = 10$ while $\gamma(Q_6) = 12$.
+
+The $n = 7$ value has two independent routes: the infeasibility chain above, and
+an algebraic parity-check construction that produces a $32$-element code
+directly. Both codes verify solver-free at $D = \Dnull = 0.75$, margin $0.5$,
+$\dmin = 2$. At $n = 9$ the explicit code gives $D = \Dnull = 0.75$, margin
+$0.667$, $\dmin = 3$.
+
+\paragraph{What is open, and why.}
+$\Kflat(9) \in [97,128]$ and we report it as open rather than guessing. Three
+routes failed: feasibility MILPs at $K = 98,100,\dots,124$ (512 binaries) did not
+terminate within 40 minutes each; shrink-only local search cannot move at all,
+because the algebraic code has \emph{zero internal edges}, so deleting any centre
+leaves it without a centre neighbour; and destroy-and-repair search over
+$70{,}685$ trials never improved on $128$.
+
+\paragraph{Bounds on the invariant.}
+\[
+  \frac{2^{\,n+1}}{n+2} \;\le\; \gtwo(\Qn) \;\le\; 2^{\,n - \lfloor \log_2(n/2+1)\rfloor}.
+\]
+The lower bound is Fink and Jacobson's~\cite{finkjacobson1985} $\gamma_k(G) \ge k|V|/(\Delta+k)$ at
+$k=2$, $\Delta=n$; it is attained at $n = 3, 5$ and \emph{not} at $n = 7$
+($28.44$ against $32$) or $n = 9$ ($\ge 97$ against $93.09$). The upper bound
+comes from a parity-check matrix with no zero column in which every nonzero
+syndrome is used at least twice; it is tight at $n = 3$ and $n = 7$ and loose at
+$n = 5$ ($16$ against $10$).

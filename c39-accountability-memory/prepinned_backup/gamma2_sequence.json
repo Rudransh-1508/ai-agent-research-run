@@ -1,0 +1,243 @@
+{
+ "n1": {
+  "method_X": 2,
+  "method_X_subsets": 4,
+  "method_X_set": [
+   0,
+   1
+  ],
+  "method_M": 2,
+  "agree": true,
+  "milp_rows": [
+   {
+    "K": 1,
+    "feasible": false,
+    "status": 2,
+    "seconds": 0.01
+   },
+   {
+    "K": 2,
+    "feasible": true,
+    "status": 0,
+    "seconds": 0.0
+   }
+  ]
+ },
+ "n2": {
+  "method_X": 2,
+  "method_X_subsets": 16,
+  "method_X_set": [
+   1,
+   2
+  ],
+  "method_M": 2,
+  "agree": true,
+  "milp_rows": [
+   {
+    "K": 1,
+    "feasible": false,
+    "status": 2,
+    "seconds": 0.0
+   },
+   {
+    "K": 2,
+    "feasible": true,
+    "status": 0,
+    "seconds": 0.0
+   }
+  ]
+ },
+ "n3": {
+  "method_X": 4,
+  "method_X_subsets": 256,
+  "method_X_set": [
+   2,
+   3,
+   4,
+   5
+  ],
+  "method_M": 4,
+  "agree": true,
+  "milp_rows": [
+   {
+    "K": 1,
+    "feasible": false,
+    "status": 2,
+    "seconds": 0.0
+   },
+   {
+    "K": 2,
+    "feasible": false,
+    "status": 2,
+    "seconds": 0.01
+   },
+   {
+    "K": 3,
+    "feasible": false,
+    "status": 2,
+    "seconds": 0.0
+   },
+   {
+    "K": 4,
+    "feasible": true,
+    "status": 0,
+    "seconds": 0.0
+   }
+  ]
+ },
+ "n4": {
+  "method_X": 7,
+  "method_X_subsets": 65536,
+  "method_X_set": [
+   0,
+   5,
+   6,
+   7,
+   8,
+   11,
+   12
+  ],
+  "method_M": 7,
+  "agree": true,
+  "milp_rows": [
+   {
+    "K": 1,
+    "feasible": false,
+    "status": 2,
+    "seconds": 0.0
+   },
+   {
+    "K": 2,
+    "feasible": false,
+    "status": 2,
+    "seconds": 0.0
+   },
+   {
+    "K": 3,
+    "feasible": false,
+    "status": 2,
+    "seconds": 0.0
+   },
+   {
+    "K": 4,
+    "feasible": false,
+    "status": 2,
+    "seconds": 0.0
+   },
+   {
+    "K": 5,
+    "feasible": false,
+    "status": 2,
+    "seconds": 0.0
+   },
+   {
+    "K": 6,
+    "feasible": false,
+    "status": 2,
+    "seconds": 0.03
+   },
+   {
+    "K": 7,
+    "feasible": true,
+    "status": 0,
+    "seconds": 0.0
+   }
+  ]
+ },
+ "n5": {
+  "method_M": 10,
+  "fink_jacobson_lb": 9,
+  "milp_rows": [
+   {
+    "K": 9,
+    "feasible": false,
+    "status": 2,
+    "seconds": 0.0
+   },
+   {
+    "K": 10,
+    "feasible": true,
+    "status": 0,
+    "seconds": 0.01,
+    "recheck": {
+     "size": 10,
+     "min_deg_outside": 2,
+     "is_2_dominating": true,
+     "internal_edges": 0,
+     "n_outside": 22
+    }
+   }
+  ]
+ },
+ "n6": {
+  "method_M": 16,
+  "fink_jacobson_lb": 16,
+  "milp_rows": [
+   {
+    "K": 16,
+    "feasible": true,
+    "status": 0,
+    "seconds": 0.0,
+    "recheck": {
+     "size": 16,
+     "min_deg_outside": 2,
+     "is_2_dominating": true,
+     "internal_edges": 0,
+     "n_outside": 48
+    }
+   }
+  ]
+ },
+ "n7": {
+  "method_M": 32,
+  "fink_jacobson_lb": 28,
+  "milp_rows": [
+   {
+    "K": 28,
+    "feasible": false,
+    "status": 2,
+    "seconds": 0.01
+   },
+   {
+    "K": 29,
+    "feasible": false,
+    "status": 2,
+    "seconds": 0.53
+   },
+   {
+    "K": 30,
+    "feasible": false,
+    "status": 2,
+    "seconds": 1.06
+   },
+   {
+    "K": 31,
+    "feasible": false,
+    "status": 2,
+    "seconds": 12.58
+   },
+   {
+    "K": 32,
+    "feasible": true,
+    "status": 0,
+    "seconds": 0.33,
+    "recheck": {
+     "size": 32,
+     "min_deg_outside": 2,
+     "is_2_dominating": true,
+     "internal_edges": 16,
+     "n_outside": 96
+    }
+   }
+  ]
+ },
+ "sequence_n1_to_n7": [
+  2,
+  2,
+  4,
+  7,
+  10,
+  16,
+  32
+ ]
+}
