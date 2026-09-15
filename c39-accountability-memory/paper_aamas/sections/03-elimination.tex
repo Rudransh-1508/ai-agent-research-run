@@ -1,0 +1,105 @@
+\section{Eliminating the payment rule}
+\label{sec:elimination}
+
+Feasibility in Section~\ref{sec:model} couples two unknowns, the record $\enc$
+and the decoders $\pay_i$. Products of the two make the natural formulation
+bilinear. Our first result removes $\pay_i$ entirely.
+
+\begin{theorem}[Payment-decoder elimination]
+\label{thm:elim}
+Fix a record $\enc$ and an agent $i$. There exists a bounded decoder
+$\pay_i \in [0,1]^K$ satisfying \eqref{eq:margin} if and only if
+\[
+  \min_{\lambda \in \simplex(\{0,1\}^{n-1})}
+  \tfrac{1}{2}\bigl\|\,\E_{\lambda}\bigl[d_i\bigr]\,\bigr\|_1 \;\ge\; \gamma ,
+\]
+where $\E_\lambda[d_i] = \sum_{\sminus} \lambda(\sminus)\, d_i(\sminus)$.
+\end{theorem}
+
+\begin{proof}
+Feasibility for agent $i$ says
+$\max_{\pay \in [0,1]^K} \min_{\sminus} \langle \pay, d_i(\sminus)\rangle \ge \gamma$.
+The inner minimum is over a finite set, so it equals the minimum over its convex
+hull. The map $(\pay,\lambda) \mapsto \langle \pay, \E_\lambda[d_i]\rangle$ is
+bilinear and both $[0,1]^K$ and the simplex are convex and compact, so von
+Neumann's minimax theorem gives
+\[
+  \max_{\pay} \min_{\lambda} \langle \pay, \E_\lambda[d_i]\rangle
+  = \min_{\lambda} \max_{\pay} \langle \pay, \E_\lambda[d_i]\rangle
+  = \min_{\lambda} \sum_y \bigl(\E_\lambda[d_i]\bigr)_y^{+},
+\]
+the last step because maximising a linear form over the unit cube sets
+$\pay_y = 1$ on positive coordinates and $0$ elsewhere. Each $d_i(\sminus)$ is a
+difference of probability vectors, so it sums to zero, as does any mixture; for a
+zero-sum $v$, $\sum_y v_y^+ = \tfrac12\|v\|_1$.
+\end{proof}
+
+\paragraph{What is and is not new here.}
+Both ingredients are classical: von Neumann's minimax theorem, and the
+variational characterisation of total variation as the largest gap a bounded test
+function can produce. The \emph{qualitative} content---that holding an agent to
+account requires its deviation to move the distribution of the observed
+signal---is also standard, and is exactly the role of the individual and pairwise
+full-rank conditions of Fudenberg, Levine and Maskin~\cite{flm1994} in repeated
+games with imperfect public monitoring. We claim neither. What
+Theorem~\ref{thm:elim} adds is a \emph{quantitative, one-shot} form of that
+condition---the shift must be at least $\gamma$ in total variation, robustly over
+mixtures of teammate behaviour---and, decisively, the elimination of the payment
+rule. Detectability conditions in the repeated-games literature are stated for a
+\emph{given} monitoring structure; here the monitoring structure is the unknown,
+and removing $\pay$ is what makes it possible to ask which structures a budget
+can buy.
+
+\begin{corollary}[Edge condition]
+\label{cor:edge}
+Taking $\lambda$ a point mass gives a necessary condition: for every agent $i$
+and every teammate profile $\sminus$,
+\[
+  \TV\bigl(\enc[(1,\sminus),\cdot],\; \enc[(0,\sminus),\cdot]\bigr) \;\ge\; \gamma .
+\]
+\end{corollary}
+
+\begin{corollary}[A bound mechanism design must respect]
+\label{cor:effort}
+Fix effort costs $c_i > 0$ and let $\gamma^\ast(\enc)$ denote the largest margin
+the record $\enc$ implements. If $\gamma^\ast(\enc) < c_i$ then no bounded
+payment rule computed from the record makes agent~$i$'s effort profitable
+against every teammate profile: for \emph{every} $\pay_i \in [0,1]^K$ there is a
+$\sminus$ with $\langle \pay_i, d_i(\sminus)\rangle < c_i$. Consequently no
+mechanism whose transfers are measurable with respect to the record can sustain
+agent~$i$'s effort, under any solution concept.
+\end{corollary}
+
+\begin{proof}
+Immediate from Theorem~\ref{thm:elim}: $\gamma^\ast(\enc)$ is the value of the
+minimax problem, so $\gamma^\ast(\enc) < c_i$ means no bounded $\pay_i$ achieves
+$c_i$ uniformly in $\sminus$. The final clause holds because any such mechanism's
+transfer to $i$ is a function of $Y$ alone, hence is some $\pay_i$ after
+rescaling into $[0,1]$.
+\end{proof}
+
+The scope of Corollary~\ref{cor:effort} is worth stating plainly, since it is
+what makes the rest of the paper a constraint on mechanism design rather than an
+exercise in coding theory. It is a statement about \emph{information}, not about
+equilibrium: it does not identify an equilibrium, does not model participation or
+budget balance, and does not say what the designer should do. It says what no
+designer can do. The quantities $\Dopt$, $\Kflat$ and the frontier computed below
+are therefore feasibility boundaries---a record failing them is unusable for
+settlement no matter how clever the mechanism placed on top of it.
+
+\paragraph{Two further consequences.}
+First, the problem becomes an optimisation over the record alone:
+Theorem~\ref{thm:elim} replaces a bilinear search over $(\enc,\pay)$ by a
+condition on $\enc$, which is what makes Section~\ref{sec:threshold} reachable---a
+bilinear formulation did not terminate at $n = 7$, whereas the reduced question
+is a feasibility problem over $2^n$ binary variables and runs in milliseconds.
+Second, impossibility becomes cheap: if a record maps some profile and all $n$ of
+its unilateral neighbours to the same label, every edge total variation there is
+$0$, so by Corollary~\ref{cor:edge} no bounded payment achieves any positive
+margin, for any decoder rather than merely a binary one.
+
+Corollary~\ref{cor:edge} is the general statement of the phenomenon this paper is
+about: \emph{a record supports accountability exactly to the extent that each
+agent, acting alone, visibly moves it.} Reconstruction wants the opposite---it
+merges profiles that are cheap to confuse in order to spend its $K$ labels well.
+The rest of the paper measures the collision.

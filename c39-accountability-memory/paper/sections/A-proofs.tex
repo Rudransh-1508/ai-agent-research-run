@@ -335,17 +335,23 @@ Proposition~\ref{prop:antipodal}---the Rademacher identity and its monotonicity,
 the bound \eqref{eq:LB} over all $4^n$ reconstruction pairs at $n = 3,5$ and over
 all $(p,m)$ orbits at $n = 7,9$, and feasibility of $r^\ast$. It recomputes every
 cell of Table~\ref{tab:ratio} from the two bounds on $\gtwo(\Qn)$, and it checks
-both directions of Corollary~\ref{cor:tilt} at $n \le 13$ without a solver: the
-witness of size $2^n-(n-1)$ is 2-dominating with $\dmin = 2$, its complement is a
-minimum-mass set for each tilt, and no minimum-mass complement of size $n$ is
-2-dominating. All $145$ checks pass in the pinned environment (Python 3.10.11,
-NumPy 2.2.6, SciPy 1.15.3).
+the counterexamples of Section~\ref{sec:priors} by direct enumeration: at
+$n = 3,4$ under the Bernoulli$(0.7)$ prior it enumerates every $K$-subset,
+identifies the $\pi$-optimal codes, and exhibits a flat record with
+$D = \Dnull(K)$ and $\gamma > 0$ at a $K$ below the withdrawn threshold. All $99$ checks pass in the pinned environment (Python 3.10.11, NumPy 2.2.6, SciPy
+1.15.3).
 
-The values in Table~\ref{tab:tilt} were obtained twice and independently: by the
-solver-free argument just described, and by \texttt{prior\_threshold.py}, which
-solves a weighted $K$-median MILP and a maximum-mass 2-domination MILP at each
-$K$ and reports the least $K$ at which they agree. The two routes give
-$6$, $28$ and $122$ at $n = 3,5,7$.
+\paragraph{A correction, and what it says about our verification.}
+An earlier version of this paper claimed a general-prior threshold of
+$2^n - (n-1)$. It was wrong, and the way it was wrong is worth recording. Both
+verification routes---the solver-free checks and the independent
+\texttt{prior\_threshold.py} MILP---searched for a \emph{2-dominating} set, so
+both encoded the same incorrect reading of Lemma~\ref{lem:necessity}. They
+agreed on $6$, $28$ and $122$ at $n = 3,5,7$, and their agreement was worth
+nothing, because independence of implementation does not buy independence of
+specification. The error was caught by a test that asked a different
+question---relax $\gamma$ and ask an LP directly whether $\Dnull(K)$ is
+attainable---rather than by a second implementation of the same question.
 
 The MILP-derived facts---infeasibility of $2$-domination at $(n,K) = (5,9)$,
 $(7,29)$, $(7,30)$, $(7,31)$, $(9,94)$, $(9,95)$ and $(9,96)$---are the only

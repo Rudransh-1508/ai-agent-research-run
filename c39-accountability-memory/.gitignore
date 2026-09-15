@@ -4,17 +4,21 @@ __pycache__/
 *.pyc
 
 # LaTeX build output. Note the narrow paths: results/logs/*.log are experiment
-# evidence and MUST stay tracked, so *.log is never ignored globally.
-paper/*.aux
-paper/*.log
-paper/*.out
-paper/*.bbl
-paper/*.blg
-paper/*.toc
-paper/*.fls
-paper/*.fdb_latexmk
-paper/*.synctex.gz
-paper/main.pdf
+# evidence and MUST stay tracked, so *.log is never ignored globally. The
+# paper*/ glob covers every paper directory (paper/, paper_aamas/, ...); the
+# manifest scripts skip exactly the same set, and they must stay in step or the
+# archive fails its own integrity check.
+paper*/*.aux
+paper*/*.log
+paper*/*.out
+paper*/*.bbl
+paper*/*.blg
+paper*/*.toc
+paper*/*.fls
+paper*/*.fdb_latexmk
+paper*/*.synctex.gz
+paper*/main.pdf
+texput.log
 
 # Built artifacts -- reproducible with `python run.py package`
 dist/

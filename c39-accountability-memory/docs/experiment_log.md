@@ -1023,3 +1023,345 @@ exactly why it reflects the record and is stable.
 A fixed version would equalise auditability across sub-questions -- each asking
 for a specific named artefact from the diff. That is a redesign, not a re-run,
 and it is not needed for the claim the experiment is being used to support.
+
+## E43 — Skeptical audit of the failed predictions (2026-09-15)
+
+Root-cause audit of every falsified prediction, run against artifacts rather
+than prose. Three findings about our own record-keeping, one about the paper,
+and one that changes what §7.2 claims.
+
+### Record-keeping defects found
+
+* **L6 was registered and never scored.** As written it compares gamma against
+  "the prose design", which was never run, so it is **not evaluable by
+  construction**. It should not be counted either way.
+* **P4 was registered as one prediction and scored as two (P4a/P4b).** Splitting
+  after seeing results lets half of it confirm. P4 as registered contained two
+  conjuncts and one failed, so P4 is falsified; the a/b split is reporting
+  detail, not two independent predictions.
+* **The paper's count was wrong.** §1 said "two were wrong". Across all
+  registered predictions the true figure is 8 derived all holding and **18
+  falsified**. Corrected.
+
+### No implementation bug
+
+Every headline number was recomputed from `results/experiment_llm.json` by an
+independent script that shares no code with `analyse_llm.py` -- a separate
+channel estimator and a separately written Theorem-3 LP. All values matched to
+three decimals (`results/independent_recheck.json`). Root cause H is excluded.
+
+### The actual root cause of L1-L4
+
+Not "task design affected the results" -- specifically this:
+
+| record | gamma agent 0 | agent 1 | agent 2 | binds |
+|---|---|---|---|---|
+| full_trace | 0.958 | 0.792 | **0.075** | agent 2 |
+| per_agent_summary | 0.875 | 0.744 | **0.292** | agent 2 |
+| artifact_multiset | **0.207** | 0.335 | 0.271 | agent 0 |
+| global_summary | **0.083** | 0.272 | 0.103 | agent 0 |
+| final_output | 0.500 | **0.000** | 0.021 | agent 1 |
+
+Agent 2 binds **only the identity-preserving records**. Where identity is
+destroyed no agent is detectable and all three sit together. The earlier claim
+in E42 that "agent 2 sets the margin for every record" was **wrong** and is
+corrected here.
+
+Dropping agent 2 restores the registered ordering exactly:
+0.792 >= 0.744 > 0.207 >= 0.083 >= 0, which is L1 as written. Reported as a
+diagnosis, not a rescue -- the prediction was made over three agents.
+
+Agent 2's difficulty is independently visible without the gamma machinery:
+per-agent classification accuracy on the full trace is 0.990, 0.943, **0.677**.
+
+**A confound we cannot resolve:** agent i always receives sub-question i, so
+sub-question difficulty and position in the record are perfectly confounded.
+Nothing in this data separates them. Now stated in the limitations.
+
+### The finding that changes §7.2
+
+Decomposing the attribution error into "how many" and "which":
+
+| record | raw | best relabelling | count only |
+|---|---|---|---|
+| full_trace | 0.391 | 0.391 | 0.391 |
+| artifact_multiset | 1.333 | **0.438** | **0.438** |
+
+The multiset recovers the **count** about as well as the full trace (0.438 vs
+0.391) and essentially none of the **assignment**. The 0.943-bit gap is almost
+entirely assignment error.
+
+This matters because it answers the obvious objection -- "you shuffled them, of
+course attribution fails". Each agent answers a *different* sub-question, so the
+reviews are topically self-identifying and re-identification was possible in
+principle. The judge did not do it. The claim is therefore not that shuffling
+destroys information the content still carries; it is that a competent reader
+holding the content does not recover authorship without labels. §7.2 now says
+this, and the decomposition is in the audit so it cannot drift.
+
+### Verdict
+
+Experimental-design issue, not a bug and not a threat to any theorem. No
+theorem depends on any of L1-L4: they are conjectures about where concrete
+mechanisms would rank, and all 8 derived predictions -- the ones whose failure
+would implicate a theorem or the code -- held in every experiment.
+
+## E44 — Novelty audit, attacked from outside (2026-09-15)
+
+Searched the literature against each claim rather than assuming novelty. One
+claim had to be re-attributed, one had to be narrowed, three survive.
+
+### Theorem 3 — PARTIALLY novel; re-attributed
+
+The two ingredients are textbook: von Neumann minimax, and the variational
+characterisation of total variation. Worse for us, the *qualitative* content --
+that accountability requires a deviation to move the signal distribution -- is
+exactly the individual and pairwise full-rank conditions of **Fudenberg, Levine
+and Maskin, Econometrica 62(5):997-1039 (1994)**, verified.
+
+Presenting Theorem 3 as wholly new would have been an overclaim. §3 now says so
+explicitly and states what is actually ours: the quantitative one-shot form (the
+shift must be >= gamma in TV, robustly over teammate mixtures) and the
+elimination of the payment rule. Detectability in repeated games is stated for a
+*given* monitoring structure; here the monitoring structure is the unknown, and
+removing p is what lets us ask which structures a budget buys.
+
+### Finite-K frontier — NOVEL, with a clean differentiator
+
+No rate-distortion treatment found in which per-coordinate sensitivity is
+constrained from *below*. Added to §7: differential privacy bounds a record's
+sensitivity to an individual from above and asks what utility survives; we bound
+it from below and ask what compression survives. Not duals, but it places the
+object exactly.
+
+### 2-domination connection — NOVEL
+
+No results connecting domination numbers to incentives or accountability.
+gamma_2 itself is well studied and we already disclaim it.
+
+### Prior-dependence — NOVEL
+
+No results on prior-weighted K-median sets required to be 2-dominating, or on a
+prior-dependent flatness threshold.
+
+### Identity-vs-volume — WEAKEST; narrowed and re-positioned
+
+Two hits bound what we may claim:
+
+* **Chen et al., ACL 2026, 19888-19905** -- full traces improve failure
+  attribution by up to 76.5% over outputs-only. Our `final_output` row reproduces
+  this. **The volume axis is not ours.**
+* **Dietrich 2026 (arXiv:2606.09854)** -- a *trained* stylometric classifier
+  recovers which model wrote an anonymised text at macro F1 ~0.99. So authorship
+  signal survives anonymisation, and a dedicated re-identifier could plausibly
+  recover much of what our zero-shot judge missed.
+
+Our §7.2 previously said "a competent reader with the content in front of it does
+not recover authorship without labels." Given Dietrich that was **too strong**.
+Narrowed to: under the compaction a deployed system would apply, read by the kind
+of general-purpose judge such a system would use, the assignment is not
+recovered; whether a fitted stylometric model could is a different question our
+design does not answer.
+
+* **Lu et al. 2026 (arXiv:2605.27621)** -- introspective LLM judges fail to
+  approximate removal-based attribution faithfully. A caution we inherit, since
+  our instrument is such a judge. Cited.
+
+**What remains ours on this axis:** holding content *fixed* and varying only
+whether authorship survives. Chen et al. vary how much of the trace is kept; we
+keep all of it and remove 30 bytes of labels. That isolates identity from volume,
+which is the variable the theory implicates.
+
+All four new entries verified against publisher records before citing. The
+bibliography is 24 entries, every one cited, every citation resolving.
+
+---
+
+## E45 — Theorem 11 / Corollary 12 are FALSE. Withdrawn. (2026-09-15)
+
+Found while running an adversarial novelty review of Contribution 3 — the attack
+was "does this follow trivially from known weighted hypercube covering results?"
+and the answer turned out to be worse than trivial.
+
+**The test that caught it.** Instead of re-checking the 2-domination condition,
+relax $\gamma$ and ask an LP directly: is $D_0(K)$ attainable with $\gamma>0$?
+
+```
+n=3 q=0.7 K=4: D=0.243000  D_0=0.243000  gamma=0.333333  FLAT   C dominating? False
+   claimed threshold 2^n-(n-1) = 6  -> CONTRADICTED
+n=4 q=0.7 K=5: D=0.440100  D_0=0.440100  gamma=0.250000  FLAT   C dominating? False
+   claimed threshold 2^n-(n-1) = 13 -> CONTRADICTED
+```
+
+**Root cause, one step.** Lemma 3' gives: every non-centre has $\ge 2$ centres at
+*its own nearest distance* $d(s,C)$. We converted that to "2-dominating", which
+requires $d(s,C)=1$. Equal only when the optimal code is dominating. Uniform
+prior above $\gamma(Q_n)$: dominating, so **Theorem 9 is unaffected**. Tilted
+prior: the optimal code piles onto heavy profiles and leaves $000$ at distance 2.
+
+**Corrected thresholds** (by enumeration, flatness *exhibited* not inferred):
+
+| $n$ | uniform | tilted $q{=}0.7$ | withdrawn claim |
+|---|---|---|---|
+| 3 | 4 | **4** | 6 |
+| 4 | 7 | **5** | 13 |
+
+Tilting can *lower* the threshold. The withdrawn claim was backwards, not merely
+imprecise.
+
+**Why two independent verifiers both passed it.** `prior_threshold.py` (MILP) and
+`verify_all.py` block G (solver-free enumeration) share no code and agreed on
+6, 28, 122 at $n=3,5,7$. Both encoded the same wrong *specification*. This is the
+sharpest lesson of the project: cross-implementation agreement tests
+implementation, not specification, and we had been treating it as if it tested
+both. The only thing that caught this was changing the *question*.
+
+**Changes made.**
+* `paper/sections/05b-priors.tex` rewritten: Theorem 11 and Corollary 12 gone,
+  replaced by Proposition 11 (the correct prior-free necessary condition), the
+  two counterexamples, and an explicit "we withdraw it". General-prior threshold
+  declared **open**.
+* Abstract, intro contribution 4, intro roadmap, §6, §7.1, §9 limitation 1,
+  Appendix A: every "collapse to ratio 1" claim removed.
+* Appendix A gains a paragraph on the verification failure itself.
+* `experiments/prior_threshold.py` rewritten to exhibit flat records by direct
+  enumeration; no proxy condition anywhere in it.
+* `verify_all.py` block G rebuilt: constructs both counterexamples from nothing,
+  certifies $\gamma$ with an explicit payment rule, and re-derives
+  $K_\text{flat}=\gamma_2(Q_n)$ for uniform $n=3,4$. 145 checks -> **99**.
+* Old scripts/artifacts quarantined under `experiments/withdrawn/` and
+  `results/withdrawn/` with a README, kept as evidence for the above.
+* Addendum 4 appended to the pre-registration.
+
+Pipeline green: manifest, 99 checks, paper-vs-artifact audit, scorer, figures.
+Paper builds, 14 pages, no undefined references.
+
+**Effect on the paper.** Three core contributions become two and a half:
+Theorem 3 (elimination), Theorem 5 (one-bit frontier), Theorem 9 (uniform
+threshold = $\gamma_2(Q_n)$) all stand and are unaffected. Contribution 4 is now
+an honest negative — what the uniform prior is actually doing — plus an open
+problem.
+
+---
+
+## E46 — the general-prior threshold is CHARACTERISED (2026-09-15)
+
+AAMAS Phase 1. E45 left the general-prior threshold open with only the corrected
+necessary condition (Prop 12: every non-centre has >= 2 centres at its own
+nearest distance). It is now closed, positively.
+
+**The generalised construction.** Spread each non-centre uniformly over its
+nearest centres *at whatever distance r*, pay agent i the reconstructed i-th bit.
+
+**Edge structure (the lemma that does the work).** For a *fixed* centre c,
+d(s,c) flips by exactly 1 across an edge; the distance to the *set* is a minimum,
+so it moves by -1, 0 or +1. Two cases only:
+* equal distances -> N(s_0), N(s_1) are DISJOINT, TV = 1
+* descending      -> N(s_1) SUBSET N(s_0), TV = 1 - nu(s_1)/nu(s_0)
+
+and every c in N(s_1) has c_i = s_{1,i} while every c in N(s_0)\N(s_1) has
+c_i = s_{0,i}. So the natural payment lands exactly on the positive part of d_i:
+<p_i, d_i> = (1/2)||d_i||_1 on *every* edge. A linear functional is minimised at
+a simplex vertex, so Theorem 3's min-over-mixtures collapses to min-over-edges,
+and that lower bound meets Corollary 4's upper bound. Hence the margin is
+**exact**:
+
+    gamma = 1 - max over descending edges of nu(s_1)/nu(s_0)
+
+r = 1 gives nu(s_1) = 1 and recovers Lemma 8's 1 - 1/d_min.
+
+**Sufficiency.** So the construction works iff nu strictly decreases on every
+descending edge. Prop 12 gives only nu >= 2 -- but they coincide:
+
+> If nu >= 2 everywhere then nu(s_1) < nu(s_0) on every descending edge.
+> Proof: s_1 in C is trivial. Else r >= 2; suppose N(s_1) = N(s_0). Translate
+> s_0 to 0^n, permute the flipped coordinate to first: s_1 = e_1, no centre of
+> weight < r. N(0^n) = all weight-r centres; N(e_1) = weight-r centres carrying
+> bit 1; equality forces every weight-r centre to carry it. Take c in N(0^n),
+> set y = c XOR e_1, weight r-1 >= 1, so y not a centre. A centre at distance 1
+> from y is y XOR e_m of weight r-1 +/- 1; r-2 is excluded, so weight r, so it
+> carries bit 1, so m = 1 and the centre is c. Then nu(y) = 1. Contradiction.
+
+**Theorem.** For every full-support prior pi,
+`K_flat(pi) = min { K : some pi-optimal K-median code has nu(s) >= 2 for all
+non-centres s }`, attained by the construction. Theorem 9 is the corollary: under
+the uniform prior above gamma(Q_n) the optimal code is dominating, nu >= 2 *is*
+2-domination, and K_flat = gamma_2(Q_n).
+
+**Evidence, all of it negative-searching first.**
+* `general_prior_margin.py`: 47,017 pi-optimal codes, n = 3,4, eight product
+  priors. Closed form matched the Theorem 3 LP to 1e-9 on every one; D = D_0 on
+  every one; 0 counterexamples. (First run caught a genuine error in my own
+  parity claim -- I had applied fixed-centre parity to distance-to-set. The
+  structure check failed loudly at n=3 K=2 rather than passing silently.)
+* `general_prior_counterexample.py`: exhaustive over ALL codes at n = 3 and
+  n = 4 for the bad configuration (Prop 12 holding, nu not strictly decreasing).
+  **Zero.** So no LP stage-B realisability search was needed.
+* `general_prior_n5_search.py`: at n = 5, vertex-transitivity plus coordinate
+  permutation put the bad edge at (0^n, e_1) WLOG, reducing 2^32 codes to
+  724,566. **Zero.**
+* `general_prior_theorem_check.py`: 20,000 random codes at n = 3..7; 8,517
+  satisfy Prop 12 and all 8,517 show strict descent; nesting and disjointness
+  held on every edge of every code. 0 violations.
+
+**Effect on the paper.** Section 5.6 goes from "open, with the corrected
+necessary condition recorded" to a complete characterisation with a proof. The
+withdrawn Theorem 11 / Corollary 12 stay withdrawn and stay reported as
+withdrawn; the corrected tilted values (n=3: 4, n=4: 5, against the withdrawn
+6 and 13) are now consequences of the theorem rather than isolated
+counterexamples.
+
+---
+
+## E47 — AAMAS 2027 restructure (2026-09-15)
+
+New folder `paper_aamas/`, built from `paper/`. The LNCS/ACM draft in `paper/`
+is untouched and still audits clean.
+
+**Format facts (Phase 0).** 8 pages excluding references, not 16. `aamas.cls` =
+`acmart` + IFAAMAS copyright; anonymous submission is
+`\documentclass[sigconf,anonymous]{aamas}`. Double-blind. Supplementary material
+is a separate zip and **reviewers are not required to read it**, so the appendix
+cannot carry load-bearing argument. OpenReview. AI policy requires documented
+prompts/tools for substantive assistance.
+
+**Structure, general-first.** Section 5 now runs: necessity (any prior) ->
+construction at radius r -> exact margin -> strict descent -> Theorem 8 (any
+full-support prior) -> Corollary 9 (uniform, = gamma_2(Q_n)) -> shell bound ->
+values + the withdrawn claim. The graph invariant is now the corollary, not the
+headline.
+
+**Phase 3 reframing.** New Corollary 5 (effort-cost bound): margin below c_i
+means no bounded payment sustains agent i's effort under any equilibrium
+concept, with the existing hedge that costs are not modelled. Holmstrom and the
+DP direction contrast both moved into the introduction; the "not dual" hedge is
+preserved verbatim. Opening paragraph rewritten for a reader who has never
+thought about context windows -- the compaction motivation now arrives third.
+
+**Moved to appendix** (same filenames, so the audit is unaffected): the episode
+model, the LLM experiment, design rules R1-R4, the noise results, the full
+reproducibility narrative. Body keeps one four-row mechanisms table.
+
+**Page count: body 7 pages**, references 7-8, appendix 8-14. Under the limit
+with about a page of headroom, so no cuts beyond those already agreed.
+
+**Audit.** `SEC` in `audit_paper_numbers.py` is now `C39_PAPER_DIR`-driven
+(default `paper`). Added a block covering the AAMAS body's compact table against
+`experiment_agents.json` -- it is a different file with different row labels, so
+parsing Table 4 said nothing about it. Audit is 86 -> 93 claims. Both papers
+pass; 99 verify checks unchanged.
+
+**Two real defects found and fixed while restructuring.**
+1. `07-related.tex` carried heredoc damage in BOTH copies: a literal TAB where
+   `\texttt` belonged and a CR where `\ref` belonged, so the LLM-experiment
+   cross-reference had been silently broken. Repaired in `paper/` too.
+2. Theorem 8's display ran 27pt past the column -- the paper's main theorem,
+   overflowing into the gutter. Reset as prose plus a short display.
+
+**Anonymisation.** No author names, affiliations, emails, acknowledgements or
+repository URLs in sources or rendered PDF; one "Anonymous" byline. Appendix A.5
+gives `run.py` commands but names no host.
+
+**Still open for submission:** the AI-use disclosure the CFP requires (documented
+prompts and tools) is not written, and the appendix is currently appended after
+the references rather than packaged as the supplementary zip the CFP describes.

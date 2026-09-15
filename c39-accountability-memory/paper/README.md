@@ -38,7 +38,7 @@ inline TikZ. No image pipeline, no matplotlib dependency.
 | `sections/03-elimination.tex` | near-final — Theorem 1 with full proof |
 | `sections/04-onebit.tex` | near-final — the general-$n$ argument now points at Proposition 14 |
 | `sections/05-threshold.tex` | near-final — the heart of the paper |
-| `sections/05b-priors.tex` | **new** — §5.7: the threshold for a general prior (Thm 11) and the tilted-prior collapse (Cor 12) |
+| `sections/05b-priors.tex` | §5.7: what the uniform prior contributes. Prop 11 (prior-free necessary condition), the counterexamples that withdraw the former Thm 11 / Cor 12, and the open general-prior threshold |
 | `sections/06-agent-systems.tex` | drafted — unmeasured claims about summaries now scoped to what the theory supports |
 | `sections/065-experiment.tex` | **new** — §7: compaction mechanisms measured against the frontier; two pre-registered predictions falsified and reported |
 | `sections/07-related.tex` | drafted, fully cited — now opens with moral hazard in teams |

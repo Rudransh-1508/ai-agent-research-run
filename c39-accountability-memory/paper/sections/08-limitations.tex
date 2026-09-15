@@ -4,11 +4,14 @@
 We state these plainly; each bounds a claim made above.
 
 \begin{enumerate}
-\item \textbf{Uniform prior and binary effort.} The threshold is now settled for
-      every full-support prior (Theorem~\ref{thm:prior}), and the tilted case is
-      exact (Corollary~\ref{cor:tilt}), so the uniform assumption is no longer
-      load-bearing \emph{there}---though what it buys is large, and
-      Section~\ref{sec:priors} says so. It remains load-bearing for
+\item \textbf{Uniform prior and binary effort.} Every threshold result in this
+      paper is a uniform-prior result. Theorem~\ref{thm:kflat} is stated in the
+      dominating regime, where the uniform prior admits a dominating optimal
+      code; for a general prior we have only the necessary condition of
+      Proposition~\ref{prop:necessity-general}, and the threshold is open
+      (Section~\ref{sec:priors}, which also records a claim from an earlier
+      version of this work that we withdraw). The uniform prior is equally
+      load-bearing for
       Theorem~\ref{thm:onebit}: the orientation-alignment step uses
       flip-invariance of the uniform prior, and a non-uniform prior breaks that
       technique rather than shifting a constant. The one-bit frontier under a
@@ -27,14 +30,21 @@ We state these plainly; each bounds a claim made above.
       \ref{rem:counting} explains why they must be excluded for the tradeoff to
       have content.
 
-\item \textbf{Measuring $\gamma$ empirically needs matched sub-tasks.}
-      Section~\ref{sec:llm} found that an all-teammate-profile margin is only as
-      informative as the least auditable sub-task in the episode: one of our
-      three review questions was far harder to audit than the others, and
-      because $\gamma$ is a minimum over agents it set the margin for every
-      record. Any empirical $\gamma$ must control for sub-task auditability
-      before it can be attributed to the record. We report attribution error
-      there instead, which averages over agents rather than minimising.
+\item \textbf{Measuring $\gamma$ empirically needs matched sub-tasks, and our
+      design does not provide them.} Because $\gamma$ is a minimum over agents,
+      the least auditable sub-task in an episode sets it. In
+      Section~\ref{sec:llm} one of three review questions is far harder to audit
+      than the others---per-agent accuracy $0.677$ against $0.990$ and
+      $0.943$---and it binds the margin for the two identity-preserving records,
+      which is why four registered predictions failed there. Restricting the
+      minimum to the two comparable agents reproduces the registered ordering
+      exactly, but the prediction was made over all three agents and failed over
+      all three. Separately, agent $i$ always receives sub-question $i$, so
+      sub-question difficulty and position in the record are confounded and this
+      data cannot separate them. Both are fixable---match sub-tasks for
+      auditability, randomise the assignment---and neither is fixed here. We
+      therefore report attribution error, which averages over agents, and treat
+      the measured $\gamma$ ordering as uninformative about record type.
 
 \item \textbf{The experiment is exact, and synthetic.}
       Section~\ref{sec:experiment} enumerates every profile, so its numbers carry

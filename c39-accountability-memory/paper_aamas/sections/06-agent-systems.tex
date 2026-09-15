@@ -1,0 +1,54 @@
+\section{What a budget buys}
+\label{sec:agents}
+
+Define the \emph{free compression ratio} of a flat record,
+$C(n) = 2^n / \Kflat(n)$. Dividing the bounds of Section~\ref{sec:threshold}
+through by $2^n$ gives
+$2^{\lfloor \log_2(n/2+1)\rfloor} \le C(n) \le (n+2)/2$. Both ends are
+$\Theta(n)$, so the safe zone widens as the team grows---but only linearly,
+against an exponentially large baseline.
+
+\begin{table}[t]
+\centering
+\caption{The same numbers under two normalisations, uniform prior. $(n+2)/2$ is
+an upper bound on $C(n)$, not its value; the gap is real at $n=7$.}
+\label{tab:ratio}
+\small
+\begin{tabular}{@{}lrrrrrr@{}}
+\toprule
+$n$ & 3 & 5 & 7 & 9 & 20 & 50 \\
+\midrule
+$C(n)$        & 2.00 & 3.20 & 4.00 & 4.00--5.28 & 8--11 & 16--26 \\
+$(n+2)/2$     & 2.50 & 3.50 & 4.50 & 5.50 & 11 & 26 \\
+free bits     & 1.00 & 1.68 & 2.00 & 2.00--2.40 & 3.00--3.46 & 4.00--4.70 \\
+as \% of $n$  & 33.3 & 33.6 & 28.6 & 22--27 & 15.0--17.3 & 8.0--9.4 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Both normalisations are correct and they point opposite ways, which is why we
+give both. As a \emph{state-space ratio} the safe zone widens: one may compress
+$3.2\times$ for free at $n=5$, about $26\times$ at $n=50$. In \emph{bits}---the
+unit a record is actually sized in---the free allowance is
+$\log_2 C(n) \approx \log_2(n/2)$ out of $n$, so the \emph{fraction} of per-agent
+resolution one may discard for free \emph{shrinks} with team size. Linear growth
+of a ratio against an exponential baseline is logarithmic growth in bits.
+
+Concretely: at $n = 20$, flatness requires $K$ between $95{,}326$ and
+$131{,}072$ labels---retaining $16.5$--$17.0$ of the $20$ bits, i.e.\ $83$--$85\%$
+of per-agent resolution. At $n = 50$ it requires retaining $45.3$--$46.0$ of the
+$50$ bits, i.e.\ $91$--$92\%$. Two design consequences follow immediately, and
+Appendix~\ref{app:design} states the rest. Retaining one effort bit per agent is
+flat with margin $1$, so the tension simply does not arise; everything here is
+about what happens when that is unaffordable. And an aggregate such as ``how many
+agents succeeded'' carries $\log_2(n+1)$ bits---$5.7$ at $n = 50$, about $11\%$
+of per-agent resolution---an order of magnitude below the threshold, so by
+Corollary~\ref{cor:edge} any record mapping a profile and all $n$ of its
+unilateral neighbours to one label admits no positive margin at any price.
+
+Bittensor's concealment interval~\cite{bittensorcommitreveal}, tuned to roughly
+$1800$ blocks, is the clearest deployed instance of an operator selecting a point
+on this curve: more concealment, more incentive margin, slower evaluation. Its
+binding constraint is temporal rather than a size bound, so it evidences the
+\emph{consequence} of settling from a merged record while the context-window
+argument evidences the \emph{mechanism}.

@@ -1,0 +1,254 @@
+\section{When is accountability free?}
+\label{sec:threshold}
+
+Below some record size the two demands genuinely conflict; above it they do not.
+This section identifies that threshold exactly, for every full-support prior, and
+it turns out not to be a quantity of information theory at all.
+
+Fix a prior $\pi$ with full support and a code $C \subseteq \cube$---the
+reconstruction targets, or \emph{centres}, of the $K$ labels. Write
+\[
+  N(s) =
+  \begin{cases}
+    \{s\}, & s \in C,\\
+    \{c \in C : \dH(s,c) = \dH(s,C)\}, & s \notin C,
+  \end{cases}
+  \qquad \nu(s) = |N(s)|
+\]
+for the \emph{nearest centres} of $s$ and their number.
+
+\subsection{Necessity}
+
+\begin{lemma}[Necessity]
+\label{lem:necessity}
+Let $\Dnull$ be strictly decreasing at $K$, so the $K$ centres are distinct. If
+some non-centre has a \emph{unique} nearest centre, the record is not flat---for
+\emph{any} bounded payment decoders.
+\end{lemma}
+
+\begin{proof}
+Let $\dH(s,C) = r \ge 1$ with unique nearest centre $c$, and flip one bit of $s$
+towards $c$ to get $s'$, so $\dH(s',c) = r-1$. Uniqueness forces
+$\dH(s,c') \ge r+1$ for every other centre, hence $\dH(s',c') \ge r > r-1$: the
+nearest centre of $s'$ is again $c$, again uniquely. Attaining $\Dnull(K)$ forces
+each profile's mass onto its nearest centres, so $\enc[s,\cdot]$ and
+$\enc[s',\cdot]$ are both point masses on $c$'s label. That edge has $d_i = 0$,
+so $\langle \pay_i, d_i\rangle = 0 < \gamma$ for every $\pay_i \in [0,1]^K$.
+Uniqueness propagates, so the argument reaches every non-centre.
+\end{proof}
+
+\begin{proposition}[Necessity, for any prior]
+\label{prop:necessity-general}
+If a record is flat at $(n,K)$ with centre set $C$, then $C$ is $\pi$-optimal and
+$\nu(s) \ge 2$ for every $s \notin C$.
+\end{proposition}
+
+Nothing here mentions the prior: Lemma~\ref{lem:necessity} is about an edge
+derivative vanishing. The condition is $2$-domination of $\Qn$ only when
+$\dH(s,C) = 1$ for all $s$---when the optimal code is \emph{dominating}. That is
+guaranteed under the uniform prior above $\gamma(\Qn)$, and not in general.
+
+\subsection{Sufficiency, at any radius}
+
+Generalise the natural construction to nearest centres at any distance:
+\begin{equation}
+  \enc[s,\cdot] = \mathrm{Unif}\bigl(\ell(N(s))\bigr),
+  \qquad
+  \pay_i[y] = (\text{centre of } y)_i .
+  \label{eq:gen-construction}
+\end{equation}
+
+\begin{lemma}[Edge structure]
+\label{lem:edge-structure}
+Let $s_1 = s_0 + e_i$. Then $|\dH(s_0,C) - \dH(s_1,C)| \le 1$, and if the two are
+equal then $N(s_0) \cap N(s_1) = \emptyset$, while if
+$\dH(s_1,C) = \dH(s_0,C) - 1$ then $N(s_1) \subseteq N(s_0)$. In both cases every
+$c \in N(s_1)$ has $c_i = s_{1,i}$ and every $c \in N(s_0)\setminus N(s_1)$ has
+$c_i = s_{0,i}$.
+\end{lemma}
+
+\begin{proof}
+For a \emph{fixed} $c$, $\dH(s_0,c) = \dH(s_1,c) \pm 1$ according as $c_i$ agrees
+with $s_{0,i}$ or $s_{1,i}$; the distance to the \emph{set} is a minimum of
+these, giving the Lipschitz bound. Write $r = \dH(s_0,C)$. If $\dH(s_1,C) = r$
+and $c \in N(s_0)$ then $\dH(s_1,c) = r \pm 1$, and $r-1$ would contradict
+$\dH(s_1,C) = r$, so $\dH(s_1,c) = r+1$ and $c \notin N(s_1)$. If
+$\dH(s_1,C) = r-1$ and $c \in N(s_1)$ then $\dH(s_0,c) = (r-1)\pm 1$, and $r-2$
+would contradict $\dH(s_0,C) = r$, so $\dH(s_0,c) = r$ and $c \in N(s_0)$. The
+coordinate claims are the same parity bookkeeping.
+\end{proof}
+
+This is what makes the payment in \eqref{eq:gen-construction} exactly right: it
+sets $\pay_i = 1$ on precisely the labels where $\enc[s_1,\cdot]$ exceeds
+$\enc[s_0,\cdot]$, so $\langle \pay_i, d_i\rangle = \sum_y (d_i)^+_y =
+\tfrac12\|d_i\|_1$ on \emph{every} edge. A linear functional is minimised over
+the simplex at a vertex, so Theorem~\ref{thm:elim}'s minimum over mixtures
+collapses to a minimum over single edges---and that lower bound meets
+Corollary~\ref{cor:edge}'s upper bound.
+
+\begin{lemma}[Exact margin]
+\label{lem:gen-margin}
+For any $\pi$ and any $\pi$-optimal $C$, the record \eqref{eq:gen-construction}
+attains $D = \Dnull(K)$ exactly, with all-teammate-profile margin
+\[
+  \gamma \;=\; 1 \;-\; \max \frac{\nu(s_1)}{\nu(s_0)},
+\]
+the maximum over \emph{descending} edges $s_1 = s_0 + e_i$ with
+$\dH(s_1,C) = \dH(s_0,C) - 1$.
+\end{lemma}
+
+Distortion is immediate: each $\enc[s,\cdot]$ sits on centres at distance exactly
+$\dH(s,C)$, so $D \le \sum_s \pi(s)\dH(s,C) = \Dnull(K)$, and $D \ge \Dnull(K)$
+for every $K$-label record. Taking $\dH(s_0,C) = 1$, so $s_1 \in C$ and
+$\nu(s_1) = 1$, gives margin $1 - 1/\dmin$ with
+$\dmin = \min_{s \notin C} \nu(s)$.
+
+So the construction works exactly when $\nu$ \emph{strictly decreases} along
+every descending edge. Proposition~\ref{prop:necessity-general} gives only
+$\nu \ge 2$. The two are the same condition.
+
+\begin{lemma}[Strict descent]
+\label{lem:strict-descent}
+If $\nu(s) \ge 2$ for every $s \notin C$, then $\nu(s_1) < \nu(s_0)$ on every
+descending edge.
+\end{lemma}
+
+\begin{proof}
+If $s_1 \in C$ then $\nu(s_1) = 1 < 2 \le \nu(s_0)$. Otherwise
+$r := \dH(s_0,C) \ge 2$, and $N(s_1) \subseteq N(s_0)$ by
+Lemma~\ref{lem:edge-structure}; suppose they are equal. Translate $s_0$ to $0^n$
+and permute the flipped coordinate to the first, so $s_1 = e_1$ and no centre has
+weight $< r$. Then $N(0^n)$ is the set of all weight-$r$ centres while $N(e_1)$
+is the set of weight-$r$ centres carrying the first bit, so equality forces
+\emph{every} weight-$r$ centre to carry it. Pick $c \in N(0^n)$ and put
+$y = c \oplus e_1$, of weight $r-1 \ge 1$, so $y \notin C$. A centre at distance
+$1$ from $y$ is $y \oplus e_m$ of weight $r-1\pm1$; weight $r-2$ is excluded, so
+it has weight $r$ and therefore carries the first bit, forcing $m = 1$ and the
+centre to be $c$. Hence $\nu(y) = 1$, contradicting the hypothesis.
+\end{proof}
+
+\begin{theorem}[The threshold, for any full-support prior]
+\label{thm:prior}
+For every full-support prior $\pi$, $\Kflat(\pi)$ is the least $K$ such that some
+$\pi$-optimal $K$-median code $C$ satisfies
+\[
+  \nu(s) \;\ge\; 2 \qquad \text{for every } s \notin C ,
+\]
+and it is attained by the record \eqref{eq:gen-construction} with the margin of
+Lemma~\ref{lem:gen-margin}.
+\end{theorem}
+
+\begin{proof}
+Necessity is Proposition~\ref{prop:necessity-general}. For sufficiency, combine
+Lemmas~\ref{lem:strict-descent} and \ref{lem:gen-margin}: strict descent makes
+every ratio at most $(\nu(s_0)-1)/\nu(s_0) < 1$, so $\gamma > 0$.
+\end{proof}
+
+\subsection{The uniform case is a graph invariant}
+
+\begin{corollary}[Uniform prior]
+\label{cor:uniform}
+Under the uniform prior with $K \ge \gamma(\Qn)$---the \emph{dominating regime},
+where some optimal $K$-median code is dominating---every $\dH(s,C) = 1$, so
+``$\nu(s) \ge 2$'' is exactly $2$-domination of $\Qn$ and
+\[
+  \Kflat(n) \;=\; \gtwo(\Qn),
+\]
+the $2$-domination number of the $n$-cube, with margin
+$1 - 1/\dmin \ge 1/2$.
+\end{corollary}
+
+Because $\dmin \ge 2$, where accountability is free it is not merely positive but
+bounded away from zero. Small $K$ is excluded separately by
+Lemma~\ref{lem:shell}; the restriction is never binding at the values we report,
+since $\gamma(\Qn)$ is known exactly for $n \le 9$~\cite{ostergardblass2001},
+taking values $2, 7, 16, 62$ at $n = 3,5,7,9$, far below the corresponding
+entries of Table~\ref{tab:certificates}.
+
+\begin{remark}[What is exact, and what is merely known]
+\label{rem:exactness}
+Corollary~\ref{cor:uniform} is an exact identity: the threshold \emph{is} the
+invariant, at every $n$. It is not a claim that we know the invariant's value.
+$\gtwo(\Qn)$ has no closed form, so Table~\ref{tab:certificates} reports our
+computational knowledge of it---exact at $n = 3,5,7$, bracketed at $n = 9$. The
+bracket is a gap in what is known about $\gtwo$, not a gap in the theorem, and it
+closes the moment someone evaluates the invariant. We claim no novelty for the
+invariant or its values; the reduction is the contribution.
+\end{remark}
+
+\subsection{A shell counting bound}
+\label{sec:shell}
+
+\begin{lemma}[Shell bound]
+\label{lem:shell}
+Let the record be flat with $|C| = K$. Every profile at distance $r$ from $C$ has
+at least two centres \emph{at distance $r$}, and there are at most
+$K\binom{n}{r}$ such (profile, centre) pairs, so shell $r$ holds at most
+$\lfloor K\binom{n}{r}/2 \rfloor$ profiles. Filling shells from the inside lower
+bounds $2^n \Dnull$; if that exceeds an upper bound on $2^n\Dnull(K)$, flatness
+at $(n,K)$ is impossible.
+\end{lemma}
+
+The bound reduces to the incidence-counting bound of Fink and
+Jacobson~\cite{finkjacobson1985} when everything fits inside shell~$1$, and it is
+\emph{tight}---not merely valid---at all three known flat points, excluding none
+of them: at $(n,K) = (3,4)$, $(5,10)$ and $(7,32)$ the shell lower bound equals
+$2^n\Dnull$ exactly ($4$, $22$, $96$).
+
+\subsection{Values, and a withdrawn claim}
+
+\begin{table}[t]
+\centering
+\caption{Certificate chain. ``Shell'' = excluded by Lemma~\ref{lem:shell} with no
+search; ``infeasible'' = $2$-domination MILP returning proved infeasibility, not
+a time limit; ``code'' = explicit $2$-dominating set verified without a solver.
+At $n=5$ the shell bound already excludes $K=9$, so that MILP row only
+corroborates it.}
+\label{tab:certificates}
+\small
+\begin{tabular}{@{}lllll@{}}
+\toprule
+$n$ & excluded & infeasible & attained & $\Kflat$ \\
+\midrule
+3 & $K \le 3$ (shell)  & ---                 & $K=4$ (code)   & $4$ \\
+5 & $K \le 9$ (shell)  & $K = 9$ (redundant) & $K=10$ (code)  & $10$ \\
+7 & $K \le 28$ (shell) & $K = 29,30,31$      & $K=32$ (code)  & $32$ \\
+9 & $K \le 93$ (shell) & $K = 94,95,96$      & $K=128$ (code) & $[97,128]$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The $n=7$ value has two independent routes: the infeasibility chain, and an
+algebraic parity-check construction producing a $32$-element code directly; both
+verify solver-free at $D = \Dnull = 0.75$, margin $0.5$, $\dmin = 2$. At $n=9$
+the explicit code gives $D = \Dnull = 0.75$, margin $0.667$, $\dmin = 3$. We
+report $\Kflat(9) \in [97,128]$ as open rather than guessing: feasibility MILPs at
+$K = 98,100,\dots,124$ did not terminate in 40 minutes each; shrink-only local
+search cannot move, because the algebraic code has \emph{zero internal edges}, so
+deleting any centre leaves it without a centre neighbour; and destroy-and-repair
+over $70{,}685$ trials never improved on $128$. The bounds
+$2^{n+1}/(n+2) \le \gtwo(\Qn) \le 2^{\,n-\lfloor\log_2(n/2+1)\rfloor}$ come from
+Fink and Jacobson at $k=2$, $\Delta=n$---attained at $n=3,5$, not at $n=7$
+($28.44$ against $32$) or $n=9$ ($\ge 97$ against $93.09$)---and from a
+parity-check matrix with no zero column in which every nonzero syndrome is used
+at least twice. One coincidence is worth disarming: $\gtwo(Q_3)=4$,
+$\gtwo(Q_6)=16$, $\gtwo(Q_7)=32$ equal the known $\gamma(Q_4)$, $\gamma(Q_7)$,
+$\gamma(Q_8)$. It is not a relation---at $n=5$, $\gtwo(Q_5) = 10$ while
+$\gamma(Q_6) = 12$.
+
+\paragraph{A withdrawn claim.}
+An earlier version of this work claimed that for every tilted product prior
+$\Kflat = 2^n - (n-1)$, so the free compression ratio collapses to
+$1 + O(n2^{-n})$. \textbf{That claim was false and we withdraw it}; the error was
+exactly the step Proposition~\ref{prop:necessity-general} repairs---reading it as
+$2$-domination when the optimal code is not dominating. Evaluating
+Theorem~\ref{thm:prior} gives $\Kflat = 4$ at $n=3$ and $5$ at $n=4$ under a
+product Bernoulli$(0.7)$ prior, against $4$ and $7$ under the uniform prior and
+$6$ and $13$ under the withdrawn claim. A tilted prior can require \emph{fewer}
+labels than the uniform one: the withdrawn claim pointed the wrong way. What
+survives of the intuition is about ties rather than tilt---symmetry creates them,
+and at $n=3$, $K=4$ the uniform prior has $62$ optimal codes while the tilted one
+has a single code---and ties give the designer freedom to pick an optimal code
+that is also well-connected. Whether that freedom helps depends on the prior, and
+we claim no direction for it. Appendix~\ref{app:repro} records how two
+independent verifiers both certified the false claim.

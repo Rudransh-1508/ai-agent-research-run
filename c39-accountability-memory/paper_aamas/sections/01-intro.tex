@@ -1,0 +1,100 @@
+\section{Introduction}
+\label{sec:intro}
+
+A principal must pay $n$ agents for work already done, using only what was
+written down. Between the work and the payment, the record was compressed: it
+now distinguishes $K$ outcomes rather than $2^n$. Two questions are asked of
+that record, and they are not the same question. \emph{Reconstruction} asks what
+the team did, and is answered well by a record that merges profiles which are
+cheap to confuse. \emph{Accountability} asks what each agent did, and is answered
+only by a record that each agent, acting alone, visibly moves. A fixed budget $K$
+cannot in general serve both. This paper computes the tradeoff exactly---where it
+binds, how steep it is, and where it vanishes.
+
+The object is a constraint on mechanism design rather than a mechanism. We show
+that a record admits a bounded payment rewarding agent~$i$'s effort by $\gamma$
+if and only if $i$'s unilateral deviation moves the record's label distribution
+by $\gamma$ in total variation. So a record whose margin is below an agent's
+effort cost cannot sustain that effort \emph{under any bounded payment rule and
+any equilibrium concept}. That bound is fixed before a designer chooses anything,
+and the rest of the paper computes what a budget buys.
+
+\paragraph{Two contrasts that place the question.}
+In Holmstr\"om's moral hazard in teams~\cite{holmstrom1982}, joint output hides
+individual effort and no budget-balanced sharing rule makes effort a best
+response. There, the per-agent signal \emph{never existed}: the production
+technology did not produce one. Here it existed and a budget destroyed it, and
+the question is how much of it must survive. Holmstr\"om relaxes budget balance
+to restore incentives; we hold the payment bounded and ask what the \emph{record}
+must retain.
+
+The second contrast fixes the direction of the constraint. Differential privacy
+and its relatives bound a record's sensitivity to any one individual from
+\emph{above} and ask how much utility survives; we bound it from \emph{below} and
+ask how much compression survives. The two are not dual---one is a privacy
+guarantee, the other an accountability requirement---but the contrast locates the
+object precisely: we ask for the least sensitivity a record must keep, not the
+most it may have. Section~\ref{sec:related} returns to both.
+
+\paragraph{Why the budget is not hypothetical.}
+In contemporary multi-agent systems a coordinator that fans work out to
+sub-agents does not keep what they did: each sub-agent runs in its own context
+and returns a summary, and when the coordinator's own context fills, older
+exchanges---including whatever it retained about its sub-agents---are replaced by
+a summary of themselves. The binding constraint is a fixed context window, which
+unlike a storage bill cannot be paid off, and sampling is unavailable because one
+cannot discard $99.9\%$ of the episode currently running. Whatever survives is
+then the only evidence for any later question about who contributed. Settling
+from a merged record is already a live failure mode: in
+Bittensor~\cite{bittensorweightcopier} validators submit weight vectors that
+consensus merges, and dividends track agreement with the merged result, so a
+validator that evaluates nothing and copies the stake-weighted average is
+indistinguishable in the record from one that worked---and reportedly earns
+more~\cite{bittensorfreeriding}. The deployed remedy changed the \emph{record},
+encrypting weights until stale~\cite{bittensorcommitreveal}. We cite this as
+evidence that settling from a merged record destroys unilateral sensitivity in
+practice, and as nothing more: its binding constraint is temporal, not a bound on
+record size.
+
+\paragraph{Contributions.}
+\begin{enumerate}
+\item \textbf{Payment-decoder elimination} (Theorem~\ref{thm:elim}). A minimax
+      argument removes the payment rule, leaving a condition on the record alone:
+      every unilateral deviation must move the label distribution by at least
+      $\gamma$ in total variation. Corollary~\ref{cor:effort} states the
+      consequence as a bound mechanism design must respect.
+\item \textbf{The exact one-bit frontier} (Theorem~\ref{thm:onebit}):
+      $\Dopt(2,\gamma) = \Mn + n\gamma(\frac{n-1}{2} - \Mn)$ for
+      $0 \le \gamma \le 1/n$, for arbitrary bounded payments and arbitrary
+      reconstruction.
+\item \textbf{The flatness threshold, for every full-support prior}
+      (Theorem~\ref{thm:prior}). Accountability becomes free exactly at the least
+      $K$ admitting a prior-optimal $K$-median code in which every non-centre has
+      at least two centres at its own nearest distance, and an explicit record
+      attains it.
+\item \textbf{The uniform case is a graph invariant}
+      (Corollary~\ref{cor:uniform}): $\Kflat(n) = \gtwo(\Qn)$, the
+      $2$-domination number of the $n$-cube, with margin
+      $1 - 1/\dmin \ge 1/2$. Evaluating it gives $\Kflat(3)=4$, $\Kflat(5)=10$,
+      $\Kflat(7)=32$, $97 \le \Kflat(9) \le 128$, each with a certificate. The
+      invariant is classical and we claim no novelty for it or its values; the
+      reduction is the contribution.
+\item \textbf{Mechanisms, measured} (Section~\ref{sec:experiment}). Records
+      exist that are reconstruction-optimal at their budget and admit \emph{no}
+      positive margin at any price; an aggregate count has margin exactly $1/n$;
+      retaining a strict subset of agents' bits is worth exactly nothing.
+\end{enumerate}
+
+\noindent A claim in an earlier version of this work---that every tilted product
+prior forces $\Kflat = 2^n - (n-1)$---was false, and
+Section~\ref{sec:threshold} withdraws it and explains the error.
+
+\paragraph{Reproducibility.}
+Every numerical claim is re-derived by an independent implementation sharing no
+code with the one that produced it ($99$ solver-free checks), plus an audit
+comparing each printed number against its artifact. Predictions were registered
+and hashed before each harness was written: $22$ registered, $5$ of them as
+derivations, one of which we re-graded to uncertain before scoring, leaving $4$,
+all of which held; of the remaining $18$, $10$ were falsified, $7$ confirmed and
+$1$ was not scoreable. Every falsification is reported as such.
+Appendix~\ref{app:repro} gives the detail.

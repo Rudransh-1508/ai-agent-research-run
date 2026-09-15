@@ -1,1470 +1,222 @@
 {
- "3": {
-  "0.5": {
-   "K_flat": 4,
-   "seconds": 0.021602869033813477,
-   "rows": [
-    {
-     "K": 2,
-     "D0": 0.75,
-     "feasible_2dom": false
-    },
-    {
-     "K": 3,
-     "D0": 0.625,
-     "feasible_2dom": false
-    },
-    {
-     "K": 4,
-     "D0": 0.5,
-     "best_2dom_cost": 0.5,
-     "feasible_2dom": true,
-     "flat": true,
-     "centres": [
-      0,
-      3,
-      4,
-      7
-     ]
-    }
-   ]
-  },
-  "0.55": {
-   "K_flat": 6,
-   "seconds": 0.029583454132080078,
-   "rows": [
-    {
-     "K": 2,
-     "D0": 0.7424999999999999,
-     "feasible_2dom": false
-    },
-    {
-     "K": 3,
-     "D0": 0.5861249999999999,
-     "feasible_2dom": false
-    },
-    {
-     "K": 4,
-     "D0": 0.44999999999999996,
-     "best_2dom_cost": 0.495,
-     "feasible_2dom": true,
-     "flat": false,
-     "centres": null
-    },
-    {
-     "K": 5,
-     "D0": 0.31387499999999996,
-     "best_2dom_cost": 0.334125,
-     "feasible_2dom": true,
-     "flat": false,
-     "centres": null
-    },
-    {
-     "K": 6,
-     "D0": 0.20249999999999996,
-     "best_2dom_cost": 0.2025,
-     "feasible_2dom": true,
-     "flat": true,
-     "centres": [
-      1,
-      3,
-      4,
-      5,
-      6,
-      7
-     ]
-    }
-   ]
-  },
-  "0.6": {
-   "K_flat": 6,
-   "seconds": 0.030147552490234375,
-   "rows": [
-    {
-     "K": 2,
-     "D0": 0.72,
-     "feasible_2dom": false
-    },
-    {
-     "K": 3,
-     "D0": 0.544,
-     "feasible_2dom": false
-    },
-    {
-     "K": 4,
-     "D0": 0.4,
-     "best_2dom_cost": 0.48,
-     "feasible_2dom": true,
-     "flat": false,
-     "centres": null
-    },
-    {
-     "K": 5,
-     "D0": 0.25600000000000006,
-     "best_2dom_cost": 0.28800000000000003,
-     "feasible_2dom": true,
-     "flat": false,
-     "centres": null
-    },
-    {
-     "K": 6,
-     "D0": 0.16000000000000003,
-     "best_2dom_cost": 0.16000000000000003,
-     "feasible_2dom": true,
-     "flat": true,
-     "centres": [
-      1,
-      3,
-      4,
-      5,
-      6,
-      7
-     ]
-    }
-   ]
-  },
-  "0.7": {
-   "K_flat": 6,
-   "seconds": 0.02616262435913086,
-   "rows": [
-    {
-     "K": 2,
-     "D0": 0.6000000000000001,
-     "feasible_2dom": false
-    },
-    {
-     "K": 3,
-     "D0": 0.39000000000000007,
-     "feasible_2dom": false
-    },
-    {
-     "K": 4,
-     "D0": 0.24300000000000008,
-     "best_2dom_cost": 0.42000000000000004,
-     "feasible_2dom": true,
-     "flat": false,
-     "centres": null
-    },
-    {
-     "K": 5,
-     "D0": 0.15300000000000005,
-     "best_2dom_cost": 0.18900000000000006,
-     "feasible_2dom": true,
-     "flat": false,
-     "centres": null
-    },
-    {
-     "K": 6,
-     "D0": 0.09000000000000002,
-     "best_2dom_cost": 0.09000000000000008,
-     "feasible_2dom": true,
-     "flat": true,
-     "centres": [
-      1,
-      3,
-      4,
-      5,
-      6,
-      7
-     ]
-    }
-   ]
-  },
-  "0.8": {
-   "K_flat": 6,
-   "seconds": 0.027208566665649414,
-   "rows": [
-    {
-     "K": 2,
-     "D0": 0.39999999999999997,
-     "feasible_2dom": false
-    },
-    {
-     "K": 3,
-     "D0": 0.23999999999999996,
-     "feasible_2dom": false
-    },
-    {
-     "K": 4,
-     "D0": 0.11199999999999995,
-     "best_2dom_cost": 0.31999999999999984,
-     "feasible_2dom": true,
-     "flat": false,
-     "centres": null
-    },
-    {
-     "K": 5,
-     "D0": 0.07199999999999997,
-     "best_2dom_cost": 0.09599999999999986,
-     "feasible_2dom": true,
-     "flat": false,
-     "centres": null
-    },
-    {
-     "K": 6,
-     "D0": 0.03999999999999998,
-     "best_2dom_cost": 0.039999999999999925,
-     "feasible_2dom": true,
-     "flat": true,
-     "centres": [
-      1,
-      3,
-      4,
-      5,
-      6,
-      7
-     ]
-    }
-   ]
-  },
-  "0.9": {
-   "K_flat": 6,
-   "seconds": 0.026554346084594727,
-   "rows": [
-    {
-     "K": 2,
-     "D0": 0.19999999999999996,
-     "feasible_2dom": false
-    },
-    {
-     "K": 3,
-     "D0": 0.10999999999999997,
-     "feasible_2dom": false
-    },
-    {
-     "K": 4,
-     "D0": 0.028999999999999988,
-     "best_2dom_cost": 0.17999999999999994,
-     "feasible_2dom": true,
-     "flat": false,
-     "centres": null
-    },
-    {
-     "K": 5,
-     "D0": 0.018999999999999993,
-     "best_2dom_cost": 0.026999999999999913,
-     "feasible_2dom": true,
-     "flat": false,
-     "centres": null
-    },
-    {
-     "K": 6,
-     "D0": 0.009999999999999995,
-     "best_2dom_cost": 0.009999999999999898,
-     "feasible_2dom": true,
-     "flat": true,
-     "centres": [
-      1,
-      3,
-      4,
-      5,
-      6,
-      7
-     ]
-    }
-   ]
-  }
+ "n=3 q=0.5": {
+  "n": 3,
+  "q": 0.5,
+  "K_flat": 4,
+  "rows": [
+   {
+    "K": 2,
+    "D0": 0.75,
+    "n_optimal": 4,
+    "n_meeting_condition": 0,
+    "flat": false,
+    "gamma": 0.0,
+    "witness": null,
+    "witness_dominating": false
+   },
+   {
+    "K": 3,
+    "D0": 0.625,
+    "n_optimal": 24,
+    "n_meeting_condition": 0,
+    "flat": false,
+    "gamma": 0.0,
+    "witness": null,
+    "witness_dominating": false
+   },
+   {
+    "K": 4,
+    "D0": 0.5,
+    "n_optimal": 62,
+    "n_meeting_condition": 1,
+    "flat": true,
+    "gamma": 0.5,
+    "witness": [
+     "000",
+     "001",
+     "110",
+     "111"
+    ],
+    "witness_dominating": true
+   }
+  ],
+  "withdrawn_claim": null
  },
- "5": {
-  "0.5": {
-   "K_flat": 10,
-   "seconds": 3.0305798053741455,
-   "rows": [
-    {
-     "K": 2,
-     "D0": 1.5625,
-     "feasible_2dom": false
-    },
-    {
-     "K": 3,
-     "D0": 1.37499999999984,
-     "feasible_2dom": false
-    },
-    {
-     "K": 4,
-     "D0": 1.125,
-     "feasible_2dom": false
-    },
-    {
-     "K": 5,
-     "D0": 1.031249999999975,
-     "feasible_2dom": false
-    },
-    {
-     "K": 6,
-     "D0": 0.8749999999999855,
-     "feasible_2dom": false
-    },
-    {
-     "K": 7,
-     "D0": 0.78125,
-     "feasible_2dom": false
-    },
-    {
-     "K": 8,
-     "D0": 0.75,
-     "feasible_2dom": false
-    },
-    {
-     "K": 9,
-     "D0": 0.7187500000000008,
-     "feasible_2dom": false
-    },
-    {
-     "K": 10,
-     "D0": 0.6875,
-     "best_2dom_cost": 0.6874999999999998,
-     "feasible_2dom": true,
-     "flat": true,
-     "centres": [
-      3,
-      5,
-      6,
-      8,
-      15,
-      16,
-      23,
-      25,
-      26,
-      28
-     ]
-    }
-   ]
-  },
-  "0.55": {
-   "K_flat": 28,
-   "seconds": 5.119723558425903,
-   "rows": [
-    {
-     "K": 2,
-     "D0": 1.5437812499999999,
-     "feasible_2dom": false
-    },
-    {
-     "K": 3,
-     "D0": 1.2861381249999995,
-     "feasible_2dom": false
-    },
-    {
-     "K": 4,
-     "D0": 1.1170125,
-     "feasible_2dom": false
-    },
-    {
-     "K": 5,
-     "D0": 0.9775534374999997,
-     "feasible_2dom": false
-    },
-    {
-     "K": 6,
-     "D0": 0.8653290624999999,
-     "feasible_2dom": false
-    },
-    {
-     "K": 7,
-     "D0": 0.7644278124999979,
-     "feasible_2dom": false
-    },
-    {
-     "K": 8,
-     "D0": 0.714099375,
-     "feasible_2dom": false
-    },
-    {
-     "K": 9,
-     "D0": 0.672921562499997,
-     "feasible_2dom": false
-    },
-    {
-     "K": 10,
-     "D0": 0.631743749999999,
-     "best_2dom_cost": 0.6813437499999998,
-     "feasible_2dom": true,
-     "flat": false,
-     "centres": null
-    },
-    {
-     "K": 11,
-     "D0": 0.5905659375,
-     "best_2dom_cost": 0.6310153124999681,
-     "feasible_2dom": true,
-     "flat": false,
-     "centres": null
-    },
-    {
-     "K": 12,
-     "D0": 0.5568749999999999,
-     "best_2dom_cost": 0.5972624999999822,
-     "feasible_2dom": true,
-     "flat": false,
-     "centres": null
-    },
-    {
-     "K": 13,
-     "D0": 0.5231840624999999,
-     "best_2dom_cost": 0.5560846874999984,
-     "feasible_2dom": true,
-     "flat": false,
-     "centres": null
-    },
-    {
-     "K": 14,
-     "D0": 0.4894931249999999,
-     "best_2dom_cost": 0.514906875,
-     "feasible_2dom": true,
-     "flat": false,
-     "centres": null
-    },
-    {
-     "K": 15,
-     "D0": 0.4558021874999999,
-     "best_2dom_cost": 0.48030468749999955,
-     "feasible_2dom": true,
-     "flat": false,
-     "centres": null
-    },
-    {
-     "K": 16,
-     "D0": 0.42211124999999994,
-     "best_2dom_cost": 0.4404881249999999,
-     "feasible_2dom": true,
-     "flat": false,
-     "centres": null
-    },
-    {
-     "K": 17,
-     "D0": 0.3884203124999999,
-     "best_2dom_cost": 0.40679718749999993,
-     "feasible_2dom": true,
-     "flat": false,
-     "centres": null
-    },
-    {
-     "K": 18,
-     "D0": 0.3608549999999999,
-     "best_2dom_cost": 0.37310625,
-     "feasible_2dom": true,
-     "flat": false,
-     "centres": null
-    },
-    {
-     "K": 19,
-     "D0": 0.3291890624999999,
-     "best_2dom_cost": 0.3394153124999999,
-     "feasible_2dom": true,
-     "flat": false,
-     "centres": null
-    },
-    {
-     "K": 20,
-     "D0": 0.3016237499999999,
-     "best_2dom_cost": 0.30572437499999994,
-     "feasible_2dom": true,
-     "flat": false,
-     "centres": null
-    },
-    {
-     "K": 21,
-     "D0": 0.2740584374999999,
-     "best_2dom_cost": 0.2781590624999999,
-     "feasible_2dom": true,
-     "flat": false,
-     "centres": null
-    },
-    {
-     "K": 22,
-     "D0": 0.24649312499999995,
-     "best_2dom_cost": 0.25059374999999995,
-     "feasible_2dom": true,
-     "flat": false,
-     "centres": null
-    },
-    {
-     "K": 23,
-     "D0": 0.21892781249999996,
-     "best_2dom_cost": 0.2230284374999999,
-     "feasible_2dom": true,
-     "flat": false,
-     "centres": null
-    },
-    {
-     "K": 24,
-     "D0": 0.19136249999999996,
-     "best_2dom_cost": 0.19546312499999996,
-     "feasible_2dom": true,
-     "flat": false,
-     "centres": null
-    },
-    {
-     "K": 25,
-     "D0": 0.16379718749999997,
-     "best_2dom_cost": 0.1678978124999999,
-     "feasible_2dom": true,
-     "flat": false,
-     "centres": null
-    },
-    {
-     "K": 26,
-     "D0": 0.13623187499999997,
-     "best_2dom_cost": 0.14033249999999997,
-     "feasible_2dom": true,
-     "flat": false,
-     "centres": null
-    },
-    {
-     "K": 27,
-     "D0": 0.10866656249999998,
-     "best_2dom_cost": 0.11276718749999992,
-     "feasible_2dom": true,
-     "flat": false,
-     "centres": null
-    },
-    {
-     "K": 28,
-     "D0": 0.08611312499999998,
-     "best_2dom_cost": 0.08611312500000001,
-     "feasible_2dom": true,
-     "flat": true,
-     "centres": [
-      3,
-      4,
-      5,
-      6,
-      7,
-      9,
-      10,
-      11,
-      12,
-      13,
-      14,
-      15,
-      16,
-      17,
-      18,
-      19,
-      20,
-      21,
-      22,
-      23,
-      24,
-      25,
-      26,
-      27,
-      28,
-      29,
-      30,
-      31
-     ]
-    }
-   ]
-  },
-  "0.6": {
-   "K_flat": 28,
-   "seconds": 5.407466888427734,
-   "rows": [
-    {
-     "K": 2,
-     "D0": 1.4880000000000002,
-     "feasible_2dom": false
-    },
-    {
-     "K": 3,
-     "D0": 1.206719999999999,
-     "feasible_2dom": false
-    },
-    {
-     "K": 4,
-     "D0": 1.073599999999992,
-     "feasible_2dom": false
-    },
-    {
-     "K": 5,
-     "D0": 0.92512,
-     "feasible_2dom": false
-    },
-    {
-     "K": 6,
-     "D0": 0.8223999999999999,
-     "feasible_2dom": false
-    },
-    {
-     "K": 7,
-     "D0": 0.7417599999999976,
-     "feasible_2dom": false
-    },
-    {
-     "K": 8,
-     "D0": 0.6700800000000009,
-     "feasible_2dom": false
-    },
-    {
-     "K": 9,
-     "D0": 0.61824,
-     "feasible_2dom": false
-    },
-    {
-     "K": 10,
-     "D0": 0.5663999999999989,
-     "best_2dom_cost": 0.6639999999999999,
-     "feasible_2dom": true,
-     "flat": false,
-     "centres": null
-    },
-    {
-     "K": 11,
-     "D0": 0.51456,
-     "best_2dom_cost": 0.58624,
-     "feasible_2dom": true,
-     "flat": false,
-     "centres": null
-    },
-    {
-     "K": 12,
-     "D0": 0.48000000000000004,
-     "best_2dom_cost": 0.5516799999999998,
-     "feasible_2dom": true,
-     "flat": false,
-     "centres": null
-    },
-    {
-     "K": 13,
-     "D0": 0.44544000000000006,
-     "best_2dom_cost": 0.5113600000000977,
-     "feasible_2dom": true,
-     "flat": false,
-     "centres": null
-    },
-    {
-     "K": 14,
-     "D0": 0.4108800000000001,
-     "best_2dom_cost": 0.45952000000000004,
-     "feasible_2dom": true,
-     "flat": false,
-     "centres": null
-    },
-    {
-     "K": 15,
-     "D0": 0.37632000000000004,
-     "best_2dom_cost": 0.4224000000000002,
-     "feasible_2dom": true,
-     "flat": false,
-     "centres": null
-    },
-    {
-     "K": 16,
-     "D0": 0.34176000000000006,
-     "best_2dom_cost": 0.37632,
-     "feasible_2dom": true,
-     "flat": false,
-     "centres": null
-    },
-    {
-     "K": 17,
-     "D0": 0.3072000000000001,
-     "best_2dom_cost": 0.34176000000000006,
-     "feasible_2dom": true,
-     "flat": false,
-     "centres": null
-    },
-    {
-     "K": 18,
-     "D0": 0.2841599999999998,
-     "best_2dom_cost": 0.30720000000000003,
-     "feasible_2dom": true,
-     "flat": false,
-     "centres": null
-    },
-    {
-     "K": 19,
-     "D0": 0.25600000000000006,
-     "best_2dom_cost": 0.27264,
-     "feasible_2dom": true,
-     "flat": false,
-     "centres": null
-    },
-    {
-     "K": 20,
-     "D0": 0.23296000000000006,
-     "best_2dom_cost": 0.23807999999999996,
-     "feasible_2dom": true,
-     "flat": false,
-     "centres": null
-    },
-    {
-     "K": 21,
-     "D0": 0.20992000000000005,
-     "best_2dom_cost": 0.21504,
-     "feasible_2dom": true,
-     "flat": false,
-     "centres": null
-    },
-    {
-     "K": 22,
-     "D0": 0.18688000000000005,
-     "best_2dom_cost": 0.19199999999999995,
-     "feasible_2dom": true,
-     "flat": false,
-     "centres": null
-    },
-    {
-     "K": 23,
-     "D0": 0.16384000000000004,
-     "best_2dom_cost": 0.16896,
-     "feasible_2dom": true,
-     "flat": false,
-     "centres": null
-    },
-    {
-     "K": 24,
-     "D0": 0.14080000000000004,
-     "best_2dom_cost": 0.14591999999999994,
-     "feasible_2dom": true,
-     "flat": false,
-     "centres": null
-    },
-    {
-     "K": 25,
-     "D0": 0.11776000000000002,
-     "best_2dom_cost": 0.12287999999999999,
-     "feasible_2dom": true,
-     "flat": false,
-     "centres": null
-    },
-    {
-     "K": 26,
-     "D0": 0.09472000000000001,
-     "best_2dom_cost": 0.09983999999999993,
-     "feasible_2dom": true,
-     "flat": false,
-     "centres": null
-    },
-    {
-     "K": 27,
-     "D0": 0.07168000000000001,
-     "best_2dom_cost": 0.07679999999999998,
-     "feasible_2dom": true,
-     "flat": false,
-     "centres": null
-    },
-    {
-     "K": 28,
-     "D0": 0.05632000000000001,
-     "best_2dom_cost": 0.056319999999999926,
-     "feasible_2dom": true,
-     "flat": true,
-     "centres": [
-      3,
-      4,
-      5,
-      6,
-      7,
-      9,
-      10,
-      11,
-      12,
-      13,
-      14,
-      15,
-      16,
-      17,
-      18,
-      19,
-      20,
-      21,
-      22,
-      23,
-      24,
-      25,
-      26,
-      27,
-      28,
-      29,
-      30,
-      31
-     ]
-    }
-   ]
-  },
-  "0.7": {
-   "K_flat": 28,
-   "seconds": 1.892374038696289,
-   "rows": [
-    {
-     "K": 2,
-     "D0": 1.2000000000000002,
-     "feasible_2dom": false
-    },
-    {
-     "K": 3,
-     "D0": 0.9900000000000001,
-     "feasible_2dom": false
-    },
-    {
-     "K": 4,
-     "D0": 0.8301600000000001,
-     "feasible_2dom": false
-    },
-    {
-     "K": 5,
-     "D0": 0.7221299999999378,
-     "feasible_2dom": false
-    },
-    {
-     "K": 6,
-     "D0": 0.6402000000000001,
-     "feasible_2dom": false
-    },
-    {
-     "K": 7,
-     "D0": 0.5681700000000002,
-     "feasible_2dom": false
-    },
-    {
-     "K": 8,
-     "D0": 0.4961700000000001,
-     "feasible_2dom": false
-    },
-    {
-     "K": 9,
-     "D0": 0.4388399999999994,
-     "feasible_2dom": false
-    },
-    {
-     "K": 10,
-     "D0": 0.3815100000000001,
-     "best_2dom_cost": 0.6115000000000007,
-     "feasible_2dom": true,
-     "flat": false,
-     "centres": null
-    },
-    {
-     "K": 11,
-     "D0": 0.34587000000000007,
-     "best_2dom_cost": 0.4434300000000001,
-     "feasible_2dom": true,
-     "flat": false,
-     "centres": null
-    },
-    {
-     "K": 12,
-     "D0": 0.31500000000000006,
-     "best_2dom_cost": 0.41256000000000004,
-     "feasible_2dom": true,
-     "flat": false,
-     "centres": null
-    },
-    {
-     "K": 13,
-     "D0": 0.2841300000000001,
-     "best_2dom_cost": 0.3816900000000001,
-     "feasible_2dom": true,
-     "flat": false,
-     "centres": null
-    },
-    {
-     "K": 14,
-     "D0": 0.2532600000000001,
-     "best_2dom_cost": 0.32814,
-     "feasible_2dom": true,
-     "flat": false,
-     "centres": null
-    },
-    {
-     "K": 15,
-     "D0": 0.2223900000000001,
-     "best_2dom_cost": 0.29295000000000004,
-     "feasible_2dom": true,
-     "flat": false,
-     "centres": null
-    },
-    {
-     "K": 16,
-     "D0": 0.19152000000000008,
-     "best_2dom_cost": 0.24444,
-     "feasible_2dom": true,
-     "flat": false,
-     "centres": null
-    },
-    {
-     "K": 17,
-     "D0": 0.16065000000000007,
-     "best_2dom_cost": 0.21357000000000004,
-     "feasible_2dom": true,
-     "flat": false,
-     "centres": null
-    },
-    {
-     "K": 18,
-     "D0": 0.14472000000000007,
-     "best_2dom_cost": 0.18270000000000008,
-     "feasible_2dom": true,
-     "flat": false,
-     "centres": null
-    },
-    {
-     "K": 19,
-     "D0": 0.12582000000000007,
-     "best_2dom_cost": 0.15183000000000002,
-     "feasible_2dom": true,
-     "flat": false,
-     "centres": null
-    },
-    {
-     "K": 20,
-     "D0": 0.11259000000000005,
-     "best_2dom_cost": 0.12096000000000007,
-     "feasible_2dom": true,
-     "flat": false,
-     "centres": null
-    },
-    {
-     "K": 21,
-     "D0": 0.09936000000000005,
-     "best_2dom_cost": 0.10772999999999999,
-     "feasible_2dom": true,
-     "flat": false,
-     "centres": null
-    },
-    {
-     "K": 22,
-     "D0": 0.08613000000000004,
-     "best_2dom_cost": 0.09450000000000003,
-     "feasible_2dom": true,
-     "flat": false,
-     "centres": null
-    },
-    {
-     "K": 23,
-     "D0": 0.07290000000000003,
-     "best_2dom_cost": 0.08127000000000006,
-     "feasible_2dom": true,
-     "flat": false,
-     "centres": null
-    },
-    {
-     "K": 24,
-     "D0": 0.05967000000000003,
-     "best_2dom_cost": 0.06803999999999999,
-     "feasible_2dom": true,
-     "flat": false,
-     "centres": null
-    },
-    {
-     "K": 25,
-     "D0": 0.04644000000000002,
-     "best_2dom_cost": 0.054810000000000025,
-     "feasible_2dom": true,
-     "flat": false,
-     "centres": null
-    },
-    {
-     "K": 26,
-     "D0": 0.03321000000000002,
-     "best_2dom_cost": 0.04157999999999995,
-     "feasible_2dom": true,
-     "flat": false,
-     "centres": null
-    },
-    {
-     "K": 27,
-     "D0": 0.025110000000000014,
-     "best_2dom_cost": 0.028349999999999986,
-     "feasible_2dom": true,
-     "flat": false,
-     "centres": null
-    },
-    {
-     "K": 28,
-     "D0": 0.019440000000000013,
-     "best_2dom_cost": 0.019440000000000013,
-     "feasible_2dom": true,
-     "flat": true,
-     "centres": [
-      3,
-      4,
-      5,
-      6,
-      7,
-      9,
-      10,
-      11,
-      12,
-      13,
-      14,
-      15,
-      16,
-      17,
-      18,
-      19,
-      20,
-      21,
-      22,
-      23,
-      24,
-      25,
-      26,
-      27,
-      28,
-      29,
-      30,
-      31
-     ]
-    }
-   ]
-  },
-  "0.8": {
-   "K_flat": 28,
-   "seconds": 1.1348767280578613,
-   "rows": [
-    {
-     "K": 2,
-     "D0": 0.7999999999999998,
-     "feasible_2dom": false
-    },
-    {
-     "K": 3,
-     "D0": 0.6399999999999998,
-     "feasible_2dom": false
-    },
-    {
-     "K": 4,
-     "D0": 0.5119999999999999,
-     "feasible_2dom": false
-    },
-    {
-     "K": 5,
-     "D0": 0.40959999999999985,
-     "feasible_2dom": false
-    },
-    {
-     "K": 6,
-     "D0": 0.32767999999999986,
-     "feasible_2dom": false
-    },
-    {
-     "K": 7,
-     "D0": 0.2876799999999999,
-     "feasible_2dom": false
-    },
-    {
-     "K": 8,
-     "D0": 0.24927999999999992,
-     "feasible_2dom": false
-    },
-    {
-     "K": 9,
-     "D0": 0.21855999999999992,
-     "feasible_2dom": false
-    },
-    {
-     "K": 10,
-     "D0": 0.18783999999999992,
-     "best_2dom_cost": 0.5695999999999999,
-     "feasible_2dom": true,
-     "flat": false,
-     "centres": null
-    },
-    {
-     "K": 11,
-     "D0": 0.16735999999999995,
-     "best_2dom_cost": 0.25632,
-     "feasible_2dom": true,
-     "flat": false,
-     "centres": null
-    },
-    {
-     "K": 12,
-     "D0": 0.14687999999999996,
-     "best_2dom_cost": 0.23583999999999994,
-     "feasible_2dom": true,
-     "flat": false,
-     "centres": null
-    },
-    {
-     "K": 13,
-     "D0": 0.12639999999999996,
-     "best_2dom_cost": 0.21535999999999889,
-     "feasible_2dom": true,
-     "flat": false,
-     "centres": null
-    },
-    {
-     "K": 14,
-     "D0": 0.10591999999999996,
-     "best_2dom_cost": 0.1833599999999992,
-     "feasible_2dom": true,
-     "flat": false,
-     "centres": null
-    },
-    {
-     "K": 15,
-     "D0": 0.08543999999999996,
-     "best_2dom_cost": 0.16000000000000003,
-     "feasible_2dom": true,
-     "flat": false,
-     "centres": null
-    },
-    {
-     "K": 16,
-     "D0": 0.06495999999999996,
-     "best_2dom_cost": 0.12415999999999994,
-     "feasible_2dom": true,
-     "flat": false,
-     "centres": null
-    },
-    {
-     "K": 17,
-     "D0": 0.05695999999999997,
-     "best_2dom_cost": 0.10368,
-     "feasible_2dom": true,
-     "flat": false,
-     "centres": null
-    },
-    {
-     "K": 18,
-     "D0": 0.04927999999999998,
-     "best_2dom_cost": 0.08320000000000005,
-     "feasible_2dom": true,
-     "flat": false,
-     "centres": null
-    },
-    {
-     "K": 19,
-     "D0": 0.04287999999999998,
-     "best_2dom_cost": 0.06272,
-     "feasible_2dom": true,
-     "flat": false,
-     "centres": null
-    },
-    {
-     "K": 20,
-     "D0": 0.03775999999999998,
-     "best_2dom_cost": 0.042240000000000055,
-     "feasible_2dom": true,
-     "flat": false,
-     "centres": null
-    },
-    {
-     "K": 21,
-     "D0": 0.03263999999999998,
-     "best_2dom_cost": 0.03712000000000004,
-     "feasible_2dom": true,
-     "flat": false,
-     "centres": null
-    },
-    {
-     "K": 22,
-     "D0": 0.027519999999999985,
-     "best_2dom_cost": 0.03200000000000003,
-     "feasible_2dom": true,
-     "flat": false,
-     "centres": null
-    },
-    {
-     "K": 23,
-     "D0": 0.02239999999999999,
-     "best_2dom_cost": 0.026880000000000015,
-     "feasible_2dom": true,
-     "flat": false,
-     "centres": null
-    },
-    {
-     "K": 24,
-     "D0": 0.01727999999999999,
-     "best_2dom_cost": 0.02176,
-     "feasible_2dom": true,
-     "flat": false,
-     "centres": null
-    },
-    {
-     "K": 25,
-     "D0": 0.012159999999999992,
-     "best_2dom_cost": 0.016639999999999988,
-     "feasible_2dom": true,
-     "flat": false,
-     "centres": null
-    },
-    {
-     "K": 26,
-     "D0": 0.007039999999999994,
-     "best_2dom_cost": 0.011519999999999975,
-     "feasible_2dom": true,
-     "flat": false,
-     "centres": null
-    },
-    {
-     "K": 27,
-     "D0": 0.005439999999999996,
-     "best_2dom_cost": 0.006400000000000072,
-     "feasible_2dom": true,
-     "flat": false,
-     "centres": null
-    },
-    {
-     "K": 28,
-     "D0": 0.004159999999999997,
-     "best_2dom_cost": 0.0041600000000000525,
-     "feasible_2dom": true,
-     "flat": true,
-     "centres": [
-      3,
-      4,
-      5,
-      6,
-      7,
-      9,
-      10,
-      11,
-      12,
-      13,
-      14,
-      15,
-      16,
-      17,
-      18,
-      19,
-      20,
-      21,
-      22,
-      23,
-      24,
-      25,
-      26,
-      27,
-      28,
-      29,
-      30,
-      31
-     ]
-    }
-   ]
-  },
-  "0.9": {
-   "K_flat": 28,
-   "seconds": 1.1464486122131348,
-   "rows": [
-    {
-     "K": 2,
-     "D0": 0.3999999999999999,
-     "feasible_2dom": false
-    },
-    {
-     "K": 3,
-     "D0": 0.30999999999999983,
-     "feasible_2dom": false
-    },
-    {
-     "K": 4,
-     "D0": 0.22899999999999993,
-     "feasible_2dom": false
-    },
-    {
-     "K": 5,
-     "D0": 0.15609999999999996,
-     "feasible_2dom": false
-    },
-    {
-     "K": 6,
-     "D0": 0.09048999999999996,
-     "feasible_2dom": false
-    },
-    {
-     "K": 7,
-     "D0": 0.08048999999999996,
-     "feasible_2dom": false
-    },
-    {
-     "K": 8,
-     "D0": 0.07058999999999997,
-     "feasible_2dom": false
-    },
-    {
-     "K": 9,
-     "D0": 0.06167999999999997,
-     "feasible_2dom": false
-    },
-    {
-     "K": 10,
-     "D0": 0.05276999999999998,
-     "best_2dom_cost": 0.3771,
-     "feasible_2dom": true,
-     "flat": false,
-     "centres": null
-    },
-    {
-     "K": 11,
-     "D0": 0.04547999999999998,
-     "best_2dom_cost": 0.08101000000000003,
-     "feasible_2dom": true,
-     "flat": false,
-     "centres": null
-    },
-    {
-     "K": 12,
-     "D0": 0.03818999999999998,
-     "best_2dom_cost": 0.07372000000000001,
-     "feasible_2dom": true,
-     "flat": false,
-     "centres": null
-    },
-    {
-     "K": 13,
-     "D0": 0.030899999999999987,
-     "best_2dom_cost": 0.06642999999999999,
-     "feasible_2dom": true,
-     "flat": false,
-     "centres": null
-    },
-    {
-     "K": 14,
-     "D0": 0.02360999999999999,
-     "best_2dom_cost": 0.05698000000000003,
-     "feasible_2dom": true,
-     "flat": false,
-     "centres": null
-    },
-    {
-     "K": 15,
-     "D0": 0.01631999999999999,
-     "best_2dom_cost": 0.0490500000000087,
-     "feasible_2dom": true,
-     "flat": false,
-     "centres": null
-    },
-    {
-     "K": 16,
-     "D0": 0.009029999999999995,
-     "best_2dom_cost": 0.03527999999999998,
-     "feasible_2dom": true,
-     "flat": false,
-     "centres": null
-    },
-    {
-     "K": 17,
-     "D0": 0.008029999999999995,
-     "best_2dom_cost": 0.02798999999999996,
-     "feasible_2dom": true,
-     "flat": false,
-     "centres": null
-    },
-    {
-     "K": 18,
-     "D0": 0.007039999999999996,
-     "best_2dom_cost": 0.02070000000000005,
-     "feasible_2dom": true,
-     "flat": false,
-     "centres": null
-    },
-    {
-     "K": 19,
-     "D0": 0.006139999999999996,
-     "best_2dom_cost": 0.013410000000000033,
-     "feasible_2dom": true,
-     "flat": false,
-     "centres": null
-    },
-    {
-     "K": 20,
-     "D0": 0.005329999999999997,
-     "best_2dom_cost": 0.006120000000000014,
-     "feasible_2dom": true,
-     "flat": false,
-     "centres": null
-    },
-    {
-     "K": 21,
-     "D0": 0.004519999999999997,
-     "best_2dom_cost": 0.005310000000000037,
-     "feasible_2dom": true,
-     "flat": false,
-     "centres": null
-    },
-    {
-     "K": 22,
-     "D0": 0.0037099999999999976,
-     "best_2dom_cost": 0.0045000000000000595,
-     "feasible_2dom": true,
-     "flat": false,
-     "centres": null
-    },
-    {
-     "K": 23,
-     "D0": 0.002899999999999998,
-     "best_2dom_cost": 0.003689999999999971,
-     "feasible_2dom": true,
-     "flat": false,
-     "centres": null
-    },
-    {
-     "K": 24,
-     "D0": 0.0020899999999999985,
-     "best_2dom_cost": 0.0028799999999999937,
-     "feasible_2dom": true,
-     "flat": false,
-     "centres": null
-    },
-    {
-     "K": 25,
-     "D0": 0.001279999999999999,
-     "best_2dom_cost": 0.0020700000000000163,
-     "feasible_2dom": true,
-     "flat": false,
-     "centres": null
-    },
-    {
-     "K": 26,
-     "D0": 0.0004699999999999996,
-     "best_2dom_cost": 0.0012600000000000389,
-     "feasible_2dom": true,
-     "flat": false,
-     "centres": null
-    },
-    {
-     "K": 27,
-     "D0": 0.00036999999999999967,
-     "best_2dom_cost": 0.00045000000000006146,
-     "feasible_2dom": true,
-     "flat": false,
-     "centres": null
-    },
-    {
-     "K": 28,
-     "D0": 0.00027999999999999976,
-     "best_2dom_cost": 0.000280000000000058,
-     "feasible_2dom": true,
-     "flat": true,
-     "centres": [
-      1,
-      3,
-      5,
-      6,
-      7,
-      9,
-      10,
-      11,
-      12,
-      13,
-      14,
-      15,
-      16,
-      17,
-      18,
-      19,
-      20,
-      21,
-      22,
-      23,
-      24,
-      25,
-      26,
-      27,
-      28,
-      29,
-      30,
-      31
-     ]
-    }
-   ]
-  }
+ "n=3 q=0.7": {
+  "n": 3,
+  "q": 0.7,
+  "K_flat": 4,
+  "rows": [
+   {
+    "K": 2,
+    "D0": 0.6,
+    "n_optimal": 3,
+    "n_meeting_condition": 0,
+    "flat": false,
+    "gamma": 0.0,
+    "witness": null,
+    "witness_dominating": false
+   },
+   {
+    "K": 3,
+    "D0": 0.39,
+    "n_optimal": 3,
+    "n_meeting_condition": 0,
+    "flat": false,
+    "gamma": 0.0,
+    "witness": null,
+    "witness_dominating": false
+   },
+   {
+    "K": 4,
+    "D0": 0.24300000000000005,
+    "n_optimal": 1,
+    "n_meeting_condition": 1,
+    "flat": true,
+    "gamma": 0.33333333333333337,
+    "witness": [
+     "011",
+     "101",
+     "110",
+     "111"
+    ],
+    "witness_dominating": false
+   }
+  ],
+  "withdrawn_claim": 6
+ },
+ "n=4 q=0.5": {
+  "n": 4,
+  "q": 0.5,
+  "K_flat": 7,
+  "rows": [
+   {
+    "K": 2,
+    "D0": 1.25,
+    "n_optimal": 40,
+    "n_meeting_condition": 0,
+    "flat": false,
+    "gamma": 0.0,
+    "witness": null,
+    "witness_dominating": false
+   },
+   {
+    "K": 3,
+    "D0": 1.0,
+    "n_optimal": 160,
+    "n_meeting_condition": 0,
+    "flat": false,
+    "gamma": 0.0,
+    "witness": null,
+    "witness_dominating": false
+   },
+   {
+    "K": 4,
+    "D0": 0.75,
+    "n_optimal": 40,
+    "n_meeting_condition": 0,
+    "flat": false,
+    "gamma": 0.0,
+    "witness": null,
+    "witness_dominating": false
+   },
+   {
+    "K": 5,
+    "D0": 0.6875,
+    "n_optimal": 560,
+    "n_meeting_condition": 0,
+    "flat": false,
+    "gamma": 0.0,
+    "witness": null,
+    "witness_dominating": false
+   },
+   {
+    "K": 6,
+    "D0": 0.625,
+    "n_optimal": 2736,
+    "n_meeting_condition": 0,
+    "flat": false,
+    "gamma": 0.0,
+    "witness": null,
+    "witness_dominating": false
+   },
+   {
+    "K": 7,
+    "D0": 0.5625,
+    "n_optimal": 6800,
+    "n_meeting_condition": 1,
+    "flat": true,
+    "gamma": 0.5,
+    "witness": [
+     "0000",
+     "0001",
+     "0010",
+     "0111",
+     "1011",
+     "1100",
+     "1111"
+    ],
+    "witness_dominating": true
+   }
+  ],
+  "withdrawn_claim": null
+ },
+ "n=4 q=0.7": {
+  "n": 4,
+  "q": 0.7,
+  "K_flat": 5,
+  "rows": [
+   {
+    "K": 2,
+    "D0": 0.9000000000000001,
+    "n_optimal": 4,
+    "n_meeting_condition": 0,
+    "flat": false,
+    "gamma": 0.0,
+    "witness": null,
+    "witness_dominating": false
+   },
+   {
+    "K": 3,
+    "D0": 0.6900000000000001,
+    "n_optimal": 6,
+    "n_meeting_condition": 0,
+    "flat": false,
+    "gamma": 0.0,
+    "witness": null,
+    "witness_dominating": false
+   },
+   {
+    "K": 4,
+    "D0": 0.5430000000000001,
+    "n_optimal": 4,
+    "n_meeting_condition": 0,
+    "flat": false,
+    "gamma": 0.0,
+    "witness": null,
+    "witness_dominating": false
+   },
+   {
+    "K": 5,
+    "D0": 0.4401000000000001,
+    "n_optimal": 1,
+    "n_meeting_condition": 1,
+    "flat": true,
+    "gamma": 0.24999999999999997,
+    "witness": [
+     "0111",
+     "1011",
+     "1101",
+     "1110",
+     "1111"
+    ],
+    "witness_dominating": false
+   }
+  ],
+  "withdrawn_claim": 13
+ },
+ "_meta": {
+  "seconds": 0.7,
+  "note": "flatness is exhibited, not inferred from a proxy"
  }
 }

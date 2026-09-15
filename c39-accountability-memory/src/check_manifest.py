@@ -27,8 +27,9 @@ def current():
             if f == SELF or p.suffix in SKIP_EXT or p.suffix not in KEEP_EXT:
                 continue
             # LaTeX build logs are output, not evidence; results/logs/ are
-            # evidence and stay. This matches .gitignore exactly.
-            if p.suffix == ".log" and p.parent.name == "paper":
+            # evidence and stay. This matches .gitignore exactly, and must
+            # cover every paper directory -- see the note in update_hashes.py.
+            if p.suffix == ".log" and p.parent.name.startswith("paper"):
                 continue
             out[rel(p)] = hashlib.sha256(p.read_bytes()).hexdigest()
     return out

@@ -1,0 +1,68 @@
+\section{Limitations}
+\label{sec:limitations}
+
+\emph{Binary effort, symmetric loss.} Each agent contributes one bit and the
+reconstruction loss is symmetric Hamming; graded effort and weighted losses are
+open, and the reduction to a cube invariant is a statement about the cube
+specifically. The uniform prior remains load-bearing for
+Theorem~\ref{thm:onebit}, whose orientation-alignment step uses flip-invariance:
+a non-uniform prior breaks that technique rather than shifting a constant, and
+the one-bit frontier under a general prior is open.
+Theorem~\ref{thm:prior} is not affected---it is stated for every full-support
+prior.
+
+\emph{One value is open.} $\Kflat(9) \in [97,128]$, and $\gtwo(\Qn)$ has no
+closed form. We regard this as a property of the reduction rather than a defect
+of it: Corollary~\ref{cor:uniform} says the threshold \emph{is} that invariant,
+so its hardness is inherited, not introduced.
+
+\emph{One-shot.} There is no repeated interaction, reputation, external audit
+channel or shared randomness outside the counted record. Each can restore
+incentives on its own and each changes the question;
+Remark~\ref{rem:counting} explains why admitting any of them makes the tradeoff
+vacuous rather than merely weaker. Payments are bounded to $[0,1]^K$; unbounded
+or state-dependent transfers are a different problem. And \eqref{eq:margin} is an
+information condition, not an equilibrium: Corollary~\ref{cor:effort} bounds what
+no designer can do, and says nothing about what a designer should do.
+
+\emph{Measuring $\gamma$ empirically needs matched sub-tasks, and our design does
+not provide them.} Because $\gamma$ is a minimum over agents, the least auditable
+sub-task sets it. In the language-model experiment of
+Appendix~\ref{app:llm} one of three review questions is far harder to audit than
+the others---per-agent accuracy $0.677$ against $0.990$ and $0.943$---and it
+binds the margin for the two identity-preserving records. Four predictions were
+registered over all three agents and failed over all three; restricting the
+minimum to the two comparable agents reproduces the registered ordering exactly,
+but the prediction was made over three and we score it over three. Separately,
+agent $i$ always receives sub-question $i$, so sub-question difficulty and
+position in the record are confounded and this data cannot separate them. Both
+are fixable---match sub-tasks for auditability, randomise the assignment---and
+neither is fixed here. We therefore report attribution error, which averages over
+agents, and treat the measured $\gamma$ ordering as uninformative about record
+type.
+
+\emph{The experiments are exact, and synthetic.}
+Section~\ref{sec:experiment} enumerates every profile, so its numbers carry no
+sampling error---but the mechanisms are stylised compaction rules on a binary
+effort model, not instrumented runs of a deployed agent stack. They establish
+that records which are reconstruction-optimal and accountability-dead exist and
+are easy to build by accident; they do not establish that any particular
+production system has built one. The episode model of
+Appendix~\ref{app:episodes} generates artifacts from a two-distribution model we
+chose, so what transfers is the ordering of record types, not the magnitudes.
+
+\emph{The empirical case is assembled from two halves.} We are not aware of a
+single deployed system that both pays money and compresses across agents under a
+storage bound within an episode. Systems that aggregate across agents under a
+hard budget use the result for orchestration; the system that settles money from
+a merged record is bounded temporally rather than in size. We claim the tension
+for deferred accountability, and do not claim that conjunction has been observed.
+Where production frameworks lose per-agent attribution they do so by default
+convenience rather than under a binding bound, and it is recoverable with modest
+instrumentation---a weaker premise than a genuinely bounded record, and one we do
+not lean on.
+
+\paragraph{Open directions.}
+Closing $\Kflat(9)$, plausibly via published bounds on $\mu$-fold $1$-coverings
+of length $9$; the one-bit frontier under a general prior; weighted losses; and
+graded rather than binary effort.

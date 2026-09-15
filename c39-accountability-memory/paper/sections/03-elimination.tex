@@ -40,6 +40,22 @@ $\sum_y d_i(\sminus)_y = 0$, and the same holds for any mixture; for a
 zero-sum vector $v$ we have $\sum_y v_y^+ = \tfrac12\|v\|_1$.
 \end{proof}
 
+\paragraph{What is and is not new here.}
+The two ingredients are classical: von Neumann's minimax theorem, and the
+variational characterisation of total variation as the largest gap a bounded
+test function can produce. The \emph{qualitative} content---that holding an
+agent to account requires its deviation to move the distribution of the observed
+signal---is also standard, and is exactly the role played by the individual and
+pairwise full-rank conditions of Fudenberg, Levine and
+Maskin~\cite{flm1994} in repeated games with imperfect public monitoring. We
+claim neither. What Theorem~\ref{thm:elim} adds is a \emph{quantitative,
+one-shot} form of that condition---the shift must be at least $\gamma$ in total
+variation, robustly over mixtures of teammate behaviour---and, decisively, the
+elimination of the payment rule from the problem. Detectability conditions in the
+repeated-games literature are stated for a \emph{given} monitoring structure;
+here the monitoring structure is the unknown, and removing $\pay$ is what makes
+it possible to ask which structures a budget can buy.
+
 Three things follow, and the third is the one to remember.
 
 \begin{corollary}[Edge condition]

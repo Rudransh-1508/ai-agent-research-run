@@ -1,0 +1,75 @@
+\section{Related work}
+\label{sec:related}
+
+\paragraph{Moral hazard in teams.}
+The classical statement of our problem is Holmstr\"om's~\cite{holmstrom1982}: a
+team produces joint output, individual effort cannot be recovered from it, and no
+budget-balanced sharing rule makes effort a best response. The difference is
+where the information goes. There, individual effort is unobservable \emph{in
+principle}---the production technology never produced a per-agent signal. Here
+the full profile existed and a budget destroyed it, and the object is how much
+must survive. Holmstr\"om relaxes budget balance to restore incentives; we hold
+the payment bounded and ask what the \emph{record} must retain. The
+contract-theoretic literature takes the information structure as given; our
+question is what information structure is purchasable at a given size.
+Theorem~\ref{thm:elim} is a one-shot, quantitative relative of the full-rank
+detectability conditions of Fudenberg, Levine and Maskin~\cite{flm1994}, which
+are likewise stated for a given monitoring structure; Section~\ref{sec:elimination}
+says precisely what we do and do not claim there.
+
+\paragraph{Distributed source coding.}
+The binary CEO problem~\cite{berger1996ceo,binaryceologloss} is the closest
+classical relative: $n$ distributed encoders, each seeing a noisy copy of a
+hidden source, send rate-limited messages to a fusion centre reconstructing under
+Hamming distortion. Majority decoding and Hamming-distortion analysis both appear
+there. The settings differ where it matters: we have a \emph{single} encoder
+seeing $S$ exactly, we estimate $S$ itself rather than a source behind noise, we
+work one-shot at finite $K$ rather than asymptotically, and---decisively---we
+impose a lower bound on the summary's sensitivity to each \emph{individual} input
+bit. No result there constrains per-coordinate sensitivity, and the incentive
+condition has no analogue. The baseline $\Dnull(K)$ is classical $K$-median
+quantisation and we claim nothing about it.
+
+\paragraph{Sensitivity, bounded below rather than above.}
+Differential privacy and its relatives bound a record's sensitivity to any one
+individual from \emph{above} and ask how much utility survives; we bound it from
+\emph{below} and ask how much compression survives. The two are not dual---one is
+a privacy guarantee, the other an accountability requirement---but the contrast
+places the object precisely. We are not aware of a rate--distortion treatment in
+which per-coordinate sensitivity is constrained from below.
+
+\paragraph{Domination and covering codes.}
+$\gtwo$ is a well-studied invariant~\cite{chellalisurvey,bujtasjasko}; the
+counting bound $\gamma_k(G) \ge k|V|/(\Delta+k)$ is due to Fink and
+Jacobson~\cite{finkjacobson1985}, and our Lemma~\ref{lem:shell} strictly
+strengthens its specialisation to $\Qn$ by accounting for outer shells. Work on
+$\gtwo$ for special classes of hypercubes, enhanced hypercubes and Kn\"odel
+graphs exists~\cite{arulanand2023}. We claim no novelty for the invariant or any
+of its values; the contribution is the reduction of the accountability threshold
+to it, and our values ship with machine-checkable certificates so they can be
+compared against any published evaluation. The natural coding counterpart is the
+theory of \emph{multiple coverings}~\cite{coveringcodes}, where a $\mu$-fold
+$r$-covering requires every word within distance $r$ of at least $\mu$ codewords;
+the dual condition---at \emph{most} $\mu$---is multifold
+packing~\cite{krotovpotapov}, so that literature bounds a different quantity. A
+$2$-fold $1$-covering is $2$-domination \emph{plus} the requirement that
+codewords be covered twice, and our $n=9$ code---which has no internal edges---is
+$2$-dominating but not a $2$-fold $1$-covering.
+
+\paragraph{Credit assignment and attribution in multi-agent systems.}
+Cooperative multi-agent RL shares a single team reward and value decomposition
+methods~\cite{qmix,coma,vdn} exist precisely to undo that collapse; recent work
+carries the problem into long-horizon LLM agents via verifier-derived dependency
+edges~\cite{vict2026}. These exhibit the \emph{consequence} we study without its
+\emph{mechanism}: their per-agent signal was never present to be discarded.
+Empirically, Chen et al.~\cite{chen2026elephant} show full execution traces
+improve attribution by up to $76.5\%$ over an outputs-only counterpart, so the
+\emph{volume} axis is not ours; Lu et al.~\cite{lu2026agentsmatter} formalise
+attribution as a cooperative game over removal protocols and find introspective
+LLM judges unfaithful to it---a caution we inherit, since
+Appendix~\ref{app:llm} uses such a judge. Work on recovering provenance when only
+the final artifact survives~\cite{finaltextsurvives} shares our assumption but
+asks a forensic question; trace-compression systems~\cite{trace2026,tracer2026}
+learn what to retain under a budget but carry no incentive term and give no
+limit. What none of them holds fixed is \emph{content} while varying only whether
+authorship survives, which is the manipulation Appendix~\ref{app:llm} runs.

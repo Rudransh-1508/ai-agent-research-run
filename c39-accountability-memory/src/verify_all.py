@@ -9,6 +9,7 @@ here from scratch. Everything else is recomputed by direct enumeration.
 Exit code 0 iff every check passes.
 """
 import json, math, sys
+import itertools
 from itertools import combinations
 import sys as _sys, pathlib as _pl
 _sys.path.insert(0, str(_pl.Path(__file__).resolve().parents[1]))
@@ -355,94 +356,156 @@ check("n=50: that is 45.3-46.0 of 50 bits",
       f"[{math.log2(lo50):.2f}, {math.log2(hi50):.2f}]")
 
 
-# ============ G. the prior-general threshold (Theorem 4, Corollary 5)
+# ============ G. the general-prior threshold: a retraction, checked
 #
-# Condition (M) never mentions the prior, so the threshold is well posed for any
-# full-support pi and equals the least K admitting a pi-optimal K-median set
-# that is 2-dominating. For a product Bernoulli(q) prior with q != 1/2 the
-# maximum-mass K-sets are the K heaviest vertices, and the claim is
-#     K_flat = 2^n - (n-1),  margin exactly 1/2.
-# Both directions are checked here by direct enumeration -- no solver.
+# An earlier version of this block verified the claim
+#     K_flat(tilted) = 2^n - (n-1)
+# by testing whether a pi-optimal K-median set is 2-DOMINATING. That test is
+# wrong. Lemma 3' says every non-centre has >= 2 centres at ITS OWN NEAREST
+# DISTANCE d(s,C); that is 2-domination only when the optimal code is
+# dominating. The uniform prior makes it dominating above gamma(Q_n) -- which
+# is why Theorem 9 stands -- but a tilted prior need not.
+#
+# The old block and the old MILP agreed on 6, 28, 122 at n = 3, 5, 7 because
+# BOTH encoded the same wrong condition. Two implementations of one wrong
+# specification agree; that is what independence of implementation cannot buy.
+#
+# What is checked here instead: the counterexamples, by construction. We build
+# an explicitly flat record at a K BELOW the withdrawn threshold and measure its
+# distortion and margin from scratch -- no solver, no proxy condition.
 
 def bernoulli_mass(n, q, v):
     w = popcount(v)
     return q ** w * (1 - q) ** (n - w)
 
 
-def two_dom_degrees(n, C):
-    inC = set(C)
-    return [sum(((t ^ (1 << i)) in inC) for i in range(n))
-            for t in range(1 << n) if t not in inC]
+def _prior_vec(n, q):
+    return [bernoulli_mass(n, q, v) for v in range(1 << n)]
 
 
-print("\nG. the prior-general threshold under a tilted product prior")
+def _code_cost(n, pi, C):
+    return sum(pi[s] * min(popcount(s ^ c) for c in C) for s in range(1 << n))
 
-# The MILP values are READ from the artifacts the solver actually produced,
-# not transcribed: prior_threshold.json (full upward scan, n = 3 and 5) and
-# prior_threshold_n7.json (a band around the claimed transition at n = 7, at
-# three separate tilts). A hand-copied constant here would verify nothing.
-MILP_VALUES = {}
-try:
-    _sweep = json.load(open(data("prior_threshold.json")))
-    for _n, _rows in _sweep.items():
-        _tilted = {float(_q): _r["K_flat"] for _q, _r in _rows.items()
-                   if abs(float(_q) - 0.5) > 1e-12}
-        if _tilted and len(set(_tilted.values())) == 1:
-            MILP_VALUES[int(_n)] = next(iter(_tilted.values()))
-    _band = json.load(open(data("prior_threshold_n7.json")))
-    _firsts = {v["first_flat_in_band"] for v in _band["q"].values()}
-    if len(_firsts) == 1:
-        MILP_VALUES[_band["n"]] = _firsts.pop()
-    _even = json.load(open(data("prior_threshold_even.json")))
-    for _n, _r in _even["even_n"].items():
-        if _r["first_flat"] is not None:
-            MILP_VALUES[int(_n)] = _r["first_flat"]
-except (OSError, ValueError, KeyError) as _e:      # never skip silently
-    MILP_VALUES = None
-    check("the MILP artifacts backing Corollary 5 are present and readable",
-          False, str(_e))
 
-for n in [3, 4, 5, 6, 7, 8, 9, 11, 13]:      # parity is NOT assumed
+def _nearest(n, C, s):
+    d = min(popcount(s ^ c) for c in C)
+    return d, [c for c in C if popcount(s ^ c) == d]
+
+
+def _spread(n, C):
+    """Point mass on each centre; each non-centre uniform on its nearest centres."""
+    N, K = 1 << n, len(C)
+    idx = {c: j for j, c in enumerate(C)}
+    q = [[0.0] * K for _ in range(N)]
+    for s in range(N):
+        _, nr = _nearest(n, C, s)
+        for c in nr:
+            q[s][idx[c]] = 1.0 / len(nr)
+    return q
+
+
+def _margin_lb(n, q):
+    """A solver-free LOWER bound on the margin: the worst single edge.
+
+    Theorem 3 minimises over mixtures, so the per-edge minimum is an upper
+    bound on gamma; to certify gamma > 0 without an LP we instead use the
+    dual-feasible payment p_i[y] = (centre of y)_i, whose guaranteed value is
+    the worst edge gap it achieves. That is a genuine lower bound.
+    """
+    K = len(q[0])
+    worst = float("inf")
+    for i in range(n):
+        pay = [(C_GLOBAL[y] >> i) & 1 for y in range(K)]
+        for sm in range(1 << (n - 1)):
+            lo = sm & ((1 << i) - 1)
+            hi = (sm >> i) << (i + 1)
+            s0 = lo | hi
+            s1 = s0 | (1 << i)
+            gap = sum(pay[y] * (q[s1][y] - q[s0][y]) for y in range(K))
+            worst = min(worst, gap)
+    return worst
+
+
+print("\nG. the general-prior threshold: the withdrawn claim, refuted")
+
+# The two counterexamples reported in Section 5.7, rebuilt from nothing.
+for n, q_, C, D0_expect, gam_expect in [
+        (3, 0.7, [0b011, 0b101, 0b110, 0b111], 0.2430, 1 / 3),
+        (4, 0.7, [0b0111, 0b1011, 0b1101, 0b1110, 0b1111], 0.4401, 0.25)]:
     N = 1 << n
-    K = N - (n - 1)
-    excluded = {0} | {1 << i for i in range(n - 2)}
-    C = [v for v in range(N) if v not in excluded]
+    pi = _prior_vec(n, q_)
+    K = len(C)
 
-    check(f"n={n}: the witness has size 2^n-(n-1)", len(C) == K, f"K={K}")
+    # (a) C really is pi-optimal at its size -- checked against every K-subset
+    best = min(_code_cost(n, pi, list(S))
+               for S in itertools.combinations(range(N), K))
+    check(f"n={n} q={q_}: the witness code is pi-optimal at K={K}",
+          abs(_code_cost(n, pi, C) - best) < 1e-12,
+          f"D_0({K}) = {best:.6f}")
+    check(f"n={n} q={q_}: D_0({K}) = {D0_expect}",
+          abs(best - D0_expect) < 5e-5, f"{best:.6f}")
 
-    degs = two_dom_degrees(n, C)
-    check(f"n={n}: the witness is 2-dominating with d_min=2",
-          min(degs) == 2 and all(d >= 2 for d in degs),
-          f"d_min={min(degs)}  margin={1 - 1 / min(degs):.3f}")
+    # (b) it is NOT dominating -- which is exactly why the old test rejected it
+    far = [s for s in range(N) if s not in C and _nearest(n, C, s)[0] > 1]
+    check(f"n={n} q={q_}: the witness is NOT dominating",
+          len(far) > 0,
+          "at distance >= 2: " + ", ".join(format(s, "0" + str(n) + "b")
+                                           for s in far))
 
-    # sufficiency needs the witness to be a maximum-mass K-set: equivalently its
-    # complement must be a minimum-mass (n-1)-set, for every tilt q > 1/2
-    for q in (0.55, 0.7, 0.9):
-        masses = sorted(bernoulli_mass(n, q, v) for v in range(N))
-        got = sorted(bernoulli_mass(n, q, v) for v in excluded)
-        check(f"n={n} q={q}: the excluded set is minimum-mass",
-              all(abs(a - b) < 1e-18 for a, b in zip(got, masses[:n - 1])))
+    # (c) but it does satisfy the CORRECT necessary condition
+    check(f"n={n} q={q_}: every non-centre has >= 2 centres at its own distance",
+          all(len(_nearest(n, C, s)[1]) >= 2 for s in range(N) if s not in C))
 
-    # necessity: at K-1 the complement has n vertices, so it must contain 0^n
-    # and at least n-1 weight-one vertices; every such choice fails 2-domination
-    worst = 0
-    for drop in range(n):                      # which weight-one vertex survives
-        excl2 = {0} | {1 << i for i in range(n) if i != drop}
-        C2 = [v for v in range(N) if v not in excl2]
-        worst = max(worst, min(two_dom_degrees(n, C2)))
-    check(f"n={n}: no minimum-mass complement of size n is 2-dominating",
-          worst < 2, f"best achievable d_min={worst}")
+    # (d) and the record built on it is flat: D = D_0 exactly, margin > 0
+    C_GLOBAL = C
+    rec = _spread(n, C)
+    D = 0.0
+    for y in range(K):
+        col = [pi[s] * rec[s][y] for s in range(N)]
+        if sum(col) <= 0:
+            continue
+        t_best = min(range(N),
+                     key=lambda t: sum(col[s] * popcount(s ^ t) for s in range(N)))
+        D += sum(col[s] * popcount(s ^ t_best) for s in range(N))
+    check(f"n={n} q={q_}: the spread record attains D_0 exactly",
+          abs(D - best) < 1e-12, f"D = {D:.6f}  D_0 = {best:.6f}")
 
-    if MILP_VALUES and n in MILP_VALUES:
-        check(f"n={n}: agrees with the weighted-median MILP sweep",
-              K == MILP_VALUES[n], f"solver-free {K}  MILP {MILP_VALUES[n]}")
+    g = _margin_lb(n, rec)
+    check(f"n={n} q={q_}: it achieves a positive margin, so it is FLAT",
+          g > 1e-9, f"gamma >= {g:.6f} (certified by an explicit payment rule)")
+    check(f"n={n} q={q_}: that margin is {gam_expect:.4f}",
+          abs(g - gam_expect) < 1e-9, f"{g:.6f}")
 
-# the collapse of the free compression ratio, as printed in Table 5
-for n, ratio in [(3, 1.333333), (5, 1.142857), (7, 1.049180), (9, 1.015873),
-                 (20, 1.000018)]:
-    got = 2 ** n / (2 ** n - (n - 1))
-    check(f"n={n}: tilted C(n) = {ratio}", abs(got - ratio) < 5e-6,
-          f"computed {got:.6f}  free bits {math.log2(got):.2e}")
+    # (e) therefore the withdrawn threshold is refuted at this n
+    withdrawn = N - (n - 1)
+    check(f"n={n} q={q_}: K={K} < {withdrawn}, refuting the withdrawn claim",
+          K < withdrawn,
+          f"a flat record exists at K={K}; the withdrawn claim said {withdrawn}")
+
+# The uniform prior is unaffected: there the optimal codes ARE dominating above
+# gamma(Q_n), so the condition does specialise to 2-domination and Theorem 9
+# holds. Check that specialisation on the two cases we can enumerate.
+for n, kflat in [(3, 4), (4, 7)]:
+    N = 1 << n
+    pi = [1.0 / N] * N
+    found = None
+    for K in range(2, N + 1):
+        best = min(_code_cost(n, pi, list(S))
+                   for S in itertools.combinations(range(N), K))
+        ok = False
+        for S in itertools.combinations(range(N), K):
+            if abs(_code_cost(n, pi, list(S)) - best) > 1e-12:
+                continue
+            if all(len(_nearest(n, list(S), s)[1]) >= 2
+                   for s in range(N) if s not in S) and \
+               all(_nearest(n, list(S), s)[0] <= 1 for s in range(N)):
+                ok = True
+                break
+        if ok:
+            found = K
+            break
+    check(f"n={n} uniform: K_flat = gamma_2(Q_{n}) = {kflat}", found == kflat,
+          f"enumeration gives {found}")
 
 
 # ================================================================== summary

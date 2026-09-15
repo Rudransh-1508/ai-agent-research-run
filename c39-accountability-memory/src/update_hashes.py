@@ -24,8 +24,11 @@ for dirpath, dirnames, filenames in os.walk(ROOT):
         if f == SELF or p.suffix in SKIP_EXT or p.suffix not in KEEP_EXT:
             continue
         # LaTeX build logs are output, not evidence; results/logs/ are
-        # evidence and stay. This matches .gitignore exactly.
-        if p.suffix == ".log" and p.parent.name == "paper":
+        # evidence and stay. This matches .gitignore exactly -- and it must
+        # cover every paper directory, not just paper/, or a new one silently
+        # gets its build log hashed and then gitignored, which breaks the
+        # archive's own integrity check.
+        if p.suffix == ".log" and p.parent.name.startswith("paper"):
             continue
         b = p.read_bytes()
         out[rel(p)] = {"sha256": hashlib.sha256(b).hexdigest(), "bytes": len(b)}

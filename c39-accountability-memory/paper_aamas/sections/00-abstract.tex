@@ -1,0 +1,31 @@
+A record that must later settle payments and a record that must later be
+read back are not the same object, and a size bound forces a choice between
+them. We study that choice exactly. A record with $K$ labels must
+(i)~permit reconstruction of a joint effort profile $S \in \cube$ with small
+expected Hamming error, and (ii)~retain enough about each agent's unilateral
+contribution that a \emph{bounded} payment computed from the record alone
+rewards effort by at least $\gamma$, whatever the teammates did.
+
+Our first result removes the payment rule from the problem: such a payment
+exists for agent~$i$ if and only if every unilateral deviation by~$i$ moves the
+retained label distribution by at least $\gamma$ in total variation, minimised
+over mixtures of teammate behaviour. Accountability is exactly a lower bound on
+the record's sensitivity to each individual, so a record whose margin falls below
+an agent's effort cost cannot sustain that effort under any bounded payment rule
+and any equilibrium concept---a constraint mechanism design must respect,
+stated before a mechanism is chosen.
+
+From it we obtain two exact results. The one-bit frontier is
+$\Dopt(2,\gamma) = \Mn + n\gamma\bigl(\tfrac{n-1}{2} - \Mn\bigr)$, linear in
+$\gamma$, for arbitrary bounded payments and arbitrary reconstruction. And for
+\emph{every} full-support prior we characterise the threshold at which
+accountability becomes free: it is the least $K$ admitting a prior-optimal
+$K$-median code in which every non-centre has at least two centres at its own
+nearest distance. Under the uniform prior this specialises to
+$\Kflat(n) = \gtwo(\Qn)$, the $2$-domination number of the $n$-cube, giving
+$\Kflat(7) = 32$ and $97 \le \Kflat(9) \le 128$ with machine-checkable
+certificates. Escaping the tension costs about $85\%$ of per-agent resolution at
+$n = 20$. Concrete compaction mechanisms land where the theory says: at $n=5$ two
+records of the same size and the \emph{same} reconstruction error differ by
+$1/2$ against $0$ in margin, so identical compression quality can be worth
+everything or nothing for accountability.

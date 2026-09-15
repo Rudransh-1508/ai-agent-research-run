@@ -15,12 +15,15 @@ Numbers that are derived rather than measured (compression ratios, bit counts,
 the tilted threshold) are covered by verify_all.py blocks F and G and are not
 repeated here.
 """
-import io, json, re, sys
+import io, json, os, re, sys
 import sys as _sys, pathlib as _pl
 _sys.path.insert(0, str(_pl.Path(__file__).resolve().parents[1]))
 from c39.paths import data, out
 
-SEC = "paper/sections/"   # resolved via data()
+# Which paper to audit. Defaults to the LNCS/ACM draft in paper/; set
+# C39_PAPER_DIR=paper_aamas to audit the AAMAS submission instead. Both share
+# the same artifacts, so the same claims must hold against whichever is built.
+SEC = os.environ.get("C39_PAPER_DIR", "paper").rstrip("/") + "/sections/"
 FAILS, UNSOURCED = [], []
 
 
@@ -240,6 +243,47 @@ for name, K, D, D0, g, flat in mech_rows:
           f"D={r['D']:.4f} D0={r['D0_unrestricted']:.4f} g={r['gamma']:.4f} "
           f"flat={r['flat']}")
 
+# The AAMAS body carries a four-row cut of the same table in its own file. It is
+# a different file with different row labels, so parsing Table 4 says nothing
+# about it; check it separately against the same artifact. Absent in the paper/
+# build, where the full table is in the body.
+COMPACT = {"count of completions": "count", "first $4$ agents only": "prefix4",
+           "flat construction": "flat", "$K$-median code": "kmedian"}
+try:
+    compact_tex = tex("055-mechanisms.tex")
+except OSError:
+    compact_tex = None
+if compact_tex is not None and base:
+    print("\nCompact mechanisms table (AAMAS body) against experiment_agents.json")
+    crows = re.findall(
+        r"^(count of completions|first \$4\$ agents only|flat construction|"
+        r"\$K\$-median code)\s*&\s*\$(\d+)\$\s*&\s*\$([0-9.]+)\$\s*&"
+        r"\s*\$([0-9.]+)\$\s*&\s*\$([0-9.]+)\$\s*&\s*(?:\\textbf\{)?(yes|no)",
+        compact_tex, re.MULTILINE)
+    claim("compact table parsed all four rows", len(crows) == 4,
+          f"parsed {[c[0] for c in crows]}")
+    for name, K, D, D0, g, flat in crows:
+        r = base.get(COMPACT[name])
+        ok = (r is not None and int(K) == r["K"]
+              and abs(float(D) - r["D"]) < 5e-5
+              and abs(float(D0) - r["D0_unrestricted"]) < 5e-5
+              and abs(float(g) - r["gamma"]) < 5e-5
+              and (flat == "yes") == bool(r["flat"]))
+        claim(f"compact row '{name}' matches the artifact", ok,
+              f"paper K={K} D={D} D0={D0} g={g} flat={flat}"
+              + (f"  |  artifact K={r['K']} D={r['D']:.4f} "
+                 f"D0={r['D0_unrestricted']:.4f} g={r['gamma']:.4f} "
+                 f"flat={r['flat']}" if r else "  |  NO ARTIFACT ROW"))
+    # the two prose claims the section rests on
+    claim("the aggregate margin quoted as exactly 1/n is 1/n in the artifact",
+          abs(base["count"]["gamma"] - 1 / 5) < 1e-9,
+          f"artifact {base['count']['gamma']:.6f}")
+    claim("fixed truncation really has margin exactly 0 in the artifact",
+          abs(base["prefix4"]["gamma"]) < 1e-12,
+          f"artifact {base['prefix4']['gamma']}")
+    present("055-mechanisms.tex", "margin exactly $1/n$", "count margin claim")
+    present("055-mechanisms.tex", "margin exactly $0$", "truncation margin claim")
+
 # the two headline numbers quoted in the prose of that section
 if base:
     f_, km = base.get("flat"), base.get("kmedian")
@@ -336,6 +380,27 @@ if gapinfo:
           and abs(float(ci.group(1)) - gapinfo["ci95"][0]) < 5e-4
           and abs(float(ci.group(2)) - gapinfo["ci95"][1]) < 5e-4,
           f"paper [{ci.group(1)}, {ci.group(2)}]" if ci else "not found")
+
+
+# the section 7.2 diagnosis numbers must match the artifact too
+if llm.get("_decomposition") and llm.get("_per_agent_margin"):
+    dec = llm["_decomposition"]["artifact_multiset"]
+    t = tex("066-llm.tex")
+    m = re.search(r"count error \$([0-9.]+)\$ against \$([0-9.]+)\$", t)
+    # compare at the precision the paper prints: 0.4375 renders as 0.438
+    claim("the count-error pair in 7.2 matches the artifact",
+          m is not None
+          and float(m.group(1)) == round(dec["count"], 3)
+          and float(m.group(2)) == round(
+              llm["_decomposition"]["full_trace"]["count"], 3),
+          f"paper {m.groups() if m else None}  artifact "
+          f"{dec[chr(99)+chr(111)+chr(117)+chr(110)+chr(116)]:.3f}")
+    pam = llm["_per_agent_margin"]["full_trace"]
+    for v in pam:
+        claim(f"per-agent margin {v:.3f} appears in 7.2",
+              f"${v:.3f}$" in t, f"{v:.3f}")
+    claim("7.2 quotes the restored ordering from the artifact",
+          all(f"${x}$" in t or x in t for x in ("0.792", "0.744", "0.207", "0.083")))
 
 
 # ------------------------------------------------- environment and check count

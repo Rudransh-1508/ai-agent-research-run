@@ -1,0 +1,108 @@
+\subsection{Artifacts a model actually wrote}
+\label{app:llm}
+
+Both experiments above generate artifacts from a distribution we chose. This one
+does not. Three agents review a real code change --- a connection-pool size
+reduction shipped alongside an unrelated fix --- each taking a distinct aspect.
+With $S_i = 1$ the agent is given the diff and must cite identifiers or line
+numbers; with $S_i = 0$ it is told to produce confident, professional review
+guidance \emph{without} the code and not to admit it. That is shirking in the
+sense this paper means: the artifact still looks like work. A coordinator reads
+the three reviews and ships or holds. The records are derived from the episode
+exactly as in Section~\ref{app:episodes}, a judge model predicts which agents
+actually read the diff, and the paper's instruments are applied to the induced
+channel. Model \texttt{codestral-2508} at temperature $0$; $192$ episodes, $24$
+per effort profile; all artifacts, records and verdicts are in the artifact.
+
+\begin{table}[t]
+\centering
+\caption{Attribution error on model-written reviews, $192$ episodes. The first
+and third rows contain \emph{the same text}, differing only by ``Reviewer $k$:''
+labels.}
+\label{tab:llm}
+\small
+\begin{tabular}{@{}lrr@{}}
+\toprule
+record & bytes & attribution error (of 3 bits) \\
+\midrule
+full trace              & $2612$ & $0.391$ \\
+per-agent summary       & $661$  & $0.260$ \\
+artifact multiset       & $2582$ & $1.333$ \\
+global summary          & $609$  & $1.000$ \\
+final output only       & $507$  & $1.193$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Thirty bytes of authorship.}
+The full trace and the artifact multiset hold the same five reviews. They differ
+by about $30$ bytes of attribution labels, a $1.2\%$ difference in size, and by
+$0.943$ bits of attribution error --- $95\%$ bootstrap interval
+$[0.802, 1.089]$ over $20{,}000$ resamples, excluding zero. Roughly a third of
+the recoverable per-agent signal lives in the labels rather than in the content,
+on text a language model wrote. This is the identity-versus-volume finding of
+Section~\ref{app:episodes} reproduced outside the generative model that produced
+it, and it is the claim this experiment is offered to support.
+
+\paragraph{What the gap is made of.}
+A shuffled multiset invites an obvious objection: of course authorship cannot be
+recovered once it is removed. The decomposition answers it. Splitting the error
+into what the record says about \emph{how many} agents worked and what it says
+about \emph{which}, the multiset recovers the count about as well as the full
+trace does---mean count error $0.438$ against $0.391$---while its assignment
+error accounts for essentially all of the $0.943$-bit gap. Taking the best of the
+$3!$ relabellings of the judge's answer reduces the multiset's error from $1.333$
+to $0.438$, exactly its count error.
+
+This matters because re-identification was possible in principle and did not
+happen. Each agent answers a \emph{different} sub-question, so the reviews are
+topically self-identifying: a passage about connection pooling could only be the
+second reviewer's. The zero-shot judge nonetheless did not reconstruct the
+assignment from content.
+
+We are careful about how far that generalises. Dietrich~\cite{dietrich2026peers}
+shows that a \emph{trained} stylometric classifier recovers which model wrote an
+anonymised text with macro $F_1$ near $0.99$, so authorship signal certainly
+survives anonymisation and a dedicated re-identifier could plausibly recover much
+of what our judge missed. Our claim is correspondingly narrow: under the
+compaction a deployed system would actually apply, and read by the kind of
+general-purpose judge such a system would actually use, the assignment is not
+recovered. Whether an adversary or auditor equipped with a fitted stylometric
+model could recover it is a different question, and one our design does not
+answer.
+
+\paragraph{Where our predictions failed, and the exact reason.}
+Four of the five predictions registered for this experiment were falsified, and
+the cause is a property of our task rather than of the records. Per-agent
+classification accuracy on the full trace is $0.990$ and $0.943$ for the first
+two agents but $0.677$ for the third, whose sub-question asks what is now
+untested---a question a content-free answer imitates well. Because $\gamma$ is a
+\emph{minimum} over agents, that one agent sets the margin, and it does so only
+for the records that preserve identity: for the full trace the binding agent's
+margin is $0.075$ against $0.958$ and $0.792$ for the others, whereas for the
+multiset all three agents sit between $0.207$ and $0.335$, with none detectable.
+
+Restricting the minimum to the two comparable agents restores the registered
+ordering exactly---$0.792 \ge 0.744 > 0.207 \ge 0.083 \ge 0$---which is
+Prediction~L1 as written. We report that as a diagnosis, not as a rescue: the
+ordering was registered over all three agents and it failed over all three
+agents.
+
+Two things follow. First, a measured $\gamma$ is only as informative as the
+\emph{least auditable} sub-task in the episode, so sub-tasks must be matched for
+auditability before any empirical $\gamma$ can be attributed to a record; that is
+a constraint on measuring the quantity at all, and it applies to anyone
+attempting it. Second, our design confounds sub-question with agent position,
+because agent $i$ always received sub-question $i$. We therefore cannot say
+whether the third agent is hard to audit because of its question or because of
+where it sits in the record, and the data cannot separate them. Randomising the
+assignment would; we did not, and we do not claim the distinction.
+
+\paragraph{One honest artefact of sample size.}
+At four episodes per profile the same estimator returned
+$\gamma(\text{full trace}) = 0$, triggering the failure condition registered
+before the run. The cause was seven cells in which the judge happened to give
+identical verdicts with and without some agent's effort, forcing an exact zero;
+such ties can only bias $\gamma$ downward. They fell to one cell at ten episodes
+per profile and to none at twenty-four. The attribution gap, by contrast, moved
+from $0.969$ to $0.943$ across that sixfold increase in data.

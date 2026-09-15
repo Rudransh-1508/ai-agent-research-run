@@ -1,0 +1,72 @@
+\section{The one-bit frontier}
+\label{sec:onebit}
+
+The smallest interesting record keeps a single bit. There the frontier is exact,
+closed-form, and linear in the required margin.
+
+\begin{theorem}[One-bit frontier]
+\label{thm:onebit}
+Let $n$ be odd, $S$ uniform on $\cube$, $K = 2$, with arbitrary bounded payment
+decoders and arbitrary reconstruction. Put
+$\Mn = \E[\min(|S|, n-|S|)]$. Then for $0 \le \gamma \le 1/n$,
+\[
+  \Dopt(2,\gamma) \;=\; \Mn + n\gamma\Bigl(\tfrac{n-1}{2} - \Mn\Bigr),
+\]
+and no record implements margin $\gamma > 1/n$ at all, whatever the payment.
+\end{theorem}
+
+For $K = 2$ the record is a single function $\enc : \cube \to [0,1]$ and
+\eqref{eq:margin} factors into a per-agent orientation. Aligning orientations by
+input flips---valid precisely because the uniform prior is flip-invariant and
+Hamming loss flip-equivariant---turns the feasible set into an affine shift of
+the monotone cone, on which the objective is linear for a fixed reconstruction
+pair. A linear objective on a shifted cone is what produces a straight frontier.
+The optimal record is a mixture of two classical objects, \emph{majority} and a
+\emph{random-bit sampler}; neither is new, and the content of the theorem is that
+nothing else does better. Appendix~\ref{app:onebit} carries the derivation.
+
+\paragraph{Order of argument (this matters).}
+Under \emph{optimal} decoding $D(\enc)$ is a minimum of linear functionals and
+hence \emph{concave} in $\enc$, so permutation-averaging can only \emph{increase}
+it: symmetrising before the decoder is fixed runs the wrong way for a lower
+bound. The correct order, used in Appendix~\ref{app:onebit}, is to fix the
+reconstruction pair---for which the objective is linear in $\enc$---optimise over
+$\enc$, and only then minimise over pairs. That last step is carried out for
+general $n$ by a Rademacher coupling: the term the record can still influence is
+$\E[\Delta_{a,b}(S)^-] = \tfrac12\E|R_{p+m}|$, where $R_k$ sums $k$ independent
+Rademacher variables and $p+m \le n$ counts the coordinates on which the pair
+disagrees. Since $\E|R_k|$ is nondecreasing, every pair is dominated by the
+antipodal one.
+
+\begin{remark}[Endpoint]
+\label{rem:endpoint}
+At $\gamma = 1/n$ the formula collapses to $\Dopt(2,1/n) = (n-1)/2$
+independently of $\Mn$: at the maximum implementable margin the record is worth
+exactly half a bit per agent less than guessing, whatever $n$ is. The frontier
+runs from $(0,\Mn)$ to $(1/n,(n-1)/2)$ and is determined by its endpoints.
+\end{remark}
+
+\begin{table}[t]
+\centering
+\caption{Theorem~\ref{thm:onebit} against an exhaustive-orbit LP, one LP per
+reconstruction orbit per $\gamma$ on a grid spanning $[0,1/n]$. Recomputed in the
+pinned environment.}
+\label{tab:onebit}
+\small
+\begin{tabular}{@{}lrrr@{}}
+\toprule
+$n$ & $\Mn$ & $\gamma$ range & max deviation \\
+\midrule
+3 & 0.750000 & $[0, 1/3]$ & $0$ \\
+5 & 1.562500 & $[0, 1/5]$ & $0$ \\
+7 & 2.406250 & $[0, 1/7]$ & $4.4\times10^{-16}$ \\
+9 & 3.269531 & $[0, 1/9]$ & $3.1\times10^{-15}$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The orbit reduction was cross-checked against complete enumeration of all $4^n$
+pairs at $n = 3,5$ (agreement to $0$), and orientation invariance across all
+eight sign patterns at $n = 3$ (spread $0$). In every case the optimiser landed
+exactly on the conjectured record
+$\enc(s) = \gamma|s| + (1-n\gamma)\ind{|s| > n/2}$.

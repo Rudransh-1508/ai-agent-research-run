@@ -28,6 +28,16 @@ constrains per-coordinate sensitivity, and the incentive condition has no
 analogue there. The unconstrained baseline $\Dnull(K)$ is classical
 $K$-median quantisation and we claim nothing about it.
 
+\paragraph{Sensitivity, bounded below rather than above.}
+The constraint studied here is unusual in its direction. Differential privacy and
+its relatives bound a record's sensitivity to any one individual from
+\emph{above}, and ask how much utility survives; we bound it from \emph{below},
+and ask how much compression survives. The two are not dual---one is a privacy
+guarantee and the other an accountability requirement---but the contrast places
+the object precisely: we are asking for the least sensitivity a record must
+retain, not the most it may have. We are not aware of a rate--distortion
+treatment in which per-coordinate sensitivity is constrained from below.
+
 \paragraph{Domination and covering codes.}
 $\gtwo$ is a well-studied invariant~\cite{chellalisurvey,bujtasjasko}. The counting bound
 $\gamma_k(G) \ge k|V|/(\Delta+k)$ is due to Fink and
@@ -37,7 +47,7 @@ specialisation to $\Qn$ by accounting for outer shells. Work on $\gtwo$ for spec
 Kn\"odel graphs exists~\cite{arulanand2023}. We claim no novelty for the
 invariant or for any of its values: the contribution here is the reduction of
 the accountability threshold to $\gtwo$, and the values in
-Table~ef{tab:certificates} are computed independently and ship with
+Table~\ref{tab:certificates} are computed independently and ship with
 machine-checkable certificates so that they can be compared against any
 published evaluation. The natural coding
 counterpart is the theory of \emph{multiple
@@ -50,6 +60,24 @@ A $2$-fold $1$-covering is 2-domination \emph{plus} the requirement that
 codewords themselves be covered twice; the two differ exactly by that
 internal-edge condition, and our $n = 9$ code---which has no internal edges---is
 2-dominating but not a $2$-fold $1$-covering.
+
+\paragraph{Attribution in multi-agent systems, and what separates this from it.}
+Failure attribution in LLM multi-agent systems is an active empirical area, and
+two results bound what we can claim. Chen et al.~\cite{chen2026elephant} show
+that full execution traces improve attribution accuracy by up to $76.5\%$ over an
+outputs-only counterpart; our \texttt{final\_output} record reproduces that
+effect, so the \emph{volume} axis is not ours. Lu et
+al.~\cite{lu2026agentsmatter} formalise agent attribution as a cooperative game
+over removal protocols and find that introspective LLM judges fail to approximate
+removal-based attribution faithfully---a caution we inherit, since our
+measurement uses such a judge.
+
+What is not covered by either is the comparison we run: holding the content
+\emph{fixed} and varying only whether authorship survives. Chen et al.\ vary how
+much of the trace is kept; we keep all of it and remove $30$ bytes of labels.
+That isolates identity from volume, which is the variable the theory says should
+matter, and it is why Section~\ref{sec:llm} reports a decomposition into count
+and assignment rather than a single accuracy number.
 
 \paragraph{Provenance and failure attribution in multi-agent systems.}
 Recent work asks whether attribution survives the loss of execution metadata,

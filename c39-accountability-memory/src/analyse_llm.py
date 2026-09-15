@@ -143,6 +143,63 @@ if pairs:
         full_trace=ft_e, artifact_multiset=am_e, difference=am_e - ft_e,
         ci95=[float(lo_ci), float(hi_ci)], episodes=len(pairs))
 
+
+# --- decomposition: how much of the gap is assignment rather than content? ---
+import itertools as _it
+dec = {}
+for rec in ("full_trace", "artifact_multiset"):
+    raw_e, best_e, cnt_e = [], [], []
+    for e in eps:
+        truth = [(e["profile"] >> i) & 1 for i in range(N)]
+        p_ = e["predictions"].get(rec)
+        if p_ is None:
+            continue
+        raw_e.append(sum(t != q for t, q in zip(truth, p_)))
+        best_e.append(min(sum(t != q for t, q in zip(truth, perm))
+                          for perm in _it.permutations(p_)))
+        cnt_e.append(abs(sum(truth) - sum(p_)))
+    dec[rec] = dict(raw=float(np.mean(raw_e)), best_perm=float(np.mean(best_e)),
+                    count=float(np.mean(cnt_e)))
+print("")
+print("error decomposition (raw / best-relabelling / count-only):")
+for rec, v in dec.items():
+    print("   %-20s %.3f  %.3f  %.3f" % (rec, v["raw"], v["best_perm"], v["count"]))
+results["_decomposition"] = dec
+
+# --- per-agent margin, to show which agent binds each record -----------------
+per_agent = {}
+for rec in [r for r in ORDER if r in results]:
+    counts = np.zeros((NS, NS))
+    for e in eps:
+        p_ = e["predictions"].get(rec)
+        if p_ is None:
+            continue
+        counts[e["profile"], sum(b << i for i, b in enumerate(p_))] += 1
+    q = counts / counts.sum(axis=1)[:, None]
+    # per-agent margin: the same LP restricted to one agent. gamma is their min.
+    from scipy.optimize import linprog as _lp
+    gs = []
+    for i in range(N):
+        A = []
+        for sm in range(1 << (N - 1)):
+            lo = sm & ((1 << i) - 1); hi = (sm >> i) << (i + 1)
+            s0 = lo | hi; s1 = s0 | (1 << i)
+            A.append(q[s1] - q[s0])
+        A = np.array(A); T, K = A.shape
+        r = _lp(np.concatenate([np.zeros(T), 0.5 * np.ones(K)]),
+                A_ub=np.block([[A.T, -np.eye(K)], [-A.T, -np.eye(K)]]),
+                b_ub=np.zeros(2 * K),
+                A_eq=np.concatenate([np.ones(T), np.zeros(K)])[None, :], b_eq=[1.0],
+                bounds=[(0, None)] * (T + K), method="highs")
+        gs.append(float(r.fun))
+    per_agent[rec] = gs
+print("")
+print("per-agent margin (the minimum over these is gamma):")
+for rec, gs in per_agent.items():
+    print("   %-20s " % rec + "  ".join("%.3f" % g for g in gs)
+          + "   binds: agent %d" % int(np.argmin(gs)))
+results["_per_agent_margin"] = per_agent
+
 print("\nScoring the predictions registered in addendum 3\n")
 
 

@@ -67,12 +67,15 @@ frontier computed here; Section~\ref{sec:limitations} says so again.
       $n = 9$ is a gap in what is known about $\gtwo$, not a gap in the
       theorem: the identity is exact at every $n$, and only the invariant's
       value is open there.
-\item \textbf{The uniform prior is load-bearing} (Theorem~\ref{thm:prior},
-      Corollary~\ref{cor:tilt}). The threshold is characterised for every
-      full-support prior. For any \emph{tilted} product prior it equals
-      $2^n - (n-1)$, whatever the tilt: the free compression ratio collapses
-      from $\Theta(n)$ to $1 + O(n2^{-n})$. The symmetric case is the most
-      favourable one for accountability, not a neutral choice.
+\item \textbf{What the uniform prior is doing}
+      (Section~\ref{sec:priors}). The necessary condition behind
+      Theorem~\ref{thm:kflat} holds for every full-support prior in the form
+      ``every non-centre has at least two centres at its own nearest
+      distance''; it specialises to $2$-domination exactly when the optimal
+      code is dominating, which the uniform prior guarantees above
+      $\gamma(\Qn)$ and a tilted prior need not. The general-prior threshold is
+      \emph{open}, and we correct a claim to the contrary made in an earlier
+      version of this work.
 \item \textbf{The engineering reading} (Section~\ref{sec:agents}). The free
       compression ratio is $\Theta(n)$ and at most $(n+2)/2$: a record escapes
       the tension only by retaining about $85\%$ of per-agent resolution at
@@ -92,10 +95,12 @@ frontier computed here; Section~\ref{sec:limitations} says so again.
 
 \paragraph{Reproducibility.}
 Every numerical claim is re-derived by an independent implementation that shares
-no code with the one that produced it: $145$ checks, no solver and no search,
+no code with the one that produced it: $99$ checks, no solver and no search,
 plus an audit that compares each number printed here against the artifact it came
-from. The predictions in Section~\ref{sec:experiment} were registered and hashed
-before the harness was written; two were wrong and are reported as wrong.
+from. Predictions were registered and hashed before each harness was written. Of
+the $22$ registered, the $8$ that were derivations---those whose failure would
+mean a theorem or the code was wrong---all held; of the remainder, $18$ were
+falsified, and every one is reported as falsified.
 
 \paragraph{Roadmap: four moves.}
 \begin{enumerate}
@@ -107,9 +112,12 @@ before the harness was written; two were wrong and are reported as wrong.
       arbitrary reconstruction.
 \item \textbf{Theorem~\ref{thm:kflat} gives the point at which the tradeoff
       disappears}, and identifies it with a classical graph invariant.
-      Theorem~\ref{thm:prior} then shows how much of that depends on symmetry.
-\item \textbf{Section~\ref{sec:experiment} shows real compaction mechanisms
-      behave as predicted}, and that the thing they lose is agent identity.
+      Section~\ref{sec:priors} then isolates what the uniform prior contributes.
+\item \textbf{Section~\ref{sec:experiment} measures real compaction mechanisms.}
+      No mechanism beats the frontier and none below the threshold is flat; what
+      they lose, on synthetic and on model-written artifacts alike, is agent
+      identity. Several of our conjectures about which mechanism would rank
+      where were wrong, and Section~\ref{sec:llm} diagnoses why.
 \end{enumerate}
 Section~\ref{sec:agents} converts the thresholds into bits per agent,
 Section~\ref{sec:design} states the design rules that follow,

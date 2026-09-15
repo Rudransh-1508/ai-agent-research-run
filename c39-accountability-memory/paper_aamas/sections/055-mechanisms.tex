@@ -1,0 +1,62 @@
+\section{Mechanisms nobody designed to be optimal}
+\label{sec:experiment}
+
+Everything above describes records chosen \emph{optimally}. No coordinator
+chooses one that way: it keeps a count, or a threshold, or the first few
+sub-agents' reports. We evaluate such mechanisms by enumerating every profile, so
+the numbers are exact---no sampling, no seed, no error bar---and we compute the
+margin \emph{via} Theorem~\ref{thm:elim}, one LP per agent rather than a search
+over payment rules. The experiment therefore uses the paper's main tool as its
+instrument. Predictions were registered and hashed before the harness was
+written; the falsified ones are reported in Appendix~\ref{app:episodes}.
+
+\begin{table}[t]
+\centering
+\caption{Compaction mechanisms at $n = 5$, uniform prior. ``Flat'' means
+$D = \Dnull(K)$ \emph{and} $\gamma > 0$. The last two rows are the same size and
+the same distortion.}
+\label{tab:compact}
+\small
+\begin{tabular}{@{}lrrrrl@{}}
+\toprule
+mechanism & $K$ & $D$ & $\Dnull(K)$ & $\gamma$ & flat \\
+\midrule
+count of completions & $6$  & $1.5625$ & $0.8750$ & $0.2000$ & no \\
+first $4$ agents only & $16$ & $0.5000$ & $0.5000$ & $0.0000$ & no \\
+\midrule
+flat construction & $10$ & $0.6875$ & $0.6875$ & $0.5000$ & \textbf{yes} \\
+$K$-median code   & $10$ & $0.6875$ & $0.6875$ & $0.0000$ & no \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{The last two rows are the paper.}
+\texttt{flat} and \texttt{kmedian} use the same ten labels and incur \emph{the
+same} distortion $0.6875 = \Dnull(10)$. Both are reconstruction-optimal at their
+budget. One admits a payment rule with margin $1/2$; the other admits none at
+all, at any price, for any bounded decoder. Compression quality is therefore not
+a proxy for accountability even at fixed size: two records can be
+indistinguishable on every reconstruction metric and differ by everything on the
+incentive axis. A designer who selects a compaction rule by measuring
+reconstruction error alone has no information about which of these two they
+built.
+
+\paragraph{Two exact values worth naming.}
+An aggregate count has margin exactly $1/n$---not $0$, which is what we
+registered, and not $1$. The prediction of $1$ came from the point-mass edge
+condition; the minimax over \emph{mixtures} in Theorem~\ref{thm:elim} telescopes
+and cancels the intermediate shifts, and $1/n$ is what survives. Fixed truncation
+to the first $m$ agents has margin exactly $0$: the dropped agents are invisible,
+so by Corollary~\ref{cor:edge} no payment reaches them, and the margin is a
+minimum over agents. Retaining a strict subset of agents' bits, chosen in
+advance, is worth exactly nothing.
+
+\paragraph{Where the theory was checked rather than illustrated.}
+No mechanism beats the frontier: every one sits on or above $\Dnull(K)$ for its
+own $K$, every two-label mechanism sits on or above Theorem~\ref{thm:onebit}, and
+no mechanism below $K = \gtwo(\Qn)$ is flat. These were derivations---their
+failure would have meant a bug or a false theorem---but they are checked against
+records nobody tuned. Appendix~\ref{app:episodes} carries a second experiment
+over sampled episodes and Appendix~\ref{app:llm} a third on model-written
+artifacts, where two records holding the \emph{same} text and differing by $30$
+bytes of authorship labels differ by $0.943$ bits of attribution error.

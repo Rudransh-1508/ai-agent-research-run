@@ -40,11 +40,11 @@ per-agent resolution one may discard for free \emph{shrinks} with team size
 (Table~\ref{tab:ratio}). Linear growth of a ratio against an exponential baseline
 is logarithmic growth in bits; both statements describe the same numbers.
 
-Everything in this section is computed under the uniform prior, which
-Section~\ref{sec:priors} shows is the most favourable case: under any tilted
-product prior the free ratio is $1 + O(n2^{-n})$ and the numbers below become
-``retain essentially the whole profile''. Read them as an upper bound on how
-much compression is safe, not an estimate of it.
+Everything in this section is computed under the uniform prior. What a
+non-uniform prior does to these numbers we do not know:
+Section~\ref{sec:priors} shows that a tilted prior can move the threshold in
+either direction, and leaves the general case open. Read the table as the
+uniform-prior answer, not as a bound on every prior.
 
 Concretely: at $n = 20$, flatness requires $K$ between $95{,}326$ and $131{,}072$
 labels---retaining $16.5$--$17.0$ of the $20$ bits, i.e.\ $83$--$85\%$ of

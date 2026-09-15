@@ -1,0 +1,77 @@
+\section{The model}
+\label{sec:model}
+
+A team of $n$ agents produces an \emph{effort profile} $S \in \cube$, where
+$S_i = 1$ means agent~$i$ exerted effort. We take $S$ uniform on $\cube$ except
+in Section~\ref{sec:threshold}, which handles an arbitrary full-support prior.
+
+A \emph{record} of size $K$ is a stochastic encoder
+$\enc : \cube \to \simplex(\labels)$, written
+$\enc[s,y] = \Prob(Y = y \mid S = s)$. The realised label $Y$ is everything that
+persists, and both uses below read $Y$ and nothing else. A reconstruction rule
+$\rec : \labels \to \cube$ costs expected Hamming error
+$D(\enc,\rec) = \E[\dH(S, \rec(Y))]$, and
+$\Dnull(K) = \min_{\enc,\rec} D$ is the unconstrained optimum---the Hamming-cube
+$K$-median value, which is classical and which we claim nothing about. Each
+agent~$i$ is paid by a bounded decoder $\pay_i \in [0,1]^K$ that also sees only
+$Y$. With the \emph{unilateral deviation vector} at teammate profile $\sminus$,
+\[
+  d_i(\sminus)[y] \;=\; \enc\bigl[(1,\sminus),y\bigr] - \enc\bigl[(0,\sminus),y\bigr],
+\]
+the record \emph{implements margin $\gamma$} if
+\begin{equation}
+  \bigl\langle \pay_i,\, d_i(\sminus) \bigr\rangle \;\ge\; \gamma
+  \qquad \text{for every } i \text{ and every } \sminus ,
+  \tag{M}\label{eq:margin}
+\end{equation}
+and the object of study is
+$\Dopt(K,\gamma) = \min\{D(\enc,\rec) : (\enc,\rec) \text{ implements } \gamma\}$.
+
+\begin{definition}[Flatness threshold]
+\label{def:kflat}
+$\Kflat$ is the least $K$ at which accountability is free, i.e.\ at which
+$\Dopt(K,\gamma) = \Dnull(K)$ for some $\gamma > 0$. A record attaining this is
+called \emph{flat}.
+\end{definition}
+
+\paragraph{What \eqref{eq:margin} is, and what it is not.}
+We call $\gamma$ the \emph{accountability margin} and deliberately avoid calling
+\eqref{eq:margin} incentive compatibility. It says a bounded payment can reward
+unilateral effort by at least $\gamma$; it does not say effort is a best
+response, because effort \emph{costs} are not modelled. Fixing a cost $c_i$ and
+asking for $\gamma \ge c_i$ makes \eqref{eq:margin} the information-side half of
+an incentive constraint---see Corollary~\ref{cor:effort}. That is the sense in
+which these results are a prerequisite for mechanism design rather than an
+instance of it. This is not a full strategic equilibrium model and no claim below
+should be read as one.
+
+Condition~\eqref{eq:margin} is deliberately strong in a second way: it is an
+\emph{all-teammate-profile} requirement, not an equilibrium condition. Effort
+must pay whatever the rest of the team did. This makes the impossibility results
+stronger and the constructions harder, the conservative direction for both.
+
+\paragraph{Labels, not bits.}
+$K$ counts \emph{labels}---how many episodes the record can tell apart. A
+fixed-length encoding costs $\log_2 K$ bits. Thresholds are stated in $K$,
+because that is what the combinatorics is about; Section~\ref{sec:agents}
+converts to bits explicitly. ``$K$ must roughly double'' is one retained bit, not
+a doubling of the memory bill.
+
+\paragraph{What may be random, and what may persist.}
+$\enc$ is an arbitrary stochastic map, so the impossibility results hold against
+randomised records too. Two things are excluded. The coins are \emph{not}
+retained: only $Y$ persists, so the decoders cannot condition on the randomness
+that produced it. And no auxiliary state escapes the count. Without both,
+accountability is free and vacuous---a record privately storing one bit per agent
+and reporting a single label would satisfy \eqref{eq:margin} at $K=1$.
+Encoder-side randomness cannot buy margin by itself; what it can do is spread a
+profile's mass across labels, which is what the constructions below use.
+
+\begin{remark}[All decoder-side state counts toward $K$]
+\label{rem:counting}
+$K$ counts everything the decoders may condition on. Without this the tradeoff is
+vacuous: a seed, a receipt, an agent identifier or any auxiliary random variable
+kept outside the counted record restores unlimited sensitivity at no
+reconstruction cost. The theorems below are statements about what a
+\emph{self-contained} record of size $K$ can do.
+\end{remark}

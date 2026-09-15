@@ -1,0 +1,52 @@
+% =====================================================================
+%  C39 -- AAMAS 2027 main track (GTEP)
+%
+%  CLASS: AAMAS ships `aamas.cls`, which is `acmart` with an IFAAMAS
+%  copyright modification. For submission replace the line below with
+%      \documentclass[sigconf, anonymous]{aamas}
+%  and drop `nonacm`. Formatting is otherwise identical, so the swap is a
+%  one-line change and nothing in sections/ moves.
+%
+%  Limit: 8 pages excluding references. Double-blind. LaTeX mandatory.
+%  Build: pdflatex main && bibtex main && pdflatex main && pdflatex main
+% =====================================================================
+\documentclass[sigconf, anonymous, nonacm]{acmart}
+
+\input{macros}
+
+\begin{document}
+
+\title{How Much Memory Does Accountability Cost?}
+\subtitle{Exact Reconstruction--Incentive Frontiers for Compressed Multi-Agent Records}
+
+\begin{abstract}
+\input{sections/00-abstract}
+\end{abstract}
+
+\keywords{accountability; credit assignment; deferred settlement; bounded
+payments; information-theoretic limits; domination number}
+
+\maketitle
+
+\input{sections/01-intro}
+\input{sections/02-model}
+\input{sections/03-elimination}
+\input{sections/04-onebit}
+\input{sections/05-threshold}
+\input{sections/06-agent-systems}
+\input{sections/055-mechanisms}
+\input{sections/07-related}
+\input{sections/08-limitations}
+
+\label{endbody}
+\bibliographystyle{ACM-Reference-Format}
+\bibliography{refs}
+\label{endrefs}
+
+\appendix
+\input{sections/A-proofs}
+\input{sections/065-experiment}
+\input{sections/066-llm}
+\input{sections/07-design}
+
+\end{document}

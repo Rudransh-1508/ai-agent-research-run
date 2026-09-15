@@ -1,187 +1,150 @@
-"""K_flat under a general full-support prior.
+"""K_flat under a general full-support prior, computed by direct enumeration.
 
-The margin condition (M) is an ALL-teammate-profile condition, so it does not
-mention the prior at all. Only D and D_0 do. That makes the threshold question
-well posed for any full-support prior pi, and the two lemmas of Section 5 give
+    python prior_threshold.py            # n = 3, 4 over a grid of q
 
-    K_flat(pi) = min { K : some pi-optimal K-median set of size K is
-                           2-dominating }.
+WHAT THIS SCRIPT REPLACES, AND WHY
+----------------------------------
+An earlier version of this script computed
 
-Necessity is Lemma 3' (prior-free: it is about an edge derivative vanishing,
-plus the fact that attaining D_0 forces each profile's mass onto its nearest
-centres, true for any full-support prior). Sufficiency is the Lemma-2
-construction: a 2-dominating C is dominating, so the construction costs
-1 - pi(C), and that equals D_0(K) exactly when C is pi-optimal.
+    K_flat(pi) = min { K : some pi-optimal K-median set is 2-DOMINATING }
 
-For the uniform prior every dominating K-set is optimal, so the condition
-collapses to "a 2-dominating set of size K exists" and K_flat = gamma_2(Q_n).
+by two MILPs. That specification is WRONG. Lemma 3' (necessity) says every
+non-centre has at least two centres at ITS OWN NEAREST DISTANCE d(s,C) -- not at
+distance 1. The two coincide only when the pi-optimal code is dominating. Under
+the uniform prior with K >= gamma(Q_n) it is, which is why Theorem 9 is fine.
+Under a tilted prior the optimal code concentrates on heavy profiles and can
+leave a light profile at distance 2, and then the 2-domination test is far too
+strong: it reports a threshold of 2^n - (n-1) where the truth is much smaller.
 
-This script computes both sides for product Bernoulli(q) priors:
+Counterexample the old script could not see, at n = 3, q = 0.7, K = 4:
 
-    D0(K)      -- weighted K-median, MILP
-    best2d(K)  -- max pi(C) over 2-dominating C with |C| = K, MILP
+    C = {011, 101, 110, 111} is the unique pi-optimal 4-median set,
+    D_0(4) = 0.2430, and 000 is at distance 2 from C -- so C is NOT
+    2-dominating and the old script rejected K = 4. But spreading each
+    non-centre's mass uniformly over its nearest centres gives D = 0.2430
+    exactly, with margin 1/3. The record is flat. The old threshold of 6 was
+    wrong, and so was the "collapse to ratio 1" conclusion drawn from it.
 
-and reports the least K with 1 - best2d(K) == D0(K).
+So this script does not test a proxy condition at all. It enumerates every
+K-subset, finds the pi-optimal ones, builds the spread record on each, and asks
+the Theorem 3 LP directly whether the margin is positive while D == D_0(K). A
+flat record is reported only when one has actually been exhibited.
 
-    python prior_threshold.py            # n = 3,5 over a grid of q
-    python prior_threshold.py 7          # add n = 7 (slower)
+Enumeration is 2^(2^n) subsets, so n <= 4 only. That is enough to refute the
+withdrawn claim; the general-prior threshold is left open in the paper.
 """
-import json, sys, time
+import json, sys, itertools, time
 import numpy as np
-from scipy.optimize import milp, LinearConstraint, Bounds
-from scipy.sparse import lil_matrix
 import sys as _sys, pathlib as _pl
 _sys.path.insert(0, str(_pl.Path(__file__).resolve().parents[1]))
-from c39.paths import data, out
+_sys.path.insert(0, str(_pl.Path(__file__).resolve().parent))
+from c39.paths import out
+from experiment_agents import popcount, prior, margin, distortion
 
 TOL = 1e-9
 
 
-def popcount(x):
-    return bin(x).count("1")
+def hamming(n):
+    N = 1 << n
+    return np.array([[popcount(a ^ b) for b in range(N)] for a in range(N)])
 
 
-def prior(n, q):
-    """Product Bernoulli(q): P(S_i = 1) = q, independent across agents."""
-    return np.array([q ** popcount(s) * (1 - q) ** (n - popcount(s))
-                     for s in range(1 << n)])
+def code_cost(pi, H, C):
+    """Expected Hamming error of the best reconstruction from centre set C."""
+    return float(pi @ H[:, list(C)].min(axis=1))
 
 
-def d0_general(weights, cost, K, time_limit=600):
-    """min over K centres of sum_x weights[x] * min_{t in C} cost[x][t].
+def nearest(H, C, s):
+    """(distance to C, the centres attaining it)."""
+    d = min(H[s][c] for c in C)
+    return d, [c for c in C if H[s][c] == d]
 
-    The plain weighted K-median is the case cost[x][t] = d_H(x,t). Under an
-    observation channel the record is a function of the OBSERVATION x while the
-    loss is still measured against the true profile, which is exactly the same
-    program with cost[x][t] = sum_s P(s|x) d_H(s,t).
+
+def spread_record(n, C, H):
+    """Each centre a point mass; each non-centre uniform on its NEAREST centres.
+
+    This is the Lemma-2 construction with distance 1 relaxed to d(s,C). It
+    attains D_0(K) whenever C is pi-optimal, because every profile's mass sits
+    entirely on centres at its own minimum distance.
     """
-    M = len(weights)
-    nv = M + M * M
-    c = np.zeros(nv)
-    for x in range(M):
-        for t in range(M):
-            c[M + x * M + t] = weights[x] * cost[x][t]
-    A = lil_matrix((M + M * M + 1, nv))
-    lo, hi, r = [], [], 0
-    for x in range(M):
-        for t in range(M):
-            A[r, M + x * M + t] = 1.0
-        lo.append(1.0); hi.append(1.0); r += 1
-    for x in range(M):
-        for t in range(M):
-            A[r, M + x * M + t] = 1.0
-            A[r, t] = -1.0
-            lo.append(-np.inf); hi.append(0.0); r += 1
-    for t in range(M):
-        A[r, t] = 1.0
-    lo.append(float(K)); hi.append(float(K)); r += 1
-    integrality = np.zeros(nv); integrality[:M] = 1
-    res = milp(c=c, constraints=LinearConstraint(A[:r].tocsc(), lo, hi),
-               integrality=integrality, bounds=Bounds(np.zeros(nv), np.ones(nv)),
-               options=dict(time_limit=time_limit, mip_rel_gap=0.0))
-    if res.x is None:
-        return None, None, res.status
-    return float(res.fun), sorted(t for t in range(M) if res.x[t] > 0.5), res.status
-
-
-def d0_weighted(n, pi, K, time_limit=600):
-    """Weighted K-median over the cube: min_C sum_s pi[s] d(s, C), |C| = K."""
     N = 1 << n
-    # variables: y_c (N binaries), then x[s,c] (N*N continuous in [0,1])
-    nv = N + N * N
-    c = np.zeros(nv)
+    K = len(C)
+    idx = {c: j for j, c in enumerate(C)}
+    q = np.zeros((N, K))
     for s in range(N):
-        for t in range(N):
-            c[N + s * N + t] = pi[s] * popcount(s ^ t)
-    rows, lo, hi = [], [], []
-    A = lil_matrix((N + N * N + 1, nv))
-    r = 0
-    for s in range(N):                        # sum_t x[s,t] = 1
-        for t in range(N):
-            A[r, N + s * N + t] = 1.0
-        lo.append(1.0); hi.append(1.0); r += 1
-    for s in range(N):                        # x[s,t] <= y_t
-        for t in range(N):
-            A[r, N + s * N + t] = 1.0
-            A[r, t] = -1.0
-            lo.append(-np.inf); hi.append(0.0); r += 1
-    for t in range(N):                        # sum_t y_t = K
-        A[r, t] = 1.0
-    lo.append(float(K)); hi.append(float(K)); r += 1
-    A = A[:r].tocsc()
-    integrality = np.zeros(nv); integrality[:N] = 1
-    res = milp(c=c, constraints=LinearConstraint(A, lo, hi),
-               integrality=integrality, bounds=Bounds(np.zeros(nv), np.ones(nv)),
-               options=dict(time_limit=time_limit, mip_rel_gap=0.0))
-    if res.x is None:
-        return None, None, res.status
-    C = sorted(t for t in range(N) if res.x[t] > 0.5)
-    return float(res.fun), C, res.status
+        _, nr = nearest(H, C, s)
+        for c in nr:
+            q[s, idx[c]] = 1.0 / len(nr)
+    return q
 
 
-def best_two_dominating(n, pi, K, time_limit=600):
-    """max pi(C) over 2-dominating C with |C| = K. Returns (mass, C, status)."""
+def necessary_condition(n, C, H):
+    """Lemma 3' in the form that holds for any prior."""
+    return all(len(nearest(H, C, s)[1]) >= 2 for s in range(1 << n) if s not in C)
+
+
+def scan(n, q_, verbose=True):
+    """Least K at which a flat record exists, by exhibiting one."""
     N = 1 << n
-    A = lil_matrix((N + 1, N))
-    lo, hi = [], []
-    for v in range(N):                        # sum_{u ~ v} y_u + 2 y_v >= 2
-        for i in range(n):
-            A[v, v ^ (1 << i)] += 1.0
-        A[v, v] += 2.0
-        lo.append(2.0); hi.append(np.inf)
-    for t in range(N):
-        A[N, t] = 1.0
-    lo.append(float(K)); hi.append(float(K))
-    res = milp(c=-pi, constraints=LinearConstraint(A.tocsc(), lo, hi),
-               integrality=np.ones(N), bounds=Bounds(np.zeros(N), np.ones(N)),
-               options=dict(time_limit=time_limit, mip_rel_gap=0.0))
-    if res.x is None:
-        return None, None, res.status
-    C = sorted(t for t in range(N) if res.x[t] > 0.5)
-    return float(-res.fun), C, res.status
-
-
-def k_flat(n, q, kmax=None, verbose=True):
-    N = 1 << n
-    pi = prior(n, q)
-    kmax = kmax or N
+    pi = prior(n, q_)
+    H = hamming(n)
     rows = []
-    for K in range(2, kmax + 1):
-        d0, _, st0 = d0_weighted(n, pi, K)
-        mass, C, st1 = best_two_dominating(n, pi, K)
-        if d0 is None:
-            rows.append(dict(K=K, note="D0 unsolved", status=st0)); continue
-        if mass is None:                      # no 2-dominating set of this size
-            rows.append(dict(K=K, D0=d0, feasible_2dom=False)); continue
-        flat = abs((1.0 - mass) - d0) < TOL
-        rows.append(dict(K=K, D0=d0, best_2dom_cost=1.0 - mass,
-                         feasible_2dom=True, flat=bool(flat),
-                         centres=C if flat else None))
+    for K in range(2, N + 1):
+        best = min(code_cost(pi, H, C) for C in itertools.combinations(range(N), K))
+        opt = [C for C in itertools.combinations(range(N), K)
+               if code_cost(pi, H, C) <= best + TOL]
+        flat, witness, gam = False, None, 0.0
+        n_nec = 0
+        for C in opt:
+            if not necessary_condition(n, C, H):
+                continue
+            n_nec += 1
+            rec = spread_record(n, C, H)
+            D = distortion(n, pi, rec)
+            g = margin(n, rec)
+            if D <= best + TOL and g > TOL:
+                flat, witness, gam = True, C, g
+                break
+        rows.append(dict(K=K, D0=best, n_optimal=len(opt),
+                         n_meeting_condition=n_nec, flat=bool(flat),
+                         gamma=float(gam),
+                         witness=[format(c, "0" + str(n) + "b") for c in witness]
+                         if witness else None,
+                         witness_dominating=bool(witness is not None and
+                             all(nearest(H, witness, s)[0] <= 1
+                                 for s in range(N)))))
         if verbose:
-            print(f"    K={K:3d}  D0={d0:.8f}  best 2-dom cost={1-mass:.8f}"
-                  f"   {'FLAT' if flat else ''}", flush=True)
+            r = rows[-1]
+            print(f"  K={K:3d}  D0={best:.6f}  optimal codes={len(opt):5d}"
+                  f"  meeting cond={n_nec:5d}  flat={'YES' if flat else 'no ':>3}"
+                  f"  gamma={gam:.4f}"
+                  + ("  dominating" if r["witness_dominating"] else ""))
         if flat:
             return K, rows
     return None, rows
 
 
 if __name__ == "__main__":
-    extra = [int(a) for a in sys.argv[1:]]
-    out = {}
-    for n in [3, 5] + extra:
-        out[str(n)] = {}
-        for q in (0.5, 0.55, 0.6, 0.7, 0.8, 0.9):
-            t0 = time.time()
-            print(f"n={n}  q={q}", flush=True)
-            K, rows = k_flat(n, q)
-            out[str(n)][str(q)] = dict(K_flat=K, seconds=time.time() - t0,
-                                       rows=rows)
-            print(f"  => K_flat(n={n}, Bernoulli({q})) = {K}"
-                  f"   [{time.time()-t0:.1f}s]\n", flush=True)
-            json.dump(out, open(out("prior_threshold.json"), "w"), indent=1)
+    ns = [int(a) for a in sys.argv[1:]] or [3, 4]
+    res = {}
+    t0 = time.time()
+    for n in ns:
+        for q_ in (0.5, 0.7):
+            tag = f"n={n} q={q_}"
+            print(f"\n{tag}")
+            K, rows = scan(n, q_)
+            print(f"  -> K_flat = {K}")
+            res[tag] = dict(n=n, q=q_, K_flat=K, rows=rows,
+                            withdrawn_claim=(1 << n) - (n - 1) if q_ != 0.5 else None)
+    res["_meta"] = dict(seconds=round(time.time() - t0, 1),
+                        note="flatness is exhibited, not inferred from a proxy")
+    p = out("prior_threshold.json")
+    json.dump(res, open(p, "w"), indent=1)
+    print(f"\nwrote {p}")
     print("\nsummary")
-    print("   n |  " + " | ".join(f"q={q}" for q in
-                                  (0.5, 0.55, 0.6, 0.7, 0.8, 0.9)))
-    for n in out:
-        print(f"  {n:>2} |  " + " | ".join(
-            f"{out[n][q]['K_flat']!s:>4}" for q in out[n]))
+    for tag, v in res.items():
+        if tag.startswith("_"):
+            continue
+        w = v["withdrawn_claim"]
+        print(f"  {tag:12s} K_flat = {v['K_flat']}"
+              + (f"   (earlier version claimed {w})" if w else "   (uniform)"))

@@ -367,3 +367,50 @@ expect a larger $\gamma$ on `full_trace` than the prose design would have given,
 and we flag that this makes the experiment a more favourable setting for
 attribution than a typical deployment -- an upper bound on what a record buys,
 not a typical value.
+
+---
+
+## Addendum 4 (2026-09-15, post-hoc — a retraction, not a prediction)
+
+This addendum records a **correction to the theory**, not a new prediction. It
+is appended rather than edited into the text above, so the original registration
+stays readable as written.
+
+**Theorem 11 and Corollary 12 were false and are withdrawn.** They claimed that
+for every tilted product prior $K_{\text{flat}} = 2^n - (n-1)$, hence that the
+free compression ratio collapses to $1 + O(n2^{-n})$. Counterexamples:
+
+| | claimed | true |
+|---|---|---|
+| $n=3$, $q=0.7$ | 6 | **4** (witness $C=\{011,101,110,111\}$, $D=D_0(4)=0.2430$, $\gamma=1/3$) |
+| $n=4$, $q=0.7$ | 13 | **5** (witness $C=\{0111,1011,1101,1110,1111\}$, $D=D_0(5)=0.4401$, $\gamma=1/4$) |
+
+A tilted prior can require **fewer** labels than the uniform one. The withdrawn
+claim pointed the wrong way.
+
+**P7 is unaffected as a scored prediction.** P7 predicted that no mechanism at
+$K=\gamma_2(Q_n)$ is flat under a tilt; that observation stands and was
+confirmed. What is withdrawn is the *explanation* the paper attached to it. The
+mechanisms in Table 4 were all designed against the uniform prior, so their
+failure under a tilt is a statement about those mechanisms, not about where the
+tilted threshold lies. §7.1 now says so.
+
+**How it was missed, which is the part worth registering.** The error was a
+single step of reading: Lemma 3' gives "$\ge 2$ centres at the vertex's *own
+nearest distance*", and we read it as "$\ge 2$ centres at distance 1", i.e.
+2-dominating. Those coincide only when the optimal code is dominating — true
+for the uniform prior above $\gamma(Q_n)$ (so Theorem 9 survives), false for a
+tilt, where the optimal code concentrates on heavy profiles and leaves light
+ones at distance 2.
+
+Both verification routes — the `prior_threshold.py` MILP and `verify_all.py`
+block G, which share no code — encoded that same wrong condition. **They agreed,
+and their agreement was worthless.** Independent implementation buys
+independence of *implementation*, not of *specification*. The error surfaced
+only when a test asked a structurally different question: relax $\gamma$ and ask
+an LP directly whether $D_0(K)$ is attainable, rather than re-testing the proxy.
+
+The withdrawn scripts and artifacts are kept unmodified under
+`experiments/withdrawn/` and `results/withdrawn/` as the evidence for that
+methodological point. `verify_all.py` block G now constructs the
+counterexamples instead, and the check count drops from 145 to 99.

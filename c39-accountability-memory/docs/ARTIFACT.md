@@ -17,7 +17,7 @@ In the pinned environment (`environment.json`: Python 3.10.11, NumPy 2.2.6,
 SciPy 1.15.3; a venv is at `.venv310`):
 
 ```powershell
-.\.venv310\Scripts\python.exe run.py verify     # integrity, then 145 solver-free checks
+.\.venv310\Scripts\python.exe run.py verify     # integrity, then 99 solver-free checks
 .\.venv310\Scripts\python.exe run.py audit      # every printed number vs its artifact
 .\.venv310\Scripts\python.exe run.py score      # the pre-registered predictions
 .\.venv310\Scripts\python.exe run.py figures    # regenerate every figure

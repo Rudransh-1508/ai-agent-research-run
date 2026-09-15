@@ -12,7 +12,7 @@ NumPy 2.2.6, SciPy 1.15.3 — see `environment.json`) and can be run from anywhe
 paths resolve from the repo root, not the shell's working directory.
 
 ```powershell
-.\.venv310\Scripts\python.exe run.py verify      # archive integrity + 145 solver-free checks
+.\.venv310\Scripts\python.exe run.py verify      # archive integrity + 99 solver-free checks
 .\.venv310\Scripts\python.exe run.py audit       # every number in the paper vs its artifact
 .\.venv310\Scripts\python.exe run.py score       # pre-registered predictions, scored
 .\.venv310\Scripts\python.exe run.py figures     # regenerate the paper's figures
@@ -42,7 +42,7 @@ whole tree, so they do not belong inside any part of it.
 ## What is checked, and how
 
 * **`verify_all.py`** is an independent reimplementation that shares no code with
-  the one that produced the results. 145 checks, no solver, no search.
+  the one that produced the results. 99 checks, no solver, no search.
 * **`audit_paper_numbers.py`** parses the LaTeX and compares every printed number
   against the JSON it came from, so the paper cannot drift from the experiments.
 * **`analyse_experiment.py`** scores predictions that were written down and
