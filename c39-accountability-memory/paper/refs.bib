@@ -297,11 +297,19 @@
   year         = {2026},
   howpublished = {AutoGen documentation},
   url          = {https://microsoft.github.io/autogen/stable/reference/python/autogen_core.logging.html},
-  note         = {\texttt{LLMCallEvent} (messages, response, prompt\_tokens,
-                  completion\_tokens) and \texttt{ToolCallEvent} (tool\_name,
-                  arguments, result) carry no agent identifier field, verified
-                  current as of 2026-09-19; \texttt{MessageEvent} does carry
-                  sender/receiver.}
+  note         = {The public \texttt{\_\_init\_\_} signatures of
+                  \texttt{LLMCallEvent} and \texttt{ToolCallEvent} (messages,
+                  response, prompt\_tokens, completion\_tokens / tool\_name,
+                  arguments, result) omit any agent identifier, which is what
+                  this documentation page shows. Running
+                  \texttt{autogen-core}~0.7.5 directly (2026-09-19) shows both
+                  classes in fact populate an internal \texttt{agent\_id}
+                  field via \texttt{MessageHandlerContext.agent\_id()} when
+                  logged from inside a message handler --- undocumented here,
+                  but present. See \texttt{experiments/production\_probe/} for
+                  the instrumented run; the paper cites this source for the
+                  documented signature but relies on the live-run result for
+                  the SAFE classification.}
 }
 
 @misc{crewaitracing,

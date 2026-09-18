@@ -27,6 +27,9 @@ a record discards more than about `log2(n/2)` bits of an n-agent effort profile.
 
 ## Counts
 
+*(Superseded by the 2026-09-19 correction below: AutoGen moves from MIXED to
+SAFE after an instrumented run, making this 4 SAFE / 1 MIXED / 2 DANGER.)*
+
 * **Systems investigated: 8**
 * **Classified with specific evidence: 7**
 * **SAFE: 3** (LangSmith/LangGraph, OpenAI Agents SDK, Claude Agent SDK)
@@ -61,6 +64,12 @@ the discarded episodes contribute nothing to settlement at all. **The observed
 industry response to a record budget does not produce C39's tension.**
 
 ## Strongest single danger-zone example found
+
+**Superseded 2026-09-19 -- see the correction near the end of this file.**
+Running `autogen-core` directly shows `LLMCallEvent`/`ToolCallEvent` do carry
+a per-agent identifier in practice; the MIXED classification below is wrong.
+Left in place, struck through in spirit, so the correction is legible against
+what it corrects.
 
 **AutoGen's `LLMCallEvent`.** This is the best candidate because it is a
 documented API surface, checkable in one page, and it fails on exactly the axis
@@ -190,3 +199,36 @@ unresolved candidate, not claimed as a confirmed second anchor. Closing this
 requires someone with on-chain-explorer or parsed-whitepaper access to check
 whether Olas's service-level reward computation is genuinely bounded/
 compressed or reduces to per-operator attribution under the hood.
+
+## Correction, 2026-09-19 — AutoGen reclassified SAFE after running the framework
+
+**This section's AutoGen classification (MIXED, §"Strongest single
+danger-zone example found") was wrong and is corrected here.**
+
+The original classification was read from AutoGen's API reference page: the
+public `__init__` signatures of `LLMCallEvent` (messages, response,
+prompt_tokens, completion_tokens) and `ToolCallEvent` (tool_name, arguments,
+result) list no agent identifier parameter, which is genuinely what that page
+shows. `experiments/production_probe/` installed `autogen-core==0.7.5` and ran
+a real three-agent episode through the framework's own
+`SingleThreadedAgentRuntime`, capturing every event the framework's real
+logger emitted. Both `LLMCallEvent` and `ToolCallEvent` in fact populate an
+internal `agent_id` field via `MessageHandlerContext.agent_id()` whenever the
+event is logged from inside a message handler -- the normal case for a real
+agent's own LLM or tool call. This is visible in `autogen_core/logging.py`
+source but not on the documentation page. Measured: 120/120 `LLMCallEvent`s
+and 120/120 `ToolCallEvent`s across 40 episodes carried a working per-agent
+identifier (`results/production_probe_autogen.json`).
+
+**AutoGen is reclassified SAFE.** The classification table's counts change
+from 3 SAFE / 2 MIXED / 2 DANGER (of 7 classified) to 4 SAFE / 1 MIXED / 2
+DANGER. CrewAI is now the only MIXED production framework found across both
+audit passes.
+
+**The standing lesson, not just the correction:** the original audit's method
+(read the documentation, classify from the documented schema) missed a field
+that exists in the actual running code but isn't part of the public API
+surface or its docs. Any claim in this document that has not been checked
+against a live run of the actual framework should be read with that in mind
+-- CrewAI's MIXED classification rests on its docs plus one GitHub issue, not
+on an instrumented run, and could in principle be wrong in the same way.

@@ -97,12 +97,18 @@ multi-agent frameworks against one criterion: does the framework's
 \emph{default} structured log let a principal recover, after the fact, which
 agent did what---not whether the information is technically reconstructable
 with custom instrumentation, but what a settlement built on the log as shipped
-would see.
+would see. For AutoGen we went a step further than reading documentation: we
+installed \texttt{autogen-core}~0.7.5 and instrumented a real three-agent
+episode through its own \texttt{SingleThreadedAgentRuntime}, capturing every
+event the framework's own logger actually emitted, and checked the live
+objects rather than the API reference page (\texttt{experiments/production\_probe/}
+in the artifact reproduces the run).
 
 \begin{table}[t]
 \centering
 \caption{Default per-agent attribution in seven production agent frameworks,
-audited 2026-09-14 and re-verified 2026-09-19.}
+audited 2026-09-14, re-verified 2026-09-19, and for AutoGen corrected
+2026-09-19 after running the framework directly (see text).}
 \label{tab:frameworks}
 \begin{tabular}{@{}lll@{}}
 \toprule
@@ -113,22 +119,35 @@ OpenAI Agents SDK~\cite{openaiagentssdk} & SAFE & per agent run \\
 Claude Agent SDK & SAFE & per subagent, own file \\
 Microsoft Semantic Kernel~\cite{semantickerneltokens} & SAFE & per-agent token/cost \\
 Google Agent Development Kit~\cite{googleadktraces} & SAFE (leaning) & per-agent spans \\
-AutoGen~\cite{autogenlogging} & MIXED & who talked, not who spent \\
+AutoGen~\cite{autogenlogging} & SAFE & per agent, via ambient context \\
 CrewAI~\cite{crewaitracing,crewaiovercountissue} & MIXED & outputs yes, cost no \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-Five of the seven default to per-agent attribution. The two mixed cases fail on
-exactly the axis the theory cares about---effort, not conversation---and they
-fail cleanly enough to be worth stating precisely. AutoGen's
-\texttt{MessageEvent} carries a sender and receiver, so who talked to whom is
-recoverable; but the events that carry the costly work,
-\texttt{LLMCallEvent} and \texttt{ToolCallEvent}, carry no agent identifier
-field at all, so who burned the tokens is not. CrewAI keeps per-task outputs
-but exposes token usage crew-wide; when multiple agents share one LLM client,
-which is the documented usual way to write a crew, the aggregate is not merely
-uninformative but actively overcounted relative to any individual agent's
+Six of the seven default to per-agent attribution; only one is mixed. This is
+a correction, not a stylistic update: an earlier version of this audit, based
+on the AutoGen API reference page, classified AutoGen MIXED on the strength of
+\texttt{LLMCallEvent} and \texttt{ToolCallEvent} appearing to carry no agent
+identifier in their public constructor signature. Running the framework
+directly shows this was wrong. Both classes populate an \texttt{agent\_id}
+field internally from \texttt{MessageHandlerContext.agent\_id()} whenever the
+event is logged from inside a message handler---the normal case for a real
+agent's own LLM or tool call---and this field is undocumented on the public
+reference page, which is why the documentation-only audit missed it. In our
+instrumented run, 120 of 120 \texttt{LLMCallEvent}s and 120 of 120
+\texttt{ToolCallEvent}s across 40 episodes carried a working per-agent
+identifier; \texttt{MessageEvent}'s sender/receiver fields, the basis of the
+original SAFE-adjacent reading, are unaffected. We leave this correction
+visible rather than quietly fixing the table, because it is itself evidence
+for a point the paper should make honestly: \emph{auditing framework logging
+behavior from documentation alone is not reliable}, which is a reason for
+skepticism about any claim in this section, including our own, that has not
+been checked against a live run. CrewAI remains the one mixed case we found:
+it keeps per-task outputs but exposes token usage crew-wide; when multiple
+agents share one LLM client, which is the documented usual way to write a
+crew, the aggregate is not merely uninformative but actively overcounted
+relative to any individual agent's
 share~\cite{crewaiovercountissue}.
 
 \paragraph{This cuts against the easy version of our own motivation.} If the

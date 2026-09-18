@@ -1,0 +1,44 @@
+{
+  "framework": "autogen-core",
+  "n_episodes": 40,
+  "n_agents": 3,
+  "seed": 20260919,
+  "n_llm_events": 120,
+  "n_llm_events_with_agent_identity": 120,
+  "n_tool_events": 120,
+  "n_tool_events_with_agent_identity": 120,
+  "n_message_events": 600,
+  "n_message_events_with_agent_identity": 360,
+  "llm_event_kwargs_keys_sample": [
+    "agent_id",
+    "completion_tokens",
+    "messages",
+    "prompt_tokens",
+    "response",
+    "type"
+  ],
+  "llm_event_agent_id_sample": [
+    "reviewer_0/default",
+    "reviewer_1/default",
+    "reviewer_2/default",
+    "reviewer_0/default",
+    "reviewer_1/default"
+  ],
+  "message_event_kwargs_keys_sample": [
+    "delivery_stage",
+    "kind",
+    "payload",
+    "receiver",
+    "sender",
+    "type"
+  ],
+  "message_event_agent_id_sample": [
+    null,
+    null,
+    "reviewer_0/default",
+    "reviewer_0/default",
+    "reviewer_0/default"
+  ],
+  "interpretation": "CORRECTION to the original documentation-based audit: in the installed autogen-core version (see 'autogen_core_version' below), LLMCallEvent and ToolCallEvent both auto-populate agent_id from MessageHandlerContext.agent_id() when emitted from within a message handler -- the normal case for a real agent's LLM/tool call. This field exists in the class's internal kwargs dict (autogen_core/logging.py) but is not part of the public __init__ signature and is not documented on the API reference page the original audit read, which is why the original 'no agent identifier field' claim was wrong. Per-agent attribution from the default LLMCallEvent/ToolCallEvent stream is intact in this version. AutoGen should be reclassified SAFE, not MIXED, on this axis; MessageEvent sender/receiver remain the only other identity-carrying fields and are unaffected by this correction.",
+  "autogen_core_version": "0.7.5"
+}
