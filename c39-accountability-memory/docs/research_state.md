@@ -215,6 +215,22 @@ logarithmic, and the decisive question was always empirical.
 
 * `K_flat(9)` in [97, 128]. Needs either a better construction or an
   infeasibility proof above 96; the plain MILP will not get there.
+* *Literature check, 2026-09-19:* Krotov & Potapov (2020), "On multifold
+  packings of radius-1 balls in Hamming graphs," Table I, gives the maximum
+  binary 2-fold 1-packing at n=9 as 96. This is **not** the same invariant as
+  `gamma_2(Q_9)` as defined here (2-domination: every vertex *outside* C has
+  >= 2 neighbours in C, no constraint on C itself) — it is a packing maximum
+  under the multiple-covering convention where a codeword's own multiplicity
+  counts toward its coverage, which would force >= 1 internal edge per
+  codeword. Our 128-upper-bound construction has zero internal edges, so it
+  cannot satisfy that convention; the two parameters are provably distinct at
+  this point, not just differently named. No literature source giving the
+  exact value of this specific invariant at n=9 was found. The bracket
+  `[97, 128]` stands as genuinely open, not merely unsearched — recommend
+  scoping it as explicitly open work in any submission rather than spending
+  further solver/search time against the current diminishing returns
+  (40-min MILP timeouts at multiple K, 70,685-trial destroy-repair search
+  already tried and failed to move either end).
 * n=9, K=9..13 were not excluded by the weaker local condition, but **are**
   excluded by the shell bound, so the n=9 lower bound is clean.
 * ~~The n=9 tail of `verify_t1_independent.py` (gamma = 1/12, 1/9) still

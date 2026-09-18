@@ -151,3 +151,42 @@ entirely on whether real records keep per-agent resolution or aggregate it."
 The answer, for everything checkable here: **they keep per-agent resolution**,
 and when they cannot afford to, they drop whole episodes rather than aggregate.
 P4 remains C39's main exposure and this session did not reduce it.
+
+## Addendum, 2026-09-19 — targeted search for a second anchor (MASO retarget)
+
+**Scope.** Checked whether any deployed system pays multiple agents from one
+shared task and settles from a bounded/compressed record, beyond Bittensor.
+Web research only; no new theory or code.
+
+**Checked and ruled out:**
+* **Bittensor validator weights/EMA scoring** — does not qualify as a distinct
+  anchor. The weight vector is one scalar *per miner*, computed from each
+  miner's own independent task performance; miners are not jointly
+  contributing to one shared task, so this is per-agent attribution, not
+  aggregation. It corroborates the existing Bittensor discussion rather than
+  adding a second case.
+* **Gensyn / Prime Intellect decentralized training** — rewards are keyed to
+  per-node submitted proofs; no evidence of cross-node aggregation into a
+  bounded settlement record before payout.
+* **Krotov & Potapov (2020), "On multifold packings of radius-1 balls in
+  Hamming graphs"** — irrelevant to this question (it is the K(9,1) covering
+  literature check for §6, not a real-world system; noted here only to record
+  that it was checked and does not bear on P4).
+
+**One live, unconfirmed lead: Olas (Autonolas) Mech Marketplace / staking.**
+Olas runs "agent services" operated by *multiple* agent instances/operators in
+consensus (Tendermint), jointly responsible for one service, with staking
+rewards distributed under "Proof-of-Active-Agent" based on aggregate
+service-level activity/performance rather than raw per-operator lockup or
+logs. This is structurally the closest match yet to C39's setting — several
+agents, one collective task, payout from an aggregate signal — but the actual
+on-chain reward-record schema could not be extracted from the tokenomics
+whitepaper in this pass (PDF text was not machine-readable), so it is
+**unconfirmed**, not verified.
+
+**Verdict unchanged: STAKES UNCLEAR.** Olas staking is added as a named open
+lead alongside Bittensor. It should be cited in the paper as the strongest
+unresolved candidate, not claimed as a confirmed second anchor. Closing this
+requires someone with on-chain-explorer or parsed-whitepaper access to check
+whether Olas's service-level reward computation is genuinely bounded/
+compressed or reduces to per-operator attribution under the hood.
