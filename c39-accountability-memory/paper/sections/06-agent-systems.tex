@@ -87,3 +87,62 @@ binding constraint is temporal and cryptoeconomic rather than a size bound---it
 evidences the \emph{consequence} of settling from a merged record, while the
 context-window argument above evidences the \emph{mechanism}. Neither alone
 makes the case; together they do.
+
+\subsection{What production agent frameworks log by default}
+\label{sec:framework-audit}
+
+The theory bounds what any record must retain; whether real systems clear that
+bar is a separate, checkable question. We audited seven production
+multi-agent frameworks against one criterion: does the framework's
+\emph{default} structured log let a principal recover, after the fact, which
+agent did what---not whether the information is technically reconstructable
+with custom instrumentation, but what a settlement built on the log as shipped
+would see.
+
+\begin{table}[t]
+\centering
+\caption{Default per-agent attribution in seven production agent frameworks,
+audited 2026-09-14 and re-verified 2026-09-19.}
+\label{tab:frameworks}
+\begin{tabular}{@{}lll@{}}
+\toprule
+Framework & Class & Effort recoverable? \\
+\midrule
+LangSmith / LangGraph~\cite{langsmithdocs} & SAFE & per-step, per-step cost \\
+OpenAI Agents SDK~\cite{openaiagentssdk} & SAFE & per agent run \\
+Claude Agent SDK & SAFE & per subagent, own file \\
+Microsoft Semantic Kernel~\cite{semantickerneltokens} & SAFE & per-agent token/cost \\
+Google Agent Development Kit~\cite{googleadktraces} & SAFE (leaning) & per-agent spans \\
+AutoGen~\cite{autogenlogging} & MIXED & who talked, not who spent \\
+CrewAI~\cite{crewaitracing,crewaiovercountissue} & MIXED & outputs yes, cost no \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Five of the seven default to per-agent attribution. The two mixed cases fail on
+exactly the axis the theory cares about---effort, not conversation---and they
+fail cleanly enough to be worth stating precisely. AutoGen's
+\texttt{MessageEvent} carries a sender and receiver, so who talked to whom is
+recoverable; but the events that carry the costly work,
+\texttt{LLMCallEvent} and \texttt{ToolCallEvent}, carry no agent identifier
+field at all, so who burned the tokens is not. CrewAI keeps per-task outputs
+but exposes token usage crew-wide; when multiple agents share one LLM client,
+which is the documented usual way to write a crew, the aggregate is not merely
+uninformative but actively overcounted relative to any individual agent's
+share~\cite{crewaiovercountissue}.
+
+\paragraph{This cuts against the easy version of our own motivation.} If the
+industry default were aggregation, the case for this paper would be
+academic. It is not: most production frameworks keep per-agent resolution
+without being asked to. The honest reading is narrower than that would
+suggest, and we do not soften it. In every mixed case found, the aggregation
+is a convenience default, not a binding budget---the missing attribution is
+recoverable with modest instrumentation, and in CrewAI's case practitioners
+already build third-party tooling to retrofit it, which is itself evidence
+that the gap is felt. That is a weaker premise than the genuinely bounded
+record this paper's theory targets, and Section~\ref{sec:limitations} says so
+without qualification. What the audit establishes is narrower and, we think,
+still useful: the failure mode this paper formalises is not hypothetical---it
+already exists at the schema level in two widely used frameworks, on exactly
+the axis the theory predicts, and it is currently invisible to anyone who has
+not gone looking at the field level.
