@@ -1,0 +1,2968 @@
+{
+  "id" : null,
+  "scope" : null,
+  "query" : "\"agent death\"",
+  "appliedFilters" : null,
+  "sort" : null,
+  "configuration" : null,
+  "type" : "discover",
+  "uniqueType" : "discover.discover",
+  "_links" : {
+    "self" : {
+      "href" : "https://dspace.mit.edu/server/api/discover/search/objects?query=%2522agent%20death%2522"
+    }
+  },
+  "_embedded" : {
+    "searchResult" : {
+      "_links" : {
+        "next" : {
+          "href" : "https://dspace.mit.edu/server/api/discover/search/objects?query=%22agent%20death%22&page=1&size=10"
+        },
+        "last" : {
+          "href" : "https://dspace.mit.edu/server/api/discover/search/objects?query=%22agent%20death%22&page=1&size=10"
+        },
+        "self" : {
+          "href" : "https://dspace.mit.edu/server/api/discover/search/objects?query=%22agent%20death%22&size=10"
+        }
+      },
+      "_embedded" : {
+        "objects" : [ {
+          "hitHighlights" : null,
+          "type" : "discover",
+          "uniqueType" : "discover.discover",
+          "_links" : {
+            "indexableObject" : {
+              "href" : "https://dspace.mit.edu/server/api/core/items/3cd44488-b984-4844-b04a-1034fc13cb4b"
+            }
+          },
+          "_embedded" : {
+            "indexableObject" : {
+              "id" : "3cd44488-b984-4844-b04a-1034fc13cb4b",
+              "uuid" : "3cd44488-b984-4844-b04a-1034fc13cb4b",
+              "name" : "An experimental evaluation of domain-independent fault handling services open multi-agent systems",
+              "handle" : "1721.1/2770",
+              "metadata" : {
+                "dc.contributor" : [ {
+                  "value" : "Dellarocas, Chrysanthos, 1967-",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                }, {
+                  "value" : "Klein, Mark, 1960-",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 1
+                }, {
+                  "value" : "Sloan School of Management. Center for Coordination Science.",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 2
+                }, {
+                  "value" : "Sloan School of Management.",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 3
+                } ],
+                "dc.date.accessioned" : [ {
+                  "value" : "2003-04-29T05:18:28Z",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.date.available" : [ {
+                  "value" : "2003-04-29T05:18:28Z",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.date.issued" : [ {
+                  "value" : "2000",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.description" : [ {
+                  "value" : "Title from cover. \"May 2000.\"",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                }, {
+                  "value" : "Includes bibliographical references (p. 13-16).",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 1
+                } ],
+                "dc.description.sponsorship" : [ {
+                  "value" : "Supported in part by NSF. IIS-9803251 Supported in part by DARPA. F30602-98-2-0099",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.description.statementofresponsibility" : [ {
+                  "value" : "Chrysanthos Dellarocas and Mark Klein.",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.format.extent" : [ {
+                  "value" : "16 p.",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                }, {
+                  "value" : "1584488 bytes",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 1
+                } ],
+                "dc.format.mimetype" : [ {
+                  "value" : "application/pdf",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.identifier.other" : [ {
+                  "value" : "#212 #4116",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.identifier.uri" : [ {
+                  "value" : "http://hdl.handle.net/1721.1/2770",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.language.iso" : [ {
+                  "value" : "en",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.publisher" : [ {
+                  "value" : "Center for Coordination Science, Massachusetts Institute of Technology, Sloan School of Management",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.relation.ispartofseries" : [ {
+                  "value" : "CCSTR ; 212. Working paper (Sloan School of Management) ; WP 4116-00.",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.subject.lcc" : [ {
+                  "value" : "HD28 .M414 no.4116-00",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.title" : [ {
+                  "value" : "An experimental evaluation of domain-independent fault handling services open multi-agent systems",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.type" : [ {
+                  "value" : "Working Paper",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dspace.entity.type" : [ {
+                  "value" : "Publication",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ]
+              },
+              "inArchive" : true,
+              "discoverable" : true,
+              "withdrawn" : false,
+              "lastModified" : "2026-08-06T17:56:30.461+00:00",
+              "entityType" : "Publication",
+              "type" : "item",
+              "uniqueType" : "core.item",
+              "_links" : {
+                "accessStatus" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/3cd44488-b984-4844-b04a-1034fc13cb4b/accessStatus"
+                },
+                "bundles" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/3cd44488-b984-4844-b04a-1034fc13cb4b/bundles"
+                },
+                "identifiers" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/3cd44488-b984-4844-b04a-1034fc13cb4b/identifiers"
+                },
+                "mappedCollections" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/3cd44488-b984-4844-b04a-1034fc13cb4b/mappedCollections"
+                },
+                "owningCollection" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/3cd44488-b984-4844-b04a-1034fc13cb4b/owningCollection"
+                },
+                "relationships" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/3cd44488-b984-4844-b04a-1034fc13cb4b/relationships"
+                },
+                "version" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/3cd44488-b984-4844-b04a-1034fc13cb4b/version"
+                },
+                "templateItemOf" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/3cd44488-b984-4844-b04a-1034fc13cb4b/templateItemOf"
+                },
+                "thumbnail" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/3cd44488-b984-4844-b04a-1034fc13cb4b/thumbnail"
+                },
+                "metrics" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/3cd44488-b984-4844-b04a-1034fc13cb4b/metrics"
+                },
+                "submitter" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/3cd44488-b984-4844-b04a-1034fc13cb4b/submitter"
+                },
+                "self" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/3cd44488-b984-4844-b04a-1034fc13cb4b"
+                }
+              }
+            }
+          }
+        }, {
+          "hitHighlights" : null,
+          "type" : "discover",
+          "uniqueType" : "discover.discover",
+          "_links" : {
+            "indexableObject" : {
+              "href" : "https://dspace.mit.edu/server/api/core/items/c8ee7508-9532-4915-9c99-492b1fa2b9d5"
+            }
+          },
+          "_embedded" : {
+            "indexableObject" : {
+              "id" : "c8ee7508-9532-4915-9c99-492b1fa2b9d5",
+              "uuid" : "c8ee7508-9532-4915-9c99-492b1fa2b9d5",
+              "name" : "An experimental analysis of exception handling services for multi-agent systems",
+              "handle" : "1721.1/86529",
+              "metadata" : {
+                "dc.contributor.advisor" : [ {
+                  "value" : "Chrysanthos Dellarocas.",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.contributor.author" : [ {
+                  "value" : "Muthitacharoen, Athicha, 1976-",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.contributor.other" : [ {
+                  "value" : "Massachusetts Institute of Technology. Department of Electrical Engineering and Computer Science.",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.date.accessioned" : [ {
+                  "value" : "2014-05-07T16:47:24Z",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.date.available" : [ {
+                  "value" : "2014-05-07T16:47:24Z",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.date.copyright" : [ {
+                  "value" : "2000",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.date.issued" : [ {
+                  "value" : "2000",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.description" : [ {
+                  "value" : "Thesis (S.B. and M.Eng.)--Massachusetts Institute of Technology, Dept. of Electrical Engineering and Computer Science, 2000.",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                }, {
+                  "value" : "Includes bibliographical references (leaves 43-45).",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 1
+                } ],
+                "dc.description.degree" : [ {
+                  "value" : "S.B.",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                }, {
+                  "value" : "M.Eng.",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 1
+                } ],
+                "dc.description.statementofresponsibility" : [ {
+                  "value" : "by Athicha Muthitacharoen.",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.format.extent" : [ {
+                  "value" : "45 leaves",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.identifier.oclc" : [ {
+                  "value" : "46914099",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.identifier.uri" : [ {
+                  "value" : "http://hdl.handle.net/1721.1/86529",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.language.iso" : [ {
+                  "value" : "en",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.publisher" : [ {
+                  "value" : "Massachusetts Institute of Technology",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.relation.orgunit" : [ {
+                  "value" : "Massachusetts Institute of Technology. Department of Electrical Engineering and Computer Science",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : 600,
+                  "place" : 0
+                } ],
+                "dc.rights" : [ {
+                  "value" : "M.I.T. theses are protected by copyright. They may be viewed from this source for any purpose, but reproduction or distribution in any format is prohibited without written permission. See provided URL for inquiries about permission.",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.rights.uri" : [ {
+                  "value" : "http://dspace.mit.edu/handle/1721.1/7582",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.subject" : [ {
+                  "value" : "Electrical Engineering and Computer Science.",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.title" : [ {
+                  "value" : "An experimental analysis of exception handling services for multi-agent systems",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.type" : [ {
+                  "value" : "Thesis",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dspace.entity.type" : [ {
+                  "value" : "Publication",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ]
+              },
+              "inArchive" : true,
+              "discoverable" : true,
+              "withdrawn" : false,
+              "lastModified" : "2026-06-05T20:27:21.544+00:00",
+              "entityType" : "Publication",
+              "type" : "item",
+              "uniqueType" : "core.item",
+              "_links" : {
+                "accessStatus" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/c8ee7508-9532-4915-9c99-492b1fa2b9d5/accessStatus"
+                },
+                "bundles" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/c8ee7508-9532-4915-9c99-492b1fa2b9d5/bundles"
+                },
+                "identifiers" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/c8ee7508-9532-4915-9c99-492b1fa2b9d5/identifiers"
+                },
+                "mappedCollections" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/c8ee7508-9532-4915-9c99-492b1fa2b9d5/mappedCollections"
+                },
+                "owningCollection" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/c8ee7508-9532-4915-9c99-492b1fa2b9d5/owningCollection"
+                },
+                "relationships" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/c8ee7508-9532-4915-9c99-492b1fa2b9d5/relationships"
+                },
+                "version" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/c8ee7508-9532-4915-9c99-492b1fa2b9d5/version"
+                },
+                "templateItemOf" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/c8ee7508-9532-4915-9c99-492b1fa2b9d5/templateItemOf"
+                },
+                "thumbnail" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/c8ee7508-9532-4915-9c99-492b1fa2b9d5/thumbnail"
+                },
+                "metrics" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/c8ee7508-9532-4915-9c99-492b1fa2b9d5/metrics"
+                },
+                "submitter" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/c8ee7508-9532-4915-9c99-492b1fa2b9d5/submitter"
+                },
+                "self" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/c8ee7508-9532-4915-9c99-492b1fa2b9d5"
+                }
+              }
+            }
+          }
+        }, {
+          "hitHighlights" : {
+            "dc.description.abstract" : [ " as well as an investigation of the minimum base level interfaces required from each agent. Experimental results showing a scenario in which agents relies on the exception handling service for dealing with <em>agent</em> <em>death</em> exception are demonstrated. Lastly, a" ]
+          },
+          "type" : "discover",
+          "uniqueType" : "discover.discover",
+          "_links" : {
+            "indexableObject" : {
+              "href" : "https://dspace.mit.edu/server/api/core/items/e59514e4-6a70-4bbd-831b-97c856626544"
+            }
+          },
+          "_embedded" : {
+            "indexableObject" : {
+              "id" : "e59514e4-6a70-4bbd-831b-97c856626544",
+              "uuid" : "e59514e4-6a70-4bbd-831b-97c856626544",
+              "name" : "An exceptional handling service for the contract net protocol family",
+              "handle" : "1721.1/9437",
+              "metadata" : {
+                "dc.contributor.advisor" : [ {
+                  "value" : "Chrysanthos Dellarocas.",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.contributor.author" : [ {
+                  "value" : "Aryananda, Lijin, 1975-",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : 0,
+                  "place" : 0
+                } ],
+                "dc.date.accessioned" : [ {
+                  "value" : "2005-08-22T18:21:54Z",
+                  "language" : "",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.date.available" : [ {
+                  "value" : "2005-08-22T18:21:54Z",
+                  "language" : "",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.date.copyright" : [ {
+                  "value" : "1999",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.date.issued" : [ {
+                  "value" : "1999",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.description" : [ {
+                  "value" : "Thesis (M.Eng.)--Massachusetts Institute of Technology, Dept. of Electrical Engineering and Computer Science, 1999.",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                }, {
+                  "value" : "Includes bibliographical references (leaves 61-63).",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 1
+                } ],
+                "dc.description.abstract" : [ {
+                  "value" : "Autonomous agents are systems that inhabit complex and dynamic environments. Attaining robust behavior in such complex conditions is a key challenge for agent-based systems. This challenge is intensified in multi-agent settings, where a diverse set of agents communicate and coordinate with each other, resulting in non-deterministic system behaviors. The standard approach to this problem relies on the notion that each agent should be equipped as much as possible in order to survive on their own in its environment, leading to several serious limitations. Dellarocas and Klein (1999) propose an alternative approach, using a generic exception handling service for providing adaptability by detecting and handling domain independent exceptions. This thesis presents an evaluation and prototype implementation of this approach using a contract net setting. The feasibility of the approach is assessed, involving identification of contract net related domain independent exceptions and their handling strategies as well as an investigation of the minimum base level interfaces required from each agent. Experimental results showing a scenario in which agents relies on the exception handling service for dealing with agent death exception are demonstrated. Lastly, a thorough analysis and comparative study of the shared service approach versus other related works are presented.",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.description.degree" : [ {
+                  "value" : "M.Eng.",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.description.statementofresponsibility" : [ {
+                  "value" : "by Lijin Aryananda.",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.format.extent" : [ {
+                  "value" : "63 leaves",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                }, {
+                  "value" : "3519340 bytes",
+                  "language" : "",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 1
+                }, {
+                  "value" : "3519099 bytes",
+                  "language" : "",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 2
+                } ],
+                "dc.format.mimetype" : [ {
+                  "value" : "application/pdf",
+                  "language" : "",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                }, {
+                  "value" : "application/pdf",
+                  "language" : "",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 1
+                } ],
+                "dc.identifier.oclc" : [ {
+                  "value" : "43400578",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.identifier.uri" : [ {
+                  "value" : "http://hdl.handle.net/1721.1/9437",
+                  "language" : "",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.language.iso" : [ {
+                  "value" : "en",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.publisher" : [ {
+                  "value" : "Massachusetts Institute of Technology",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.relation.orgunit" : [ {
+                  "value" : "Massachusetts Institute of Technology. Department of Electrical Engineering and Computer Science",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : 0,
+                  "place" : 0
+                } ],
+                "dc.rights" : [ {
+                  "value" : "M.I.T. theses are protected by copyright. They may be viewed from this source for any purpose, but reproduction or distribution in any format is prohibited without written permission. See provided URL for inquiries about permission.",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.rights.uri" : [ {
+                  "value" : "http://dspace.mit.edu/handle/1721.1/7582",
+                  "language" : "",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.subject" : [ {
+                  "value" : "Electrical Engineering and Computer Science",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.title" : [ {
+                  "value" : "An exceptional handling service for the contract net protocol family",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.type" : [ {
+                  "value" : "Thesis",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dspace.entity.type" : [ {
+                  "value" : "Publication",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ]
+              },
+              "inArchive" : true,
+              "discoverable" : true,
+              "withdrawn" : false,
+              "lastModified" : "2021-07-05T14:03:20.185+00:00",
+              "entityType" : "Publication",
+              "type" : "item",
+              "uniqueType" : "core.item",
+              "_links" : {
+                "accessStatus" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/e59514e4-6a70-4bbd-831b-97c856626544/accessStatus"
+                },
+                "bundles" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/e59514e4-6a70-4bbd-831b-97c856626544/bundles"
+                },
+                "identifiers" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/e59514e4-6a70-4bbd-831b-97c856626544/identifiers"
+                },
+                "mappedCollections" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/e59514e4-6a70-4bbd-831b-97c856626544/mappedCollections"
+                },
+                "owningCollection" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/e59514e4-6a70-4bbd-831b-97c856626544/owningCollection"
+                },
+                "relationships" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/e59514e4-6a70-4bbd-831b-97c856626544/relationships"
+                },
+                "version" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/e59514e4-6a70-4bbd-831b-97c856626544/version"
+                },
+                "templateItemOf" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/e59514e4-6a70-4bbd-831b-97c856626544/templateItemOf"
+                },
+                "thumbnail" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/e59514e4-6a70-4bbd-831b-97c856626544/thumbnail"
+                },
+                "metrics" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/e59514e4-6a70-4bbd-831b-97c856626544/metrics"
+                },
+                "submitter" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/e59514e4-6a70-4bbd-831b-97c856626544/submitter"
+                },
+                "self" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/e59514e4-6a70-4bbd-831b-97c856626544"
+                }
+              }
+            }
+          }
+        }, {
+          "hitHighlights" : null,
+          "type" : "discover",
+          "uniqueType" : "discover.discover",
+          "_links" : {
+            "indexableObject" : {
+              "href" : "https://dspace.mit.edu/server/api/core/items/961309ac-15ce-4566-9135-4a8520ebea25"
+            }
+          },
+          "_embedded" : {
+            "indexableObject" : {
+              "id" : "961309ac-15ce-4566-9135-4a8520ebea25",
+              "uuid" : "961309ac-15ce-4566-9135-4a8520ebea25",
+              "name" : "Domain-independent exception handling services that increase robustness in open multi-agent systems",
+              "handle" : "1721.1/2769",
+              "metadata" : {
+                "dc.contributor" : [ {
+                  "value" : "Klein, Mark, 1960-",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                }, {
+                  "value" : "Dellarocas, Chrysanthos, 1967-",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 1
+                }, {
+                  "value" : "Sloan School of Management. Center for Coordination Science.",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 2
+                }, {
+                  "value" : "Sloan School of Management.",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 3
+                } ],
+                "dc.date.accessioned" : [ {
+                  "value" : "2003-04-29T05:18:27Z",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.date.available" : [ {
+                  "value" : "2003-04-29T05:18:27Z",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.date.issued" : [ {
+                  "value" : "2000",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.description" : [ {
+                  "value" : "Title from cover. \"May 2000.\"",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                }, {
+                  "value" : "Includes bibliographical references (p. 17-23).",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 1
+                } ],
+                "dc.description.statementofresponsibility" : [ {
+                  "value" : "Mark Klein and Chrysanthos Dellarocas.",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.format.extent" : [ {
+                  "value" : "23 p.",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                }, {
+                  "value" : "2040774 bytes",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 1
+                } ],
+                "dc.format.mimetype" : [ {
+                  "value" : "application/pdf",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.identifier.other" : [ {
+                  "value" : "#211 #4115",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.identifier.uri" : [ {
+                  "value" : "http://hdl.handle.net/1721.1/2769",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.language.iso" : [ {
+                  "value" : "en",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.publisher" : [ {
+                  "value" : "Center for Coordination Science, Massachusetts Institute of Technology, Sloan School of Management",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.relation.ispartofseries" : [ {
+                  "value" : "CCSTR ; 211. Working paper (Sloan School of Management) ; WP 4115-00.",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.subject.lcc" : [ {
+                  "value" : "HD28 .M414 no.4115-00",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.title" : [ {
+                  "value" : "Domain-independent exception handling services that increase robustness in open multi-agent systems",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.type" : [ {
+                  "value" : "Working Paper",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dspace.authorsordered" : [ {
+                  "value" : "false",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dspace.entity.type" : [ {
+                  "value" : "Publication",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ]
+              },
+              "inArchive" : true,
+              "discoverable" : true,
+              "withdrawn" : false,
+              "lastModified" : "2026-08-06T17:59:08.874+00:00",
+              "entityType" : "Publication",
+              "type" : "item",
+              "uniqueType" : "core.item",
+              "_links" : {
+                "accessStatus" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/961309ac-15ce-4566-9135-4a8520ebea25/accessStatus"
+                },
+                "bundles" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/961309ac-15ce-4566-9135-4a8520ebea25/bundles"
+                },
+                "identifiers" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/961309ac-15ce-4566-9135-4a8520ebea25/identifiers"
+                },
+                "mappedCollections" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/961309ac-15ce-4566-9135-4a8520ebea25/mappedCollections"
+                },
+                "owningCollection" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/961309ac-15ce-4566-9135-4a8520ebea25/owningCollection"
+                },
+                "relationships" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/961309ac-15ce-4566-9135-4a8520ebea25/relationships"
+                },
+                "version" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/961309ac-15ce-4566-9135-4a8520ebea25/version"
+                },
+                "templateItemOf" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/961309ac-15ce-4566-9135-4a8520ebea25/templateItemOf"
+                },
+                "thumbnail" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/961309ac-15ce-4566-9135-4a8520ebea25/thumbnail"
+                },
+                "metrics" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/961309ac-15ce-4566-9135-4a8520ebea25/metrics"
+                },
+                "submitter" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/961309ac-15ce-4566-9135-4a8520ebea25/submitter"
+                },
+                "self" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/961309ac-15ce-4566-9135-4a8520ebea25"
+                }
+              }
+            }
+          }
+        }, {
+          "hitHighlights" : null,
+          "type" : "discover",
+          "uniqueType" : "discover.discover",
+          "_links" : {
+            "indexableObject" : {
+              "href" : "https://dspace.mit.edu/server/api/core/items/897c2135-adb0-42bb-917a-21ecef6683fe"
+            }
+          },
+          "_embedded" : {
+            "indexableObject" : {
+              "id" : "897c2135-adb0-42bb-917a-21ecef6683fe",
+              "uuid" : "897c2135-adb0-42bb-917a-21ecef6683fe",
+              "name" : "A handbook-based methodology for redesigning business processes",
+              "handle" : "1721.1/114533",
+              "metadata" : {
+                "dc.contributor.approver" : [ {
+                  "value" : "Klein, Mark",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.contributor.author" : [ {
+                  "value" : "Klein, Mark",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : 600,
+                  "place" : 0
+                }, {
+                  "value" : "Petti, Claudio",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : 600,
+                  "place" : 1
+                } ],
+                "dc.contributor.mitauthor" : [ {
+                  "value" : "Klein, Mark",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.date.accessioned" : [ {
+                  "value" : "2018-04-03T19:52:27Z",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.date.available" : [ {
+                  "value" : "2018-04-03T19:52:27Z",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.date.issued" : [ {
+                  "value" : "2006-05",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.description.abstract" : [ {
+                  "value" : "This paper presents a structured methodology, based on the use of a Handbook of process models, for redesigning business processes. The methodology is illustrated using examples from the agri‐food supply chain domain. We discuss the strengths and weaknesses of this approach, and identify avenues for further work.",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.eprint.version" : [ {
+                  "value" : "Author's final manuscript",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.identifier.citation" : [ {
+                  "value" : "Klein, Mark, and Claudio Petti. “A Handbook-Based Methodology for Redesigning Business Processes.” Knowledge and Process Management 13, 2 (2006): 108–119 © 2006 John Wiley & Sons, Ltd",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.identifier.issn" : [ {
+                  "value" : "1092-4604",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                }, {
+                  "value" : "1099-1441",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 1
+                } ],
+                "dc.identifier.uri" : [ {
+                  "value" : "http://hdl.handle.net/1721.1/114533",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.language.iso" : [ {
+                  "value" : "en_US",
+                  "language" : "",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.publisher" : [ {
+                  "value" : "Wiley Blackwell",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.relation.isversionof" : [ {
+                  "value" : "https://doi.org/10.1002/kpm.248",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.relation.journal" : [ {
+                  "value" : "Knowledge and Process Management",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.relation.orgunit" : [ {
+                  "value" : "Sloan School of Management",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : 600,
+                  "place" : 0
+                } ],
+                "dc.rights" : [ {
+                  "value" : "Article is made available in accordance with the publisher's policy and may be subject to US copyright law. Please refer to the publisher's site for terms of use.",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.source" : [ {
+                  "value" : "Klein",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.title" : [ {
+                  "value" : "A handbook-based methodology for redesigning business processes",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.type" : [ {
+                  "value" : "Article",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.type.uri" : [ {
+                  "value" : "http://purl.org/eprint/type/JournalArticle",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dspace.authorsordered" : [ {
+                  "value" : "true",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dspace.embargo.terms" : [ {
+                  "value" : "N",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dspace.entity.type" : [ {
+                  "value" : "Publication",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dspace.orderedauthors" : [ {
+                  "value" : "Klein, Mark; Petti, Claudio",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "eprint.status" : [ {
+                  "value" : "http://purl.org/eprint/status/PeerReviewed",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "mit.license" : [ {
+                  "value" : "PUBLISHER_POLICY",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ]
+              },
+              "inArchive" : true,
+              "discoverable" : true,
+              "withdrawn" : false,
+              "lastModified" : "2026-07-13T16:07:44.966+00:00",
+              "entityType" : "Publication",
+              "type" : "item",
+              "uniqueType" : "core.item",
+              "_links" : {
+                "accessStatus" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/897c2135-adb0-42bb-917a-21ecef6683fe/accessStatus"
+                },
+                "bundles" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/897c2135-adb0-42bb-917a-21ecef6683fe/bundles"
+                },
+                "identifiers" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/897c2135-adb0-42bb-917a-21ecef6683fe/identifiers"
+                },
+                "mappedCollections" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/897c2135-adb0-42bb-917a-21ecef6683fe/mappedCollections"
+                },
+                "owningCollection" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/897c2135-adb0-42bb-917a-21ecef6683fe/owningCollection"
+                },
+                "relationships" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/897c2135-adb0-42bb-917a-21ecef6683fe/relationships"
+                },
+                "version" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/897c2135-adb0-42bb-917a-21ecef6683fe/version"
+                },
+                "templateItemOf" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/897c2135-adb0-42bb-917a-21ecef6683fe/templateItemOf"
+                },
+                "thumbnail" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/897c2135-adb0-42bb-917a-21ecef6683fe/thumbnail"
+                },
+                "metrics" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/897c2135-adb0-42bb-917a-21ecef6683fe/metrics"
+                },
+                "submitter" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/897c2135-adb0-42bb-917a-21ecef6683fe/submitter"
+                },
+                "self" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/897c2135-adb0-42bb-917a-21ecef6683fe"
+                }
+              }
+            }
+          }
+        }, {
+          "hitHighlights" : null,
+          "type" : "discover",
+          "uniqueType" : "discover.discover",
+          "_links" : {
+            "indexableObject" : {
+              "href" : "https://dspace.mit.edu/server/api/core/items/3bfdc07e-7060-4f91-b959-cdc5535ec246"
+            }
+          },
+          "_embedded" : {
+            "indexableObject" : {
+              "id" : "3bfdc07e-7060-4f91-b959-cdc5535ec246",
+              "uuid" : "3bfdc07e-7060-4f91-b959-cdc5535ec246",
+              "name" : "Negotiating complex contracts",
+              "handle" : "1721.1/48585",
+              "metadata" : {
+                "dc.contributor.author" : [ {
+                  "value" : "Klein, Mark",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : 500,
+                  "place" : 0
+                } ],
+                "dc.contributor.other" : [ {
+                  "value" : "Sloan School of Management.",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                }, {
+                  "value" : "Center for eBusiness@MIT.",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 1
+                } ],
+                "dc.date.accessioned" : [ {
+                  "value" : "2009-10-03T06:34:23Z",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.date.available" : [ {
+                  "value" : "2009-10-03T06:34:23Z",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.date.issued" : [ {
+                  "value" : "2001]",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.description" : [ {
+                  "value" : "Title from cover.",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                }, {
+                  "value" : "\"October 2001.\"",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 1
+                } ],
+                "dc.identifier" : [ {
+                  "value" : "negotiatingcompl00sloa",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.identifier.aleph" : [ {
+                  "value" : "001118606",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.identifier.oclc" : [ {
+                  "value" : "50908706",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.identifier.uri" : [ {
+                  "value" : "http://hdl.handle.net/1721.1/48585",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.publisher" : [ {
+                  "value" : "[Cambridge, Mass.] : MIT Sloan School of Management",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.relation" : [ {
+                  "value" : "Abstract in HTML and working paper for download in PDF available via World Wide Web at the Social Science Research Network <http://ssrn.com>; and, as a PDF on the Center for eBusiness@MIT web site <http://ebusiness.mit.edu>.",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.relation.ispartofseries" : [ {
+                  "value" : "eBusiness@MIT working paper ; 125",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                }, {
+                  "value" : "Working paper (Sloan School of Management) ; 4196.",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 1
+                } ],
+                "dc.subject" : [ {
+                  "value" : "Electronic commerce.",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.title" : [ {
+                  "value" : "Negotiating complex contracts",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.type" : [ {
+                  "value" : "Working Paper",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dspace.entity.type" : [ {
+                  "value" : "Publication",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ]
+              },
+              "inArchive" : true,
+              "discoverable" : true,
+              "withdrawn" : false,
+              "lastModified" : "2019-04-10T23:38:09.610+00:00",
+              "entityType" : "Publication",
+              "type" : "item",
+              "uniqueType" : "core.item",
+              "_links" : {
+                "accessStatus" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/3bfdc07e-7060-4f91-b959-cdc5535ec246/accessStatus"
+                },
+                "bundles" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/3bfdc07e-7060-4f91-b959-cdc5535ec246/bundles"
+                },
+                "identifiers" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/3bfdc07e-7060-4f91-b959-cdc5535ec246/identifiers"
+                },
+                "mappedCollections" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/3bfdc07e-7060-4f91-b959-cdc5535ec246/mappedCollections"
+                },
+                "owningCollection" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/3bfdc07e-7060-4f91-b959-cdc5535ec246/owningCollection"
+                },
+                "relationships" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/3bfdc07e-7060-4f91-b959-cdc5535ec246/relationships"
+                },
+                "version" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/3bfdc07e-7060-4f91-b959-cdc5535ec246/version"
+                },
+                "templateItemOf" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/3bfdc07e-7060-4f91-b959-cdc5535ec246/templateItemOf"
+                },
+                "thumbnail" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/3bfdc07e-7060-4f91-b959-cdc5535ec246/thumbnail"
+                },
+                "metrics" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/3bfdc07e-7060-4f91-b959-cdc5535ec246/metrics"
+                },
+                "submitter" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/3bfdc07e-7060-4f91-b959-cdc5535ec246/submitter"
+                },
+                "self" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/3bfdc07e-7060-4f91-b959-cdc5535ec246"
+                }
+              }
+            }
+          }
+        }, {
+          "hitHighlights" : null,
+          "type" : "discover",
+          "uniqueType" : "discover.discover",
+          "_links" : {
+            "indexableObject" : {
+              "href" : "https://dspace.mit.edu/server/api/core/items/21b11f43-aff7-4718-8770-574b7039690a"
+            }
+          },
+          "_embedded" : {
+            "indexableObject" : {
+              "id" : "21b11f43-aff7-4718-8770-574b7039690a",
+              "uuid" : "21b11f43-aff7-4718-8770-574b7039690a",
+              "name" : "Handling Resource Oscillations Through Selective Misinformation",
+              "handle" : "1721.1/65426",
+              "metadata" : {
+                "dc.contributor.author" : [ {
+                  "value" : "Klein, Mark",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : 500,
+                  "place" : 0
+                }, {
+                  "value" : "Metzler, Richard",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 1
+                }, {
+                  "value" : "Bar-Yam, Yaneer",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 2
+                } ],
+                "dc.date.accessioned" : [ {
+                  "value" : "2011-08-29T15:07:09Z",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.date.available" : [ {
+                  "value" : "2011-08-29T15:07:09Z",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.date.issued" : [ {
+                  "value" : "2008-06-02",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.description.abstract" : [ {
+                  "value" : "When resource consumers select among competing providers based on delayed\r\ninformation, inefficient oscillations in resource utilization can emerge. This paper\r\ndescribes an approach, based on selective stochastic resource request rejection, for\r\ndealing with this emergent dysfunction.",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.description.sponsorship" : [ {
+                  "value" : "This work was supported by the NSF Computational and Social Systems program as well as the DARPA Control of Agent-Based Systems program.",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.identifier.uri" : [ {
+                  "value" : "http://hdl.handle.net/1721.1/65426",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.language.iso" : [ {
+                  "value" : "en_US",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.publisher" : [ {
+                  "value" : "Cambridge, MA; Alfred P. Sloan School of Management, Massachusetts Institute of Technology",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.relation.ispartofseries" : [ {
+                  "value" : "MIT Sloan School of Management Working Paper;4705-08",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.title" : [ {
+                  "value" : "Handling Resource Oscillations Through Selective Misinformation",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.type" : [ {
+                  "value" : "Working Paper",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dspace.authorsordered" : [ {
+                  "value" : "false",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dspace.entity.type" : [ {
+                  "value" : "Publication",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ]
+              },
+              "inArchive" : true,
+              "discoverable" : true,
+              "withdrawn" : false,
+              "lastModified" : "2019-04-10T20:36:28.565+00:00",
+              "entityType" : "Publication",
+              "type" : "item",
+              "uniqueType" : "core.item",
+              "_links" : {
+                "accessStatus" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/21b11f43-aff7-4718-8770-574b7039690a/accessStatus"
+                },
+                "bundles" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/21b11f43-aff7-4718-8770-574b7039690a/bundles"
+                },
+                "identifiers" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/21b11f43-aff7-4718-8770-574b7039690a/identifiers"
+                },
+                "mappedCollections" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/21b11f43-aff7-4718-8770-574b7039690a/mappedCollections"
+                },
+                "owningCollection" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/21b11f43-aff7-4718-8770-574b7039690a/owningCollection"
+                },
+                "relationships" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/21b11f43-aff7-4718-8770-574b7039690a/relationships"
+                },
+                "version" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/21b11f43-aff7-4718-8770-574b7039690a/version"
+                },
+                "templateItemOf" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/21b11f43-aff7-4718-8770-574b7039690a/templateItemOf"
+                },
+                "thumbnail" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/21b11f43-aff7-4718-8770-574b7039690a/thumbnail"
+                },
+                "metrics" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/21b11f43-aff7-4718-8770-574b7039690a/metrics"
+                },
+                "submitter" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/21b11f43-aff7-4718-8770-574b7039690a/submitter"
+                },
+                "self" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/21b11f43-aff7-4718-8770-574b7039690a"
+                }
+              }
+            }
+          }
+        }, {
+          "hitHighlights" : null,
+          "type" : "discover",
+          "uniqueType" : "discover.discover",
+          "_links" : {
+            "indexableObject" : {
+              "href" : "https://dspace.mit.edu/server/api/core/items/023054c4-abaf-48ba-855a-a47a5a64b37d"
+            }
+          },
+          "_embedded" : {
+            "indexableObject" : {
+              "id" : "023054c4-abaf-48ba-855a-a47a5a64b37d",
+              "uuid" : "023054c4-abaf-48ba-855a-a47a5a64b37d",
+              "name" : "Amorphous Computing",
+              "handle" : "1721.1/37591",
+              "metadata" : {
+                "dc.contributor.advisor" : [ {
+                  "value" : "Hal Abelson",
+                  "language" : "",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.contributor.author" : [ {
+                  "value" : "Abelson, Harold",
+                  "language" : "",
+                  "authority" : null,
+                  "confidence" : 0,
+                  "place" : 0
+                }, {
+                  "value" : "Beal, Jacob",
+                  "language" : "",
+                  "authority" : null,
+                  "confidence" : 0,
+                  "place" : 1
+                }, {
+                  "value" : "Sussman, Gerald Jay",
+                  "language" : "",
+                  "authority" : null,
+                  "confidence" : 0,
+                  "place" : 2
+                } ],
+                "dc.contributor.other" : [ {
+                  "value" : "Mathematics and Computation",
+                  "language" : "",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.date.accessioned" : [ {
+                  "value" : "2007-06-01T18:01:47Z",
+                  "language" : "",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.date.available" : [ {
+                  "value" : "2007-06-01T18:01:47Z",
+                  "language" : "",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.date.issued" : [ {
+                  "value" : "2007",
+                  "language" : "",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.description.abstract" : [ {
+                  "value" : "The goal of amorphous computing is to identify organizationalprinciples and create programming technologies for obtainingintentional, pre-specified behavior from the cooperation of myriadunreliable parts that are arranged in unknown, irregular, andtime-varying ways.  The heightened relevance of amorphous computingtoday stems from the emergence of new technologies that could serve assubstrates for information processing systems of immense power atunprecedentedly low cost, if only we could master the challenge ofprogramming them.  This document is a review of amorphous computing.",
+                  "language" : "",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.format.extent" : [ {
+                  "value" : "33 p.",
+                  "language" : "",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.identifier.citation" : [ {
+                  "value" : "preprint of article for Springer-Verlag Encyclopedia of Complexity and System Science",
+                  "language" : "",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.identifier.other" : [ {
+                  "value" : "MIT-CSAIL-TR-2007-030",
+                  "language" : "",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.identifier.uri" : [ {
+                  "value" : "http://hdl.handle.net/1721.1/37591",
+                  "language" : "",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.relation.ispartofseries" : [ {
+                  "value" : "Massachusetts Institute of Technology Computer Science and Artificial Intelligence Laboratory",
+                  "language" : "",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.title" : [ {
+                  "value" : "Amorphous Computing",
+                  "language" : "",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dspace.authorsordered" : [ {
+                  "value" : "false",
+                  "language" : "",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dspace.entity.type" : [ {
+                  "value" : "Publication",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ]
+              },
+              "inArchive" : true,
+              "discoverable" : true,
+              "withdrawn" : false,
+              "lastModified" : "2025-07-24T17:33:05.821+00:00",
+              "entityType" : "Publication",
+              "type" : "item",
+              "uniqueType" : "core.item",
+              "_links" : {
+                "accessStatus" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/023054c4-abaf-48ba-855a-a47a5a64b37d/accessStatus"
+                },
+                "bundles" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/023054c4-abaf-48ba-855a-a47a5a64b37d/bundles"
+                },
+                "identifiers" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/023054c4-abaf-48ba-855a-a47a5a64b37d/identifiers"
+                },
+                "mappedCollections" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/023054c4-abaf-48ba-855a-a47a5a64b37d/mappedCollections"
+                },
+                "owningCollection" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/023054c4-abaf-48ba-855a-a47a5a64b37d/owningCollection"
+                },
+                "relationships" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/023054c4-abaf-48ba-855a-a47a5a64b37d/relationships"
+                },
+                "version" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/023054c4-abaf-48ba-855a-a47a5a64b37d/version"
+                },
+                "templateItemOf" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/023054c4-abaf-48ba-855a-a47a5a64b37d/templateItemOf"
+                },
+                "thumbnail" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/023054c4-abaf-48ba-855a-a47a5a64b37d/thumbnail"
+                },
+                "metrics" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/023054c4-abaf-48ba-855a-a47a5a64b37d/metrics"
+                },
+                "submitter" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/023054c4-abaf-48ba-855a-a47a5a64b37d/submitter"
+                },
+                "self" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/023054c4-abaf-48ba-855a-a47a5a64b37d"
+                }
+              }
+            }
+          }
+        }, {
+          "hitHighlights" : null,
+          "type" : "discover",
+          "uniqueType" : "discover.discover",
+          "_links" : {
+            "indexableObject" : {
+              "href" : "https://dspace.mit.edu/server/api/core/items/83446c57-ea5d-4dc1-bd14-32b7cbdd51f1"
+            }
+          },
+          "_embedded" : {
+            "indexableObject" : {
+              "id" : "83446c57-ea5d-4dc1-bd14-32b7cbdd51f1",
+              "uuid" : "83446c57-ea5d-4dc1-bd14-32b7cbdd51f1",
+              "name" : "Decentralized Control of Large Collaborative Swarms using Random Finite Set Theory",
+              "handle" : "1721.1/135348",
+              "metadata" : {
+                "dc.contributor.author" : [ {
+                  "value" : "Doerr, Bryce",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : 500,
+                  "place" : 0
+                }, {
+                  "value" : "Linares, Richard",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : 500,
+                  "place" : 1
+                } ],
+                "dc.date.accessioned" : [ {
+                  "value" : "2021-10-27T20:23:04Z",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.date.available" : [ {
+                  "value" : "2021-10-27T20:23:04Z",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.date.issued" : [ {
+                  "value" : "2021",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.date.updated" : [ {
+                  "value" : "2021-05-06T15:41:11Z",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.description.abstract" : [ {
+                  "value" : "IEEE Controlling large swarms of robotic agents presents many challenges including, but not limited to, computational complexity due to a large number of agents, uncertainty in the functionality of each agent in the swarm, and uncertainty in the swarm's configuration. The contribution of this work is to decentralize Random Finite Set (RFS)-based control of large collaborative swarms for controlling individual agents. The RFS-based control formulation assumes a Gaussian Mixture Probability Hypothesis Density (GM-PHD) approximation and a complete topology for centralized swarm control. To generalize the control topology in a localized or decentralized manner, sparse LQR is used to sparsify the RFS-based control gain matrix obtained using iterative LQR. This allows agents to use information of agents near each other (localized topology) or only the agent's own information (decentralized topology) to make a control decision. Sparsity and performance for decentralized RFS-based control are compared for different degrees of localization in feedback control gains which show that the stability and performance compared to centralized control do not degrade significantly in provi",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.eprint.version" : [ {
+                  "value" : "Original manuscript",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.identifier.uri" : [ {
+                  "value" : "https://hdl.handle.net/1721.1/135348",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.language.iso" : [ {
+                  "value" : "en",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.publisher" : [ {
+                  "value" : "Institute of Electrical and Electronics Engineers (IEEE)",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.relation.isversionof" : [ {
+                  "value" : "https://doi.org/10.1109/TCNS.2021.3059793",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.relation.journal" : [ {
+                  "value" : "IEEE Transactions on Control of Network Systems",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.relation.orgunit" : [ {
+                  "value" : "Massachusetts Institute of Technology. Department of Aeronautics and Astronautics",
+                  "language" : "",
+                  "authority" : null,
+                  "confidence" : 500,
+                  "place" : 0
+                } ],
+                "dc.rights" : [ {
+                  "value" : "Creative Commons Attribution-Noncommercial-Share Alike",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.rights.uri" : [ {
+                  "value" : "http://creativecommons.org/licenses/by-nc-sa/4.0/",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.source" : [ {
+                  "value" : "arXiv",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.title" : [ {
+                  "value" : "Decentralized Control of Large Collaborative Swarms using Random Finite Set Theory",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.type" : [ {
+                  "value" : "Article",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.type.uri" : [ {
+                  "value" : "http://purl.org/eprint/type/JournalArticle",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dspace.authorsordered" : [ {
+                  "value" : "true",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dspace.date.submission" : [ {
+                  "value" : "2021-05-06T15:41:13Z",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dspace.entity.type" : [ {
+                  "value" : "Publication",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dspace.orderedauthors" : [ {
+                  "value" : "Doerr, B; Linares, R",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "eprint.status" : [ {
+                  "value" : "http://purl.org/eprint/status/NonPeerReviewed",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "mit.journal.issue" : [ {
+                  "value" : "2",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "mit.journal.volume" : [ {
+                  "value" : "8",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "mit.license" : [ {
+                  "value" : "OPEN_ACCESS_POLICY",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "mit.metadata.status" : [ {
+                  "value" : "Authority Work and Publication Information Needed",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ]
+              },
+              "inArchive" : true,
+              "discoverable" : true,
+              "withdrawn" : false,
+              "lastModified" : "2026-07-27T16:14:05.049+00:00",
+              "entityType" : "Publication",
+              "type" : "item",
+              "uniqueType" : "core.item",
+              "_links" : {
+                "accessStatus" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/83446c57-ea5d-4dc1-bd14-32b7cbdd51f1/accessStatus"
+                },
+                "bundles" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/83446c57-ea5d-4dc1-bd14-32b7cbdd51f1/bundles"
+                },
+                "identifiers" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/83446c57-ea5d-4dc1-bd14-32b7cbdd51f1/identifiers"
+                },
+                "mappedCollections" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/83446c57-ea5d-4dc1-bd14-32b7cbdd51f1/mappedCollections"
+                },
+                "owningCollection" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/83446c57-ea5d-4dc1-bd14-32b7cbdd51f1/owningCollection"
+                },
+                "relationships" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/83446c57-ea5d-4dc1-bd14-32b7cbdd51f1/relationships"
+                },
+                "version" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/83446c57-ea5d-4dc1-bd14-32b7cbdd51f1/version"
+                },
+                "templateItemOf" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/83446c57-ea5d-4dc1-bd14-32b7cbdd51f1/templateItemOf"
+                },
+                "thumbnail" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/83446c57-ea5d-4dc1-bd14-32b7cbdd51f1/thumbnail"
+                },
+                "metrics" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/83446c57-ea5d-4dc1-bd14-32b7cbdd51f1/metrics"
+                },
+                "submitter" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/83446c57-ea5d-4dc1-bd14-32b7cbdd51f1/submitter"
+                },
+                "self" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/83446c57-ea5d-4dc1-bd14-32b7cbdd51f1"
+                }
+              }
+            }
+          }
+        }, {
+          "hitHighlights" : null,
+          "type" : "discover",
+          "uniqueType" : "discover.discover",
+          "_links" : {
+            "indexableObject" : {
+              "href" : "https://dspace.mit.edu/server/api/core/items/2d488b1f-8f87-48b8-9ea9-af27948bd210"
+            }
+          },
+          "_embedded" : {
+            "indexableObject" : {
+              "id" : "2d488b1f-8f87-48b8-9ea9-af27948bd210",
+              "uuid" : "2d488b1f-8f87-48b8-9ea9-af27948bd210",
+              "name" : "Designing an ecology of distributed agents",
+              "handle" : "1721.1/62629",
+              "metadata" : {
+                "dc.contributor.advisor" : [ {
+                  "value" : "Pattie Maes.",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.contributor.author" : [ {
+                  "value" : "Minar, Nelson",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.date.accessioned" : [ {
+                  "value" : "2011-05-09T15:11:22Z",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.date.available" : [ {
+                  "value" : "2011-05-09T15:11:22Z",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.date.copyright" : [ {
+                  "value" : "1998",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.date.issued" : [ {
+                  "value" : "1998",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.description" : [ {
+                  "value" : "Thesis (S.M.)--Massachusetts Institute of Technology, School of Architecture and Planning, Program in Media Arts and Sciences, 1998.",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                }, {
+                  "value" : "Includes bibliographical references (p. 87-92).",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 1
+                } ],
+                "dc.description.degree" : [ {
+                  "value" : "S.M.",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.description.statementofresponsibility" : [ {
+                  "value" : "by Nelson Minar.",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.format.extent" : [ {
+                  "value" : "92 p.",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.identifier.oclc" : [ {
+                  "value" : "41155908",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.identifier.uri" : [ {
+                  "value" : "http://hdl.handle.net/1721.1/62629",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.language.iso" : [ {
+                  "value" : "en",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.publisher" : [ {
+                  "value" : "Massachusetts Institute of Technology",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.relation.orgunit" : [ {
+                  "value" : "Program in Media Arts and Sciences (Massachusetts Institute of Technology)",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : 600,
+                  "place" : 0
+                } ],
+                "dc.rights" : [ {
+                  "value" : "M.I.T. theses are protected by \ncopyright. They may be viewed from this source for any purpose, but \nreproduction or distribution in any format is prohibited without written \npermission. See provided URL for inquiries about permission.",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.rights.uri" : [ {
+                  "value" : "http://dspace.mit.edu/handle/1721.1/7582",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.subject" : [ {
+                  "value" : "Architecture. Program in Media Arts and Sciences",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.title" : [ {
+                  "value" : "Designing an ecology of distributed agents",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.type" : [ {
+                  "value" : "Thesis",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dspace.authorsordered" : [ {
+                  "value" : "false",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dspace.entity.type" : [ {
+                  "value" : "Publication",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ]
+              },
+              "inArchive" : true,
+              "discoverable" : true,
+              "withdrawn" : false,
+              "lastModified" : "2022-01-13T07:55:01.573+00:00",
+              "entityType" : "Publication",
+              "type" : "item",
+              "uniqueType" : "core.item",
+              "_links" : {
+                "accessStatus" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/2d488b1f-8f87-48b8-9ea9-af27948bd210/accessStatus"
+                },
+                "bundles" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/2d488b1f-8f87-48b8-9ea9-af27948bd210/bundles"
+                },
+                "identifiers" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/2d488b1f-8f87-48b8-9ea9-af27948bd210/identifiers"
+                },
+                "mappedCollections" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/2d488b1f-8f87-48b8-9ea9-af27948bd210/mappedCollections"
+                },
+                "owningCollection" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/2d488b1f-8f87-48b8-9ea9-af27948bd210/owningCollection"
+                },
+                "relationships" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/2d488b1f-8f87-48b8-9ea9-af27948bd210/relationships"
+                },
+                "version" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/2d488b1f-8f87-48b8-9ea9-af27948bd210/version"
+                },
+                "templateItemOf" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/2d488b1f-8f87-48b8-9ea9-af27948bd210/templateItemOf"
+                },
+                "thumbnail" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/2d488b1f-8f87-48b8-9ea9-af27948bd210/thumbnail"
+                },
+                "metrics" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/2d488b1f-8f87-48b8-9ea9-af27948bd210/metrics"
+                },
+                "submitter" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/2d488b1f-8f87-48b8-9ea9-af27948bd210/submitter"
+                },
+                "self" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/2d488b1f-8f87-48b8-9ea9-af27948bd210"
+                }
+              }
+            }
+          }
+        } ]
+      },
+      "page" : {
+        "number" : 0,
+        "size" : 10,
+        "totalPages" : 2,
+        "totalElements" : 14
+      }
+    },
+    "facets" : [ {
+      "name" : "itemtype",
+      "facetType" : "hierarchical",
+      "facetLimit" : 10,
+      "missing" : "1",
+      "uniqueType" : "discover.discover",
+      "page" : {
+        "number" : 0,
+        "size" : 10
+      },
+      "_links" : {
+        "self" : {
+          "href" : "https://dspace.mit.edu/server/api/discover/facets/itemtype?query=%22agent%20death%22&size=10"
+        },
+        "missing" : {
+          "href" : "https://dspace.mit.edu/server/api/discover/facets/itemtype?query=%2522agent%20death%2522&f.itemtype=%5B*%20TO%20*%5D,notequals"
+        }
+      },
+      "_embedded" : {
+        "values" : [ {
+          "label" : "Article",
+          "count" : 5,
+          "authorityKey" : null,
+          "type" : "discover",
+          "uniqueType" : "discover.discover",
+          "_links" : {
+            "search" : {
+              "href" : "https://dspace.mit.edu/server/api/discover/search/objects?query=%2522agent%20death%2522&f.itemtype=Article,equals"
+            }
+          }
+        }, {
+          "label" : "Thesis",
+          "count" : 4,
+          "authorityKey" : null,
+          "type" : "discover",
+          "uniqueType" : "discover.discover",
+          "_links" : {
+            "search" : {
+              "href" : "https://dspace.mit.edu/server/api/discover/search/objects?query=%2522agent%20death%2522&f.itemtype=Thesis,equals"
+            }
+          }
+        }, {
+          "label" : "Working Paper",
+          "count" : 4,
+          "authorityKey" : null,
+          "type" : "discover",
+          "uniqueType" : "discover.discover",
+          "_links" : {
+            "search" : {
+              "href" : "https://dspace.mit.edu/server/api/discover/search/objects?query=%2522agent%20death%2522&f.itemtype=Working%20Paper,equals"
+            }
+          }
+        } ]
+      }
+    }, {
+      "name" : "graphitemtype",
+      "facetType" : "chart.pie",
+      "facetLimit" : 10,
+      "missing" : "1",
+      "more" : "1",
+      "totalElements" : "3",
+      "uniqueType" : "discover.discover",
+      "page" : {
+        "number" : 0,
+        "size" : 10
+      },
+      "_links" : {
+        "self" : {
+          "href" : "https://dspace.mit.edu/server/api/discover/facets/graphitemtype?query=%22agent%20death%22&size=10"
+        },
+        "missing" : {
+          "href" : "https://dspace.mit.edu/server/api/discover/facets/graphitemtype?query=%2522agent%20death%2522&f.graphitemtype=%5B*%20TO%20*%5D,notequals"
+        },
+        "more" : {
+          "href" : "https://dspace.mit.edu/server/api/discover/facets/graphitemtype?query=%2522agent%20death%2522&f.graphitemtype=article,notequals&f.graphitemtype=thesis,notequals&f.graphitemtype=working%20paper,notequals"
+        }
+      },
+      "_embedded" : {
+        "values" : [ {
+          "label" : "article",
+          "count" : 5,
+          "authorityKey" : null,
+          "type" : "discover",
+          "uniqueType" : "discover.discover",
+          "_links" : {
+            "search" : {
+              "href" : "https://dspace.mit.edu/server/api/discover/search/objects?query=%2522agent%20death%2522&f.graphitemtype=article,equals"
+            }
+          }
+        }, {
+          "label" : "thesis",
+          "count" : 4,
+          "authorityKey" : null,
+          "type" : "discover",
+          "uniqueType" : "discover.discover",
+          "_links" : {
+            "search" : {
+              "href" : "https://dspace.mit.edu/server/api/discover/search/objects?query=%2522agent%20death%2522&f.graphitemtype=thesis,equals"
+            }
+          }
+        }, {
+          "label" : "working paper",
+          "count" : 4,
+          "authorityKey" : null,
+          "type" : "discover",
+          "uniqueType" : "discover.discover",
+          "_links" : {
+            "search" : {
+              "href" : "https://dspace.mit.edu/server/api/discover/search/objects?query=%2522agent%20death%2522&f.graphitemtype=working%20paper,equals"
+            }
+          }
+        } ]
+      }
+    }, {
+      "name" : "graphpubldate",
+      "facetType" : "chart.bar",
+      "facetLimit" : 10,
+      "missing" : "0",
+      "more" : "10",
+      "totalElements" : "11",
+      "uniqueType" : "discover.discover",
+      "page" : {
+        "number" : 0,
+        "size" : 10
+      },
+      "_links" : {
+        "next" : {
+          "href" : "https://dspace.mit.edu/server/api/discover/facets/graphpubldate?query=%22agent%20death%22&page=1&size=10"
+        },
+        "self" : {
+          "href" : "https://dspace.mit.edu/server/api/discover/facets/graphpubldate?query=%22agent%20death%22&size=10"
+        },
+        "missing" : {
+          "href" : "https://dspace.mit.edu/server/api/discover/facets/graphpubldate?query=%2522agent%20death%2522&f.graphpubldate=%5B*%20TO%20*%5D,notequals"
+        },
+        "more" : {
+          "href" : "https://dspace.mit.edu/server/api/discover/facets/graphpubldate?query=%2522agent%20death%2522&f.graphpubldate=2023,notequals&f.graphpubldate=2022,notequals&f.graphpubldate=2021,notequals&f.graphpubldate=2020,notequals&f.graphpubldate=2019,notequals&f.graphpubldate=2018,notequals&f.graphpubldate=2017,notequals&f.graphpubldate=2016,notequals&f.graphpubldate=2015,notequals&f.graphpubldate=2014,notequals"
+        }
+      },
+      "_embedded" : {
+        "values" : [ {
+          "label" : "2023",
+          "count" : 1,
+          "authorityKey" : null,
+          "type" : "discover",
+          "uniqueType" : "discover.discover",
+          "_links" : {
+            "search" : {
+              "href" : "https://dspace.mit.edu/server/api/discover/search/objects?query=%2522agent%20death%2522&f.graphpubldate=2023,equals"
+            }
+          }
+        }, {
+          "label" : "2022",
+          "count" : 0,
+          "authorityKey" : null,
+          "type" : "discover",
+          "uniqueType" : "discover.discover",
+          "_links" : {
+            "search" : {
+              "href" : "https://dspace.mit.edu/server/api/discover/search/objects?query=%2522agent%20death%2522&f.graphpubldate=2022,equals"
+            }
+          }
+        }, {
+          "label" : "2021",
+          "count" : 2,
+          "authorityKey" : null,
+          "type" : "discover",
+          "uniqueType" : "discover.discover",
+          "_links" : {
+            "search" : {
+              "href" : "https://dspace.mit.edu/server/api/discover/search/objects?query=%2522agent%20death%2522&f.graphpubldate=2021,equals"
+            }
+          }
+        }, {
+          "label" : "2020",
+          "count" : 0,
+          "authorityKey" : null,
+          "type" : "discover",
+          "uniqueType" : "discover.discover",
+          "_links" : {
+            "search" : {
+              "href" : "https://dspace.mit.edu/server/api/discover/search/objects?query=%2522agent%20death%2522&f.graphpubldate=2020,equals"
+            }
+          }
+        }, {
+          "label" : "2019",
+          "count" : 1,
+          "authorityKey" : null,
+          "type" : "discover",
+          "uniqueType" : "discover.discover",
+          "_links" : {
+            "search" : {
+              "href" : "https://dspace.mit.edu/server/api/discover/search/objects?query=%2522agent%20death%2522&f.graphpubldate=2019,equals"
+            }
+          }
+        }, {
+          "label" : "2018",
+          "count" : 0,
+          "authorityKey" : null,
+          "type" : "discover",
+          "uniqueType" : "discover.discover",
+          "_links" : {
+            "search" : {
+              "href" : "https://dspace.mit.edu/server/api/discover/search/objects?query=%2522agent%20death%2522&f.graphpubldate=2018,equals"
+            }
+          }
+        }, {
+          "label" : "2017",
+          "count" : 0,
+          "authorityKey" : null,
+          "type" : "discover",
+          "uniqueType" : "discover.discover",
+          "_links" : {
+            "search" : {
+              "href" : "https://dspace.mit.edu/server/api/discover/search/objects?query=%2522agent%20death%2522&f.graphpubldate=2017,equals"
+            }
+          }
+        }, {
+          "label" : "2016",
+          "count" : 0,
+          "authorityKey" : null,
+          "type" : "discover",
+          "uniqueType" : "discover.discover",
+          "_links" : {
+            "search" : {
+              "href" : "https://dspace.mit.edu/server/api/discover/search/objects?query=%2522agent%20death%2522&f.graphpubldate=2016,equals"
+            }
+          }
+        }, {
+          "label" : "2015",
+          "count" : 0,
+          "authorityKey" : null,
+          "type" : "discover",
+          "uniqueType" : "discover.discover",
+          "_links" : {
+            "search" : {
+              "href" : "https://dspace.mit.edu/server/api/discover/search/objects?query=%2522agent%20death%2522&f.graphpubldate=2015,equals"
+            }
+          }
+        }, {
+          "label" : "2014",
+          "count" : 0,
+          "authorityKey" : null,
+          "type" : "discover",
+          "uniqueType" : "discover.discover",
+          "_links" : {
+            "search" : {
+              "href" : "https://dspace.mit.edu/server/api/discover/search/objects?query=%2522agent%20death%2522&f.graphpubldate=2014,equals"
+            }
+          }
+        } ]
+      }
+    }, {
+      "name" : "author",
+      "facetType" : "text",
+      "facetLimit" : 5,
+      "missing" : "2",
+      "minValue" : "1000 Genomes Project Consortium",
+      "maxValue" : "Zywicz, Edward",
+      "uniqueType" : "discover.discover",
+      "page" : {
+        "number" : 0,
+        "size" : 5
+      },
+      "_links" : {
+        "next" : {
+          "href" : "https://dspace.mit.edu/server/api/discover/facets/author?query=%22agent%20death%22&page=1&size=5"
+        },
+        "self" : {
+          "href" : "https://dspace.mit.edu/server/api/discover/facets/author?query=%22agent%20death%22&size=5"
+        },
+        "missing" : {
+          "href" : "https://dspace.mit.edu/server/api/discover/facets/author?query=%2522agent%20death%2522&f.author=%5B*%20TO%20*%5D,notequals"
+        }
+      },
+      "_embedded" : {
+        "values" : [ {
+          "label" : "Klein, Mark",
+          "count" : 3,
+          "authorityKey" : null,
+          "type" : "discover",
+          "uniqueType" : "discover.discover",
+          "_links" : {
+            "search" : {
+              "href" : "https://dspace.mit.edu/server/api/discover/search/objects?query=%2522agent%20death%2522&f.author=Klein,%20Mark,equals"
+            }
+          }
+        }, {
+          "label" : "Doerr, Bryce",
+          "count" : 2,
+          "authorityKey" : null,
+          "type" : "discover",
+          "uniqueType" : "discover.discover",
+          "_links" : {
+            "search" : {
+              "href" : "https://dspace.mit.edu/server/api/discover/search/objects?query=%2522agent%20death%2522&f.author=Doerr,%20Bryce,equals"
+            }
+          }
+        }, {
+          "label" : "Linares, Richard",
+          "count" : 2,
+          "authorityKey" : null,
+          "type" : "discover",
+          "uniqueType" : "discover.discover",
+          "_links" : {
+            "search" : {
+              "href" : "https://dspace.mit.edu/server/api/discover/search/objects?query=%2522agent%20death%2522&f.author=Linares,%20Richard,equals"
+            }
+          }
+        }, {
+          "label" : "Abelson, Harold",
+          "count" : 1,
+          "authorityKey" : null,
+          "type" : "discover",
+          "uniqueType" : "discover.discover",
+          "_links" : {
+            "search" : {
+              "href" : "https://dspace.mit.edu/server/api/discover/search/objects?query=%2522agent%20death%2522&f.author=Abelson,%20Harold,equals"
+            }
+          }
+        }, {
+          "label" : "Aryananda, Lijin, 1975-",
+          "count" : 1,
+          "authorityKey" : null,
+          "type" : "discover",
+          "uniqueType" : "discover.discover",
+          "_links" : {
+            "search" : {
+              "href" : "https://dspace.mit.edu/server/api/discover/search/objects?query=%2522agent%20death%2522&f.author=Aryananda,%20Lijin,%201975-,equals"
+            }
+          }
+        } ]
+      }
+    }, {
+      "name" : "subject",
+      "facetType" : "hierarchical",
+      "facetLimit" : 5,
+      "missing" : "7",
+      "uniqueType" : "discover.discover",
+      "page" : {
+        "number" : 0,
+        "size" : 5
+      },
+      "_links" : {
+        "next" : {
+          "href" : "https://dspace.mit.edu/server/api/discover/facets/subject?query=%22agent%20death%22&page=1&size=5"
+        },
+        "self" : {
+          "href" : "https://dspace.mit.edu/server/api/discover/facets/subject?query=%22agent%20death%22&size=5"
+        },
+        "missing" : {
+          "href" : "https://dspace.mit.edu/server/api/discover/facets/subject?query=%2522agent%20death%2522&f.subject=%5B*%20TO%20*%5D,notequals"
+        }
+      },
+      "_embedded" : {
+        "values" : [ {
+          "label" : "Architecture. Program in Media Arts and Sciences",
+          "count" : 1,
+          "authorityKey" : null,
+          "type" : "discover",
+          "uniqueType" : "discover.discover",
+          "_links" : {
+            "search" : {
+              "href" : "https://dspace.mit.edu/server/api/discover/search/objects?query=%2522agent%20death%2522&f.subject=Architecture.%20Program%20in%20Media%20Arts%20and%20Sciences,equals"
+            }
+          }
+        }, {
+          "label" : "Biology.",
+          "count" : 1,
+          "authorityKey" : null,
+          "type" : "discover",
+          "uniqueType" : "discover.discover",
+          "_links" : {
+            "search" : {
+              "href" : "https://dspace.mit.edu/server/api/discover/search/objects?query=%2522agent%20death%2522&f.subject=Biology.,equals"
+            }
+          }
+        }, {
+          "label" : "Electrical Engineering and Computer Science",
+          "count" : 1,
+          "authorityKey" : null,
+          "type" : "discover",
+          "uniqueType" : "discover.discover",
+          "_links" : {
+            "search" : {
+              "href" : "https://dspace.mit.edu/server/api/discover/search/objects?query=%2522agent%20death%2522&f.subject=Electrical%20Engineering%20and%20Computer%20Science,equals"
+            }
+          }
+        }, {
+          "label" : "Electrical Engineering and Computer Science.",
+          "count" : 1,
+          "authorityKey" : null,
+          "type" : "discover",
+          "uniqueType" : "discover.discover",
+          "_links" : {
+            "search" : {
+              "href" : "https://dspace.mit.edu/server/api/discover/search/objects?query=%2522agent%20death%2522&f.subject=Electrical%20Engineering%20and%20Computer%20Science.,equals"
+            }
+          }
+        }, {
+          "label" : "Electronic commerce.",
+          "count" : 1,
+          "authorityKey" : null,
+          "type" : "discover",
+          "uniqueType" : "discover.discover",
+          "_links" : {
+            "search" : {
+              "href" : "https://dspace.mit.edu/server/api/discover/search/objects?query=%2522agent%20death%2522&f.subject=Electronic%20commerce.,equals"
+            }
+          }
+        } ]
+      }
+    }, {
+      "name" : "dateIssued",
+      "facetType" : "date",
+      "facetLimit" : 5,
+      "minValue" : "1 December 2010",
+      "maxValue" : "©1993",
+      "uniqueType" : "discover.discover",
+      "page" : {
+        "number" : 0,
+        "size" : 5
+      },
+      "_links" : {
+        "self" : {
+          "href" : "https://dspace.mit.edu/server/api/discover/facets/dateIssued?query=%22agent%20death%22&size=5"
+        },
+        "missing" : {
+          "href" : "https://dspace.mit.edu/server/api/discover/facets/dateIssued?query=%2522agent%20death%2522&f.dateIssued=%5B*%20TO%20*%5D,notequals"
+        }
+      },
+      "_embedded" : {
+        "values" : [ {
+          "label" : "1960 - 1999",
+          "count" : 2,
+          "authorityKey" : null,
+          "type" : "discover",
+          "uniqueType" : "discover.discover",
+          "_links" : {
+            "search" : {
+              "href" : "https://dspace.mit.edu/server/api/discover/search/objects?query=%2522agent%20death%2522&f.dateIssued=%5B1960%20TO%201999%5D,equals"
+            }
+          }
+        }, {
+          "label" : "2000 - 2026",
+          "count" : 11,
+          "authorityKey" : null,
+          "type" : "discover",
+          "uniqueType" : "discover.discover",
+          "_links" : {
+            "search" : {
+              "href" : "https://dspace.mit.edu/server/api/discover/search/objects?query=%2522agent%20death%2522&f.dateIssued=%5B2000%20TO%202026%5D,equals"
+            }
+          }
+        } ]
+      }
+    }, {
+      "name" : "entityType",
+      "facetType" : "text",
+      "facetLimit" : 5,
+      "missing" : "0",
+      "uniqueType" : "discover.discover",
+      "page" : {
+        "number" : 0,
+        "size" : 5
+      },
+      "_links" : {
+        "self" : {
+          "href" : "https://dspace.mit.edu/server/api/discover/facets/entityType?query=%22agent%20death%22&size=5"
+        },
+        "missing" : {
+          "href" : "https://dspace.mit.edu/server/api/discover/facets/entityType?query=%2522agent%20death%2522&f.entityType=%5B*%20TO%20*%5D,notequals"
+        }
+      },
+      "_embedded" : {
+        "values" : [ {
+          "label" : "Publication",
+          "count" : 14,
+          "authorityKey" : null,
+          "type" : "discover",
+          "uniqueType" : "discover.discover",
+          "_links" : {
+            "search" : {
+              "href" : "https://dspace.mit.edu/server/api/discover/search/objects?query=%2522agent%20death%2522&f.entityType=Publication,equals"
+            }
+          }
+        } ]
+      }
+    }, {
+      "name" : "language",
+      "facetType" : "text",
+      "facetLimit" : 10,
+      "missing" : "7",
+      "uniqueType" : "discover.discover",
+      "page" : {
+        "number" : 0,
+        "size" : 10
+      },
+      "_links" : {
+        "self" : {
+          "href" : "https://dspace.mit.edu/server/api/discover/facets/language?query=%22agent%20death%22&size=10"
+        },
+        "missing" : {
+          "href" : "https://dspace.mit.edu/server/api/discover/facets/language?query=%2522agent%20death%2522&f.language=%5B*%20TO%20*%5D,notequals"
+        }
+      },
+      "_embedded" : {
+        "values" : [ {
+          "label" : "English",
+          "count" : 6,
+          "authorityKey" : null,
+          "type" : "discover",
+          "uniqueType" : "discover.discover",
+          "_links" : {
+            "search" : {
+              "href" : "https://dspace.mit.edu/server/api/discover/search/objects?query=%2522agent%20death%2522&f.language=English,equals"
+            }
+          }
+        }, {
+          "label" : "English (United States)",
+          "count" : 1,
+          "authorityKey" : null,
+          "type" : "discover",
+          "uniqueType" : "discover.discover",
+          "_links" : {
+            "search" : {
+              "href" : "https://dspace.mit.edu/server/api/discover/search/objects?query=%2522agent%20death%2522&f.language=English%20(United%20States),equals"
+            }
+          }
+        } ]
+      }
+    }, {
+      "name" : "dcContributorDepartment",
+      "facetType" : "text",
+      "facetLimit" : 5,
+      "missing" : "14",
+      "uniqueType" : "discover.discover",
+      "_links" : {
+        "missing" : {
+          "href" : "https://dspace.mit.edu/server/api/discover/facets/dcContributorDepartment?query=%2522agent%20death%2522&f.dcContributorDepartment=%5B*%20TO%20*%5D,notequals"
+        },
+        "self" : {
+          "href" : "https://dspace.mit.edu/server/api/discover/facets/dcContributorDepartment?query=%22agent%20death%22"
+        }
+      },
+      "_embedded" : {
+        "values" : [ ]
+      }
+    }, {
+      "name" : "dcRelationOrgunit",
+      "facetType" : "text",
+      "facetLimit" : 5,
+      "missing" : "5",
+      "minValue" : "Abdul Latif Jameel Clinic for Machine Learning in Health",
+      "maxValue" : "Woods Hole Oceanographic Institution. Department of Applied Ocean Physics and Engineering.",
+      "uniqueType" : "discover.discover",
+      "page" : {
+        "number" : 0,
+        "size" : 5
+      },
+      "_links" : {
+        "next" : {
+          "href" : "https://dspace.mit.edu/server/api/discover/facets/dcRelationOrgunit?query=%22agent%20death%22&page=1&size=5"
+        },
+        "self" : {
+          "href" : "https://dspace.mit.edu/server/api/discover/facets/dcRelationOrgunit?query=%22agent%20death%22&size=5"
+        },
+        "missing" : {
+          "href" : "https://dspace.mit.edu/server/api/discover/facets/dcRelationOrgunit?query=%2522agent%20death%2522&f.dcRelationOrgunit=%5B*%20TO%20*%5D,notequals"
+        }
+      },
+      "_embedded" : {
+        "values" : [ {
+          "label" : "Massachusetts Institute of Technology. Computer Science and Artificial Intelligence Laboratory",
+          "count" : 1,
+          "authorityKey" : null,
+          "type" : "discover",
+          "uniqueType" : "discover.discover",
+          "_links" : {
+            "search" : {
+              "href" : "https://dspace.mit.edu/server/api/discover/search/objects?query=%2522agent%20death%2522&f.dcRelationOrgunit=Massachusetts%20Institute%20of%20Technology.%20Computer%20Science%20and%20Artificial%20Intelligence%20Laboratory,equals"
+            }
+          }
+        }, {
+          "label" : "Massachusetts Institute of Technology. Department of Aeronautics and Astronautics",
+          "count" : 2,
+          "authorityKey" : null,
+          "type" : "discover",
+          "uniqueType" : "discover.discover",
+          "_links" : {
+            "search" : {
+              "href" : "https://dspace.mit.edu/server/api/discover/search/objects?query=%2522agent%20death%2522&f.dcRelationOrgunit=Massachusetts%20Institute%20of%20Technology.%20Department%20of%20Aeronautics%20and%20Astronautics,equals"
+            }
+          }
+        }, {
+          "label" : "Massachusetts Institute of Technology. Department of Biology",
+          "count" : 1,
+          "authorityKey" : null,
+          "type" : "discover",
+          "uniqueType" : "discover.discover",
+          "_links" : {
+            "search" : {
+              "href" : "https://dspace.mit.edu/server/api/discover/search/objects?query=%2522agent%20death%2522&f.dcRelationOrgunit=Massachusetts%20Institute%20of%20Technology.%20Department%20of%20Biology,equals"
+            }
+          }
+        }, {
+          "label" : "Massachusetts Institute of Technology. Department of Brain and Cognitive Sciences",
+          "count" : 1,
+          "authorityKey" : null,
+          "type" : "discover",
+          "uniqueType" : "discover.discover",
+          "_links" : {
+            "search" : {
+              "href" : "https://dspace.mit.edu/server/api/discover/search/objects?query=%2522agent%20death%2522&f.dcRelationOrgunit=Massachusetts%20Institute%20of%20Technology.%20Department%20of%20Brain%20and%20Cognitive%20Sciences,equals"
+            }
+          }
+        }, {
+          "label" : "Massachusetts Institute of Technology. Department of Earth, Atmospheric, and Planetary Sciences",
+          "count" : 1,
+          "authorityKey" : null,
+          "type" : "discover",
+          "uniqueType" : "discover.discover",
+          "_links" : {
+            "search" : {
+              "href" : "https://dspace.mit.edu/server/api/discover/search/objects?query=%2522agent%20death%2522&f.dcRelationOrgunit=Massachusetts%20Institute%20of%20Technology.%20Department%20of%20Earth,%20Atmospheric,%20and%20Planetary%20Sciences,equals"
+            }
+          }
+        } ]
+      }
+    }, {
+      "name" : "dcDescriptionDegree",
+      "facetType" : "text",
+      "facetLimit" : 5,
+      "missing" : "10",
+      "minValue" : "B. Arch.",
+      "maxValue" : "Thesis (Sc. D.)--Massachusetts Institute of Technology. Dept. of Mechanical Engineering, 1988.",
+      "uniqueType" : "discover.discover",
+      "page" : {
+        "number" : 0,
+        "size" : 5
+      },
+      "_links" : {
+        "self" : {
+          "href" : "https://dspace.mit.edu/server/api/discover/facets/dcDescriptionDegree?query=%22agent%20death%22&size=5"
+        },
+        "missing" : {
+          "href" : "https://dspace.mit.edu/server/api/discover/facets/dcDescriptionDegree?query=%2522agent%20death%2522&f.dcDescriptionDegree=%5B*%20TO%20*%5D,notequals"
+        }
+      },
+      "_embedded" : {
+        "values" : [ {
+          "label" : "M.Eng.",
+          "count" : 2,
+          "authorityKey" : null,
+          "type" : "discover",
+          "uniqueType" : "discover.discover",
+          "_links" : {
+            "search" : {
+              "href" : "https://dspace.mit.edu/server/api/discover/search/objects?query=%2522agent%20death%2522&f.dcDescriptionDegree=M.Eng.,equals"
+            }
+          }
+        }, {
+          "label" : "Ph.D.",
+          "count" : 1,
+          "authorityKey" : null,
+          "type" : "discover",
+          "uniqueType" : "discover.discover",
+          "_links" : {
+            "search" : {
+              "href" : "https://dspace.mit.edu/server/api/discover/search/objects?query=%2522agent%20death%2522&f.dcDescriptionDegree=Ph.D.,equals"
+            }
+          }
+        }, {
+          "label" : "S.B.",
+          "count" : 1,
+          "authorityKey" : null,
+          "type" : "discover",
+          "uniqueType" : "discover.discover",
+          "_links" : {
+            "search" : {
+              "href" : "https://dspace.mit.edu/server/api/discover/search/objects?query=%2522agent%20death%2522&f.dcDescriptionDegree=S.B.,equals"
+            }
+          }
+        }, {
+          "label" : "S.M.",
+          "count" : 1,
+          "authorityKey" : null,
+          "type" : "discover",
+          "uniqueType" : "discover.discover",
+          "_links" : {
+            "search" : {
+              "href" : "https://dspace.mit.edu/server/api/discover/search/objects?query=%2522agent%20death%2522&f.dcDescriptionDegree=S.M.,equals"
+            }
+          }
+        } ]
+      }
+    } ]
+  }
+}

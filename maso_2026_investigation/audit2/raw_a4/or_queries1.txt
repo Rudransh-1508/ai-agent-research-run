@@ -1,0 +1,26 @@
+budget_mas|budget-aware multi-agent
+budget_agent|budget constrained LLM agent
+verif_budget|verification budget agent
+verif_cost|cost of verification LLM
+retry_agent|retry LLM agent failure
+metastable|metastable failure agent
+overload_agent|overload agent system
+scarcity|resource scarcity multi-agent
+containment_cost|containment cost agent failure
+recovery_cost|recovery cost agent
+graceful_deg|graceful degradation LLM agent
+token_budget_mas|token budget multi-agent
+safety_tax|safety tax guardrail cost
+redundancy_cost|redundancy cost multi-agent LLM
+selfcorr_cost|self-correction cost LLM
+ttc_budget|test-time compute budget agent
+oversight_cap|oversight capacity human
+monitor_budget|monitoring budget agent oversight
+human_cost|human oversight cost agent
+backfire|backfire agent intervention
+circuit_breaker|circuit breaker LLM agent
+rate_limit|rate limit multi-agent LLM
+congestion|congestion multi-agent system
+queue_agent|queueing agent LLM
+anytime|anytime reasoning LLM budget
+metareason|metareasoning LLM agent cost

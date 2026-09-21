@@ -1,0 +1,565 @@
+{
+  "id" : null,
+  "scope" : null,
+  "query" : "\"Domain-independent exception handling services that increase robustness\"",
+  "appliedFilters" : null,
+  "sort" : null,
+  "configuration" : null,
+  "type" : "discover",
+  "uniqueType" : "discover.discover",
+  "_links" : {
+    "self" : {
+      "href" : "https://dspace.mit.edu/server/api/discover/search/objects?query=%2522Domain-independent%20exception%20handling%20services%20that%20increase%20robustness%2522"
+    }
+  },
+  "_embedded" : {
+    "searchResult" : {
+      "_links" : {
+        "self" : {
+          "href" : "https://dspace.mit.edu/server/api/discover/search/objects?query=%22Domain-independent%20exception%20handling%20services%20that%20increase%20robustness%22&size=3"
+        }
+      },
+      "_embedded" : {
+        "objects" : [ {
+          "hitHighlights" : {
+            "dc.title" : [ "<em>Domain-independent</em> <em>exception</em> <em>handling</em> <em>services</em> that <em>increase</em> <em>robustness</em> in open multi-agent systems" ]
+          },
+          "type" : "discover",
+          "uniqueType" : "discover.discover",
+          "_links" : {
+            "indexableObject" : {
+              "href" : "https://dspace.mit.edu/server/api/core/items/961309ac-15ce-4566-9135-4a8520ebea25"
+            }
+          },
+          "_embedded" : {
+            "indexableObject" : {
+              "id" : "961309ac-15ce-4566-9135-4a8520ebea25",
+              "uuid" : "961309ac-15ce-4566-9135-4a8520ebea25",
+              "name" : "Domain-independent exception handling services that increase robustness in open multi-agent systems",
+              "handle" : "1721.1/2769",
+              "metadata" : {
+                "dc.contributor" : [ {
+                  "value" : "Klein, Mark, 1960-",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                }, {
+                  "value" : "Dellarocas, Chrysanthos, 1967-",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 1
+                }, {
+                  "value" : "Sloan School of Management. Center for Coordination Science.",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 2
+                }, {
+                  "value" : "Sloan School of Management.",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 3
+                } ],
+                "dc.date.accessioned" : [ {
+                  "value" : "2003-04-29T05:18:27Z",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.date.available" : [ {
+                  "value" : "2003-04-29T05:18:27Z",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.date.issued" : [ {
+                  "value" : "2000",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.description" : [ {
+                  "value" : "Title from cover. \"May 2000.\"",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                }, {
+                  "value" : "Includes bibliographical references (p. 17-23).",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 1
+                } ],
+                "dc.description.statementofresponsibility" : [ {
+                  "value" : "Mark Klein and Chrysanthos Dellarocas.",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.format.extent" : [ {
+                  "value" : "23 p.",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                }, {
+                  "value" : "2040774 bytes",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 1
+                } ],
+                "dc.format.mimetype" : [ {
+                  "value" : "application/pdf",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.identifier.other" : [ {
+                  "value" : "#211 #4115",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.identifier.uri" : [ {
+                  "value" : "http://hdl.handle.net/1721.1/2769",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.language.iso" : [ {
+                  "value" : "en",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.publisher" : [ {
+                  "value" : "Center for Coordination Science, Massachusetts Institute of Technology, Sloan School of Management",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.relation.ispartofseries" : [ {
+                  "value" : "CCSTR ; 211. Working paper (Sloan School of Management) ; WP 4115-00.",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.subject.lcc" : [ {
+                  "value" : "HD28 .M414 no.4115-00",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.title" : [ {
+                  "value" : "Domain-independent exception handling services that increase robustness in open multi-agent systems",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.type" : [ {
+                  "value" : "Working Paper",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dspace.authorsordered" : [ {
+                  "value" : "false",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dspace.entity.type" : [ {
+                  "value" : "Publication",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ]
+              },
+              "inArchive" : true,
+              "discoverable" : true,
+              "withdrawn" : false,
+              "lastModified" : "2026-08-06T17:59:08.874+00:00",
+              "entityType" : "Publication",
+              "type" : "item",
+              "uniqueType" : "core.item",
+              "_links" : {
+                "accessStatus" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/961309ac-15ce-4566-9135-4a8520ebea25/accessStatus"
+                },
+                "bundles" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/961309ac-15ce-4566-9135-4a8520ebea25/bundles"
+                },
+                "identifiers" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/961309ac-15ce-4566-9135-4a8520ebea25/identifiers"
+                },
+                "mappedCollections" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/961309ac-15ce-4566-9135-4a8520ebea25/mappedCollections"
+                },
+                "owningCollection" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/961309ac-15ce-4566-9135-4a8520ebea25/owningCollection"
+                },
+                "relationships" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/961309ac-15ce-4566-9135-4a8520ebea25/relationships"
+                },
+                "version" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/961309ac-15ce-4566-9135-4a8520ebea25/version"
+                },
+                "templateItemOf" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/961309ac-15ce-4566-9135-4a8520ebea25/templateItemOf"
+                },
+                "thumbnail" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/961309ac-15ce-4566-9135-4a8520ebea25/thumbnail"
+                },
+                "metrics" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/961309ac-15ce-4566-9135-4a8520ebea25/metrics"
+                },
+                "submitter" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/961309ac-15ce-4566-9135-4a8520ebea25/submitter"
+                },
+                "self" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/961309ac-15ce-4566-9135-4a8520ebea25"
+                }
+              }
+            }
+          }
+        } ]
+      },
+      "page" : {
+        "number" : 0,
+        "size" : 3,
+        "totalPages" : 1,
+        "totalElements" : 1
+      }
+    },
+    "facets" : [ {
+      "name" : "itemtype",
+      "facetType" : "hierarchical",
+      "facetLimit" : 10,
+      "missing" : "0",
+      "uniqueType" : "discover.discover",
+      "page" : {
+        "number" : 0,
+        "size" : 10
+      },
+      "_links" : {
+        "self" : {
+          "href" : "https://dspace.mit.edu/server/api/discover/facets/itemtype?query=%22Domain-independent%20exception%20handling%20services%20that%20increase%20robustness%22&size=10"
+        },
+        "missing" : {
+          "href" : "https://dspace.mit.edu/server/api/discover/facets/itemtype?query=%2522Domain-independent%20exception%20handling%20services%20that%20increase%20robustness%2522&f.itemtype=%5B*%20TO%20*%5D,notequals"
+        }
+      },
+      "_embedded" : {
+        "values" : [ {
+          "label" : "Working Paper",
+          "count" : 1,
+          "authorityKey" : null,
+          "type" : "discover",
+          "uniqueType" : "discover.discover",
+          "_links" : {
+            "search" : {
+              "href" : "https://dspace.mit.edu/server/api/discover/search/objects?query=%2522Domain-independent%20exception%20handling%20services%20that%20increase%20robustness%2522&f.itemtype=Working%20Paper,equals"
+            }
+          }
+        } ]
+      }
+    }, {
+      "name" : "graphitemtype",
+      "facetType" : "chart.pie",
+      "facetLimit" : 10,
+      "missing" : "0",
+      "more" : "0",
+      "totalElements" : "1",
+      "uniqueType" : "discover.discover",
+      "page" : {
+        "number" : 0,
+        "size" : 10
+      },
+      "_links" : {
+        "self" : {
+          "href" : "https://dspace.mit.edu/server/api/discover/facets/graphitemtype?query=%22Domain-independent%20exception%20handling%20services%20that%20increase%20robustness%22&size=10"
+        },
+        "missing" : {
+          "href" : "https://dspace.mit.edu/server/api/discover/facets/graphitemtype?query=%2522Domain-independent%20exception%20handling%20services%20that%20increase%20robustness%2522&f.graphitemtype=%5B*%20TO%20*%5D,notequals"
+        },
+        "more" : {
+          "href" : "https://dspace.mit.edu/server/api/discover/facets/graphitemtype?query=%2522Domain-independent%20exception%20handling%20services%20that%20increase%20robustness%2522&f.graphitemtype=working%20paper,notequals"
+        }
+      },
+      "_embedded" : {
+        "values" : [ {
+          "label" : "working paper",
+          "count" : 1,
+          "authorityKey" : null,
+          "type" : "discover",
+          "uniqueType" : "discover.discover",
+          "_links" : {
+            "search" : {
+              "href" : "https://dspace.mit.edu/server/api/discover/search/objects?query=%2522Domain-independent%20exception%20handling%20services%20that%20increase%20robustness%2522&f.graphitemtype=working%20paper,equals"
+            }
+          }
+        } ]
+      }
+    }, {
+      "name" : "graphpubldate",
+      "facetType" : "chart.bar",
+      "facetLimit" : 10,
+      "missing" : "0",
+      "more" : "0",
+      "totalElements" : "1",
+      "uniqueType" : "discover.discover",
+      "page" : {
+        "number" : 0,
+        "size" : 10
+      },
+      "_links" : {
+        "self" : {
+          "href" : "https://dspace.mit.edu/server/api/discover/facets/graphpubldate?query=%22Domain-independent%20exception%20handling%20services%20that%20increase%20robustness%22&size=10"
+        },
+        "missing" : {
+          "href" : "https://dspace.mit.edu/server/api/discover/facets/graphpubldate?query=%2522Domain-independent%20exception%20handling%20services%20that%20increase%20robustness%2522&f.graphpubldate=%5B*%20TO%20*%5D,notequals"
+        },
+        "more" : {
+          "href" : "https://dspace.mit.edu/server/api/discover/facets/graphpubldate?query=%2522Domain-independent%20exception%20handling%20services%20that%20increase%20robustness%2522&f.graphpubldate=2000,notequals"
+        }
+      },
+      "_embedded" : {
+        "values" : [ {
+          "label" : "2000",
+          "count" : 1,
+          "authorityKey" : null,
+          "type" : "discover",
+          "uniqueType" : "discover.discover",
+          "_links" : {
+            "search" : {
+              "href" : "https://dspace.mit.edu/server/api/discover/search/objects?query=%2522Domain-independent%20exception%20handling%20services%20that%20increase%20robustness%2522&f.graphpubldate=2000,equals"
+            }
+          }
+        } ]
+      }
+    }, {
+      "name" : "author",
+      "facetType" : "text",
+      "facetLimit" : 5,
+      "missing" : "1",
+      "minValue" : "1000 Genomes Project Consortium",
+      "maxValue" : "Zywicz, Edward",
+      "uniqueType" : "discover.discover",
+      "_links" : {
+        "missing" : {
+          "href" : "https://dspace.mit.edu/server/api/discover/facets/author?query=%2522Domain-independent%20exception%20handling%20services%20that%20increase%20robustness%2522&f.author=%5B*%20TO%20*%5D,notequals"
+        },
+        "self" : {
+          "href" : "https://dspace.mit.edu/server/api/discover/facets/author?query=%22Domain-independent%20exception%20handling%20services%20that%20increase%20robustness%22"
+        }
+      },
+      "_embedded" : {
+        "values" : [ ]
+      }
+    }, {
+      "name" : "subject",
+      "facetType" : "hierarchical",
+      "facetLimit" : 5,
+      "missing" : "0",
+      "uniqueType" : "discover.discover",
+      "page" : {
+        "number" : 0,
+        "size" : 5
+      },
+      "_links" : {
+        "self" : {
+          "href" : "https://dspace.mit.edu/server/api/discover/facets/subject?query=%22Domain-independent%20exception%20handling%20services%20that%20increase%20robustness%22&size=5"
+        },
+        "missing" : {
+          "href" : "https://dspace.mit.edu/server/api/discover/facets/subject?query=%2522Domain-independent%20exception%20handling%20services%20that%20increase%20robustness%2522&f.subject=%5B*%20TO%20*%5D,notequals"
+        }
+      },
+      "_embedded" : {
+        "values" : [ {
+          "label" : "HD28 .M414 no.4115-00",
+          "count" : 1,
+          "authorityKey" : null,
+          "type" : "discover",
+          "uniqueType" : "discover.discover",
+          "_links" : {
+            "search" : {
+              "href" : "https://dspace.mit.edu/server/api/discover/search/objects?query=%2522Domain-independent%20exception%20handling%20services%20that%20increase%20robustness%2522&f.subject=HD28%20.M414%20no.4115-00,equals"
+            }
+          }
+        } ]
+      }
+    }, {
+      "name" : "dateIssued",
+      "facetType" : "date",
+      "facetLimit" : 5,
+      "minValue" : "1 December 2010",
+      "maxValue" : "©1993",
+      "uniqueType" : "discover.discover",
+      "page" : {
+        "number" : 0,
+        "size" : 5
+      },
+      "_links" : {
+        "self" : {
+          "href" : "https://dspace.mit.edu/server/api/discover/facets/dateIssued?query=%22Domain-independent%20exception%20handling%20services%20that%20increase%20robustness%22&size=5"
+        },
+        "missing" : {
+          "href" : "https://dspace.mit.edu/server/api/discover/facets/dateIssued?query=%2522Domain-independent%20exception%20handling%20services%20that%20increase%20robustness%2522&f.dateIssued=%5B*%20TO%20*%5D,notequals"
+        }
+      },
+      "_embedded" : {
+        "values" : [ {
+          "label" : "2000 - 2026",
+          "count" : 1,
+          "authorityKey" : null,
+          "type" : "discover",
+          "uniqueType" : "discover.discover",
+          "_links" : {
+            "search" : {
+              "href" : "https://dspace.mit.edu/server/api/discover/search/objects?query=%2522Domain-independent%20exception%20handling%20services%20that%20increase%20robustness%2522&f.dateIssued=%5B2000%20TO%202026%5D,equals"
+            }
+          }
+        } ]
+      }
+    }, {
+      "name" : "entityType",
+      "facetType" : "text",
+      "facetLimit" : 5,
+      "missing" : "0",
+      "uniqueType" : "discover.discover",
+      "page" : {
+        "number" : 0,
+        "size" : 5
+      },
+      "_links" : {
+        "self" : {
+          "href" : "https://dspace.mit.edu/server/api/discover/facets/entityType?query=%22Domain-independent%20exception%20handling%20services%20that%20increase%20robustness%22&size=5"
+        },
+        "missing" : {
+          "href" : "https://dspace.mit.edu/server/api/discover/facets/entityType?query=%2522Domain-independent%20exception%20handling%20services%20that%20increase%20robustness%2522&f.entityType=%5B*%20TO%20*%5D,notequals"
+        }
+      },
+      "_embedded" : {
+        "values" : [ {
+          "label" : "Publication",
+          "count" : 1,
+          "authorityKey" : null,
+          "type" : "discover",
+          "uniqueType" : "discover.discover",
+          "_links" : {
+            "search" : {
+              "href" : "https://dspace.mit.edu/server/api/discover/search/objects?query=%2522Domain-independent%20exception%20handling%20services%20that%20increase%20robustness%2522&f.entityType=Publication,equals"
+            }
+          }
+        } ]
+      }
+    }, {
+      "name" : "language",
+      "facetType" : "text",
+      "facetLimit" : 10,
+      "missing" : "0",
+      "uniqueType" : "discover.discover",
+      "page" : {
+        "number" : 0,
+        "size" : 10
+      },
+      "_links" : {
+        "self" : {
+          "href" : "https://dspace.mit.edu/server/api/discover/facets/language?query=%22Domain-independent%20exception%20handling%20services%20that%20increase%20robustness%22&size=10"
+        },
+        "missing" : {
+          "href" : "https://dspace.mit.edu/server/api/discover/facets/language?query=%2522Domain-independent%20exception%20handling%20services%20that%20increase%20robustness%2522&f.language=%5B*%20TO%20*%5D,notequals"
+        }
+      },
+      "_embedded" : {
+        "values" : [ {
+          "label" : "English",
+          "count" : 1,
+          "authorityKey" : null,
+          "type" : "discover",
+          "uniqueType" : "discover.discover",
+          "_links" : {
+            "search" : {
+              "href" : "https://dspace.mit.edu/server/api/discover/search/objects?query=%2522Domain-independent%20exception%20handling%20services%20that%20increase%20robustness%2522&f.language=English,equals"
+            }
+          }
+        } ]
+      }
+    }, {
+      "name" : "dcContributorDepartment",
+      "facetType" : "text",
+      "facetLimit" : 5,
+      "missing" : "1",
+      "uniqueType" : "discover.discover",
+      "_links" : {
+        "missing" : {
+          "href" : "https://dspace.mit.edu/server/api/discover/facets/dcContributorDepartment?query=%2522Domain-independent%20exception%20handling%20services%20that%20increase%20robustness%2522&f.dcContributorDepartment=%5B*%20TO%20*%5D,notequals"
+        },
+        "self" : {
+          "href" : "https://dspace.mit.edu/server/api/discover/facets/dcContributorDepartment?query=%22Domain-independent%20exception%20handling%20services%20that%20increase%20robustness%22"
+        }
+      },
+      "_embedded" : {
+        "values" : [ ]
+      }
+    }, {
+      "name" : "dcRelationOrgunit",
+      "facetType" : "text",
+      "facetLimit" : 5,
+      "missing" : "1",
+      "minValue" : "Abdul Latif Jameel Clinic for Machine Learning in Health",
+      "maxValue" : "Woods Hole Oceanographic Institution. Department of Applied Ocean Physics and Engineering.",
+      "uniqueType" : "discover.discover",
+      "_links" : {
+        "missing" : {
+          "href" : "https://dspace.mit.edu/server/api/discover/facets/dcRelationOrgunit?query=%2522Domain-independent%20exception%20handling%20services%20that%20increase%20robustness%2522&f.dcRelationOrgunit=%5B*%20TO%20*%5D,notequals"
+        },
+        "self" : {
+          "href" : "https://dspace.mit.edu/server/api/discover/facets/dcRelationOrgunit?query=%22Domain-independent%20exception%20handling%20services%20that%20increase%20robustness%22"
+        }
+      },
+      "_embedded" : {
+        "values" : [ ]
+      }
+    }, {
+      "name" : "dcDescriptionDegree",
+      "facetType" : "text",
+      "facetLimit" : 5,
+      "missing" : "1",
+      "minValue" : "B. Arch.",
+      "maxValue" : "Thesis (Sc. D.)--Massachusetts Institute of Technology. Dept. of Mechanical Engineering, 1988.",
+      "uniqueType" : "discover.discover",
+      "_links" : {
+        "missing" : {
+          "href" : "https://dspace.mit.edu/server/api/discover/facets/dcDescriptionDegree?query=%2522Domain-independent%20exception%20handling%20services%20that%20increase%20robustness%2522&f.dcDescriptionDegree=%5B*%20TO%20*%5D,notequals"
+        },
+        "self" : {
+          "href" : "https://dspace.mit.edu/server/api/discover/facets/dcDescriptionDegree?query=%22Domain-independent%20exception%20handling%20services%20that%20increase%20robustness%22"
+        }
+      },
+      "_embedded" : {
+        "values" : [ ]
+      }
+    } ]
+  }
+}

@@ -1,0 +1,20 @@
+mad_debate|If Multi-Agent Debate Is the Answer
+going_mad|Should We Be Going MAD multi-agent debate
+debate_cost|multi-agent debate cost performance
+overthink_agent|overthinking agent reasoning-action
+selfcorr_fail|LLMs cannot self-correct reasoning
+verif_hurts|verification degrades performance LLM
+voting_cost|majority voting cost LLM reliability
+nonmonot|non-monotonic compute performance LLM
+inverse_ttc|more test-time compute hurts
+guardrail_util|guardrail utility cost agent
+monitor_tax|monitoring reduces performance agent
+recovery_budget|recovery budget agent failure
+selfheal_budget|self-healing budget agent
+sign_reversal|sign reversal intervention reliability
+crossover_budget|crossover budget reliability agent
+containment_backfire|containment backfires scarcity
+sentinel_cost|sentinel agent cost overhead
+verification_scarcity|verification scarce resources agent
+redundant_help|redundancy helps hurts multi-agent
+voting_budget|voting budget fixed LLM cost-of-pass

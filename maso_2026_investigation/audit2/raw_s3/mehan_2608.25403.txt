@@ -1,0 +1,386 @@
+                                               Retry Amplification in Distributed Systems: A
+                                              Systematic Analysis of Retry Policies and Their
+                                                        Role in Cascading Failures
+                                                                       Rishabh Mehan                                           Jasmit Kaur Saluja
+                                                               Software Engineering Research                               Independent Researcher
+                                                               rishabhmehan@gmail.com                                   jasmitksaluja@gmail.com
+
+
+
+                                            Abstract—Retry mechanisms are a standard component of               degraded. We term this effect retry amplification. A minor
+
+
+
+
+arXiv:2608.25403v1 [cs.SE] 26 Aug 2026
+                                         resilient distributed systems, but their collective behavior, when     degradation is sufficient to trigger it, and although it appears
+                                         every tier in a call path retries concurrently, is less well           frequently in published outage post-mortems, it has received
+                                         understood than the per-client guidance that produced them.
+                                         This paper introduces the retry amplification factor (RAF), a          little systematic study.
+                                         metric quantifying the additional request volume that retry                We ask four questions. RQ1: how prevalent are retry
+                                         policies generate during partial failures. In a study of 200           policies in real microservice code, and how are they con-
+                                         open-source Python microservice projects, explicit retry logic is      figured? RQ2: how do those policies interact across tiers to
+                                         detected in 11.5%, and an audit of our own false negatives places      amplify load during partial failures? RQ3: which recurring
+                                         true prevalence near 41%. Among the projects detected, 60.9%
+                                         contain at least one configuration without backoff, and after          patterns push systems toward cascading failure? RQ4: can
+                                         manual verification exactly one of 113 production configurations       a coordinated retry strategy suppress amplification without
+                                         randomizes its delay. We then evaluate these policies in simulation    giving up the resilience retries are there to provide?
+                                         (n = 100 trials per strategy). Under correlated failures, a naive          Answering them yields five contributions: the RAF metric
+                                         standard retry policy reduces the success rate from 55.4% to           and a model of multi-tier retry behavior (Section III); an em-
+                                         41.5% relative to performing no retries at all. We catalog five
+                                         recurring anti-patterns, propose Adaptive Retry Budgeting (ARB),       pirical study of 200 open-source Python projects (Section IV);
+                                         and show that budget-constrained retries maintain success rates        a taxonomy of five anti-patterns drawn from that code (Sec-
+                                         close to the no-retry baseline while still recovering from transient   tion IV-D); the Adaptive Retry Budgeting algorithm, coupling
+                                         faults. These results indicate that retry behavior should be           a dynamic budget to explicit backpressure (Section VI); and
+                                         designed as a system-level property rather than configured locally     simulation evidence over 100 trials per configuration that
+                                         at each call site.
+                                            Index Terms—distributed systems, retry policies, cascading          standard retry policies cut success rates by a quarter under
+                                         failures, resilience engineering, microservices, fault tolerance       correlated failure while adaptive policies hold the baseline
+                                                                                                                (Sections V–VII).
+                                                                I. I NTRODUCTION                                                     II. R ELATED W ORK
+                                            A single user action in a microservice architecture can fan            Retry mechanisms began in networking. Metcalfe and
+                                         out across dozens of services, and any one of them may                 Boggs introduced exponential backoff for Ethernet collision
+                                         stumble for a moment—a network blip, a saturated thread                resolution [4], and later work established that randomizing the
+                                         pool, a node restarting during a deploy. The standard defense          delay prevents clients from synchronizing into retry storms
+                                         is the retry: catch the failure, wait a beat, try again. It is one     [5]. Distributed-systems practice inherited both ideas. They
+                                         of the first reliability tools an engineer reaches for, and for        are documented thoroughly in the practitioner literature [6]–
+                                         good reason.                                                           [8] and in vendor guidance from AWS and Azure [9], [10],
+                                            Retry guidance, however, is written for a single caller             though with far less academic attention than their operational
+                                         communicating with a single callee. The major cloud providers          importance would suggest. What all of it shares is a single-
+                                         give consistent advice: use exponential backoff, add jitter, and       client frame: the unit of analysis is one caller deciding whether
+                                         cap the number of attempts [1]–[3]. In isolation this advice is        to try again.
+                                         sound. It does not address the case in which every hop along              Work on cascading failure supplies the other half. Cascades
+                                         a deep call path applies it simultaneously, at which point the         have been modeled in power grids [11] and social contagion
+                                         retries cease to be independent and instead compound.                  [12], and Gunawi et al. found across more than 3,000 cloud
+                                            Consider three tiers in which A calls B and B calls C. If           issues that roughly a third of failures propagate between
+                                         C begins failing half of its requests while each tier retries up       components [13]. That work categorizes root causes; ours asks
+                                         to three times, B’s retries triple the load offered to C, and          what retries contribute to the spreading. Two mitigations sit
+                                         A’s retries to B multiply that figure again, so C may absorb           alongside it: circuit breakers [6] cut off traffic to a failing
+                                         on the order of nine times its normal traffic while already            dependency, and load shedding [14], [15] rejects excess work
+at the receiver. Both react to overload once it has arrived,         D. Temporal Dynamics
+independently of what the retry layer is doing.                         A steady-state bound misses how the load arrives. Immedi-
+   Service meshes have since moved retry logic out of applica-       ate retries concentrate into a spike, exponential backoff spreads
+tion code. Envoy caps the share of traffic that may be retries       that spike over time, and backoff without jitter lets independent
+through a retry budget [16], and Linkerd offers declarative          clients fall into step and produce periodic surges. Sustained
+retries with similar budget constraints [17]. These are the          amplification then builds queues, and the growing queues raise
+closest production analogues to our proposal, and we compare         latency, which is what converts a degradation into an outage.
+against them directly in Section VII. The gap we address is
+that every one of these threads reasons about a single hop.                 IV. E MPIRICAL S TUDY OF R ETRY P RACTICES
+Backoff theory optimizes one client, cascade studies describe        A. Methodology
+spreading without isolating retries as a driver, and breakers           To see how retries are configured in practice, we queried
+and budgets each decide locally at one proxy. We treat retry         the GitHub API for actively developed repositories with more
+behavior instead as a property that emerges from the whole           than 50 stars whose primary language was Java, Go, Python,
+call graph, which is where we argue the damage originates.           or JavaScript/TypeScript and whose description or topics
+       III. R ETRY A MPLIFICATION : F ORMAL M ODEL                   mentioned microservices or distributed systems. That search
+A. System Model                                                      returned 1,000 candidates, split Go (47.6%), Python (31.2%),
+                                                                     and Java (21.2%); JavaScript/TypeScript projects were too
+   We model a distributed system as a directed acyclic graph
+                                                                     scarce under these criteria to register.
+G = (V, E) in which vertices are services and edges are
+                                                                        We then analyzed the first 200 entries in collection order.
+synchronous dependencies. Each service v ∈ V carries a base
+                                                                     Our collector enumerates languages in sequence and sorts by
+load λv in requests per second, a capacity µv , and a failure
+                                                                     stars within each query, so those 200 are all Python, as are
+probability pv that is independent across requests. Each edge
+                                                                     the 23 projects in which we ultimately found retry logic.
+(u, v) ∈ E carries a retry policy R(u,v) defined by a maximum
+                                                                     Everything reported below therefore characterizes popular
+retry count n, a backoff function b(k) giving the delay before
+                                                                     Python microservice repositories rather than the candidate pool
+attempt k, and a predicate c determining which failures are
+                                                                     as a whole. We flag this prominently because it bounds what
+retried at all.
+                                                                     the numbers can support: whether Go and Java projects retry
+B. Retry Amplification Factor                                        the same way is untested here, and settling it is the most
+Definition 1 (Retry Amplification Factor). For a service v           immediate extension of this study.
+with failure probability p and incoming edges carrying retry            We extracted retry configurations with regex-based static
+policies, the Retry Amplification Factor RAF(v) is the ratio of      analysis carrying patterns for all four languages. Reposito-
+requests actually received to those expected under a zero-retry      ries are classified by GitHub’s primary language but fre-
+policy:                                                              quently contain others, so the rules that fired were not ex-
+                               Actual Load(v)                        clusively Python: of the 162 raw detections, 54 matched
+                   RAF(v) =                                    (1)
+                                Base Load(v)                         Python-specific patterns (@retry decorators, tenacity,
+   For a single tier with retry limit n and failure probability p,   backoff, urllib3.Retry), 89 matched a language-
+the expected value is                                                agnostic maximum-retry-count pattern, and 19 matched
+                            n                                        JavaScript- and Go-specific patterns. For each hit we recorded
+                           X          1 − pn+1                       the maximum retry count, the backoff strategy, and the sur-
+                  RAF =        pk =             .              (2)
+                                        1−p                          rounding context, along with file path and line number.
+                          k=0
+At p = 0.5 and n = 3 this gives 1.875: request volume                B. Cleaning and Validation
+nearly doubles. The formula assumes p holds constant across
+                                                                        Re-reading the raw detections against their source revealed
+attempts. Backoff may let a transient fault clear, pushing the
+                                                                     three defects, corrected before reporting.
+true figure lower, but an overloaded service grows more likely
+                                                                        Non-production code. Of 162 detections, 41 (25.3%) lay
+to fail with each wave of retries, pushing it higher.
+                                                                     under example, documentation, playground, benchmark or
+C. Multi-Tier Amplification                                          integration-test paths; one resilience library alone contributed
+   Down a chain of d services that each apply the same policy,       13 from docs/snippets/retry/, illustrating every back-
+the amplification compounds, and the aggregate at the terminal       off variant it ships. Documentation is not evidence of deployed
+service is bounded by                                                configuration, so we excluded these, leaving 121.
+                                             d                         Duplicates. A further 8 sat within ten lines of another
+                                  1 − pn+1
+                               
+                RAFaggregate ≤                  .              (3)   detection in the same file—a call and the function it calls,
+                                    1−p                              or a comment and its signature—describing one policy, not
+The exponent is what makes retry storms dangerous. Three             two. Collapsing them leaves 113 configurations.
+tiers at p = 0.3 and n = 3 yield (1.417)3 ≈ 2.85; hold the              Jitter over-detection. The original rule credited jitter when-
+depth and retry count fixed and raise the failure rate to p = 0.5,   ever jitter or random appeared nearby. We opened all
+and the bound jumps to (1.875)3 ≈ 6.59.                              eight positives: four randomize no delay, and two of the rest
+are one construct detected twice. Three distinct constructs       once documentation and test code were removed, indicating
+genuinely randomize, two of them documentation snippets.          that production code is more aggressive than the raw detections
+We therefore report verified jitter only.                         suggested. Immediate retry with no delay accounts for 31.0%,
+   Re-checking a seeded sample of 30 detections against cur-      which maximizes the instantaneous spike. Jitter is almost
+rent source resolved all 30 and found 29 genuine, a precision     entirely absent, at one configuration in 113: five decades
+of 96.7%. The exception is a variable initialized to zero         after randomized backoff entered the literature, it appears in
+immediately before an environment lookup supplies the real        essentially no production code in this sample. Finally, none
+value; counting it as a configuration would give 100%. Three      of the 23 projects coordinated retry decisions across a service
+further items mis-extract a field, all in excluded code.          boundary.
+   We then drew a second seeded sample, 30 of the 177
+repositories where nothing was detected, and searched each        D. Retry Anti-Patterns
+in full. Ten contain retry logic against a dependency, a false-      Reading the configurations together produced five recurring
+negative rate of 33.3% (19.2–51.2%). Most are hand-rolled         anti-patterns. Prevalence here is per project, counting a project
+attempt loops, but two were missed on patterns our rules do       as exhibiting a pattern if any of its configurations does, so
+implement, so recall is bounded by defects as well as by scope,   these denominators are the 23 projects rather than the 113
+and the 113 configurations are themselves a lower bound.          configurations in Table I. Intervals are Wilson score and wide,
+   Both validation passes were tool-assisted: sources were        because 23 is a small base.
+retrieved and searched programmatically and each verdict was         No Backoff (14/23, 60.9% ±18.5pp). Retrying with no
+adjudicated against the retrieved text, with the file and line    delay between attempts, which maximizes instantaneous am-
+recorded per item. The per-item records are released with the     plification exactly when the callee is least able to absorb it.
+analysis code, and neither pass is an unaided manual audit.          Missing Jitter (22/23, 95.7% ±10.1pp). No production
+   Three limits remain. Runtime parameters from environment       configuration in the project randomizes its delay. Under the
+variables or config files appear to us as static values, frame-   narrower reading—projects carrying at least one exponential-
+works such as Spring Cloud configure retries in YAML rather       backoff configuration that omits jitter—the figure is 9/23
+than code, and detections are concentrated—one project sup-       (39.1%). On either definition, deterministic backoff lets in-
+plies 23 of the 113, the top three 44%—so configuration-level     dependent clients converge on the same retry instants and
+percentages are descriptive rather than independent draws.        produce periodic spikes.
+                                                                     Aggressive Retry (7/23, 30.4% ±17.6pp). More than five
+C. Results                                                        attempts with minimal backoff, which stretches the amplifi-
+   Our rules detected explicit retry logic in 23 of the 200       cation window and delays the moment the caller admits the
+repositories, or 11.5% (±4.4%, Wilson score interval). That is    dependency is down.
+a detection rate rather than a prevalence: carrying the 33.3%        Static Configuration (23/23, 100%). Retry parameters
+false-negative rate across the 177 undetected repositories puts   fixed at deploy time, identical whether the system is idle or
+true prevalence near 41% (28.5–56.8%). What follows there-        collapsing.
+fore characterizes retry code written in idioms our rules can        No Cross-Service Coordination (23/23, 100%). Every tier
+see. After cleaning, those 23 projects contributed 113 distinct   deciding independently, which is precisely the condition under
+production configurations (Table I). A retry count is tabulated   which the single-tier RAF compounds.
+only where the code states one, which is 73 of the 113;              The last two are universal in our sample, and they are
+denominators are given per row.                                   the two the model identifies as the drivers of multi-tier
+                                                                  amplification.
+                            TABLE I
+      R ETRY C ONFIGURATION D ISTRIBUTION (113 PRODUCTION                            V. S IMULATION S TUDY
+                CONFIGURATIONS , 23 REPOSITORIES )
+                                                                     The bounds in Section III assume unbounded queues and
+                                                                  steady state; real systems have neither. We built a discrete-
+             Configuration            Count    Share
+                                                                  event simulator to see what happens with finite capacity
+             Retry count: 1–3          25/73   34.2%              and real backoff delays. It supports arbitrary topologies, per-
+             Retry count: 4–5          16/73   21.9%              service capacity with queuing, probabilistic, periodic and
+             Retry count: >5           32/73   43.8%
+             Exponential backoff      24/113   21.2%              correlated failure injection, and per-edge retry policies.
+             Linear backoff           54/113   47.8%                 Our baseline is a five-tier linear chain standing in for
+             No backoff (immediate)   35/113   31.0%              a typical e-commerce path, API → Auth → Catalog →
+             Jitter (verified)         1/113    0.9%              Inventory → Database. Each service has capacity 1000 RPS
+                                                                  against a base load of 500 RPS, so utilization starts at 50%, and
+   Four observations follow, each corresponding to a mech-        each applies three retries with exponential backoff at 100 ms,
+anism the model identifies as harmful. Retry counts above         200 ms, and 400 ms plus jitter. We drive it with three scenarios:
+five form the largest group at 43.8%, well beyond the three       S1, a single service failing half its requests at tier 3; S2, a
+attempts vendor guidance recommends, and that share rose          cascading slowdown across tiers 4 and 5 ramping from 10%
+to 70%; and S3, a network partition failing 60% of requests         Algorithm 1 Adaptive Retry Budgeting (ARB)
+across tiers 3 through 5. The metric we report is peak load          1: B ← B0 = 0.2;     fr ← 0; λ ← base load
+amplification, measured as maximum requests over baseline.           2: α = 0.1, β = 0.5, θh = 0.3, θl = 0.05, T = 1.0 s
+   Table II gives what the model of Section III predicts for each    3:
+scenario. These are analytical bounds, not simulator output; the     4: On request completion:
+measured amplification appears later in Table IV, and the gap        5: fr ← 0.9 · fr + 0.1 · ⊮[failed] {EMA update}
+between the two is itself one of our findings.                       6:
+                                                                     7: On request failure:
+                             TABLE II                                8: if B ≤ 0 then
+  M ODEL -P REDICTED R ETRY A MPLIFICATION BY S CENARIO (5- TIER     9:    return FAIL {Budget exhausted}
+                      CHAIN , n = 3 RETRIES )
+                                                                    10: else if Sd = OVERLOADED then
+
+       Scenario       Failure Rate         Predicted RAF
+                                                                    11:    return FAIL {Respect backpressure}
+                                                                    12: else
+       S1             50% at tier 3              1.88               13:    prob ← min(B, 1 − fr )
+       S2         10%→70% at tiers 4–5        1.23–6.42
+       S3            60% at tiers 3–5           10.30               14:    if random() < prob then
+                                                                    15:       schedule retry(request)
+   S1 uses the single-tier formula; S2 and S3 compound it           16:       B ← max(0, B − 1/λ)
+across the affected tiers. The pattern to note is that correlated   17:    end if
+                                                                    18: end if
+failure is the dangerous case. When several tiers degrade at
+                                                                    19:
+once, as in S3, their amplification multiplies and no healthy
+                                                                    20: Every T seconds:
+tier remains to absorb the excess.
+                                                                    21: if fr > θh or Sd = OVERLOADED then
+              VI. A DAPTIVE R ETRY B UDGETING                       22:    B ← B × (1 − β) {Tighten}
+   If unconstrained retries are the problem, what does a well-      23: else if fr < θl then
+behaved policy look like? We propose Adaptive Retry Bud-            24:    B ← min(B0 , B + α) {Relax, capped}
+geting, built on three commitments: retry decisions should          25: end if
+account for system-wide state rather than purely local ob-
+servations; retry capacity is a shared resource to be spent
+deliberately; and under stress it is better to complete some                              VII. E VALUATION
+requests than to attempt all of them.                               A. Setup
+   ARB gives each service tier a retry budget, expressed as a         We compared ARB against three baselines in the simulator:
+fraction of base load, and moves that budget with the observed      No Retry (NR), Standard Retry (SR) with three attempts,
+failure rate. Algorithm 1 gives the procedure.                      exponential backoff, and jitter, and Circuit Breaker (CB),
+   The backpressure signal is the second half of the design. A      which is SR plus a breaker tripping at a 50% failure threshold
+service emits OVERLOADED when its queue passes 80% of               and staying open 30 s. Every strategy ran under S1, S2, and
+capacity or CPU passes 90%,                                         S3 for n = 100 trials per configuration on the five-tier chain
+  (Q > 0.8 · Qmax ) ∨ (CPU > 0.9) ⇒ OVERLOADED, (4)                 described above.
+
+and any upstream tier receiving that signal cuts its budget         B. Results
+immediately rather than waiting to observe failures of its own.
+                                                                                               TABLE III
+   ARB can sit in a service-mesh sidecar, a client library, or         S TRATEGY C OMPARISON ACROSS FAILURE S CENARIOS (n = 100
+an API gateway, and the signal rides with normal traffic as          TRIALS ; MEAN SUCCESS RATE WITH 95% CI IN PERCENTAGE POINTS )
+an HTTP header, gRPC trailing metadata, or a control-plane
+channel, adding no round trips. Runtime cost is one EMA             Strategy          S1 Succ.        S2 Succ.        S3 Succ.
+update per request, a random draw and a decrement on failure,       NR (No Retry)     71.7% ±0.1pp    65.4% ±0.1pp    55.4% ±0.1pp
+an O(1) timer adjustment, and a few scalars per upstream—           SR (Standard)     61.0% ±0.1pp    55.1% ±0.1pp    41.5% ±0.1pp
+negligible beside the cost of issuing and timing out a retry.       CB (Circ. Brk.)   71.4% ±0.1pp    63.7% ±0.1pp    55.3% ±0.1pp
+   The real cost is operational. ARB exposes five tunable           ARB (Adaptive)    70.8% ±0.1pp    64.4% ±0.1pp    54.9% ±0.1pp
+parameters whose good values depend on a service’s traffic
+shape and failure profile, where a static mesh budget exposes          The principal result in Table III is that Standard Retry ranks
+one, and the backpressure path creates a contract producers         last in every scenario, below the no-retry baseline. Under
+and consumers must keep in sync across deploys. For a team          S3 it reaches 41.5% against No Retry’s 55.4%, a relative
+already running a mesh with budget support, that may not            degradation of 25%, so adding retries made the correlated-
+be worth it. The case for ARB is strongest in deep, latency-        failure case materially worse.
+sensitive call graphs, where static caps are hardest to set            Table IV shows why, and also where our model overshoots.
+correctly and amplification compounds fastest.                      Standard Retry amplified by 1.18–1.34×, rising with failure
+                            TABLE IV                                  and the circuit breaker [6]. Two differences matter. Mesh
+  O BSERVED R ETRY A MPLIFICATION FACTOR BY S TRATEGY (n = 100        budgets are static: an operator sets a cap and it holds whether
+                             TRIALS )
+                                                                      the downstream is healthy or melting down, whereas ARB
+     Strategy     S1 RAF          S2 RAF             S3 RAF           moves the cap with the measured failure rate. And neither
+                                                                      propagates state across tiers, since each proxy decides alone;
+     NR              1.00            1.00              1.00
+     SR         1.18 (±0.001)   1.19 (±0.001)     1.34 (±0.001)       ARB’s backpressure signal lets a tier shrink its budget because
+     CB         1.00 (±0.001)   1.03 (±0.001)     1.00 (±0.001)       something three hops away is in trouble, the coupling our
+     ARB        1.01 (±0.001)   1.01 (±0.001)     1.01 (±0.001)       model identifies as the real driver of amplification.
+                                                                        The margin should be stated plainly. On raw success rate
+                                                                      the circuit breaker is essentially equivalent to ARB across S1–
+severity exactly as predicted but landing far below what
+                                                                      S3, within roughly one percentage point, and it is simpler to
+Table II projects—6.42× at the peak of S2, and 10.30× for
+                                                                      implement. The argument for ARB is not that it wins this
+S3. Finite queues are the main reason: the simulator sheds
+                                                                      benchmark but that its control surface is graduated where a
+load once queues fill, which truncates amplification that the
+                                                                      breaker’s is binary: a breaker either passes traffic or cuts it off,
+unbounded-queue model allows to run. Backoff spreads retries
+                                                                      whereas ARB throttles continuously and thereby avoids the
+out in time rather than delivering them at once, and a bounded
+                                                                      load oscillation that repeated tripping and resetting can induce.
+run does not reach the steady state the formula describes. The
+                                                                      We regard the two as complementary. A fuller comparison
+bound holds as a bound, but treating it as a forecast would
+                                                                      against tuned mesh budgets on production traffic remains open.
+overstate the load by a factor of several.
+   Both adaptive policies held RAF at or near 1.0 and tracked                                VIII. D ISCUSSION
+the No Retry success rate within about a percentage point. The        A. Implications for Practice
+confidence intervals here describe simulation variability—how
+reproducible our runs are under fixed model assumptions—                 Most of what we found is fixable with small edits. Jitter is
+not the spread one would see across production environments,          the cheapest and the most neglected: one configuration in 113
+which is why they are so narrow; comparisons below rest on            has it, and adding ±25% of randomness to a delay is usually
+effect sizes rather than interval width.                              one line. Swapping immediate retry for exponential backoff
+                                                                      covers another 31.0%. Capping attempts at three pulls back
+C. Why Standard Retry Loses                                           the 43.8% that currently exceed five, which is what the major
+   Three mechanisms account for this inversion. Queue slots           vendors advise anyway [1], [2].
+are the scarce resource, and a retry competes with fresh                 Two practices matter more than any individual setting. The
+traffic rather than deferring to it, so both are rejected more        first is auditing configuration already in production, though
+often than either would have been alone. Each attempt also            our own false-negative rate is a caution that static analysis
+consumes processing time before failing, so latency rises until       alone will miss roughly a third of it, and that hand-rolled
+callers abandon requests that might otherwise have completed.         loops require reading rather than pattern matching. The second
+At the failure rates in S3, further, a large share of retries         is instrumentation: retry rate, success rate after retry, and
+could not have succeeded, so the capacity they consumed               per-service amplification, without which a retry storm cannot
+yielded nothing. Together these effects invert the common             be reconstructed after the fact. Teams operating deep call
+expectation that adding retries increases resilience, and they        graphs should also weigh the mesh-level budgets in Envoy and
+do so precisely when resilience is required. ARB avoids the           Linkerd, currently the most practical option available. None of
+inversion by consulting state before spending an attempt: it          the 23 projects coordinated retries across a service boundary,
+evaluates how severely the dependency is failing and whether          and that remains the principal gap.
+that dependency has signalled overload, and declines on a
+                                                                      B. Threats to Validity
+negative answer to either.
+                                                                        Our evaluation runs in simulation rather than production,
+D. Comparison with Existing Approaches                                which buys controlled comparison at the cost of fidelity. Vari-
+                                                                      able network latency, garbage collection pauses, and resource
+                           TABLE V                                    contention are absent from the model, and we inject failures
+            R ETRY-C ONTROL A PPROACHES C OMPARED
+                                                                      as independent probabilistic events when real faults tend to
+ Approach             Adapts     Cross-tier     Control      S3 RAF   correlate through shared dependencies. The simulator also
+                                                                      assumes instantaneous network communication, focuses on
+ Standard Retry      No              No           None        1.34    one 5-tier linear chain at 50% baseline utilization, and centers
+ Circuit Breaker  Threshold          No          Binary       1.00
+ Mesh budget (En-    No              No         Static cap     —      on request/response interaction, so asynchronous pipelines and
+ voy, Linkerd)                                                        batch recovery fall outside what we measured. Other topolo-
+ ARB (this work) Continuous         Yes         Graduated     1.01    gies and load regimes may well produce different absolute
+                                                                      numbers.
+  Table V places ARB against the closest production mech-               The empirical study carries sharper limits. Every analyzed
+anisms, the static budgets in Envoy and Linkerd [16], [17]            repository is Python, so the prevalence and configuration
+figures speak to one ecosystem and should not be read as           Considered in isolation, three attempts with exponential back-
+cross-language claims; Go, Java, and Node.js may well retry        off is standard good practice; applied simultaneously at every
+differently, and the candidate pool was in fact Go-dominated.      tier of a deep call path, the same configuration constitutes an
+GitHub projects may also differ systematically from propri-        amplifier. As call graphs continue to deepen, this interaction
+etary systems, and 200 repositories yielding 23 with detectable    warrants routine rather than exceptional consideration in reli-
+retry logic is a small base, so the intervals in Section IV-D      ability engineering.
+run to ±18pp and make those figures indicative rather than                                        R EFERENCES
+definitive. Section IV records two further weaknesses: the 113
+                                                                    [1] Amazon Web Services, “Exponential backoff and jitter,” AWS
+configurations are drawn unevenly across projects, and our              Architecture Blog, 2015. [Online]. Available: https://aws.amazon.com/
+detection misses a third of the repositories that do retry—hand-        blogs/architecture/exponential-backoff-and-jitter/
+rolled loops mostly, but also some configurations in idioms the     [2] Google Cloud, “Retry with exponential backoff,” Cloud Architecture
+                                                                        Center, 2020. [Online]. Available: https://cloud.google.com/architecture/
+rules already cover. Finally, the anti-pattern taxonomy reflects        best-practices-for-retry
+our own judgment about what counts as problematic, and other        [3] Microsoft Azure, “Retry pattern,” Cloud Design Patterns, 2023. [Online].
+researchers could reasonably draw the boundaries elsewhere.             Available: https://learn.microsoft.com/azure/architecture/patterns/retry
+                                                                    [4] R. M. Metcalfe and D. R. Boggs, “Ethernet: Distributed packet switching
+C. Future Work                                                          for local computer networks,” Communications of the ACM, vol. 19,
+                                                                        no. 7, pp. 395–404, 1976.
+   Two gaps stand out. The sample is entirely Python, and           [5] L. Kleinrock and F. A. Tobagi, “Packet switching in radio channels:
+running the same analysis over the Go and Java repositories             Part i–carrier sense multiple-access modes and their throughput-delay
+already collected would establish whether these habits are              characteristics,” IEEE Transactions on Communications, vol. 23, no. 12,
+                                                                        pp. 1400–1416, 1975.
+ecosystem-specific. The larger gap is production validation:        [6] M. T. Nygard, Release It!: Design and Deploy Production-Ready Soft-
+deploying ARB in a live system, and documenting retry-                  ware. Pragmatic Bookshelf, 2007.
+amplification incidents from outage post-mortems, would test        [7] S. Newman, Building Microservices: Designing Fine-Grained Systems.
+                                                                        O’Reilly Media, 2015.
+whether amplification appears in the field at the predicted         [8] B. Burns, Designing Distributed Systems: Patterns and Paradigms for
+magnitudes. Learned policies, formal bounds and retry-aware             Scalable, Reliable Services. O’Reilly Media, 2018.
+load balancing also merit study.                                    [9] Amazon Web Services, “AWS well-architected framework: Reliability
+                                                                        pillar,” AWS Documentation, 2024. [Online]. Available: https://docs.
+                       IX. C ONCLUSION                                  aws.amazon.com/wellarchitected/latest/reliability-pillar/
+                                                                   [10] Microsoft, “Azure architecture center: Cloud design patterns,” Microsoft
+   Three lines of evidence converge. The analytical model               Learn, 2024. [Online]. Available: https://learn.microsoft.com/azure/
+shows that amplification compounds with depth: at three                 architecture/patterns/
+                                                                   [11] I. Dobson, B. A. Carreras, V. E. Lynch, and D. E. Newman, “Complex
+tiers, a 50% failure rate and three retries per tier, the bound         systems analysis of series of blackouts: Cascading failure, critical points,
+reaches 6.6×. The repository study indicates that production            and self-organization,” Chaos: An Interdisciplinary Journal of Nonlinear
+code sits close to this worst case. Of 200 popular Python               Science, vol. 17, no. 2, p. 026103, 2007.
+                                                                   [12] D. J. Watts, “A simple model of global cascades on random networks,”
+microservice projects, explicit retry logic is detected in 11.5%        Proceedings of the National Academy of Sciences, vol. 99, no. 9, pp.
+(±4.4%), with true prevalence estimated near 41%; among                 5766–5771, 2002.
+those detected, 60.9% carry a configuration with no backoff        [13] H. S. Gunawi, M. Hao, T. Leesatapornwongsa, T. Patana-anake, T. Do,
+                                                                        J. Adityatama, K. J. Eliazar, A. Laksono, J. F. Lukman, V. Martin, and
+and 95.7% never randomize a delay. Jitter appears exactly once          A. D. Satria, “What bugs live in the cloud? a study of 3000+ issues
+across 113 production configurations, every configuration is            in cloud systems,” in Proceedings of the ACM Symposium on Cloud
+static, and no project coordinates with another. The simulation         Computing (SoCC). ACM, 2014, pp. 1–14.
+                                                                   [14] M. Welsh and D. Culler, “Adaptive overload control for busy internet
+then quantifies the cost: standard retry raised amplification to        servers,” in Proceedings of the 4th USENIX Symposium on Internet
+1.34× under correlated failure and reduced the success rate to          Technologies and Systems (USITS). USENIX Association, 2003.
+41.5%, against 55.4% for no retries at all. Circuit Breaker and    [15] H. Zhou, M. Chen, Q. Lin, Y. Wang, X. She, S. Liu, R. Gu, B. C. Ooi,
+                                                                        J. Yang, and L. Zhou, “Overload control for scaling WeChat microser-
+ARB both held near 1.01× and finished within one percentage             vices,” in Proceedings of the ACM Symposium on Cloud Computing
+point of that baseline.                                                 (SoCC). ACM, 2018, pp. 149–161.
+   ARB matched the circuit breaker on success rate while           [16] Envoy Project, “Retry policies and retry budgets,” Envoy
+                                                                        Documentation, 2024. [Online]. Available: https://www.envoyproxy.
+throttling continuously rather than alternating between open            io/docs/envoy/latest/intro/arch overview/http/http routing
+and closed states, and it propagates pressure across tiers where   [17] Linkerd Project, “Retries and timeouts,” Linkerd Documentation, 2024.
+a static mesh budget cannot. The broader finding matters more           [Online]. Available: https://linkerd.io/2/features/retries-and-timeouts/
+than the algorithm: retry behavior is a system-level property.
+

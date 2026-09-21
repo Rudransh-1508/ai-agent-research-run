@@ -1,0 +1,2211 @@
+Journal of Arti cial Intelligence Research 7 (1997) 83-124
+
+Submitted 6/97; published 9/97
+
+Towards Flexible Teamwork
+Milind Tambe
+
+Information Sciences Institute and Computer Science Department
+University of Southern California
+4676 Admiralty Way
+Marina del Rey, CA 90292, USA
+
+tambe@isi.edu
+
+Abstract
+
+Many AI researchers are today striving to build agent teams for complex, dynamic
+multi-agent domains, with intended applications in arenas such as education, training,
+entertainment, information integration, and collective robotics. Unfortunately, uncertainties in these complex, dynamic domains obstruct coherent teamwork. In particular, team
+members often encounter di ering, incomplete, and possibly inconsistent views of their environment. Furthermore, team members can unexpectedly fail in ful lling responsibilities
+or discover unexpected opportunities. Highly exible coordination and communication is
+key in addressing such uncertainties. Simply tting individual agents with precomputed
+coordination plans will not do, for their in exibility can cause severe failures in teamwork,
+and their domain-speci city hinders reusability.
+Our central hypothesis is that the key to such exibility and reusability is providing
+agents with general models of teamwork. Agents exploit such models to autonomously reason about coordination and communication, providing requisite exibility. Furthermore,
+the models enable reuse across domains, both saving implementation e ort and enforcing consistency. This article presents one general, implemented model of teamwork, called
+STEAM. The basic building block of teamwork in STEAM is joint intentions (Cohen &
+Levesque, 1991b); teamwork in STEAM is based on agents' building up a (partial) hierarchy of joint intentions (this hierarchy is seen to parallel Grosz & Kraus's partial SharedPlans, 1996). Furthermore, in STEAM, team members monitor the team's and individual
+members' performance, reorganizing the team as necessary. Finally, decision-theoretic communication selectivity in STEAM ensures reduction in communication overheads of teamwork, with appropriate sensitivity to the environmental conditions. This article describes
+STEAM's application in three di erent complex domains, and presents detailed empirical
+results.
+
+1. Introduction
+teamwork: cooperative e ort by the members of a team to achieve a common
+goal. { American Heritage Dictionary
+
+Teamwork is becoming increasingly critical in many multi-agent environments, such as,
+virtual training (Tambe et al., 1995; Rao et al., 1993), interactive education (for instance, in
+virtual historical settings, Pimentel & Teixeira, 1994), internet-based information integration (Williamson, Sycara, & Decker, 1996), RoboCup robotic and synthetic soccer (Kitano
+et al., 1995, 1997), interactive entertainment (Hayes-Roth, Brownston, & Gen, 1995; Reilly,
+1996), and potential multi-robotic space missions. Teamwork in such complex, dynamic
+domains is more than a simple union of simultaneous coordinated activity. An illustrative
+c 1997 AI Access Foundation and Morgan Kaufmann Publishers. All rights reserved.
+
+Tambe
+
+example provided by Cohen and Levesque (1991b) | worth repeating, given that the di erence between simple coordination and teamwork is often unacknowledged in the literature
+| focuses on the distinction between ordinary trac and driving in a convoy. Ordinary
+trac is simultaneous and coordinated by trac signs, but it is not considered teamwork.
+Driving in a convoy, however, is an example of teamwork. The di erence in the two situations is that while teamwork does involve coordination, in addition, it at least involves a
+common team goal and cooperation among team members.
+This article focuses on the development of a general model of teamwork to enable a
+team to act coherently, overcoming the uncertainties of complex, dynamic environments.
+In particular, in these environments, team members often encounter di ering, incomplete
+and possibly inconsistent views of the world and (mental) state of other agents. To act
+coherently, team members must exibly communicate to avoid miscoordination. Furthermore, such environments can often cause particular team members to unexpectedly fail
+in ful lling responsibilities, or to discover unexpected opportunities. Teams must thus be
+capable of monitoring performance, and exibly reorganizing and reallocating resources to
+meet any contingencies. Unfortunately, implemented multi-agent systems often fail to provide the necessary exibility in coordination and communication for coherent teamwork in
+such domains (Jennings, 1994, 1995). In particular, in these systems, agents are supplied
+only with preplanned, domain-speci c coordination. When faced with the full brunt of uncertainties of complex, dynamic domains, the in exibility of such preplanned coordination
+leads to drastic failures | it is simply dicult to anticipate and preplan for all possible contingencies. Furthermore, in scaling up to increasingly complex teamwork situations, these
+coordination failures continually recur. In addition, since coordination plans are domain
+speci c, they cannot be reused in other domains. Instead, coordination has to be redesigned
+for each new domain.
+The central hypothesis in this article is that providing agents with a general model
+of teamwork enables them to address such diculties. Such a model enables agents to
+autonomously reason about coordination and communication, providing them the requisite
+exibility in teamwork. Such general models also allow reuse of teamwork capabilities
+across domains. Not only does such reuse save implementation e ort, but it also ensures
+consistency in teamwork across applications (Rich & Sidner, 1997). Fortunately, recent
+theories of teamwork have begun to provide the required models for exible reasoning about
+teamwork, e.g., joint intentions (Cohen & Levesque, 1991b; Levesque, Cohen, & Nunes,
+1990), SharedPlan (Grosz, 1996; Grosz & Kraus, 1996; Grosz & Sidner, 1990) and joint
+responsibility (Jennings, 1995), are some of the prominent ones among these. However,
+most research e orts have failed to exploit such teamwork theories in building practical
+applications (Jennings, 1994, 1995).
+This article presents an implemented general model of teamwork, called STEAM (simply, a Shell for TEAMwork).1 At its core, STEAM is based on the joint intentions theory
+(Levesque et al., 1990; Cohen & Levesque, 1991b, 1991a); but it also parallels and in some
+cases borrows from the SharedPlans theory (Grosz, 1996; Grosz & Kraus, 1996; Grosz &
+Sidner, 1990). Thus, while STEAM uses joint intentions as the basic building block of teamwork, as in the SharedPlan theory, team members build up a complex hierarchical structure
+of joint intentions, individual intentions and beliefs about others' intentions. In STEAM,
+1. STEAM code (with documentation/traces) is available as an online Appendix.
+
+84
+
+Towards Flexible Teamwork
+
+communication is driven by commitments embodied in the joint intentions theory | team
+members may communicate to attain mutual belief while building and disbanding joint
+intentions. Thus, joint intentions provide STEAM a principled framework for reasoning
+about communication, providing signi cant exibility. STEAM also facilitates monitoring
+of team performance by exploiting explicit representation of team goals and plans. If individuals responsible for particular subtasks fail in ful lling their responsibilities, or if new
+tasks are discovered without an appropriate assignment of team members to ful ll them,
+team reorganization can occur. Such reorganization, as well as recovery from failures in
+general, is also driven by the team's joint intentions.
+STEAM's operationalization in complex, real-world domains (described in the next section) has been key in its development to address important teamwork issues discussed above.
+It has also led STEAM to address some practical issues, not addressed in teamwork theories. One key illustration is in STEAM's detailed attention to communication overheads
+and risks, which can be signi cant. STEAM integrates decision theoretic communication
+selectivity | agents deliberate upon communication necessities vis-a-vis incoherency in
+teamwork. This decision theoretic framework thus enables improved exibility in communication in response to unexpected changes in environmental conditions.
+Operationalizing general models of teamwork, such as STEAM, necessitates key modications in the underlying agent architectures. Agent architectures such as Soar (Newell,
+1990), RAP (Firby, 1987), PRS (Rao et al., 1993), BB1 (Hayes-Roth et al., 1995), and
+IRMA (Pollack, 1992) have so far focused on individual agent's exible behaviors via mechanisms such as commitments and reactive plans. Such architectural mechanisms need to be
+enhanced for exible teamwork. In particular, an explicit representation of mutual beliefs,
+reactive team plans and team goals is essential. Additional types of commitments, suitable
+for a team context, may need to be embodied in the architectures as well. Without such
+architectural moorings, agents are unable to exploit general models of teamwork, and reason
+about communication and coordination. This view concurs with Grosz (1996), who states
+that \capabilities for teamwork cannot be patched on, but must be designed in from the
+start".
+Our operationalization of STEAM is based on enhancements to the Soar architecture
+(Newell, 1990), plus a set of about 300 domain-independent Soar rules. Three di erent
+teams have been developed based on this operationalization of STEAM. These teams have
+a complex structure of team-subteam hierarchies, and operate in complex environments
+| in fact, two of them operate in a commercially-developed simulation environment for
+training. This article presents detailed experimental results from these teams, illustrating
+the bene ts of STEAM in their development.
+STEAM is among just a very few implemented general models of teamwork. Other
+models include Jennings' joint responsibility framework in the GRATE* system (Jennings,
+1995) (based on Joint Intentions theory), and Rich and Sidner's COLLAGEN (Rich & Sidner, 1997) (based on the SharedPlans theory), that both operate in complex domains. While
+Section 7 will discuss these in greater detail, STEAM signi cantly di ers from both these
+frameworks, via its focus on a di erent (and arguably wider) set of teamwork capabilities
+that arise in domains with teams of more than two-three agents, with more complex team
+organizational hierarchies, and with practical emphasis on communication costs.
+85
+
+Tambe
+
+The rest of the article begins with a concrete motivation for our research via a description
+of key teamwork problems in real-world domains (Section 2). Section 3 discusses theories of
+teamwork and sketches their implications for STEAM. Section 4 next describes STEAM, our
+implemented model of teamwork. Section 5 discusses STEAM's selective communication.
+Section 6 presents a detailed experimental evaluation. Section 7 discusses related work.
+Finally, Section 8 presents summary and future work.
+
+2. Illustrative Domains and Motivations
+
+This investigation focuses on three separate domains. Two of the domains are based on a
+real-world distributed, interactive simulator commercially developed for military training
+(Calder et al., 1993). The simulator enables | via networking of several computers |
+creation of large-scale, 3D synthetic battle elds, where humans, as well as hundreds or even
+thousands of intelligent and semi-intelligent agents can co-participate (Tambe et al., 1995).
+The rst domain, Attack (Figure 1), involves pilot agents for a company of (up to eight)
+synthetic attack helicopters. The company starts at the home-base, where the commander
+pilot agent rst sends orders and instructions to the company members. The company
+processes these orders and then begins ying towards their speci ed battle position, i.e.,
+the area from which the company will attack the enemy. While enroute to the battleposition, depending on the orders, the company members may y together or dynamically
+split into pre-determined subteams. Once the company reaches a holding point, it halts.
+One or two scout helicopters y forward and rst scout the battle position. Based on
+communication from the scouts, other company members y forward to the battle position.
+Here, individual pilots repeatedly mask(hide) their helicopters and unmask to shoot missiles
+at enemy targets. Once the attack completes, the helicopters regroup and return to their
+home-base. While enroute to the home-base (or initially towards the battle-position), if
+any company member spots enemy vehicles posing a threat to the company, it alerts others.
+The company then evades and bypasses the enemy vehicles, while also protecting itself
+using guns. When the company returns safely to home-base, it rearms and refuels, readying
+itself for the next mission. An overview of the overall research and development e ort in
+this domain, simulation infrastructure, milestones, and agent behaviors is presented in (Hill
+et al., 1997).
+HOLDING
+POINT
+HOME
+BASE
+BATTLE
+POSITION
+
+RIDGE
+
+ENEMY
+VEHICLES
+
+Figure 1: Attack domain: company ying in subteams
+In the second domain, Transport (Figure 2), synthetic transport helicopters protected
+by escort helicopters y synthetic troops to land. In a typical mission, two or four escort
+helicopters and four to twelve transport helicopters take o from separate ships at sea to
+rendezvous at a link-up point. The escorts then provide a protective cover to the transport
+helicopters during the entire ight to and from their pre-speci ed landing zone (where the
+86
+
+Towards Flexible Teamwork
+
+synthetic troops dismount). This domain may involve teams of up to sixteen synthetic pilot
+agents (the largest team we have encountered); although Figure 2 shows twelve.
+LANDING ZONE
+SEA
+ESCOR
+
+T
+
+LAND
+
+ESCOR
+
+T
+
+TRANS
+
+ESCOR
+
+PORTS
+
+T
+
+TRANS
+
+PORTS
+ESCOR
+
+T
+
+Figure 2: Transport domain with synthetic escort and transport helicopters.
+Our third domain is RoboCup synthetic soccer (Kitano et al., 1995). RoboCup is
+an international soccer tournament for robots and synthetic agents, aimed at promoting
+research in multi-agent systems. In the synthetic agent track, over 30 teams will participate
+in the rst RoboCup'97 tournament at IJCAI'97 in Japan. The snapshot in Figure 3 shows
+two competing teams: CMUnited (Stone & Veloso, 1996) versus our ISI team.2
+The Attack domain is illustrative of the teamwork challenges. In our initial, pre-STEAM
+implementation, the helicopter pilot agents were developed in the Soar integrated agentarchitecture (Newell, 1990; Rosenbloom et al., 1991). Each pilot agent was based on a
+separate copy of Soar. For each such pilot, an operator hierarchy was de ned. Figure
+4 shows a portion of this hierarchy (Tambe, Schwamb, & Rosenbloom, 1995). Operators
+are very similar to reactive plans commonly used in other agent architectures, such as
+the architectures described in Section 1. Each operator consists of (i) precondition rules
+for selection; (ii) rules for application (a complex operator subgoals); and (iii) rules for
+termination. At any one point, only one path through this hierarchy is active, i.e., it governs
+an individual's behavior. For teamwork among individuals, domain-speci c coordination
+plans were added, as commonly done in other such e orts in this type of domain (Rajput &
+Karr, 1995; Tidhar, Selvestrel, & Heinze, 1995; Laird, Jones, & Nielsen, 1994; Coradeschi,
+1997), including our own (Tambe et al., 1995). For instance, after scouting the battle
+position, a scout executes a plan to inform those waiting behind that the battle position is
+scouted (not shown in Figure 4).
+Initially, with two-three pilot agents and few enemy vehicles, limited behaviors and controlled agent interaction, carefully preplanned coordination was adequate to demonstrate
+desired behaviors. However, as the numbers of agents and vehicles increased, their behaviors were enriched, and domain experts (human pilots) began to specify complex missions,
+signi cant numbers of unanticipated agent interactions surfaced. Faced with the full brunt
+2. Since March 1997, a team of graduate students at the Information Sciences Institute (ISI) has joined
+in in further research and maintenance of the ISI team. While the author continues to be responsible
+for the teamwork in the player agents, others have made signi cant contributions to individual agent
+behaviors.
+
+87
+
+Tambe
+
+Figure 3: The Robocup synthetic soccer domain.
+EXECUTE−MISSION
+Fly−flight−plan
+Prepare−to
+return−to−base
+
+Engage
+
+Fly
+cntrl
+route
+
+Select
+point
+
+Select
+route
+
+Mask
+
+Unmask
+
+Employ
+weapons
+
+Initialize
+hover
+
+return
+to
+control
+point
+
+Dip
+High
+level
+
+Low
+level
+
+Initialize Maintain
+hover
+masked
+
+Contour
+NOE
+
+Select−
+Mask
+
+position
+
+Goto
+new−mask
+location
+
+Popup
+
+Employ−missile
+............
+
+Figure 4: Attack domain: Portion of a pilot agent's operator hierarchy.
+of the uncertainties in this complex, dynamic environment, the carefully hand-coded, preplanned coordination led to a variety of teamwork failures in the various demonstrations
+and exercises in 1995-96. Figure 5 lists a small sample of the teamwork failures, roughly in
+the order they were encountered.
+One approach to address these failures is a further addition of domain-speci c coordination plans; and indeed, this was the rst approach we attempted. However, there are
+several diculties. First, there is no overarching framework that would enable anticipation
+of teamwork failures; the teamwork failures just appear to arise unexpectedly. As a result,
+88
+
+Towards Flexible Teamwork
+
+1. Upon abnormally terminating engagement with the enemy, the company commander returned
+to home base alone, abandoning members of its own company at the battle position.
+2. Upon reaching the holding area, the company waited, while a single scout started ying
+forward. Unfortunately, the scout unexpectedly crashed into a hillside; now, the rest of the
+company just waited inde nitely for the scout's scouting message.
+3. One pilot agent unexpectedly processed its initial orders before others. It then ew towards
+the battle position, while its teammates were left behind at the home base.
+4. Only a scout made it to the holding area (all other helicopters crashed or got shot down);
+but the scout scouted the battle position anyhow, and waited inde nitely for its non-existent
+company to move forward.
+5. When the initial orders unexpectedly failed to allocate the scouting role to team members,
+the company members waited inde nitely when they reached the holding point.
+6. Instructions sent by the commander pilot agent to some company members were lost, because
+the commander unexpectedly sent them while the members were busy with other tasks. Hence,
+these members were unable to select appropriate actions.
+7. While evading an enemy vehicle encountered enroute, one helicopter pilot agent unexpectedly
+destroyed the vehicle via gun re. However, this pilot agent did not inform others; and thus
+an unnecessary, circuitous bypass route was planned.
+8. In an extreme case, when all company members ran out of ammunition, the company failed
+to infer that their mission could not continue.
+9. Two separate companies of helicopters were accidentally allowed to use the same radio channels, leading to interference and loss of an initial message from one of the company commanders
+| its company hung inde nitely.
+
+Figure 5: Some illustrative examples of breakdown in teamwork.
+coordination plans have to be added on a case-by-case basis | a dicult process, since failures have to be rst encountered in actual runs. Furthermore, as the system continues to
+scale up to increasingly complex teamwork scenarios, such failures continually recur. Thus,
+a large number of special case coordination plans are potentially necessary. Finally, it is
+dicult to reuse such plans in other domains.
+Given these diculties, we have pursued an alternative approach | provide agents
+with a general model of teamwork. The agents can then themselves reason about their coordination/communication responsibilities as well as anticipate and avoid (or recover from)
+teamwork failures. Such an approach also requires an explicit representation of agents' team
+goals and team plans; for that is the very basis for reasoning about teamwork. Unfortunately, the agent's operator hierarchy shown in Figure 4 represents its own activities. Thus,
+although the agent is provided information about its teammates, their participation in particular activities is not explicit (but rather, implicit in the coordination plans). As a result,
+the agent remains ignorant as to which operators truly involve teamwork and the teammates
+involved in them. For instance, execute-mission and engage are in reality team activities
+involving the entire company; while mask and unmask involve no teamwork. Furthermore,
+in some team tasks only subteams are involved, adding to the diculty of relying on implicit
+89
+
+Tambe
+
+representations since the teammates involved in team tasks vary. Even more problematic
+for implicit representation are team tasks where the team members perform non-identical
+activities. For instance, consider team tasks such as travelling overwatch (where one subteam travels while the other overwatches), or wait while battle position scouted (where scouts
+scout the battle position while the non-scouts wait). In such tasks, no single agent performs
+the team activity, and yet it is important to represent and reason about the combined activity that results. This diculty in representation is not speci c to the Soar architecture,
+but the entire family of architectures mentioned in Section 1.
+More importantly, concomitant with the explicit team goals and plans are certain commitments and coordination responsibilities towards the team, based on the general model
+of teamwork employed. In the absence of both the explicit representation of team goals and
+plans, as well as commitments and responsibilities they engender, agents are often forced
+to rely on the problematic domain-speci c coordination plans, leading to aforementioned
+teamwork failures.
+
+3. Models of Teamwork
+Several teamwork theories have been proposed in the literature (Cohen & Levesque, 1991b;
+Grosz & Kraus, 1996; Jennings, 1995; Kinny et al., 1992). The theories are not intended
+to be directly implemented (say via a theorem prover), but to be used as a speci cation
+for agent design. They often prescribe general, rather than domain-speci c, reasoning
+processes or heuristics for teamwork. Di erent types of operational teamwork models could
+potentially emerge from these theories | the space of such models remains to be fully
+explored and understood. In developing STEAM, we have focused on the joint intentions
+theory (Cohen & Levesque, 1991b; Levesque et al., 1990; Cohen & Levesque, 1991a), given
+its detailed formal speci cation and prescriptive power. The joint intentions theory is
+brie y reviewed in Section 3.1. STEAM ultimately builds on joint intentions in a way that
+parallels the SharedPlan theory (Grosz & Sidner, 1990; Grosz, 1996; Grosz & Kraus, 1996).
+The SharedPlans theory is very brie y reviewed in Section 3.2. Section 3.3 sketches the
+implications of the theories for STEAM. It outlines the rationale for the design decisions
+in STEAM | in the process, it brie y compares the capabilities provided by the joint
+intentions and SharedPlan theories. STEAM is later presented in detail in Sections 4 and
+5.
+
+3.1 Joint Intentions Theory
+
+The joint intentions framework (Cohen & Levesque, 1991b, 1991a; Levesque et al., 1990)
+focuses on a team's joint mental state, called a joint intention. A team  jointly intends a
+team action if team members are jointly committed to completing that team action, while
+mutually believing that they were doing it. A joint commitment in turn is de ned as a joint
+persistent goal (JPG). The team 's JPG to achieve p, where p stands for completion of a
+team action, is denoted JPG(, p, q). q is an irrelevance clause | as described below, it
+enables a team to drop the JPG should they mutually believe q to be false. JPG(, p, q)
+holds i three conditions are satis ed:
+1. All team members mutually believe that p is currently false.
+90
+
+Towards Flexible Teamwork
+
+2. All team members have p as their mutual goal, i.e, they mutually know that they want p to
+be eventually true.
+3. All team members mutually believe that until p is mutually known to be achieved, unachievable or irrelevant they mutually believe that they each hold p as a weak goal (WAG).3 WAG(,
+p, , q), where  is a team member in , implies that one of the following holds:
+  believes p is currently false and wants it to be eventually true, i.e., p is a normal
+
+achievement goal); or
+
+ Having privately discovered p to be achieved, unachievable or irrelevant (because q is
+
+false),  has committed to having this private belief become 's mutual belief.
+
+JPG provides a basic change in plan expressiveness, since it builds on a team task p.
+Furthermore, a JPG guarantees that team members cannot decommit until p is mutually
+believed to be achieved, unachievable or irrelevant. Basically, JPG(, p, q) requires team
+members to each hold p as a weak achievement goal (WAG). WAG(, p, , q), where  is
+a team member in , requires  to adopt p as its goal if it believes p to be false. However,
+should  privately believe that p has terminated | i.e., p is either achieved, unachievable
+or irrelevant | JPG(,p, q) is dissolved, but  is left with a commitment to have this
+belief become 's mutual belief. To establish mutual belief,  must typically communicate
+with its teammates about the status of the team task p.
+The commitment to attain mutual belief in the termination of p is a key aspect of a
+JPG. This commitment ensures that team members stay updated about the status of team
+activities, and thus do not unnecessarily face risks or waste their time. For instance, consider
+the rst failure presented in Section 5, where the commander returned to home base alone,
+abandoning its teammates to face a risky situation. Such failures can be avoided given the
+commitments in a JPG. In our example, the commander would have communicated with
+its teammates to establish mutual belief about the termination of the engagement.
+To enter into a joint commitment (JPG) in the rst place, all team members must
+establish appropriate mutual beliefs and commitments. An explicit exchange of request
+and con rm speech acts is one way that a team can achieve appropriate mutual beliefs
+and commitments (Smith & Cohen, 1996). Since this exchange leads to establishment of
+a JPG, we will refer to it in the following as the establish commitments protocol. The key
+to this protocol is a persistent weak achievement goal (PWAG). PWAG( i, p, ) denotes
+commitment of a team member  i to its team task p prior to the team's establishing a
+JPG.4  initiates the protocol while its teammates in ,  1,., i.. n, respond:
+1.  executes a Request(, , p), cast as an Attempt(, , ). That is, 's ultimate goal  is
+to both achieve p, and have all  i adopt PWAG( i, p, ). However,  is minimally committed
+to , where denotes achieving mutual belief in  that  has the PWAG to achieve . With
+this Request,  adopts the PWAG.
+2. Each  i responds via con rm or refuse. Con rm, also an Attempt, informs others that
+ i has the PWAG to achieve p.
+3. WAG was originally called WG in (Levesque et al., 1990), but later termed WAG in (Smith & Cohen,
+1996).
+4. The PWAG also includes an irrelevance clause q, but we will not include it here to simplify the following
+description.
+
+91
+
+Tambe
+
+3. If 8 i,  i con rm, JPG(, p) is formed.
+
+In establishing a JPG, this protocol synchronizes . In particular, with this protocol,
+members simultaneously enter into a joint commitment towards a current team activity
+p. While the JPG is the end product of the establish commitment protocol, important
+behavioral constraints are enforced during execution via the PWAGs. In step 1, the adoption of a PWAG implies that if after requesting,  privately believes that p is achieved,
+unachievable or irrelevant, it must inform its teammates. Furthermore, if  believes that
+the minimal commitment is not achieved, it must retry (e.g., if a message did not get
+through it must retransmit the message). Step 2 similarly constrains team members  i to
+inform others about p, and to rebroadcast. As step 3 indicates, all team members must
+consent, via con rmation, to the establishment of a JPG. A JPG is not established if any
+one agent refuses. Negotiations among team members may ensue in such a case; however,
+that remains an open issue for future work.
+
+3.2 Shared Plans Theory
+
+In contrast with joint intentions, the concept of SharedPlans (SP) is not based on a joint
+mental attitude (Grosz, 1996; Grosz & Kraus, 1996; Grosz & Sidner, 1990). Instead, SP
+relies on a novel intentional attitude, intending that, which is similar to an agent's normal
+intention to do an action. However, an individual agent's intention that is directed towards
+its collaborator's actions or towards a group's joint action. Intention that is de ned via a
+set of axioms that guide an individual to take actions, including communicative actions,
+that enable or facilitate its teammates, subteam or team to perform assigned tasks (Grosz
+& Kraus, 1996).
+An SP is either a full SharedPlan (FSP) or a partial SharedPlan(PSP). We will begin
+with a de nition of an FSP, and then follow with brief remarks about a PSP. An FSP to
+do represents a situation where every aspect of a joint activity is fully determined.
+This includes mutual belief and agreement in the complete recipe R to do . R is
+a speci cation of a set of actions i , which when executed under speci ed constraints,
+constitutes performance of . FSP(P, GR, , Tp , T , R ) denotes a group GR's plan P
+at time Tp to do action at time T using recipe R . Very brie y, FSP(P, GR, , Tp,
+T , R ) holds i the following conditions are satis ed:5
+1. All members of group GR mutually believe that they each intend that the proposition Do(GR,
+, T ) holds i.e., that GR does over time T .
+2. All members of GR mutually believe that R is the recipe for .
+3. For each step i in R :
+ A subgroup GRk (GRk  GR) has an FSP for i , using recipe R i . (GRk may only be
+an individual, in which case, it must have a full individual plan, an analogue of FSP for
+individuals.)
+ Other members of GR believe that there exists a recipe such that GRk can bring about
+i and have an FSP for i (but other members may not know R i).
+5. For the sake of brevity, a context clause C is deleted from this de nition. Also, in this article, we will
+not address the contracting case discussed in (Grosz & Kraus, 1996).
+
+92
+
+Towards Flexible Teamwork
+
+ Other members of GR intend that GRk can bring about i using some recipe.
+
+The SharedPlan theory aspires to describe the entire web of a team's intentions and
+beliefs when engaged in teamwork. In this endeavor, an FSP represents a limiting case;
+usually, when engaged in a team activity, a team only has a partial SharedPlan (PSP). The
+PSP is a snapshot of the team's mental state in a particular situation in their teamwork,
+and further communication and planning is often used to ful ll the conditions of an FSP
+(although, in dynamic domains, the team may never actually form an FSP). We focus on
+three relevant arenas in which partiality may exist in a PSP. First, the recipe R may be
+only partially speci ed. Certainly, in dynamic environments, such as the ones of interest
+in our work, recipes could be considered to evolve over time, as teams reactively decide
+the next step based both on the context and the current situation. For instance, in the
+Attack domain, the helicopter company may react to enemy vehicles seen enroute, thus
+evolving their recipe. According to SP theory, team member must arrive at mutual belief
+in their next step(s) i . For each step i in the recipe, the relevant subgroup must form a
+SharedPlan.
+Second, the team's task allocation may be unreconciled, e.g., the agent or group to
+perform particular task may not be determined. In this situation, team members intend
+that there exist some individual or subgroup to do the task. Among actions considered as
+a result of the intending that, individuals may volunteer to perform the unreconciled task,
+or persuade/order others to take over the task.
+Third, individuals or subgroups may not have attained appropriate mutual beliefs for
+forming an FSP, leading to communication within the team. Communication may also
+arise due to agents' \intention that" attitude both towards their team goal and towards
+teammates' activities. For instance, a team member's intention that its team do an action i ,
+and its belief that communication of some particular information will enable the team to do
+i , will lead it to communicate that information to the team (as long as such communication
+does not con ict with previous commitments).
+
+3.3 The In uence of Teamwork Theories on STEAM
+
+In STEAM, joint intentions are used as building blocks of teamwork. Several advantages
+accrue due to this use. First, the commitments in a joint intention begin to provide a
+principled framework for reasoning about coordination and communication in teamwork.
+Thus, this framework begins to address teamwork failures such as those in Figure 5. Second,
+the joint commitments in joint intentions provide guidance for monitoring and maintenance
+of a team activity, i.e., agents should monitor conditions that cause the team activity to
+be achieved or unachievable or irrelevant, and maintain the team activity at least until one
+of these conditions arises. Third, a joint intention leads to an explicit representation of a
+team activity, and thus facilitates reasoning about teamwork. In particular, as shown later,
+agents can reason about the relationship between their team activity and an individual's or
+subteam's contributions to it.
+However, a single joint intention for a high-level team goal is insucient to provide
+all of these advantages. To guarantee coherent teamwork, four additional issues must be
+addressed. Here, the SharedPlans theory helps in analysis of STEAM's approach, and in
+one case, STEAM directly borrows from SharedPlans. A key observation is that analogous
+93
+
+Tambe
+
+to partial SharedPlans, STEAM builds up snapshots of the team's mental state, but via
+joint intentions.
+The rst issue involves coherence in teamwork | team members must pursue a common
+solution path in service of their joint intention for the high-level team goal . Indeed, as
+Jennings (1995) observes, without such a constraint, team members could pursue alternative
+solution paths that cancel each other, so no progress is made towards . The SharedPlan
+theory addresses such coherence by stepping beyond the team members' \intentions that"
+towards . In addition, SharedPlans mandates mutual belief in a common recipe (even if
+partial) and SharedPlans for individual steps i in the common recipe, thus generating a
+recursive hierarchy to ensure coherence.
+STEAM's approach here parallels that of SharedPlans; however, it builds on joint intentions rather than SharedPlans. That is, STEAM uses joint intentions as a building block
+to hierarchically build up the mental attitude of individual team members, and ensure that
+team members pursue a common solution path. In particular, as mentioned earlier, in
+dynamic domains, given reactive plans, a recipe R may evolve step by step during execution. In STEAM, as the recipe evolves, if a step i requires execution by the entire team,
+STEAM requires that the entire team agree on i , and form joint intentions to execute it.
+To execute a substep of i , other joint intentions are formed, leading to a hierarchy. During
+the expansion of this hierarchy, if a step involves only a subteam then that subteam must
+form a joint intention to perform that step. If only an individual is involved in the step, it
+must form an intention to do that step. In general, the resulting intention hierarchy evolves
+dynamically, depending on the situations the team encounters.
+Second, Grosz and Kraus (1996) discuss the tradeo s in the amount of information team
+members must maintain about teammates' activities, particularly when a step i involves
+only a subteam, or an individual. Grosz and Kraus address this tradeo in SharedPlans
+as shown in step 3b in Section 3.2, requiring that team members know only that a recipe
+exists to enable a teammate(s) to perform its actions, but not the details of the recipe.
+Similarly, STEAM requires that in case a step i is performed by a subteam (or just an
+individual team member), remaining team members track the subteam's joint intention (or
+the relevant team member's intention) to perform the step. This intention tracking need
+not involve detailed plan recognition, e.g., as in our previous work (Tambe, 1995, 1996).
+Instead, a team member must only be able to infer that its teammates intend (or cannot
+or do not intend) to execute the step i . This minimal constraint is necessary because
+otherwise, team members may be unable to monitor the current status of the team activity,
+e.g., that their team activity has fallen apart. In addition, some information about the
+dependency relationship among team members' actions is useful in monitoring, as discussed
+in Section 4.2.
+A third issue is the analogue of the \unreconciled" case in SharedPlans. STEAM forms
+a joint intention to replan whenever a team's joint intention for a step i is seen to be
+unachievable. Replanning may lead the team to rst analyze the cause of the initial unachievability. Among other possibilities, the cause could be the absence of assignment of
+a subtask to a subteam or individual, or the failure of the relevant individual or subteam
+in performing the subtask. In such a case, each team member acts to determine the appropriate agent or subteam for performing the relevant task. As a result, an agent can
+volunteer itself, or suggest to other individuals or subteams to perform the unassigned task.
+94
+
+Towards Flexible Teamwork
+
+Of course, the unachievability may be the result of other causes besides lack of assignment;
+replanning must then address this other cause (further discussion in Section 4.2).
+A nal issue is generalization of STEAM's communication capabilities via a hybrid approach that combines the prescriptions of the joint intentions approach with some aspects
+of SharedPlans. A key observation based on (Grosz & Kraus, 1996) is that the communication in joint intentions could potentially be arrived at in SharedPlans via axioms de ning
+intention that. For instance, consider that a team member has obtained private information about the achievement of the team's current team action 1 . In joint intentions, this
+team member will seek to attain mutual belief in the achievement of 1 , leading to communication. In contrast, in SharedPlans, the team member's communication would arise
+because: (i) it intends that the team do some action 2 which follows 1 , and (ii) the team
+cannot do 2 without all team members being aware of achievement of 1 . Thus, further
+rst principles reasoning, based on interrelationships among actions, is required to derive
+relevant communication in SharedPlans; but in this instance, joint intentions provide for
+such communication without the reasoning.
+In general, if the team's termination of one action 1 is essential for the team to perform
+some following action 2 , the prescription in joint intentions | to attain mutual belief in
+termination of team actions | is adequate for relevant communication. However, in some
+cases, additional communication based on speci c information-dependency relationships
+among actions is also essential. For instance, the scouts in the Attack domain not only
+inform all company members of completion of their scouting activity (so the company can
+move forward), but also the precise coordinates of enemy location to enable the company
+to occupy good attacking positions (information-dependency). Such communication could
+also be potentially derived from the axioms of intention that in SharedPlans, but at the
+cost of further reasoning.
+STEAM does not rely on the rst-principles reasoning from intention that for its communication, relying on the prescriptions of joint intentions instead. However, STEAM exploits
+explicit declaration of information-dependency relationships among actions, for additional
+communication. Thus, when communicating the termination of a team action i , STEAM
+checks for any inferred or declared information-dependency relationships with any following
+action j . The information relevant for j is also communicated when attaining mutual
+belief in the termination of i . As a result, based on the speci c information-dependency
+relationship speci ed, di erent types of information are communicated, when terminating
+i . Thus, the scouts can communicate the location of enemy units when communicating
+the completion of their scouting { given the information-dependency relationship with the
+planning of attacking positions. If no such relationship is speci ed, or if other relationships
+are speci ed, the scouts would communicate di erent information.
+STEAM thus starts with joint intentions, but then builds up hierarchical structures
+that parallel the SharedPlans theory, particularly, partial SharedPlans. The result could
+be considered a hybrid model of teamwork, that borrows from the strengths of both joint
+intentions (formalization of commitments in building and maintaining joint intentions) and
+SharedPlans (detailed treatment of team's attitudes in complex tasks, as well as unreconciled tasks). This is of course not the only possible hybrid. As mentioned earlier, further
+exploration in the space of teamwork models is clearly essential.
+95
+
+Tambe
+
+4. STEAM
+STEAM's basis is in executing hierarchical reactive plans, in common with architectures
+mentioned in Section 1. The novel aspects of STEAM relate to its teamwork capabilities.
+The key novelty in STEAM is team operators (reactive team plans). When agents developed
+in STEAM select a team operator for execution, they instantiate a team's joint intentions.
+Team operators explicitly express a team's joint activities, unlike the regular \individual
+operators" which express an agent's own activities. In the hierarchy in Figure 6, operators
+shown in [] such as [Engage] are team operators, while others are individual operators.
+Team activities such as travelling overwatch or waiting while battle position scouted are now
+easily expressed as team operators, as shown in Figure 6, with activities of individuals or
+subteams expressed as children of these operators. (Team operators marked with \*" are
+typically executed by subteams in this domain.)
+[ EXECUTE−MISSION ]
+[ Fly−flight−plan ]
+
+............
+
+[ Engage ]
+
+............
+
+[Fly−control
+]
+route
+
+High
+level
+
+Low Contour
+NOE
+level
+
+High
+level
+
+............
+
+[Travelling
+] [Travelling
+Lead
+Cover ]
+*
+
+Low Contour
+NOE
+level
+
+............
+
+wait−for
+&
+Scout
+scouting
+[ Mask
+[
+Observe ]
+forward ]
+*
+*
+
+Employ
+weapons
+
+[ Travelling
+Overwatch ]
+
+[ Travelling ]
+
+[ Wait−while−
+battle−position−scouted ]
+
+Unmask
+
+*
+
+Mask
+
+............
+
+............
+
+Employ−
+missile
+............
+
+popup
+
+Initialize Maintain Select− Goto−new
+mask−location Dip
+hover
+position Mask
+
+Figure 6: Attack domain: Portion of modi ed operator hierarchy with team operators.
+As with individual operators, team operators also consist of: (i) precondition rules; (ii)
+application rules; and (iii) termination rules. Whether an operator is a team operator or
+an individual operator is dynamically determined. In particular, when an agent  i invokes
+an operator for execution, the operator is annotated with an \executing agent", which may
+be dynamically determined to be an individual, or subteam, or a team. If the \executing
+agent" is a particular team or subteam, the operator is determined to be a team operator.
+If the \executing agent" is the agent  i itself, then an individual operator results. Thus,
+precise team executing a team operator is not compiled in, but can be exibly determined
+at execution time. Figure 6 thus illustrates the con guration of operators that is typical in
+the Attack domain.
+Given an arbitrary team operator OP, all team members must simultaneously select OP
+to establish a joint intention (joint intention for OP will be denoted as [OP] ). In Figure
+6, at the highest level, the team forms a joint intention for [execute-mission] . In service of
+this joint intention, the team may form a joint intention [engage]. In service of [engage],
+individual team members all select individual operators to employ-weapons, thus forming
+individual intentions. An entire hierarchy of joint and individual intentions is thus formed
+when an agent participates in teamwork.
+96
+
+Towards Flexible Teamwork
+
+A STEAM-based agent maintains its own private state for the application of its individual operators; and a \team state" to apply team operators. A team state is the agent's
+(abstract) model of the team's mutual beliefs about the world, e.g., in the Transport domain, the team state includes the coordinates of the landing zone. The team state is usually
+initialized with information about the team, such as the team members in the team, possible
+subteams, available communication channels for the team, the pre-determined team leader
+and so forth. STEAM can also maintain subteam states for subteam participation. There
+is of course no shared memory, and thus each team member maintains its own copy of the
+team state, and any subteam states for subteams it participates in. To preserve the consistency of a (sub)team state, one key restriction is imposed for modi cations to it | only
+the team operators representing that (sub)team's joint intentions can modify it. Thus, the
+state corresponding to a subteam can only be modi ed in the context of a joint intention
+[OP] .
+Thus, at minimum, STEAM requires the following modi cations to the architectures
+such as Soar, RAP, PRS and others mentioned in Section 1 to support teamwork: (i) generalization of operators (reactive plans) to represent team operators (reactive team plans);
+(ii) representation of team and/or subteam states, and (iii) restrictions on team state modi cations (only via appropriate team operators). While these team operators and team
+states are at the foundation of STEAM, as a general model of teamwork, STEAM also
+involves agents' commitments in teamwork, monitoring and replanning capabilities, and
+more. Hard-wiring this entire teamwork model within the agent architectures could potentially lead to unnecessary rigidity in agent behaviors. Instead, the STEAM model is
+maintained as a domain-independent, operational module (e.g., in the form of rules) to
+guide agents' behaviors in teamwork. In the future, appropriate generalizations of these
+capabilities could begin to be integrated in agent architectures.
+The following subsections now discuss key aspects of STEAM in detail. Section 4.1
+discusses team operator execution in STEAM. Section 4.2 describes STEAM's capabilities
+for monitoring and replanning. Detailed pseudo-code for executing STEAM appears in
+Appendix A.
+
+4.1 Team Operator Execution
+
+To execute a team operator, agents must rst establish it as a joint intention. Thus, when
+a member selects a team operator for execution, it rst executes the establish commitments
+protocol described below (introduced in Section 3.1):
+1. Team leader broadcasts a message to the team  to establish PWAG to operator OP. Leader
+now establishes PWAG. If [OP] not established within time limit, repeat broadcast.
+2. Subordinates  i in the team wait until they receive leader's message. Then, turn by turn,
+broadcast to  establishment of PWAG for OP; and establish PWAG.
+3. Wait until 8  i,  i establish PWAG for OP; establish [OP] .
+
+With this establish commitment protocol, agents avoid problems of the type where just
+one member ies o to the battle position (item 3, Figure 5). In particular, a team member
+cannot begin executing the mission without rst establishing a joint intention [executemission] . During execution of the establish commitment protocol, PWAGs address several
+97
+
+Tambe
+
+contingencies | if an OP is believed achieved, unachievable or irrelevant prior to [OP] ,
+agents inform teammates. Other contingencies are also addressed, e.g., even if a subordinate
+initially disagrees with the leader, it will conform to the leader's broadcasted choice of
+operators. In general, resolving disagreements among team members via negotiation is a
+signi cant research problem in its own right (Chu-Carroll & Carberry, 1996), which is not
+addressed in STEAM. Instead, currently STEAM relies on a team leader to initiate the
+request, and thus resolve disagreements.
+After establishing a joint intention [OP] , a team operator can only be terminated by
+updating the team state (mutual beliefs). This restriction on team operator termination
+avoids critical communication failures of the type where the commander returned to homebase alone | instead, agents must now inform teammates when terminating team operators.
+Furthermore, with each team operator, multiple termination conditions may be speci ed,
+i.e., conditions that make the operator achieved, unachievable or irrelevant. Now, if an
+agent's private state contains a belief that matches with a team operator's termination
+condition, and such a belief is absent in its team state, then it creates a communicative
+goal, i.e., a communication operator. This operator broadcasts the belief to the team,
+updating the team state, and then terminating the team operator.
+As mentioned earlier, during teamwork, an agent may be a participant in several joint
+intentions, some involving the entire team, some only a subteam. Thus, an agent may be
+participating in a joint intention involving the entire company, such as [execute-mission] ,
+as well as one involving just a subteam, such as [mask-and-observe] . When the termination condition of a speci c team operator is satis ed, a STEAM-based agent will aim to
+attain mutual belief in only the relevant subteam or team, e.g., facts relevant to [mask-andobserve] may only be communicated among .
+During the broadcast of the communication message, STEAM checks for informationdependency relationships with any following tasks; if one exists, relevant information is
+extracted from the current world state and broadcast as well. The information-dependency
+relationship may be speci ed individually per speci c termination condition. For instance,
+suppose a company member  4 sees some enemy tanks on the route while ying to home
+base. It recognizes that this fact causes the team's current joint intention [ y- ight-plan]
+to be unachievable. If this fact is absent in the team state, then a communication operator
+is executed, resulting in a message broadcast indicating termination of the y- ight-plan
+team operator. In addition, STEAM uses the explicitly speci ed information-dependency
+relationship with a following operator evade to extract the x,y location and direction of the
+tank. As a result, the following communication is generated:
+ 4 terminate-JPG y- ight-plan evade tank elaborations 61000 41000 right.
+
+This message identi es the speaker ( 4), and informs team members to terminate [ yight-plan] in order to evade a tank. Thus,  4 informs others; it does not evade tanks
+on its own. The part of  4's message that follows the key word elaborations is due to the
+information-dependency relationship. This information | the x,y location and direction of
+the tank | enables team members to evade appropriately. Separating out the information98
+
+Towards Flexible Teamwork
+
+dependency component in this fashion provides additional communication exibility, as
+explained earlier in Section 3.3.6
+
+4.2 Monitoring and Replanning
+
+One major source of teamwork failures, as outlined in Section 2, is agents' inability to
+monitor team performance. STEAM facilitates such monitoring by exploiting its explicit
+representation of team operators. In particular, STEAM allows an explicit speci cation of
+monitoring conditions to determine achievement, unachievability or irrelevancy of team operators. In addition, STEAM facilitates explicit speci cation of the relationship between a
+team operator and individuals' or subteam's contributions to it. STEAM uses these speci cations to infer the achievement or unachievability of a team operator. These speci cations
+are based on the notion of a role. A role is an abstract speci cation of the set of activities
+an individual or a subteam undertakes in service of the team's overall activity. Thus, a role
+constrains a team member  i (or a subteam ) to some suboperator(s) opi of the team
+operator [OP] . For instance, suppose a subteam is assigned the role of a scout in the
+Attack domain. This role constrains the subteam to execute the suboperator(s) to scout
+the battle position in service of the overall team operator wait-while-battle-position-scouted
+(see Figure 6).
+Based on the notion of roles, three primitive role-relationships (i) AND-combination
+(ii) OR-combination and (iii) Role-dependency can currently be speci ed in STEAM. These
+primitive role-relationships | called role-monitoring constraints | imply the following
+relationships between a team operator [OP] and its suboperators:
+
+V
+
+1. AND-combination: [OP] () ni=1 opi
+W
+2. OR-combination: [OP] () ni=1 opi
+3. Role dependency: opi =) opj (opi dependent on opj )
+
+These primitive role-monitoring constraints may be combined, to specify more complex relationships. For instance, for three agents  i,  j and  k, with rolesW opi , op
+j and
+V
+opk , a combination AND-OR role relationship can be speci ed as ((opi opj ) opk ).
+STEAM-based agents can now infer that the role non-performance of  k (:opk ) makes
+OP unachievable; but the role non-performance of just one of  i or  j is not critical to
+OP . Similarly, for two agents
+W  i and
+V  j, both an OR-combination plus role-dependency
+may be speci ed as ((opi opj ) (opi =) opj )). Role monitoring constraints may
+be speci ed in terms of individuals' roles, or subteam's roles.
+The mechanisms for tracking teammates' role performance or inferring their role nonperformance is partly domain dependent. As mentioned in Section 3.3, in some domains,
+an agent need not know its teammate's detailed plan or track that in detail, but may rely
+on high-level observations. For instance, in the Attack domain, if a helicopter is destroyed,
+team members infer role non-performance for the a ected team member. In other cases,
+such as the RoboCup Soccer domain, no such high-level indication is available. Instead,
+6. In the future, to enable STEAM-based agents to communicate with non-STEAM-based agents, a generic
+communication language may be necessary. While generating natural language is currently outside the
+scope of STEAM, STEAM does not preclude such a possibility. Alternatively, an arti cial communication
+language, such as (Sidner, 1994) may be used.
+
+99
+
+Tambe
+
+agents need to obtain role performance information via agent tracking (plan recognition)
+(Tambe, 1995, 1996), e.g., is a player agent in the RoboCup simulation dashing ahead to
+receive a pass? Communication may be another source of information regarding role nonperformance. First, as discussed below, STEAM leads individuals to announce role-changes
+to the team, and thus other team members indirectly infer role-performance information.
+Second, as discussed in Section 5.1, STEAM may lead individuals to directly communicate
+their role non-performance. Additionally, a few domain-independent mechanisms for inferring role performance are provided in STEAM. Thus, role non-performance is inferred if no
+individual or subteam is speci ed for performance of a role (as in item 5, Figure 5). Also,
+if all individuals within a subteam are found incapable of performing their roles, STEAM
+infers the entire subteam cannot perform its role.
+If, based on the role-monitoring constraints and the role performance information about
+teammates, STEAM infers team operator [OP] to be unachievable, it invokes [repair] for
+replanning. By casting repair as a team operator, agents automatically ensure the entire
+team's commitment for their replanning (the entire team is a ected if [OP] is unachievable). Furthermore, agents inform teammates not only about possible repair results, but
+also repair unachievability or irrelevancy. The actions taken in service of [repair] depend
+on the context. If [repair] was invoked due to [OP] 's domain-speci c unachievability
+conditions, domain-speci c repair is triggered. In contrast, if [repair] was invoked due to
+role-monitoring constraint failures, STEAM leads each agent to rst analyze the failure.
+The analysis may reveal a critical role failure | a single role failure causing the unachievability of [OP] | which may occur in an AND-combination if any agent or subteam fails
+in its role; or an OR-combination when all team members are role-dependent on a single individual or a single subteam. For instance, when agents are ying in formation via
+[travelling] (OR-combination), everyone is role-dependent on the lead helicopter. Thus,
+should the lead crash, a critical role failure occurs.
+The action taken in cases of a critical role failure is team recon guration, to determine
+a team member, or subteam, to substitute for the critical role. As mentioned earlier, this
+situation corresponds to the \unreconciled case" in SharedPlans, discussed in Section 3.2.
+The steps taken in STEAM in this case are as follows:
+1. Determine candidates for substitution: Each team member rst matches it own capabilities
+or those of other agents or subteams with the requirements of the critical role. Matching
+currently relies on domain-speci c knowledge. Of course, agents or subteams that are the
+cause of the critical role failure cannot be candidates for substitution.
+2. Check for critical con icting commitments: Once an agent determines possible candidate(s),
+including itself, it checks for con icts with candidate's existing commitments to the team. If
+these commitments are already critical, the candidate is eliminated from consideration. For
+instance, if the candidate is a participant in a team operator which is an AND-combination,
+its responsibilities to the team are already critical | even if it possesses relevant capabilities,
+it cannot take over the role in question. Similarly, the candidate is ruled out if all other team
+members are role-dependent on it.
+3. Announce role-substitution to the team: Candidate(s) not ruled out in step 2 can substitute
+for the role. This could mean an individual volunteering itself, or a team leader volunteering
+its subteam for the critical role. Since [repair] is a team operator, and since role-substitution
+implies its achievement, any role-substitution is announced to .
+100
+
+Towards Flexible Teamwork
+
+4. Delete non-critical con icting commitments: After assuming the new role in the team activity,
+the relevant individual or subteam members delete their old roles and old commitments.
+
+In the Attack domain, team members can follow the above procedure when recovering
+from critical role failures such as item 5 in Figure 5. There, since a scouting subteam is
+not speci ed, and the relevant operator wait-while-battle-position-scouted involves an ANDcombination of the scouting role with the non-scouts, a critical role failure occurs. A
+subteam in the rest of the company is located to possess the capabilities of scouting. The
+leader of this subteam determines that it can volunteer its subteam for scouting, and announces this change in role to the rest of the team. Members of this subteam then delete
+con icting commitments. [wait-while-battle-position-scouted] is now executed with this
+new role assignment. (Since such new role assignments are con ned to the local context of
+individual team operators, and since step 2 explicitly checks for critical con icts, they do
+not lead to any global side-e ects.)
+The entire repair procedure above can invoked in the context of a subteam , rather than
+the team . In this case, [repair] will be invoked as a team operator. STEAM follows
+an identical repair procedure, in this case enabling individuals or sub-subteams to take
+over particular critical roles. Furthermore, any repair communication here is automatically
+restricted within .
+In case the failure is a pure role dependency failure, only a single dependent agent  i
+is disabled from role performance (because opi =) opj ). Here,  i must locate another
+agent  k such that opi =) opk . Role dependency failure could involve a subteam i
+instead of an individual; and the subteams engage in an identical repair.
+If failure type is all roles failure, no agent performs its role; this state is irreparable.
+In this situation, or in case no substitution is available for a critical role, [repair] is itself
+unachievable. Since the repair of [OP] is itself unachievable, a complete failure is assumed,
+and [complete-failure] is now invoked. For instance, in the Attack domain, complete
+failure implies returning to home base. By casting complete-failure as a team operator,
+STEAM ensures that team members will not execute such drastic actions without consulting
+teammates. If only a subteam or an individual  i encounters complete-failure, they infer
+inability to perform their roles in the team 's on-going activity.
+
+5. STEAM: Selective Communication
+STEAM agents communicate to establish and terminate team operators. Given the large
+number of team operators in a dynamic environment, this communication is a very signi cant overhead (as Section 6 shows empirically), or risk (e.g., in hostile environments).
+Therefore, STEAM integrates decision-theoretic communication selectivity. Here, STEAM
+takes into consideration communication costs and bene ts, as well as the likelihood that some
+relevant information may be already mutually believed. While this pragmatic approach is
+a response to the constraints of real-world domains, it is not necessarily a violation of the
+prescriptions of the joint intentions framework. In particular, the joint intentions framework does not mandate communication, but rather a commitment to attain mutual belief.
+Via its decision-theoretic communication selectivity, STEAM attempts to follow the most
+cost-e ective method of attaining mutual belief relevant in joint intentions.
+101
+
+Tambe
+
+Figure 7 presents the decision tree for the decision to communicate a fact F, indicating
+the termination of [OP] . Rewards and costs are measured to the team, not an individual.
+The two possible actions are NC (not communicate, cost 0) or C (communicate, cost Cc).
+If the action is NC, two outcomes are possible. With probability (1- ), F was commonly
+known anyway, and the team is rewarded B for terminating [OP] . With probability  ,
+however, F was not known, and thus there is miscoordination in terminating [OP] (e.g.,
+some agents come to know of F only later). Given a penalty Cmt for miscoordination, the
+reward reduces to B-Cmt . If the action is C, assuming reliable communication, F is known.
+Rewards
+(1−
+
+NC
+
+)
+
+Cost: 0
+
+B
+
+(F unknown) B − Cmt
+
+Decision node
+Chance node
+
+(F known)
+
+C
+Cost: Cc
+
+1
+
+(F known)
+
+0
+
+(F unknown) B − Cmt
+
+B
+
+Figure 7: Decision tree for communication.
+EU(C), the expected utility of option C, is B-Cc . EU(NC) of option NC is B- *Cmt .
+To maximize expected utility, an agent communicates i EU(C) > EU(NC), i.e., i :
+  Cmt > Cc
+
+Thus, for instance, in the Attack domain, when ying with high visibility, pilot agents do
+not inform others of achievement of waypoints on their route, since  is low (high likelihood
+of common knowledge), and Cmt is low (low penalty). However, they inform others about
+enemy tanks on the route, since although  is low, Cmt is high. The communication cost
+Cc could vary depending on the situation as well, and team members may exibly reduce
+(increase) communication if the cost increases (decreases) during their team activity. Interestingly, if only a single agent is left in a team,  drops to zero, and thus, no communication
+is necessary.
+Expected utility maximization is also used for selectivity in the establish commitments
+protocol. If is the probability of lack of joint commitments, and Cme the penalty for
+executing [OP] without joint commitments from the team, then an agent communicates
+i EU(C) > EU(NC), i.e., i :
+ Cme > Cc
+
+5.1 Further Communication Generalization
+
+Further generalization in communication is required to handle uncertainty in the termination criteria for joint intentions. For instance, a team member  4 may be uncertain that an
+enemy tank seen enroute causes [ y- ight-plan] to be unachievable | the tank's threat
+may not be clearcut. Yet not communicating could be highly risky. The decision tree for
+communication is therefore extended to include  , the uncertainty of an event's threat to
+the joint intention (Figure 8). Since agents may now erroneously inform teammates to
+terminate team operators, a nuisance cost -Cn is introduced.
+102
+
+Towards Flexible Teamwork
+
+(Terminates)
+)
+
+(1−
+
+(1 −
+
+) (Not Terminate) 0
+
+NC
+
+(Terminates)
+
+Cost: 0
+
+C
+Cost: Cc
+
+(1 −
+
+(1 −
+
+0
+
+[Irrelevant]
+
+B−Cmt
+
+(Not Terminate) 0
+
+)
+
+1
+
+Rewards
+B
+
+)
+
+(Terminates)
+
+B
+
+(Not Terminate)
+
+−Cn
+
+Figure 8: Extended decision tree with  .
+Again, an agent communicates i EU(C) > EU(NC), i.e., i  * *Cmt > (Cc + (1- )Cn).
+If  is 1, i.e., a team operator has terminated, this equation reduces to |  *Cmt > Cc |
+seen previously. If  << 1, i.e., high uncertainty about termination, no communication
+results if Cn is high. Therefore, the decision tree is further extended to include a new
+message type | threat to joint intention | where Cn is zero, but bene ts accrued are
+lower (B - C ). This threat message maximizes expected utility when  << 1, i.e., if Cn is
+high for communicating termination, a team member communicates a threat. For instance,
+a threat message is used if an agent fails in its own role, which is a threat to the joint
+intention. However, as before, termination messages are used when  = 1, where they
+maximize expected utility.
+
+5.2 Estimating Parameters ( ,  , )
+
+As a rst step, STEAM only uses qualitative (low, high, medium) parameter values. STEAM
+estimates likelihood of lack of joint commitments , via team tracking (Tambe, 1996) |
+dynamically inferring a team's mental state from observations of team members' actions.
+Fortunately, rather than tracking each teammate separately, an agent  i can rely on its own
+team operator execution for team tracking. In particular, suppose  i has selected a team
+operator OP for execution, and it needs to estimate for operator OP, and its team .
+Now, if  i selected OP at random from a choice of equally preferable candidates, then its
+teammates may di er in this selection. Thus, there is clearly a low likelihood of a joint
+commitment |  i estimates to be high. However, if OP is the only choice available, then
+depends on the preceding [OP2] that  i executed with the team . ( may be just a
+singleton, i.e., OP2 may be an individual operator that  i executed alone). There are three
+cases to consider. First, if   ( is subteam of ) or  = , all members of  were
+jointly executing [OP2] . Furthermore, [OP2] could only be terminated via mutual belief
+among . Thus,  is likely to be jointly committed to executing the only next choice OP |
+is estimated low. Second, if  , some members in  were not jointly participating in
+team operator execution earlier; hence is estimated high. Third, if no operator precedes
+OP, e.g., OP is rst in a subgoal, then is estimated low.
+While agents usually infer matching estimates of , sometimes, estimates do mismatch.
+Therefore, STEAM integrates some error recovery routines. For instance, if an agent  i
+103
+
+Tambe
+
+estimates to be low, when others estimate it high,  i starts executing the team operator,
+and only later receives messages for establishing joint commitments.  i recovers by stopping
+current activities and re-establishing commitments. In contrast, if  i mis-estimates to be
+high, it unnecessarily waits for messages for establishing commitments. STEAM infers such
+a mis-estimation via reception of unexpected messages; it then conducts a lookahead search
+to catch up with teammates.
+To estimate  (the probability that a fact is not common knowledge), STEAM assumes
+identical sensory capabilities for team members, e.g., if some fact is visible to an agent,
+then it is also visible to all colocated teammates. However, at present, domain knowledge
+is also required to model information media such as radio channels, in estimating  .  ,
+the probability of an event's threat to a joint intention, is estimated 1 if a fact matches
+speci ed termination conditions. Otherwise role monitoring constraints are used, e.g., in
+an OR-combination,  is inversely proportional to the number of team members. The cost
+parameters, Cmt , Cme , and Cc are assumed to be domain knowledge.
+
+6. Evaluation
+STEAM is currently implemented within Soar via conventions for encoding operators and
+states, plus a set of 283 rules. Essentially these rules help encode the algorithm in Appendix A; some sample rules are presented in Appendix B. STEAM has been applied in the
+three domains mentioned earlier: Attack, Transport and RoboCup. Table 1 provides some
+information about the three domains. Column 1 lists the three domains. Column 2 lists
+the maximum number of agents per team in each domain. Column 3 shows the possible
+variations in the sizes of the team. Thus, in the Attack and Transport domains, the team
+sizes may vary substantially; but not so in RoboCup. Column 4 shows the number of levels
+in the team organization hierarchy (e.g., the team-subteam-individual hierarchy is a three
+level hierarchy). Column 5 shows the maximum number of subteams active at any one time.
+Domain Max team Team size
+Levels in
+Maximum num
+name
+size
+varation team hierarchy
+subteams
+Attack
+8
+2-8
+3
+2
+Transport
+16
+3-16
+4
+5
+RoboCup
+11
+11
+3
+4
+Table 1: The organizational hierarchy in the three domains.
+STEAM's application in these three domains provides some evidence of its generality.
+In particular, not only do these domains di er in the team tasks performed, but as Table
+1 illustrates, the domains di er substantially in the team sizes and structure. The rest of
+this section now uses the three domains in detailed evaluation of STEAM using the criteria
+of overall performance, reusability, teamwork exibility, communication eciency, as well
+as e ort in encoding and modifying teamwork capabilities.
+104
+
+Towards Flexible Teamwork
+
+6.1 Overall Performance
+
+One key evaluation criterion is the overall agent-team performance in our three domains.
+Ultimately, STEAM-based agent teams must successfully accomplish their tasks, within
+their given environments, both eciently and accurately. This is a dicult challenge in
+all three domains. Certainly, the Attack and Transport domains involve complex synthetic
+military exercises with hundreds of other agents. Furthermore, in these domains, the domain
+experts (expert human pilots) de ne the pilot teams' missions (tasks), rather than the
+developers. STEAM-based pilot teams have so far successfully met the challenges in these
+domains | they have successfully participated in not one, but about 10 such synthetic
+exercises, where the domain experts have issued favorable written and verbal performance
+evaluations.
+In the RoboCup domain, our player team must compete e ectively against teams developed by other researchers worldwide. At the time of writing this article, our player team
+easily wins against the winner of the pre-RoboCup'96 competition. However, all teams continue to evolve, and researchers continue to eld new sophisticated teams. One key test for
+all the teams in the near future is the RoboCup'97 tournament at the International Joint
+Conference on Arti cial Intelligence (IJCAI), Nagoya, Japan, in August 1997.
+
+6.2 Reuse of Teamwork Capabilities
+
+STEAM's inter-domain and intra-domain reusability is approximately measured in Table
+2. Column 1 once again lists the three di erent domains of STEAM's application. Column
+2 lists the total number of rules per agent per domain | which include the rules that
+encode the domain knowledge acquired from domain experts as well as STEAM rules |
+illustrating complexity of the agents' knowledge base. The number of STEAM rules used
+in these domains is listed in Column 3. Column 4 measures percent reuse of STEAM rules
+across domains. (No reuse is shown in STEAM's rst domain, Attack). There is 100%
+reuse in Transport, i.e., no new coordination/communication rules were written | a major
+saving in encoding this domain. RoboCup, in its initial stages, has lower reuse. Here, due
+to weakness in spatial reasoning and tracking, agents fail to recognize other team's play, or
+even own teammates' failures (e.g., in executing a pass), hampering the reuse of rules for
+role-monitoring constraints, repair and threat detection. With improved spatial reasoning
+and tracking, reuse may improve in the future. Column 5 lists the total number of team
+operators speci ed per domain, illustrating signi cant intra-domain reuse | essentially, for
+each team operator, STEAM's entire teamwork capabilities are brought to bear.
+Domain Total rules STEAM rules STEAM reuse Team operators
+Attack
+1575
+283
+rst-use
+17
+Transport
+1333
+283
+100%
+14
+RoboCup
+454
+110
+38%
+11
+Table 2: STEAM reusability data.
+105
+
+Tambe
+
+6.3 Flexibility in Teamwork
+
+Teamwork exibility is closely related with the measures of overall performance and reusability. Since STEAM's entire teamwork capabilities are brought to bear in executing team
+operators in all of the domains, there are signi cant improvements in teamwork exibility.
+For instance, in benchmark runs of Attack, almost all of the teamwork failures from our
+earlier implementation are avoided. Certainly, all of the failures in Figure 5 are addressed:
+ Items 1 and 7 are addressed because agents must now attain mutual belief in the
+achievement, unachievability or irrelevancy of team operators. Thus, in item 1, the
+commander now attains mutual belief that the helicopter company has completed its
+engagement with the enemy; while in item 7, the irrelevancy of planning a bypass
+route is communicated to the company.
+ Items 3 and 6 are addressed because agents now act jointly by rst ensuring the
+establishment of joint commitments before executing their roles. For instance, a team
+member does not begin executing the mission as soon as it processes its orders (item
+3); rather, it acts jointly with the team, after the team establishes joint commitments
+to execute the mission.
+ Items 2, 4 and 5 are addressed because the team operator wait-while-battle-positionscouted is speci ed to be an AND-combination of the role of the scouts and the
+non-scouts. Thus, unachievability of team operators is detected, since either the
+scouts or the non-scouts cannot perform their role, or the scouting-role assignment is
+unspeci ed. In items 2 and 4 no repairs are possible, but at the least the company
+infers a \complete-failure" and returns to home base, instead of waiting inde nitely.
+In item 5, the unassigned role again leads to unachievability, but repair is possible
+because one of the remaining subteams can take over the role of the scout.
+ Item 8 is addressed since the relevant operator engage is now explicitly de ned as a
+team operator with an OR-combination of members' roles. Thus, based on communication from team members, team members' can infer its unachievability.
+ Item 9 is addressed because in the establish-commitments protocol, the leader will
+repeat its message if a response is not heard within time limit. However, in general,
+attaining mutual belief given the possibility of uncertain communication channels is
+a notoriously dicult challenge (Halpern & Moses, 1990); and this remains an issue
+for future work.
+As a further illustration of teamwork exibility in STEAM, we created six variations in
+the environmental conditions facing the Attack company of helicopter pilots. Each condition
+required the pilot team to exibly modify its communication to maintain coherence in
+teamwork. The six variations are:
+1. Condition 1: This is the baseline \normal" condition.
+2. Condition 2: Although similar to condition 1, we assume in addition that certain radio
+frequencies/channels which were previously separated, are now common. In particular, messages previously assumed to be privately delivered to only the commander
+agent from its superiors, are now also made available to the other team members.
+106
+
+Towards Flexible Teamwork
+
+3. Condition 3: Although similar to condition 2, the communication cost is raised from
+\low" to \medium".
+4. Condition 4: Although similar to condition 3, we assume in addition that the helicopter team has only a medium priority for ensuring simultaneous attack on the
+enemy.
+5. Condition 5: Here, we once again start with the baseline of condition 1, but assume
+poor visibility in addition. Thus, agents may not accurately estimate their distances.
+6. Condition 6: In addition to condition 5, here, the company has some exibility in
+reaching the battle position. The company is provided with the option of halting at
+certain key locations, rather than continuing to y.
+The decision-theoretic framework in STEAM enables agents to exibly respond to the
+above conditions. Figure 9 plots the number of messages exchanged among team members
+for each of the six conditions. The total number of messages in three teams | balanced,
+cautious and reckless | are compared. Balanced agents fully exploit the decision theory
+framework, and thus illustrate STEAM's exibility. Cautious agents always communicate,
+ignoring the decision theory framework. Reckless agents communicate very little (only if
+high Cmt, Cme ). Of course, truly reckless agents would likely not communicate at all, so
+this de nition is relaxed here. All three teams work with identical cost models, Cc, Cmt,
+and Cme . The number of agents were xed in this experiment to four, so all three teams
+| cautious, balanced and reckless | could be run (as discussed in the next section, it is
+dicult to run the cautious team with further increase in team size).
+Focusing rst on the balanced team, it was able to perform its mission under all six
+conditions, by exibly decreasing or increasing the number of messages in response. The
+rst set of conditions (conditions 2 through 4) illustrate that the balanced team can reduce
+its communication in response to the situation faced, e.g., increase in communication cost.
+However, under conditions 5 and 6, the balanced team can also increase its communication
+to address the uncertainties. For instance, with condition 5, knowledge of poor visibility
+automatically leads team members to explicitly communicate achievement of waypoints
+on their route. In addition, with condition 6, the team has to communicate to establish
+commitments when deciding to halt or to y forward.
+The cautious team was also able to perform the mission under all six conditions, but it
+relies on many more messages and remains insensitive to conditions 2-4 that should result
+in fewer messages. Indeed, its exchange of 10-20 fold more messages than the balanced
+team to perform an identical task is not only a waste of precious communication resources,
+but can create risks for the team in hostile environments. (The next subsection will discuss
+the issue of communication eciency in more detail.) The reckless team does communicate
+fewer messages, but it fails to perform its basic mission. Even in the rst normal case,
+this helicopter company gets stuck on the way to the battle position, since a message with
+medium Cmt but high  is not communicated. Interestingly, the number of messages increase
+in the reckless team under conditions 2-4. This is because condition 2 allows the reckless
+team to avoid getting stuck before reaching the battle position. (In fact, this condition was
+designed to get the reckless team unstuck.) Since the reckless team can now perform more of
+107
+
+Tambe
+
+Number of messages
+
+350
+300
+250
+200
+
+"balanced-u"
+"cautious-u"
+"reckless-u"
+
+150
+100
+50
+0
+1
+
+2
+3
+4
+5
+Types of uncertainties
+
+6
+
+Figure 9: Change in communication with additional uncertainties.
+the mission | reaching its battle position | more messages are exchanged. Unfortunately,
+some key messages are still not exchanged, leaving team members stranded in the battle
+position.
+
+6.4 Communication Eciency
+
+Communication eciency is critical in teamwork, particularly with scale-up in team size, else
+communication overheads can cause signi cant degradation in team performance. Figure
+10 and 11 attempt to measure the communication overhead of teamwork, and the usefulness
+of STEAM's decision-theoretic communication selectivity in lowering the overhead, particularly for a scale-up in team size. Both the gures compare the total number of messages
+in the three teams introduced above | balanced, cautious and reckless | with increasing
+numbers of agents per team. In the interest of a fair comparison, the total computational
+resources available to each team were kept constant (a single SUN Ultra1). While this
+limits the maximum team size that could be run, the results shown below are suciently
+illustrative in terms of scale-up.
+Figure 10 focuses on the Attack domain. Decision-theoretic selectivity enables the balanced team to perform well with few messages | this team is regularly elded in synthetic
+exercises. The cautious team exchanges 10 to 20-fold or more messages than the balanced
+team | a substantial communication overhead. Indeed, beyond six agents, the simulation
+with cautious team could not be run in real time.7 Reckless agents in this case do not
+exchange any messages at all.
+Figure 11 focuses on the Transport domain; once again comparing the performance of
+cautious, balanced and reckless teams for increasing numbers of agents in the team. Once
+again, decision-theoretic selectivity enables the balanced team to perform well with few
+messages | this team is regularly elded in synthetic exercises. The cautious team once
+again incurs a signi cant overhead of 10 to 20-fold or more messages than the balanced
+7. The earlier experiments in Section 6.3 were run with four agents per team, so that the cautious team
+could be run in real-time.
+
+108
+
+Number of messages
+
+Towards Flexible Teamwork
+
+500
+450
+400
+350
+300
+250
+200
+150
+100
+50
+0
+
+"balanced"
+"cautious"
+"reckless"
+
+2
+
+3
+4
+5
+6
+7
+Number of agents in team
+
+8
+
+Figure 10: Attack domain: selective communication. Reckless team exchanges no messages
+and hence that plot overlaps with the x-axis.
+team. Here, beyond seven agents, the simulation with the cautious team could not be
+run in real time. Interestingly, in the test scenario for this experiment, the reckless team
+is able to perform the mission appropriately even though this team exchanges just 1-2
+messages, far fewer than the balanced team. To a certain extent, this result illustrates the
+potential for improving the decision-theoretic selectivity in the balanced team. However,
+when the test scenario for this experiment was changed, so that the transports arrived late
+at the rendezvous point, the balanced team was able to continue to perform the mission
+appropriately. However, the reckless team now performed inappropriately, highlighting the
+risk in the reckless approach.
+Number of messages
+
+300
+250
+200
+150
+"balanced-m"
+"cautious-m"
+"reckless-m"
+
+100
+50
+0
+3
+
+4
+5
+6
+7
+Number of agents in team
+
+8
+
+Figure 11: Transport domain: selective communication.
+Figure 12 illustrates the di ering communication patterns in the cautious and balanced
+teams for the Attack domain, to attempt to understand the di erence in their total com109
+
+Tambe
+
+munication. Figure 12-a plots the varying degree of collaboration (y-axis) during di erent
+phases (x-axis) in the Attack domain. Degree of collaboration is measured as the percentage
+of team operators in a pilot's operator hierarchy (which consists of team and individual operators). A low percentage implies low degree of collaboration and vice versa. The solid line
+plots the overall degree of collaboration in the team, taking into account all team operators.
+The dashed line indicates the degree of collaboration without counting team operators executed by this pilot agent's subteam | the di ering pattern in the two lines is an indication
+of the di ering degree of subteam activity. In particular, the two lines sometimes overlap
+but separate out at other times, indicating the exibility available to the subteam. The
+overall degree of collaboration is lowest in phases 18-20 (20-40%), where agents engage the
+enemy. Figure 12-b plots the percentage of total communication per phase, for cautious
+and balanced teams. For instance, the cautious team exchanges 1% of its total messages in
+phase 20. Communication percentage is correlated to the degree of collaboration per phase
+for the cautious team (coecient 0.80), but not for the balanced team (coecient -0.34).
+Essentially, unlike the cautious team, the balanced team does not communicate while their
+collaboration proceeds smoothly.
+25
+
+Percentage of messages
+
+90
+
+Degree of Collaboration
+
+80
+70
+60
+50
+40
+30
+20
+
+"team"
+"team-without-subteam"
+
+10
+
+"cautious"
+"balanced"
+
+20
+15
+10
+5
+0
+
+0
+0
+
+5
+
+10 15 20 25
+Phase Number
+
+30
+
+0
+
+35
+
+5
+
+10 15 20 25
+Phase Number
+
+30
+
+35
+
+(a) Degree of collaboration
+(b) Percentage communication
+Figure 12: Attack domain: pattern of communication
+
+6.5 Encoding and Modi cation E ort
+
+The nal evaluation criteria focus on the e ort involved in encoding and modifying agents'
+teamwork capabilities | comparing the e ort in STEAM with alternatives. The key alternative is reproducing all of STEAM's capabilities via special-case coordination plans, as in
+our initial implementation in the Attack domain. We estimate that such an e ort would
+require signi cant additional encoding e ort. For example, just to reproduce STEAM's
+selective communication capabilities, our initial implementation could potentially have required hundreds of special case operators. Consider our initial implementation in the Attack
+domain. Here, the 17 team operators in STEAM (which would only be individual operators
+in the initial implementation), would each require separate communication operators | two
+operators each to signal commitments (request and con rm) and one to signal termination
+of commitments. That is already a total of 51 (17x3). Furthermore, to reproduce selectivity,
+additional special cases would be necessitated | in the extreme case, each combination of
+values of ( , Cmt , and Cc) or ( , Cme , and Cc), could require a separate special case operator
+110
+
+Towards Flexible Teamwork
+
+(51 x total combinations, already more than a hundred). Furthermore, separate operators
+may be required depending on whether the communication occurs with the entire team or
+only a subteam. Of course, it would appear that all such special cases could be economized
+in our initial implementation by discovering generalizations | but then STEAM encodes
+precisely such generalizations to avoid the many special cases.
+An additional point of evaluation is easy of modi ability of agent team behaviors. In
+our experience, domain knowledge acquired from experts is not static | rather it undergoes
+a slow evolution. In the Attack domain, for instance, real-world military doctrine continues
+to evolve, requiring modi cations in our synthetic pilot team behaviors. In such situations,
+STEAM appears to facilitate such modi cations suggested by domain experts; at least, it
+is often not necessary to add new coordination plans. For instance, in the Attack domain,
+domain experts earlier suggested a modi cation, that the helicopter company should evade
+enemy vehicles seen enroute, rather than ying over. Here, adding a new unachievability condition for the team operator [ y- ight-plan] was sucient; STEAM then ensured
+that the pilot agents coordinated the termination of [ y- ight-plan] , even if just one arbitrary team member detected the enemy vehicles. (Of course, the evasion maneuvers, being
+domain-speci c, had to be added.)
+
+7. Related Work
+As mentioned earlier, most implementations of multi-agent collaboration continue to rely on
+domain-speci c coordination in service of teamwork (Jennings, 1994, 1995). More recently,
+however, a few encouraging exceptions have emerged (Jennings, 1995; Rich & Sidner, 1997).
+We rst brie y review these systems and then contrast them with STEAM.
+Jennings's (1995) implementation of multi-agent collaboration in the domain of electricity transportation management is also based on joint intentions | it is likely one of the rst
+implementations in a complex domain based on a general model of teamwork. He presents
+a framework called joint responsibility based on a joint commitment to the team's joint
+goal  and a joint recipe commitment to a common recipe . Two distinct types of joint
+commitments | a modi cation to the joint intentions framework | are claimed necessary
+because di erent actions are invoked when joint commitments are dropped. However, as
+a result, joint responsibility would appear to be limited to a two-level hierarchy of a joint
+goal and a joint plan, although individuals could execute complex activities in service of
+the joint plan. The joint responsibility framework is implemented in the GRATE* system,
+which appears to focus on a team of three agents. In GRATE*, teamwork proceeds with an
+organizer agent detecting the need for joint action; it is then responsible for establishing a
+team and ensuring members' commitments as required by the joint responsibility method.
+While the procedure for establishing joint commitments in STEAM is similar to GRATE*
+| including the similarity of the \leader" in STEAM to the \organizer" in GRATE* |
+STEAM does bene t from adopting PWAGs, which provides it additional exibility.
+STEAM is also related to COLLAGEN (Rich & Sidner, 1997), a prototype toolkit applied to build a collaborative interface agent for applications such as air-travel arrangements.
+COLLAGEN's origins are in the SharedPlans theory. Although the COLLAGEN implementation does not explicitly reason from the intend that attitude in SharedPlans introduced
+in (Grosz & Kraus, 1996), it does incorporate discourse generation and interpretation algo111
+
+Tambe
+
+rithms that originate in such reasoning (Lochbaum, 1994). Treating the underlying agent as
+a blackbox, COLLAGEN facilitates the discourse between a human user and the blackbox
+(intelligent agent). Several COLLAGEN features aid in such interaction, such as maintenance of a segmented interaction history.
+STEAM contrasts with COLLAGEN (Rich & Sidner, 1997) and GRATE* (Jennings,
+1995) in several important ways. First, STEAM builds on joint intentions (with some
+in uence of SharedPlans), rather than the SharedPlan approach in COLLAGEN or the
+joint responsibility approach of GRATE*. Particularly in contrast with joint responsibility,
+STEAM allows teamwork based on deep joint goal/plan hierarchies. Second, STEAM has
+the capability for role-monitoring constraints and role substitution in repairing team activities, not relevant in the other two systems. Third, STEAM has attempted scale-up in team
+size. Thus, STEAM has introduced techniques both to reduce teamwork overheads, e.g.,
+decision-theoretic communication selectivity, as well as to deal with a hierarchy of teams
+and subteams, not relevant in smaller-scale teams. STEAM also illustrates reuse across
+domains, not seen in the other two systems. Finally, rather than building a collaboration
+layer on top of an existing domain-level system or blackbox (\loose coupling"), STEAM has
+proposed tighter coupling via modi cations to support teamwork in the agent architecture
+itself, e.g., with explicit team goals and team states, and accompanying commitments. The
+determining factor here would appear to be the tightness of collaboration, e.g., a deeply
+nested, dynamic joint goal hierarchy should favor a tighter coupling.
+In our previous work (Tambe, 1997b) we presented an initial implementation of a teamwork model, also based on joint intentions. That work clearly laid the groundwork for
+STEAM, by de ning team operators, and elaborating on their expressiveness. However,
+STEAM was later developed because of (i) several problems in that work in continued development of teamwork capabilities in the Attack domain, (ii) the presence of new domains
+such as Transport, and (iii) signi cant scale-up in team sizes. Since STEAM both extends
+and substantially revises that earlier work, it is best to treat STEAM as a separate system,
+rather than an extension of that early work. STEAM also provides a conceptual advance
+in a clearer analysis and speci cation of the joint mental attitude it builds up in a team.
+In particular, via an explicit analogy to partial SharedPlans (Grosz & Kraus, 1996), this
+article has spelled out the requirement for teams and subteams to build up a hierarchy of
+joint intentions, beliefs about other team members' intentions, and joint intentions for the
+\unreconciled case". This analysis also led to a generalization of communication based on
+information-dependency.
+The following now presents a detailed comparison between STEAM and the earlier work
+(Tambe, 1997b) in terms of their capabilities. To begin with, STEAM includes an explicit
+mechanism to establish joint commitments based on PWAGs, which was unaddressed in
+previous work | so earlier, agents would implicitly, and hence sometimes incorrectly, assume the existence of joint commitments. Also, in earlier work, monitoring and repair
+was highly specialized. In particular, the mechanism provided for monitoring was based
+on comparing achievement conditions of operators; this mechanism was later discovered
+to be limited to monitoring and repair of just one pre-determined specialist role per team
+operator. Furthermore, the role-substitution was de ned via a special procedure executed
+separately by individuals. In contrast, STEAM has signi cantly generalized monitoring and
+repair via its explicit role-monitoring constraints, that enable monitoring of a much greater
+112
+
+Towards Flexible Teamwork
+
+variety of failures, e.g., the \specialist" is just one case in all of the varied role-monitoring
+constraint combinations. Furthermore, STEAM establishes a joint intention to resolve all
+failures, rather than relying on any special case procedures. This is not merely a conceptual
+advance in terms of an integrated treatment of repair, but has real behavioral implications
+in providing additional exibility embodied in the commitments in [repair] . Furthermore, STEAM's repair generalizes to subteams, addresses previous critical commitments,
+as well as unallocated tasks. In terms of practical concerns, our previous work (Tambe,
+1997b) raised the issue of communication risk in hostile environments, but suggested only a
+heuristic evaluation of communication costs and bene ts; a general purpose mechanism was
+lacking. STEAM has lled the gap with its decision theoretic framework that now considers
+various uncertainties, both for selective communication as well as enhancements in communication. Also, unlike STEAM, our earlier work did not deal with complex team-subteam
+hierarchies, and its mechanisms did not generalize to subteams. Finally, STEAM is backed
+up with detailed experimental results about both its exibility and reuse across domains, all
+outside the scope of the previous work.
+STEAM is also related to coordination frameworks such as Partial Global Planning(PGP)
+(Durfee & Lesser, 1991), and Generalized Partial Global Planning(GPGP) (Decker & Lesser,
+1995). Although not driven via theories of collaboration, these coordination frameworks also
+strive towards domain independence. The earlier work on PGP focuses on a system of cooperating agents for consistent interpretation of data from a distributed sensor network
+(Durfee & Lesser, 1991). Here, subordinate agents may exchange their individual goals
+and plans of action. An assigned agent (e.g., a supervisor) may recognize that individual
+plans of di erent agents meld into a partial global plan (PGP) | so called because PGPs
+involve more than one agent but not necessarily all agents (partially global) | in service
+of a common group goal. The PGP is a basis for planning coordination actions; and it
+may be transmitted to subordinates for guidance in execution of individual actions. (PGP
+can accommodate di erent types of organizations as well.) GPGP (Decker & Lesser, 1995)
+provides several independent coordination modules, any subset of which may be combined
+in response to coordination needs of a task environment; the GPGP approach can duplicate
+and extend the PGP algorithm.
+As a general model of teamwork, STEAM can provide a principled underlying model to
+reason about at least some of the coordination speci ed in PGP, e.g., agents would establish
+a joint intention towards the collective goal in a PGP, and modulate their communication
+via decision-theoretic reasoning. That is, PGP \compiles out" some of the underlying reasoning in STEAM, and thus STEAM could provide additional exibility in coordination.
+Essentially, PGP and GPGP do not separate out coordination in teamwork from coordination in general (such as via a centralized coordinator). As a result, they fail to exploit the
+responsibilities and commitments of teamwork in building up coordination relationships.
+Analogously, some of the general coordination in PGP or GPGP is unaccounted for in
+STEAM, and hence understanding relationships among STEAM and GPGP is an interesting area of future work. There is a similar relationship between STEAM and the COOL
+coordination framework (Barbuceanu & Fox, 1996). COOL also focuses on general purpose coordination by relying on notions of obligations among agents. However, it explicitly
+rejects the notion of joint goals and joint commitments. It would appear that individual
+113
+
+Tambe
+
+commitments in COOL would be inadequate in addressing some teamwork phenomena, but
+further work is necessary in understanding the relationship among COOL and STEAM.
+In team tracking (Tambe, 1996), i.e., inferring team's joint intentions, the expressiveness
+of team operators has been exploited. However, issues of establishing joint commitments,
+communication, monitoring and repair are not addressed. The formal approach to teamwork in (Sonenberg et. al., 1994) transforms team plans into separate role-plans for execution by individuals, with rigidly embedded communications. STEAM purposely avoids
+such transformations, so agents can exibly reason with (i) explicit team goals/plans; and
+(ii) selective communication (seen to be important in practice). In (Gmytrasiewicz, Durfee, & Wehe, 1991), decision theory is applied for message prioritization in coordination
+based on the agents' recursive modeling of each others' actions. STEAM applies decision
+theory for communication selectivity and enhancements, but in a very di erent context |
+practical operationalization of general, domain-independent teamwork model based on joint
+intentions.
+
+8. Summary and Future Work
+Teamwork is becoming increasingly critical in a variety of multi-agent environments, ranging from virtual environments for training and education, to internet-based information
+integration, to potential multi-robotic space missions (Tambe et al., 1995; Rao et al., 1993;
+Pimentel & Teixeira, 1994; Williamson et al., 1996; Kitano et al., 1997; Hayes-Roth et al.,
+1995; Reilly, 1996). In previous implementations of multi-agent systems, including our own,
+teamwork has often been based on pre-de ned, domain-speci c plans for coordination. Unfortunately, these plans are in exible and thus no match for the uncertainties of complex,
+dynamic environments. As a result, agents' coherent teamwork can quickly dissolve into
+miscoordinated misbehavior. Furthermore, the coordination plans cannot be reused in other
+domains. Such reuse is important however, both to save implementation e ort and enforce
+consistency across applications.
+Motivated by the critical need for teamwork exibility and reusability, this article has
+presented STEAM, a general model of teamwork. While STEAM's development is driven
+by practical needs of teamwork applications, its core is based on principled theories of teamwork. STEAM is one of just a few implemented systems that have begun to bridge the gap
+between collaboration theories and practice. STEAM combines several key novel features:
+(i) use of joint intentions as a building block for a team's joint mental attitude (Levesque
+et al., 1990; Cohen & Levesque, 1991b) | the article illustrates that STEAM builds up
+a hierarchical structure of joint intentions and individual intentions, analogous to the partial SharedPlans (Grosz & Kraus, 1996); (ii) integration of novel techniques for explicit
+establishment of joint intentions (Smith & Cohen, 1996); (iii) principled communication
+based on commitments in joint intentions; (iv) use of explicit role-monitoring constraints
+as well as repair methods based on joint intentions; (v) application of decision-theoretic
+techniques for communication selectivity and enhancements, within the context of the joint
+intentions framework. To avail of the power of a model such as STEAM, a fundamental
+change in agent architectures is essential | architectures must provide explicit support for
+representation of and reasoning with team goals, (reactive) team plans and team states.
+STEAM has been applied and evaluated in three complex domains. Two of the domains,
+114
+
+Towards Flexible Teamwork
+
+Attack and Transport, are based on a real-world simulation environment for training, and
+here our pilot agent teams have participated large-scale synthetic exercises with hundreds of
+other synthetic agents. In the third domain, RoboCup, our player agent team is now under
+development for participation in the forthcoming series of (simulated) soccer tournaments,
+beginning at IJCAI-97.
+Of course, STEAM is far from a complete model of teamwork, and several major issues remain open for future work. One key issue is investigating STEAM's interactions
+with learning. Initial experiments with chunking (Newell, 1990) (a form of explanationbased learning (Mitchell, Keller, & Kedar-Cabelli, 1986)) in STEAM reveal that agents
+could automatize routine teamwork activities, rather than always reasoning about them.
+Speci cally, from STEAM's domain-independent reasoning about teamwork, agents learn
+situation-speci c coordination rules. For instance, when the formation leader crashes, another agent learns situation-speci c rules to take over as formation lead and communicate. A
+well-practiced team member could thus mostly rely on learned rules for \routine" activities,
+but fall back on STEAM rules if it encounters any unanticipated situations. Additionally,
+STEAM's knowledge-intensive to learning approach could complement current inductive
+learning approaches for multi-agent coordination (Sen, 1996).
+Failure detection and recovery is also a key topic for future work, particularly in environments with unreliable communication. One novel approach exploits agent tracking (Tambe
+& Rosenbloom, 1995; Tambe, 1996) to infer teammates' high-level goals and intentions for
+comparison with own goals and intentions. Di erences in goals and intentions may indicate
+coordination failures, since teammates often carry out identical or related tasks. However,
+given the overheads of such an approach, it has to be carefully balanced with an agents'
+other routine activities. Initial results of this approach are reported in (Kaminka & Tambe,
+1997).
+Enriching STEAM's communication capabilities in a principled fashion is yet another
+key topic for future work. Such enriched communication may form the basis of multi-agent
+collaborative negotiation (Chu-Carroll & Carberry, 1996). Currently, STEAM relies on the
+team or subteam leader when resolving disagreements, particularly when deciding the next
+action. While leadership in teamwork is by itself an interesting phenomena of investigation,
+enabling agents to negotiate their plans without a leader would also improve STEAM's
+exibility. We hope that addressing such issues would ultimately lead STEAM towards
+improved exibility in teamwork.
+
+Acknowledgements
+This research was supported as part of contract N66001-95-C-6013 from ARPA/ISO. This
+article is an extended version of a previous conference paper (Tambe, 1997a). I thank Johnny
+Chen, Jon Gratch, Randy Hill and Paul Rosenbloom for their comments and support for
+the work reported in this article. Discussions with Nick Jennings have helped improve the
+quality of the article. I also thank ISI team members working on the RoboCup e ort for
+their support of the work reported in this article. Domain expertise for this work was
+provided by David Sullivan and Greg Jackson of BMH Inc., and Wayne Sumner of RDA
+Logicon.
+115
+
+Tambe
+
+Appendix A: Detailed STEAM Speci cation
+
+The pseudo-code described below follows the description of STEAM provided in this article.
+It is based on execution of hierarchical operators, or reactive plans. All operators in the
+hierarchy execute in parallel, and hence the \in parallel" construct. The comments in the
+pseudo code are enclosed in /* */. The terminology is rst described below, to clarify the
+pseudo-code.
+
+C, f1, 2,...,ng) denotes the execution of a team
+operator , by a team , given the context of the current intention hierarchy C, and
+with parameters 1, 2...n.
+
+ Execute-Team-Operator( , ,
+
+ Terms
+
+, Cme , Cc,  , Cmt are all exactly as in Section 5.
+
+ [ ] denotes the team 's joint intention to execute
+
+.
+
+
+
+status([ ], STATUS-OF- ) denotes the status of the joint intention [ ], whether
+
+
+
+satis es (Achievement-conditions( ), f) denotes that the fact f satis es the achieve-
+
+it is mutually believed to be achieved, unachievable or irrelevant.
+
+ment conditions of the team operator ; similarly with respect to unachievability and
+irrelevancy conditions.
+ Communicate(terminate-jpg( ), f,) denotes communication to the team  to terminate 's joint commitment to , due to the fact f.
+
+team-state(), f) denotes the updating of the team state of  with
+
+ Update-state (
+
+the fact f.
+
+ Update-status([ ]) denotes the updating of the team operator
+
+status of achievement, unachievability or irrelevancy.
+
+with its current
+
+Agent( ) is the individual agent or team executing operator .
+ actions( ) denote the actions of the operator .
+ teamtype( ) is a test of whether the agent is a team or just one individual.
+ self( ) is a test of whether the agent denotes self.
+ agent-status-change() denotes change in the role performance capability of agent
+
+
+or subteam .
+
+C, f1, 2,...,ng) denotes the execution of an
+individual operator by self, given the context of the current intention hierarchy C,
+
+ Execute-individual-Operator( , self,
+
+and with parameters 1, 2...n.
+
+For expository purposes, \Execute-team-operator" and \Execute-individual-operator"
+are de ned as separate procedures. In reality, STEAM does not di erentiate between the
+two.
+116
+
+Towards Flexible Teamwork
+
+Team Operator Execution
+
+Execute-Team-Operator( , , C, f1, 2,...,ng)
+
+f
+
+1. estimate ; /* See Section 5. */
+2. if * Cme > Cc execute establish commitments protocol;
+/* see Section 4.1 for explanation. */
+3. establish joint-intention [ ];
+W
+W
+4. While NOT(status([ ], Achieved) status([ ], Unachievable) status([ ], Irrelevant)) Do
+f
+
+W
+
+(a) if (Wsatis es (Achievement-conditions( ), f) satis es (Unachievability-conditions( ),
+f) satis es (Irrelevance-conditions( ), f))
+/* This is the case where fact f is found to satisfy the termination condition of . The
+case where f is only a threat to (see Section 5.1) is analogous. */
+f
+
+i. estimate  ; /* see section 5. */
+ii. if  * Cmt > Cc propose-operator Communicate(terminate-jpg( ), f, ) with high
+priority;
+/* See Section 5 and 4.1*/
+iii. if no other higher priority operator, in parallel
+Execute-individual-operator(Communicate(terminate-jpg( ), f, ), self, /C, f1,
+2,...g);
+iv. Update-state (team-state(), f);
+v. Update-status([ ] );
+
+g
+
+(b) if agent-status-change(), where  2 
+f
+
+i. Evaluate role-monitoring constraints; /* See Section 4.2. */
+ii. if role-monitoring constraint failure cf such that (satis es (Unachievability-conditions( ),
+cf) then update-status([ ] );
+
+g
+
+(c) if receive communication of terminate-jpg( ) and fact f
+
+W
+
+f
+
+if (Wsatis es (Achievement-conditions( ), f) satis es (Unachievability-conditions( ),
+f) satis es (Irrelevance-conditions( ), f))
+f
+
+i. Update-state (team-state(), f);
+ii. Update-status([ ] );
+
+g
+g
+
+(d) Update-state(team-state(), actions( ));
+/* execute domain-speci c actions to modify team state of  */
+117
+
+Tambe
+
+(e) if children operator 1, 2,... n of proposed as candidates
+f
+
+i. i select-bestf 1... ng; V
+ii. if (teamtype(Agent( i)) ( = Agent( i))) then in parallel
+Execute-team-operator( i, ,
+/C, f1,2...g);
+V
+iii. if (teamtype(Agent( i)) (Agent( i)) ) then in parallel
+f
+
+A. Execute-team-operator( i, Agent( i), /C, f1,2...g);
+B. Instantiate role-monitoring constraints;
+
+g
+
+iv. if self(Agent( i)) then in parallel
+f
+
+A. Execute-individual-operator( i, self, /C, 1...);
+B. Instantiate role-monitoring constraints;
+
+g
+g
+
+g /* End while statement in 4 */
+
+5. terminate joint intention [ ];
+6. if status([ ], Unachievable)
+f
+
+if ( != Repair) /* If is not itself Repair */
+
+f
+
+Execute-team-operator(Repair, , C, f , cause-of-unachievability,...g)
+/* Repair is explained in detail in Section 4.2. Cause-of-unachievability, passed as a parameter
+to Repair, may be role-monitoring constraint violation as in case 4b, or the domain-speci c
+unachievability conditions. */
+g else f
+Execute-team-operator(Complete-Failure, , C, f , cause-of-unachievability,...g)
+/* If Repair is itself unachievable, complete-failure results, as in Section 4.2 */
+g
+g
+
+g /* end procedure execute-team-operator */
+
+Individual Operator Execution
+
+Execute-individual-Operator( , self, C, f1, 2,...,ng)
+
+f
+
+1. establish as an individual intention;
+W
+W
+2. While NOT(status( , Achieved) status( , Unachievable) status( , Irrelevant))
+Do
+f
+
+W
+
+(a) if (Wsatis es (Achievement-conditions( ), f) satis es (Unachievability-conditions( ),
+f) satis es (Irrelevance-conditions( ), f))
+f
+
+i. Update-state (state(self), f);
+118
+
+Towards Flexible Teamwork
+
+ii. Update-status( );
+g
+
+(b) Update-state(state(self), actions( ));
+/* execute domain-speci c actions to modify private state */
+(c) if new children operator f 1... ng of proposed
+f
+
+i. i select-bestf 1... ng;
+ii. Execute-individual-operator( i, self, /C, f1...g)
+
+g
+g /* end while statement in 2 */
+
+3. if status( , Unachievable)
+f
+
+if ( != Repair)
+f
+
+Execute-individual-operator(Repair, self, C, f , cause-of-unachievability,...g)
+/* Repair is explained in detail in Section 4.2. Cause-of-unachievability is only domain-speci c
+unachievability condition. This is passed as a parameter to repair. */
+g else f
+Execute-individual-operator(Complete-Failure, self, C, f , cause-of-unachievability,...g)
+/* If Repair is itself unachievable, complete-failure results, as in Section 4.2 */
+g
+g
+
+g /* end procedure execute-individual-operator */
+
+Appendix B: STEAM Sample Rules
+
+The sample rules described below follow the description of STEAM provided in this article,
+and essentially help encode the algorithm described in Appendix A. The rules, as with the
+algorithm in Appendix A, are based on execution of hierarchical operators, or reactive plans.
+While the sample rules below are described in simpli ed if-then form, the actual rules are
+encoded in Soar, and are available as an online Appendix.
+
+SAMPLE:RULE:CREATE-COMMUNICATIVE-GOAL-ON-ACHIEVED
+/* This rule focuses on generating a communicative goal
+if an agent's private state contains a belief that satis es
+the achievement condition of a team operator [OP] .
+See section 4.1. */
+IF
+agent  i's private state contains a fact F
+AND
+fact F matches an achievement condition AC
+of a team operator [OP]
+AND
+fact F is not currently mutually believed
+AND
+a communicative goal for F is not already generated
+THEN
+119
+
+Tambe
+
+create possible communicative goal CG to communicate fact F to team
+ to terminate [OP] .
+
+SAMPLE:RULE:CREATE-COMMUNICATIVE-GOAL-ON-UNACHIEVABLE
+
+/* This rule is similar to the one above. */
+IF
+agent  i's private state contains a fact F
+AND
+fact F matches an unachievability condition UC
+of a team operator [OP]
+AND
+fact F is not currently mutually believed
+AND
+a communicative goal for F is not already generated
+THEN
+create possible communicative goal CG to communicate fact F to team
+ to terminate [OP] .
+
+SAMPLE:RULE:ESTIMATE-VALUE-FOR-NON-COMMUNICATION
+
+/* This rule estimates  *Cmt for non-communication
+given a communicative goal, using the formula from
+Section 5.*/
+IF
+CG is a possible communicative goal to communicate fact F to team
+ to terminate [OP]
+AND
+Cmt is estimated high
+AND
+ is estimated low
+THEN
+Estimated value of non-communication is medium.
+
+SAMPLE:RULE:DECISION-ON-COMMUNICATION
+
+/* This rule makes the communication decision using the formula * with  *Cmt and Cc
+from Section 5.*/
+IF
+CG is a possible communicative goal to communicate fact F to team
+ to terminate [OP]
+AND
+Estimated value of non-communication for CG is medium
+AND
+Estimated value of communication for CG is low
+THEN
+post CG as a communicative goal to communicate fact F to team
+ to terminate [OP]
+
+SAMPLE:RULE:MONITOR-UNACHIEVABILITY:AND-COMBINATION
+/* This rule checks for unachievability of role-monitoring
+constraints involving an AND-combination. See section 4.2.
+/
+120
+
+Towards Flexible Teamwork
+
+IF
+A current joint intention [OP] involves an AND-combination
+AND
+ i is a member performing role to execute sub-operator op
+AND
+no other member  j is also performing role to execute sub-operator op
+AND
+ i cannot perform role
+THEN
+Current joint intention [OP] is unachievable, due to a critical role failure
+of  i in performing op
+
+References
+
+Barbuceanu, M., & Fox, M. (1996). The architecture of an agent building shell. In
+Wooldridge, M., Muller, J., & Tambe, M. (Eds.), Intelligent Agents, Volume II: Lecture Notes in Arti cial Intelligence 1037. Springer-Verlag, Heidelberg, Germany.
+Calder, R. B., Smith, J. E., Courtemanche, A. J., Mar, J. M. F., & Ceranowicz, A. Z.
+(1993). Modsaf behavior simulation and control. In Proceedings of the Conference on
+Computer Generated Forces and Behavioral Representation.
+Chu-Carroll, J., & Carberry, S. (1996). Con ict detection and resolution in collaborative
+planning. In Wooldridge, M., Muller, J., & Tambe, M. (Eds.), Intelligent Agents,
+Volume II: Lecture Notes in Arti cial Intelligence 1037. Springer-Verlag, Heidelberg,
+Germany.
+Cohen, P. R., & Levesque, H. J. (1991a). Con rmation and joint action. In Proceedings of
+the International Joint Conference on Arti cial Intelligence.
+Cohen, P. R., & Levesque, H. J. (1991b). Teamwork. Nous, 35.
+Coradeschi, S. (1997). A decision mechanism for reactive and coordinated agents. Tech.
+rep. 615, Linkoping University. (Licentiate Thesis).
+Decker, K., & Lesser, V. (1995). Designing a family of coordination algorithms. In Proceedings of the International Conference on Multi-Agent Systems.
+Durfee, E., & Lesser, V. (1991). Partial global planning: a coordination framework for
+distributed planning. IEEE transactions on Systems, Man and Cybernetics, 21 (5).
+Firby, J. (1987). An investigation into reactive planning in complex domains. In Proceedings
+of the National Conference on Arti cial Intelligence (AAAI).
+Gmytrasiewicz, P. J., Durfee, E. H., & Wehe, D. K. (1991). A decision theoretic approach
+to co-ordinating multi-agent interactions. In Proceedings of International Joint Conference on Arti cial Intelligence.
+Grosz, B. (1996). Collaborating systems. AI magazine, 17 (2).
+121
+
+Tambe
+
+Grosz, B., & Kraus, S. (1996). Collaborative plans for complex group actions. Arti cial
+Intelligence, 86, 269{358.
+Grosz, B. J., & Sidner, C. L. (1990). Plans for discourse. In Cohen, P. R., Morgan,
+J., & Pollack, M. (Eds.), Intentions in Communication, pp. 417{445. MIT Press,
+Cambridge, MA.
+Halpern, J. Y., & Moses, Y. (1990). Knowledge and common knowledge in a distributed
+environment. Journal of the ACM, 37 (3), 549{587.
+Hayes-Roth, B., Brownston, L., & Gen, R. V. (1995). Multiagent collaboration in directed
+improvisation. In Proceedings of the International Conference on Multi-Agent Systems
+(ICMAS-95).
+Hill, R., Chen, J., Gratch, J., Rosenbloom, P., & Tambe, M. (1997). Intelligent agents for
+the synthetic battle eld: a company of rotary wing aircraft. In Proceedings of the
+Innovative Applications of Arti cial Intelligence.
+Jennings, N. (1994). Commitments and conventions: the foundation of coordination in
+multi-agent systems. The Knowledge Engineering Review, 8.
+Jennings, N. (1995). Controlling cooperative problem solving in industrial multi-agent
+systems using joint intentions. Arti cial Intelligence, 75.
+Kaminka, G. A., & Tambe, M. (1997). Social comparison for failure monitoring and recovery in multi-agent settings. In Proceedings of the National Conference on Arti cial
+Intelligence, p. (Student abstract).
+Kinny, D., Ljungberg, M., Rao, A., Sonenberg, E., Tidhard, G., & Werner, E. (1992).
+Planned team activity. In Castelfranchi, C., & Werner, E. (Eds.), Arti cial Social
+Systems, Lecture notes in AI 830. Springer, NY.
+Kitano, H., Asada, M., Kuniyoshi, Y., Noda, I., & Osawa, E. (1995). Robocup: The robot
+world cup initiative. In Proceedings of IJCAI-95 Workshop on Entertainment and
+AI/Alife.
+Kitano, H., Tambe, M., Stone, P., Veloso, M., Noda, I., Osawa, E., & Asada, M. (1997).
+The robocup synthetic agents' challenge. In Proceedings of the International Joint
+Conference on Arti cial Intelligence (IJCAI).
+Laird, J. E., Jones, R. M., & Nielsen, P. E. (1994). Coordinated behavior of computer
+generated forces in tacair-soar. In Proceedings of the Fourth Conference on Computer Generated Forces and Behavioral Representation. Orlando, Florida: Institute
+for Simulation and Training, University of Central Florida.
+Levesque, H. J., Cohen, P. R., & Nunes, J. (1990). On acting together. In Proceedings of
+the National Conference on Arti cial Intelligence. Menlo Park, Calif.: AAAI press.
+Lochbaum, K. E. (1994). Using collaborative plans to model the intentional structure of
+discourse. Ph.D. thesis, Harvard University.
+122
+
+Towards Flexible Teamwork
+
+Mitchell, T. M., Keller, R. M., & Kedar-Cabelli, S. T. (1986). Explanation-based generalization: A unifying view. Machine Learning, 1 (1), 47{80.
+Newell, A. (1990). Uni ed Theories of Cognition. Harvard Univ. Press, Cambridge, Mass.
+Pimentel, K., & Teixeira, K. (1994). Virtual reality: Through the new looking glass.
+Windcrest/McGraw-Hill, Blue Ridge Summit, PA.
+Pollack, M. (1992). The uses of plans. Arti cial Intelligence, 57, 43{68.
+Rajput, S., & Karr, C. R. (1995). Cooperative behavior in modsaf. Tech. rep. IST-CR-95-35,
+Institute for simulation and training, University of Central Florida.
+Rao, A. S., Lucas, A., Morley, D., Selvestrel, M., & Murray, G. (1993). Agent-oriented
+architecture for air-combat simulation. Tech. rep. Technical Note 42, The Australian
+Arti cial Intelligence Institute.
+Reilly, W. S. (1996). Believable Emotional and Social Agents. Ph.D. thesis, School of
+Computer Science, Carnegie Mellon University.
+Rich, C., & Sidner, C. (1997). COLLAGEN: When agents collaborate with people. In
+Proceedings of the International Conference on Autonomous Agents (Agents'97).
+Rosenbloom, P. S., Laird, J. E., Newell, A., , & McCarl, R. (1991). A preliminary analysis of
+the soar architecture as a basis for general intelligence. Arti cial Intelligence, 47 (1-3),
+289{325.
+Sen, S. (1996). Proceedings of the Spring Symposium on Adaptation, Coevolution and Learning. American Association for Arti cial Intelligence, Menlo Park, CA.
+Sidner, C. (1994). An arti cial discourse language for collaborative negotiation. In Proceedings of the National Conference on Arti cial Intelligence (AAAI).
+Smith, I., & Cohen, P. (1996). Towards semantics for an agent communication language
+based on speech acts. In Proceedings of the National Conference on Arti cial Intelligence (AAAI).
+Sonenberg, E., Tidhard, G., Werner, E., Kinny, D., Ljungberg, M., & Rao, A. (1994).
+Planned team activity. Tech. rep. 26, Australian AI Institute.
+Stone, P., & Veloso, M. (1996). Towards collaborative and adversarial learning: a case
+study in robotic soccer. In Sen, S. (Ed.), AAAI Spring Symposium on Adaptation,
+Coevolution and Learning in multi-agent systems.
+Tambe, M. (1995). Recursive agent and agent-group tracking in a real-time dynamic environment. In Proceedings of the International Conference on Multi-agent systems
+(ICMAS).
+Tambe, M. (1996). Tracking dynamic team activity. In Proceedings of the National Conference on Arti cial Intelligence (AAAI).
+123
+
+Tambe
+
+Tambe, M. (1997a). Agent architectures for exible, practical teamwork. In Proceedings of
+the National Conference on Arti cial Intelligence (AAAI).
+Tambe, M. (1997b). Implementing agent teams in dynamic multi-agent environments. Applied Arti cial Intelligence. (to appear).
+Tambe, M., Johnson, W. L., Jones, R., Koss, F., Laird, J. E., Rosenbloom, P. S., &
+Schwamb, K. (1995). Intelligent agents for interactive simulation environments. AI
+Magazine, 16 (1).
+Tambe, M., & Rosenbloom, P. S. (1995). RESC: An approach for real-time, dynamic agent
+tracking. In Proceedings of the International Joint Conference on Arti cial Intelligence
+(IJCAI).
+Tambe, M., Schwamb, K., & Rosenbloom, P. S. (1995). Building intelligent pilots for
+simulated rotary wing aircraft. In Proceedings of the Fifth Conference on Computer
+Generated Forces and Behavioral Representation.
+Tidhar, G., Selvestrel, M., & Heinze, C. (1995). Modeling teams and team tactics in
+whole air mission modeling. Tech. rep. Technical Note 60, The Australian Arti cial
+Intelligence Institute.
+Williamson, M., Sycara, K., & Decker, K. (1996). Executing decision-theoretic plans in
+multi-agent environments. In Proceedings of the AAAI Fall Symposium on Plan Execution: Problems and Issues.
+
+124
+
+

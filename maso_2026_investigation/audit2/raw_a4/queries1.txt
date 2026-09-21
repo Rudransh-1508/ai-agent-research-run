@@ -1,0 +1,30 @@
+# LLM/agent-era sign-reversal hunt
+budget_verif|all:"budget" AND all:"verification" AND all:"agent" AND cat:cs.AI
+budget_mas|all:"budget-constrained" AND all:"multi-agent"
+costaware_fault|all:"cost-aware" AND all:"fault" AND all:"agent"
+selfcorr_budget|all:"self-correction" AND all:"budget"
+retry_llm_cost|all:"retry" AND all:"LLM agent" AND all:"cost"
+graceful_deg|all:"graceful degradation" AND all:"LLM"
+resource_constr|all:"resource-constrained" AND all:"LLM agents"
+token_budget_mas|all:"token budget" AND all:"multi-agent"
+oversight_budget|all:"oversight" AND all:"budget" AND all:"agent"
+verif_overhead|all:"verification" AND all:"overhead" AND all:"LLM"
+reflection_cost|all:"reflection" AND all:"cost" AND all:"agentic"
+compute_budget_mas|all:"compute budget" AND all:"multi-agent"
+tool_budget|all:"tool budget" AND all:"agent"
+budget_aware_agent|all:"budget-aware" AND all:"agent"
+# distsys sign-reversal classics
+retry_storm|all:"retry storm"
+metastable|all:"metastable failure"
+congestion_collapse|all:"congestion collapse" AND all:"retransmission"
+load_shedding|all:"load shedding" AND all:"overload"
+recovery_overload|all:"recovery" AND all:"overload" AND all:"distributed systems"
+failover_cascade|all:"failover" AND all:"cascading failure"
+# cross-community: has anyone connected retry-storm thinking to LLM agents?
+metastable_agent|all:"metastable" AND all:"LLM" AND all:"agent"
+retrystorm_llm|all:"retry" AND all:"overload" AND all:"LLM"
+backpressure_agent|all:"backpressure" AND all:"agent" AND all:"LLM"
+# human oversight capacity lane
+alert_fatigue_ai|all:"alert fatigue" AND all:"AI"
+defer_capacity|all:"learning to defer" AND all:"capacity"
+human_oversight_budget|all:"human oversight" AND all:"budget" AND all:"LLM"

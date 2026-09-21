@@ -1,0 +1,105 @@
+=== QUERY [H3-scarcity-1]: all:"resource scarcity" AND all:"multi-agent" AND all:"LLM" ===
+2603.07360v1 | 2026-03-07 | The Yerkes-Dodson Curve for AI Agents: Emergent Cooperation Under Environmental Pressure in Multi-Agent LLM Simulations
+2509.12190v1 | 2025-09-15 | Survival at Any Cost? LLMs and the Choice Between Self-Preservation and Human Harm
+2505.17937v2 | 2025-05-23 | Survival Games: Human-LLM Strategic Showdowns under Severe Resource Scarcity
+
+=== QUERY [H3-budget-verif]: all:"budget" AND all:"verification" AND all:"multi-agent" AND all:"LLM" ===
+2609.01245v1 | 2026-09-01 | Explore More, Drift Less: Outcome-Only Reinforcement Learning Can Suffice for Long-Horizon Interactive Agents
+2608.18884v1 | 2026-08-19 | Training-Free Inference-Time Self-Reflection and Cost-Bounded Early Stopping for Large Language Models
+2607.28877v1 | 2026-07-30 | Open-Source LLM-Driven Formal Verification: A Multi-Agent Pipeline for RTL Repair
+2606.27409v2 | 2026-06-25 | Delayed Verification Destabilizes Multi-Agent LLM Belief: Instability Thresholds and Optimal Corrector Placement
+2606.07850v2 | 2026-06-05 | PDE-Agents: An LLM-Orchestrated Multi-Agent Framework for Automated Finite Element Simulations with Knowledge Graph-Augmented Reasoning
+2604.10740v1 | 2026-04-12 | RCBSF: A Multi-Agent Framework for Automated Contract Revision via Stackelberg Game
+2604.09917v1 | 2026-04-10 | Toward Explanatory Equilibrium: Verifiable Reasoning as a Coordination Mechanism under Asymmetric Information
+2603.13384v3 | 2026-03-11 | VulnAgent-R2: Evidence-Calibrated Multi-Agent Auditing for Repository-Level Vulnerability Detection
+2603.13327v1 | 2026-03-04 | DOVA: Deliberation-First Multi-Agent Orchestration for Autonomous Research Automation
+2602.08586v4 | 2026-02-09 | DIANOIA: Diagnostic Decomposition and Joint Optimization for Multi-Agent Reasoning
+2512.05765v2 | 2025-12-05 | AGI Requires a Coordination Layer on Top of Pattern Repositories
+2506.20249v1 | 2025-06-25 | Language Modeling by Language Models
+
+=== QUERY [H3-token-budget]: all:"token budget" AND all:"multi-agent" AND all:"robust" ===
+
+=== QUERY [H3-cost-robustness]: all:"cost of robustness" AND all:"LLM" ===
+2608.11631v1 | 2026-08-12 | CLAIM: Leading Open-domain Active Clarification of Large Language Models with Uncertainty Measurement
+2608.03272v1 | 2026-08-04 | Attacking and Defending Multi-Agent Collaborative Filtering Systems Through Connectivity
+2510.07799v2 | 2025-10-09 | Dynamic Generation of Multi-LLM Agents Communication Topologies with Graph Diffusion Models
+2509.23040v5 | 2025-09-27 | Look Back to Reason Forward: Revisitable Memory for Long-Context LLM Agents
+2506.09443v3 | 2025-06-11 | LLMs Cannot Reliably Judge (Yet?): A Comprehensive Assessment on the Robustness of LLM-as-a-Judge
+2506.06278v3 | 2025-06-06 | Distillation Robustifies Unlearning
+2505.23352v1 | 2025-05-29 | Understanding the Information Propagation Effects of Communication Topologies in LLM-based Multi-Agent Systems
+2501.03295v2 | 2025-01-06 | A Soft Sensor Method with Uncertainty-Awareness and Self-Explanation Based on Large Language Models Enhanced by Domain Knowledge Retrieval
+2405.13401v4 | 2024-05-22 | TrojanRAG: Retrieval-Augmented Generation Can Be Backdoor Driver in Large Language Models
+2311.04046v1 | 2023-11-07 | Reinforcement Learning Fine-tuning of Language Models is Biased Towards More Extractable Features
+
+=== QUERY [H3-verif-overhead]: all:"verification overhead" AND all:"agent" ===
+2604.27643v1 | 2026-04-30 | HAVEN: Hybrid Automated Verification ENgine for UVM Testbench Synthesis with LLMs
+2603.10060v1 | 2026-03-09 | Tool Receipts, Not Zero-Knowledge Proofs: Practical Hallucination Detection for AI Agents
+2505.16979v1 | 2025-05-22 | Know the Ropes: A Heuristic Strategy for LLM-based Multi-Agent System Design
+
+=== QUERY [H3-budget-constrained]: all:"budget-constrained" AND all:"multi-agent" AND all:"LLM" ===
+2609.19789v1 | 2026-09-17 | Contagion on the Trading Floor: How Adversarial Signals Spread in Multi-Agent Trading Systems
+2606.20713v1 | 2026-06-16 | FairTutor: Equity-Aware Pedagogical LLM Routing for Budget-Constrained AI Tutoring
+2605.09104v1 | 2026-05-09 | Token Economics for LLM Agents: A Dual-View Study from Computing and Economics
+2604.05523v2 | 2026-04-07 | Market-Bench: Benchmarking Large Language Models on Economic and Trade Competition
+2603.26993v1 | 2026-03-27 | On the Reliability Limits of LLM-Based Multi-Agent Planning
+
+=== QUERY [H3-compute-budget]: all:"compute budget" AND all:"multi-agent" AND all:"fault" ===
+2608.13889v1 | 2026-08-14 | Consensus-gated Multi-Agent Neural Architecture Search for Seismic Fault Segmentation
+
+=== QUERY [H3-oversight-cost]: all:"oversight" AND all:"cost" AND all:"LLM agents" ===
+2609.11957v1 | 2026-08-09 | Look Before You Leap: Pre-Action Verification for LLM Agents
+2607.07774v2 | 2026-07-08 | ScopeJudge: Cost-Aware Pre-Execution Gating for Offensive Security Agents
+2606.08919v1 | 2026-06-08 | Oversight Has a Capacity: Calibrating Agent Guards to a Subjective, Fatiguing Human
+2605.11789v1 | 2026-05-12 | Beyond Inefficiency: Systemic Costs of Incivility in Multi-Agent Monte Carlo Simulations
+2606.28363v1 | 2026-04-05 | meta-pipe: An LLM-agent pipeline for end-to-end automated systematic review and meta-analysis
+2512.24415v1 | 2025-12-30 | Language Model Agents Under Attack: A Cross Model-Benchmark of Profit-Seeking Behaviors in Customer Service
+2509.10723v1 | 2025-09-12 | Dark Patterns Meet GUI Agents: LLM Agent Susceptibility to Manipulative Interfaces and the Role of Human Oversight
+2501.06327v1 | 2025-01-10 | OpenFOAMGPT: a RAG-Augmented LLM Agent for OpenFOAM-Based Computational Fluid Dynamics
+
+=== QUERY [H1-delegation-depth]: all:"delegation depth" AND all:"agent" ===
+2604.19112v2 | 2026-04-21 | Governed Auditable Decisioning Under Uncertainty: Synthesis and Agentic Extension
+2603.24775v1 | 2026-03-25 | AIP: Agent Identity Protocol for Verifiable Delegation Across MCP and A2A
+2511.14043v3 | 2025-11-18 | AISAC: An Integrated multi-agent System for Transparent, Retrieval-Grounded Scientific Assistance
+
+=== QUERY [H1-hierarchy-propagation]: all:"hierarchy" AND all:"error propagation" AND all:"LLM" ===
+2605.06320v1 | 2026-05-07 | Improving the Efficiency of Language Agent Teams with Adaptive Task Graphs
+2603.00977v2 | 2026-03-01 | HiMAC: Hierarchical Macro-Micro Learning for Long-Horizon LLM Agents
+2601.10738v1 | 2026-01-09 | CTHA: Constrained Temporal Hierarchical Architecture for Stable Multi-Agent LLM Systems
+
+=== QUERY [vocab-graceful]: all:"graceful degradation" AND all:"LLM" AND all:"agent" ===
+2609.10430v1 | 2026-09-09 | Glyph: A Multi-Strategy Agentic System for Column Description and Sensitivity-Ontology Tagging of Enterprise Data Catalogs
+2607.13549v1 | 2026-07-15 | JW-ASTClaw: A Generalizable Multi-Agent Framework for Autonomous Solar Telescope and Its Implementation within Chinese Meridian Project
+2606.29406v1 | 2026-06-28 | Adaptive AI Delegation under Uncertainty: A Bayesian Governance Policy for Sequential Decision Authority
+2606.19382v1 | 2026-06-14 | DynAMO:Dynamic Asset Management Orchestration via Topological Multi-Agent Scheduling
+2606.07940v1 | 2026-06-06 | SGTO-MAS: Secure Gorilla Troops Optimization for Multi-Agent LLM Systems
+2605.18672v1 | 2026-05-18 | Position: A Three-Layer Probabilistic Assume-Guarantee Architecture Is Structurally Required for Safe LLM Agent Deployment
+2603.29231v1 | 2026-03-31 | Beyond pass@1: A Reliability Science Framework for Long-Horizon LLM Agents
+2602.08041v1 | 2026-02-08 | Implicit Strategic Optimization: Rethinking Long-Horizon Decision-Making in Adversarial Poker Environments
+2511.11332v2 | 2025-11-14 | UFO3: Weaving the Digital Agent Galaxy
+
+=== QUERY [vocab-byzantine]: all:"Byzantine" AND all:"LLM" AND all:"multi-agent" ===
+
+=== QUERY [vocab-contagion]: all:"error contagion" AND all:"LLM" ===
+
+=== QUERY [vocab-self-repair]: all:"self-repair" AND all:"multi-agent" AND all:"LLM" ===
+
+=== QUERY [vocab-resilience]: all:"resilience" AND all:"multi-agent" AND all:"LLM" AND all:"fault" ===
+
+=== QUERY [vocab-fault-tolerant]: all:"fault-tolerant" AND all:"multi-agent" AND all:"LLM" ===
+
+=== QUERY [vocab-byzantine2]: all:"Byzantine" AND all:"LLM agents" ===
+
+=== QUERY [vocab-contagion2]: all:"contagion" AND all:"multi-agent" AND all:"LLM" ===
+
+=== QUERY [vocab-self-healing]: all:"self-healing" AND all:"multi-agent" AND all:"LLM" ===
+
+=== QUERY [vocab-amplification]: all:"error amplification" AND all:"multi-agent" ===
+
+=== QUERY [sanity]: all:"multi-agent" AND all:"LLM" AND all:"fault" ===
+
+=== QUERY [H1-delegation-error]: all:"delegation" AND all:"error" AND all:"multi-agent" AND all:"LLM" ===
+
+=== QUERY [H1-hierarchical-fault]: all:"hierarchical" AND all:"fault" AND all:"multi-agent" AND all:"LLM" ===
+
+=== QUERY [H1-org-fault]: all:"organizational" AND all:"fault" AND all:"multi-agent" AND all:"LLM" ===
+

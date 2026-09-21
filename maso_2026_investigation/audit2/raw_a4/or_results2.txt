@@ -1,0 +1,200 @@
+[mad_debate] T2gYesIOYs |  |  | 
+[mad_debate] ce8owtRf1B |  |  | 
+[mad_debate] Zp7AsgopE0 |  |  | 
+[mad_debate] cyX74nkB6U |  |  | 
+[mad_debate] Fb4bwNDg3B |  |  | 
+[mad_debate] U7UcCcb14n |  |  | 
+[mad_debate] kPjeAFniKM |  |  | 
+[mad_debate] RfgBlrwMH6 |  |  | 
+[mad_debate] DpVALhGgts |  |  | 
+[mad_debate] 4VSFjKiZdL |  |  | 
+[going_mad] T2gYesIOYs |  |  | 
+[going_mad] y6vrhXfCmF |  |  | 
+[going_mad] yR9xgLqJdd |  |  | 
+[going_mad] ce8owtRf1B |  |  | 
+[going_mad] IdRCYAhyMT |  |  | 
+[going_mad] ULzfCAmDTn |  |  | 
+[going_mad] bsfJH9UskG |  |  | 
+[going_mad] zM3zOV1CFr |  |  | 
+[going_mad] CrUmgUaAQp | Should we be going MAD? A Look at Multi-Agent Debate Strategies for LLMs | ICML 2024 Poster | Recent advancements in large language models (LLMs) underscore their potential for responding to inquiries in various domains. However, ensuring that generative agents provide accurate and reliable an
+[going_mad] hzNzWBBbTX |  |  | 
+[debate_cost] T2gYesIOYs |  |  | 
+[debate_cost] Fb4bwNDg3B |  |  | 
+[debate_cost] Zp7AsgopE0 |  |  | 
+[debate_cost] 4VSFjKiZdL |  |  | 
+[debate_cost] DpVALhGgts |  |  | 
+[debate_cost] ce8owtRf1B |  |  | 
+[debate_cost] cyX74nkB6U |  |  | 
+[debate_cost] RfgBlrwMH6 |  |  | 
+[debate_cost] X5Apc2lUNv |  |  | 
+[debate_cost] U7UcCcb14n |  |  | 
+[overthink_agent] fy1Ct2W8Ef |  |  | 
+[overthink_agent] 4BBXAjHKwU |  |  | 
+[overthink_agent] a0P3BpYpsn |  |  | 
+[overthink_agent] mo6WjPMpCB | PACE: Pattern-Aware Multi-Action Control for LLM Agent Overthinking | ACL ARR 2026 May Submission | LLM agents often exhibit overthinking that inflates token cost without proportional task gains. Existing controllers typically address this with a single mechanism: trajectory-control methods truncate
+[overthink_agent] SNQbmwO2rb | Reasoning Under Constraint: How Batch Prompting Suppresses Overthinking in Reasoning Models | ICLR 2026 Workshop LLM Reasoning | Large Reasoning Models (LRMs) achieve strong performance through explicit chain-of-thought reasoning but suffer from \textit{overthinking}: generating excessive reasoning tokens even for trivial queri
+[overthink_agent] 6U3JYNfJYt |  |  | 
+[overthink_agent] lWf9AtgPU0 |  |  | 
+[overthink_agent] ymx86cNVAA |  |  | 
+[overthink_agent] Gnjqtv6mct |  |  | 
+[overthink_agent] mdmvH1BBGt | The Danger of Overthinking: Examining the Reasoning-Action Dilemma in Agentic Tasks | CoRR 2025 | Large Reasoning Models (LRMs) represent a breakthrough in AI problem-solving capabilities, but their effectiveness in interactive environments can be limited. This paper introduces and analyzes overth
+[selfcorr_fail] ZSbQBoPJnh |  |  | 
+[selfcorr_fail] yzGMvIU2WY |  |  | 
+[selfcorr_fail] b2CsLfx0dr |  |  | 
+[selfcorr_fail] uQADvE2pEA |  |  | 
+[selfcorr_fail] TUaMWym9fv |  |  | 
+[selfcorr_fail] wNYfnZGxS2 | Large Language Models Cannot Self-Correct Reasoning Yet | CoRR 2023 | Large Language Models (LLMs) have emerged as a groundbreaking technology with their unparalleled text generation capabilities across various applications. Nevertheless, concerns persist regarding the 
+[selfcorr_fail] IkmD3fKBPQ | Large Language Models Cannot Self-Correct Reasoning Yet | ICLR 2024 poster | Large Language Models (LLMs) have emerged as a groundbreaking technology with their unparalleled text generation capabilities across various applications. Nevertheless, concerns persist regarding the 
+[selfcorr_fail] 4QTXzq8Lq9 |  |  | 
+[selfcorr_fail] M7oHHjmif7 |  |  | 
+[selfcorr_fail] MiheSrGBBw |  |  | 
+[verif_hurts] cOxUsPOAnJ |  |  | 
+[verif_hurts] eYdU3QDq53 |  |  | 
+[verif_hurts] b2oARovfki |  |  | 
+[verif_hurts] yblzn2VuSB |  |  | 
+[verif_hurts] vwRenDRUvP |  |  | 
+[verif_hurts] c6yR1XWcKe |  |  | 
+[verif_hurts] 1EYLptMOXD | Performance Analysis of Parallel Search Algorithms on Multiprocessors | Performance 1990 | 
+[verif_hurts] WdWVQtxzkT |  |  | 
+[verif_hurts] 4NlibgBMRP |  |  | 
+[verif_hurts] FRercP0ChZ |  |  | 
+[voting_cost] 3wTfTPaBWC |  |  | 
+[voting_cost] oakxxoMhDu |  |  | 
+[voting_cost] LXGHYzQXjf |  |  | 
+[voting_cost] MClHFE0f7Q |  |  | 
+[voting_cost] mMcPMBrEgp |  |  | 
+[voting_cost] Yri4tHmTDL |  |  | 
+[voting_cost] ziJJY3WHDd |  |  | 
+[voting_cost] FCKEKWY0m3 |  |  | 
+[voting_cost] 7oa2VVm1Uc |  |  | 
+[voting_cost] vlsGuwEwdw |  |  | 
+[nonmonot] LcXNnsDVVS |  |  | 
+[nonmonot] woBLAztkkj |  |  | 
+[nonmonot] X8MuB7t5so |  |  | 
+[nonmonot] XUazrdN7GO |  |  | 
+[nonmonot] cgUT92W84Q | Scaling Evaluation of Non-objective Assessments Using AI-Based Solutions | COMPUTE 2024 | Evaluation of student answer scripts for multiple in-semester and end-semester assessments is beset with the challenges of scale, fairness and timeliness of providing meaningful feedback to students t
+[nonmonot] 4qvU5vNMcJ |  |  | 
+[nonmonot] bEEJy0Hkmr |  |  | 
+[nonmonot] q3m9vORpb2 | Non-Monotonic Latent Alignments for CTC-Based Non-Autoregressive Machine Translation | NeurIPS 2022 | Non-autoregressive translation (NAT) models are typically trained with the cross-entropy loss, which forces the model outputs to be aligned verbatim with the target sentence and will highly penalize s
+[nonmonot] 4CnVJg4u0O | Non-Monotonic Latent Alignments for CTC-Based Non-Autoregressive Machine Translation | CoRR 2022 | Non-autoregressive translation (NAT) models are typically trained with the cross-entropy loss, which forces the model outputs to be aligned verbatim with the target sentence and will highly penalize s
+[nonmonot] sSl7p7E1KF | Non-Monotonic Latent Alignments for CTC-Based Non-Autoregressive Machine Translation | CoRR 2022 | Non-autoregressive translation (NAT) models are typically trained with the cross-entropy loss, which forces the model outputs to be aligned verbatim with the target sentence and will highly penalize s
+[inverse_ttc] 85YxOoNnvC |  |  | 
+[inverse_ttc] zTnlnrmRWi |  |  | 
+[inverse_ttc] oXWbyKoWPH |  |  | 
+[inverse_ttc] vBW6MQj2TZ | When More Thinking Hurts: Overthinking in LLM Test-Time Compute Scaling | CoRR 2026 | Scaling test-time compute through extended chains of thought has become a dominant paradigm for improving large language model reasoning. However, existing research implicitly assumes that longer thin
+[inverse_ttc] 150bHJ0Vma | When More Thinking Hurts: Overthinking in LLM Test-Time Compute Scaling | ACL (Findings) 2026 | Scaling test-time compute through extended chains of thought has become a dominant paradigm for improving large language model reasoning. However, existing research implicitly assumes that longer thin
+[inverse_ttc] 4L8ttc4cow |  |  | 
+[inverse_ttc] vZtWAEWxQh |  |  | 
+[inverse_ttc] MK3iNZNnVg |  |  | 
+[inverse_ttc] QlQm09B5Wq |  |  | 
+[inverse_ttc] xb1vsgePCG | Test-Time Compute Games | ICLR 2026 Workshop AIMS | Test-time compute has emerged as a promising strategy to enhance the reasoning abilities of large language models (LLMs). However, this strategy has in turn increased how much users pay cloud-based pr
+[guardrail_util] KF0Y67WEJp |  |  | 
+[guardrail_util] x2nnHb21fl |  |  | 
+[guardrail_util] 09SG8E0AX0 |  |  | 
+[guardrail_util] 3iKEMk1k8z | An Agent-Based Infrastructure for Enterprise Integration | ASA/MA 1999 | Some of the features that make Jackal (Java-based Applications Communication using KQML Agent communication Language) extremely valuable to agent development are its conversation management facilities
+[guardrail_util] VgM4gooQLl |  |  | 
+[guardrail_util] AhFsKmuaCb | Multi-target Parallel Drug Discovery with Multi-agent Orchestration | Agents4Science | The immense cost and high failure rates of traditional drug discovery necessitate a shift towards more systematic, automated approaches. While specialized AI tools have excelled at individual tasks, t
+[guardrail_util] MOtJ7AxwGU |  |  | 
+[guardrail_util] a64c4BC7vR |  |  | 
+[guardrail_util] aqgdPHavCh | Agent Development with Jackal | Agents 1999 | 
+[guardrail_util] yZ5LZmcKGv |  |  | 
+[monitor_tax] CLKpXfYElL |  |  | 
+[monitor_tax] AhFsKmuaCb | Multi-target Parallel Drug Discovery with Multi-agent Orchestration | Agents4Science | The immense cost and high failure rates of traditional drug discovery necessitate a shift towards more systematic, automated approaches. While specialized AI tools have excelled at individual tasks, t
+[monitor_tax] zhm6u8YcS3 |  |  | 
+[monitor_tax] Fkoyy680ot |  |  | 
+[monitor_tax] 1EYLptMOXD | Performance Analysis of Parallel Search Algorithms on Multiprocessors | Performance 1990 | 
+[monitor_tax] b6GACjueTC |  |  | 
+[monitor_tax] jQ30IN73O8 |  |  | 
+[monitor_tax] HgBIHMvc8A |  |  | 
+[monitor_tax] d9fZHf8eYh | Software Agent Constrained Mobility for Network Performance Monitoring | SMARTNET 2000 | During the recent years of research on mobile agents, significant effort has been directed towards the identification of models of agent mobility suitable for network management applications. Also, a 
+[monitor_tax] e7SVJvdU49 | Software Agent Constrained Mobility for Network Performance Monitoring | SMARTNET 2000 | During the recent years of research on mobile agents, significant effort has been directed towards the identification of models of agent mobility suitable for network management applications. Also, a 
+[recovery_budget] olvjn1TgNZ |  |  | 
+[recovery_budget] AhFsKmuaCb | Multi-target Parallel Drug Discovery with Multi-agent Orchestration | Agents4Science | The immense cost and high failure rates of traditional drug discovery necessitate a shift towards more systematic, automated approaches. While specialized AI tools have excelled at individual tasks, t
+[recovery_budget] FagtGRJ6XD |  |  | 
+[recovery_budget] Wkz4VPakuv |  |  | 
+[recovery_budget] U4JxcyoX9c |  |  | 
+[recovery_budget] oHOWdsTFMr |  |  | 
+[recovery_budget] wJpwrJEuvC |  |  | 
+[recovery_budget] oQ22OMla64 | Research on Collaboration Failure Recovery Learning (CFRL) in Multi-Agent Systems |  | Multi-agent systems (MAS) are frequently deployed in dynamic and uncertain environments, where collaboration among agents is highly susceptible to breakdown due to communication interruptions, hardwar
+[recovery_budget] AxA7tNOra7 |  |  | 
+[recovery_budget] XICSrxbv92 |  |  | 
+[selfheal_budget] KhlpuNVdqE | A Multi-agent Based Context Aware Self-healing System | IDEAL 2005 | There is increasing demand for the self-diagnosis and self-healing of problems or errors arising in systems operating in the ubiquitous computing environment. In this paper, we propose a self-healing 
+[selfheal_budget] hswq08xl4X | Proactive Self-Healing System based on Multi-Agent Technologies | SERA 2005 | Most distributed computing environments today are extremely complex and time-consuming for human administrators to manage. Thus, there is increasing demand for the self-healing and self-diagnosing of 
+[selfheal_budget] 16RVRxuYR9 | A Self Healing Action Composition Agent | ICTAI 2011 | The establishment of a self-healing agent has received much interest in multiple domains such as : Web services, production supply chain, transport systems, etc. This agent has a set of actions. Its r
+[selfheal_budget] U4JxcyoX9c |  |  | 
+[selfheal_budget] E3eTZnFww7 | An Autonomous Agent-based Framework for Self-Healing Power Grid | SMC 2009 | Reliable, secure and robust power grid network is a necessity for crucial financial, industrial and business networks. Since national electrical grid, telecommunication, information networks and trans
+[selfheal_budget] QbSU4NnUBf | Self-management System Based on Self-healing Mechanism | APNOMS 2006 | Systems designed to be self-healing are able to heal themselves at runtime in response to changing environmental or operational circumstances. Thus, the goal is to avoid catastrophic failure through p
+[selfheal_budget] Qi14A6is03 |  |  | 
+[selfheal_budget] TG15r3aZqi | Designing Self-healing in Automotive Systems | ATC 2010 | Self-healing promises to improve the dependability of systems. In particular safety-critical systems like automotive systems are well suited application, since safe operation is required in these syst
+[selfheal_budget] WlHd7XxGQw |  |  | 
+[selfheal_budget] HeKQcdmMwD | Reinforcement Learning for Self-Healing Material Systems | Accepted to INCOMJU 2026 Proceedings | The transition to autonomous material systems necessitates adaptive control methodologies to maximize structural longevity. This study frames the self-healing process as a Reinforcement Learning (RL) 
+[sign_reversal] wGvfmIYzlM |  |  | 
+[sign_reversal] dYZO9wi5N0 |  |  | 
+[sign_reversal] 37UCOywK2K |  |  | 
+[sign_reversal] 10ddkn9kQu |  |  | 
+[sign_reversal] 7XcCKCtzf1 |  |  | 
+[sign_reversal] 4ikX4sQHwR |  |  | 
+[sign_reversal] uHPDJMhd0X |  |  | 
+[sign_reversal] 4QWgFjKnEp |  |  | 
+[sign_reversal] nDfby9s5eF |  |  | 
+[sign_reversal] 83oeHmnQ5N |  |  | 
+[crossover_budget] U4JxcyoX9c |  |  | 
+[crossover_budget] w0kNZjYgSE |  |  | 
+[crossover_budget] 0vv28GrtdX |  |  | 
+[crossover_budget] AhFsKmuaCb | Multi-target Parallel Drug Discovery with Multi-agent Orchestration | Agents4Science | The immense cost and high failure rates of traditional drug discovery necessitate a shift towards more systematic, automated approaches. While specialized AI tools have excelled at individual tasks, t
+[crossover_budget] AxA7tNOra7 |  |  | 
+[crossover_budget] mtWClkV6mD |  |  | 
+[crossover_budget] YOFmxMcepk |  |  | 
+[crossover_budget] WlHd7XxGQw |  |  | 
+[crossover_budget] nPAvju0Tp4 |  |  | 
+[crossover_budget] CDyvnJeK4f |  |  | 
+[containment_backfire] 4uhKDhTDwZ |  |  | 
+[containment_backfire] lCHGBoIBY6 |  |  | 
+[containment_backfire] EYMpuDx84S | Monadic Datalog Containment | ICALP (2) 2012 | We reconsider the problem of containment of monadic datalog (MDL) queries in unions of conjunctive queries (UCQs). Prior work has dealt with special cases, but has left the precise complexity characte
+[containment_backfire] gC7bRkyocS | Bag Query Containment and Information Theory | CoRR 2019 | The query containment problem is a fundamental algorithmic problem in data management. While this problem is well understood under set semantics, it is by far less understood under bag semantics. In p
+[containment_backfire] KSeMUWAClh | Bag Query Containment and Information Theory | ACM Trans. Database Syst. 2021 | The query containment problem is a fundamental algorithmic problem in data management. While this problem is well understood under set semantics, it is by far less understood under bag semantics. In p
+[containment_backfire] jDvE4Lt0U5 | Bag Query Containment and Information Theory | PODS 2020 | The query containment problem is a fundamental algorithmic problem in data management. While this problem is well understood under set semantics, it is by far less understood under bag semantics. In p
+[containment_backfire] ySoUiAGr8o | Location-dependent spatial query containment | Data Knowl. Eng. 2011 | Nowadays, location-related information is highly accessible to mobile users via issuing Location-Dependent Spatial Queries (LDSQs) with respect to their locations wirelessly to Location-Based Service 
+[containment_backfire] 19qsYwAWbe | Enhancing Simulation for Checking Language Containment | TAMC 2007 | Many verification approaches based on automata theory are related to the language containment problem, which is PSPACE-complete for nondeterministic automata. To avoid such a complexity, one may use s
+[containment_backfire] NcCbCxwoPe | Containment of Expressive SPARQL Navigational Queries | ISWC (1) 2016 | Query containment is one of the building block of query optimization techniques. In the relational world, query containment is a well-studied problem. At the same time it is well-understood that relat
+[containment_backfire] r6t68UIasA | Conjunctive Query Containment Revisited | ICDT 1997 | We consider the problems of conjunctive query containment and minimization, which are known to be NP-complete, and show that these problems can be solved in polynomial time for the class of acyclic qu
+[sentinel_cost] WAdN7ooCbC |  |  | 
+[sentinel_cost] 3iKEMk1k8z | An Agent-Based Infrastructure for Enterprise Integration | ASA/MA 1999 | Some of the features that make Jackal (Java-based Applications Communication using KQML Agent communication Language) extremely valuable to agent development are its conversation management facilities
+[sentinel_cost] AybKnmPrGX |  |  | 
+[sentinel_cost] AhFsKmuaCb | Multi-target Parallel Drug Discovery with Multi-agent Orchestration | Agents4Science | The immense cost and high failure rates of traditional drug discovery necessitate a shift towards more systematic, automated approaches. While specialized AI tools have excelled at individual tasks, t
+[sentinel_cost] rFo2vLoy4U |  |  | 
+[sentinel_cost] aqgdPHavCh | Agent Development with Jackal | Agents 1999 | 
+[sentinel_cost] H3rri0stkb | Agent Development Support for Tcl | Tcl/Tk Workshop 1997 | 
+[sentinel_cost] EGIZQ689yN | TKQML: A Scripting Tool for Building Agents | ATAL 1997 | Tcl/Tk is an attractive language for the design of intelligent agents because it allows the quick construction of prototypes and user interfaces; new scripts can easily be bound at runtime to respond 
+[sentinel_cost] B704oT0TAk |  |  | 
+[sentinel_cost] CnhrhOoA6R | Emotional Vocal Expressions Recognition Using the COST 2102 Italian Database of Emotional Speech | COST 2102 Training School 2009 | The present paper proposes a new speaker-independent approach to the classification of emotional vocal expressions by using the COST 2102 Italian database of emotional speech. The audio records extrac
+[verification_scarcity] AhFsKmuaCb | Multi-target Parallel Drug Discovery with Multi-agent Orchestration | Agents4Science | The immense cost and high failure rates of traditional drug discovery necessitate a shift towards more systematic, automated approaches. While specialized AI tools have excelled at individual tasks, t
+[verification_scarcity] XICSrxbv92 |  |  | 
+[verification_scarcity] b2oARovfki |  |  | 
+[verification_scarcity] 1YB4Er47R6 |  |  | 
+[verification_scarcity] rzgtNuBJDP |  |  | 
+[verification_scarcity] JilLSMbsko |  |  | 
+[verification_scarcity] U8Yi7z9TcQ |  |  | 
+[verification_scarcity] n4gPNLNrXo |  |  | 
+[verification_scarcity] 5IGChzb248 | State of the Art in Logics for Verification of Resource-Bounded Multi-Agent Systems | Fields of Logic and Computation III 2020 | Approaches to the verification of multi-agent systems are typically based on games or transition systems defined in terms of states and actions. However such approaches often ignore a key aspect of mu
+[verification_scarcity] 4NlibgBMRP |  |  | 
+[redundant_help] X86jxEIVtX | A multi-agent system for financial retrieval |  | 
+[redundant_help] JSxzy9Hj4s |  |  | 
+[redundant_help] t7kEt9PIxM |  |  | 
+[redundant_help] H8t7t7HedT |  |  | 
+[redundant_help] WT0zQZ9HMY |  |  | 
+[redundant_help] pySeuV6IlJ |  |  | 
+[redundant_help] O4XOhjVXch |  |  | 
+[redundant_help] Xhho0JOUak |  |  | 
+[redundant_help] RfgBlrwMH6 |  |  | 
+[redundant_help] YAH6y8nfV8 |  |  | 
+[voting_budget] DrmHPdHb4g | Fixed-budget and Multiple-issue Quadratic Voting | CoRR 2024 | Quadratic Voting (QV) is a social choice mechanism that addresses the "tyranny of the majority" of one-person-one-vote mechanisms. Agents express not only their preference ordering but also their pref
+[voting_budget] tY42Aysv6r |  |  | 
+[voting_budget] ZVe6vRMaxa |  |  | 
+[voting_budget] NwGoDzQtl4 |  |  | 
+[voting_budget] TLAJqN4PqJ |  |  | 
+[voting_budget] vxqiro0XCW |  |  | 
+[voting_budget] n5WjeRiHCF |  |  | 
+[voting_budget] oakxxoMhDu |  |  | 
+[voting_budget] VMJkvD4Wx4 |  |  | 
+[voting_budget] FbE3dNXNQf |  |  | 

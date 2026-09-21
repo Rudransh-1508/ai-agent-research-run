@@ -1,140 +1,119 @@
-# MASO 2026 — Final Research Direction Recommendation
+# MASO 2026 — Final Research Direction Recommendation (v3, post-audit)
 
 **Date:** 21 September 2026
-**Process:** 3 waves, 52 specialist agents (39 landscape/venue/novelty/assassin/feasibility investigators → 5 candidate assassins + 3 feasibility/statistics reviewers → 5 mock reviewers). All underlying reports: `maso_2026_investigation/reports/` (47 files). Every load-bearing citation below was verified against a primary source (arXiv abs page, OpenReview, DOI/Crossref, ACL Anthology, or proceedings site) by at least one agent; several were independently re-verified by two or more.
+**Process:** 3 waves / 52 agents (`reports/`, 48 files) → external critique round → full-text verification of the nearest neighbor (`reports/CtC_fulltext_verification.md`) → second adversarial novelty audit (`audit2/`, 18 agents in 2 stages, 11 previously-missed papers found, all load-bearing threats full-text verified). This document reflects the audit outcome and supersedes earlier framings. Audit details: `audit2/FINAL_AUDIT.md`.
 
 ---
 
 ## 1. The recommendation (one paragraph)
 
-**Build "OrgResilience": a fault-injectable organizational multi-agent testbed that measures how non-adversarial, semantic faults propagate across typed organizational boundaries (role, communication, authority/delegation, tool, memory, accountability, human-agent) in executing LLM multi-agent workflows — and uses that instrument to run the first experimental transfer test of classical MAS organizational fault-handling theory (Dellarocas & Klein's sentinel services and "unzippering" propagation, Horling & Lesser's organizational paradigms, the containment-backfires-under-scarcity result), plus a priced comparison of six containment/recovery mechanisms (including human escalation) on the cost-utility frontier.** Submit as a 16-page full paper. Frame explicitly as the experimental answer to La Malfa et al.'s NeurIPS 2025 position paper ("Large Language Models Miss the Multi-Agent Mark", arXiv:2505.21298), which called for exactly this engagement with classical MAS and ran no experiments.
+**Build "OrgResilience" as a classical-transfer measurement paper: the first experimental transfer test of the classical MAS fault-handling canon (Dellarocas & Klein ICMAS 2000; Kota et al. TAAS 2012; Hägg 1997) on tool-executing LLM agent organizations — where detection is imperfect and costly, faults are semantic, and containment spends the task's own resource budget.** The headline is NOT "containment backfires under scarcity" (Kota published that contrast in 2012); the headline is **mapping WHEN containment pays**: the containment×scarcity crossover located parametrically across budget currencies (tokens, tool calls, latency, reviewer minutes), with a detection-quality dial as the de-confounding instrument and a natural-attenuation control arm. Substrate: tau2-bench retail + LangGraph. Submit as a 16-page full paper, pre-registered.
 
-## 2. The smallest novel sentence that survives adversarial search
+## 2. Novelty sentences (three registers — use the defensible one)
 
-> **"No prior work measures how non-adversarial faults propagate across typed organizational boundaries — authority/delegation, memory, accountability, and human-agent boundaries, not just communication topology — in executing LLM multi-agent workflows, nor tests whether classical organizational fault-handling predictions survive semantic LLM failure modes."**
+1. **Aggressive (do NOT use):** "First demonstration that fault containment backfires under resource scarcity in LLM agent organizations." — Collides with Kota 2012 (FULL TEXT: maximal recovery drives organizational profit below zero), D&K 2000, and weakly with Xiang (SSRN 7348298).
+2. **Defensible (USE):** "We present the first experimental transfer test of the classical MAS fault-handling canon (Dellarocas & Klein; Kota et al.) on tool-executing LLM agent organizations — where detection is imperfect and costly, faults are semantic, and containment spends the task's own resource budget — and parametrically map the containment×scarcity crossover that classical work demonstrated only qualitatively."
+3. **Conservative (fallback):** "A pre-registered replication-and-extension of classical organizational fault-handling results in LLM-based agent organizations, with two measurement contributions: the detection-quality × containment-benefit frontier, and the containment×scarcity crossover location across four budget currencies."
 
-Every clause was independently checked:
-- "measures fault propagation across organizational boundaries" — zero hits for "organizational blast radius" or equivalent; all existing propagation work uses message/dependency graphs (E1, E3, B4).
-- "non-adversarial faults" — the propagation/containment literature is overwhelmingly adversarial (Agent Smith, Prompt Infection, G-Safeguard, DamageFlow, MAS-Shield, CASPIAN); organic-fault work (MAST, Who&When) is diagnostic only (C4, B1).
-- "executing LLM workflows" — the one paper with our metric vocabulary (Containing the Cascade, IEEE ICERA 2026) is discrete-event simulation with zero LLM calls (E1, E2, C3).
-- "classical transfer test" — Dellarocas & Klein ICMAS 2000 has exactly 1 post-2023 citer (no LLM content); Hägg 1997 has zero LLM-era citers; no transfer/replication study exists (W2 assassin, verified via Semantic Scholar citation APIs).
+Every clause of the defensible sentence was checked in the audit: the conjunction (organizational × tool-executing × propagating semantic faults × containment-spends-task-budget × detection-quality instrument × parametric crossover map) is empty with HIGH confidence (three independent search processes + citation-network sweep of ~1,060 citers). Every *pair* is occupied — the paper must be written as a conjunction claim, never as any single-factor claim.
 
-Do NOT claim: "first to study cascading failures" (false — crowded), "first fault-injection benchmark" (false — MAS-FIRE, AgentChaos), "first blast-radius metric" (false — occupied in 5 senses), "first to connect attribution to containment" (false as stated — BPD, AgentRevive, RoMa), "first to bridge classical MAS and LLMs" (false as framing — La Malfa et al. pre-staked it; we are the *experimental* answer, not the call).
+## 3. Venue intelligence (unchanged, verified wave 1)
 
-## 3. Venue intelligence (condensed from A1–A3)
+- MASO 2026 CFP verbatim lists "Detection and mitigation of cascading, and systemic failures" plus organizational testbeds, decision rights, accountability, organizational memory. Deadline 10 Oct 2026 AoE; LNCS; full 16pp / short 8pp; double-blind; workshop 14 Dec 2026, Kumamoto, colocated with PRIMA 2026.
+- **Reviewer pool is classical-MAS/XAI/norms-heavy** (van der Torre, Najjar, Galland, Calvaresi). PRIMA 2024 was ~97% classical MAS. This pool rewards engaging the classical canon and punishes unpositioned LLM-benchmark framing — the transfer-test spine is the right call.
+- Generic "first classical transfer test" framing is occupied (Resilient Consensus 2606.15024; Loop-Back Authority 2609.14767; Leadership-as-Control 2606.19111). Only the **fault-handling** instantiation survives — scope every framing claim accordingly.
 
-- MASO 2026 CFP **verbatim** lists "Detection and mitigation of cascading, and systemic failures" plus organizational memory, decision rights, accountability, organizational testbeds. The seed is native vocabulary, not opportunistic.
-- Deadline 10 Oct 2026 AoE; LNCS; full 16pp / short 8pp; double-blind, ≥2 reviewers; workshop 14 Dec 2026, Kumamoto.
-- **Reviewer pool is classical-MAS/XAI/norms-heavy** (van der Torre, Najjar, Galland, Calvaresi, negotiation and normative-MAS clusters), plus industry/public-sector practitioners. PRIMA 2024 was ~97% classical MAS; PRIMA 2025 ~20% LLM-hybrid. This pool will reward classical engagement and punish unpositioned LLM-benchmark framing. This is the single strongest argument for the classical-transfer spine of the recommendation.
-- Saturation map: saturated = generic orchestration, task decomposition, roles, A2A/MCP interoperability, negotiation, generic benchmarks. Underexplored = systemic/cascading failures with containment/recovery, organizational memory, decision-rights operationalization, fault-injectable organizational testbeds, org cost/quality metrics.
+## 4. Hypothesis verdicts after the full audit
 
-## 4. Candidate table (12 candidates, scored 1–10)
+| Hypothesis | Verdict | Disposition in the paper |
+|---|---|---|
+| **H1** — delegation depth changes propagation/recovery cost | SURVIVES WITH NARROWING | Transfer hypothesis, framed as conflict-resolution: D&K amplification vs Hallucination Cascade's measured attenuation (0.644). Not a first-observation claim. |
+| **H2** — containment reduces propagation at a cost | COLLIDED as headline | Background/motivation only. Cost premise triple-occupied (Sherlock 2511.00330; Verifier Tax 2603.19328; BRA-Audit 2608.14668). |
+| **H3** — containment backfires under scarcity | SURVIVES, RE-AIMED | From "demonstrate the backfire" (occupied: Kota, D&K, metastable failures) to "map when the crossover occurs" via non-classical mechanisms (§6.5). Genuine suspense: SHO's budget sweep is H3-silent, so the LLM-MAS sign pattern is empirically open. |
 
-Scores: Nov=novelty, Imp=importance, Fit=MASO fit, Exp=experimental clarity, Base=baseline availability, Feas=feasibility by 10 Oct, Rep=reproducibility, Int=reviewer interest, Def=defensibility of novelty claim.
+## 5. Prior-art matrix — top threats (all verification levels in `audit2/FINAL_AUDIT.md` §B)
 
-| # | Candidate | Nov | Imp | Fit | Exp | Base | Feas | Rep | Int | Def | Verdict |
-|---|---|---|---|---|---|---|---|---|---|---|---|
-| 1 | OrgBlast (organizational blast radius, org-structure-as-IV) | 7 | 9 | 10 | 8 | 7 | 7 | 8 | 8 | 6 | WOUNDED → merged into final |
-| 2 | ClassicalTransfer (do classical org fault-handling results hold for LLM MAS) | 8 | 8 | 10 | 8 | 7 | 7 | 8 | 9 | 8 | SURVIVES → merged into final |
-| 3 | AttribContain (attribution-quality threshold for guided vs blind containment) | 7 | 7 | 8 | 9 | 8 | 8 | 9 | 7 | 6 | WOUNDED → secondary experiment / follow-up |
-| 4 | RecoveryCost (cost-utility Pareto of containment mechanisms, priced human escalation) | 6 | 8 | 9 | 8 | 7 | 9 | 9 | 7 | 5 | WOUNDED → merged as cost axis |
-| 5 | FaultValidity (do injected faults predict organic failure?) | 8 | 8 | 7 | 6 | 6 | 4 | 6 | 8 | 7 | SURVIVES only descoped (Study A); follow-up paper |
-| 6 | Memory contamination propagation & recovery in shared org memory | 7 | 7 | 9 | 7 | 5 | 6 | 7 | 7 | 6 | Too thin standalone; one boundary arm in final |
-| 7 | Human escalation as costed containment (vs automated) | 6 | 8 | 9 | 7 | 6 | 6 | 6 | 8 | 5 | Merged as escalation arm; noisy-oracle primary |
-| 8 | Org structure as independent variable for resilience | 6 | 8 | 10 | 8 | 7 | 7 | 8 | 7 | 5 | Merged (it is the final's IV) |
-| 9 | Containment timing / attribution decay with propagation depth | 7 | 6 | 7 | 7 | 6 | 6 | 7 | 6 | 6 | Follow-up |
-| 10 | Correlated/common-mode failure × org structure (heterogeneity interaction) | 7 | 7 | 8 | 6 | 6 | 5 | 7 | 7 | 6 | Follow-up |
-| 11 | Fault-injectable organizational testbed (pure infrastructure paper) | 5 | 7 | 9 | 8 | 8 | 7 | 9 | 6 | 5 | Absorbed — testbed is means, not contribution |
-| 12 | Blast-radius-aware orchestration (design-time containment) | 4 | 7 | 7 | 6 | 6 | 5 | 7 | 6 | 3 | KILLED — Shen et al. EMNLP 2025 + topology cluster occupy it |
-
-Killed earlier (repo history, do not resurrect): sanctioning under unreliable blame; acceptance-gate manipulation; experience commons; verifier panels; regret-grounded Dec-POMDP LLM teams. Occupied by sibling proposal (`maso/`): policy-preserving delegation invariants — treat authority/delegation as a blast-radius dimension, never as invariant enforcement.
-
-## 5. Prior-art matrix — top threats to the final candidate
-
-| Paper | Real LLM MAS | Org structure as IV | Typed org boundaries | Non-adversarial faults | Containment bake-off | Recovery | Cost vector | Human arm | Classical MAS engagement |
+| Paper | Real LLM MAS | Org structure as IV | Tool-executing/stateful | Non-adversarial faults | Containment bake-off | Recovery cost | Scarcity arm | Detection-quality factor | Human arm |
 |---|---|---|---|---|---|---|---|---|---|
-| Containing the Cascade (ICERA 2026, DOI 10.1109/ICERA72709.2026.11666599) | ✗ (simulation) | ✗ | ✗ (message/tool only) | ✓ | ✓ (CB vs rollback) | partial | ✗ | ✗ | ✗ |
-| DamageFlow/BlastGuard (ICML 2026 AIWILD, MYvsxnxbCf) | partial (80-scenario pilot) | ✗ | ✗ (tool boundary) | ✗ (adversarial) | ✓ | ✓ | partial (BRS component) | ✗ | ✗ |
-| OrchestraBench (arXiv:2608.05263) | ��� (but single-LLM chains) | ✗ | ✗ | ✓ | partial | ✓ | ✗ | ✗ | ✗ |
-| Bounded Agents (arXiv:2608.15888) | ✗ (static analysis) | ✗ | authority only | ✗ | ✗ | ✗ | ✗ | ✗ | ✗ |
-| From Spark to Fire (arXiv:2603.04474) | ✓ | ✗ | ✗ (message layer) | ✓ | ✗ (one mechanism) | ✗ | ✗ | ✗ | ✗ |
-| MAS-FIRE (arXiv:2602.19843) | ✓ | ✗ | ✗ | ✓ | ✗ | diagnostic only | ✗ | ✗ | ✗ |
-| AgentChaos (arXiv:2608.06790, ASE 2026) | ✓ | ✗ | ✗ (API layer) | ✓ | ✗ (deferred) | ✗ | ✗ | ✗ | ✗ |
-| Emergence World (arXiv:2609.17320) | ✓ | ✗ | partial (memory/tools) | ✗ (adversarial stress) | ✗ ("detection ≠ containment") | ✗ | ✗ | ✗ | ✗ |
-| Trust Prop. & Structural Containment (arXiv:2609.17648) | ✓ | ✗ (fixed structure) | partial (memory/authority) | ✗ (adversarial) | ✗ (one mechanism) | ✗ | ✗ | ✗ | ✗ |
-| Dellarocas & Klein (ICMAS 2000) | ✗ (classical agents) | ✓ (delegation depth) | partial (delegation) | ✓ | ✓ (sentinels) | ✓ | ✓ (time) | ✗ | — (is the classic) |
-| **OrgResilience (ours)** | ✓ | ✓ | ✓ (7 types) | ✓ | ✓ (6 mechanisms) | ✓ | ✓ (incl. priced human minutes) | ✓ (noisy oracle) | ✓ (pre-registered transfer tests) |
+| Kota et al. TAAS 2012 | ✗ classical | ✓ (reorganization) | ✗ | ✓ | ✓ (adaptation strategies) | ✓ (recovery priced in capacity) | ✓ (R swept 0→0.9) | ✗ (perfect free detection) | ✗ |
+| Dellarocas & Klein ICMAS 2000 | ✗ classical | ✓ (delegation depth) | ✗ | ✓ | ✓ (sentinels vs survivalist) | ✓ (time inflation) | ✓ (scarce subcontractors) | ✗ | ✗ |
+| Xiang SSRN 7348298 | ✗ single-agent | ✗ | partial | ✓ | ✗ (one gate) | ✓ (verification budget) | ✓ (sign reversal, degenerate mechanism) | partial | ✗ |
+| Containing the Cascade (ICERA 2026) | ✗ simulation | ✗ (topology only) | ✗ | ✓ | ✓ (breaker/rollback ablation) | ✗ (steps only) | ✗ | ✗ (coverage assigned, not measured) | ✗ |
+| BRA-Audit 2608.14668 | ✓ | ✗ | ✓ | ✓ | ✓ (audit placement) | ✓ (tokens) | partial (audit budget additive, monotone) | partial | ✗ |
+| Huang et al. 2408.00989 | ✓ | ✓ (3-agent patterns) | ✗ (reasoning tasks) | ✓ | ✓ (Challenger/Inspector) | ✗ | ✗ | ✗ | ✗ |
+| OrchestraBench 2608.05263 | ✓ (single-LLM chains) | ✗ (chain depth) | ✓ | ✓ | partial | ✓ (rates, not cost) | ✗ | ✗ | ✗ |
+| Outcome Monitors 2608.19303 | ✗ single-agent | ✗ | ✓ (tau-bench retail!) | ✓ (silent tool faults) | ✗ | ✓ | ✗ | ✗ | ✗ |
+| Sherlock 2511.00330 | ✓ | ✗ | ✓ | ✓ | ✗ (placement optimization) | ✓ | ✗ | partial | ✗ |
+| Oversight Has a Capacity 2606.08919 | ✗ modeling | ✗ | ✗ | ✗ adversarial | ✗ | ✓ (reviewer capacity) | ✓ (inverted-U) | ✗ | ✓ (modeled) |
+| **OrgResilience (ours)** | ✓ | ✓ (authority depth) | ✓ (tau2 DB state) | ✓ | ✓ | ✓ (4 currencies) | ✓ (crossover mapped) | ✓ (oracle→syntactic→LLM dial) | ✓ (priced, load-dependent) |
 
-The empty column-pattern is the novelty claim in table form. Note the last row is the *only* one with org-structure-as-IV on real LLM MAS, and the only one engaging the classical lineage experimentally.
+Terminology note: "blast radius" remains occupied in 5 senses (CtC, DamageFlow, Bounded Agents, OrchestraBench, ACI) — do not headline it; "sentinel" is re-occupied for LLM MAS by Sentinel Agents (2509.14956, zero classical citations) — cite and differentiate.
 
-## 6. Final design (revised by all five mock reviewers' convergent fixes)
+## 6. Final design (minimal, audit-corrected)
 
 ### 6.1 Testbed
-- **Workflow 1:** customer-service refunds on tau2-bench retail (MIT; 114 tasks, 25 tools, deterministic DB-state ground truth, built-in `transfer_to_human_agents` escalation). Zero authoring cost.
-- **Workflow 2:** IT incident management, newly authored (~12 tools, ~30 tasks), deterministic tools.
-- Framework: LangGraph (checkpointing = rollback arm; interrupts = human arm). AutoGen is in maintenance mode — do not use.
-- **Irreversibility regime flag (R5 fix):** committed tool actions final; rollback degrades to subtask restart. The reversible-vs-irreversible contrast becomes a headline result, and defuses "Pareto computed in a revertible universe."
+- **One workflow:** tau2-bench retail (114 tasks, 25 tools, deterministic DB-state ground truth, built-in `transfer_to_human_agents`). LangGraph wrapper (checkpoints = rollback arm; interrupts = human arm). Pin τ³ ≥ v1.0.1.
+- Workflow 2 (IT incident) is a conditional extension only, after both gates pass.
 
-### 6.2 Independent variables
-- Org structure: flat / 2-level / 3-level / **depth-4 delegation chain (R3 fix — restores D&K-comparable cells)**; sentinel present/absent; **oracle-detector vs learned-detector sentinel (R3 fix — separates detection difficulty from theory breakdown)**; scarcity on/off; **flat-with-peer-verification control arm (R4 fix — breaks depth/verification confound)**; **static least-privilege prevention arm (R5 fix — the industry's actual first line of defense)**.
-- Faults (5 in main matrix, ground truth known): hallucinated tool arguments; corrupted handoff content; verification omission; agent death/unavailability; stale/poisoned shared memory. (Instruction-conflict and unauthorized-action faults in appendix.)
+### 6.2 Core matrix (the whole confirmatory design)
+depth {2,3,4} × handling {none, survivalist-retry, sentinel quarantine+re-delegation} × scarcity {abundant, scarce} × detector {oracle, syntactic, LLM-semantic} — with a **natural-attenuation control arm** (no mechanism, measure would-have-died-anyway base rates) and no-fault baselines.
+- Faults: agent death (crash, for H1/D&K-comparability) + corrupted handoff (semantic, for the detection dial). Memory-staleness arm only as extension.
+- Scarcity currencies: token budget primary; tool-call budget and reviewer-minutes secondary.
 
-### 6.3 Containment/recovery arms (the bake-off)
-none · retry · independent verifier gate · checkpoint-rollback · sentinel quarantine + re-delegation · **noisy-oracle human escalation (80% accuracy, priced in oversight minutes, queue-latency sweep — R4/R5 fix; scripted perfect oracle demoted to upper bound)**.
+### 6.3 Hypotheses (pre-registered)
+- **H1-transfer:** recovery-cost inflation grows with delegation depth (D&K: 600–700% at depth 4) — tested against the attenuation alternative (Hallucination Cascade). TOST on the inflation ratio; "fails to transfer" is a designed-in publishable outcome.
+- **H3′ (headline):** the containment×scarcity crossover exists on LLM substrates, and its location **shifts with detection quality** (no classical analogue — classical detection was free and perfect; note Kaminka & Tambe JAIR 2000 had monitoring-selectivity theorems, so claim "never an experimental factor," never "classical assumed perfect detection").
+- **H2′ (secondary):** sentinel quarantine+re-delegation vs Inspector-style verifier, on the cost-utility Pareto, under both scarcity regimes.
+- **H5 (cheap, from CtC full text):** does CtC's fail-safe/fail-operational division of labor (breaker governs containment, rollback governs completion) survive real stochastic semantic reasoners? CtC demonstrated it in simulation only.
 
-### 6.4 Metrics (R2/R4 fixes applied)
-- **OBR redefined:** absolute corrupted-event counts + per-boundary-type indicators on an **arm-invariant boundary inventory** (not a fraction whose denominator changes across structure arms). Typology derived from MOISE+ structural/functional/deontic dimensions, with severity-weighted and typology-sensitivity variants in appendix. Demoted from headline construct to instrumentation (R1).
-- Co-primary: utility preservation (deterministic DB-state success), continuous OBR count. Secondary: MTTD/MTTC, recovery-cost vector (tokens, tool calls, wall-clock, priced human minutes), D&K-analog relative completion-cost inflation.
-- LLM-as-judge: one secondary DV only, documented rubric, two judges, κ≥0.7 gate, 10% human audit.
+### 6.4 Mechanisms and the human arm
+Containment arms: none / survivalist-retry / verifier gate / sentinel quarantine+re-delegation / checkpoint-rollback / human escalation. The human arm is a **load-dependent reviewer** (capacity + fatigue, per Oversight Has a Capacity 2606.08919), priced in minutes — a static 80% oracle is behind prior art.
 
-### 6.5 Pre-registered hypotheses (the classical transfer spine)
-- H1: delegation-tree depth amplifies completion-cost inflation (D&K "unzippering"); TOST SESOI on the **inflation ratio** (R3 fix), not raw pp.
-- H2: sentinel containment reduces spread vs no-sentinel at matched budget.
-- H3: containment backfires under resource scarcity (sign reversal — the one adequately powered interaction).
-- H4 (repositioned per R3): Klein & Dellarocas CSCW 2000 and Carley & Lin 1997 **conceptually anticipated** value/semantic faults; what is unmeasured is their behavior on LLM substrates. H4 becomes the **detection-quality × containment frontier** (oracle vs learned detector arms), with quantitative non-obvious predictions (unzippering magnitude shift; scarcity-backfire threshold shift) — not the foreordained "syntactic detectors miss semantic faults" (R1's kill).
+### 6.5 The three non-classical mechanisms (what stops the "just retry storms" review)
+1. **Detection-quality × scarcity:** the backfire threshold shifts as detection degrades (no queueing/classical analogue).
+2. **False-positive quarantine collateral:** wrongly quarantining a healthy agent strands its subtasks organizationally (BRA-Audit's FP→unnecessary-rollback channel, unquantified).
+3. **Reviewer-budget race:** escalation consumes a shared queuing reviewer budget — congestion dynamics, not just congestion of compute.
 
-### 6.6 Statistics (F-C corrected plan + R2 fixes)
-- ~3,400–4,000 runs; ~$165–900 depending on model tier (DeepSeek → GPT-5-mini). Budget instances over seeds: I=40–50 instances × 1–2 seeds; 10×8 reliability sub-study.
-- Continuous endpoint is sole confirmatory outcome (d=0.65 at n=37/cell); binary/TOST claims exploratory unless ≥96 paired instances are budgeted for the equivalence tests (R2's central fix — the ±10pp SESOI is otherwise narrower than the achievable CI).
-- ITT primary analysis with per-arm trigger rates reported (triggered-only analysis is post-treatment selection — R2); low-prevalence block for false positives.
-- McNemar within-instance pairing; Holm correction across the hypothesis family; claims scoped to ≥25pp binary / d≥0.5 continuous effects.
-- Pre-registration (OSF or internal timestamped doc) before any runs — itself a differentiator: neither Containing the Cascade nor DamageFlow reports power analysis, CIs, or multiplicity control.
+### 6.6 Statistics (audit-corrected)
+- **HARD CONSTRAINT: tau2-retail paired noise floor is up to +18pp at n=100 (2606.20695, FULL TEXT). Binary contrasts need n≥250/cell; the earlier ±10pp TOST plan is dead.** Primary endpoints: continuous (recovery-cost inflation ratio; arm-invariant boundary-crossing counts) with full within-instance pairing; binary containment claims only at n≥250 or demoted to exploratory.
+- GLMM with random intercept per instance; Newcombe CIs for proportions; Holm within confirmatory family (H1-transfer, H3′, H5); BH-FDR for exploratory.
+- Pre-register (OSF timestamp) before main runs — the real scoop mitigation, and a differentiator: neither CtC nor DamageFlow has power analysis/multiplicity control.
+- Budget: ~2,500–4,000 runs; cost non-binding (DeepSeek/GPT-5-mini class, hundreds of USD); wall-clock is the binding constraint — build the parallel harness during days 5–10, budget days 12–16 for runs.
 
-### 6.7 Writing requirements (R1/R3/R4)
-- Organizational-foundations section: March & Simon, Galbraith, Aghion & Tirole 1997 (decision rights), Bovens 2007 (accountability), Walsh & Ungson 1991 (org memory), Reason 2000/Perrow (organizational accidents), Carley & Lin 1997.
-- Frame H1 as a market→hierarchy transfer test (Coase), not mere replication.
-- Practitioner-grounding paragraph: Anthropic "How we contain Claude" (2026), Microsoft Agent 365, OpenAI guardrails, Replit incident (Jul 2025), Air Canada tribunal.
-- Cite La Malfa et al. (arXiv:2505.21298) as the call being answered; Bădică et al. (arXiv:2509.02515) as the reflection being operationalized.
-- 16-page full paper (R3: the content does not fit 8 pages without looking compressed).
+### 6.7 Writing requirements
+- Organizational-foundations section (March & Simon, Galbraith, Aghion & Tirole, Bovens, Walsh & Ungson, Reason, Carley & Lin).
+- Frame as answering La Malfa et al. (2505.21298) — but scoped: Loop-Back Authority and Leadership-as-Control already answered the generic call; we answer it for fault handling.
+- Practitioner paragraph: Anthropic containment post, Agent 365, Replit/Air Canada incidents.
+- 16-page full paper.
 
-## 7. Timeline to 10 Oct (19 days, zero slack — F-A plan)
+## 7. Timeline (19 days, two gates)
 
-- Days 1–4: go/no-go gates — org wrapper holds baseline pass within ~10pp of single-agent tau2-retail; fault trigger rates ≥70%; OBR auto-labeling κ≥0.7 vs human labels; joint LangGraph+DB rollback determinism. **If any gate fails, descope to CAND-3 (attribution-threshold study, ~1,200 runs, fully feasible) as the fallback paper.**
-- Days 5–10: build arms (structures, sentinels, mechanisms, irreversibility flag); pilot for variance components.
-- Days 11–15: main matrix runs (~4k runs, hours of compute, cost non-binding).
-- Days 16–19: analysis, writing, internal red-team pass against the five reviewer reports in `reports/R*`/`W3_*`.
+- **Days 1–4, GATE 1 (build):** org wrapper holds baseline within ~10pp of single-agent retail; fault trigger rates ≥70%; boundary tracer κ≥0.7 vs human labels; joint LangGraph+DB rollback determinism; 100-run throughput test.
+- **Days 5–10:** arms + parallel harness + detector dial.
+- **Days 9–11:** pilot (~5% of cells) for variance components and trigger rates.
+- **Day 12, GATE 2 (post-pilot, pre-committed descope ladder):** cut in order — W2 → memory arm → human arm → reviewer-currency → detector levels 3→2. Never cut instances below the power floor.
+- **Days 12–16:** main runs. **Days 17–19:** analysis + writing. Submit early if possible.
 
-## 8. Risk register
+## 8. Risk register (post-audit)
 
 | Risk | Severity | Mitigation |
 |---|---|---|
-| Scoop before 10 Oct (Emergence World / TPSC / institutions-as-IV cluster are one experiment away; SYSU-SMU group owns both injection pillars) | HIGH | Re-sweep arXiv cs.MA/cs.AI ~28 Sep and ~7 Oct (C1's recommendation); pre-register early |
-| "Incremental recombination" reviewer read (R1) | MEDIUM | R1's revision package applied in §6.7; conjunction-verified-empty argument in related work |
-| H4 strawman (R3) | MEDIUM | Repositioned per §6.5; K&D CSCW 2000 + Carley & Lin cited as anticipations |
-| Statistical underpowering of equivalence claims (R2) | MEDIUM | §6.6 fixes; demote or budget up |
-| "Pipelines with role labels" (R4) | MEDIUM | MOISE+-derived typology; org-foundations section; peer-verification control |
-| Irreversibility objection (R5) | MEDIUM | Two-regime design is now a headline result |
-| Engineering overrun | MEDIUM | Hard gates days 1–4; CAND-3 fallback |
-| "Blast radius" terminology collision | LOW (managed) | Term disambiguated in one explicit paragraph against all 5 occupied senses; consider "organizational failure spread" in title, OBR as defined instrument |
+| "Kota did this in 2012" | HIGH | Headline is crossover-mapping + transfer, never backfire-discovery; non-classical mechanisms §6.5 |
+| "Just metastable failures for LLM agents" | HIGH | Same; cite Bronson/OSDI 2022 explicitly and differentiate on mechanism |
+| BRA-Audit adds a scarcity ablation (one experiment away) | HIGH | Pre-register early; submit early; cite as closest neighbor |
+| Flat detection-quality frontier (CUADebug: machine RCA ≈ oracle) | MEDIUM | Pre-register flat as publishable; detector dial is the de-confounding instrument regardless |
+| tau2 noise floor swallows effects | MEDIUM | n≥250 binary / continuous+paired primary; §6.6 |
+| Xiang full text shows a budget-aware arm (would tighten the squeeze) | LOW-MED | Full text already read (audit S3): single-agent, degenerate mechanism, not pre-registered — differentiate |
+| Scoop 19–21 Sep + ICLR 2027 invisible | MEDIUM | Re-sweep ~28 Sep for framing; pre-registration is the only real mitigation |
 
 ## 9. What this is NOT (scope guards)
 
-- Not a failure-attribution paper (saturated: Who&When, CHIEF, DCFA + 10 extensions).
-- Not a fault-injection paper (occupied: MAS-FIRE, AgentChaos, AgentChaosBench).
-- Not a delegation-security paper (occupied: Bounded Agents, root-scoped quiescence, and the sibling `maso/` proposal).
-- Not an adversarial-containment paper (occupied: G-Safeguard, MAS-Shield, DamageFlow, TopoSHIELD, BPD).
-- Not a "self-healing agents" paper (crowded 2026 cluster, all task-level).
+Not failure attribution (saturated). Not fault injection per se (MAS-FIRE/AgentChaos). Not delegation security (Bounded Agents + sibling `maso/` proposal). Not adversarial containment (G-Safeguard/DamageFlow/TopoSHIELD). Not "self-healing agents." Not a backfire-discovery claim (Kota/D&K). Not a generic classical-transfer claim (Resilient Consensus/Loop-Back/Leadership-as-Control).
 
 ## 10. Verification status
 
-47 specialist reports with per-paper verification logs in `maso_2026_investigation/reports/`; raw API dumps in `maso_2026_investigation/raw/`. Known residual gaps: (a) Containing the Cascade full text was bot-walled — verified via Crossref + abstract + Zenodo tombstone only; obtain via IEEE Xplore before writing related work; (b) arXiv submissions from 19–21 Sep not yet announced — re-sweep before submission; (c) AAMAS 2026 proceedings were swept via IFAAMAS TOC but a manual pass is cheap insurance.
+- 48 wave-1–3 reports (`reports/`) + 18 audit reports (`audit2/`), all with per-paper verification levels; raw API dumps in `raw/`, `audit2/raw_*/`.
+- Containing the Cascade: FULL TEXT verified (`reports/CtC_fulltext_verification.md`) — no boundary typology, no org-structure IV, simulation-only; fail-safe/fail-operational ablation converted into hypothesis H5.
+- H3-deciding papers (Xiang, Mehan, SHO): FULL TEXT verified (`audit2/S3_verify_h3.md`).
+- D&K citation claim re-verified 3× (57 citations, exactly 1 post-2023 citer, non-LLM).
+- Residual: 19–21 Sep arXiv submissions unannounced (re-sweep ~28 Sep); memory-repair preprint abstract-only (preprints.org bot-walled); ICLR 2027 submissions invisible.

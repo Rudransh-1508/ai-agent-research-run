@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/FrxyMrhtvCBshm9PIyibSZfEdho</id>
+  <title>arXiv Query: search_query=au:Baldoni AND abs:accountability&amp;id_list=&amp;start=0&amp;max_results=10</title>
+  <updated>2026-09-21T13:25:39Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=au:Baldoni+AND+abs:accountability&amp;start=0&amp;max_results=10&amp;id_list=" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>10</opensearch:itemsPerPage>
+  <opensearch:totalResults>1</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/1107.2086v1</id>
+    <title>Extend Commitment Protocols with Temporal Regulations: Why and How</title>
+    <updated>2011-07-11T18:48:59Z</updated>
+    <link href="https://arxiv.org/abs/1107.2086v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1107.2086v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>The proposal of Elisa Marengo's thesis is to extend commitment protocols to explicitly account for temporal regulations. This extension will satisfy two needs: (1) it will allow representing, in a flexible and modular way, temporal regulations with a normative force, posed on the interaction, so as to represent conventions, laws and suchlike; (2) it will allow committing to complex conditions, which describe not only what will be achieved but to some extent also how. These two aspects will be deeply investigated in the proposal of a unified framework, which is part of the ongoing work and will be included in the thesis.</summary>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2011-07-11T18:48:59Z</published>
+    <arxiv:comment>Proceedings of the Doctoral Consortium and Poster Session of the 5th International Symposium on Rules (RuleML 2011@IJCAI), pages 1-8 (arXiv:1107.1686)</arxiv:comment>
+    <arxiv:primary_category term="cs.AI"/>
+    <author>
+      <name>Elisa Marengo</name>
+    </author>
+    <author>
+      <name>Matteo Baldoni</name>
+    </author>
+    <author>
+      <name>Cristina Baroglio</name>
+    </author>
+  </entry>
+</feed>

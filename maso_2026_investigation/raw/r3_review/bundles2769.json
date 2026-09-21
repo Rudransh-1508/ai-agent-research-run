@@ -1,0 +1,132 @@
+{
+  "_links" : {
+    "self" : {
+      "href" : "https://dspace.mit.edu/server/api/core/items/961309ac-15ce-4566-9135-4a8520ebea25/bundles"
+    }
+  },
+  "_embedded" : {
+    "bundles" : [ {
+      "uuid" : "113bf7ee-3443-439d-b673-5317ead1d0eb",
+      "name" : "THUMBNAIL",
+      "handle" : null,
+      "metadata" : {
+        "dc.title" : [ {
+          "value" : "THUMBNAIL",
+          "language" : null,
+          "authority" : null,
+          "confidence" : -1,
+          "place" : 0
+        } ]
+      },
+      "type" : "bundle",
+      "uniqueType" : "core.bundle",
+      "_links" : {
+        "item" : {
+          "href" : "https://dspace.mit.edu/server/api/core/bundles/113bf7ee-3443-439d-b673-5317ead1d0eb/item"
+        },
+        "bitstreams" : {
+          "href" : "https://dspace.mit.edu/server/api/core/bundles/113bf7ee-3443-439d-b673-5317ead1d0eb/bitstreams"
+        },
+        "primaryBitstream" : {
+          "href" : "https://dspace.mit.edu/server/api/core/bundles/113bf7ee-3443-439d-b673-5317ead1d0eb/primaryBitstream"
+        },
+        "self" : {
+          "href" : "https://dspace.mit.edu/server/api/core/bundles/113bf7ee-3443-439d-b673-5317ead1d0eb"
+        }
+      }
+    }, {
+      "uuid" : "5ab48b8b-3ced-4451-8da7-b9038a18d2cb",
+      "name" : "COVERPAGE",
+      "handle" : null,
+      "metadata" : {
+        "dc.title" : [ {
+          "value" : "COVERPAGE",
+          "language" : null,
+          "authority" : null,
+          "confidence" : -1,
+          "place" : 0
+        } ]
+      },
+      "type" : "bundle",
+      "uniqueType" : "core.bundle",
+      "_links" : {
+        "item" : {
+          "href" : "https://dspace.mit.edu/server/api/core/bundles/5ab48b8b-3ced-4451-8da7-b9038a18d2cb/item"
+        },
+        "bitstreams" : {
+          "href" : "https://dspace.mit.edu/server/api/core/bundles/5ab48b8b-3ced-4451-8da7-b9038a18d2cb/bitstreams"
+        },
+        "primaryBitstream" : {
+          "href" : "https://dspace.mit.edu/server/api/core/bundles/5ab48b8b-3ced-4451-8da7-b9038a18d2cb/primaryBitstream"
+        },
+        "self" : {
+          "href" : "https://dspace.mit.edu/server/api/core/bundles/5ab48b8b-3ced-4451-8da7-b9038a18d2cb"
+        }
+      }
+    }, {
+      "uuid" : "567ac521-3fd1-44f5-af40-ff24bf4b94ef",
+      "name" : "ORIGINAL",
+      "handle" : null,
+      "metadata" : {
+        "dc.title" : [ {
+          "value" : "ORIGINAL",
+          "language" : null,
+          "authority" : null,
+          "confidence" : -1,
+          "place" : 0
+        } ]
+      },
+      "type" : "bundle",
+      "uniqueType" : "core.bundle",
+      "_links" : {
+        "item" : {
+          "href" : "https://dspace.mit.edu/server/api/core/bundles/567ac521-3fd1-44f5-af40-ff24bf4b94ef/item"
+        },
+        "bitstreams" : {
+          "href" : "https://dspace.mit.edu/server/api/core/bundles/567ac521-3fd1-44f5-af40-ff24bf4b94ef/bitstreams"
+        },
+        "primaryBitstream" : {
+          "href" : "https://dspace.mit.edu/server/api/core/bundles/567ac521-3fd1-44f5-af40-ff24bf4b94ef/primaryBitstream"
+        },
+        "self" : {
+          "href" : "https://dspace.mit.edu/server/api/core/bundles/567ac521-3fd1-44f5-af40-ff24bf4b94ef"
+        }
+      }
+    }, {
+      "uuid" : "90d6e633-1d6b-4ef1-b2dc-a4e0d593d90e",
+      "name" : "TEXT",
+      "handle" : null,
+      "metadata" : {
+        "dc.title" : [ {
+          "value" : "TEXT",
+          "language" : null,
+          "authority" : null,
+          "confidence" : -1,
+          "place" : 0
+        } ]
+      },
+      "type" : "bundle",
+      "uniqueType" : "core.bundle",
+      "_links" : {
+        "item" : {
+          "href" : "https://dspace.mit.edu/server/api/core/bundles/90d6e633-1d6b-4ef1-b2dc-a4e0d593d90e/item"
+        },
+        "bitstreams" : {
+          "href" : "https://dspace.mit.edu/server/api/core/bundles/90d6e633-1d6b-4ef1-b2dc-a4e0d593d90e/bitstreams"
+        },
+        "primaryBitstream" : {
+          "href" : "https://dspace.mit.edu/server/api/core/bundles/90d6e633-1d6b-4ef1-b2dc-a4e0d593d90e/primaryBitstream"
+        },
+        "self" : {
+          "href" : "https://dspace.mit.edu/server/api/core/bundles/90d6e633-1d6b-4ef1-b2dc-a4e0d593d90e"
+        }
+      }
+    } ]
+  },
+  "page" : {
+    "number" : 0,
+    "size" : 20,
+    "totalPages" : 1,
+    "totalElements" : 4
+  }
+}

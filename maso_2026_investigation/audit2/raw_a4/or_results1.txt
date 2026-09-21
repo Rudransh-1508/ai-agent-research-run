@@ -1,0 +1,260 @@
+[budget_mas] U4JxcyoX9c |  |  | 
+[budget_mas] WlHd7XxGQw |  |  | 
+[budget_mas] YOFmxMcepk |  |  | 
+[budget_mas] 8K08TKSAJV |  |  | 
+[budget_mas] mgwd5CjbU1 | AgentBalance: Budget-Aware Co-Design for Heterogeneous LLM Multi-Agent Systems | ACL ARR 2026 May Submission | Large language model (LLM)-based Multi-Agent Systems (MAS) improve problem solving by coordinating specialized agents, but their practical deployment is often constrained by token-cost and end-to-end 
+[budget_mas] zMQyjNXWlN |  |  | 
+[budget_mas] EPATBoB7WC | AgentMV: A State-Guided Multi-Agent Framework for Budget-Aware Music Video Generation | AI4VA 2026 Poster | Generating a complete music video from a song requires more than synthesizing visually plausible clips for individual lyric prompts. A practical system must maintain long-range visual consistency, coo
+[budget_mas] cs5pxdeS1Y |  |  | 
+[budget_mas] 4DSSRIH2gf |  |  | 
+[budget_mas] AxA7tNOra7 |  |  | 
+[budget_agent] U4JxcyoX9c |  |  | 
+[budget_agent] AxA7tNOra7 |  |  | 
+[budget_agent] OODuBO7f06 | BaRA: Budget-constrained and Reliable Web Data Collection Agent | CoRR 2026 | Large language model (LLM)-based web agents automate web navigation and data collection. However, live web data collection demands capabilities beyond task completion: agents must discover site-intern
+[budget_agent] ob2gbzvA6U | BaRA: Budget-constrained and Reliable Web Data Collection Agent | ACL ARR 2026 August Submission | Web-agent benchmarks typically evaluate task completion, yet collection outputs may contain inaccessible links or unsupported artifacts. We introduce a verified, budget-constrained, site-level multimo
+[budget_agent] C2jXkChE5J |  |  | 
+[budget_agent] E9h7UtBajC |  |  | 
+[budget_agent] WlHd7XxGQw |  |  | 
+[budget_agent] cNnw21bclf |  |  | 
+[budget_agent] YOFmxMcepk |  |  | 
+[budget_agent] cArAB6Sj5X | CORE: Measuring Multi-Agent LLM Interaction Quality under Game-Theoretic Pressures | MTI-LLM @ NeurIPS 2025 Poster | Game-theoretic interactions between agents with Large Language Models (LLMs) have revealed many emergent capabilities, yet the linguistic diversity of these interactions has not been sufficiently quan
+[verif_budget] JFKXH0tAcb |  |  | 
+[verif_budget] U4JxcyoX9c |  |  | 
+[verif_budget] AhFsKmuaCb | Multi-target Parallel Drug Discovery with Multi-agent Orchestration | Agents4Science | The immense cost and high failure rates of traditional drug discovery necessitate a shift towards more systematic, automated approaches. While specialized AI tools have excelled at individual tasks, t
+[verif_budget] WlHd7XxGQw |  |  | 
+[verif_budget] AxA7tNOra7 |  |  | 
+[verif_budget] b2oARovfki |  |  | 
+[verif_budget] YOFmxMcepk |  |  | 
+[verif_budget] JilLSMbsko |  |  | 
+[verif_budget] tFh4b4F7PS |  |  | 
+[verif_budget] U8Yi7z9TcQ |  |  | 
+[verif_cost] KJ6FJF1ufw |  |  | 
+[verif_cost] b2oARovfki |  |  | 
+[verif_cost] yblzn2VuSB |  |  | 
+[verif_cost] cOxUsPOAnJ |  |  | 
+[verif_cost] CnhrhOoA6R | Emotional Vocal Expressions Recognition Using the COST 2102 Italian Database of Emotional Speech | COST 2102 Training School 2009 | The present paper proposes a new speaker-independent approach to the classification of emotional vocal expressions by using the COST 2102 Italian database of emotional speech. The audio records extrac
+[verif_cost] w8bxQqcLxO | Emotional Vocal Expressions Recognition Using the COST 2102 Italian Database of Emotional Speech | COST 2102 Training School 2009 | The present paper proposes a new speaker-independent approach to the classification of emotional vocal expressions by using the COST 2102 Italian database of emotional speech. The audio records extrac
+[verif_cost] eLBEvpi5Qn | Eigenfeatures and Supervectors in Feature and Score Fusion for SVM Face and Speaker Verification | COST 2101/2102 Conference 2009 | Eigenfaces are the classical features used in face recognition and have been commonly used with classification techniques based on Euclidean distance and, more recently, with Support Vector Machines. 
+[verif_cost] SIroLpTLcf |  |  | 
+[verif_cost] r1KgNecjeF |  |  | 
+[verif_cost] vwRenDRUvP |  |  | 
+[retry_agent] AhFsKmuaCb | Multi-target Parallel Drug Discovery with Multi-agent Orchestration | Agents4Science | The immense cost and high failure rates of traditional drug discovery necessitate a shift towards more systematic, automated approaches. While specialized AI tools have excelled at individual tasks, t
+[retry_agent] eiw7dgCNad | Cognitive Immunity for Trustworthy LLM Agents: Auditable Failure Memory Against Repeated Safety Errors | SeT-LLM @ KDD 2026 Poster | Trustworthy LLM agents should not merely apologize after a failure; they should convert safety-relevant failures into reusable, auditable defenses. We introduce cognitive immunity, a runtime failure-m
+[retry_agent] FagtGRJ6XD |  |  | 
+[retry_agent] 2NLz9KtHDo |  |  | 
+[retry_agent] 1Ca2ViJnwP |  |  | 
+[retry_agent] jkp5Ggh2of |  |  | 
+[retry_agent] cW28yDrNiW |  |  | 
+[retry_agent] yd3c3Xztgj | BrowserArena: Evaluating LLM Agents on Real-World Web Navigation Tasks | MTI-LLM @ NeurIPS 2025 Poster | LLM web agents now browse and take actions on the open web, yet current agent evaluations are constrained to sandboxed environments or artificial tasks. We introduce BrowserArena, a live open-web agen
+[retry_agent] rYqOVHvQtf |  |  | 
+[retry_agent] GBkocJOInv |  |  | 
+[metastable] 6RcNIN1ba4 |  |  | 
+[metastable] AhFsKmuaCb | Multi-target Parallel Drug Discovery with Multi-agent Orchestration | Agents4Science | The immense cost and high failure rates of traditional drug discovery necessitate a shift towards more systematic, automated approaches. While specialized AI tools have excelled at individual tasks, t
+[metastable] 5jxFpBGZzr |  |  | 
+[metastable] FagtGRJ6XD |  |  | 
+[metastable] ptpDaTsKY8 | MSF-Model: Modeling Metastable Failures in Replicated Storage Systems | CoRR 2023 | Metastable failure is a recent abstraction of a pattern of failures that occurs frequently in real-world distributed storage systems. In this paper, we propose a formal analysis and modeling of metast
+[metastable] XICSrxbv92 |  |  | 
+[metastable] hTkquNujpW | MSF-Model: Queuing-Based Analysis and Prediction of Metastable Failures in Replicated Storage Systems | SRDS 2024 | Metastable failure is a recent abstraction of a pattern of failures that occurs frequently in real-world distributed storage systems. In this paper, we propose a formal analysis and modeling of metast
+[metastable] jkp5Ggh2of |  |  | 
+[metastable] Stfxayd8lI | Discrete distributions are learnable from metastable samples | CoRR 2024 | Physically motivated stochastic dynamics are often used to sample from high-dimensional distributions. However such dynamics often get stuck in specific regions of their state space and mix very slowl
+[metastable] 8uMzv3gFMR | Explaining Metastable Cooperation in Independent Multi-Agent Boltzmann Q-Learning – A Deterministic Approximat | ICLR 2026 Conference Withdrawn Submission | Multi-agent reinforcement learning involves interacting agents whose learning processes are coupled through a shared environment. This work introduces a new discrete-time approximation model for multi
+[overload_agent] dF7QnCFtDc |  |  | 
+[overload_agent] AhFsKmuaCb | Multi-target Parallel Drug Discovery with Multi-agent Orchestration | Agents4Science | The immense cost and high failure rates of traditional drug discovery necessitate a shift towards more systematic, automated approaches. While specialized AI tools have excelled at individual tasks, t
+[overload_agent] X86jxEIVtX | A multi-agent system for financial retrieval |  | 
+[overload_agent] diVnyahgl1 |  |  | 
+[overload_agent] bUPkLBUcaO |  |  | 
+[overload_agent] rP5XOzaCtZ |  |  | 
+[overload_agent] ir2wGG30FG |  |  | 
+[overload_agent] nWtWQtbmRk |  |  | 
+[overload_agent] 6uCSWcVXwf |  |  | 
+[overload_agent] jKBFsPR8bz |  |  | 
+[scarcity] nWtWQtbmRk |  |  | 
+[scarcity] 8CAk5tpHQZ |  |  | 
+[scarcity] Ho2TzLevhZ |  |  | 
+[scarcity] U4JxcyoX9c |  |  | 
+[scarcity] 1SMaqf9s3u |  |  | 
+[scarcity] OvQWuZmySP |  |  | 
+[scarcity] o1KX94uydp |  |  | 
+[scarcity] kytwCa2md1 |  |  | 
+[scarcity] WyoYA37jx6 | Multiagent resource allocation with sharable items | Auton. Agents Multi Agent Syst. 2014 | We study a particular multiagent resource allocation problem with indivisible, but sharable resources. In our model, the utility of an agent for using a bundle of resources is the difference between t
+[scarcity] FuC1d2fPeh |  |  | 
+[containment_cost] AhFsKmuaCb | Multi-target Parallel Drug Discovery with Multi-agent Orchestration | Agents4Science | The immense cost and high failure rates of traditional drug discovery necessitate a shift towards more systematic, automated approaches. While specialized AI tools have excelled at individual tasks, t
+[containment_cost] 3iKEMk1k8z | An Agent-Based Infrastructure for Enterprise Integration | ASA/MA 1999 | Some of the features that make Jackal (Java-based Applications Communication using KQML Agent communication Language) extremely valuable to agent development are its conversation management facilities
+[containment_cost] FagtGRJ6XD |  |  | 
+[containment_cost] xJslL3gv8U | H2 suboptimal containment control of homogeneous and heterogeneous multi-agent systems | CoRR 2023 | This paper deals with the H2 suboptimal state containment control problem for homogeneous linear multi-agent systems and the H2 suboptimal output containment control problem for heterogeneous linear m
+[containment_cost] aqgdPHavCh | Agent Development with Jackal | Agents 1999 | 
+[containment_cost] H3rri0stkb | Agent Development Support for Tcl | Tcl/Tk Workshop 1997 | 
+[containment_cost] Wk6valCNSC | Containment Control of Multi-Agent Systems with Stochastic Multiplicative Noises | J. Syst. Sci. Complex. 2022 | This paper investigates the containment problem of continuous-time multi-agent systems with multiplicative noises, where the first-order and second-order multi-agent systems are studied respectively. 
+[containment_cost] gmGIms1eeT | Distributed containment control of linear multi-agent systems using output information | ICARCV 2012 | This paper concerns the distributed containment problem of multi-agent systems with linear or linearized node dynamics under a directed communication topology. A new class of distributed control proto
+[containment_cost] EGIZQ689yN | TKQML: A Scripting Tool for Building Agents | ATAL 1997 | Tcl/Tk is an attractive language for the design of intelligent agents because it allows the quick construction of prototypes and user interfaces; new scripts can easily be bound at runtime to respond 
+[containment_cost] XICSrxbv92 |  |  | 
+[recovery_cost] 3iKEMk1k8z | An Agent-Based Infrastructure for Enterprise Integration | ASA/MA 1999 | Some of the features that make Jackal (Java-based Applications Communication using KQML Agent communication Language) extremely valuable to agent development are its conversation management facilities
+[recovery_cost] AhFsKmuaCb | Multi-target Parallel Drug Discovery with Multi-agent Orchestration | Agents4Science | The immense cost and high failure rates of traditional drug discovery necessitate a shift towards more systematic, automated approaches. While specialized AI tools have excelled at individual tasks, t
+[recovery_cost] IImXgfZEoJ |  |  | 
+[recovery_cost] aqgdPHavCh | Agent Development with Jackal | Agents 1999 | 
+[recovery_cost] H3rri0stkb | Agent Development Support for Tcl | Tcl/Tk Workshop 1997 | 
+[recovery_cost] EGIZQ689yN | TKQML: A Scripting Tool for Building Agents | ATAL 1997 | Tcl/Tk is an attractive language for the design of intelligent agents because it allows the quick construction of prototypes and user interfaces; new scripts can easily be bound at runtime to respond 
+[recovery_cost] AvXPCSNfrf |  |  | 
+[recovery_cost] olvjn1TgNZ |  |  | 
+[recovery_cost] CnhrhOoA6R | Emotional Vocal Expressions Recognition Using the COST 2102 Italian Database of Emotional Speech | COST 2102 Training School 2009 | The present paper proposes a new speaker-independent approach to the classification of emotional vocal expressions by using the COST 2102 Italian database of emotional speech. The audio records extrac
+[recovery_cost] w8bxQqcLxO | Emotional Vocal Expressions Recognition Using the COST 2102 Italian Database of Emotional Speech | COST 2102 Training School 2009 | The present paper proposes a new speaker-independent approach to the classification of emotional vocal expressions by using the COST 2102 Italian database of emotional speech. The audio records extrac
+[graceful_deg] s0pgIUSPnW | Fail-Operational Automotive Software Design Using Agent-Based Graceful Degradation | DATE 2020 | Ensuring fail-operational behavior is critical to enable autonomous driving. With the absence of a driver as a fallback in a failure scenario it will not be sufficient to use state-of-the-art fail-saf
+[graceful_deg] jY5Sk7T1PS | 3D computational graceful degradation | ISCAS 2000 | With new multimedia standards, such as MPEG-4, media can progressively be transmitted at different levels of detail, which allows dynamic adaptation to the available network bandwidth. We present a ne
+[graceful_deg] qgzeYdO9Le | Q-Learning Based Dynamic Voltage Scaling for Designs with Graceful Degradation | ISPD 2015 | Dynamic voltage scaling (DVS) has been widely used to suppress power consumption in modern designs. The decision of optimal operating voltage at runtime should consider the variations in workload, pro
+[graceful_deg] G3fpZfJnGq | Graceful image retrieval performance degradation using small world distributed indexing | ICIP (3) 2005 | A small world search agent employing peer-to-peer concepts borrowed from sociology is employed for performing image retrievals in a small world distributed media index. The small world indexing method
+[graceful_deg] ipG5YovA4R | Integrating Graceful Degradation and Recovery through Requirement-driven Adaptation | CoRR 2024 | Cyber-physical systems (CPS) are subject to environmental uncertainties such as adverse operating conditions, malicious attacks, and hardware degradation. These uncertainties may lead to failures that
+[graceful_deg] U3YhVUrBdu | Defect Tolerance Based on Graceful Degradation and Dynamic Reconfiguration for Digital Microfluidics-Based Bio | IEEE Trans. Comput. Aided Des. Integr. Circuits Syst. 2006 | Defect tolerance is an important design consideration for microfluidics-based biochips that are used for safety-critical applications. The authors propose a defect-tolerance methodology based on grace
+[graceful_deg] 2wdoWIZ2BB | Graceful Degradation for Real-time Visualization of Streaming Geospatial Data | EuroVis (Short Papers) 2021 | The availability of devices that can record locations and are connected to the Internet creates a huge amount of geospatial data that are continuously streamed. The informative visualization of such d
+[graceful_deg] AhFsKmuaCb | Multi-target Parallel Drug Discovery with Multi-agent Orchestration | Agents4Science | The immense cost and high failure rates of traditional drug discovery necessitate a shift towards more systematic, automated approaches. While specialized AI tools have excelled at individual tasks, t
+[graceful_deg] 9qZPUfajpL | Improper Graceful and Odd-graceful Labellings of Graph Theory | CoRR 2015 | In this paper we define some new labellings for trees, called the in-improper and out-improper odd-graceful labellings such that some trees labelled with the new labellings can induce graceful graphs 
+[graceful_deg] bPU4R3K4f6 | Critical Path Monitor Enabled Dynamic Voltage Scaling for Graceful Degradation in Sub-Threshold Designs | DAC 2014 | Sub-threshold designs play an important role in energy-constrained applications. In those designs, path delays depend exponentially on threshold voltage/temperature. As such, dynamic configurations at
+[token_budget_mas] U4JxcyoX9c |  |  | 
+[token_budget_mas] WlHd7XxGQw |  |  | 
+[token_budget_mas] YOFmxMcepk |  |  | 
+[token_budget_mas] 85eZxLJqdW |  |  | 
+[token_budget_mas] 8KW7zPwqrU |  |  | 
+[token_budget_mas] OvQWuZmySP |  |  | 
+[token_budget_mas] MBRQzEDvYL |  |  | 
+[token_budget_mas] HZq7ZboQvW |  |  | 
+[token_budget_mas] ndQ8ttKC9E |  |  | 
+[token_budget_mas] 7cNgBq8A7i |  |  | 
+[safety_tax] DWrkfu7xOW |  |  | 
+[safety_tax] uKrMaKkMsL |  |  | 
+[safety_tax] 8jz781PCgx |  |  | 
+[safety_tax] VgM4gooQLl |  |  | 
+[safety_tax] yZ5LZmcKGv |  |  | 
+[safety_tax] rptfDh4SkH |  |  | 
+[safety_tax] O5XChlgYXl |  |  | 
+[safety_tax] ww8kZZR4EL |  |  | 
+[safety_tax] c8LeJtBrg5 |  |  | 
+[safety_tax] Fi99jJo9cg |  |  | 
+[redundancy_cost] 0UQkJoPmfF |  |  | 
+[redundancy_cost] YAH6y8nfV8 |  |  | 
+[redundancy_cost] bATfig9FMH |  |  | 
+[redundancy_cost] 3iKEMk1k8z | An Agent-Based Infrastructure for Enterprise Integration | ASA/MA 1999 | Some of the features that make Jackal (Java-based Applications Communication using KQML Agent communication Language) extremely valuable to agent development are its conversation management facilities
+[redundancy_cost] nNInwZg9Lu |  |  | 
+[redundancy_cost] 09SG8E0AX0 |  |  | 
+[redundancy_cost] JSxzy9Hj4s |  |  | 
+[redundancy_cost] DppOThMbVZ |  |  | 
+[redundancy_cost] 7AetgL7eVL | Multi-Agent-as-Judge: Aligning LLM-Agent-Based Automated Evaluation with Multi-Dimensional Human Evaluation | MTI-LLM @ NeurIPS 2025 Poster | Nearly all human work is collaborative; thus, the evaluation of real-world NLP applications often requires multiple dimensions that align with diverse human perspectives. As real human evaluator resou
+[redundancy_cost] cGyTZJU3kE |  |  | 
+[selfcorr_cost] gj8CHohNpe |  |  | 
+[selfcorr_cost] z4aNQkourA |  |  | 
+[selfcorr_cost] b2CsLfx0dr |  |  | 
+[selfcorr_cost] r40GN1Wttt |  |  | 
+[selfcorr_cost] uQADvE2pEA |  |  | 
+[selfcorr_cost] 7Zi3EakpUq |  |  | 
+[selfcorr_cost] GRupgl78s6 |  |  | 
+[selfcorr_cost] ALqJE1WzX4 |  |  | 
+[selfcorr_cost] C5N7pQRmRM |  |  | 
+[selfcorr_cost] JS1cOwsxkO |  |  | 
+[ttc_budget] YOFmxMcepk |  |  | 
+[ttc_budget] WlHd7XxGQw |  |  | 
+[ttc_budget] 85YxOoNnvC |  |  | 
+[ttc_budget] zTnlnrmRWi |  |  | 
+[ttc_budget] JFKXH0tAcb |  |  | 
+[ttc_budget] gYzd6lktrV |  |  | 
+[ttc_budget] z2HDRGN7m8 | FutureWeaver: Planning Test-Time Compute for Multi-Agent Systems with Modular Collaboration | COLM 2026 | Scaling test-time computation has been shown to significantly improve large language model (LLM) performance without additional training. However, extending these techniques to multi-agent systems rem
+[ttc_budget] lifeoGrKRB | AGENT*: Optimizing Test-Time Compute for Multi-Agent Systems with Modularized Collaboration | Submitted to ICLR 2026 | Scaling test-time computation has emerged as a powerful and increasingly popular approach for improving the performance of large language models without additional training. Recent work demonstrates t
+[ttc_budget] MBRQzEDvYL |  |  | 
+[ttc_budget] U4JxcyoX9c |  |  | 
+[oversight_cap] XMfFf6iiWJ |  |  | 
+[oversight_cap] hqXXGdwkfd |  |  | 
+[oversight_cap] LQCr62WXKx |  |  | 
+[oversight_cap] HAQ5irJMwE |  |  | 
+[oversight_cap] ouzS5sqGhj | Secure Human Oversight of AI: Exploring the Attack Surface of Human Oversight | CoRR 2025 | Human oversight of AI is promoted as a safeguard against risks such as inaccurate outputs, system malfunctions, or violations of fundamental rights, and is mandated in regulation like the European AI 
+[oversight_cap] zA3KAXOKdB |  |  | 
+[oversight_cap] xITbmEMflr |  |  | 
+[oversight_cap] 1XiJxtQ588 |  |  | 
+[oversight_cap] Ng76VTksEs |  |  | 
+[oversight_cap] svJ9jEtBGE |  |  | 
+[monitor_budget] ww8kZZR4EL |  |  | 
+[monitor_budget] zA3KAXOKdB |  |  | 
+[monitor_budget] Ng76VTksEs |  |  | 
+[monitor_budget] AhFsKmuaCb | Multi-target Parallel Drug Discovery with Multi-agent Orchestration | Agents4Science | The immense cost and high failure rates of traditional drug discovery necessitate a shift towards more systematic, automated approaches. While specialized AI tools have excelled at individual tasks, t
+[monitor_budget] Fkoyy680ot |  |  | 
+[monitor_budget] zav79hI84n |  |  | 
+[monitor_budget] CLKpXfYElL |  |  | 
+[monitor_budget] U4JxcyoX9c |  |  | 
+[monitor_budget] tmQTYDisHS |  |  | 
+[monitor_budget] zhm6u8YcS3 |  |  | 
+[human_cost] zA3KAXOKdB |  |  | 
+[human_cost] zav79hI84n |  |  | 
+[human_cost] AhFsKmuaCb | Multi-target Parallel Drug Discovery with Multi-agent Orchestration | Agents4Science | The immense cost and high failure rates of traditional drug discovery necessitate a shift towards more systematic, automated approaches. While specialized AI tools have excelled at individual tasks, t
+[human_cost] XMfFf6iiWJ |  |  | 
+[human_cost] hqXXGdwkfd |  |  | 
+[human_cost] tmQTYDisHS |  |  | 
+[human_cost] 3iKEMk1k8z | An Agent-Based Infrastructure for Enterprise Integration | ASA/MA 1999 | Some of the features that make Jackal (Java-based Applications Communication using KQML Agent communication Language) extremely valuable to agent development are its conversation management facilities
+[human_cost] HAQ5irJMwE |  |  | 
+[human_cost] Z7oojoEFPz |  |  | 
+[human_cost] ouzS5sqGhj | Secure Human Oversight of AI: Exploring the Attack Surface of Human Oversight | CoRR 2025 | Human oversight of AI is promoted as a safeguard against risks such as inaccurate outputs, system malfunctions, or violations of fundamental rights, and is mandated in regulation like the European AI 
+[backfire] AhFsKmuaCb | Multi-target Parallel Drug Discovery with Multi-agent Orchestration | Agents4Science | The immense cost and high failure rates of traditional drug discovery necessitate a shift towards more systematic, automated approaches. While specialized AI tools have excelled at individual tasks, t
+[backfire] GBkocJOInv |  |  | 
+[backfire] T2gYesIOYs |  |  | 
+[backfire] 3D4fACmsLN |  |  | 
+[backfire] SQ1ehNJsz7 |  |  | 
+[backfire] k5jc1twbN3 | Review |  | 
+[backfire] 0lObopGULC | Opinion dynamics with backfire effect and biased assimilation | PLOS ONE | The democratization of AI tools for content generation, combined with unrestricted access to mass media for all (e.g. through microblogging and social media), makes it increasingly hard for people to 
+[backfire] dduDpObXKL |  |  | 
+[backfire] UgQvCyKfVf | A Visual Intervention Probing for Hallucination Detection in Medical Vision-Language Models |  | 
+[backfire] pToOOnykD6 |  |  | 
+[circuit_breaker] amN7tmay3H | A Г-Source Circuit Breaker for DC Microgrid Protection | IEEE Trans. Ind. Electron. 2021 | In this article, a novel Γ-source circuit breaker (CB) that can offer automatic fault isolation with no reflected fault current in the feeding source is proposed for the protection of dc microgrids. C
+[circuit_breaker] 4XsgkWaK2J | Mechanical Fault Diagnosis of Circuit Breaker Based on Improved Grey Relational Analysis | ICGEC 2021 | To improve the extraction efficiency of the mechanical fault features of the circuit breaker and the recognition of the fault type. First, extract the 20-dimensional time-domain characteristics of the
+[circuit_breaker] srhXvoXgon | A Novel Control Strategy of Phase-Controlled Switching Technology for Vacuum Circuit Breaker | IEEE Access 2022 | The opening and closing of a vacuum circuit breaker in the selected phase of the system voltage and the associated electrical equipment plug in or disconnect the electrical system with minimal impact 
+[circuit_breaker] E27wjgaqrm | Service mesh circuit breaker: From panic button to performance management tool | HAOC@EuroSys 2021 | Site Reliability Engineers are at the center of two tensions: On one hand, they need to respond to alerts within a short time, to restore a non-functional system. On the other hand, short response tim
+[circuit_breaker] VBsaTnYlji |  |  | 
+[circuit_breaker] IrSgQ51acl |  |  | 
+[circuit_breaker] VFiqHzi3bt |  |  | 
+[circuit_breaker] 5uxR7YnWwt | A Breaker Failure Detection Method Based on Nonlinear Parameter Estimation for Modular Hybrid DC Circuit Break | IEEE Trans. Instrum. Meas. 2022 | Modular hybrid dc circuit breakers (DCCBs) have been widely employed to protect multiterminal high-voltage dc (MT-HVdc) grids. However, breaker failures still pose a challenge to the protection of MT-
+[circuit_breaker] NOytzddtcP | Simple Activation Clipping Defeats Circuit Breakers | AIW 2026 | Recent works in LLM safety propose methods that can be baked directly into the model's weights, breaking LLM inference on harmful prompts. These methods allow for open-weight models to be released wit
+[circuit_breaker] rWhae1Qo85 |  |  | 
+[rate_limit] nNInwZg9Lu |  |  | 
+[rate_limit] bATfig9FMH |  |  | 
+[rate_limit] 7AetgL7eVL | Multi-Agent-as-Judge: Aligning LLM-Agent-Based Automated Evaluation with Multi-Dimensional Human Evaluation | MTI-LLM @ NeurIPS 2025 Poster | Nearly all human work is collaborative; thus, the evaluation of real-world NLP applications often requires multiple dimensions that align with diverse human perspectives. As real human evaluator resou
+[rate_limit] 0UQkJoPmfF |  |  | 
+[rate_limit] t7kEt9PIxM |  |  | 
+[rate_limit] QN6KLU4zzn |  |  | 
+[rate_limit] WYfzRJgWbO | Improved Multi-Agent Collaboration with Multi-Turn Reinforcement Learning | MTI-LLM @ NeurIPS 2025 Poster | A large amount of work has been done in Multi-Agent Systems (MAS) for modeling and solving problems with multiple interacting agents. However, most LLMs are pretrained independently and not specifical
+[rate_limit] h8KFX5HM3N | Scalability of LLM-Based Multi-Agent Systems for Scientific Code Generation: A Preliminary Study | MTI-LLM @ NeurIPS 2025 Poster | Recent studies indicate that LLM-based Multi-Agent Systems (MAS) encounter scalability challenges in complex mathematical problem-solving or coding tasks, exhibiting issues such as inconsistent role a
+[rate_limit] o1KX94uydp |  |  | 
+[rate_limit] 061e3hpGV7 |  |  | 
+[congestion] diVnyahgl1 |  |  | 
+[congestion] bUPkLBUcaO |  |  | 
+[congestion] nWtWQtbmRk |  |  | 
+[congestion] PkELlxh2Jk |  |  | 
+[congestion] T2gYesIOYs |  |  | 
+[congestion] SbNNx8xCH5 |  |  | 
+[congestion] 2lOHlzdN8q | Handling Communication Restrictions and Team Formation in Congestion Games | Auton. Agents Multi Agent Syst. 2006 | There are many domains in which a multi-agent system needs to maximize a “system utility” function which rates the performance of the entire system, while subject to communication restrictions among t
+[congestion] t6QV9o9kIy |  |  | 
+[congestion] X86jxEIVtX | A multi-agent system for financial retrieval |  | 
+[congestion] X5Apc2lUNv |  |  | 
+[queue_agent] jn3phzMV9A |  |  | 
+[queue_agent] QRT3mvmMsg |  |  | 
+[queue_agent] nGfYAQrsDZ |  |  | 
+[queue_agent] KzjtdzJq0T |  |  | 
+[queue_agent] stfW5AFv4o |  |  | 
+[queue_agent] AhFsKmuaCb | Multi-target Parallel Drug Discovery with Multi-agent Orchestration | Agents4Science | The immense cost and high failure rates of traditional drug discovery necessitate a shift towards more systematic, automated approaches. While specialized AI tools have excelled at individual tasks, t
+[queue_agent] yjzw4ndAjE |  |  | 
+[queue_agent] 8S7XOd3Yba | Estimating characteristics of queueing networks using transactional data | Queueing Syst. Theory Appl. 1998 | We are motivated by queueing networks in which queues are difficult to observe but services are easy to record. Our goal is to estimate the queues from service data. More specifically, we consider an 
+[queue_agent] 2msp03t062 | On exponential ergodicity of multiclass queueing networks | Queueing Syst. Theory Appl. 2010 | One of the key performance measures in queueing systems is the decay rate of the steady-state tail probabilities of the queue lengths. It is known that if a corresponding fluid model is stable and the
+[queue_agent] 1s3E0S1iyJ |  |  | 
+[anytime] 4gZdzQPMO8 | Budget-Aware Anytime Reasoning with LLM-Synthesized Preference Data | CoRR 2026 | We study the reasoning behavior of large language models (LLMs) under limited computation budgets. In such settings, producing useful partial solutions quickly is often more practical than exhaustive 
+[anytime] CwQkBEfBGa | Budget-Aware Anytime Reasoning with LLM-Synthesized Preference Data | ACL (Findings) 2026 | We study the reasoning behavior of large language models (LLMs) under limited computation budgets. In such settings, producing useful partial solutions quickly is often more practical than exhaustive 
+[anytime] eDrX6rw32l | Anytime Safe PAC Efficient Reasoning | ES-Reasoning @ ICLR 2026 | Large Reasoning Models (LRMs) have demonstrated remarkable performance on complex tasks but suffer from high computational costs and latency. While selective thinking strategies improve efficiency by 
+[anytime] JMDCMf7mlF | Anytime Verified Agents: Adaptive Compute Allocation for Reliable LLM Reasoning under Budget Constraints | Accepted by TMLR | Large language model (LLM) agents can perform multi-step reasoning, planning, and tool use. However, their performance scales with the computational budget. Existing methods allocate computational res
+[anytime] kMGc0yvM61 | Optimizing Anytime Reasoning via Budget Relative Policy Optimization | AI4Math@ICML25 Poster | Scaling test-time compute is crucial for enhancing the reasoning capabilities of large language models (LLMs). Existing approaches typically employ reinforcement learning (RL) to maximize a verifiable
+[anytime] 5qkiDmdBdh |  |  | 
+[anytime] pGX2EQulkC | Token-Budget-Aware LLM Reasoning | ACL (Findings) 2025 | Reasoning is critical for large language models (LLMs) to excel in a wide range of tasks. While methods like Chain-of-Thought (CoT) reasoning and enhance LLM performance by decomposing problems into i
+[anytime] 3IdAGg9T52 | Token-Budget-Aware LLM Reasoning | CoRR 2024 | Reasoning is critical for large language models (LLMs) to excel in a wide range of tasks. While methods like Chain-of-Thought (CoT) reasoning enhance LLM performance by decomposing problems into inter
+[anytime] HJxygUr1qh |  |  | 
+[anytime] O1oqnTFe9i |  |  | 
+[metareason] 3iKEMk1k8z | An Agent-Based Infrastructure for Enterprise Integration | ASA/MA 1999 | Some of the features that make Jackal (Java-based Applications Communication using KQML Agent communication Language) extremely valuable to agent development are its conversation management facilities
+[metareason] AhFsKmuaCb | Multi-target Parallel Drug Discovery with Multi-agent Orchestration | Agents4Science | The immense cost and high failure rates of traditional drug discovery necessitate a shift towards more systematic, automated approaches. While specialized AI tools have excelled at individual tasks, t
+[metareason] 0UQkJoPmfF |  |  | 
+[metareason] 09SG8E0AX0 |  |  | 
+[metareason] s47svWaIEd |  |  | 
+[metareason] ECXVwc1L4g | Rational Metareasoning for Large Language Models | NeurIPS 2024 Workshop on Behavioral ML | Reasoning has emerged as a core technique for improving large language model (LLM) performance across various tasks by using additional inference-time compute. However, as LLMs scale in both size and 
+[metareason] Otm03OVHzG | Rational Metareasoning for Large Language Models | Sys2-Reasoning Poster | Reasoning has emerged as a core technique for improving large language model (LLM) performance across various tasks by using additional inference-time compute. However, as LLMs scale in both size and 
+[metareason] 0kA1GI602b |  |  | 
+[metareason] aqgdPHavCh | Agent Development with Jackal | Agents 1999 | 
+[metareason] H3rri0stkb | Agent Development Support for Tcl | Tcl/Tk Workshop 1997 | 

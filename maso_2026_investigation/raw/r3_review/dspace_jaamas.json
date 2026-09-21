@@ -1,0 +1,3199 @@
+{
+  "id" : null,
+  "scope" : null,
+  "query" : "Rodríguez-Aguilar exception handling agent death",
+  "appliedFilters" : null,
+  "sort" : null,
+  "configuration" : null,
+  "type" : "discover",
+  "uniqueType" : "discover.discover",
+  "_links" : {
+    "self" : {
+      "href" : "https://dspace.mit.edu/server/api/discover/search/objects?query=Rodr%25C3%25ADguez-Aguilar%20exception%20handling%20agent%20death"
+    }
+  },
+  "_embedded" : {
+    "searchResult" : {
+      "_links" : {
+        "next" : {
+          "href" : "https://dspace.mit.edu/server/api/discover/search/objects?query=Rodr%C3%ADguez-Aguilar%20exception%20handling%20agent%20death&page=1&size=10"
+        },
+        "last" : {
+          "href" : "https://dspace.mit.edu/server/api/discover/search/objects?query=Rodr%C3%ADguez-Aguilar%20exception%20handling%20agent%20death&page=1&size=10"
+        },
+        "self" : {
+          "href" : "https://dspace.mit.edu/server/api/discover/search/objects?query=Rodr%C3%ADguez-Aguilar%20exception%20handling%20agent%20death&size=10"
+        }
+      },
+      "_embedded" : {
+        "objects" : [ {
+          "hitHighlights" : {
+            "dc.title" : [ "An experimental analysis of <em>exception</em> <em>handling</em> services for multi-<em>agent</em> systems" ]
+          },
+          "type" : "discover",
+          "uniqueType" : "discover.discover",
+          "_links" : {
+            "indexableObject" : {
+              "href" : "https://dspace.mit.edu/server/api/core/items/c8ee7508-9532-4915-9c99-492b1fa2b9d5"
+            }
+          },
+          "_embedded" : {
+            "indexableObject" : {
+              "id" : "c8ee7508-9532-4915-9c99-492b1fa2b9d5",
+              "uuid" : "c8ee7508-9532-4915-9c99-492b1fa2b9d5",
+              "name" : "An experimental analysis of exception handling services for multi-agent systems",
+              "handle" : "1721.1/86529",
+              "metadata" : {
+                "dc.contributor.advisor" : [ {
+                  "value" : "Chrysanthos Dellarocas.",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.contributor.author" : [ {
+                  "value" : "Muthitacharoen, Athicha, 1976-",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.contributor.other" : [ {
+                  "value" : "Massachusetts Institute of Technology. Department of Electrical Engineering and Computer Science.",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.date.accessioned" : [ {
+                  "value" : "2014-05-07T16:47:24Z",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.date.available" : [ {
+                  "value" : "2014-05-07T16:47:24Z",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.date.copyright" : [ {
+                  "value" : "2000",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.date.issued" : [ {
+                  "value" : "2000",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.description" : [ {
+                  "value" : "Thesis (S.B. and M.Eng.)--Massachusetts Institute of Technology, Dept. of Electrical Engineering and Computer Science, 2000.",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                }, {
+                  "value" : "Includes bibliographical references (leaves 43-45).",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 1
+                } ],
+                "dc.description.degree" : [ {
+                  "value" : "S.B.",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                }, {
+                  "value" : "M.Eng.",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 1
+                } ],
+                "dc.description.statementofresponsibility" : [ {
+                  "value" : "by Athicha Muthitacharoen.",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.format.extent" : [ {
+                  "value" : "45 leaves",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.identifier.oclc" : [ {
+                  "value" : "46914099",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.identifier.uri" : [ {
+                  "value" : "http://hdl.handle.net/1721.1/86529",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.language.iso" : [ {
+                  "value" : "en",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.publisher" : [ {
+                  "value" : "Massachusetts Institute of Technology",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.relation.orgunit" : [ {
+                  "value" : "Massachusetts Institute of Technology. Department of Electrical Engineering and Computer Science",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : 600,
+                  "place" : 0
+                } ],
+                "dc.rights" : [ {
+                  "value" : "M.I.T. theses are protected by copyright. They may be viewed from this source for any purpose, but reproduction or distribution in any format is prohibited without written permission. See provided URL for inquiries about permission.",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.rights.uri" : [ {
+                  "value" : "http://dspace.mit.edu/handle/1721.1/7582",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.subject" : [ {
+                  "value" : "Electrical Engineering and Computer Science.",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.title" : [ {
+                  "value" : "An experimental analysis of exception handling services for multi-agent systems",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.type" : [ {
+                  "value" : "Thesis",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dspace.entity.type" : [ {
+                  "value" : "Publication",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ]
+              },
+              "inArchive" : true,
+              "discoverable" : true,
+              "withdrawn" : false,
+              "lastModified" : "2026-06-05T20:27:21.544+00:00",
+              "entityType" : "Publication",
+              "type" : "item",
+              "uniqueType" : "core.item",
+              "_links" : {
+                "accessStatus" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/c8ee7508-9532-4915-9c99-492b1fa2b9d5/accessStatus"
+                },
+                "bundles" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/c8ee7508-9532-4915-9c99-492b1fa2b9d5/bundles"
+                },
+                "identifiers" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/c8ee7508-9532-4915-9c99-492b1fa2b9d5/identifiers"
+                },
+                "mappedCollections" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/c8ee7508-9532-4915-9c99-492b1fa2b9d5/mappedCollections"
+                },
+                "owningCollection" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/c8ee7508-9532-4915-9c99-492b1fa2b9d5/owningCollection"
+                },
+                "relationships" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/c8ee7508-9532-4915-9c99-492b1fa2b9d5/relationships"
+                },
+                "version" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/c8ee7508-9532-4915-9c99-492b1fa2b9d5/version"
+                },
+                "templateItemOf" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/c8ee7508-9532-4915-9c99-492b1fa2b9d5/templateItemOf"
+                },
+                "thumbnail" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/c8ee7508-9532-4915-9c99-492b1fa2b9d5/thumbnail"
+                },
+                "metrics" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/c8ee7508-9532-4915-9c99-492b1fa2b9d5/metrics"
+                },
+                "submitter" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/c8ee7508-9532-4915-9c99-492b1fa2b9d5/submitter"
+                },
+                "self" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/c8ee7508-9532-4915-9c99-492b1fa2b9d5"
+                }
+              }
+            }
+          }
+        }, {
+          "hitHighlights" : null,
+          "type" : "discover",
+          "uniqueType" : "discover.discover",
+          "_links" : {
+            "indexableObject" : {
+              "href" : "https://dspace.mit.edu/server/api/core/items/3bfdc07e-7060-4f91-b959-cdc5535ec246"
+            }
+          },
+          "_embedded" : {
+            "indexableObject" : {
+              "id" : "3bfdc07e-7060-4f91-b959-cdc5535ec246",
+              "uuid" : "3bfdc07e-7060-4f91-b959-cdc5535ec246",
+              "name" : "Negotiating complex contracts",
+              "handle" : "1721.1/48585",
+              "metadata" : {
+                "dc.contributor.author" : [ {
+                  "value" : "Klein, Mark",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : 500,
+                  "place" : 0
+                } ],
+                "dc.contributor.other" : [ {
+                  "value" : "Sloan School of Management.",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                }, {
+                  "value" : "Center for eBusiness@MIT.",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 1
+                } ],
+                "dc.date.accessioned" : [ {
+                  "value" : "2009-10-03T06:34:23Z",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.date.available" : [ {
+                  "value" : "2009-10-03T06:34:23Z",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.date.issued" : [ {
+                  "value" : "2001]",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.description" : [ {
+                  "value" : "Title from cover.",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                }, {
+                  "value" : "\"October 2001.\"",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 1
+                } ],
+                "dc.identifier" : [ {
+                  "value" : "negotiatingcompl00sloa",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.identifier.aleph" : [ {
+                  "value" : "001118606",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.identifier.oclc" : [ {
+                  "value" : "50908706",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.identifier.uri" : [ {
+                  "value" : "http://hdl.handle.net/1721.1/48585",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.publisher" : [ {
+                  "value" : "[Cambridge, Mass.] : MIT Sloan School of Management",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.relation" : [ {
+                  "value" : "Abstract in HTML and working paper for download in PDF available via World Wide Web at the Social Science Research Network <http://ssrn.com>; and, as a PDF on the Center for eBusiness@MIT web site <http://ebusiness.mit.edu>.",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.relation.ispartofseries" : [ {
+                  "value" : "eBusiness@MIT working paper ; 125",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                }, {
+                  "value" : "Working paper (Sloan School of Management) ; 4196.",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 1
+                } ],
+                "dc.subject" : [ {
+                  "value" : "Electronic commerce.",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.title" : [ {
+                  "value" : "Negotiating complex contracts",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.type" : [ {
+                  "value" : "Working Paper",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dspace.entity.type" : [ {
+                  "value" : "Publication",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ]
+              },
+              "inArchive" : true,
+              "discoverable" : true,
+              "withdrawn" : false,
+              "lastModified" : "2019-04-10T23:38:09.610+00:00",
+              "entityType" : "Publication",
+              "type" : "item",
+              "uniqueType" : "core.item",
+              "_links" : {
+                "accessStatus" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/3bfdc07e-7060-4f91-b959-cdc5535ec246/accessStatus"
+                },
+                "bundles" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/3bfdc07e-7060-4f91-b959-cdc5535ec246/bundles"
+                },
+                "identifiers" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/3bfdc07e-7060-4f91-b959-cdc5535ec246/identifiers"
+                },
+                "mappedCollections" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/3bfdc07e-7060-4f91-b959-cdc5535ec246/mappedCollections"
+                },
+                "owningCollection" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/3bfdc07e-7060-4f91-b959-cdc5535ec246/owningCollection"
+                },
+                "relationships" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/3bfdc07e-7060-4f91-b959-cdc5535ec246/relationships"
+                },
+                "version" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/3bfdc07e-7060-4f91-b959-cdc5535ec246/version"
+                },
+                "templateItemOf" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/3bfdc07e-7060-4f91-b959-cdc5535ec246/templateItemOf"
+                },
+                "thumbnail" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/3bfdc07e-7060-4f91-b959-cdc5535ec246/thumbnail"
+                },
+                "metrics" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/3bfdc07e-7060-4f91-b959-cdc5535ec246/metrics"
+                },
+                "submitter" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/3bfdc07e-7060-4f91-b959-cdc5535ec246/submitter"
+                },
+                "self" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/3bfdc07e-7060-4f91-b959-cdc5535ec246"
+                }
+              }
+            }
+          }
+        }, {
+          "hitHighlights" : {
+            "dc.title" : [ "<em>Handling</em> Resource Oscillations Through Selective Misinformation" ]
+          },
+          "type" : "discover",
+          "uniqueType" : "discover.discover",
+          "_links" : {
+            "indexableObject" : {
+              "href" : "https://dspace.mit.edu/server/api/core/items/21b11f43-aff7-4718-8770-574b7039690a"
+            }
+          },
+          "_embedded" : {
+            "indexableObject" : {
+              "id" : "21b11f43-aff7-4718-8770-574b7039690a",
+              "uuid" : "21b11f43-aff7-4718-8770-574b7039690a",
+              "name" : "Handling Resource Oscillations Through Selective Misinformation",
+              "handle" : "1721.1/65426",
+              "metadata" : {
+                "dc.contributor.author" : [ {
+                  "value" : "Klein, Mark",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : 500,
+                  "place" : 0
+                }, {
+                  "value" : "Metzler, Richard",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 1
+                }, {
+                  "value" : "Bar-Yam, Yaneer",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 2
+                } ],
+                "dc.date.accessioned" : [ {
+                  "value" : "2011-08-29T15:07:09Z",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.date.available" : [ {
+                  "value" : "2011-08-29T15:07:09Z",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.date.issued" : [ {
+                  "value" : "2008-06-02",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.description.abstract" : [ {
+                  "value" : "When resource consumers select among competing providers based on delayed\r\ninformation, inefficient oscillations in resource utilization can emerge. This paper\r\ndescribes an approach, based on selective stochastic resource request rejection, for\r\ndealing with this emergent dysfunction.",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.description.sponsorship" : [ {
+                  "value" : "This work was supported by the NSF Computational and Social Systems program as well as the DARPA Control of Agent-Based Systems program.",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.identifier.uri" : [ {
+                  "value" : "http://hdl.handle.net/1721.1/65426",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.language.iso" : [ {
+                  "value" : "en_US",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.publisher" : [ {
+                  "value" : "Cambridge, MA; Alfred P. Sloan School of Management, Massachusetts Institute of Technology",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.relation.ispartofseries" : [ {
+                  "value" : "MIT Sloan School of Management Working Paper;4705-08",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.title" : [ {
+                  "value" : "Handling Resource Oscillations Through Selective Misinformation",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.type" : [ {
+                  "value" : "Working Paper",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dspace.authorsordered" : [ {
+                  "value" : "false",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dspace.entity.type" : [ {
+                  "value" : "Publication",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ]
+              },
+              "inArchive" : true,
+              "discoverable" : true,
+              "withdrawn" : false,
+              "lastModified" : "2019-04-10T20:36:28.565+00:00",
+              "entityType" : "Publication",
+              "type" : "item",
+              "uniqueType" : "core.item",
+              "_links" : {
+                "accessStatus" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/21b11f43-aff7-4718-8770-574b7039690a/accessStatus"
+                },
+                "bundles" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/21b11f43-aff7-4718-8770-574b7039690a/bundles"
+                },
+                "identifiers" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/21b11f43-aff7-4718-8770-574b7039690a/identifiers"
+                },
+                "mappedCollections" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/21b11f43-aff7-4718-8770-574b7039690a/mappedCollections"
+                },
+                "owningCollection" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/21b11f43-aff7-4718-8770-574b7039690a/owningCollection"
+                },
+                "relationships" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/21b11f43-aff7-4718-8770-574b7039690a/relationships"
+                },
+                "version" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/21b11f43-aff7-4718-8770-574b7039690a/version"
+                },
+                "templateItemOf" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/21b11f43-aff7-4718-8770-574b7039690a/templateItemOf"
+                },
+                "thumbnail" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/21b11f43-aff7-4718-8770-574b7039690a/thumbnail"
+                },
+                "metrics" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/21b11f43-aff7-4718-8770-574b7039690a/metrics"
+                },
+                "submitter" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/21b11f43-aff7-4718-8770-574b7039690a/submitter"
+                },
+                "self" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/21b11f43-aff7-4718-8770-574b7039690a"
+                }
+              }
+            }
+          }
+        }, {
+          "hitHighlights" : null,
+          "type" : "discover",
+          "uniqueType" : "discover.discover",
+          "_links" : {
+            "indexableObject" : {
+              "href" : "https://dspace.mit.edu/server/api/core/items/cd69b78b-e1f9-44e8-85d1-e841513e1f23"
+            }
+          },
+          "_embedded" : {
+            "indexableObject" : {
+              "id" : "cd69b78b-e1f9-44e8-85d1-e841513e1f23",
+              "uuid" : "cd69b78b-e1f9-44e8-85d1-e841513e1f23",
+              "name" : "New Insights into the Troubles of Aneuploidy",
+              "handle" : "1721.1/116118",
+              "metadata" : {
+                "dc.contributor.author" : [ {
+                  "value" : "Siegel, Jacob",
+                  "language" : "",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                }, {
+                  "value" : "Amon, Angelika B.",
+                  "language" : "",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 1
+                } ],
+                "dc.contributor.mitauthor" : [ {
+                  "value" : "Siegel, Jacob",
+                  "language" : "",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                }, {
+                  "value" : "Amon, Angelika B.",
+                  "language" : "",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 1
+                } ],
+                "dc.date.accessioned" : [ {
+                  "value" : "2018-06-05T18:41:02Z",
+                  "language" : "",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.date.available" : [ {
+                  "value" : "2018-06-05T18:41:02Z",
+                  "language" : "",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.date.issued" : [ {
+                  "value" : "2012-07",
+                  "language" : "",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.date.updated" : [ {
+                  "value" : "2018-06-05T17:56:24Z",
+                  "language" : "",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.description.abstract" : [ {
+                  "value" : "Deviation from a balanced genome by either gain or loss of entire chromosomes is generally tolerated poorly in all eukaryotic systems studied to date. Errors in mitotic or meiotic cell division lead to aneuploidy, which places a burden of additional or insufficient gene products from the missegregated chromosomes on the daughter cells. The burden of aneuploidy often manifests itself as impaired fitness of individual cells and whole organisms, in which abnormal development is also characteristic. However, most human cancers, noted for their rapid growth, also display various levels of aneuploidy. Here we discuss the detrimental, potentially beneficial, and sometimes puzzling effects of aneuploidy on cellular and organismal fitness and tissue function as well as its role in diseases such as cancer and neurodegeneration.",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.description.sponsorship" : [ {
+                  "value" : "National Institutes of Health (U.S.) (Grant GM56800)",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.eprint.version" : [ {
+                  "value" : "Author's final manuscript",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.identifier.citation" : [ {
+                  "value" : "Siegel, Jake J., and Angelika Amon. “New Insights into the Troubles of Aneuploidy.” Annual Review of Cell and Developmental Biology 28, 1 (November 2012): 189–214 © 2012 Annual Reviews",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.identifier.issn" : [ {
+                  "value" : "1081-0706",
+                  "language" : "",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                }, {
+                  "value" : "1530-8995",
+                  "language" : "",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 1
+                } ],
+                "dc.identifier.orcid" : [ {
+                  "value" : "https://orcid.org/0000-0003-0755-1369",
+                  "language" : "",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                }, {
+                  "value" : "https://orcid.org/0000-0001-9837-0314",
+                  "language" : "",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 1
+                } ],
+                "dc.identifier.uri" : [ {
+                  "value" : "http://hdl.handle.net/1721.1/116118",
+                  "language" : "",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.publisher" : [ {
+                  "value" : "Annual Reviews",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.relation.isversionof" : [ {
+                  "value" : "https://doi.org/10.1146/annurev-cellbio-101011-155807",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.relation.journal" : [ {
+                  "value" : "Annual Review of Cell and Developmental Biology",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.relation.orgunit" : [ {
+                  "value" : "Koch Institute for Integrative Cancer Research at MIT",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : 600,
+                  "place" : 0
+                } ],
+                "dc.rights" : [ {
+                  "value" : "Creative Commons Attribution-Noncommercial-Share Alike",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.rights.uri" : [ {
+                  "value" : "http://creativecommons.org/licenses/by-nc-sa/4.0/",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.source" : [ {
+                  "value" : "PMC",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.title" : [ {
+                  "value" : "New Insights into the Troubles of Aneuploidy",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.type" : [ {
+                  "value" : "Article",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.type.uri" : [ {
+                  "value" : "http://purl.org/eprint/type/JournalArticle",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dspace.authorsordered" : [ {
+                  "value" : "false",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dspace.embargo.terms" : [ {
+                  "value" : "N",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dspace.entity.type" : [ {
+                  "value" : "Publication",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dspace.mitauthor.error" : [ {
+                  "value" : "true",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dspace.orderedauthors" : [ {
+                  "value" : "Siegel, Jake J.; Amon, Angelika",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "eprint.status" : [ {
+                  "value" : "http://purl.org/eprint/status/PeerReviewed",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "mit.license" : [ {
+                  "value" : "OPEN_ACCESS_POLICY",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ]
+              },
+              "inArchive" : true,
+              "discoverable" : true,
+              "withdrawn" : false,
+              "lastModified" : "2026-07-30T20:03:31.890+00:00",
+              "entityType" : "Publication",
+              "type" : "item",
+              "uniqueType" : "core.item",
+              "_links" : {
+                "accessStatus" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/cd69b78b-e1f9-44e8-85d1-e841513e1f23/accessStatus"
+                },
+                "bundles" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/cd69b78b-e1f9-44e8-85d1-e841513e1f23/bundles"
+                },
+                "identifiers" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/cd69b78b-e1f9-44e8-85d1-e841513e1f23/identifiers"
+                },
+                "mappedCollections" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/cd69b78b-e1f9-44e8-85d1-e841513e1f23/mappedCollections"
+                },
+                "owningCollection" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/cd69b78b-e1f9-44e8-85d1-e841513e1f23/owningCollection"
+                },
+                "relationships" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/cd69b78b-e1f9-44e8-85d1-e841513e1f23/relationships"
+                },
+                "version" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/cd69b78b-e1f9-44e8-85d1-e841513e1f23/version"
+                },
+                "templateItemOf" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/cd69b78b-e1f9-44e8-85d1-e841513e1f23/templateItemOf"
+                },
+                "thumbnail" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/cd69b78b-e1f9-44e8-85d1-e841513e1f23/thumbnail"
+                },
+                "metrics" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/cd69b78b-e1f9-44e8-85d1-e841513e1f23/metrics"
+                },
+                "submitter" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/cd69b78b-e1f9-44e8-85d1-e841513e1f23/submitter"
+                },
+                "self" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/cd69b78b-e1f9-44e8-85d1-e841513e1f23"
+                }
+              }
+            }
+          }
+        }, {
+          "hitHighlights" : null,
+          "type" : "discover",
+          "uniqueType" : "discover.discover",
+          "_links" : {
+            "indexableObject" : {
+              "href" : "https://dspace.mit.edu/server/api/core/items/c82f14f6-ce43-4907-875b-b93b271f08bb"
+            }
+          },
+          "_embedded" : {
+            "indexableObject" : {
+              "id" : "c82f14f6-ce43-4907-875b-b93b271f08bb",
+              "uuid" : "c82f14f6-ce43-4907-875b-b93b271f08bb",
+              "name" : "Cognitive Security for Personal Devices",
+              "handle" : "1721.1/40810",
+              "metadata" : {
+                "dc.contributor.advisor" : [ {
+                  "value" : "Gerald Sussman",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.contributor.author" : [ {
+                  "value" : "Greenstadt, Rachel",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                }, {
+                  "value" : "Beal, Jacob",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 1
+                } ],
+                "dc.contributor.other" : [ {
+                  "value" : "Mathematics and Computation",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.date.accessioned" : [ {
+                  "value" : "2008-03-24T18:15:12Z",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.date.available" : [ {
+                  "value" : "2008-03-24T18:15:12Z",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.date.issued" : [ {
+                  "value" : "2008-03-17",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.description.abstract" : [ {
+                  "value" : "Humans should be able to think of computers as extensions of their body, as craftsmen do with their tools. Current security models, however, are too unlike those used in human minds---for example, computers authenticate users by challenging them to repeat a secret rather than by continually observing the many subtle cues offered by their appearance and behavior. We propose three lines of research that can be combined to produce cognitive security on computers and other personal devices: imprinting and continuously deployed multi-modal biometrics, self-protection through virtualization and trusted computing, and adjustably autonomous security.",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.format.extent" : [ {
+                  "value" : "6 p.",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.identifier.other" : [ {
+                  "value" : "MIT-CSAIL-TR-2008-016",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.identifier.uri" : [ {
+                  "value" : "http://hdl.handle.net/1721.1/40810",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.relation" : [ {
+                  "value" : "Massachusetts Institute of Technology Computer Science and Artificial Intelligence Laboratory",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                }, {
+                  "value" : "",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 1
+                } ],
+                "dc.subject" : [ {
+                  "value" : "artificial intelligence",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                }, {
+                  "value" : "trusted computing",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 1
+                } ],
+                "dc.title" : [ {
+                  "value" : "Cognitive Security for Personal Devices",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dspace.authorsordered" : [ {
+                  "value" : "false",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dspace.entity.type" : [ {
+                  "value" : "Publication",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ]
+              },
+              "inArchive" : true,
+              "discoverable" : true,
+              "withdrawn" : false,
+              "lastModified" : "2019-04-10T22:21:55.797+00:00",
+              "entityType" : "Publication",
+              "type" : "item",
+              "uniqueType" : "core.item",
+              "_links" : {
+                "accessStatus" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/c82f14f6-ce43-4907-875b-b93b271f08bb/accessStatus"
+                },
+                "bundles" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/c82f14f6-ce43-4907-875b-b93b271f08bb/bundles"
+                },
+                "identifiers" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/c82f14f6-ce43-4907-875b-b93b271f08bb/identifiers"
+                },
+                "mappedCollections" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/c82f14f6-ce43-4907-875b-b93b271f08bb/mappedCollections"
+                },
+                "owningCollection" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/c82f14f6-ce43-4907-875b-b93b271f08bb/owningCollection"
+                },
+                "relationships" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/c82f14f6-ce43-4907-875b-b93b271f08bb/relationships"
+                },
+                "version" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/c82f14f6-ce43-4907-875b-b93b271f08bb/version"
+                },
+                "templateItemOf" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/c82f14f6-ce43-4907-875b-b93b271f08bb/templateItemOf"
+                },
+                "thumbnail" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/c82f14f6-ce43-4907-875b-b93b271f08bb/thumbnail"
+                },
+                "metrics" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/c82f14f6-ce43-4907-875b-b93b271f08bb/metrics"
+                },
+                "submitter" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/c82f14f6-ce43-4907-875b-b93b271f08bb/submitter"
+                },
+                "self" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/c82f14f6-ce43-4907-875b-b93b271f08bb"
+                }
+              }
+            }
+          }
+        }, {
+          "hitHighlights" : null,
+          "type" : "discover",
+          "uniqueType" : "discover.discover",
+          "_links" : {
+            "indexableObject" : {
+              "href" : "https://dspace.mit.edu/server/api/core/items/e5dc9160-5d39-46e0-a327-7a8f15baf43a"
+            }
+          },
+          "_embedded" : {
+            "indexableObject" : {
+              "id" : "e5dc9160-5d39-46e0-a327-7a8f15baf43a",
+              "uuid" : "e5dc9160-5d39-46e0-a327-7a8f15baf43a",
+              "name" : "Development and challenges of antimicrobial peptides for therapeutic applications",
+              "handle" : "1721.1/125556",
+              "metadata" : {
+                "dc.contributor.author" : [ {
+                  "value" : "Chen, Charles  H.",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : 600,
+                  "place" : 0
+                }, {
+                  "value" : "Lu, Timothy K",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : 600,
+                  "place" : 1
+                } ],
+                "dc.date.accessioned" : [ {
+                  "value" : "2020-05-28T16:02:53Z",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.date.available" : [ {
+                  "value" : "2020-05-28T16:02:53Z",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.date.issued" : [ {
+                  "value" : "2020-01-13",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.date.submitted" : [ {
+                  "value" : "2019-12",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.date.updated" : [ {
+                  "value" : "2020-03-02T13:01:30Z",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.description.abstract" : [ {
+                  "value" : "More than 3000 antimicrobial peptides (AMPs) have been discovered, seven of which have been approved by the U.S. Food and Drug Administration (FDA). Now commercialized, these seven peptides have mostly been utilized for topical medications, though some have been injected into the body to treat severe bacterial infections. To understand the translational potential for AMPs, we analyzed FDA-approved drugs in the FDA drug database. We examined their physicochemical properties, secondary structures, and mechanisms of action, and compared them with the peptides in the AMP database. All FDA-approved AMPs were discovered in Gram-positive soil bacteria, and 98% of known AMPs also come from natural sources (skin secretions of frogs and toxins from different species). However, AMPs can have undesirable properties as drugs, including instability and toxicity. Thus, the design and construction of effective AMPs require an understanding of the mechanisms of known peptides and their effects on the human body. This review provides an overview to guide the development of AMPs that can potentially be used as antimicrobial drugs. Keywords: antimicrobial peptides; antibiotics; antibiotic resistance; rational protein design; peptide therapeutics; FDA-approved peptides",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.description.sponsorship" : [ {
+                  "value" : "Defense Threat Reduction Agency (grant no. HDTRA11810041)",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                }, {
+                  "value" : "NIH (grant no. U19AI142780)",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 1
+                } ],
+                "dc.eprint.version" : [ {
+                  "value" : "Final published version",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.identifier.citation" : [ {
+                  "value" : "Chen, Charles H., and Timothy K. Lu, \"Development and challenges of antimicrobial peptides for therapeutic applications.\" Antibiotics 9, 1 (Jan. 2020): no. 24 doi 10.3390/antibiotics9010024 ©2020 Author(s)",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.identifier.issn" : [ {
+                  "value" : "2079-6382",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.identifier.uri" : [ {
+                  "value" : "https://hdl.handle.net/1721.1/125556",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.publisher" : [ {
+                  "value" : "Multidisciplinary Digital Publishing Institute",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.relation.isversionof" : [ {
+                  "value" : "https://doi.org/10.3390/antibiotics9010024",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.relation.journal" : [ {
+                  "value" : "Antibiotics",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.relation.orgunit" : [ {
+                  "value" : "Massachusetts Institute of Technology. Research Laboratory of Electronics",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : 600,
+                  "place" : 0
+                }, {
+                  "value" : "Broad Institute of MIT and Harvard",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : 600,
+                  "place" : 1
+                }, {
+                  "value" : "Massachusetts Institute of Technology. Department of Biological Engineering",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : 600,
+                  "place" : 2
+                } ],
+                "dc.rights" : [ {
+                  "value" : "Creative Commons Attribution",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.rights.uri" : [ {
+                  "value" : "https://creativecommons.org/licenses/by/4.0/",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.source" : [ {
+                  "value" : "Multidisciplinary Digital Publishing Institute",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.title" : [ {
+                  "value" : "Development and challenges of antimicrobial peptides for therapeutic applications",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.type" : [ {
+                  "value" : "Article",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.type.uri" : [ {
+                  "value" : "http://purl.org/eprint/type/JournalArticle",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dspace.authorsordered" : [ {
+                  "value" : "true",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dspace.date.submission" : [ {
+                  "value" : "2020-03-02T13:01:29Z",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dspace.entity.type" : [ {
+                  "value" : "Publication",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "eprint.status" : [ {
+                  "value" : "http://purl.org/eprint/status/PeerReviewed",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "mit.journal.issue" : [ {
+                  "value" : "1",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "mit.journal.volume" : [ {
+                  "value" : "9",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "mit.license" : [ {
+                  "value" : "PUBLISHER_CC",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "mit.metadata.status" : [ {
+                  "value" : "Complete",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ]
+              },
+              "inArchive" : true,
+              "discoverable" : true,
+              "withdrawn" : false,
+              "lastModified" : "2026-08-04T17:50:50.447+00:00",
+              "entityType" : "Publication",
+              "type" : "item",
+              "uniqueType" : "core.item",
+              "_links" : {
+                "accessStatus" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/e5dc9160-5d39-46e0-a327-7a8f15baf43a/accessStatus"
+                },
+                "bundles" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/e5dc9160-5d39-46e0-a327-7a8f15baf43a/bundles"
+                },
+                "identifiers" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/e5dc9160-5d39-46e0-a327-7a8f15baf43a/identifiers"
+                },
+                "mappedCollections" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/e5dc9160-5d39-46e0-a327-7a8f15baf43a/mappedCollections"
+                },
+                "owningCollection" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/e5dc9160-5d39-46e0-a327-7a8f15baf43a/owningCollection"
+                },
+                "relationships" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/e5dc9160-5d39-46e0-a327-7a8f15baf43a/relationships"
+                },
+                "version" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/e5dc9160-5d39-46e0-a327-7a8f15baf43a/version"
+                },
+                "templateItemOf" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/e5dc9160-5d39-46e0-a327-7a8f15baf43a/templateItemOf"
+                },
+                "thumbnail" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/e5dc9160-5d39-46e0-a327-7a8f15baf43a/thumbnail"
+                },
+                "metrics" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/e5dc9160-5d39-46e0-a327-7a8f15baf43a/metrics"
+                },
+                "submitter" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/e5dc9160-5d39-46e0-a327-7a8f15baf43a/submitter"
+                },
+                "self" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/e5dc9160-5d39-46e0-a327-7a8f15baf43a"
+                }
+              }
+            }
+          }
+        }, {
+          "hitHighlights" : null,
+          "type" : "discover",
+          "uniqueType" : "discover.discover",
+          "_links" : {
+            "indexableObject" : {
+              "href" : "https://dspace.mit.edu/server/api/core/items/56ae5bbc-b1ce-459e-b1a9-b03bf6402543"
+            }
+          },
+          "_embedded" : {
+            "indexableObject" : {
+              "id" : "56ae5bbc-b1ce-459e-b1a9-b03bf6402543",
+              "uuid" : "56ae5bbc-b1ce-459e-b1a9-b03bf6402543",
+              "name" : "The implementation of non pharmaceutical interventions(NPIs) in smaller to large communities and its relation to RO and R(t) during HIN1 pandemic 2009",
+              "handle" : "1721.1/67219",
+              "metadata" : {
+                "dc.contributor.advisor" : [ {
+                  "value" : "Richard Larson.",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.contributor.author" : [ {
+                  "value" : "Hashmi, Sahar",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : 500,
+                  "place" : 0
+                } ],
+                "dc.contributor.other" : [ {
+                  "value" : "Massachusetts Institute of Technology. Engineering Systems Division.",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                }, {
+                  "value" : "System Design and Management Program.",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 1
+                } ],
+                "dc.date.accessioned" : [ {
+                  "value" : "2011-11-18T21:03:13Z",
+                  "language" : "",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.date.available" : [ {
+                  "value" : "2011-11-18T21:03:13Z",
+                  "language" : "",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.date.copyright" : [ {
+                  "value" : "2010",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.date.issued" : [ {
+                  "value" : "2011",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.description" : [ {
+                  "value" : "Thesis (S.M. in Engineering and Management)--Massachusetts Institute of Technology, Engineering Systems Division, System Design and Management Program, February 2011.",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                }, {
+                  "value" : "\"November 2010.\" Cataloged from PDF version of thesis.",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 1
+                }, {
+                  "value" : "Includes bibliographical references (p. 57-58).",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 2
+                } ],
+                "dc.description.abstract" : [ {
+                  "value" : "This thesis focuses on the use of non-pharmaceutical interventions (NPIs) during the time of the 2009 HINI pandemic and its possible relation to RO and R(t). RO is defined as the mean number of people that a newly infected person will subsequently infect in a completely susceptible population whereas R(t) is the average number of new infections by an infectious individual at time t. RO is important for understanding the severity of an influenza outbreak while R(t) is a necessary tool to measure the progression of infection rate over time. A high RO value (more than 2) generally corresponds to a more serious outbreak. This thesis discusses a town in Mexico named La Gloria, which is thought to be the place where the HINI pandemic started, and the subsequent implementation of NPIs in Mexico City as the virus spread and people became aware of its novelty. An evaluation of Mexico's response to HlNl suggests that the emphasis on the use of NPIs may have related to a decreasing RO value. Further investigation of this relationship using news articles and Google Insights also shows interesting potential correlations. In short my thesis focuses on the possible relationship between ROs and NPIs in a pandemic setting.",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.description.degree" : [ {
+                  "value" : "S.M. in Engineering and Management",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.description.statementofresponsibility" : [ {
+                  "value" : "by Sahar Hashmi.",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.format.extent" : [ {
+                  "value" : "58 p.",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.identifier.oclc" : [ {
+                  "value" : "759083249",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.identifier.uri" : [ {
+                  "value" : "http://hdl.handle.net/1721.1/67219",
+                  "language" : "",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.language.iso" : [ {
+                  "value" : "en",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.publisher" : [ {
+                  "value" : "Massachusetts Institute of Technology",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.relation.orgunit" : [ {
+                  "value" : "System Design and Management Program.",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                }, {
+                  "value" : "Massachusetts Institute of Technology. Engineering Systems Division",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : 600,
+                  "place" : 1
+                } ],
+                "dc.rights" : [ {
+                  "value" : "M.I.T. theses are protected by \r\ncopyright. They may be viewed from this source for any purpose, but \r\nreproduction or distribution in any format is prohibited without written \r\npermission. See provided URL for inquiries about permission.",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.rights.uri" : [ {
+                  "value" : "http://dspace.mit.edu/handle/1721.1/7582",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.subject" : [ {
+                  "value" : "Engineering Systems Division.",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.title" : [ {
+                  "value" : "The implementation of non pharmaceutical interventions(NPIs) in smaller to large communities and its relation to RO and R(t) during HIN1 pandemic 2009",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.type" : [ {
+                  "value" : "Thesis",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dspace.authorsordered" : [ {
+                  "value" : "false",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dspace.entity.type" : [ {
+                  "value" : "Publication",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ]
+              },
+              "inArchive" : true,
+              "discoverable" : true,
+              "withdrawn" : false,
+              "lastModified" : "2026-06-06T01:05:04.983+00:00",
+              "entityType" : "Publication",
+              "type" : "item",
+              "uniqueType" : "core.item",
+              "_links" : {
+                "accessStatus" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/56ae5bbc-b1ce-459e-b1a9-b03bf6402543/accessStatus"
+                },
+                "bundles" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/56ae5bbc-b1ce-459e-b1a9-b03bf6402543/bundles"
+                },
+                "identifiers" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/56ae5bbc-b1ce-459e-b1a9-b03bf6402543/identifiers"
+                },
+                "mappedCollections" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/56ae5bbc-b1ce-459e-b1a9-b03bf6402543/mappedCollections"
+                },
+                "owningCollection" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/56ae5bbc-b1ce-459e-b1a9-b03bf6402543/owningCollection"
+                },
+                "relationships" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/56ae5bbc-b1ce-459e-b1a9-b03bf6402543/relationships"
+                },
+                "version" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/56ae5bbc-b1ce-459e-b1a9-b03bf6402543/version"
+                },
+                "templateItemOf" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/56ae5bbc-b1ce-459e-b1a9-b03bf6402543/templateItemOf"
+                },
+                "thumbnail" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/56ae5bbc-b1ce-459e-b1a9-b03bf6402543/thumbnail"
+                },
+                "metrics" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/56ae5bbc-b1ce-459e-b1a9-b03bf6402543/metrics"
+                },
+                "submitter" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/56ae5bbc-b1ce-459e-b1a9-b03bf6402543/submitter"
+                },
+                "self" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/56ae5bbc-b1ce-459e-b1a9-b03bf6402543"
+                }
+              }
+            }
+          }
+        }, {
+          "hitHighlights" : null,
+          "type" : "discover",
+          "uniqueType" : "discover.discover",
+          "_links" : {
+            "indexableObject" : {
+              "href" : "https://dspace.mit.edu/server/api/core/items/38df96b0-0a6d-4a2e-9d68-048fbcf7e566"
+            }
+          },
+          "_embedded" : {
+            "indexableObject" : {
+              "id" : "38df96b0-0a6d-4a2e-9d68-048fbcf7e566",
+              "uuid" : "38df96b0-0a6d-4a2e-9d68-048fbcf7e566",
+              "name" : "The hemo-neural hypothesis : effects of vasodilation on astrocytes in mammalian neocortex",
+              "handle" : "1721.1/62715",
+              "metadata" : {
+                "dc.contributor.author" : [ {
+                  "value" : "Cao, Rosa",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : 500,
+                  "place" : 0
+                } ],
+                "dc.contributor.other" : [ {
+                  "value" : "Massachusetts Institute of Technology. Dept. of Brain and Cognitive Sciences.",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.date.accessioned" : [ {
+                  "value" : "2011-05-09T15:24:18Z",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.date.available" : [ {
+                  "value" : "2011-05-09T15:24:18Z",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.date.copyright" : [ {
+                  "value" : "2011",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.date.issued" : [ {
+                  "value" : "2011",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.description" : [ {
+                  "value" : "Thesis (Ph. D.)--Massachusetts Institute of Technology, Dept. of Brain and Cognitive Sciences, 2011.",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                }, {
+                  "value" : "Cataloged from PDF version of thesis.",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 1
+                }, {
+                  "value" : "Includes bibliographical references.",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 2
+                } ],
+                "dc.description.abstract" : [ {
+                  "value" : "Astrocytes play an important role in regulating neuronal activity and local brain states, in part by serving as intermediaries between neurons and vasculature. We postulate that neurons and astrocytes are sensitive to biophysical conditions in their local environment, in addition to their participation in traditional signaling networks with other neurons. Mechanically sensitive astrocytic endfeet ensheathe cerebral blood vessels, which change size in order to regulate blood flow. We found that changes in local biophysical state caused by mechanical perturbations exerted through blood vessels can depolarize astrocytes and some neurons in slice. To test the hemoneural hypothesis in vivo, we developed a means of inducing dilation using the SUR2B receptor agonist pinacidil, which is specific to vascular smooth muscle. It was important to ascertain that pinacidil had no direct effect on astrocytes or neurons, and we confirmed this in whole cell recordings in cortical slices. We then used two-photon imaging to visualize astrocytic calcium dynamics in vivo while manipulating vasodilation in vivo. Pinacidil caused a 10-20% dilation in most vessels, a degree of dilation of similar magnitude to those naturally evoked by persistent sensory stimulation (e.g. in fMRI studies). We found that increases in pial arteriole diameter could occasionally evoke traveling calcium waves in astrocytes. We also saw consistently slow increases (which took tens of seconds to onset, and persisted for minutes) in astrocytic calcium levels at both endfeet and soma in cortical layer 1, corresponding to vessel dilation. When vessels partially reconstricted due to pinacidil washout, calcium levels also showed a relative decrease. At short time scales (from 0.5 - 5 seconds) we saw strong correlations (>0.5) between small fluctuations in astrocytic calcium levels (1-3%) and vessel diameter (1-3%). Fluctuations in vessel diameter predicted similar fluctuations in astrocytic calcium, as often and as strongly as the reverse, suggesting feedback regulation between vascular diameter and astrocytic calcium activation levels.",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.description.degree" : [ {
+                  "value" : "Ph.D.",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.description.statementofresponsibility" : [ {
+                  "value" : "by Rosa Cao.",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.format.extent" : [ {
+                  "value" : "102 p.",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.identifier.oclc" : [ {
+                  "value" : "715318821",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.identifier.uri" : [ {
+                  "value" : "http://hdl.handle.net/1721.1/62715",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.language.iso" : [ {
+                  "value" : "en",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.publisher" : [ {
+                  "value" : "Massachusetts Institute of Technology",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.relation.orgunit" : [ {
+                  "value" : "Massachusetts Institute of Technology. Department of Brain and Cognitive Sciences",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : 600,
+                  "place" : 0
+                } ],
+                "dc.rights" : [ {
+                  "value" : "M.I.T. theses are protected by \ncopyright. They may be viewed from this source for any purpose, but \nreproduction or distribution in any format is prohibited without written \npermission. See provided URL for inquiries about permission.",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.rights.uri" : [ {
+                  "value" : "http://dspace.mit.edu/handle/1721.1/7582",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.subject" : [ {
+                  "value" : "Brain and Cognitive Sciences.",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.title" : [ {
+                  "value" : "The hemo-neural hypothesis : effects of vasodilation on astrocytes in mammalian neocortex",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.type" : [ {
+                  "value" : "Thesis",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dspace.authorsordered" : [ {
+                  "value" : "false",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dspace.entity.type" : [ {
+                  "value" : "Publication",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ]
+              },
+              "inArchive" : true,
+              "discoverable" : true,
+              "withdrawn" : false,
+              "lastModified" : "2022-01-13T07:54:17.943+00:00",
+              "entityType" : "Publication",
+              "type" : "item",
+              "uniqueType" : "core.item",
+              "_links" : {
+                "accessStatus" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/38df96b0-0a6d-4a2e-9d68-048fbcf7e566/accessStatus"
+                },
+                "bundles" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/38df96b0-0a6d-4a2e-9d68-048fbcf7e566/bundles"
+                },
+                "identifiers" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/38df96b0-0a6d-4a2e-9d68-048fbcf7e566/identifiers"
+                },
+                "mappedCollections" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/38df96b0-0a6d-4a2e-9d68-048fbcf7e566/mappedCollections"
+                },
+                "owningCollection" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/38df96b0-0a6d-4a2e-9d68-048fbcf7e566/owningCollection"
+                },
+                "relationships" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/38df96b0-0a6d-4a2e-9d68-048fbcf7e566/relationships"
+                },
+                "version" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/38df96b0-0a6d-4a2e-9d68-048fbcf7e566/version"
+                },
+                "templateItemOf" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/38df96b0-0a6d-4a2e-9d68-048fbcf7e566/templateItemOf"
+                },
+                "thumbnail" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/38df96b0-0a6d-4a2e-9d68-048fbcf7e566/thumbnail"
+                },
+                "metrics" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/38df96b0-0a6d-4a2e-9d68-048fbcf7e566/metrics"
+                },
+                "submitter" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/38df96b0-0a6d-4a2e-9d68-048fbcf7e566/submitter"
+                },
+                "self" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/38df96b0-0a6d-4a2e-9d68-048fbcf7e566"
+                }
+              }
+            }
+          }
+        }, {
+          "hitHighlights" : {
+            "dc.description.abstract" : [ " that are either chemical compounds or biological <em>agents</em>, LVA is novel in both its form and mechanism; it is risk-free and has distinct advantages over traditional vaccine adjuvants." ]
+          },
+          "type" : "discover",
+          "uniqueType" : "discover.discover",
+          "_links" : {
+            "indexableObject" : {
+              "href" : "https://dspace.mit.edu/server/api/core/items/221d9691-a3f5-4e70-9034-ec326440c2eb"
+            }
+          },
+          "_embedded" : {
+            "indexableObject" : {
+              "id" : "221d9691-a3f5-4e70-9034-ec326440c2eb",
+              "uuid" : "221d9691-a3f5-4e70-9034-ec326440c2eb",
+              "name" : "A Novel Laser Vaccine Adjuvant Increases the Motility of Antigen Presenting Cells",
+              "handle" : "1721.1/64450",
+              "metadata" : {
+                "dc.contributor.approver" : [ {
+                  "value" : "Wu, Mei X.",
+                  "language" : "",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.contributor.author" : [ {
+                  "value" : "Chen, Xinyuan",
+                  "language" : "",
+                  "authority" : null,
+                  "confidence" : 600,
+                  "place" : 0
+                }, {
+                  "value" : "Kim, Pilhan",
+                  "language" : "",
+                  "authority" : null,
+                  "confidence" : 600,
+                  "place" : 1
+                }, {
+                  "value" : "Farinelli, Bill",
+                  "language" : "",
+                  "authority" : null,
+                  "confidence" : 600,
+                  "place" : 2
+                }, {
+                  "value" : "Doukas, Apostolos",
+                  "language" : "",
+                  "authority" : null,
+                  "confidence" : 600,
+                  "place" : 3
+                }, {
+                  "value" : "Yun, Seok-Hyun",
+                  "language" : "",
+                  "authority" : null,
+                  "confidence" : 600,
+                  "place" : 4
+                }, {
+                  "value" : "Gelfand, Jeffrey A.",
+                  "language" : "",
+                  "authority" : null,
+                  "confidence" : 600,
+                  "place" : 5
+                }, {
+                  "value" : "Anderson, R. Rox",
+                  "language" : "",
+                  "authority" : null,
+                  "confidence" : 600,
+                  "place" : 6
+                }, {
+                  "value" : "Wu, Mei X.",
+                  "language" : "",
+                  "authority" : null,
+                  "confidence" : 600,
+                  "place" : 7
+                } ],
+                "dc.contributor.mitauthor" : [ {
+                  "value" : "Wu, Mei X.",
+                  "language" : "",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.date.accessioned" : [ {
+                  "value" : "2011-06-16T15:16:02Z",
+                  "language" : "",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.date.available" : [ {
+                  "value" : "2011-06-16T15:16:02Z",
+                  "language" : "",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.date.issued" : [ {
+                  "value" : "2010-10",
+                  "language" : "",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.date.submitted" : [ {
+                  "value" : "2010-07",
+                  "language" : "",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.description.abstract" : [ {
+                  "value" : "Background\r\n\r\nDevelopment of a potent vaccine adjuvant without introduction of any side effects remains an unmet challenge in the field of the vaccine research.\r\nMethodology/Principal Findings\r\n\r\nWe found that laser at a specific setting increased the motility of antigen presenting cells (APCs) and immune responses, with few local or systemic side effects. This laser vaccine adjuvant (LVA) effect was induced by brief illumination of a small area of the skin or muscle with a nondestructive, 532 nm green laser prior to intradermal (i.d.) or intramuscular (i.m.) administration of vaccines at the site of laser illumination. The pre-illumination accelerated the motility of APCs as shown by intravital confocal microscopy, leading to sufficient antigen (Ag)-uptake at the site of vaccine injection and transportation of the Ag-captured APCs to the draining lymph nodes. As a result, the number of Ag+ dendritic cells (DCs) in draining lymph nodes was significantly higher in both the 1° and 2° draining lymph nodes in the presence than in the absence of LVA. Laser-mediated increases in the motility and lymphatic transportation of APCs augmented significantly humoral immune responses directed against a model vaccine ovalbumin (OVA) or influenza vaccine i.d. injected in both primary and booster vaccinations as compared to the vaccine itself. Strikingly, when the laser was delivered by a hair-like diffusing optical fiber into muscle, laser illumination greatly boosted not only humoral but also cell-mediated immune responses provoked by i.m. immunization with OVA relative to OVA alone.\r\nConclusion/Significance\r\n\r\nThe results demonstrate the ability of this safe LVA to augment both humoral and cell-mediated immune responses. In comparison with all current vaccine adjuvants that are either chemical compounds or biological agents, LVA is novel in both its form and mechanism; it is risk-free and has distinct advantages over traditional vaccine adjuvants.",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.description.sponsorship" : [ {
+                  "value" : "National Institutes of Health (U.S.) (grant AI070785)",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                }, {
+                  "value" : "National Institutes of Health (U.S.) (grant RC1 DA028378)",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 1
+                }, {
+                  "value" : "Bill & Melinda Gates Foundation (Grand Challenges Explorations grant # 53273)",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 2
+                }, {
+                  "value" : "Boston BioCom (Firm) (Sponsored Research agreement grant #2008A25652)",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 3
+                } ],
+                "dc.eprint.version" : [ {
+                  "value" : "Final published version",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.identifier.citation" : [ {
+                  "value" : "Chen Xinyuan, et al. \"A Novel Laser Vaccine Adjuvant Increases the Motility of Antigen Presenting Cells.\" 2010 PLoS ONE 5(10).",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.identifier.issn" : [ {
+                  "value" : "1932-6203",
+                  "language" : "",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.identifier.uri" : [ {
+                  "value" : "http://hdl.handle.net/1721.1/64450",
+                  "language" : "",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.language.iso" : [ {
+                  "value" : "en_US",
+                  "language" : "",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.publisher" : [ {
+                  "value" : "Public Library of Science",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.relation.isversionof" : [ {
+                  "value" : "https://doi.org/10.1371/journal.pone.0013776",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.relation.journal" : [ {
+                  "value" : "PLoS ONE",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.relation.orgunit" : [ {
+                  "value" : "Harvard University--MIT Division of Health Sciences and Technology",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : 600,
+                  "place" : 0
+                } ],
+                "dc.rights" : [ {
+                  "value" : "Creative Commons Attribution",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.rights.uri" : [ {
+                  "value" : "http://creativecommons.org/licenses/by/2.5/",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.source" : [ {
+                  "value" : "PLoS",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.title" : [ {
+                  "value" : "A Novel Laser Vaccine Adjuvant Increases the Motility of Antigen Presenting Cells",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.type" : [ {
+                  "value" : "Article",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.type.uri" : [ {
+                  "value" : "http://purl.org/eprint/type/JournalArticle",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dspace.authorsordered" : [ {
+                  "value" : "true",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dspace.entity.type" : [ {
+                  "value" : "Publication",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dspace.orderedauthors" : [ {
+                  "value" : "Chen, Xinyuan; Kim, Pilhan; Farinelli, Bill; Doukas, Apostolos; Yun, Seok-Hyun; Gelfand, Jeffrey A.; Anderson, Richard R.; Wu, Mei X.",
+                  "language" : "en",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "eprint.status" : [ {
+                  "value" : "http://purl.org/eprint/status/PeerReviewed",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "mit.license" : [ {
+                  "value" : "PUBLISHER_CC",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "mit.metadata.status" : [ {
+                  "value" : "Complete",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ]
+              },
+              "inArchive" : true,
+              "discoverable" : true,
+              "withdrawn" : false,
+              "lastModified" : "2026-08-03T17:28:57.052+00:00",
+              "entityType" : "Publication",
+              "type" : "item",
+              "uniqueType" : "core.item",
+              "_links" : {
+                "accessStatus" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/221d9691-a3f5-4e70-9034-ec326440c2eb/accessStatus"
+                },
+                "bundles" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/221d9691-a3f5-4e70-9034-ec326440c2eb/bundles"
+                },
+                "identifiers" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/221d9691-a3f5-4e70-9034-ec326440c2eb/identifiers"
+                },
+                "mappedCollections" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/221d9691-a3f5-4e70-9034-ec326440c2eb/mappedCollections"
+                },
+                "owningCollection" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/221d9691-a3f5-4e70-9034-ec326440c2eb/owningCollection"
+                },
+                "relationships" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/221d9691-a3f5-4e70-9034-ec326440c2eb/relationships"
+                },
+                "version" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/221d9691-a3f5-4e70-9034-ec326440c2eb/version"
+                },
+                "templateItemOf" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/221d9691-a3f5-4e70-9034-ec326440c2eb/templateItemOf"
+                },
+                "thumbnail" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/221d9691-a3f5-4e70-9034-ec326440c2eb/thumbnail"
+                },
+                "metrics" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/221d9691-a3f5-4e70-9034-ec326440c2eb/metrics"
+                },
+                "submitter" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/221d9691-a3f5-4e70-9034-ec326440c2eb/submitter"
+                },
+                "self" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/221d9691-a3f5-4e70-9034-ec326440c2eb"
+                }
+              }
+            }
+          }
+        }, {
+          "hitHighlights" : {
+            "dc.description.abstract" : [ " the potential involvement of carbonato-cisplatin species in the mechanism of action of platinum anticancer <em>agents</em>. Cisplatin was allowed to react with single-stranded DNA in carbonate, phosphate, and HEPES buffers, and the products were analyzed by enzymatic" ]
+          },
+          "type" : "discover",
+          "uniqueType" : "discover.discover",
+          "_links" : {
+            "indexableObject" : {
+              "href" : "https://dspace.mit.edu/server/api/core/items/a4f2a2c1-642e-4d81-8faf-3c6a2fc1bb36"
+            }
+          },
+          "_embedded" : {
+            "indexableObject" : {
+              "id" : "a4f2a2c1-642e-4d81-8faf-3c6a2fc1bb36",
+              "uuid" : "a4f2a2c1-642e-4d81-8faf-3c6a2fc1bb36",
+              "name" : "Structural and functional consequences of platinum anticancer drug binding to free and nucleosomal DNA",
+              "handle" : "1721.1/57802",
+              "metadata" : {
+                "dc.contributor.advisor" : [ {
+                  "value" : "Stephen J. Lippard.",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.contributor.author" : [ {
+                  "value" : "Todd, Ryan Christopher, 1981-",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.contributor.other" : [ {
+                  "value" : "Massachusetts Institute of Technology. Dept. of Chemistry.",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.date.accessioned" : [ {
+                  "value" : "2010-08-31T14:50:19Z",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.date.available" : [ {
+                  "value" : "2010-08-31T14:50:19Z",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.date.copyright" : [ {
+                  "value" : "2010",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.date.issued" : [ {
+                  "value" : "2010",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.description" : [ {
+                  "value" : "Thesis (Ph. D.)--Massachusetts Institute of Technology, Dept. of Chemistry, 2010.",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                }, {
+                  "value" : "Vita. Cataloged from PDF version of thesis.",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 1
+                }, {
+                  "value" : "Includes bibliographical references.",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 2
+                } ],
+                "dc.description.abstract" : [ {
+                  "value" : "Cisplatin, carboplatin, and oxaliplatin are three FDA-approved members of the platinum anticancer drug family. These compounds induce apoptosis in tumor cells by binding to nuclear DNA, forming a variety of adducts, and triggering cellular responses, one of which is the inhibition of transcription. The focus of this thesis is on studying the structure of these adducts, and correlating these effects with inhibition of transcription. Chapter 1 presents (i) a detailed review of the structural investigations of various Pt-DNA adducts and the effects of these lesions on global DNA geometry; (ii) research detailing inhibition of cellular transcription by Pt-DNA adducts; and (iii) a mechanistic analysis of how DNA structural distortions induced by platinum damage may inhibit RNA synthesis in vivo. These hypotheses will be explored in subsequent chapters of the thesis. In Chapter 2, features of the 2.17 A resolution X-ray crystal structure of cisdiammine( pyridine)chloroplatinum(II) (cDPCP) bound in a monofunctional manner to deoxyguanosine in a DNA duplex are discussed and compared to those of a cisplatin-1,2- d(GpG) intrastrand cross-link in double-stranded DNA. The global geometry of cDPCPdamaged DNA is quite different from that of DNA containing a cisplatin 1,2-d(GpG) cross-link. The latter platinated duplex is bent by ~40* toward the major groove at the site of the adduct; however, the monofunctional Pt-dG lesion causes no significant bending of the double helix. Like the cisplatin intrastrand adduct, however, the cDPCP moiety creates a distorted base pair step to the 5' side of the platinum site that may be correlated to its ability to destroy cancer cells. Structural features of monofunctional platinum adducts are analyzed, the results of which suggest that such adducts may provide a new platform for the design and synthesis of Pt anticancer drug candidates. The role of carbonate in the binding of cis-diamminedichloroplatinum(II) to DNA was investigated in Chapter 3 in order to understand the potential involvement of carbonato-cisplatin species in the mechanism of action of platinum anticancer agents. Cisplatin was allowed to react with single-stranded DNA in carbonate, phosphate, and HEPES buffers, and the products were analyzed by enzymatic digestion/mass spectrometry. The data from these experiments demonstrate (1) that carbonate, like other biological nucleophiles, forms relatively inert complexes with platinum that inactivate cisplatin, and (2) that the major cisplatin-DNA adduct formed is a bifunctional cross-link. These results are in accord with previous studies of cisplatin- DNA binding and reveal that the presence of carbonate has no consequence on the nature of the resulting adducts. The 1.77-A resolution X-ray crystal structure of a dodecamer DNA duplex with the sequence 5'-CCTCTGGTCTCC-3' that has been modified to contain a single engineered 1,2-cis- {Pt(NH 3)2}2+-d(GpG) cross-link, the major DNA adduct of cisplatin, is reported in Chapter 4. These data represent a significant improvement in resolution over the previously published 2.6-A structure. The ammine ligands in this structure are clearly resolved, leading to improved visualization of the cross-link geometry with respect to both the platinum center and to the nucleobases, which adopt a higher energy conformation. Also better resolved are the deoxyribose sugar puckers, which allow us to re-examine the global structure of platinum-modified DNA. Another new feature of this model is the location of four octahedral [Mg(H 20)6]2+ ion associated with bases in the DNA major groove and the identification of 124 ordered water molecules that participate in hydrogen bonding interactions with either the nucleic acid or the diammineplatinum(II) moiety. Chapter 5 discusses structural investigations of nucleosomal DNA modified by sitespecific platinum adducts. Nucleosome core particles containing a single 1,3-cis-{Pt(NH 3)2}2+_ d(GpTpG) intrastrand cross-link were synthesized and crystallized, and the X-ray structure was determined at 3.2 A resolution. The cisplatin adduct adopts a conformation facing toward the octamer core, in agreement with previous experiments. DNA in the vicinity of the Pt adduct has a similar helical bend as that observed in the NMR solution structure of free DNA containing the same cross-link, indicating that the rotational positioning power of cisplatin intrastrand crosslinks stems from the propensity to align the bent Pt-DNA structure with the DNA curvature arising from the nucleosome superhelix. Functional consequences of cisplatin binding to nucleosomal DNA are explored in Chapter 6. The effect of a single engineered platinum intrastrand cross-link on ATPindependent nucleosome mobility was investigated in vitro. Both 1,2-d(GpG) and 1,3-d(GpTpG) adducts of cisplatin inhibit translocation of DNA along the histone octamer, with the former Pt lesion providing a larger barrier. In vitro transcription assays with T7 RNA polymerase were conducted to determine whether cisplatin-DNA cross-links inhibit RNA synthesis by preventing access to nucleosomal DNA. Immobilized transcription templates containing a T7 RNAP promoter site, a single engineered cisplatin 1,2-d(GpG) or 1,3-d(GpTpG) intrastrand cross-link, and a phased nucleosome core particle were prepared. Analysis of resulting RNA transcript length revealed that the T7 RNAP elongation complex can overcome the energy barrier to nucleosome sliding caused by platinum intrastrand cross-links, but stalls when it reaches a Pt- DNA adduct placed on the DNA template strand. These results provide further evidence that intrastrand cross-links of cisplatin inhibit transcription by creating a physical barrier that the polymerase cannot pass. Appendices A and B summarize incomplete work that may be of use to future researchers working in this area. Appendix A describes attempts to isolate isomerically pure Pt- DNA probes containing a photoreactive benzophenone moiety, for use in cross-linking experiments that identify proteins that recognize and interact with cisplatin-DNA damage. In Appendix B efforts to obtain an X-ray crystal structure of an 1 Imer duplex DNA containing the 1,3- cis-{Pt(NH 3)2} 2 -d(GpTpG) intrastrand cross-link are reported. Appendix C details HPLC and mass spectrometric methods for purification and analysis of platinated oligonucleotides that were developed in the course of this research.",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.description.degree" : [ {
+                  "value" : "Ph.D.",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.description.statementofresponsibility" : [ {
+                  "value" : "by Ryan Christopher Todd.",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.format.extent" : [ {
+                  "value" : "229 p.",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.identifier.oclc" : [ {
+                  "value" : "655778615",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.identifier.uri" : [ {
+                  "value" : "http://hdl.handle.net/1721.1/57802",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.language.iso" : [ {
+                  "value" : "en",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.publisher" : [ {
+                  "value" : "Massachusetts Institute of Technology",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.relation.orgunit" : [ {
+                  "value" : "Massachusetts Institute of Technology. Department of Chemistry",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : 600,
+                  "place" : 0
+                } ],
+                "dc.rights" : [ {
+                  "value" : "M.I.T. theses are protected by \ncopyright. They may be viewed from this source for any purpose, but \nreproduction or distribution in any format is prohibited without written \npermission. See provided URL for inquiries about permission.",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.rights.uri" : [ {
+                  "value" : "http://dspace.mit.edu/handle/1721.1/7582",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.subject" : [ {
+                  "value" : "Chemistry.",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.title" : [ {
+                  "value" : "Structural and functional consequences of platinum anticancer drug binding to free and nucleosomal DNA",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.title.alternative" : [ {
+                  "value" : "Structural and functional studies of platinum antitumor agent binding to DNA and the nucleosome",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dc.type" : [ {
+                  "value" : "Thesis",
+                  "language" : "en_US",
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dspace.authorsordered" : [ {
+                  "value" : "false",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ],
+                "dspace.entity.type" : [ {
+                  "value" : "Publication",
+                  "language" : null,
+                  "authority" : null,
+                  "confidence" : -1,
+                  "place" : 0
+                } ]
+              },
+              "inArchive" : true,
+              "discoverable" : true,
+              "withdrawn" : false,
+              "lastModified" : "2022-01-13T07:54:21.350+00:00",
+              "entityType" : "Publication",
+              "type" : "item",
+              "uniqueType" : "core.item",
+              "_links" : {
+                "accessStatus" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/a4f2a2c1-642e-4d81-8faf-3c6a2fc1bb36/accessStatus"
+                },
+                "bundles" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/a4f2a2c1-642e-4d81-8faf-3c6a2fc1bb36/bundles"
+                },
+                "identifiers" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/a4f2a2c1-642e-4d81-8faf-3c6a2fc1bb36/identifiers"
+                },
+                "mappedCollections" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/a4f2a2c1-642e-4d81-8faf-3c6a2fc1bb36/mappedCollections"
+                },
+                "owningCollection" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/a4f2a2c1-642e-4d81-8faf-3c6a2fc1bb36/owningCollection"
+                },
+                "relationships" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/a4f2a2c1-642e-4d81-8faf-3c6a2fc1bb36/relationships"
+                },
+                "version" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/a4f2a2c1-642e-4d81-8faf-3c6a2fc1bb36/version"
+                },
+                "templateItemOf" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/a4f2a2c1-642e-4d81-8faf-3c6a2fc1bb36/templateItemOf"
+                },
+                "thumbnail" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/a4f2a2c1-642e-4d81-8faf-3c6a2fc1bb36/thumbnail"
+                },
+                "metrics" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/a4f2a2c1-642e-4d81-8faf-3c6a2fc1bb36/metrics"
+                },
+                "submitter" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/a4f2a2c1-642e-4d81-8faf-3c6a2fc1bb36/submitter"
+                },
+                "self" : {
+                  "href" : "https://dspace.mit.edu/server/api/core/items/a4f2a2c1-642e-4d81-8faf-3c6a2fc1bb36"
+                }
+              }
+            }
+          }
+        } ]
+      },
+      "page" : {
+        "number" : 0,
+        "size" : 10,
+        "totalPages" : 2,
+        "totalElements" : 13
+      }
+    },
+    "facets" : [ {
+      "name" : "itemtype",
+      "facetType" : "hierarchical",
+      "facetLimit" : 10,
+      "missing" : "1",
+      "uniqueType" : "discover.discover",
+      "page" : {
+        "number" : 0,
+        "size" : 10
+      },
+      "_links" : {
+        "self" : {
+          "href" : "https://dspace.mit.edu/server/api/discover/facets/itemtype?query=Rodr%C3%ADguez-Aguilar%20exception%20handling%20agent%20death&size=10"
+        },
+        "missing" : {
+          "href" : "https://dspace.mit.edu/server/api/discover/facets/itemtype?query=Rodr%25C3%25ADguez-Aguilar%20exception%20handling%20agent%20death&f.itemtype=%5B*%20TO%20*%5D,notequals"
+        }
+      },
+      "_embedded" : {
+        "values" : [ {
+          "label" : "Article",
+          "count" : 5,
+          "authorityKey" : null,
+          "type" : "discover",
+          "uniqueType" : "discover.discover",
+          "_links" : {
+            "search" : {
+              "href" : "https://dspace.mit.edu/server/api/discover/search/objects?query=Rodr%25C3%25ADguez-Aguilar%20exception%20handling%20agent%20death&f.itemtype=Article,equals"
+            }
+          }
+        }, {
+          "label" : "Thesis",
+          "count" : 5,
+          "authorityKey" : null,
+          "type" : "discover",
+          "uniqueType" : "discover.discover",
+          "_links" : {
+            "search" : {
+              "href" : "https://dspace.mit.edu/server/api/discover/search/objects?query=Rodr%25C3%25ADguez-Aguilar%20exception%20handling%20agent%20death&f.itemtype=Thesis,equals"
+            }
+          }
+        }, {
+          "label" : "Working Paper",
+          "count" : 2,
+          "authorityKey" : null,
+          "type" : "discover",
+          "uniqueType" : "discover.discover",
+          "_links" : {
+            "search" : {
+              "href" : "https://dspace.mit.edu/server/api/discover/search/objects?query=Rodr%25C3%25ADguez-Aguilar%20exception%20handling%20agent%20death&f.itemtype=Working%20Paper,equals"
+            }
+          }
+        } ]
+      }
+    }, {
+      "name" : "graphitemtype",
+      "facetType" : "chart.pie",
+      "facetLimit" : 10,
+      "missing" : "1",
+      "more" : "1",
+      "totalElements" : "3",
+      "uniqueType" : "discover.discover",
+      "page" : {
+        "number" : 0,
+        "size" : 10
+      },
+      "_links" : {
+        "self" : {
+          "href" : "https://dspace.mit.edu/server/api/discover/facets/graphitemtype?query=Rodr%C3%ADguez-Aguilar%20exception%20handling%20agent%20death&size=10"
+        },
+        "missing" : {
+          "href" : "https://dspace.mit.edu/server/api/discover/facets/graphitemtype?query=Rodr%25C3%25ADguez-Aguilar%20exception%20handling%20agent%20death&f.graphitemtype=%5B*%20TO%20*%5D,notequals"
+        },
+        "more" : {
+          "href" : "https://dspace.mit.edu/server/api/discover/facets/graphitemtype?query=Rodr%25C3%25ADguez-Aguilar%20exception%20handling%20agent%20death&f.graphitemtype=article,notequals&f.graphitemtype=thesis,notequals&f.graphitemtype=working%20paper,notequals"
+        }
+      },
+      "_embedded" : {
+        "values" : [ {
+          "label" : "article",
+          "count" : 5,
+          "authorityKey" : null,
+          "type" : "discover",
+          "uniqueType" : "discover.discover",
+          "_links" : {
+            "search" : {
+              "href" : "https://dspace.mit.edu/server/api/discover/search/objects?query=Rodr%25C3%25ADguez-Aguilar%20exception%20handling%20agent%20death&f.graphitemtype=article,equals"
+            }
+          }
+        }, {
+          "label" : "thesis",
+          "count" : 5,
+          "authorityKey" : null,
+          "type" : "discover",
+          "uniqueType" : "discover.discover",
+          "_links" : {
+            "search" : {
+              "href" : "https://dspace.mit.edu/server/api/discover/search/objects?query=Rodr%25C3%25ADguez-Aguilar%20exception%20handling%20agent%20death&f.graphitemtype=thesis,equals"
+            }
+          }
+        }, {
+          "label" : "working paper",
+          "count" : 2,
+          "authorityKey" : null,
+          "type" : "discover",
+          "uniqueType" : "discover.discover",
+          "_links" : {
+            "search" : {
+              "href" : "https://dspace.mit.edu/server/api/discover/search/objects?query=Rodr%25C3%25ADguez-Aguilar%20exception%20handling%20agent%20death&f.graphitemtype=working%20paper,equals"
+            }
+          }
+        } ]
+      }
+    }, {
+      "name" : "graphpubldate",
+      "facetType" : "chart.bar",
+      "facetLimit" : 10,
+      "missing" : "0",
+      "more" : "8",
+      "totalElements" : "9",
+      "uniqueType" : "discover.discover",
+      "page" : {
+        "number" : 0,
+        "size" : 10
+      },
+      "_links" : {
+        "next" : {
+          "href" : "https://dspace.mit.edu/server/api/discover/facets/graphpubldate?query=Rodr%C3%ADguez-Aguilar%20exception%20handling%20agent%20death&page=1&size=10"
+        },
+        "self" : {
+          "href" : "https://dspace.mit.edu/server/api/discover/facets/graphpubldate?query=Rodr%C3%ADguez-Aguilar%20exception%20handling%20agent%20death&size=10"
+        },
+        "missing" : {
+          "href" : "https://dspace.mit.edu/server/api/discover/facets/graphpubldate?query=Rodr%25C3%25ADguez-Aguilar%20exception%20handling%20agent%20death&f.graphpubldate=%5B*%20TO%20*%5D,notequals"
+        },
+        "more" : {
+          "href" : "https://dspace.mit.edu/server/api/discover/facets/graphpubldate?query=Rodr%25C3%25ADguez-Aguilar%20exception%20handling%20agent%20death&f.graphpubldate=2021,notequals&f.graphpubldate=2020,notequals&f.graphpubldate=2019,notequals&f.graphpubldate=2018,notequals&f.graphpubldate=2017,notequals&f.graphpubldate=2016,notequals&f.graphpubldate=2015,notequals&f.graphpubldate=2014,notequals&f.graphpubldate=2013,notequals&f.graphpubldate=2012,notequals"
+        }
+      },
+      "_embedded" : {
+        "values" : [ {
+          "label" : "2021",
+          "count" : 1,
+          "authorityKey" : null,
+          "type" : "discover",
+          "uniqueType" : "discover.discover",
+          "_links" : {
+            "search" : {
+              "href" : "https://dspace.mit.edu/server/api/discover/search/objects?query=Rodr%25C3%25ADguez-Aguilar%20exception%20handling%20agent%20death&f.graphpubldate=2021,equals"
+            }
+          }
+        }, {
+          "label" : "2020",
+          "count" : 1,
+          "authorityKey" : null,
+          "type" : "discover",
+          "uniqueType" : "discover.discover",
+          "_links" : {
+            "search" : {
+              "href" : "https://dspace.mit.edu/server/api/discover/search/objects?query=Rodr%25C3%25ADguez-Aguilar%20exception%20handling%20agent%20death&f.graphpubldate=2020,equals"
+            }
+          }
+        }, {
+          "label" : "2019",
+          "count" : 2,
+          "authorityKey" : null,
+          "type" : "discover",
+          "uniqueType" : "discover.discover",
+          "_links" : {
+            "search" : {
+              "href" : "https://dspace.mit.edu/server/api/discover/search/objects?query=Rodr%25C3%25ADguez-Aguilar%20exception%20handling%20agent%20death&f.graphpubldate=2019,equals"
+            }
+          }
+        }, {
+          "label" : "2018",
+          "count" : 0,
+          "authorityKey" : null,
+          "type" : "discover",
+          "uniqueType" : "discover.discover",
+          "_links" : {
+            "search" : {
+              "href" : "https://dspace.mit.edu/server/api/discover/search/objects?query=Rodr%25C3%25ADguez-Aguilar%20exception%20handling%20agent%20death&f.graphpubldate=2018,equals"
+            }
+          }
+        }, {
+          "label" : "2017",
+          "count" : 0,
+          "authorityKey" : null,
+          "type" : "discover",
+          "uniqueType" : "discover.discover",
+          "_links" : {
+            "search" : {
+              "href" : "https://dspace.mit.edu/server/api/discover/search/objects?query=Rodr%25C3%25ADguez-Aguilar%20exception%20handling%20agent%20death&f.graphpubldate=2017,equals"
+            }
+          }
+        }, {
+          "label" : "2016",
+          "count" : 0,
+          "authorityKey" : null,
+          "type" : "discover",
+          "uniqueType" : "discover.discover",
+          "_links" : {
+            "search" : {
+              "href" : "https://dspace.mit.edu/server/api/discover/search/objects?query=Rodr%25C3%25ADguez-Aguilar%20exception%20handling%20agent%20death&f.graphpubldate=2016,equals"
+            }
+          }
+        }, {
+          "label" : "2015",
+          "count" : 0,
+          "authorityKey" : null,
+          "type" : "discover",
+          "uniqueType" : "discover.discover",
+          "_links" : {
+            "search" : {
+              "href" : "https://dspace.mit.edu/server/api/discover/search/objects?query=Rodr%25C3%25ADguez-Aguilar%20exception%20handling%20agent%20death&f.graphpubldate=2015,equals"
+            }
+          }
+        }, {
+          "label" : "2014",
+          "count" : 0,
+          "authorityKey" : null,
+          "type" : "discover",
+          "uniqueType" : "discover.discover",
+          "_links" : {
+            "search" : {
+              "href" : "https://dspace.mit.edu/server/api/discover/search/objects?query=Rodr%25C3%25ADguez-Aguilar%20exception%20handling%20agent%20death&f.graphpubldate=2014,equals"
+            }
+          }
+        }, {
+          "label" : "2013",
+          "count" : 0,
+          "authorityKey" : null,
+          "type" : "discover",
+          "uniqueType" : "discover.discover",
+          "_links" : {
+            "search" : {
+              "href" : "https://dspace.mit.edu/server/api/discover/search/objects?query=Rodr%25C3%25ADguez-Aguilar%20exception%20handling%20agent%20death&f.graphpubldate=2013,equals"
+            }
+          }
+        }, {
+          "label" : "2012",
+          "count" : 1,
+          "authorityKey" : null,
+          "type" : "discover",
+          "uniqueType" : "discover.discover",
+          "_links" : {
+            "search" : {
+              "href" : "https://dspace.mit.edu/server/api/discover/search/objects?query=Rodr%25C3%25ADguez-Aguilar%20exception%20handling%20agent%20death&f.graphpubldate=2012,equals"
+            }
+          }
+        } ]
+      }
+    }, {
+      "name" : "author",
+      "facetType" : "text",
+      "facetLimit" : 5,
+      "missing" : "0",
+      "minValue" : "1000 Genomes Project Consortium",
+      "maxValue" : "Zywicz, Edward",
+      "uniqueType" : "discover.discover",
+      "page" : {
+        "number" : 0,
+        "size" : 5
+      },
+      "_links" : {
+        "next" : {
+          "href" : "https://dspace.mit.edu/server/api/discover/facets/author?query=Rodr%C3%ADguez-Aguilar%20exception%20handling%20agent%20death&page=1&size=5"
+        },
+        "self" : {
+          "href" : "https://dspace.mit.edu/server/api/discover/facets/author?query=Rodr%C3%ADguez-Aguilar%20exception%20handling%20agent%20death&size=5"
+        },
+        "missing" : {
+          "href" : "https://dspace.mit.edu/server/api/discover/facets/author?query=Rodr%25C3%25ADguez-Aguilar%20exception%20handling%20agent%20death&f.author=%5B*%20TO%20*%5D,notequals"
+        }
+      },
+      "_embedded" : {
+        "values" : [ {
+          "label" : "Klein, Mark",
+          "count" : 2,
+          "authorityKey" : null,
+          "type" : "discover",
+          "uniqueType" : "discover.discover",
+          "_links" : {
+            "search" : {
+              "href" : "https://dspace.mit.edu/server/api/discover/search/objects?query=Rodr%25C3%25ADguez-Aguilar%20exception%20handling%20agent%20death&f.author=Klein,%20Mark,equals"
+            }
+          }
+        }, {
+          "label" : "Acolatse, Sarah",
+          "count" : 1,
+          "authorityKey" : null,
+          "type" : "discover",
+          "uniqueType" : "discover.discover",
+          "_links" : {
+            "search" : {
+              "href" : "https://dspace.mit.edu/server/api/discover/search/objects?query=Rodr%25C3%25ADguez-Aguilar%20exception%20handling%20agent%20death&f.author=Acolatse,%20Sarah,equals"
+            }
+          }
+        }, {
+          "label" : "Amon, Angelika B.",
+          "count" : 1,
+          "authorityKey" : null,
+          "type" : "discover",
+          "uniqueType" : "discover.discover",
+          "_links" : {
+            "search" : {
+              "href" : "https://dspace.mit.edu/server/api/discover/search/objects?query=Rodr%25C3%25ADguez-Aguilar%20exception%20handling%20agent%20death&f.author=Amon,%20Angelika%20B.,equals"
+            }
+          }
+        }, {
+          "label" : "Anderson, R. Rox",
+          "count" : 1,
+          "authorityKey" : null,
+          "type" : "discover",
+          "uniqueType" : "discover.discover",
+          "_links" : {
+            "search" : {
+              "href" : "https://dspace.mit.edu/server/api/discover/search/objects?query=Rodr%25C3%25ADguez-Aguilar%20exception%20handling%20agent%20death&f.author=Anderson,%20R.%20Rox,equals"
+            }
+          }
+        }, {
+          "label" : "Anselmo, Aaron C",
+          "count" : 1,
+          "authorityKey" : null,
+          "type" : "discover",
+          "uniqueType" : "discover.discover",
+          "_links" : {
+            "search" : {
+              "href" : "https://dspace.mit.edu/server/api/discover/search/objects?query=Rodr%25C3%25ADguez-Aguilar%20exception%20handling%20agent%20death&f.author=Anselmo,%20Aaron%20C,equals"
+            }
+          }
+        } ]
+      }
+    }, {
+      "name" : "subject",
+      "facetType" : "hierarchical",
+      "facetLimit" : 5,
+      "missing" : "5",
+      "uniqueType" : "discover.discover",
+      "page" : {
+        "number" : 0,
+        "size" : 5
+      },
+      "_links" : {
+        "next" : {
+          "href" : "https://dspace.mit.edu/server/api/discover/facets/subject?query=Rodr%C3%ADguez-Aguilar%20exception%20handling%20agent%20death&page=1&size=5"
+        },
+        "self" : {
+          "href" : "https://dspace.mit.edu/server/api/discover/facets/subject?query=Rodr%C3%ADguez-Aguilar%20exception%20handling%20agent%20death&size=5"
+        },
+        "missing" : {
+          "href" : "https://dspace.mit.edu/server/api/discover/facets/subject?query=Rodr%25C3%25ADguez-Aguilar%20exception%20handling%20agent%20death&f.subject=%5B*%20TO%20*%5D,notequals"
+        }
+      },
+      "_embedded" : {
+        "values" : [ {
+          "label" : "Chemistry.",
+          "count" : 2,
+          "authorityKey" : null,
+          "type" : "discover",
+          "uniqueType" : "discover.discover",
+          "_links" : {
+            "search" : {
+              "href" : "https://dspace.mit.edu/server/api/discover/search/objects?query=Rodr%25C3%25ADguez-Aguilar%20exception%20handling%20agent%20death&f.subject=Chemistry.,equals"
+            }
+          }
+        }, {
+          "label" : "artificial intelligence",
+          "count" : 1,
+          "authorityKey" : null,
+          "type" : "discover",
+          "uniqueType" : "discover.discover",
+          "_links" : {
+            "search" : {
+              "href" : "https://dspace.mit.edu/server/api/discover/search/objects?query=Rodr%25C3%25ADguez-Aguilar%20exception%20handling%20agent%20death&f.subject=artificial%20intelligence,equals"
+            }
+          }
+        }, {
+          "label" : "Brain and Cognitive Sciences.",
+          "count" : 1,
+          "authorityKey" : null,
+          "type" : "discover",
+          "uniqueType" : "discover.discover",
+          "_links" : {
+            "search" : {
+              "href" : "https://dspace.mit.edu/server/api/discover/search/objects?query=Rodr%25C3%25ADguez-Aguilar%20exception%20handling%20agent%20death&f.subject=Brain%20and%20Cognitive%20Sciences.,equals"
+            }
+          }
+        }, {
+          "label" : "Electrical Engineering and Computer Science.",
+          "count" : 1,
+          "authorityKey" : null,
+          "type" : "discover",
+          "uniqueType" : "discover.discover",
+          "_links" : {
+            "search" : {
+              "href" : "https://dspace.mit.edu/server/api/discover/search/objects?query=Rodr%25C3%25ADguez-Aguilar%20exception%20handling%20agent%20death&f.subject=Electrical%20Engineering%20and%20Computer%20Science.,equals"
+            }
+          }
+        }, {
+          "label" : "Electronic commerce.",
+          "count" : 1,
+          "authorityKey" : null,
+          "type" : "discover",
+          "uniqueType" : "discover.discover",
+          "_links" : {
+            "search" : {
+              "href" : "https://dspace.mit.edu/server/api/discover/search/objects?query=Rodr%25C3%25ADguez-Aguilar%20exception%20handling%20agent%20death&f.subject=Electronic%20commerce.,equals"
+            }
+          }
+        } ]
+      }
+    }, {
+      "name" : "dateIssued",
+      "facetType" : "date",
+      "facetLimit" : 5,
+      "minValue" : "1 December 2010",
+      "maxValue" : "©1993",
+      "uniqueType" : "discover.discover",
+      "page" : {
+        "number" : 0,
+        "size" : 5
+      },
+      "_links" : {
+        "self" : {
+          "href" : "https://dspace.mit.edu/server/api/discover/facets/dateIssued?query=Rodr%C3%ADguez-Aguilar%20exception%20handling%20agent%20death&size=5"
+        },
+        "missing" : {
+          "href" : "https://dspace.mit.edu/server/api/discover/facets/dateIssued?query=Rodr%25C3%25ADguez-Aguilar%20exception%20handling%20agent%20death&f.dateIssued=%5B*%20TO%20*%5D,notequals"
+        }
+      },
+      "_embedded" : {
+        "values" : [ {
+          "label" : "2000 - 2026",
+          "count" : 12,
+          "authorityKey" : null,
+          "type" : "discover",
+          "uniqueType" : "discover.discover",
+          "_links" : {
+            "search" : {
+              "href" : "https://dspace.mit.edu/server/api/discover/search/objects?query=Rodr%25C3%25ADguez-Aguilar%20exception%20handling%20agent%20death&f.dateIssued=%5B2000%20TO%202026%5D,equals"
+            }
+          }
+        } ]
+      }
+    }, {
+      "name" : "entityType",
+      "facetType" : "text",
+      "facetLimit" : 5,
+      "missing" : "0",
+      "uniqueType" : "discover.discover",
+      "page" : {
+        "number" : 0,
+        "size" : 5
+      },
+      "_links" : {
+        "self" : {
+          "href" : "https://dspace.mit.edu/server/api/discover/facets/entityType?query=Rodr%C3%ADguez-Aguilar%20exception%20handling%20agent%20death&size=5"
+        },
+        "missing" : {
+          "href" : "https://dspace.mit.edu/server/api/discover/facets/entityType?query=Rodr%25C3%25ADguez-Aguilar%20exception%20handling%20agent%20death&f.entityType=%5B*%20TO%20*%5D,notequals"
+        }
+      },
+      "_embedded" : {
+        "values" : [ {
+          "label" : "Publication",
+          "count" : 13,
+          "authorityKey" : null,
+          "type" : "discover",
+          "uniqueType" : "discover.discover",
+          "_links" : {
+            "search" : {
+              "href" : "https://dspace.mit.edu/server/api/discover/search/objects?query=Rodr%25C3%25ADguez-Aguilar%20exception%20handling%20agent%20death&f.entityType=Publication,equals"
+            }
+          }
+        } ]
+      }
+    }, {
+      "name" : "language",
+      "facetType" : "text",
+      "facetLimit" : 10,
+      "missing" : "7",
+      "uniqueType" : "discover.discover",
+      "page" : {
+        "number" : 0,
+        "size" : 10
+      },
+      "_links" : {
+        "self" : {
+          "href" : "https://dspace.mit.edu/server/api/discover/facets/language?query=Rodr%C3%ADguez-Aguilar%20exception%20handling%20agent%20death&size=10"
+        },
+        "missing" : {
+          "href" : "https://dspace.mit.edu/server/api/discover/facets/language?query=Rodr%25C3%25ADguez-Aguilar%20exception%20handling%20agent%20death&f.language=%5B*%20TO%20*%5D,notequals"
+        }
+      },
+      "_embedded" : {
+        "values" : [ {
+          "label" : "English",
+          "count" : 5,
+          "authorityKey" : null,
+          "type" : "discover",
+          "uniqueType" : "discover.discover",
+          "_links" : {
+            "search" : {
+              "href" : "https://dspace.mit.edu/server/api/discover/search/objects?query=Rodr%25C3%25ADguez-Aguilar%20exception%20handling%20agent%20death&f.language=English,equals"
+            }
+          }
+        }, {
+          "label" : "English (United States)",
+          "count" : 1,
+          "authorityKey" : null,
+          "type" : "discover",
+          "uniqueType" : "discover.discover",
+          "_links" : {
+            "search" : {
+              "href" : "https://dspace.mit.edu/server/api/discover/search/objects?query=Rodr%25C3%25ADguez-Aguilar%20exception%20handling%20agent%20death&f.language=English%20(United%20States),equals"
+            }
+          }
+        } ]
+      }
+    }, {
+      "name" : "dcContributorDepartment",
+      "facetType" : "text",
+      "facetLimit" : 5,
+      "missing" : "13",
+      "uniqueType" : "discover.discover",
+      "_links" : {
+        "missing" : {
+          "href" : "https://dspace.mit.edu/server/api/discover/facets/dcContributorDepartment?query=Rodr%25C3%25ADguez-Aguilar%20exception%20handling%20agent%20death&f.dcContributorDepartment=%5B*%20TO%20*%5D,notequals"
+        },
+        "self" : {
+          "href" : "https://dspace.mit.edu/server/api/discover/facets/dcContributorDepartment?query=Rodr%C3%ADguez-Aguilar%20exception%20handling%20agent%20death"
+        }
+      },
+      "_embedded" : {
+        "values" : [ ]
+      }
+    }, {
+      "name" : "dcRelationOrgunit",
+      "facetType" : "text",
+      "facetLimit" : 5,
+      "missing" : "3",
+      "minValue" : "Abdul Latif Jameel Clinic for Machine Learning in Health",
+      "maxValue" : "Woods Hole Oceanographic Institution. Department of Applied Ocean Physics and Engineering.",
+      "uniqueType" : "discover.discover",
+      "page" : {
+        "number" : 0,
+        "size" : 5
+      },
+      "_links" : {
+        "next" : {
+          "href" : "https://dspace.mit.edu/server/api/discover/facets/dcRelationOrgunit?query=Rodr%C3%ADguez-Aguilar%20exception%20handling%20agent%20death&page=1&size=5"
+        },
+        "self" : {
+          "href" : "https://dspace.mit.edu/server/api/discover/facets/dcRelationOrgunit?query=Rodr%C3%ADguez-Aguilar%20exception%20handling%20agent%20death&size=5"
+        },
+        "missing" : {
+          "href" : "https://dspace.mit.edu/server/api/discover/facets/dcRelationOrgunit?query=Rodr%25C3%25ADguez-Aguilar%20exception%20handling%20agent%20death&f.dcRelationOrgunit=%5B*%20TO%20*%5D,notequals"
+        }
+      },
+      "_embedded" : {
+        "values" : [ {
+          "label" : "Broad Institute of MIT and Harvard",
+          "count" : 1,
+          "authorityKey" : null,
+          "type" : "discover",
+          "uniqueType" : "discover.discover",
+          "_links" : {
+            "search" : {
+              "href" : "https://dspace.mit.edu/server/api/discover/search/objects?query=Rodr%25C3%25ADguez-Aguilar%20exception%20handling%20agent%20death&f.dcRelationOrgunit=Broad%20Institute%20of%20MIT%20and%20Harvard,equals"
+            }
+          }
+        }, {
+          "label" : "Harvard University--MIT Division of Health Sciences and Technology",
+          "count" : 1,
+          "authorityKey" : null,
+          "type" : "discover",
+          "uniqueType" : "discover.discover",
+          "_links" : {
+            "search" : {
+              "href" : "https://dspace.mit.edu/server/api/discover/search/objects?query=Rodr%25C3%25ADguez-Aguilar%20exception%20handling%20agent%20death&f.dcRelationOrgunit=Harvard%20University--MIT%20Division%20of%20Health%20Sciences%20and%20Technology,equals"
+            }
+          }
+        }, {
+          "label" : "Koch Institute for Integrative Cancer Research at MIT",
+          "count" : 3,
+          "authorityKey" : null,
+          "type" : "discover",
+          "uniqueType" : "discover.discover",
+          "_links" : {
+            "search" : {
+              "href" : "https://dspace.mit.edu/server/api/discover/search/objects?query=Rodr%25C3%25ADguez-Aguilar%20exception%20handling%20agent%20death&f.dcRelationOrgunit=Koch%20Institute%20for%20Integrative%20Cancer%20Research%20at%20MIT,equals"
+            }
+          }
+        }, {
+          "label" : "Massachusetts Institute of Technology. Department of Biological Engineering",
+          "count" : 2,
+          "authorityKey" : null,
+          "type" : "discover",
+          "uniqueType" : "discover.discover",
+          "_links" : {
+            "search" : {
+              "href" : "https://dspace.mit.edu/server/api/discover/search/objects?query=Rodr%25C3%25ADguez-Aguilar%20exception%20handling%20agent%20death&f.dcRelationOrgunit=Massachusetts%20Institute%20of%20Technology.%20Department%20of%20Biological%20Engineering,equals"
+            }
+          }
+        }, {
+          "label" : "Massachusetts Institute of Technology. Department of Brain and Cognitive Sciences",
+          "count" : 1,
+          "authorityKey" : null,
+          "type" : "discover",
+          "uniqueType" : "discover.discover",
+          "_links" : {
+            "search" : {
+              "href" : "https://dspace.mit.edu/server/api/discover/search/objects?query=Rodr%25C3%25ADguez-Aguilar%20exception%20handling%20agent%20death&f.dcRelationOrgunit=Massachusetts%20Institute%20of%20Technology.%20Department%20of%20Brain%20and%20Cognitive%20Sciences,equals"
+            }
+          }
+        } ]
+      }
+    }, {
+      "name" : "dcDescriptionDegree",
+      "facetType" : "text",
+      "facetLimit" : 5,
+      "missing" : "8",
+      "minValue" : "B. Arch.",
+      "maxValue" : "Thesis (Sc. D.)--Massachusetts Institute of Technology. Dept. of Mechanical Engineering, 1988.",
+      "uniqueType" : "discover.discover",
+      "page" : {
+        "number" : 0,
+        "size" : 5
+      },
+      "_links" : {
+        "self" : {
+          "href" : "https://dspace.mit.edu/server/api/discover/facets/dcDescriptionDegree?query=Rodr%C3%ADguez-Aguilar%20exception%20handling%20agent%20death&size=5"
+        },
+        "missing" : {
+          "href" : "https://dspace.mit.edu/server/api/discover/facets/dcDescriptionDegree?query=Rodr%25C3%25ADguez-Aguilar%20exception%20handling%20agent%20death&f.dcDescriptionDegree=%5B*%20TO%20*%5D,notequals"
+        }
+      },
+      "_embedded" : {
+        "values" : [ {
+          "label" : "M.Eng.",
+          "count" : 1,
+          "authorityKey" : null,
+          "type" : "discover",
+          "uniqueType" : "discover.discover",
+          "_links" : {
+            "search" : {
+              "href" : "https://dspace.mit.edu/server/api/discover/search/objects?query=Rodr%25C3%25ADguez-Aguilar%20exception%20handling%20agent%20death&f.dcDescriptionDegree=M.Eng.,equals"
+            }
+          }
+        }, {
+          "label" : "Ph.D.",
+          "count" : 3,
+          "authorityKey" : null,
+          "type" : "discover",
+          "uniqueType" : "discover.discover",
+          "_links" : {
+            "search" : {
+              "href" : "https://dspace.mit.edu/server/api/discover/search/objects?query=Rodr%25C3%25ADguez-Aguilar%20exception%20handling%20agent%20death&f.dcDescriptionDegree=Ph.D.,equals"
+            }
+          }
+        }, {
+          "label" : "S.B.",
+          "count" : 1,
+          "authorityKey" : null,
+          "type" : "discover",
+          "uniqueType" : "discover.discover",
+          "_links" : {
+            "search" : {
+              "href" : "https://dspace.mit.edu/server/api/discover/search/objects?query=Rodr%25C3%25ADguez-Aguilar%20exception%20handling%20agent%20death&f.dcDescriptionDegree=S.B.,equals"
+            }
+          }
+        }, {
+          "label" : "S.M. in Engineering and Management",
+          "count" : 1,
+          "authorityKey" : null,
+          "type" : "discover",
+          "uniqueType" : "discover.discover",
+          "_links" : {
+            "search" : {
+              "href" : "https://dspace.mit.edu/server/api/discover/search/objects?query=Rodr%25C3%25ADguez-Aguilar%20exception%20handling%20agent%20death&f.dcDescriptionDegree=S.M.%20in%20Engineering%20and%20Management,equals"
+            }
+          }
+        } ]
+      }
+    } ]
+  }
+}
