@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/b9P0TYWYOOj+B8v0siZXiLwOJkU</id>
+  <title>arXiv Query: search_query=all:"reorganization" AND all:"LLM-based multi-agent"&amp;id_list=&amp;start=0&amp;max_results=15</title>
+  <updated>2026-09-21T12:09:04Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=all:%22reorganization%22+AND+all:%22LLM-based+multi-agent%22&amp;start=0&amp;max_results=15&amp;id_list=" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>15</opensearch:itemsPerPage>
+  <opensearch:totalResults>1</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/2605.14892v2</id>
+    <title>Beyond Individual Intelligence: Surveying Collaboration, Failure Attribution, and Self-Evolution in LLM-based Multi-Agent Systems</title>
+    <updated>2026-05-15T09:12:41Z</updated>
+    <link href="https://arxiv.org/abs/2605.14892v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2605.14892v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>LLM-based autonomous agents have demonstrated strong capabilities in reasoning, planning, and tool use, yet remain limited when tasks require sustained coordination across roles, tools, and environments. Multi-agent systems address this through structured collaboration among specialized agents, but tighter coordination also amplifies a less explored risk: errors can propagate across agents and interaction rounds, producing failures that are difficult to diagnose and rarely translate into structural self-improvement. Existing surveys cover individual agent capabilities, multi-agent collaboration, or agent self-evolution separately, leaving the causal dependencies among them unexamined. This survey provides a unified review organized around four causally linked stages, which we term the LIFE progression: Lay the capability foundation, Integrate agents through collaboration, Find faults through attribution, and Evolve through autonomous self-improvement. For each stage, we provide systematic taxonomies and formally characterize the dependencies between adjacent stages, revealing how each stage both depends on and constrains the next. Beyond synthesizing existing work, we identify open challenges at stage boundaries and propose a cross-stage research agenda for closed-loop multi-agent systems capable of continuously diagnosing failures, reorganizing structures, and refining agent behaviors, extending current coordination frameworks toward more self-organizing forms of collective intelligence. By bridging these previously fragmented research threads, this survey aims to offer both a systematic reference and a conceptual roadmap toward autonomous, self-improving multi-agent intelligence.</summary>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-05-14T14:36:13Z</published>
+    <arxiv:primary_category term="cs.AI"/>
+    <author>
+      <name>Shihao Qi</name>
+    </author>
+    <author>
+      <name>Jie Ma</name>
+    </author>
+    <author>
+      <name>Rui Xing</name>
+    </author>
+    <author>
+      <name>Wei Guo</name>
+    </author>
+    <author>
+      <name>Xiao Huang</name>
+    </author>
+    <author>
+      <name>Zhitao Gao</name>
+    </author>
+    <author>
+      <name>Jianhao Deng</name>
+    </author>
+    <author>
+      <name>Jun Liu</name>
+    </author>
+    <author>
+      <name>Lingling Zhang</name>
+    </author>
+    <author>
+      <name>Bifan Wei</name>
+    </author>
+    <author>
+      <name>Boqian Yang</name>
+    </author>
+    <author>
+      <name>Pinghui Wang</name>
+    </author>
+    <author>
+      <name>Jianwen Sun</name>
+    </author>
+    <author>
+      <name>Jing Tao</name>
+    </author>
+    <author>
+      <name>Yaqiang Wu</name>
+    </author>
+    <author>
+      <name>Hui Liu</name>
+    </author>
+    <author>
+      <name>Yu Yao</name>
+    </author>
+    <author>
+      <name>Tongliang Liu</name>
+    </author>
+  </entry>
+</feed>

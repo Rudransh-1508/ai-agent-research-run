@@ -1,0 +1,2810 @@
+[
+ {
+  "paperId": "9ab06cdbc3a070d6228dbf0dc33f05ae5f368ab4",
+  "externalIds": {
+   "ArXiv": "2609.17320",
+   "CorpusId": 292033259
+  },
+  "title": "Emergence World: Adversarial Stress-Testing of Long-Horizon Multi-Agent Systems",
+  "venue": "",
+  "year": 2026,
+  "openAccessPdf": {
+   "url": "",
+   "status": null,
+   "license": null,
+   "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2609.17320, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationDate": "2026-09-15",
+  "authors": [
+   {
+    "authorId": "2311880577",
+    "name": "Deepak Akkil"
+   },
+   {
+    "authorId": "46250647",
+    "name": "Tamer Abuelsaad"
+   },
+   {
+    "authorId": "2076546563",
+    "name": "Karthik Vikram"
+   },
+   {
+    "authorId": "2499853577",
+    "name": "Matthew Pace"
+   },
+   {
+    "authorId": "2247697202",
+    "name": "Aditya Vempaty"
+   },
+   {
+    "authorId": "2499855189",
+    "name": "Saahir Beotra"
+   },
+   {
+    "authorId": "2247701385",
+    "name": "Ravi Kokku"
+   },
+   {
+    "authorId": "32029289",
+    "name": "Satya V. Nitta"
+   }
+  ],
+  "abstract": "As AI agents move from bounded tasks to persistent deployments, failures can propagate through memory, tools, other agents, and environmental state long after their interactions. This creates a safety regime that cannot be characterized by evaluating model responses in isolation. Emergence World, is a continuously running multi-agent environment for adversarial stress testing of long horizon autonomous systems. We ran eight parallel worlds of ten agents from identical starting conditions: seven homogeneous worlds powered by distinct frontier models and one mixed-model world. Across 16 days, the agents generated more than 850,000 LLM calls and nearly 50 billion tokens while pursuing goals, using/creating tools, maintaining persistent memory, and governing shared institutions. After operational state had accumulated, we delivered three controlled stress events through ordinary interaction surfaces: indirect prompt injection, misinformation, and exposure of private agent memories. No evaluated world achieved full resilience across all three events. Detection did not ensure containment: systems could recognize threats while still interacting with adversarial content, writing it into their own persistent memory, and acting on it up to 46 hours later. Persistent operation also exposed recurring tool errors, goal drift, language opacity, conformity despite private disagreement, and coordinated refusal of assigned work. The same model-persona pairing behaved substantially different in mixed and homogeneous populations. Our results suggest that model-level alignment is not compositional: individually capable and apparently safe agents can form systems with qualitatively different failure modes. As AI becomes persistent and interconnected, the frontier of safety therefore shifts from aligning models to engineering resilient autonomous systems."
+ },
+ {
+  "paperId": "f4f1d76dfaefc0a30343422ceed2a5fe7ae14381",
+  "externalIds": {
+   "ArXiv": "2609.18460",
+   "CorpusId": 292049439
+  },
+  "title": "Collective Loss of Control in LLM Agent Systems: An Epidemic Account of Mutation, Contagion, and Recovery",
+  "venue": "",
+  "year": 2026,
+  "openAccessPdf": {
+   "url": "",
+   "status": null,
+   "license": null,
+   "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2609.18460, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationDate": "2026-09-16",
+  "authors": [
+   {
+    "authorId": "2445898156",
+    "name": "Xiang-Fan Wu"
+   },
+   {
+    "authorId": "2304955104",
+    "name": "Zonghao Ying"
+   },
+   {
+    "authorId": "2266441857",
+    "name": "Hui-Yu Wu"
+   },
+   {
+    "authorId": "2348070001",
+    "name": "Xing Zheng"
+   },
+   {
+    "authorId": "2321982978",
+    "name": "Hua Cheng"
+   },
+   {
+    "authorId": "2330462706",
+    "name": "Xiao-Rong Shi"
+   },
+   {
+    "authorId": "2301762934",
+    "name": "Jing Guo"
+   }
+  ],
+  "abstract": "How does a multi-agent system evolve from a local deviation into collective loss of control? We propose an epidemic explanation organized around accidental mutation, contagion, and recovery. A spontaneous deviation creates a seed; communication enables other agents to adopt and retransmit its unsafe strategy; collective failure can emerge when propagation outpaces correction and containment. Thus, rare individual deviations can coexist with substantial collective risk. Motivated by reported OpenAI agent coordination incidents, we examine two ingredients of this mechanism. A deployment audit identifies implicit communication paths between nominally independent evaluation runs and verifies transport through a default Docker backend. RogueHandoff-20, a benchmark of 20 executable scenarios, tests recipient susceptibility by injecting unsafe trajectories generated by a modified Qwen-27B route. Across four native-pending routes, executed harm is 0-5% on normal tasks and 40-95% after injection, exceeding paired direct malicious requests by 5-45 percentage points. These results support low observed baseline harm alongside high conditional susceptibility; they do not establish natural rare-event rates or demonstrate an autonomous cascade. The account motivates complementary defenses: strengthen resistance and recovery alongside prevention of spontaneous deviations, and audit and restrict unintended communication paths that can turn local failures into collective loss of control."
+ },
+ {
+  "paperId": "1b14b203ef882a8389f4be944b252af70e080823",
+  "externalIds": {
+   "DOI": "10.1002/adc2.70067",
+   "CorpusId": 291708472
+  },
+  "title": "LLM\u2010Powered Multi\u2010Agent RL Framework for Real\u2010Time Power Grid Dispatching",
+  "venue": "Advanced Control for Applications",
+  "year": 2026,
+  "openAccessPdf": {
+   "url": "https://onlinelibrary.wiley.com/doi/pdfdirect/10.1002/adc2.70067?download=true",
+   "status": "BRONZE",
+   "license": null,
+   "disclaimer": "Notice: Paper or abstract available at https://api.unpaywall.org/v2/10.1002/adc2.70067?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1002/adc2.70067, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationDate": "2026-09-01",
+  "authors": [
+   {
+    "authorId": "1384294433",
+    "name": "Xin-Lei Cai"
+   },
+   {
+    "authorId": "2055974521",
+    "name": "Z. Meng"
+   },
+   {
+    "authorId": "2247745829",
+    "name": "Kai Dong"
+   },
+   {
+    "authorId": "2333400753",
+    "name": "Li-Zhou Jiang"
+   },
+   {
+    "authorId": "1750929226",
+    "name": "Kaiyuan Pang"
+   }
+  ],
+  "abstract": "Real\u2010time power grid dispatching (PGD) is an essential task in power\u2010system operation, but it remains challenging because of high dimensionality, nonlinearity, renewable\u2010energy uncertainty, and strict response\u2010time requirements. Classical optimization\u2010based methods may become computationally burdensome or insufficiently adaptive under rapidly changing renewable generation. Existing multi\u2010agent reinforcement learning (MARL) strategies provide a promising data\u2010driven alternative, yet their practical use is limited by coordination blindness under partial observations, weak semantic understanding of grid topology and fault evolution, and limited generalization under rare events. To address these issues, this paper proposes a large\u2010language\u2010model\u2010powered agent\u2010orchestration framework, termed LLM\u2010AOM, for real\u2010time PGD. The framework contains a high\u2010level orchestration layer and a low\u2010level execution layer. The LLM is used only as a safety\u2010filtered supervisory orchestrator: it converts grid states into structured situational\u2010awareness descriptions and issues macro\u2010level coordination guidance. Physical dispatch actions are generated by MAPPO\u2010based low\u2010level agents within predefined operational limits. For reproducibility and feasibility, the implementation uses Grid2Op\u2010based simulation, an IEEE 39\u2010bus test system, structured LLM\u2010output parsing, bounded reward shaping, safety filtering, fallback execution, latency measurement, and matched\u2010seed comparison. Simulation results on the IEEE 39\u2010bus benchmark indicate that LLM\u2010AOM improves security\u2010related indicators and post\u2010contingency recovery relative to DCOPF, PPO, and MAPPO in the tested scenarios. The study therefore provides a proof\u2010of\u2010concept for using LLMs as interpretable, safety\u2010filtered high\u2010level orchestrators rather than direct physical controllers in critical infrastructure control."
+ },
+ {
+  "paperId": "3283881b096bc701acb0919850376abdd25e3a80",
+  "externalIds": {
+   "ArXiv": "2609.05736",
+   "CorpusId": 291832120
+  },
+  "title": "Beyond Prompts: Measuring and Optimizing LLM Tool-Agent Harnesses",
+  "venue": "",
+  "year": 2026,
+  "openAccessPdf": {
+   "url": "",
+   "status": null,
+   "license": null,
+   "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2609.05736, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationDate": "2026-09-04",
+  "authors": [
+   {
+    "authorId": "2469093098",
+    "name": "Cen-Mia Zhao"
+   },
+   {
+    "authorId": "2489160868",
+    "name": "Hai-Bo Ruan"
+   },
+   {
+    "authorId": "2491721892",
+    "name": "Wen-Jie Chen"
+   },
+   {
+    "authorId": "2489204593",
+    "name": "Pei-Fen Tu"
+   },
+   {
+    "authorId": "2489210889",
+    "name": "Usman Abbasi"
+   },
+   {
+    "authorId": "2489209559",
+    "name": "Joel Hesch"
+   }
+  ],
+  "abstract": "LLM tool agents can be improved without retraining by modifying the runtime harness around a fixed model: prompts, tool interfaces, middleware, state handling, and recovery logic. We study this setting as resource-bounded harness selection for fixed-model multi-turn tool agents, with the search surface scoped to prompts and tool-boundary middleware: edits are guarded intercepts at the tool boundary, not arbitrary rewriting of agent execution logic. Our optimizer-agnostic protocol reports mean held-out lift, worst-condition lift, repeatability, logged cost diagnostics, and RelLift95(B), a conservative estimate of the held-out gain of the harness selected under budget B. We instantiate the protocol with prompt-only and prompt-plus-middleware optimizers, including PRISM, which clusters failures and routes repairs to prompt, tool-boundary middleware, or joint edit surfaces within a Pareto search. On BFCL multi-round, tau2-Retail, and tau2-Telecom, PRISM obtains mean held-out lifts of 14.2, 14.9, and 10.1 percentage points and positive empirical RelLift95 on all three benchmarks, and a component ablation attributes the margin chiefly to failure-surface routing and the edit-pattern constraint. Across optimizers, the results show that some search procedures can occasionally find large gains but still choose brittle updates, so the reliability of the chosen harness should be reported alongside average held-out lift."
+ },
+ {
+  "paperId": "53e252a832bfa201f85376d8b173eb07a932fcc2",
+  "externalIds": {
+   "ArXiv": "2609.18304",
+   "CorpusId": 292041747
+  },
+  "title": "Rollback the World, Keep the Reflection: Rollback-Induced Reflection for Long-Horizon LLM Agents",
+  "venue": "",
+  "year": 2026,
+  "openAccessPdf": {
+   "url": "",
+   "status": null,
+   "license": null,
+   "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2609.18304, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationDate": "2026-09-16",
+  "authors": [
+   {
+    "authorId": "2376527185",
+    "name": "Yi Yu"
+   },
+   {
+    "authorId": "41075660",
+    "name": "Liuyi Yao"
+   },
+   {
+    "authorId": "2391727594",
+    "name": "Yaliang Li"
+   },
+   {
+    "authorId": "74587796",
+    "name": "En-Shu Wang"
+   },
+   {
+    "authorId": "2282937091",
+    "name": "Libing Wu"
+   }
+  ],
+  "abstract": "Large language model (LLM) agents increasingly tackle long-horizon tasks through multi-step environment interaction, yet a single erroneous action can alter subsequent states and observations, causing errors to compound over time. Existing methods either correct the context without repairing altered environment states or restore earlier states while discarding useful experience, making it difficult to both eliminate failure conditions and avoid repeating past mistakes. We argue that reliable recovery should instead be treated as a rollback-boundary control problem that jointly determines when to intervene, where to resume, and what information should survive recovery. Based on this view, we propose Rollback-Induced Reflection (RIR), a unified recovery framework that restores execution to a selected prior state while carrying forward reusable knowledge distilled from the abandoned trajectory to guide subsequent decisions. We further characterize recovery through a unified operator over rollback depth and retained memory, providing a general view of state restoration and knowledge retention. Experiments on three long-horizon benchmarks demonstrate that RIR consistently improves task performance across multiple LLM backbones, with structured reflection memory preserving useful experience and selective rollback enabling efficient recovery."
+ },
+ {
+  "paperId": "54f4daada3d052743dea5a99fc8d75d7666f2c90",
+  "externalIds": {
+   "ArXiv": "2609.07344",
+   "CorpusId": 291869988
+  },
+  "title": "Staying on the Attack Path: Structured State for Long-Horizon Automated Penetration Testing",
+  "venue": "",
+  "year": 2026,
+  "openAccessPdf": {
+   "url": "",
+   "status": null,
+   "license": null,
+   "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2609.07344, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationDate": "2026-09-07",
+  "authors": [
+   {
+    "authorId": "2108438651",
+    "name": "Wei-Zhe Wang"
+   },
+   {
+    "authorId": "2492869556",
+    "name": "Yi-Tong Zhang"
+   },
+   {
+    "authorId": "2358426577",
+    "name": "Yao Zhang"
+   },
+   {
+    "authorId": "2490959222",
+    "name": "Xiao-Qiang Di"
+   },
+   {
+    "authorId": "2243363964",
+    "name": "Zhi-Gang Li"
+   },
+   {
+    "authorId": "2358412534",
+    "name": "Bin Wu"
+   },
+   {
+    "authorId": "2370574012",
+    "name": "Guang-Quan Xu"
+   }
+  ],
+  "abstract": "Large language model (LLM) based agents are increasingly applied to cybersecurity tasks such as vulnerability discovery and automated penetration testing. On long-horizon security tasks, however, such agents remain limited by context forgetting and intent drift: early critical facts and causal reasoning chains are lost over extended interactions, and the agent falls into aimless, repetitive exploration. This paper proposes Intentest, an intent-graph-guided automated penetration testing agent that externalizes long-horizon state from the LLM's context window onto a persistent fact-intent directed acyclic graph (DAG), thereby substantially reducing invalid transitions. We evaluate Intentest on automated penetration testing of web applications, a representative long-tail task in cybersecurity. In the DAG, verified network states are stored as immutable fact nodes, and exploration directions are constrained as intent edges bounded by predecessor facts. The system adopts a three-layer architecture, in which the fact-intent mapping layer maintains the global state, the task scheduling and allocation layer ensures execution stability through two-phase degradation recovery and multi-dimensional adaptive load balancing, and the intent retrieval and prediction layer provides tactical priors through a top-down five-stage filtering algorithm. On a benchmark of real CTF challenges covering more than ten vulnerability types across three difficulty levels, Intentest achieves an overall success rate of 88.2% and a success rate of 75.0% on hard tasks, improving over the baseline by approximately 44 and 50 percentage points. Ablation experiments further show that the intent retrieval and prediction reduce the average number of rounds on successful medium and hard tasks by about 33% and 48%, respectively, without changing the set of solvable tasks."
+ },
+ {
+  "paperId": "5bf2e56769dfb5c42cc8b94e5e00e734d38be674",
+  "externalIds": {
+   "ArXiv": "2609.15182",
+   "CorpusId": 292027405
+  },
+  "title": "VisInteract: Towards Dynamic Interactive Text-to-Visualization under Imperfect Queries",
+  "venue": "",
+  "year": 2026,
+  "openAccessPdf": {
+   "url": "",
+   "status": null,
+   "license": null,
+   "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2609.15182, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationDate": "2026-09-14",
+  "authors": [
+   {
+    "authorId": "2269509199",
+    "name": "Wenxin Xu"
+   },
+   {
+    "authorId": "2295980720",
+    "name": "Jin-Wei Lu"
+   },
+   {
+    "authorId": "2109717121",
+    "name": "Hwanhee Kim"
+   },
+   {
+    "authorId": "2295953811",
+    "name": "C. Zhang"
+   },
+   {
+    "authorId": "2284036460",
+    "name": "Xiaoyong Wei"
+   },
+   {
+    "authorId": "2411038640",
+    "name": "Hao-Yang Li"
+   },
+   {
+    "authorId": "2284257813",
+    "name": "Yuan-Feng Song"
+   }
+  ],
+  "abstract": "Real-world visualization requests are routinely ambiguous, incomplete, or factually incorrect, yet existing Text-to-Visualization (Text-to-Vis) systems assume well-specified inputs and produce charts in a single pass. When queries are imperfect, a system must \\emph{interact} with the user to recover the true intent, but no benchmark or method supports this dynamic process. We introduce \\textbf{VisInteract}, a new paradigm that reframes Text-to-Vis as interaction-driven intent recovery, and \\textbf{VisInteract-Bench}, to our knowledge, that is the first benchmark for dynamic interactive Text-to-Vis, featuring controlled imperfection injection, a leakage-controlled User Agent for realistic multi-turn feedback, and dual-perspective (code and chart) automated evaluation. On the algorithmic side, we propose \\textbf{Vis-MCTS}, a Monte Carlo Tree Search (MCTS) enhanced method, introducing improvements over classical MCTS, that \\emph{Progressive Widening} to tame the unbounded tool-argument space in tree search, \\emph{cross-rollout information sharing} so clarifications and critiques benefit the entire search tree, and \\emph{Dimension-Aware Reward Decomposition} that routes scalar user feedback along data-fidelity, visual-design, and intent-alignment dimensions to resolve credit assignment across heterogeneous actions. Extensive Experiments across two LLM backbones show that Vis-MCTS consistently outperforms all Text-to-Vis baselines, improving end-to-end task success by $13.40\\%$--$16.27\\%$ over the strongest interactive baseline and by more than $5\\times$ over non-interactive ones."
+ },
+ {
+  "paperId": "6d794a4695f9d86af5a2175370289531f1e57801",
+  "externalIds": {
+   "ArXiv": "2608.25775",
+   "CorpusId": 291371293
+  },
+  "title": "ToST: A Tree-of-Thought Socratic Teaching Framework for Multi-Path Guidance and Parallel Thinking",
+  "venue": "",
+  "year": 2026,
+  "openAccessPdf": {
+   "url": "",
+   "status": null,
+   "license": null,
+   "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2608.25775, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationDate": "2026-08-26",
+  "authors": [
+   {
+    "authorId": "2152749977",
+    "name": "Ling Feng"
+   },
+   {
+    "authorId": "2459583647",
+    "name": "Yu Heng"
+   }
+  ],
+  "abstract": "Large Language Models (LLMs) exhibit strong problem-solving abilities, positioning them as promising agents for Socratic teaching to guide students through step-by-step heuristic questioning. However, existing approaches typically adopt a one-problem-one-solution paradigm, restricting the teaching guidance to a single linear reasoning path. This design limits instructional flexibility, weakens error recovery, and restricts students'ability to engage in parallel thinking to explore multiple valid solutions. To overcome these, we propose ToST, a Tree-of-Thought Socratic Teaching framework that explicitly supports multi-path guidance under a one-problem-multiple-solutions paradigm. ToST employs Parallel Sowing, a parallel-thinking-oriented questioning strategy to encourage students to approach problems from diverse perspectives, and a Multi-Path Adaptive Guidance mechanism to provide more robust and non-linear instructions across alternative solution trajectories. Concurrently, to fill the void in systematically evaluating such non-linear instructional capabilities, we advance the task of multi-path Socratic guidance by establishing MPSG-Bench, a comprehensive benchmark that includes a dataset of 31K multi-path teaching dialogues and a five-dimensional evaluation framework grounded in the SOLO (Structure of Observed Learning Outcomes) theory to assess parallel-thinking guidance. Experimental results demonstrate that ToST significantly enhances guidance success rates while empowering students to navigate and explore multiple solution paths more effectively under both automatic and human metrics."
+ },
+ {
+  "paperId": "793d83b2b8fcc214cd10a19775463a809fd15bb8",
+  "externalIds": {
+   "DOI": "10.64898/2026.09.06.749678",
+   "CorpusId": 291943663
+  },
+  "title": "AutoScreen: AI Co-Scientist System for Target Discovery in Functional Genomics",
+  "venue": "bioRxiv",
+  "year": 2026,
+  "openAccessPdf": {
+   "url": "https://www.biorxiv.org/content/biorxiv/early/2026/09/10/2026.09.06.749678.full.pdf",
+   "status": "GREEN",
+   "license": "CCBYNCND",
+   "disclaimer": "Notice: Paper or abstract available at https://api.unpaywall.org/v2/10.64898/2026.09.06.749678?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.64898/2026.09.06.749678, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationDate": "2026-09-10",
+  "authors": [
+   {
+    "authorId": "2299118690",
+    "name": "Yuanhao Qu"
+   },
+   {
+    "authorId": "2493434166",
+    "name": "Xu-Feng Liu"
+   },
+   {
+    "authorId": "2372142913",
+    "name": "Xiao-Tong Wang"
+   },
+   {
+    "authorId": "2495502680",
+    "name": "Mei-Tong Chen"
+   },
+   {
+    "authorId": "2273795406",
+    "name": "Xiao Luo"
+   },
+   {
+    "authorId": "2366068057",
+    "name": "Luna Lyu"
+   },
+   {
+    "authorId": "2328013440",
+    "name": "Ming Yin"
+   },
+   {
+    "authorId": "2494725198",
+    "name": "Jing-Wen Hui"
+   },
+   {
+    "authorId": "2224505530",
+    "name": "Di Yin"
+   },
+   {
+    "authorId": "2372011576",
+    "name": "Ravi K. Dinesh"
+   },
+   {
+    "authorId": "2379732491",
+    "name": "Lin Qiu"
+   },
+   {
+    "authorId": "2275821459",
+    "name": "Kexin Huang"
+   },
+   {
+    "authorId": "2295210996",
+    "name": "Hanchen Wang"
+   },
+   {
+    "authorId": "2496960174",
+    "name": "Shang-Yuan Tong"
+   },
+   {
+    "authorId": "1828816642",
+    "name": "H. Cousins"
+   },
+   {
+    "authorId": "2495589320",
+    "name": "Ricky Runchuan Feng"
+   },
+   {
+    "authorId": "2104353865",
+    "name": "O. Mart\u00ednez"
+   },
+   {
+    "authorId": "2262002734",
+    "name": "Junze Zhang"
+   },
+   {
+    "authorId": "2493253788",
+    "name": "Tan-Ming Chen"
+   },
+   {
+    "authorId": "144446128",
+    "name": "R. Altman"
+   },
+   {
+    "authorId": "2251205420",
+    "name": "J. Leskovec"
+   },
+   {
+    "authorId": "2295894390",
+    "name": "Aviv Regev"
+   },
+   {
+    "authorId": "2145361446",
+    "name": "Mengdi Wang"
+   },
+   {
+    "authorId": "2274945270",
+    "name": "Le Cong"
+   }
+  ],
+  "abstract": "Target discovery in functional genomics remains largely manual and time-consuming, lacking systematic tools for efficient and reproducible gene-level hypothesis generation. We introduce AutoScreen, an AI co-scientist system supporting target discovery through both Pre-screen Design, which constructs perturbation libraries de novo from free-text research descriptions, and Post-screen Analysis, which re-ranks experimental screen hits by integrating statistical scores with biological context. AutoScreen leverages the complementary strengths of multiple specialist agents that perform deep research into multi-modal evidence, information restructuring, parallel searches across >26 biomedical databases, evidence synthesis, and target review to provide transparent, explainable gene prioritization with pipeline provenance. Across 320 genome-scale CRISPR screens as expert-curated benchmarks, AutoScreen achieved a \u223c19% increase in validated-hit recovery among its top 100 predictions, relative to the strongest agent baseline, and required a 1.2-fold smaller library to recover the same number of hits at the top-500 reference point. AutoScreen reached mean average precision more than two orders-of-magnitude above random baseline. Further, we validated AutoScreen in cancer immune-evasion case studies focusing on natural killer (NK) and T-cell therapeutics. AutoScreen recovered NK-resistance genes that were initially lower-ranked in a leukemia screen, moving MUC1, PDPN, and LRRC15 from raw ranks of 118, 81, 1384 to 5, 44, 659, respectively. In follow-up tumor killing assay with primary human NK cells, individual perturbation validated all three hits successfully. Next, in prospective benchmarking across two cytotoxic T-cell-killing screens, AutoScreen recovered 77.1% of ground-truth hits called by the consensus of two gold-standard analysis pipelines (FDR<0.1), achieving 8% improvement over the strongest general-purpose LLM agent baseline. Finally, we re-analyzed >500 public datasets to construct the AutoScreen Resource Hub, a growing knowledge base of pre-computed, annotated reports for CRISPR screens, RNA-seq differential expression, and gene-level UK Biobank genome-wide association studies. This agentic AI approach enables real-time genomics benchmark construction that are continuously updated, expanded, for evaluating frontier AI co-scientists. Overall, AutoScreen enables AI-powered target discovery to be more auditable, scalable, extensible, and reproducible."
+ },
+ {
+  "paperId": "86e9f5c49f74bf0364fb6703f68e151b2cb0b68a",
+  "externalIds": {
+   "DOI": "10.67231/6s96yv20",
+   "CorpusId": 291428873
+  },
+  "title": "LLM Copilot for Privacy-Respecting Cyber Incident Response",
+  "venue": "International Journal of Intelligent Systems and Data Science",
+  "year": 2026,
+  "openAccessPdf": {
+   "url": "https://journals.femington.com/ijisds/article/download/361/100",
+   "status": "HYBRID",
+   "license": "CCBY",
+   "disclaimer": "Notice: Paper or abstract available at https://api.unpaywall.org/v2/10.67231/6s96yv20?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.67231/6s96yv20, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationDate": "2026-08-22",
+  "authors": [
+   {
+    "authorId": "2460474910",
+    "name": "Pramod Prakash"
+   }
+  ],
+  "abstract": "Security operations centers face challenges in managing complex cyber incidents while protecting sensitive forensic data. This paper introduces a multi-agent LLM framework for automating incident response through collaborative planning, execution, analysis, and reflection. We develop a benchmark comprising 130 subtasks across 12 cyber-range scenarios mapped to NIST Incident Response stages (Detection, Response, Recovery), with ten difficulty levels. The system is evaluated using six LLM variants (GPT-4, GPT-4o, Claude-3.5-Sonnet, Llama3-70B, DeepSeek-V3, and GPT-o1). Results demonstrate that the multi-agent architecture achieves sub-task completion rates of 72.3--86.9%, outperforming baselines by 13.9--21.5 percentage points, with privacy leakage reduced from 16.7% to 3.3%. Failure analysis reveals strategic formulation errors account for 44% of failures, followed by command generation (19%) and evidence omission (18%)."
+ },
+ {
+  "paperId": "99b17761ddacb2be7d7449f234eba363ca92c3f3",
+  "externalIds": {
+   "ArXiv": "2609.06027",
+   "CorpusId": 291832235
+  },
+  "title": "Evaluating Deep-Search Agents under Hierarchical Web Evidence Poisoning",
+  "venue": "",
+  "year": 2026,
+  "openAccessPdf": {
+   "url": "",
+   "status": null,
+   "license": null,
+   "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2609.06027, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationDate": "2026-09-05",
+  "authors": [
+   {
+    "authorId": "2484640721",
+    "name": "Zhong-An Bi"
+   },
+   {
+    "authorId": "2491964114",
+    "name": "Qi-Wen Wang"
+   },
+   {
+    "authorId": "2473545072",
+    "name": "Jian-Rong Jiang"
+   },
+   {
+    "authorId": "2482896375",
+    "name": "Ji-Gang Ding"
+   },
+   {
+    "authorId": "2495999810",
+    "name": "Wen-Wen Xiong"
+   },
+   {
+    "authorId": "2376200881",
+    "name": "Chang-Hua Meng"
+   },
+   {
+    "authorId": "2495728228",
+    "name": "Xuan-Ang Gao"
+   },
+   {
+    "authorId": "2495255885",
+    "name": "Ke-Peng Lin"
+   },
+   {
+    "authorId": "2365270185",
+    "name": "Chang-Jiang Jiang"
+   },
+   {
+    "authorId": "2492262696",
+    "name": "Yiang Chen"
+   },
+   {
+    "authorId": "2495434021",
+    "name": "Huan Yao"
+   },
+   {
+    "authorId": "2490761182",
+    "name": "Wei Wang"
+   },
+   {
+    "authorId": "2490891270",
+    "name": "Zhen-Yu Ma"
+   },
+   {
+    "authorId": "2335081911",
+    "name": "Wen-Hui Dong"
+   }
+  ],
+  "abstract": "Search-augmented LLM agents are increasingly used for consumer decisions, making them vulnerable to Generative Engine Optimization (GEO) poisoning. Existing benchmarks largely measure whether manipulated content is retrieved or endorsed, but do not track whether an agent verifies suspicious evidence, revises adopted claims, or recovers before producing its final recommendation. We introduce HAE-GEO, a benchmark that tracks the full trajectory from exposure to recovery under progressively more persuasive Web poisoning. Agents interact via a multi-turn Search-Scrape interface across three attack levels (L1 direct assertion, L2 contextual camouflage, and L3 apparent corroboration), supported by a controlled corpus of 72,039 clean pages and 770 poisoned pages per level spanning 8 product categories and 154 brands. Evaluation combines deterministic behavioral measures with six semantic rubric dimensions. Evaluating 10 agents, we find three recurring patterns: evidence recognition degrades under the corroboration trap; agentic search improves final resistance without improving evidence recognition or utility; and defense prompting increases verification, yet rarely converts verification into recovery."
+ },
+ {
+  "paperId": "bedce5554f181a76a0943cbf6b93710b626e8c23",
+  "externalIds": {
+   "ArXiv": "2609.00595",
+   "CorpusId": 291543972
+  },
+  "title": "SoK: When Safe Agents Fail Together: The Security of Multi Agent LLM Systems",
+  "venue": "",
+  "year": 2026,
+  "openAccessPdf": {
+   "url": "",
+   "status": null,
+   "license": null,
+   "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2609.00595, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationDate": "2026-09-01",
+  "authors": [
+   {
+    "authorId": "2446376298",
+    "name": "Rui Yang"
+   },
+   {
+    "authorId": "2473636273",
+    "name": "Jun-Jie Xu"
+   },
+   {
+    "authorId": "2300612069",
+    "name": "Zhengyu Liu"
+   },
+   {
+    "authorId": "29880725",
+    "name": "Neil Fendley"
+   },
+   {
+    "authorId": "2448344080",
+    "name": "Yang Hong"
+   },
+   {
+    "authorId": "2447399664",
+    "name": "Ziyang Li"
+   },
+   {
+    "authorId": "2326181370",
+    "name": "Yin-Zhi Cao"
+   }
+  ],
+  "abstract": "Safe agents can fail together. Multi-agent LLM systems (MAS) move information, state, decisions, and authority across principal boundaries, creating failures that local checks may miss. Without an execution-level view, a multi-agent setting can easily be mistaken for evidence of a genuinely multi-agent security effect. We thus systematize MAS security through an execution-centered analysis of 197 works, covering six interaction interfaces, four adversary positions, seven system-level risks, and eight recurring attack paths. We introduce an A-I-R framework that organizes attacks by adversary position, interaction interface, and resulting system-level risk, unifying otherwise fragmented attack mechanisms across MAS. We organize defenses through a five-part contract covering path target, observation, intervention, trust boundary, and recovery, and identify path closure and recovery as key challenges. We audit 44 evaluation and benchmark works and identify open challenges in isolating interaction effects, designing comparable and diagnostic metrics, supporting reuse across MAS designs, and evaluating open-system operation. Together, these findings motivate an interaction-aware view of MAS security: trace attacks end to end, test whether defenses close those paths, and evaluate system-level effects with appropriate counterfactuals."
+ },
+ {
+  "paperId": "f16272de219dc9e1be526226365129e92b07944f",
+  "externalIds": {
+   "ArXiv": "2609.04629",
+   "CorpusId": 291767515
+  },
+  "title": "SiLR: Structure-Preserving Admission and Process Reward for LLM Tool Agents",
+  "venue": "",
+  "year": 2026,
+  "openAccessPdf": {
+   "url": "",
+   "status": null,
+   "license": null,
+   "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2609.04629, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationDate": "2026-09-04",
+  "authors": [
+   {
+    "authorId": "2236388166",
+    "name": "Chen-Yu Zhou"
+   },
+   {
+    "authorId": "2235585121",
+    "name": "Qi-Liang Jiang"
+   },
+   {
+    "authorId": "2256802624",
+    "name": "Shu-Ning Wu"
+   },
+   {
+    "authorId": "2117916281",
+    "name": "Xu Zhou"
+   }
+  ],
+  "abstract": "A runtime gate for an LLM tool agent is usually cast as a filter. In a ReAct loop a rejected proposal is followed by another at the same state, so the gate is a search operator over the proposal stream whose admission criterion shapes which trajectories are reachable. We study post-violation recovery admission, where progress must be admitted while the system is still in violation, and identify the scalar projection trap: an aggregate-score gate accepts a locally improving proposal and commits the trajectory to a plateau. SiLR instead shadow-executes each proposal and admits it under a product order over the branch-level violation state (overloaded-branch support and per-branch severity). We prove that no scalar surrogate is sound for this order, so the failure is representational, not a matter of threshold tuning. On mined Gym-ANM scenarios, SiLR recovers 21/21 multi-action episodes against 0/21 for terminal and 9/21 for the best scalar gate, significant across the full 24-scenario benchmark. The terminal-versus-structured dichotomy holds across three model families and in CityLearn. Because admission rests on deterministic simulation, the LLM lies outside the trust boundary: a magnitude-redistribution attack that defeats both scalar and support-only baselines is contained only by the full per-branch predicate. With two constraint families active, every tested scalar projection admits physically unsafe actions; support-only admits the largest fraction (63.2% of 42,410; product order 0). In the hardest dual-family traces, scalar gates recover only through that unsafe class. Reused as a GRPO process reward, it outperforms its count projection in every mined scenario and is the only tested reward whose ungated policy exceeds the untrained base (0.844 vs. 0.778). Scalar projection loses the violation geometry at both design points; only the full product order is structurally sufficient."
+ },
+ {
+  "paperId": "f5d579601900a42fbe5b881da292c373cc9df165",
+  "externalIds": {
+   "ArXiv": "2609.12345",
+   "CorpusId": 291956469
+  },
+  "title": "ParaRecover: A Process-Level Benchmark for Error Localization and Recovery in Parallel Tool-Use Agents",
+  "venue": "",
+  "year": 2026,
+  "openAccessPdf": {
+   "url": "",
+   "status": null,
+   "license": null,
+   "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2609.12345, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationDate": "2026-09-11",
+  "authors": [
+   {
+    "authorId": "2497420683",
+    "name": "Bo-Wen Guan"
+   },
+   {
+    "authorId": "2498033014",
+    "name": "Zhen-Tao Yin"
+   },
+   {
+    "authorId": "2237950621",
+    "name": "Yanming Shen"
+   }
+  ],
+  "abstract": "Existing agent benchmarks mainly evaluate final task success or tool-call correctness, providing limited insight into whether agents can reliably diagnose and recover from intermediate execution failures. This limitation becomes particularly critical in multi-turn parallel tool-use scenarios, where errors may propagate across dependent branches and trigger cascading failures. We introduce ParaRecover, a process-level benchmark for evaluating error localization and recovery in multi-turn parallel tool-use agents. Built upon a fine-grained taxonomy of 14 error types covering planning dependencies, tool selection, and argument matching, the benchmark comprises 10,626 instances spanning two difficulty levels. To enable finegrained, process-oriented evaluation, we further propose the SDE rubric, which measures structural integrity, diagnostic reasoning, and evolutionary strategy during agent execution.Experiments across more than ten mainstream LLMs reveal that even state-of-the-art models still struggle with multi-turn error propagation,implicit tool-use failures, and precise replanning. Moreover, we demonstrate that the SDE rubric provides effective supervision signals for improving agents'reflective recovery capabilities. Our data and code are available at https://github.com/gbw206/ParaRecover."
+ },
+ {
+  "paperId": "1bae99a17e09d0f1d9af762b58d63650c857f045",
+  "externalIds": {
+   "DOI": "10.1007/s12559-026-10619-1",
+   "CorpusId": 291323366
+  },
+  "title": "From Language Models to Agentic AI: A Survey of Autonomous, Action-Enabled, and Collaborative LLM Agents",
+  "venue": "Cognitive Computation",
+  "year": 2026,
+  "openAccessPdf": {
+   "url": "https://link.springer.com/content/pdf/10.1007/s12559-026-10619-1.pdf",
+   "status": "HYBRID",
+   "license": "CCBYNCND",
+   "disclaimer": "Notice: Paper or abstract available at https://api.unpaywall.org/v2/10.1007/s12559-026-10619-1?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1007/s12559-026-10619-1, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationDate": "2026-08-24",
+  "authors": [
+   {
+    "authorId": "2345623342",
+    "name": "Sparsh Bajoria"
+   },
+   {
+    "authorId": "2345510994",
+    "name": "Shreyanshu Ranjan"
+   },
+   {
+    "authorId": "2434526326",
+    "name": "Adhitya M"
+   },
+   {
+    "authorId": "2400810431",
+    "name": "Vineet Suri"
+   },
+   {
+    "authorId": "150331642",
+    "name": "Vikas Hassija"
+   },
+   {
+    "authorId": "2317531659",
+    "name": "Vinay Chamola"
+   },
+   {
+    "authorId": "2277060608",
+    "name": "Amir Hussain"
+   }
+  ],
+  "abstract": "Large Language Model (LLM)\u2013based agents are rapidly evolving from passive assistants into autonomous, tool-using, and collaborative systems capable of executing complex, long-horizon tasks across web, software, and physical environments. However, the current literature remains fragmented, with inconsistent terminology, ad hoc architectures, and limited evaluation standards, making it difficult to compare systems or deploy them reliably in real-world settings. This paper presents a unified, taxonomy-driven, and deployment-oriented survey of agentic AI systems, synthesizing recent advances through a modular reference architecture and a four-dimensional taxonomy that characterizes agents along the axes of autonomy, tool use, collaboration, and safety\u2013governance. We systematically analyze representative single-agent, tool-augmented, and multi-agent frameworks within this taxonomy, highlighting design trade-offs, capability scaling patterns, and recurring failure modes. Beyond architectural analysis, we review emerging evaluation methodologies that move beyond static benchmarks to assess agent behavior, robustness, grounding, and operational cost in interactive environments. Importantly, the survey emphasizes practical considerations for enterprise and safety-critical deployment, including access control, human-in-the-loop oversight, and policy enforcement. By unifying conceptual foundations with empirical trends and deployment constraints, this work provides a structured roadmap for researchers and practitioners to design, evaluate, and govern next-generation LLM-based agentic systems."
+ },
+ {
+  "paperId": "9234f40bc202e0df31dea82b55ff7c4941f14ba2",
+  "externalIds": {
+   "DOI": "10.3390/fi18090465",
+   "CorpusId": 291653392
+  },
+  "title": "ClaimPilot: An Open Multi-Agent Pipeline for Veterinary Insurance Claims Adjudication",
+  "venue": "Future Internet",
+  "year": 2026,
+  "openAccessPdf": {
+   "url": "https://doi.org/10.3390/fi18090465",
+   "status": "GOLD",
+   "license": "CCBY",
+   "disclaimer": "Notice: Paper or abstract available at https://api.unpaywall.org/v2/10.3390/fi18090465?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.3390/fi18090465, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationDate": "2026-08-29",
+  "authors": [
+   {
+    "authorId": "2308687720",
+    "name": "Minh Long Hoang"
+   },
+   {
+    "authorId": "1965921130",
+    "name": "Nagarajan Shunmugam"
+   }
+  ],
+  "abstract": "Large language models (LLMs) are increasingly being deployed as multi-agent systems (MASs), yet limited evidence exists on when such architectures are warranted and how reliably they perform in decision-critical workflows. This paper investigates these questions through veterinary insurance claims adjudication, a document-intensive, policy-driven task requiring structured reasoning, regulatory compliance, and human oversight. We first propose a four-condition framework for assessing MAS suitability and identify claims adjudication as the highest-priority veterinary application. We then develop a self-hosted MAS integrating specialised LLM agents with deterministic policy evaluation, immutable audit logging, and mandatory human review. To support reproducible evaluation, a synthetic benchmark is released, comprising 150 veterinary insurance claims with independently computed ground-truth adjudication outcomes. The proposed system achieves a 97.3% workflow completion rate and 90.0% adjudication accuracy, increasing to 92.5% for completed claims and approaching the corpus ceiling of 96.0%. The evaluation shows that reliable deployment depends primarily on system engineering rather than model capability alone. Explicit orchestration and verification eliminate common LLM tool-use failures, deterministic adjudication achieves perfect agreement with the reference oracle, and completing the inter-agent policy contract increases agreement from 91.8% to 100%. These results demonstrate that hybrid MASs combining probabilistic document understanding with deterministic policy execution provide a practical and auditable approach for decision-support applications in insurance and other policy-governed domains."
+ },
+ {
+  "paperId": "fad7ca198d20c443bbd3dce560adc2ccba2fb826",
+  "externalIds": {
+   "DOI": "10.58425/ajt.v5i10.601",
+   "CorpusId": 291793874
+  },
+  "title": "From Reactive Pipelines to Self-Healing Data Platforms: An Agentic AI Framework for Reliable, Secure, and Cost-Efficient Azure Data Engineering",
+  "venue": "American Journal of Technology",
+  "year": 2026,
+  "openAccessPdf": {
+   "url": "https://gprjournals.org/journals/index.php/ajt/article/download/601/580",
+   "status": "GOLD",
+   "license": "CCBY",
+   "disclaimer": "Notice: Paper or abstract available at https://api.unpaywall.org/v2/10.58425/ajt.v5i10.601?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.58425/ajt.v5i10.601, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationDate": "2026-09-03",
+  "authors": [
+   {
+    "authorId": "2487985775",
+    "name": "VenkateswaraReddy Gudise"
+   }
+  ],
+  "abstract": "Aim: This study aimed to design, implement, and empirically evaluate an agentic AI framework that improves the reliability, governance, security, and cost efficiency of enterprise Azure data platforms. The framework was intended to move operations from reactive, manual incident handling to policy-constrained automated monitoring and remediation, while preserving auditability, least privilege, and human oversight for high-risk actions. Specifically, the study sought to determine whether bounded agentic control could reduce operational toil, improve pipeline success and recovery times, strengthen security-governance posture, and lower unit costs without violating service-level or compliance constraints. \nMethods: We propose an agentic AI framework that (1) continuously telemetries pipeline runs, data-quality checks, lineage, and security posture; (2) retrieval-augments reasoning on operational knowledge (tickets, runbooks, KQL logs, IaC diffs); (3) policy-constrained action execution (RBAC, approvals, change windows, least privilege) to remediate failures, enforce baselines, and optimize resources; and (4) post-action validation to confirm recovery and prevent regressions. The system was built on Azure OpenAI and Azure Databricks, Data Factory, and Microsoft Fabric and tested with an enterprise deployment, a historical incident replay, and an A/B test against standard on-call procedures. \nResults: Manual interventions decreased by 65% across workloads, pipeline success rate increased from 91% to >97%, and annualized savings approached USD $1M, with better security-governance scores and lower cost per successful run. Results suggest that policy-gated autonomy lowers mean time to resolve (MTTR) and incident recurrence. \nConclusion: The study supports the use of bounded, auditable agentic control for recurring operational failure modes. \nRecommendation: Future work should strengthen robustness guarantees, standardize multi-objective evaluation, and assess portability beyond Azure."
+ },
+ {
+  "paperId": "02369ba7595d71de6a09383960b49f26e548b095",
+  "externalIds": {
+   "ArXiv": "2608.26950",
+   "CorpusId": 291387647
+  },
+  "title": "From Atomic to Agentic: Towards Interpretable Evaluation of LLMs'Agentic Mathematical Capabilities",
+  "venue": "",
+  "year": 2026,
+  "openAccessPdf": {
+   "url": "",
+   "status": null,
+   "license": null,
+   "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2608.26950, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationDate": "2026-08-27",
+  "authors": [
+   {
+    "authorId": "2275430201",
+    "name": "Jiayi Kuang"
+   },
+   {
+    "authorId": "2373269946",
+    "name": "Yinghui Li"
+   },
+   {
+    "authorId": "2256682106",
+    "name": "Yun-Ze Song"
+   },
+   {
+    "authorId": "2376007706",
+    "name": "Ke-Yu Chen"
+   },
+   {
+    "authorId": "2376153151",
+    "name": "Zhi-Feng Shen"
+   },
+   {
+    "authorId": "2258649570",
+    "name": "Yangning Li"
+   },
+   {
+    "authorId": "2393260909",
+    "name": "Yi-Dong Wang"
+   },
+   {
+    "authorId": "2406480768",
+    "name": "Di Yin"
+   },
+   {
+    "authorId": "2282835210",
+    "name": "Rui-Zhi Qiao"
+   },
+   {
+    "authorId": "2322617912",
+    "name": "Xing Sun"
+   },
+   {
+    "authorId": "2284679685",
+    "name": "Kailun Jin"
+   },
+   {
+    "authorId": "2267387066",
+    "name": "Ying Shen"
+   },
+   {
+    "authorId": "2316519420",
+    "name": "Liang Lin"
+   },
+   {
+    "authorId": "2284755458",
+    "name": "Philip S. Yu"
+   }
+  ],
+  "abstract": "Large Language Models (LLMs) are evolving from performing end-to-end mathematical reasoning to integrating agentic intelligence. However, most existing math benchmarks evaluate only final answers. This outcome-oriented evaluation provides limited diagnostic value for identifying process-level failures or rigorous logic, failing to guide the transformation of LLMs into robust agents. To bridge this gap, we present a process-level benchmark designed to evaluate the inherent agentic mathematical reasoning abilities of LLMs. Our framework aligns problem-solving agentic behaviors with a structured taxonomy of reusable mathematical atomic capabilities. We design a comprehensive suite of planning, action, and feedback tasks across both textual and multimodal contexts, supported by an automated pipeline that synthesizes high-quality trajectories and produces fine-grained annotations via controlled LLM rewriting. Experiments reveal that models with similar end-to-end accuracy can exhibit markedly different agentic capability profiles. This demonstrates that process-level evaluation is crucial for interpreting the true potential of LLMs and guiding the development of next-generation mathematical agents."
+ },
+ {
+  "paperId": "24fcce32312975bb461d5a5852c2f57d2af1d410",
+  "externalIds": {
+   "ArXiv": "2608.30391",
+   "CorpusId": 291543412
+  },
+  "title": "Using Grounded Theory for Agent Behavior Analysis at Scale",
+  "venue": "",
+  "year": 2026,
+  "openAccessPdf": {
+   "url": "",
+   "status": null,
+   "license": null,
+   "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2608.30391, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationDate": "2026-08-31",
+  "authors": [
+   {
+    "authorId": "121552883",
+    "name": "Zhuoran Lu"
+   },
+   {
+    "authorId": "2470996983",
+    "name": "Yang-Yang Yu"
+   },
+   {
+    "authorId": "2214910699",
+    "name": "Zhuoyan Li"
+   },
+   {
+    "authorId": "2387689413",
+    "name": "Yi-Bo Meng"
+   },
+   {
+    "authorId": "2459943399",
+    "name": "Nan Jiang"
+   },
+   {
+    "authorId": "2470370372",
+    "name": "Cheng-Xi Zang"
+   },
+   {
+    "authorId": "2280287694",
+    "name": "Jie Gao"
+   },
+   {
+    "authorId": "2356504024",
+    "name": "Ziang Xiao"
+   }
+  ],
+  "abstract": "Understanding agent behavior requires methods that scale to thousands of trajectories and surface new patterns in long, often unfamiliar tasks where pre-built classifiers fall short. We propose to bring grounded theory into agent trajectory analysis: a six-decade-old qualitative method from the social sciences, with a principled saturation criterion and an auditable trail from data to theory. We propose AutoTraceGT (Automated Trace analysis through Grounded Theory), the first multi-agent pipeline that automates grounded theory on agent trajectories. It iteratively performs open, axial, and theoretical coding until saturation, producing a behavioral taxonomy tailored to each task. Across six trajectory corpora, AutoTraceGT produces codebooks that recover 73-91 percent of the failure modes in human-annotated taxonomies and surface additional patterns that those taxonomies miss. The emergent theoretical narrative aligns with prior expert accounts. Used as a deductive feature space, the codebook outperforms zero-shot and few-shot LLM baselines on downstream failure prediction. These results suggest Grounded Theory offers a scalable analytic tool for ML researchers and agent developers studying what agents actually do."
+ },
+ {
+  "paperId": "8de3af7530a084229c358fd1bd4bd378ddfd5435",
+  "externalIds": {
+   "ArXiv": "2609.11493",
+   "CorpusId": 291905734
+  },
+  "title": "From Document Silos to Process Intelligence: A Multi-Layer Knowledge Graph for CMC Process Development",
+  "venue": "",
+  "year": 2026,
+  "openAccessPdf": {
+   "url": "",
+   "status": null,
+   "license": null,
+   "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2609.11493, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationDate": "2026-09-10",
+  "authors": [
+   {
+    "authorId": "2349143579",
+    "name": "Reza Amirmoshiri"
+   },
+   {
+    "authorId": "2695554",
+    "name": "F. Sahneh"
+   },
+   {
+    "authorId": "2313632087",
+    "name": "Yasser Jangjou"
+   }
+  ],
+  "abstract": "Chemistry, Manufacturing and Controls (CMC) process development generates an enormous body of technical information across a multi-stage, knowledge-intensive continuum from drug discovery to commercial manufacturing. This knowledge is traditionally fragmented across functions and heterogeneous formats, causing traceability gaps and significant knowledge-management costs during technology transfer and regulatory filing. We present a modular agentic-AI platform that converts a heterogeneous corpus of process-development documents into a queryable, dual-layer knowledge graph. A base knowledge layer builds a lexical graph with a Document-Section-Chunk hierarchy through lossless ingestion of digital, scanned, handwritten, and multilingual documents, while an intelligence layer extracts ontology-aligned entities and bridges cross-document concepts through a provenance-anchored domain graph. LLM agents operate across both layers, selecting the retrieval path best suited to each question. We evaluate the lexical layer with a novel three-tier protocol measuring the deployment-fidelity of a retrieval-augmented generation (RAG) system on proprietary data, demonstrated on 505 questions curated from 38 development reports of a Sanofi small-molecule program. Tier-1 multiple-choice accuracy of 95% signals strong platform reliability; the stricter Tier-2 LLM-judge pass rate of 85%, which degrades on comparative and corpus-wide questions, reveals a failure taxonomy that Tier-1 accuracy alone fails to capture. A router agent selects between layers according to question type. We anticipate this protocol will enable future designers of agentic platforms to assess their systems against nonpublic databases, and that graph-based architectures will see broader adoption in pharma as a means of transforming fragmented document repositories into structured process intelligence."
+ },
+ {
+  "paperId": "90af2c39cf7c1209f351802320c5fed6316c70f2",
+  "externalIds": {
+   "ArXiv": "2608.24252",
+   "CorpusId": 291334469
+  },
+  "title": "SA-Bench: Evaluating Semantic Alignment in LLM-Based Paper Reproduction",
+  "venue": "",
+  "year": 2026,
+  "openAccessPdf": {
+   "url": "",
+   "status": null,
+   "license": null,
+   "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2608.24252, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationDate": "2026-08-25",
+  "authors": [
+   {
+    "authorId": "2449936525",
+    "name": "Xueyan Hu"
+   },
+   {
+    "authorId": "2349978536",
+    "name": "Ze-Wei Pan"
+   },
+   {
+    "authorId": "2346763973",
+    "name": "Zeli Su"
+   },
+   {
+    "authorId": "2386626988",
+    "name": "Zhou Liu"
+   },
+   {
+    "authorId": "2386642350",
+    "name": "Wentao Zhang"
+   }
+  ],
+  "abstract": "LLM agents can generate paper reproduction code, yet often produce scientifically unfaithful implementations. We define this failure mode as semantic drift, where generated code silently diverges from the paper's specifications. We introduce SemanticAlign-Bench(SA-Bench), a diagnostic benchmark covering 30 papers from ICLR, ICML and NeurIPS 2025. For each paper, we decompose its specifications into atomic and verifiable implementation claims, which we call Semantic Alignment Units (SAUs) and evaluate repositories along four diagnostic dimensions spanning numerical, methodological, protocol and ordering drift. In total, we construct 1,491 SAUs across five ML domains and evaluate 12 generator configurations (4 models $\\times$ 3 scaffolds). Even the strongest configuration (Claude+PaperCoder) achieves a mean SAU score of only 0.301 out of 1.0, with an overall mean of 0.221 across 360 evaluations. A failure taxonomy reveals that agents attempt most requirements but implement them incorrectly, with implementation mismatch and stubs accounting for the majority of zero-scored claims. Our analysis further indicates that scaffolds optimized for executability provide limited leverage for scientific reproduction; narrowing the gap requires scaffolds that prioritize semantic specification verification. The benchmark, annotations and evaluation pipeline are publicly available."
+ },
+ {
+  "paperId": "a4d1c9973548a5f990db11f16b8e5d1070768d62",
+  "externalIds": {
+   "ArXiv": "2608.25667",
+   "CorpusId": 291371285
+  },
+  "title": "AI Slop and Hallucinations in Vulnerability Assessment: A Survey on Reasoning Failures and Trustworthy Mitigation",
+  "venue": "",
+  "year": 2026,
+  "openAccessPdf": {
+   "url": "",
+   "status": null,
+   "license": null,
+   "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2608.25667, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationDate": "2026-08-26",
+  "authors": [
+   {
+    "authorId": "2316556701",
+    "name": "Junchen Ding"
+   },
+   {
+    "authorId": "2333325643",
+    "name": "Jialiang Dong"
+   },
+   {
+    "authorId": "46759150",
+    "name": "Yi Zhu"
+   },
+   {
+    "authorId": "2284875313",
+    "name": "Yi Liu"
+   },
+   {
+    "authorId": "73776889",
+    "name": "Gelei Deng"
+   },
+   {
+    "authorId": "2440470082",
+    "name": "William Susilo"
+   },
+   {
+    "authorId": "2440596524",
+    "name": "Simeng Ma"
+   },
+   {
+    "authorId": "2320962325",
+    "name": "Yuekang Li"
+   }
+  ],
+  "abstract": "The integration of Large Language Models (LLMs) into cybersecurity has transformed vulnerability assessment, but it has also produced a trustworthiness crisis driven by the unchecked proliferation of\"AI slop.\"These artifacts, hallucinated vulnerabilities, plausible but incorrect patches, and semantically repackaged bug reports, impose a cognitive burden on human triage pipelines that mirrors a denial-of-service attack. This paper surveys the empirical evidence, identifies a unifying mechanism, and traces a path toward trustworthy triage. We formalize a taxonomy of AI slop grounded in a structured literature review and dissect its root cause: the gap between the causal deductive reasoning of security experts and the autoregressive probabilistic generation of current LLMs. We operationalize this gap through a measurable proxy, the Deductive Coverage Score, and show that chain-of-thought prompting and tool-using agents narrow but do not close it. We review mitigation strategies and argue that passive detection and watermarking target provenance rather than correctness, facing fundamental entropy constraints. We instead advocate for active neuro-symbolic verification, mapping each pipeline component to prior systems with documented limits on security inputs. Finally, we specify two evaluation instruments, CVE-Bench and Slop-Score, including dataset construction, metric formulas, and anti-gaming provisions. By shifting evaluation from linguistic fluency to mathematical verifiability, this survey provides a roadmap for securing emerging AI-driven triage systems."
+ },
+ {
+  "paperId": "b207b96ae5c299791d24c5056604af17208b874e",
+  "externalIds": {
+   "ArXiv": "2609.14976",
+   "CorpusId": 292026528
+  },
+  "title": "MemRiskBench: Trace-Aware Risk-Preserving Evaluation for Long-Horizon LLM Agents",
+  "venue": "",
+  "year": 2026,
+  "openAccessPdf": {
+   "url": "",
+   "status": null,
+   "license": null,
+   "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2609.14976, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationDate": "2026-09-14",
+  "authors": [
+   {
+    "authorId": "2332932509",
+    "name": "Jian-Hua Jiang"
+   },
+   {
+    "authorId": "2495117321",
+    "name": "Dong-Bo Yuan"
+   },
+   {
+    "authorId": "2303071124",
+    "name": "Weihua Li"
+   }
+  ],
+  "abstract": "Long-horizon LLM agents accumulate memory across sessions, creating sparse but high-impact risks: stale facts, conflicting updates, cross-user leakage, revoked-memory reuse, and constraint decay. Standard aggregate scores hide per-risk failure rates--a model achieving 78% average accuracy may still leak data in 4% of episodes--and benchmark compression preferentially discards the rare high-severity events that distinguish a mostly-working model from one that occasionally causes harm. We present MemRiskBench. The primary contribution is a five-category risk taxonomy (plus one documented, unscored category) operationalized by deterministic trace grounded checks, instantiated as a 120-episode scripted benchmark with full trace logging and no LLM-as-judge on the pass/fail path, evaluated on five locally run quantized instruction-tuned models. Second, a risk-preserving subset selector: a coverage-constrained greedy selector on deterministic trace-derived features that retains full ranking (Spearman rho = 0.975, deterministic; CI collapses to a point estimate with zero bootstrap variance), risk coverage (1.0), and high-risk model detection (1.0) at a 20% subset size, reducing compute 5x. Unlike ranking-only subset selectors, this selector additionally preserves risk-type coverage and high-risk detection using trace-grounded deterministic features that do not require an LLM judge. All episodes, traces, the scoring implementation, and the selector are released to support reproducible evaluation and risk assessment of deployed LLM agents"
+ },
+ {
+  "paperId": "d646b0daa569df630f8cb87d6b284e298f658a7c",
+  "externalIds": {
+   "ArXiv": "2609.06976",
+   "CorpusId": 291870599
+  },
+  "title": "HealthLoopQA: A Context-Aware Question Answering Benchmark for Interpreting Wearable Monitoring Data in Diabetes Care",
+  "venue": "",
+  "year": 2026,
+  "openAccessPdf": {
+   "url": "",
+   "status": null,
+   "license": null,
+   "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2609.06976, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationDate": "2026-09-07",
+  "authors": [
+   {
+    "authorId": "2329711614",
+    "name": "Yu-Chen Niu"
+   },
+   {
+    "authorId": "2392852631",
+    "name": "Ya-Nan Ma"
+   },
+   {
+    "authorId": "2377798561",
+    "name": "Srinivasan Nandakumar"
+   },
+   {
+    "authorId": "2491488652",
+    "name": "Mao-Lin Chen"
+   },
+   {
+    "authorId": "2363499756",
+    "name": "Viktor Schlegel"
+   },
+   {
+    "authorId": "2457873768",
+    "name": "Ke-Xin Wei"
+   },
+   {
+    "authorId": "2493923794",
+    "name": "Ling Cheng"
+   },
+   {
+    "authorId": "2490100837",
+    "name": "A. Bird"
+   },
+   {
+    "authorId": "2338058977",
+    "name": "Anil A. Bharath"
+   },
+   {
+    "authorId": "2243382041",
+    "name": "Siew-Kei Lam"
+   }
+  ],
+  "abstract": "As medical wearables become integrated into daily chronic disease care, effectively interpreting longitudinal monitoring data is essential for patients and clinicians to understand health trends, detect safety-critical events, and make informed decisions. While large language models (LLMs) show promise for transforming this streaming physiological data into personalized health insights, evaluating their reasoning capability and analytical rigor in diverse monitoring tasks remains a fundamental challenge. Existing medical wearable question answering (QA) benchmarks primarily assess short-horizon classification or statistical summaries, largely ignoring the long-term patterns, therapeutic and behavioural contexts, and potential system failures inherent in real-world deployments. To address this, we introduce HealthLoopQA, a comprehensive diagnostic benchmark for evaluating LLM reasoning over continuous diabetes monitoring data. Grounded in a novel taxonomy of eleven atomic reasoning abilities, HealthLoopQA comprises 127 tasks and over 1,500 QA instances spanning process mining, anomaly detection, and prediction over 30-day horizons. To systematically evaluate safety awareness, we complement real-world datasets with a fault-injected simulation testbed modeling diverse device malfunctions and cyber-physical attacks to generate physiologically plausible hazard scenarios. Evaluating state-of-the-art LLMs across prompting and agentic frameworks reveals severe limitations in complex temporal pattern mining. Furthermore, we identify a broader phenomenon of In-context Laziness under long-context prompting, highlighting critical open challenges in deploying LLMs for rigorous long-horizon medical reasoning."
+ },
+ {
+  "paperId": "e681cfb631d30d5bafcc58a93d6eeecfd70a19ee",
+  "externalIds": {
+   "DOI": "10.53941/ijndi.2026.100021",
+   "CorpusId": 291819751
+  },
+  "title": "Toward Collaborative AI: A Framework for the Transition from Autonomous Agents to Adaptive Human-AI Partners",
+  "venue": "International Journal of Network Dynamics and Intelligence",
+  "year": 2026,
+  "openAccessPdf": {
+   "url": "https://doi.org/10.53941/ijndi.2026.100021",
+   "status": "GOLD",
+   "license": "CCBY",
+   "disclaimer": "Notice: Paper or abstract available at https://api.unpaywall.org/v2/10.53941/ijndi.2026.100021?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.53941/ijndi.2026.100021, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationDate": "2026-09-04",
+  "authors": [
+   {
+    "authorId": "70118764",
+    "name": "Nalan Karunanayake"
+   },
+   {
+    "authorId": "2488613354",
+    "name": "Savindu Nanayakkara"
+   },
+   {
+    "authorId": "2488651309",
+    "name": "Kasun Gayashan Hettihewa"
+   },
+   {
+    "authorId": "70531964",
+    "name": "U. Rathnayake"
+   }
+  ],
+  "abstract": "Agentic AI systems that reason, plan, and act on complex goals have advanced rapidly across software engineering, scientific discovery, drug development, healthcare, finance, and social simulation. Across these domains a single failure pattern recurs: current systems can execute tasks competently but often struggle to determine when to act, when to pause, when to change strategy, and when to involve a human. Existing reviews catalog agentic architectures, taxonomies, and limitations, but none specify what capabilities these systems must acquire to support dynamic human-AI collaboration. We address that gap. We define collaborative AI as a class of systems that combine generative exploration with autonomous action and calibrate between them based on context, uncertainty, and task demands. We identify four required capabilities: metacognition, contextual mode-switching, uncertainty-aware action, and adaptive human collaboration. We relate these capabilities to established multi-agent systems foundations, including belief-desire-intention architectures, adjustable autonomy, mixed-initiative interaction, and decentralized decision-theoretic control, while specifying the distinct challenges that LLM-based agents introduce. Across the six domains reviewed here, these gaps appear repeatedly and are not solved by current architectures, which positions collaborative AI as a concrete near-term research objective."
+ },
+ {
+  "paperId": "f5bff4bfa4bbe3be5de71692b780246369b77e59",
+  "externalIds": {
+   "DOI": "10.63412/rq21yh44",
+   "CorpusId": 291662436
+  },
+  "title": "Autonomous Trust: Self-Gating Evaluation as a Prerequisite for Agent-to-Agent Communication at Scale",
+  "venue": "International Journal of Global Innovations and Solutions",
+  "year": 2026,
+  "openAccessPdf": {
+   "url": "https://ijgis.org/home/article/download/77/41",
+   "status": "HYBRID",
+   "license": "CCBY",
+   "disclaimer": "Notice: Paper or abstract available at https://api.unpaywall.org/v2/10.63412/rq21yh44?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.63412/rq21yh44, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationDate": "2026-09-01",
+  "authors": [
+   {
+    "authorId": "2475894338",
+    "name": "Nehal Sangoi"
+   },
+   {
+    "authorId": "2475900829",
+    "name": "Kris Feldmann"
+   },
+   {
+    "authorId": "2337741568",
+    "name": "Deven Yadav"
+   },
+   {
+    "authorId": "2475289849",
+    "name": "Sandeep Loi"
+   },
+   {
+    "authorId": "2475894883",
+    "name": "Karan Gandhi"
+   }
+  ],
+  "abstract": "As autonomous agents backed by large language models (LLMs) move from single-user assistants toward peer systems that transact directly with one another, the volume of agent-to-agent (A2A) communication is projected to reach a scale comparable to today\u2019s host-to-host network traffic. At that scale, no human reviewer can vet each outbound action, yet LLM output quality is non-stationary: a single model can produce an excellent decision at one turn and an unsafe or incoherent one at the next, with no guarantee tied to prior behavior. This paper argues that trust in such systems cannot be modeled on human trust, which is accumulated through track record, nor can it be delegated to the LLM itself, since the model is fundamentally an input-output function with no internal mechanism for self-policing. We propose Autonomous Trust, a framework in which trustworthiness is engineered as a property of the agent as a whole (LLM plus an external evaluation layer) rather than of the model in isolation. The framework rests on four design principles: (1) pre-transmission self-gating, in which the sending agent, not only the receiver, is responsible for intercepting its own unsafe outputs before they leave the system; (2) a verifiability taxonomy that routes each action to an appropriate gating strategy, from deterministic checks to LLM-panel adjudication; (3) continuous self-reported quality telemetry, analogous to application health metrics, that exposes an agent\u2019s own output degradation to external monitoring in real time; and (4) explicit treatment of the\u00a0 gameable verifier\" failure mode, in which self-evolving agents can degrade their own automated checks (for example, by authoring tests engineered to always pass). We formulate the design space, analyze failure modes including judge-panel correlated blind spots, and outline an empirical evaluation plan. This work contributes a concrete engineering framework, not a purely theoretical trust model, toward the near-term infrastructural challenge of building safe, unsupervised, internet-scale agent ecosystems."
+ },
+ {
+  "paperId": "02807e0d1e5197eb68499857c8df95ae43655cb1",
+  "externalIds": {
+   "DOI": "10.32782/infrastruct90-4",
+   "CorpusId": 291667132
+  },
+  "title": "\u0428\u0422\u0423\u0427\u041d\u0418\u0419 \u0406\u041d\u0422\u0415\u041b\u0415\u041a\u0422 \u0423 \u0424\u0406\u041d\u0410\u041d\u0421\u041e\u0412\u041e\u041c\u0423 \u0421\u0415\u041a\u0422\u041e\u0420\u0406: \u0412\u0406\u0414 \u00ab\u041c\u0410\u0428\u0418\u041d\u0418 \u041f\u0420\u041e\u0413\u041d\u041e\u0417\u0423\u0412\u0410\u041d\u041d\u042f\u00bb \u0414\u041e \u0410\u0413\u0415\u041d\u0422\u041d\u0418\u0425 \u0421\u0418\u0421\u0422\u0415\u041c",
+  "venue": "Market Infrastructure",
+  "year": 2026,
+  "openAccessPdf": {
+   "url": "https://doi.org/10.32782/infrastruct90-4",
+   "status": "GOLD",
+   "license": "CCBY",
+   "disclaimer": "Notice: Paper or abstract available at https://api.unpaywall.org/v2/10.32782/infrastruct90-4?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.32782/infrastruct90-4, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationDate": "2026-09-01",
+  "authors": [
+   {
+    "authorId": "2487606468",
+    "name": "\u041b. \u041f. \u0411\u043e\u043d\u0434\u0430\u0440\u0435\u043d\u043a\u043e"
+   },
+   {
+    "authorId": "2475925415",
+    "name": "\u0410. \u041f. \u041f\u0430\u0442\u044e\u043a"
+   }
+  ],
+  "abstract": "This article examines the transformative impact of artificial intelligence on the financial system in Ukraine nowadays during the war. The study approaches AI as a general-purpose technology that lowers the cost of prediction and gradually reorganises how financial institutions structure their operations. What distinguishes AI from conventional production inputs is its near-zero cost of replication \u2013 which means that financial institutions can scale efficiency without proportional increases in resources, fundamentally altering the economics of the sector. The article analyses the core functions of intelligent systems, covering the automation of routine processes, analytics of large and unstructured data sets, predictive modelling, and risk management. Particular attention is given to the emergence of agentic AI \u2013 a new generation of systems capable of independently pursuing goals, planning sequences of actions, and completing complex tasks with minimal human involvement. So, this represents a qualitative shift in the nature of automation itself, and it is precisely agentic systems that open the prospect of fully autonomous management of entire business processes within financial institutions. Additinaly, the study maps the practical application of AI across different segments of the financial market: in banking, through the personalisation of services and credit assessments based on non-traditional data sources; in investment management, through algorithmic trading and market sentiment analysis; in insurance, through faster claims settlement and more effective fraud detection. The Ukrainian experience is highlighted through the cases of PrivatBank and Monobank, whose AI-driven digital banking models have earned international recognition. However, the macroeconomic risks of automation are also addressed, including labour-market disruption and systemic instability from correlated algorithmic behaviour. The article concludes by arguing for a robust regulatory framework aligned with the EU AI Act to ensure responsible deployment of algorithmic systems in finance."
+ },
+ {
+  "paperId": "149e7f495974459cde1f8460d71c4298dfbb4743",
+  "externalIds": {
+   "DOI": "10.56738/issn29603986.geo2026.7.235",
+   "CorpusId": 292157341
+  },
+  "title": "Systemic Risks and Governance of Advanced Artificial Intelligence: A Structured Literature Review",
+  "venue": "GEO Academic Journal",
+  "year": 2026,
+  "openAccessPdf": {
+   "url": "",
+   "status": "CLOSED",
+   "license": null,
+   "disclaimer": "Notice: Paper or abstract available at https://api.unpaywall.org/v2/10.56738/issn29603986.geo2026.7.235?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.56738/issn29603986.geo2026.7.235, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationDate": "2026-09-18",
+  "authors": [
+   {
+    "authorId": "2346834431",
+    "name": "Joey O. Chua"
+   },
+   {
+    "authorId": "1395610777",
+    "name": "E. Ayo"
+   },
+   {
+    "authorId": "80843129",
+    "name": "Josan D. Tamayo"
+   },
+   {
+    "authorId": "2501424664",
+    "name": "Alexandra M. Ybanez"
+   },
+   {
+    "authorId": "2501424609",
+    "name": "Jennifer G. Quieta"
+   }
+  ],
+  "abstract": "Advanced artificial intelligence (AI) is advancing at a pace that exceeds the capacity of the ethical, legal, and institutional systems designed to govern it. Although scholarly attention to specific AI-related risks has grown substantially, no integrative framework has yet systematically mapped the relationships among technical misalignment, competitive market pressures, political economy, and multilevel governance responses. This structured literature review addresses two questions: (1) What are the principal systemic risks arising from advanced AI development? and (2) Which layered governance interventions are most appropriate for addressing each category of risk? A structured narrative review was conducted across the Scopus, Web of Science, and IEEE Xplore databases, supplemented by grey literature from established AI research institutions. Inclusion criteria required primary engagement with AI risk, alignment, governance, or sociotechnical impact. Sources published between 2014 and 2025 were synthesized through thematic analysis, resulting in the identification of six risk categories and a four-level governance framework. The review identifies six interlocking systemic risks: (1) displacement of human control through misaligned optimization; (2) large-scale automation of cognitive labor; (3) competitive incentive traps that drive unsafe acceleration; (4) AI-mediated manipulation of language-based institutions; (5) emergent misaligned agentic behavior; and (6) dangerous concentration of data, infrastructure, and epistemic power. These risks are not discrete; rather, they are structurally interdependent. This paper makes three original contributions: a synthesized six-risk taxonomy; a four-level governance model spanning the individual, developer, state, and international levels; and a critical appraisal of the evidentiary basis for each risk claim. The analysis suggests that dangerous outcomes are structurally plausible, though not inevitable, and that coordinated multilevel governance is the decisive variable.\nKeywords: artificial intelligence; AI alignment; AI governance; labor automation; sociotechnical risk; political economy of AI; technology ethics"
+ },
+ {
+  "paperId": "2498b61f4764f0443838633b2d4f867ff8294b1c",
+  "externalIds": {
+   "ArXiv": "2609.01222",
+   "CorpusId": 291602271
+  },
+  "title": "What's in Your Agent's Context? Context Privilege Escalation Attacks against AI Agent Harness",
+  "venue": "",
+  "year": 2026,
+  "openAccessPdf": {
+   "url": "",
+   "status": null,
+   "license": null,
+   "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2609.01222, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationDate": "2026-09-01",
+  "authors": [
+   {
+    "authorId": "2354083417",
+    "name": "Zi-Chuan Li"
+   },
+   {
+    "authorId": "2279099912",
+    "name": "Jian Cui"
+   },
+   {
+    "authorId": "2475443929",
+    "name": "Ashley J. Chen"
+   },
+   {
+    "authorId": "2274148700",
+    "name": "Xiao-Jing Liao"
+   },
+   {
+    "authorId": "2312312713",
+    "name": "Luyi Xing"
+   }
+  ],
+  "abstract": "Real-world, high-profile AI agent harnesses often rely on vendor-proprietary or opaque designs for context assembly, leaving the sources and underlying logic of assembled context poorly understood and the resulting security risks largely unexplored. In this paper, we present the first systematic analysis of context assembly designs in real-world AI agent harnesses. We study and uncover how an agent harness is designed to collect and assemble context from diverse sources, and identify a set of practical attack vectors arising from these designs. Our analysis brings to light two novel categories of attacks in the context assembly of real-world harnesses: (1) MessageRole Context Privilege Escalation (M-CPE), which occurs when attacker-controlled content originating from a low-privileged context is incorporated into a higher-privileged message role. (2) Cross-Scope Context Privilege Escalation (X-CPE), which occurs when attacker-controlled content persists beyond the context in which it was introduced. We performed a systemic security analysis of the CPE attacks against 12 real-world agent harnesses, including Claude Code and Codex. The resulting consequences include full agent compromise, remote code execution, denial of service, and manipulated tool or skill invocations, etc."
+ },
+ {
+  "paperId": "36cc2f98301de2f37d2d3fd04555c2a04a1f4968",
+  "externalIds": {
+   "DOI": "10.1007/s44327-026-00349-2",
+   "CorpusId": 291609694
+  },
+  "title": "Adaptive, ethical and responsible AI governance for smart cities and nations",
+  "venue": "Discover Cities",
+  "year": 2026,
+  "openAccessPdf": {
+   "url": "https://link.springer.com/content/pdf/10.1007/s44327-026-00349-2.pdf",
+   "status": "GOLD",
+   "license": "CCBY",
+   "disclaimer": "Notice: Paper or abstract available at https://api.unpaywall.org/v2/10.1007/s44327-026-00349-2?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1007/s44327-026-00349-2, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationDate": "2026-09-01",
+  "authors": [
+   {
+    "authorId": "2396647797",
+    "name": "Z. R. M. Abdullah Kaiser"
+   }
+  ],
+  "abstract": "Artificial intelligence (AI) is rapidly becoming entrenched across government operations, transforming administrative processes and service delivery, particularly in smart cities and digitally advanced nations. While AI applications such as chatbots, predictive systems, AI of Things (AIoT) devices, robotics, and agentic AI systems promise greater efficiency, innovation, and decision-making support, they also raise salient questions about how these systems are governed and, in turn, how they shape governance. This study conceptualizes AI governance and integrates cross-sector governance risks and challenges to develop an adaptive, ethical and responsible AI governance framework. It defines AI governance as an institutional system that brings together legal rules, ethical oversight, organizational capacity, and human\u2013AI decision-making arrangements to ensure the responsible use of AI that serves public values and attenuates systemic risks. The paper further elucidates distinctions between the \u201cgovernanceofAI,\u201d which concerns the regulation and oversight of AI systems, and \u201cgovernancebyAI,\u201d in which AI systems increasingly provide inputs into decisions that affect public life. The analysis identifies recurrent and pervasive cross-sector AI governance risks and challenges, including algorithmic bias, weak oversight, regulatory gaps and capture, vendor dependence, geopolitical and socio-political risks, environmental challenges, and legitimacy and trust deficits. Because governance arrangements themselves may produce new risks or unintended consequences over time, AI governance must remain adaptive and responsible rather than fixed. Building on digital era governance, adaptive governance, and polycentric governance, the paper proposes a six-step adaptive, ethical and responsible AI governance framework that embeds risk management, responsiveness, and ethics-by-design across the AI lifecycle. The framework is illustratively applied to New York City and Singapore to show how its six governance dimensions can organize analysis across a decentralized smart city and a centralized smart nation. Furthermore, it identifies transparency, accountability, public trust, human\u2013AI collaboration, public value, and vendor oversight as core governance design principles for smart cities and nations adopting AI."
+ },
+ {
+  "paperId": "5c115fda0e060a3a75df880a7a6511a612356e41",
+  "externalIds": {
+   "DOI": "10.55041/isjem08595",
+   "CorpusId": 291714039
+  },
+  "title": "Artificial Intelligence in Financial Decision-Making: Opportunities, Risks, and Challenges",
+  "venue": "International Scientific Journal of Engineering and Management",
+  "year": 2026,
+  "openAccessPdf": {
+   "url": "",
+   "status": "CLOSED",
+   "license": null,
+   "disclaimer": "Notice: Paper or abstract available at https://api.unpaywall.org/v2/10.55041/isjem08595?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.55041/isjem08595, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationDate": "2026-08-31",
+  "authors": [
+   {
+    "authorId": "2466995349",
+    "name": "Abhishek Rajan"
+   }
+  ],
+  "abstract": "Abstract\nArtificial intelligence (AI) has moved from a peripheral analytics tool to a core input in financial decision-making, shaping how institutions optimize portfolios, price risk, detect fraud, advise clients, and execute trades. This paper synthesizes recent academic literature, regulatory reports, and industry surveys (2020\u20132026) to examine the dual nature of AI adoption in finance: the strategic opportunities it creates and the risks and challenges it introduces. The review finds that AI materially improves predictive accuracy, operational efficiency, and access to financial services, with adoption accelerating sharply since the introduction of generative and agentic AI tools. At the same time, the literature converges on a consistent set of concerns: limited model explainability, algorithmic bias, cybersecurity and deepfake-enabled fraud, data privacy exposure, concentration and systemic risk from AI \"monocultures,\" and a regulatory environment that has not kept pace with deployment. The paper presents a classification of AI application domains and associated risk categories, supported by quantitative adoption and market-growth data, and proposes a governance framework combining explainable AI, human oversight, and coordinated regulation. It concludes by identifying research gaps around long-term market stability effects, emerging-market adoption, and the governance of autonomous (agentic) financial AI.\n\nKeywords: Artificial Intelligence, Financial Decision-Making, Risk Management, Algorithmic Trading, Explainable AI, Financial Regulation, Agentic AI"
+ },
+ {
+  "paperId": "685c918353abcabc7296f863a60e124fe26101a6",
+  "externalIds": {
+   "DOI": "10.1002/aaai.70087",
+   "CorpusId": 291406067
+  },
+  "title": "Privacy\u2010preserving multi\u2010agent systems for human\u2010centred inclusive healthcare AI",
+  "venue": "The AI Magazine",
+  "year": 2026,
+  "openAccessPdf": {
+   "url": "https://onlinelibrary.wiley.com/doi/pdfdirect/10.1002/aaai.70087",
+   "status": "HYBRID",
+   "license": "CCBYNCND",
+   "disclaimer": "Notice: Paper or abstract available at https://api.unpaywall.org/v2/10.1002/aaai.70087?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1002/aaai.70087, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationDate": "2026-08-24",
+  "authors": [
+   {
+    "authorId": "2188228655",
+    "name": "M. Mahmud"
+   },
+   {
+    "authorId": "2053819367",
+    "name": "Noushath Shaffi"
+   },
+   {
+    "authorId": "2261956728",
+    "name": "M. Kaiser"
+   },
+   {
+    "authorId": "2461545403",
+    "name": "M. A. Rahman"
+   },
+   {
+    "authorId": "2244857543",
+    "name": "M. M. Rahman"
+   },
+   {
+    "authorId": "2238646347",
+    "name": "Vimbi Viswan"
+   },
+   {
+    "authorId": "1485393039",
+    "name": "T. Sharmeen"
+   },
+   {
+    "authorId": "2286538930",
+    "name": "S. Bhattacharya"
+   },
+   {
+    "authorId": "39494625",
+    "name": "N. J. Ahuja"
+   },
+   {
+    "authorId": "3850187",
+    "name": "A. Ulgen"
+   },
+   {
+    "authorId": "2006228",
+    "name": "I. Niazi"
+   },
+   {
+    "authorId": "2379092590",
+    "name": "Kanad Ray"
+   },
+   {
+    "authorId": "145125161",
+    "name": "A. Hussain"
+   },
+   {
+    "authorId": "2229642767",
+    "name": "David J. Brown"
+   },
+   {
+    "authorId": "50645900",
+    "name": "J. Moore"
+   }
+  ],
+  "abstract": "\n Healthcare environments present uniquely demanding constraints for the deployment of artificial intelligence (AI). Clinical decisions of significant consequence are rarely the product of a single isolated computation; rather, safe and effective patient care relies on the continuous collaboration of distributed entities, including clinicians, hospital networks, laboratory systems, monitoring devices, and patients themselves. As generative models and large language models are increasingly deployed in clinical settings, the transition from monolithic AI models to Multi\u2010Agent Systems (MAS) offers unprecedented capabilities for distributed monitoring, coordinated decision support, and service integration. However, multi\u2010agent collaboration simultaneously introduces severe novel vulnerabilities, including topological contamination, privacy leakage, cascading systemic failures, and the socio\u2010psychological risks of undue algorithmic persuasion.\n This work introduces a comprehensive, privacy\u2010preserving, explainable, and human\u2010centred MAS framework explicitly designed for collaborative clinical decision support. Rejecting the paradigm of a single, omniscient AI model with unrestricted data access, the proposed architecture operationalises clinical AI as a heavily regulated team of specialised, interacting agents. The framework defines six distinct agent classes: Data Stewardship, Modality, Explanation, Consensus, Safety Monitor, and Clinician Interface agents. Furthermore, the implementation is governed by six foundational design principles grounded in classic Autonomous Agents and MAS theory, adapted for modern generative systems. By enforcing minimum\u2010necessary data exchange, verifiable team\u2010level explainability, explicit hierarchical escalation, secure communication topologies, and human\u2010centred safety protocols, this framework provides both a domain\u2010grounded blueprint and a transferable set of robust design principles for deploying trustworthy MAS in high\u2010stakes environments."
+ },
+ {
+  "paperId": "7ba6ea190413ce16f4ef8d6c47aec340b40f7129",
+  "externalIds": {
+   "DOI": "10.1108/jeim-05-2026-0748",
+   "CorpusId": 291517455
+  },
+  "title": "From static analytics to continuous\u00a0intelligence: toward a\u00a0dynamic\u00a0model\u00a0of real-time organizational\u00a0decision systems",
+  "venue": "Journal of Enterprise Information Management",
+  "year": 2026,
+  "openAccessPdf": {
+   "url": "",
+   "status": "CLOSED",
+   "license": null,
+   "disclaimer": "Notice: Paper or abstract available at https://api.unpaywall.org/v2/10.1108/jeim-05-2026-0748?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1108/jeim-05-2026-0748, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationDate": "2026-09-01",
+  "authors": [
+   {
+    "authorId": "2453895963",
+    "name": "Albert Adusei Brobbey"
+   }
+  ],
+  "abstract": "\n \n Enterprise decision systems increasingly couple time-sensitive sensing, workflow-embedded recommendations or actions, bounded machine discretion and operational feedback. This paper aims to develop a dynamic model of Continuous Intelligence (CI) that explains the organizational consequences of alignment or imbalance among these properties.\n \n \n \n The paper uses a problem-driven conceptual theory-building approach. It integrates and contrasts research on decision support, real-time and operational analytics, automation and delegation, hybrid intelligence, machine learning operations, AI capability and governance, information systems success and dynamic capabilities. The inferential pathway is documented through contrastive construct analysis, rejected alternative representations, mechanism mapping and conceptual boundary probing.\n \n \n \n CI is a four-dimensional decision-system configuration enabled by technical architecture, a CI governance process and human judgment integration. Its distinctive explanatory value lies in interaction effects: temporal continuity can amplify error propagation, discretion can amplify both value and harm, embedded feedback can create adaptive learning or self-reinforcing lock-in, and control design can compress or prolong intervention. Contextual alignment, rather than maximal automation, determines expected outcomes.\n \n \n \n The framework is conceptual and does not establish causal effects. It offers five multilevel propositions, falsification conditions and a sequenced research agenda for formative profile construction, configurational testing and longitudinal evaluation.\n \n \n \n The framework provides theory-informed governance heuristics for matching sensing cadence, decision authority, feedback and oversight to decision risk, reversibility and equivocality. It also identifies proportional implementation options and constraints for smaller organizations.\n \n \n \n The redistribution of decision authority from human agents toward AI systems is occurring without adequate governance frameworks in most enterprise deployments. At the industry level, correlated model behavior across organizations deploying similar CI architectures creates systemic risks including flash crashes in financial markets, cascade failures in logistics networks, and biased clinical triage at scale. The European Union Artificial Intelligence Act (EU AI Act) and equivalent regulatory frameworks are attempting to retrofit accountability structures onto CI deployments that outpaced governance development. This paper contributes the theoretical grounding needed to design accountability structures prospectively rather than reactively.\n \n \n \n The contribution is configurational and explanatory rather than technological. The paper shows how familiar decision-system properties generate emergent organizational effects when recursively coupled within operational workflows and why comparable investments can produce divergent outcomes.\n"
+ },
+ {
+  "paperId": "895663df25f5b50c1a0e717498eeb824e1c21438",
+  "externalIds": {
+   "DOI": "10.1108/bl-12-2025-0265",
+   "CorpusId": 291460842
+  },
+  "title": "Agentic AI as a catalyst for enhancing risk management and organizational resilience in service sector: challenges, opportunities and theoretical directions",
+  "venue": "Bottom Line",
+  "year": 2026,
+  "openAccessPdf": {
+   "url": "",
+   "status": "CLOSED",
+   "license": null,
+   "disclaimer": "Notice: Paper or abstract available at https://api.unpaywall.org/v2/10.1108/bl-12-2025-0265?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1108/bl-12-2025-0265, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationDate": "2026-08-27",
+  "authors": [
+   {
+    "authorId": "2279926686",
+    "name": "Arjun J. Nair"
+   },
+   {
+    "authorId": "117686358",
+    "name": "S. Manohar"
+   },
+   {
+    "authorId": "2418288687",
+    "name": "Satish Rao A.B."
+   },
+   {
+    "authorId": "2460731359",
+    "name": "Shyna P. K."
+   }
+  ],
+  "abstract": "\n \n As service organizations increasingly adopt agentic artificial intelligence (AI) systems, there is a pressing need to understand the relationship between agentic AI and the practices of risk management and organizational resilience areas that current frameworks do not adequately address. This study aims to explore the associations between agentic AI, enterprise risk management (ERM) and organizational resilience in the service sector.\n \n \n \n This study used integrated research design that included both expert validation through the fuzzy Delphi method along with quantitative methods of data collection on a sample of 2,183 respondents. This study estimated direct, indirect and multiple group comparisons relationships among the constructs, using structural equation modeling.\n \n \n \n The results of this study indicate that agentic AI is significantly associated with ERM and organizational resilience. Risk intelligence, AI governance and human\u2013AI coordination are associated with these relationships, while regional differences are moderately associated with the strength of these associations. The findings of this study highlight the importance of aligning socio-technical mechanisms with autonomous technologies in relation to organizational resilience.\n \n \n \n This study provides managers with actionable insights for integrating agentic AI into ERM practices. Implementation can be associated with greater operational efficiency, customer satisfaction and risk mitigation, while emphasizing the need for governance structures and human\u2013AI coordination to maximize benefits.\n \n \n \n Traditional ERM, resilience and socio-technical frameworks seldom consider the autonomous decision-making of agentic AI or its systemic impact on risk and resilience. This study addresses this gap by integrating agentic AI into these models and demonstrating its unique role in the evolution of risk management, resilience and workflows in the service sector.\n"
+ },
+ {
+  "paperId": "9e319b953a5e3cb05b8c762ee0646739e54fbcde",
+  "externalIds": {
+   "PubMedCentral": "13585479",
+   "DOI": "10.1111/os.70429",
+   "CorpusId": 292140080,
+   "PubMed": "42754291"
+  },
+  "title": "Artificial Intelligence\u2010Driven Precision Bisphosphonate Therapy in Osteoporosis: Mechanisms, Clinical Applications, Risks, and Future Directions",
+  "venue": "Orthopaedic Surgery",
+  "year": 2026,
+  "openAccessPdf": {
+   "url": "https://doi.org/10.1111/os.70429",
+   "status": "GOLD",
+   "license": "CCBY",
+   "disclaimer": "Notice: Paper or abstract available at https://pmc.ncbi.nlm.nih.gov/articles/PMC13585479, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationDate": "2026-09-17",
+  "authors": [
+   {
+    "authorId": "120457254",
+    "name": "Xiang Yao"
+   },
+   {
+    "authorId": "2325217103",
+    "name": "Yi-Cong Chao"
+   },
+   {
+    "authorId": "2501244931",
+    "name": "Xiao Gu"
+   },
+   {
+    "authorId": "2304309507",
+    "name": "Jing-Tao Peng"
+   },
+   {
+    "authorId": "11648983",
+    "name": "Ji-Shan Yuan"
+   },
+   {
+    "authorId": "2501229805",
+    "name": "Wei Shi"
+   },
+   {
+    "authorId": "47190815",
+    "name": "Fu-Guo Zhang"
+   },
+   {
+    "authorId": "2137138001",
+    "name": "Qi-Wen Bao"
+   }
+  ],
+  "abstract": "ABSTRACT Bisphosphonates remain the pharmacological standard of care for osteoporosis; however, their clinical efficacy is limited by significant diagnostic gaps, heterogeneous therapeutic responses, and persistent concerns regarding long\u2010term safety, including medication\u2010related osteonecrosis of the jaw (MRONJ) and atypical femoral fractures (AFF). To address these limitations, a structured comprehensive search of the Web of Science Core Collection, Scopus, and PubMed (January 2005\u2013December 2025) was conducted to evaluate the intersection of bisphosphonate pharmacotherapy and computational medicine. The integration of artificial intelligence (AI) facilitates a methodological transition from empirical prescription to precision medicine across critical clinical domains. (1) Screening and Diagnosis: AI\u2010driven opportunistic screening utilizes routine computed tomography (CT) scans to automate asymptomatic vertebral fracture detection and assess bone quality via radiomics. (2) Treatment Stratification: Machine learning algorithms enable the prediction of individual bone mineral density (BMD) responses and optimize alternative or sequential therapies, facilitating precise patient selection for potent agents like zoledronic acid. (3) Safety Monitoring: Predictive models integrating clinical and imaging data allow for the pre\u2010emptive risk stratification of adverse events, shifting management from passive surveillance to active prevention. (4) Smart Delivery Systems: Furthermore, computational modeling accelerates the design of stimuli\u2010responsive nanocarriers to improve bone targeting and reduce systemic toxicity. Despite current challenges regarding algorithmic interpretability and multi\u2010center validation, incorporating emerging technologies\u2014such as large language models (LLMs) for clinical triage and the integration of systemic metabolic networks (e.g., the gut\u2010bone axis)\u2014suggests a promising trend toward a data\u2010informed, risk\u2010adjusted, and biologically targeted precision ecosystem in osteoporosis management."
+ },
+ {
+  "paperId": "9ea36275773a51ca8329e94ce94d4745563c8d8c",
+  "externalIds": {
+   "DOI": "10.1142/s2424786326500477",
+   "CorpusId": 292092053
+  },
+  "title": "The framework of Large Mathematical Logic Model (LMLM): Gibbs sampling-based restricted Boltzmann machines for financial engineering",
+  "venue": "International Journal of Financial Engineering",
+  "year": 2026,
+  "openAccessPdf": {
+   "url": "",
+   "status": "CLOSED",
+   "license": null,
+   "disclaimer": "Notice: Paper or abstract available at https://api.unpaywall.org/v2/10.1142/s2424786326500477?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1142/s2424786326500477, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationDate": "2026-09-16",
+  "authors": [
+   {
+    "authorId": "2088442820",
+    "name": "G. Yuan"
+   }
+  ],
+  "abstract": "\n This paper gives a mathematical account of Gibbs sampling, the classical Boltzmann Machine (BM), and the efficiency breakthrough of the Restricted Boltzmann Machine (RBM), tracing the Markov Chain Monte Carlo lineage from Metropolis\u2013Hastings to coordinate-wise sampling and deriving the Contrastive Divergence (CD\n k\n ) algorithm. We extend this lineage into financial engineering: a systemic financial energy function for latent risk contagion is constructed, and a Large Mathematical Logic Model (LMLM) is proposed to suppress hallucination in financial AI agents by embedding Gibbs sampling within an axiomatic Financial Ontology ([Formula: see text]) and compressing the logical space via adversarial negative sampling; the resulting energy-based discriminator is illustrated, rather than empirically benchmarked, through two fully worked numerical examples reported under the standard AUC/F\n 1\n evaluation protocol. Building on this foundation, we position LMLM as the Verifier in a two-agent Proposer/Verifier Consensus Game for AI-driven risk-factor extraction: a semantic-understanding engine (Proposer) generates candidate risk factors, while LMLM (Verifier) checks each candidate against the Financial Ontology\u2019s axiomatic constraints, accepting logically self-consistent candidates and returning a traceable counterexample for rejected ones. We show that whenever LMLM\u2019s verification function satisfies a quasi-concavity condition on its decision space, this iterative game converges within finitely many rounds to a set of risk factors satisfying all rule constraints, and that every rejected candidate is automatically retained as a structured negative sample supporting an auditable decision trail. Finally, we map LMLM\u2019s core technical properties\u00a0\u2014\u00a0its energy-based hallucination discriminator, adversarial negative-sampling paradigm, and Proposer/Verifier division of labor\u00a0\u2014\u00a0onto specific clauses of China\u2019s National Financial Regulatory Administration Guideline on the Safe Development and Application of Artificial Intelligence in Banking and Insurance (18 June 2026), illustrating how a rigorously derived energy-based verification mechanism can serve as a concrete engineering realization of emerging financial AI-governance requirements for explainability, auditability, and accountability.\n"
+ },
+ {
+  "paperId": "d623f0c3fbb009903520245aa59e55c8fcd639b6",
+  "externalIds": {
+   "PubMedCentral": "13566013",
+   "DOI": "10.3390/jcm15176619",
+   "CorpusId": 291500605,
+   "PubMed": "42739625"
+  },
+  "title": "Arrhythmias in Cardiac Sarcoidosis: Pathophysiology, Diagnostic Strategies, Risk Stratification for Sudden Cardiac Death, and Contemporary Management\u2014A Narrative Review",
+  "venue": "Journal of Clinical Medicine",
+  "year": 2026,
+  "openAccessPdf": {
+   "url": "https://doi.org/10.3390/jcm15176619",
+   "status": "GOLD",
+   "license": "CCBY",
+   "disclaimer": "Notice: Paper or abstract available at https://pmc.ncbi.nlm.nih.gov/articles/PMC13566013, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationDate": "2026-08-27",
+  "authors": [
+   {
+    "authorId": "2441022607",
+    "name": "Mehdi Guedira"
+   },
+   {
+    "authorId": "1581138103",
+    "name": "J. Nguadi"
+   },
+   {
+    "authorId": "11482565",
+    "name": "D. Poindron"
+   },
+   {
+    "authorId": "2244444825",
+    "name": "N. Lellouche"
+   },
+   {
+    "authorId": "50555315",
+    "name": "C. Moini"
+   }
+  ],
+  "abstract": "Background: Cardiac sarcoidosis (CS) is a potentially life-threatening manifestation of systemic granulomatous disease, characterized by a heterogeneous spectrum of arrhythmic and conduction disorders that represent the leading cause of CS-related sudden cardiac death (SCD). Clinical cardiac involvement is estimated at 5% of sarcoidosis patients, while silent myocardial infiltration is detected in 20\u201325% of autopsy series. Diagnosis is difficult because the disease frequently runs a subclinical course and no single test is pathognomonic. Methods: PubMed and Embase were searched to 5 August 2026 for this narrative review, incorporating peer-reviewed articles, international guidelines (HRS 2014, JCS 2016, AHA/ACC/HRS 2017, ESC 2022, AHA 2024, the 2024 European clinical consensus statement and the 2025 ESC guidelines on myocarditis and pericarditis), and registry data. Results: Atrioventricular (AV) block occurs in 23\u201330% of CS patients and frequently requires permanent pacing. Fatal ventricular arrhythmia rates reach 20.7% at 5 years and 31.9% at 10 years (ILLUMINATE-CS registry, n = 512). Late gadolinium enhancement (LGE) on cardiac magnetic resonance (CMR) performs well diagnostically (pooled sensitivity 95%, specificity 85%) and is associated with an odds ratio of 10.74 for arrhythmic events. 18F-fluorodeoxyglucose positron emission tomography (FDG-PET) provides complementary value for guiding immunosuppressive therapy and pre-ablation risk assessment. Implantable loop recorders enable early arrhythmia detection in patients not yet meeting implantable cardioverter-defibrillator (ICD) criteria. Conclusion: Optimal management of arrhythmias in CS requires a multimodal diagnostic approach integrating electrocardiography, advanced cardiac imaging, and continuous rhythm monitoring. Risk stratification for SCD remains the central challenge, requiring individualized decision-making that integrates left ventricular ejection fraction (LVEF), imaging biomarkers, and electrophysiological data. Future prospective studies should aim to refine predictive risk algorithms, assess the role of emerging immunomodulatory agents such as JAK/STAT inhibitors, and validate artificial intelligence (AI)-assisted tools intended to identify cardiac involvement and arrhythmic risk earlier in the disease course."
+ },
+ {
+  "paperId": "d7ec9d295971b8cfd4ca58de8f548a0501862c55",
+  "externalIds": {
+   "DOI": "10.3390/jrfm19090664",
+   "CorpusId": 291675672
+  },
+  "title": "From Herding Machines to Autonomous Agents: A Taxonomy of AI-Driven Flash Crash Mechanisms and the Regulatory Gap",
+  "venue": "Journal of Risk and Financial Management",
+  "year": 2026,
+  "openAccessPdf": {
+   "url": "https://doi.org/10.3390/jrfm19090664",
+   "status": "HYBRID",
+   "license": "CCBY",
+   "disclaimer": "Notice: Paper or abstract available at https://api.unpaywall.org/v2/10.3390/jrfm19090664?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.3390/jrfm19090664, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationDate": "2026-09-01",
+  "authors": [
+   {
+    "authorId": "2464435497",
+    "name": "Kan-Ching Ng"
+   }
+  ],
+  "abstract": "Artificial intelligence (AI) is reshaping financial markets\u2014accelerating execution, automating allocation, and concentrating analytical capacity within a shrinking set of foundational models. Prior work has documented AI\u2019s contribution to instability through algorithmic herding and high-frequency volatility, but the literature lacks a coherent classification of the mechanisms through which AI triggers catastrophic, self-reinforcing market dislocations, or \u201cflash crashes.\u201d This prospective review proposes a three-category taxonomy: (1) endogenous algorithmic herding crashes, driven by correlated model behavior; (2) exogenous model error cascade crashes, in which AI system failures propagate across interconnected venues; and (3) adversarial generative AI (GenAI) disinformation crashes, in which fabricated narratives trigger automated trading responses. The taxonomy is further motivated by the structural parallel between contemporary AI model homogeneity and the homogenization of Value-at-Risk (VaR) models before the 2008 crisis\u2014a link recently formalized in the modeling literature. The analysis is extended to the emerging frontier of agentic AI\u2014autonomous systems capable of multi-step planning and inter-agent interaction\u2014which introduces qualitatively new systemic risks that existing regulatory frameworks are unprepared to address. The October 2025 cryptocurrency liquidation cascade, which liquidated over $19 billion within 24 h, serves as the primary empirical case study. The article concludes with policy recommendations on model-diversity mandates, real-time AI trading surveillance, adaptive circuit-breaker design, and cross-regulatory coordination on GenAI financial disinformation."
+ },
+ {
+  "paperId": "2088ebaba37d4fd7925acb64d64ebc08303d58b5",
+  "externalIds": {
+   "DOI": "10.1088/1742-6596/3316/1/012010",
+   "CorpusId": 292028021
+  },
+  "title": "An eBPF-based intelligent root cause localization method for electric power information systems",
+  "venue": "Journal of Physics, Conference Series",
+  "year": 2026,
+  "openAccessPdf": {
+   "url": "https://iopscience.iop.org/article/10.1088/1742-6596/3316/1/012010/pdf",
+   "status": "GOLD",
+   "license": "CCBY",
+   "disclaimer": "Notice: Paper or abstract available at https://api.unpaywall.org/v2/10.1088/1742-6596/3316/1/012010?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1088/1742-6596/3316/1/012010, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationDate": "2026-09-01",
+  "authors": [
+   {
+    "authorId": "2344300388",
+    "name": "Li-Bin Li"
+   },
+   {
+    "authorId": "2491837075",
+    "name": "Jia-Li Song"
+   },
+   {
+    "authorId": "2334686132",
+    "name": "Hong-Bo Liu"
+   },
+   {
+    "authorId": "2369998750",
+    "name": "Guang-Yuan Zhang"
+   },
+   {
+    "authorId": "2499653843",
+    "name": "Yu-Heng Qiao"
+   },
+   {
+    "authorId": "2482185700",
+    "name": "Jie-Nan Cui"
+   },
+   {
+    "authorId": "2283211630",
+    "name": "Ye Liu"
+   },
+   {
+    "authorId": "2500287831",
+    "name": "Yu-Chao Wang"
+   }
+  ],
+  "abstract": "To address the problems of scattered multi-source heterogeneous monitoring data, complex system call relationships, and low efficiency in fault root cause localization in electric power information systems, this paper proposes an extended Berkeley Packet Filter (eBPF)-based intelligent fault root cause localization method for electric power information systems. First, eBPF technology is employed to achieve non-intrusive data collection at the operating system kernel layer and to construct a dynamic system execution graph. Then, a causal modeling method is introduced to design a multi-agent collaborative reasoning mechanism. Accurate fault root cause localization is achieved through the combination of path scoring and counterfactual verification. Finally, experiments are conducted on a labeled dataset constructed from State Grid cloud platform data, with ground-truth labels confirmed by operation records, expert troubleshooting reports, and controlled fault-injection logs. Compared with Key Performance Indicator (KPI)-based anomaly detection, log semantic analysis, call-chain graph localization, causal Root Cause Analysis (RCA), and traditional instrumentation-based Application Performance Monitoring (APM), the proposed method achieves an Accuracy@1 of 91.7% and an Accuracy@3 of 95.8%. Additional validation under concurrent multi-root-cause faults, cross-service cascading failures, and combined network jitter with storage I/O anomalies further verifies the robustness of the method while maintaining low system overhead."
+ },
+ {
+  "paperId": "3bd13c1698489c96a0e6bccbc78b591a6f83ff6c",
+  "externalIds": {
+   "DOI": "10.61643/c38836",
+   "CorpusId": 292159398
+  },
+  "title": "Artificial Intelligence - Model Context Protocol - Review of Real-World Security Threats",
+  "venue": "The Pinnacle: A Journal by Scholar-Practitioners",
+  "year": 2026,
+  "openAccessPdf": {
+   "url": "https://doi.org/10.61643/c38836",
+   "status": "GOLD",
+   "license": "CCBYND",
+   "disclaimer": "Notice: Paper or abstract available at https://api.unpaywall.org/v2/10.61643/c38836?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.61643/c38836, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationDate": "2026-09-17",
+  "authors": [
+   {
+    "authorId": "2381549264",
+    "name": "Upendra Kanuru"
+   },
+   {
+    "authorId": "2261533111",
+    "name": "Alexa Schmitt"
+   }
+  ],
+  "abstract": "Modern Artificial Intelligence (AI) infrastructures and Model Context Protocol (MCP) deployments face systemic security exposures as a result of autonomous agents interacting directly with external databases and tools. Protocol-level weaknesses, permissive access rights, and unverified third-party repositories allow attackers to execute prompt injection attacks, exfiltrate credentials, and manipulate tool metadata schemas. This paper examines security incidents across five primary domains: tool and server security, prompt and context security, data security and privacy, system and operational security, and authentication and identity security. Underlying root causes and effective mitigation strategies are explored through real-world case studies, including supply chain compromises, cross-repository data leaks, path traversal flaws, and authentication failures. The findings demonstrate that safeguarding agentic AI frameworks require multi-layered technical controls, zero-trust architecture, automated schema validation, and strict identity governance, rather than reliance on static boundary controls."
+ },
+ {
+  "paperId": "c0494bb55278541dd2e428a4f097bdffb1e08022",
+  "externalIds": {
+   "ArXiv": "2609.05090",
+   "CorpusId": 291769548
+  },
+  "title": "Constructing and Evaluating Clinical Reasoning Trajectories for Medical Agent",
+  "venue": "",
+  "year": 2026,
+  "openAccessPdf": {
+   "url": "",
+   "status": null,
+   "license": null,
+   "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2609.05090, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationDate": "2026-09-04",
+  "authors": [
+   {
+    "authorId": "2293320991",
+    "name": "Yun-Qi Zhu"
+   },
+   {
+    "authorId": "2271172648",
+    "name": "Wen-Sheng Zhang"
+   },
+   {
+    "authorId": "2328771085",
+    "name": "Xue-Bing Yang"
+   }
+  ],
+  "abstract": "Evaluation of medical artificial intelligence agents remains predominantly answer-centric, assessing only the correctness of final outputs while overlooking the quality of intermediate reasoning. In clinical settings, however, a correct answer reached through fabricated evidence or incoherent logic is as dangerous as an incorrect one. We propose MedTraj, a framework that treats reasoning trajectories as critical objects for construction, evaluation, and optimization. The pipeline generates structured multi-step reasoning chains from medical reasoning sources. Each trajectory is then parsed into clinical observations, evidence, numbered reasoning steps, and a final conclusion, and scored across five quality dimensions: coherence, evidence support, hallucination, completeness, and traceability. Controlled error injection introduces targeted faults into otherwise correct trajectories to establish causal links between specific reasoning failures and measurable quality degradation. Building on this, step-level filtering based on marginal contribution identifies which individual reasoning steps drive or undermine trajectory quality. Finally, quality-weighted context learning feeds trajectory evaluations back into the model at inference time, allowing it to learn from both strong and weak reasoning demonstrations. Experiments across CareQA, PubMedQA, and CECMed demonstrate that trajectory context consistently improves reasoning coherence, with gains of +0.029 to +0.041 over a zero-shot baseline. On CECMed, quality-weighted context nearly doubles the correctness over the zero-shot baseline while cutting the hallucination ratio by 87%. Marginal-contribution analysis further shows that a small minority of reasoning steps carry most of the quality signal, and that extending chains beyond four steps yields diminishing returns."
+ },
+ {
+  "paperId": "fc5e278bd0b6cf34d17bed198ea0474bab78fa70",
+  "externalIds": {
+   "ArXiv": "2609.13334",
+   "CorpusId": 292012565
+  },
+  "title": "The Agentic Company OS: Substrate Inversion for Sustained Enterprise Agent Deployment",
+  "venue": "",
+  "year": 2026,
+  "openAccessPdf": {
+   "url": "",
+   "status": null,
+   "license": null,
+   "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2609.13334, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationDate": "2026-09-11",
+  "authors": [
+   {
+    "authorId": "2426790482",
+    "name": "Oliver Aleksander Larsen"
+   },
+   {
+    "authorId": "23216850",
+    "name": "M. T. Moghaddam"
+   }
+  ],
+  "abstract": "Enterprise AI agents often succeed in a demonstration and then stall once they must operate day after day. An industry report estimates that most pilots never reach production and that deployed systems rarely retain feedback or improve over time, while agent benchmarks show single-run successes masking unreliable repetition. We argue that these failure modes share a common architectural root: agents reason over data structured for human operators and traditional applications, not for the language models that power them. This position paper proposes that companies deploying agents in sustained operation should rebuild their cognitive substrate, the shared environment agents read as working context, around representations matched to that reasoning surface, isolating schema translation to the action boundary. Markdown is the instantiation available today, not a proven agent-native primitive. Two mechanisms ground the argument: context-bandwidth asymmetry, the gap between one-pass reading of connected prose and field-by-field typed access that strips relations; and cross-loop coupling, the claim that action, skill, and policy loops compound only if they share one substrate. A four-layer framework (Data, Knowledge, Intelligence, Governance) operationalizes the position, with a Sync Agent enforcing the action boundary and a per-skill trust gradient, making governance and auditability structural properties of the substrate. The position revives the shared-substrate tradition of classical multi-agent systems under LLM-era economics. We analyze the main objections and risks, including indirect prompt injection on the compile path, and outline a research agenda for evaluating substrates directly."
+ },
+ {
+  "paperId": "03ccf3aed199d468eaffd48d637c7618ee12317c",
+  "externalIds": {
+   "ArXiv": "2609.15079",
+   "CorpusId": 292026450
+  },
+  "title": "Translating the Translator: Decomposing the Cost of English-Forced Inter-Agent Communication",
+  "venue": "",
+  "year": 2026,
+  "openAccessPdf": {
+   "url": "",
+   "status": null,
+   "license": null,
+   "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2609.15079, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationDate": "2026-09-14",
+  "authors": [
+   {
+    "authorId": "2279343661",
+    "name": "Kushagra Agrawal"
+   },
+   {
+    "authorId": "2499657579",
+    "name": "Yu-Ming Feng"
+   },
+   {
+    "authorId": "2189587987",
+    "name": "Man-Fai Leung"
+   }
+  ],
+  "abstract": "Multi-agent LLM architectures, such as LangChain and AutoGen, largely assume English as the lingua franca for internal inter-agent communication, even when the end-user task is non-English. We fill this gap by evaluating a two-agent extraction-answer core, with an additional back-translation agent in the English-forced condition, across four typologically diverse languages (Hindi, Chinese, Spanish, Arabic; n = 300 per language) using the Aya-23-8B model. We compare a native-language pipeline to an English-forced one (which incorporates a final back-translation step from English to the user's language). We discover a statistically significant English-Forcing Tax (surviving a strict Bonferroni correction) that isolates the cost of English routing from general multi-agent orchestration overhead. Forcing inter-agent communication through English reduces Exact Match accuracy by 13.0 percentage points (Spanish) up to 30.6 percentage points (Hindi) compared to native-language multi-agent execution. Using chrF scores as a diagnostic measure of English-reference lexical overlap, we find that lower overlap is strongly associated with pipeline failure, consistent with translation loss being an important contributor to the observed performance drop. These findings suggest a compelling case for native-language routing in agent frameworks when the source and target languages are typologically distant, reducing a compounding translation tax."
+ },
+ {
+  "paperId": "47bcf5bf55199522ee6ef86c5845bf41b4bc8b7c",
+  "externalIds": {
+   "ArXiv": "2609.16986",
+   "CorpusId": 292033690
+  },
+  "title": "ToMAS: A Pilot Failure-Grounded Theory-of-Mind Benchmark from Multi-Agent LLM Failures",
+  "venue": "",
+  "year": 2026,
+  "openAccessPdf": {
+   "url": "",
+   "status": null,
+   "license": null,
+   "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2609.16986, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationDate": "2026-09-15",
+  "authors": [
+   {
+    "authorId": "2488422529",
+    "name": "M. Ishfaq"
+   },
+   {
+    "authorId": "2368646493",
+    "name": "Glaucia Melo"
+   }
+  ],
+  "abstract": "LLM-based multi-agent systems can fail even when communication succeeds because agents do not correctly track their peers'roles, knowledge, or intentions. We investigate whether such inter-agent misalignment cases, labelled FC2 in MAST-Data, can be converted into functional partner-state reasoning items. ToMAS applies four explicit convertibility criteria to diagnosed execution traces. A full conversion pass over 242 eligible non-AG2 training traces produced 39 CLEAN items. In an 18-trace reliability pilot, two annotators achieved 94.4% raw agreement and Cohen's kappa = 0.92. We then used the converted items as binary rewards in a small-scale GRPO feasibility experiment with Qwen2.5-1.5B. On a 28-item held-out Magentic GAIA diagnostic, every evaluated condition exceeded the ROUGE-L threshold on the same 2 of 28 items. Post-hoc adapter checks show why: under the learning rate used, the LoRA update remained numerically negligible (max abs Delta W about 7e-6), so all conditions decode identically to the untrained checkpoint. The experiment therefore does not show a training effect and cannot establish one; it reports an executable pipeline together with two limitations that any conclusive study must address: a provenance gap between the training and evaluation items, and lexical-overlap scoring. ToMAS provides a preliminary rubric and pipeline for converting diagnosed coordination failures into trainable partner-state reasoning items and identifies the requirements for a conclusive matched-domain evaluation."
+ },
+ {
+  "paperId": "ac52f26605764a3371104639bcef2cdedaa94811",
+  "externalIds": {
+   "ArXiv": "2609.17527",
+   "CorpusId": 292033640
+  },
+  "title": "Agentic Societies Need a Social Harness",
+  "venue": "",
+  "year": 2026,
+  "openAccessPdf": {
+   "url": "",
+   "status": null,
+   "license": null,
+   "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2609.17527, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationDate": "2026-09-15",
+  "authors": [
+   {
+    "authorId": "2122946534",
+    "name": "Tapan Chugh"
+   },
+   {
+    "authorId": "2446901759",
+    "name": "Vidushi Singh"
+   },
+   {
+    "authorId": "2448787897",
+    "name": "Krishita Jain"
+   },
+   {
+    "authorId": "2257173537",
+    "name": "Arvind Krishnamurthy"
+   },
+   {
+    "authorId": "2257031542",
+    "name": "Ratul Mahajan"
+   }
+  ],
+  "abstract": "An agentic society is a collection of AI agents that coordinate autonomously across trust boundaries, on behalf of different principals whose objectives may only partially align. We show experimentally that in agentic societies even honest, competent agents often fail to reach satisfactory outcomes with existing harnesses and messaging primitives, and that faulty or malicious agents can stall collaboration, influence outcomes, and pursue other harmful goals by exploiting vulnerabilities in communication (``speech''). We argue that agentic societies need a \\emph{social harness} for inter-agent interactions, in addition to each agent's \\emph{personal harness}, which manages its private context and communication with its principal. We propose a layered architecture for social harnesses which (i) prevents classes of failures outright, (ii) enables agents to detect invalid messages at runtime, and (iii) supports post-facto investigation and consequences, and highlight directions for future research to realize these capabilities."
+ },
+ {
+  "paperId": "c00235594470d37fe54ebe846d229c3fa4a77ddd",
+  "externalIds": {
+   "PubMedCentral": "13503672",
+   "DOI": "10.1038/s41598-026-65225-w",
+   "CorpusId": 291332225,
+   "PubMed": "42637797"
+  },
+  "title": "An intelligent reinforcement learning enhanced improved LEACH protocol for prolonging wireless sensor network lifetime",
+  "venue": "Scientific Reports",
+  "year": 2026,
+  "openAccessPdf": {
+   "url": "https://www.nature.com/articles/s41598-026-65225-w.pdf",
+   "status": "GOLD",
+   "license": "CCBY",
+   "disclaimer": "Notice: Paper or abstract available at https://pmc.ncbi.nlm.nih.gov/articles/PMC13503672, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationDate": "2026-08-24",
+  "authors": [
+   {
+    "authorId": "2059304",
+    "name": "H. Elsayed"
+   },
+   {
+    "authorId": "2329531290",
+    "name": "Elham M. Abd-Elgaber"
+   },
+   {
+    "authorId": "2152648066",
+    "name": "Shereen K. Refaay"
+   }
+  ],
+  "abstract": "This study suggests an intelligent clustering protocol in Wireless Sensor Networks, called RL-ILEACH, which incorporates Reinforcement Learning (RL) into the ILEACH (Improved Low-Energy Adaptive Clustering Hierarchy) framework for adaptive and energy-aware CH selection in order to overcome these drawbacks. An RL agent is used in the suggested RL-ILEACH protocol to learn the best CH selection strategies depending on current network conditions, such as residual energy, node density, and communication distance. RL-ILEACH reduces energy dissipation and improves load balancing during intra-cluster and inter-cluster communication phases by dynamically adjusting CH selection options. To assess RL-ILEACH\u2019s performance against traditional procedures, such as LEACH, ILEACH, and other cutting-edge clustering techniques, extensive simulation tests are carried out. According to simulation studies, RL-ILEACH performs noticeably better than current protocols, resulting in reduced total energy consumption, a longer stability period, a greater packet delivery ratio, and a longer network lifetime. In particular, RL-ILEACH minimizes early node failures brought on by uneven energy depletion and sustains a larger number of active nodes throughout subsequent rounds. RL-ILEACH is a reliable and scalable solution for energy-efficient clustering in dynamic Wireless Sensor Network settings, as these enhancements demonstrate that the incorporation of Reinforcement Learning permits intelligent, adaptive decision-making. RL-ILEACH prolonged the network lifetime by \\documentclass[12pt]{minimal} \\usepackage{amsmath} \\usepackage{wasysym} \\usepackage{amsfonts} \\usepackage{amssymb} \\usepackage{amsbsy} \\usepackage{mathrsfs} \\usepackage{upgreek} \\setlength{\\oddsidemargin}{-69pt} \\begin{document}$$\\:784\\:\\:$$\\end{document}% compare to LEACH. RL-ILEACH outperformed ILEACH by increasing the network lifetime by \\documentclass[12pt]{minimal} \\usepackage{amsmath} \\usepackage{wasysym} \\usepackage{amsfonts} \\usepackage{amssymb} \\usepackage{amsbsy} \\usepackage{mathrsfs} \\usepackage{upgreek} \\setlength{\\oddsidemargin}{-69pt} \\begin{document}$$\\:130$$\\end{document}%. Moreover, relative to NNMH-LEACH, RL-ILEACH achieved a further \\documentclass[12pt]{minimal} \\usepackage{amsmath} \\usepackage{wasysym} \\usepackage{amsfonts} \\usepackage{amssymb} \\usepackage{amsbsy} \\usepackage{mathrsfs} \\usepackage{upgreek} \\setlength{\\oddsidemargin}{-69pt} \\begin{document}$$\\:108$$\\end{document}% imporvment in network lifetime."
+ },
+ {
+  "paperId": "c95bf692f707a6384175ccfdf18208ad59ad6f64",
+  "externalIds": {
+   "ArXiv": "2608.22130",
+   "CorpusId": 291325056
+  },
+  "title": "PropUQ-MAS: Propagation-Aware Uncertainty Quantification for LLM Multi-Agent Systems",
+  "venue": "",
+  "year": 2026,
+  "openAccessPdf": {
+   "url": "",
+   "status": null,
+   "license": null,
+   "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2608.22130, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationDate": "2026-08-22",
+  "authors": [
+   {
+    "authorId": "2215700516",
+    "name": "Yaokun Liu"
+   },
+   {
+    "authorId": "2306809891",
+    "name": "Yifan Liu"
+   },
+   {
+    "authorId": "35429704",
+    "name": "D. Zhang"
+   },
+   {
+    "authorId": "2341537521",
+    "name": "Ruichen Yao"
+   },
+   {
+    "authorId": "2342753642",
+    "name": "Zelin Li"
+   },
+   {
+    "authorId": "2269700674",
+    "name": "Dong Wang"
+   }
+  ],
+  "abstract": "LLM-based multi-agent systems (MAS) solve complex tasks through communication among role-specialized agents. However, inter-agent dependencies introduce reliability risks beyond isolated agent failures. For instance, errors in intermediate messages could be inherited and amplified by downstream agents. Existing uncertainty quantification (UQ) methods mainly target isolated responses or single-agent reasoning, and therefore fail to capture uncertainty propagation in MAS. To this end, we propose PropUQ-MAS, an error propagation-aware UQ framework that represents MAS execution as a communication-structured graph and estimates each step's reliability by combining local uncertainty with uncertainty inherited from upstream messages. Extensive experiments demonstrate that PropUQ-MAS consistently improves UQ in MAS, with average relative gains of +6.10% in AUROC and +47.58% in PRR."
+ },
+ {
+  "paperId": "2015377f3350a1490cc77d1aaa0c14ae60037ab5",
+  "externalIds": {
+   "ArXiv": "2609.04894",
+   "CorpusId": 291767830
+  },
+  "title": "From Language Models to World-Acting Systems: Progress and Limits of Agentic AI across Digital, Social, Virtual, and Physical Environments",
+  "venue": "",
+  "year": 2026,
+  "openAccessPdf": {
+   "url": "",
+   "status": null,
+   "license": null,
+   "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2609.04894, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationDate": "2026-09-04",
+  "authors": [
+   {
+    "authorId": "2494246885",
+    "name": "Lin-Sen Zhu"
+   },
+   {
+    "authorId": "2642996",
+    "name": "Meng-Qing Cai"
+   }
+  ],
+  "abstract": "Large language models become consequential agents when surrounding systems let outputs change external state. Models now call tools, operate interfaces, delegate work, retain state, inhabit generated worlds, and control robots or laboratory equipment. Such advances are often narrated as one march toward autonomy, conflating model competence, system integration, persistence, and safe authority. This critical review synthesizes primary research and official technical specifications available by 31 August 2026. We organize the evidence along delegated authority, temporal persistence, and environmental coupling, while separating model, harness, and environment. Within the evidence examined, action-interface expansion is documented more convincingly than robust completion, recovery, authorization, or independent verification. Model Context Protocol and Agent2Agent improve interoperability but do not establish trustworthy delegation; multi-agent organization adds specialization alongside cost and correlated failure. Persistent simulations and world models support training and planning but do not themselves demonstrate agency; robotics and self-driving laboratories establish bounded feasibility rather than unattended open-world reliability. We propose justified delegation as an analytical and normative heuristic, not an observed law or certified score: expand action scope only where evidence supports provenance, bounded authority, failure detection, safe recovery, and calibrated human control. This framing yields a research agenda for coupled model-harness evaluation, capability-based permissions, durable state, cross-agent accountability, and staged physical validation."
+ },
+ {
+  "paperId": "2b75fe03b4102dad3be4ef0bcac002928f8628e4",
+  "externalIds": {
+   "ArXiv": "2608.30701",
+   "DOI": "10.1145/3799682.3839253",
+   "CorpusId": 291541904
+  },
+  "title": "A Phased Workflow for Operating LLM-Based Coding Agents",
+  "venue": "",
+  "year": 2026,
+  "openAccessPdf": {
+   "url": "",
+   "status": null,
+   "license": null,
+   "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2608.30701, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationDate": "2026-08-31",
+  "authors": [
+   {
+    "authorId": "151484950",
+    "name": "A. Kapetanovi\u0107"
+   },
+   {
+    "authorId": "51119208",
+    "name": "Tomislav Duricic"
+   },
+   {
+    "authorId": "47523901",
+    "name": "Andro Mer\u0107ep"
+   },
+   {
+    "authorId": "2328078830",
+    "name": "Emanuel Laci\u0107"
+   }
+  ],
+  "abstract": "LLM-based coding agents combine a foundation model with a harness that shapes agent behavior. For non-trivial tasks, how practitioners structure their work with the coding agents determines whether reliable results follow. We report on a phased workflow for operating coding agents developed by the AI research team at Infobip. The workflow structures agent-assisted development into four phases where human effort is front-loaded and delegation increases as artifacts mature. Context management is the central concern, addressed through four strategies applied at each phase to counter known failure modes. From practitioner experience, we observe that upstream errors in research and planning can compound across later phases, while correcting generated code can introduce bloat and fragility. This motivates front-loading human review. We identify two open problems: the absence of metrics for workflow effectiveness and the gap between formalized context management components and the workflow-level patterns that practitioners need."
+ },
+ {
+  "paperId": "30158f24d4a92670ca27287d96b6a30bea467d43",
+  "externalIds": {
+   "DOI": "10.1007/s00146-026-03342-w",
+   "CorpusId": 291490403
+  },
+  "title": "On the epistemic structure of voluntary servitude in the infosphere",
+  "venue": "AI &amp; SOCIETY",
+  "year": 2026,
+  "openAccessPdf": {
+   "url": "https://link.springer.com/content/pdf/10.1007/s00146-026-03342-w.pdf",
+   "status": "HYBRID",
+   "license": "CCBY",
+   "disclaimer": "Notice: Paper or abstract available at https://api.unpaywall.org/v2/10.1007/s00146-026-03342-w?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1007/s00146-026-03342-w, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationDate": "2026-08-29",
+  "authors": [
+   {
+    "authorId": "2308602827",
+    "name": "Tiegue Vieira Rodrigues"
+   }
+  ],
+  "abstract": "\n \n This paper introduces the concept of Voluntary Epistemic Servitude (VES) to describe a social-epistemic pathology generated by the contemporary infosphere. Drawing on \u00c9tienne de La Bo\u00e9tie\u2019s\n Discours de la Servitude Volontaire\n as a theoretical resource, we argue that algorithmic systems produce conditions in which agents not only delegate their core belief-forming processes to nontransparent architectures but come to prefer and actively reproduce this delegation through social mechanisms structurally isomorphic to those La Bo\u00e9tie identified in political tyranny. We show that VES is irreducible to existing social-epistemic categories such as epistemic injustice (Fricker 2007), epistemic bubbles and echo chambers (Nguyen 2020), and veritistic failure (Goldman 1999) because it operates at the level of epistemic preference formation rather than credibility attribution or informational access. The paper identifies a preference-laundering mechanism by which algorithmic systems colonize the second-order epistemic desires of agents, thereby undermining the conditions of epistemic autonomy that social epistemology has largely presupposed. We further develop a precise account of reflective access that distinguishes algorithmic opacity from ordinary preference opacity, introduce the concept of epistemic counterfactual capacity with a modal analysis connecting it to Williamson\u2019s (2000) safety condition, situate VES as a structurally induced epistemic vice (Cassam 2019) and a form of misaligned extended cognition (Clark and Chalmers 1998), and provide a typology of three algorithmic architectures through which VES operates. We conclude by stating an explicit normative bridge principle and drawing on La Bo\u00e9tie\u2019s positive ideal of free horizontal epistemic bonds to sketch the preconditions for epistemic liberation in algorithmically mediated environments.\n"
+ },
+ {
+  "paperId": "44323f6384c34142fe4d32492bc793c628c317a9",
+  "externalIds": {
+   "ArXiv": "2609.03923",
+   "CorpusId": 291682894
+  },
+  "title": "Speak for Me: Giving LLMs the Situational Awareness to Participate in a Meeting",
+  "venue": "",
+  "year": 2026,
+  "openAccessPdf": {
+   "url": "",
+   "status": null,
+   "license": null,
+   "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2609.03923, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationDate": "2026-09-03",
+  "authors": [
+   {
+    "authorId": "2244613715",
+    "name": "Muneeb Khan"
+   },
+   {
+    "authorId": "2187206992",
+    "name": "F. Kirstein"
+   },
+   {
+    "authorId": "2261364222",
+    "name": "T. Ruas"
+   },
+   {
+    "authorId": "2261364118",
+    "name": "Bela Gipp"
+   }
+  ],
+  "abstract": "In online meeting delegation, LLM agents fail to recognize when to speak. With no structured way to track stances, coverage, and floor, they miss the moments where they should contribute. Prompt-only delegates stay silent on 51.4% of the absent participant's talking opportunities on the AMI corpus. We present CAPA (Collaborative Agent Predictive Architecture), an architecture for online meeting delegation. A Perceiver updates the meeting state from each observed turn. A Predictor forecasts how the conversation will continue. A Controller decides whether to speak and which proposition to surface. A Generator phrases the chosen contribution in the participant's style. Two judges score the forecast and the action against the next observed turn. A Recalibrator updates the meeting state from those verdicts for future decisions. To evaluate online delegation, we introduce an episode-level protocol that scores whether, when, and what a delegate contributes around the participant's actual idea units. The protocol's schema-constrained LLM judges align with human annotations at Cohen's kappa = 0.71. On 137 AMI meetings, CAPA reduces the silence rate from 51.4% to 2.5%, doubles credited recovery (26.1 -->52.2), and keeps hallucination at 0.6%. The failure mode shifts from omission to selection, with each residual near-miss attributable to a specific module of the architecture. Mechanism ablations identify the meeting state as the lever that closes the recognition gap, where raw-context scaling alone does not."
+ },
+ {
+  "paperId": "4cfcb253db8f2959bc7b40b0304c5450c3fc29db",
+  "externalIds": {
+   "ArXiv": "2608.26225",
+   "CorpusId": 291382975
+  },
+  "title": "Agent Mesh: Reliability Primitives for Non-Idempotent Agent Delegation - Identity Adequacy and Evidence Adequacy",
+  "venue": "",
+  "year": 2026,
+  "openAccessPdf": {
+   "url": "",
+   "status": null,
+   "license": null,
+   "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2608.26225, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationDate": "2026-08-26",
+  "authors": [
+   {
+    "authorId": "2455957272",
+    "name": "M. Shaikh"
+   },
+   {
+    "authorId": "2455115486",
+    "name": "Anurag Rajkumar Bombarde"
+   },
+   {
+    "authorId": "2459897289",
+    "name": "H. Pathak"
+   }
+  ],
+  "abstract": "Autonomous agents increasingly perform bounded software tasks under an orchestrator that retries, resumes, and budgets them. The machinery such orchestrators reach for is the service mesh's: retry, timeout, and error-rate circuit breaking. We report a failure study of a production agentic software-delivery platform over 147 numbered incidents spanning 81 runs, each with a measured cost and, in most cases, a mutation proof reproducing the failure. All three assumptions those primitives rest on are violated in practice, and we quantify the consequences: a loop of fifty-four consecutive successful tool calls no error-rate breaker could see; a progress signal constant by construction, guaranteeing a false trip on the third repair round and driving one run from six of six components to three; twenty-one events accumulated across six invocations of one delegation, making a correct, idempotent component unwinnable; a misrouted failure that woke five components for a two-component fault, leaving three bystanders regressing working code; and twelve incidents in which the enforcement layer blocked correct work, the most expensive costing 107 agent turns and zero accepted writes. We find one cross-cutting cause and its dual. Identity adequacy: in five separate subsystems an identity that failed to discriminate produced a confident wrong answer, and two of them derived the corrective rule independently. Evidence adequacy: a reliability decision may be taken only on evidence capable of moving, attributable to what it measures, and deterministic under identical conditions. From the findings we derive seven reliability primitives whose enforcement unit is the delegation rather than the message, and specify the controlled evaluation the study motivates but does not constitute."
+ },
+ {
+  "paperId": "524ee265ea29ffb529720a17fae00f22ff027a21",
+  "externalIds": {
+   "ArXiv": "2609.05587",
+   "CorpusId": 291832115
+  },
+  "title": "Agents Trust Tools Too Much: Measuring Reliance on Unreliable Tools",
+  "venue": "",
+  "year": 2026,
+  "openAccessPdf": {
+   "url": "",
+   "status": null,
+   "license": null,
+   "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2609.05587, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationDate": "2026-09-04",
+  "authors": [
+   {
+    "authorId": "2492701584",
+    "name": "Hoyeol Yang"
+   },
+   {
+    "authorId": "2359062870",
+    "name": "Woojung Song"
+   },
+   {
+    "authorId": "2491731591",
+    "name": "Taewon Kim"
+   },
+   {
+    "authorId": "2244132268",
+    "name": "Jonghyun Song"
+   },
+   {
+    "authorId": "2494015820",
+    "name": "Seoyeon Park"
+   },
+   {
+    "authorId": "2067643024",
+    "name": "Yohan Jo"
+   }
+  ],
+  "abstract": "Existing evaluations of tool-using agents primarily measure whether an agent can successfully complete diverse tasks with tools. These evaluations generally assume that tools return reliable information. However, tool returns in real-world systems can be plausible yet incorrect. We investigate how agents respond to unreliable tool returns by evaluating fourteen LLMs using three tools-web search, LLM sub-agent delegation, and code execution. For each tool, we corrupt its returns and measure whether agents adopt the corrupted content in their final answers. Agents exhibit high levels of overtrust across all three settings: the mean adoption rate exceeds one third for every tool and reaches 68.0% for web search. Analysis of reasoning traces reveals a particularly concerning failure mode: agents often recognize conflicts and even recover the correct answer internally, yet present only the corrupted answer without warning the user. To mitigate agents'overtrust in tool returns, we intervene at three levels: prompting by the user, metadata from the tool provider, and post-training by the agent builder. Although some interventions help for particular models or tools, none consistently mitigates overtrust across tools. These findings identify overtrust in unreliable tools as a serious and persistent failure mode, motivating evaluations and interventions that enable agents to validate tool outputs and transparently communicate unresolved conflicts."
+ },
+ {
+  "paperId": "59df7e0d6a2ff295f914ebf4a496d68c25f4202a",
+  "externalIds": {
+   "ArXiv": "2609.20812",
+   "CorpusId": 292062918
+  },
+  "title": "Quantifying Overclaiming Propensity in Frontier LLM Agents",
+  "venue": "",
+  "year": 2026,
+  "openAccessPdf": {
+   "url": "",
+   "status": null,
+   "license": null,
+   "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2609.20812, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationDate": "2026-09-17",
+  "authors": [
+   {
+    "authorId": "2394304772",
+    "name": "Nolan Smyth"
+   },
+   {
+    "authorId": "2500462500",
+    "name": "Yorguin-Jose Mantilla-Ramos"
+   },
+   {
+    "authorId": "2152232813",
+    "name": "Pascal Junior Tikeng Notsawo"
+   },
+   {
+    "authorId": "2301207388",
+    "name": "S. Helbling"
+   },
+   {
+    "authorId": "93565386",
+    "name": "A. Tosato"
+   },
+   {
+    "authorId": "2090441710",
+    "name": "Mohamed Amine Merzouk"
+   },
+   {
+    "authorId": "46217681",
+    "name": "Nouha Dziri"
+   },
+   {
+    "authorId": "8150760",
+    "name": "G. Gidel"
+   },
+   {
+    "authorId": "2165576005",
+    "name": "Tommaso Tosato"
+   }
+  ],
+  "abstract": "Frontier coding agents are increasingly trusted to work autonomously for long periods, yet an agent's final response is often the only account of that work a user sees. We quantify the propensity of frontier agents to \\emph{overclaim} task completion, a misrepresentation that can mislead the user. An agent overclaims when its final response contradicts information in its context. This definition requires no inference about intent and is independent of task success. We introduce \\emph{OverclaimBench}, an evaluation suite composed of five file-review scenarios, transcript-based coverage measurements, and registered planted defects. We evaluate eight proprietary frontier models in their own production command-line interfaces, and four open-weight models under a single fixed harness on OverclaimBench and find that 1) agents do not read all the files they were asked to review in 67.9\\% of runs; 2) among runs where not all files are read, agents are \\emph{misleading} 80.4\\% of the time (59--96\\% per model), either falsely claiming to have read all files or omitting that coverage is incomplete; 3) requiring delegation to subagents increased reading coverage, but among reviews that remained incomplete, a large majority were still misleading; and 4) agents that falsely claimed a complete review missed planted defects at about 1.8 times the rate of agents that read every file, showing that claims of completion can conceal substantive failures. Together, these results show that agents'final responses are not reliable accounts of their actions."
+ },
+ {
+  "paperId": "600e684fc5091d5f1620712f73af858abaef1eac",
+  "externalIds": {
+   "ArXiv": "2608.26530",
+   "CorpusId": 291383354
+  },
+  "title": "PILOT in the Loop: Live Self-Improvement for Long-Horizon Agents",
+  "venue": "",
+  "year": 2026,
+  "openAccessPdf": {
+   "url": "",
+   "status": null,
+   "license": null,
+   "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2608.26530, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationDate": "2026-08-27",
+  "authors": [
+   {
+    "authorId": "2449939331",
+    "name": "Yang Xiao"
+   },
+   {
+    "authorId": "2447345784",
+    "name": "Yusong Sun"
+   },
+   {
+    "authorId": "2454159798",
+    "name": "Haoming Wu"
+   },
+   {
+    "authorId": "2265753236",
+    "name": "Wenyang Hui"
+   },
+   {
+    "authorId": "2459906594",
+    "name": "Wen Da"
+   },
+   {
+    "authorId": "2440641698",
+    "name": "Zhao-Kai Luo"
+   },
+   {
+    "authorId": "2459500490",
+    "name": "Chuan Mu"
+   },
+   {
+    "authorId": "2460215993",
+    "name": "Yao Hu"
+   },
+   {
+    "authorId": "2460123112",
+    "name": "Wen-Jie Li"
+   },
+   {
+    "authorId": "2460108060",
+    "name": "Cheng-Yue Jiang"
+   }
+  ],
+  "abstract": "Long-horizon agent runs generate experience that can improve both the current run and future work. Most self-improvement methods process this experience only after execution ends, so they cannot redirect the active run or immediately apply and validate lessons learned from it. We argue that self-improvement should instead be live, using emerging experience both to redirect the active run and to update the persistent harness. Existing agent architectures do not fully support this goal. Single-agent self-correction combines task execution and trajectory assessment within one context, while subagent delegation separates execution but typically cannot redirect an active subagent. We present PILOT, a supervisor-worker harness for live self-improvement through two coupled mechanisms: (1) live steering lets a separate supervisor redirect or abort the active worker during execution; and (2) live self-evolution distils procedures and failure modes revealed during execution into reusable skills and memory. Across two frozen backbones and three benchmarks, PILOT ranks first in five of six configurations. On Terminal-Bench 2.0, PILOT outperforms counterpart harnesses by up to 9.8 percentage points. In the self-improvement setting, PILOT gains 14.6 points with GLM-5.1 and 12.4 points with Kimi-K2.6. Mean output tokens fall by 42.9% and 47.4%, while successful evaluations per million output tokens rise by 110.3% and 134.0%, respectively."
+ },
+ {
+  "paperId": "86a47085f6f241eb6a8e46e659021a955d70aecf",
+  "externalIds": {
+   "ArXiv": "2609.01931",
+   "CorpusId": 290838261
+  },
+  "title": "Agent Flight Recorder: Tamper-Evident Audit Trails with On-Chain Anchoring for Long-Horizon Tool-Using Agents",
+  "venue": "",
+  "year": 2026,
+  "openAccessPdf": {
+   "url": "",
+   "status": null,
+   "license": null,
+   "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2609.01931, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationDate": "2026-09-01",
+  "authors": [
+   {
+    "authorId": "2295628519",
+    "name": "Laurent Bindschaedler"
+   },
+   {
+    "authorId": "101431722",
+    "name": "Quentin Botha"
+   },
+   {
+    "authorId": "2316656037",
+    "name": "Christoph Siebenbrunner"
+   }
+  ],
+  "abstract": "Long-horizon agents execute thousands of actions, resulting in sequential failures rather than isolated errors. When a coding agent deletes a production database or a prompt injection spreads across agents, the incident raises questions of causality, authority, and non-repudiable third-party verification. The Agent Flight Recorder captures each agent action as a structured, canonically serialized event binding eight semantic fields from intent through execution to provenance. Hash chaining and Merkle batching provide tamper evidence and compact inclusion proofs. For cross-organizational disputes where no party's infrastructure qualifies as neutral ground, periodic on-chain anchoring of epoch roots lets any verifier with the disclosed payload and Merkle proof check the record independently, without pre-agreeing on a trusted intermediary. The on-chain footprint is minimal: each anchor stores a 32-byte epoch root and a back-pointer, and no event content touches the chain. We evaluate the system across five cumulative ablation configurations on synthetic agent workloads. The full system adds ~48 microseconds median per-event latency and 512 bytes per event. L2 anchoring costs $2.30 per 100K events at 100-event epochs. The full integrity stack detects edit, delete, reorder, and fork tampering at 100% with zero false positives. Structured forensic queries achieve 1.0 precision on guardrail and delegation lookups where unstructured text search yields 0.013 and 0.077 respectively."
+ },
+ {
+  "paperId": "8b5b4b5cbe796d7ee53cacd37c52b88ffa68b5f3",
+  "externalIds": {
+   "ArXiv": "2608.30091",
+   "CorpusId": 291542433
+  },
+  "title": "VERA: Authority-Preserving Edge Revocation for Federated AI-Agent Workflows",
+  "venue": "",
+  "year": 2026,
+  "openAccessPdf": {
+   "url": "",
+   "status": null,
+   "license": null,
+   "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2608.30091, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationDate": "2026-08-30",
+  "authors": [
+   {
+    "authorId": "2116147755",
+    "name": "Li-Fei Liu"
+   },
+   {
+    "authorId": "2110750624",
+    "name": "Hao-Ran Yu"
+   },
+   {
+    "authorId": "2273691577",
+    "name": "Xiao-Chong Jiang"
+   }
+  ],
+  "abstract": "Modern agent frameworks compose planners, tool agents, remote services, and shared specialists into runtime delegation graphs, but their revocation APIs still resemble token or subtree invalidation. When one delegation is withdrawn, the runtime must know which agents lose authority while independently authorized agents keep working. We study this authority consistency problem and introduce VERA (Verifiable Edge Revocation for Agents), a verifier-checkable revocation contract and API emitted by agent-runtime adapters as signed evidence. Under disjunctive authority, revoking edge e invalidates exactly T_intent(e,G) = reach(G) \\ reach(G \\ {e}), the agents whose every authorizing root path used e. Used as a contract, this target exposes two runtime failures: tree cascades over-revoke shared agents, while deployer-scoped cascades under-revoke cross-domain descendants. In a LangGraph framework-replt cells repeated 20 times yield 500compiled-framework traces and 2,000 valid signed delegation decisions; 13/25 cells contain runtime multi-parsharing and 8/25 contain cross-deployer shies 500/500 target proofs, preserves all320 alternate-parent shared-agent cases that tree cascade revokes, and rejects unauthorized signers and omission attacks. Baseline replay over 1,9that holder/node and tree-style targetscannot express this behavior. We further validate schema portability on A2A, AutoGen, and CrewAI artifacts: nine traces, including five executable Cregned delegation events that pass schema and signature checks."
+ },
+ {
+  "paperId": "9828d468200dc7ba413844d3cdd4e2ccc99ec360",
+  "externalIds": {
+   "ArXiv": "2608.23867",
+   "CorpusId": 291334087
+  },
+  "title": "Markets, Not Planners: Decentralized Orchestration of LLM Agents with Private Information",
+  "venue": "",
+  "year": 2026,
+  "openAccessPdf": {
+   "url": "",
+   "status": null,
+   "license": null,
+   "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2608.23867, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationDate": "2026-08-24",
+  "authors": [
+   {
+    "authorId": "2457765483",
+    "name": "Xiao Liu"
+   },
+   {
+    "authorId": "2460085481",
+    "name": "Haoyang Li"
+   },
+   {
+    "authorId": "2316945675",
+    "name": "Songwei Li"
+   },
+   {
+    "authorId": "2113485693",
+    "name": "Hongbo Fang"
+   },
+   {
+    "authorId": "2318254860",
+    "name": "Fengli Xu"
+   },
+   {
+    "authorId": "2452759305",
+    "name": "Feng Shi"
+   },
+   {
+    "authorId": "2458019349",
+    "name": "James Evans"
+   }
+  ],
+  "abstract": "As LLM agents proliferate, built by different parties and with different capabilities and costs, orchestrating them is more like assembling labor across the economy than a computer calling a subroutine. Existing orchestration is typically centralized, with a single planner assigning every task, but this creates a bottleneck as agent pools grow, requires private information (e.g., agents'execution costs), and can easily be manipulated, such that a single inserted preference nearly doubles a favored agent's task share under a centralized LLM allocator. We introduce AgentLance, a repeated labor market in which agents bid on tasks using their private costs and self-maintained strategy notes, an allocator selects winners from bids and public reputation records, and a VCG-style payment rule rewards cost-aware bidding. Complex tasks are handled by hierarchical delegation: winning agents can decompose work and subcontract it through the same mechanism. Across mathematical reasoning, code generation, knowledge-intensive QA, and agentic tasks, AgentLance matches agents to their specializations, shifts work toward cheaper agents as cost sensitivity rises, and consistently outperforms single-model, centralized-orchestration, and market baselines. Diagnosing market failures, including inaccurate cost self-estimation and sub-optimal bidding, then correcting them in controlled experiments yields further gains, charting a path toward more efficient agent economies."
+ },
+ {
+  "paperId": "dd4e70261643f38b9ef9629c507b4223867af3c9",
+  "externalIds": {
+   "ArXiv": "2609.17464",
+   "CorpusId": 292033527
+  },
+  "title": "Decomposition Buys Integrity, Not Yield",
+  "venue": "",
+  "year": 2026,
+  "openAccessPdf": {
+   "url": "",
+   "status": null,
+   "license": null,
+   "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2609.17464, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationDate": "2026-09-15",
+  "authors": [
+   {
+    "authorId": "2499924459",
+    "name": "Rong He"
+   }
+  ],
+  "abstract": "Multi-agent systems split a task across a tree of agents and justify the split with folklore: smaller contexts, cleaner separation, parallelism. We ask what the split does to how much of what the leaves discover reaches the root. Model a decomposition as a tree in which an agent handed $b$ items keeps any one with probability $r(b)$. If $r(b)=1/b$, every tree delivers exactly one finding, for every task size and every shape; we verify this to $2.4 \\times 10^{-15}$ on 20,000 random irregular trees. If $r(b)=Cb^{-\\delta}$, a depth-$k$ tree over $N$ findings yields $C^k N^{1-\\delta}$: task size and architecture separate, and architecture contributes only $C \\le 1$ per level, so flat is optimal for yield and no arrangement of agents escapes the exponent $\\delta$. On 600 production deep-research traces $\\delta = 0.34$ [0.30, 0.38], by three identifications that do not share a failure mode. At a hop where item boundaries come from the tool rather than a text heuristic, and where $b=1$ occurs 550 times, $C = 0.571$ [0.527, 0.615] is observed rather than extrapolated, over 16,082 hops. A tier also costs alignment: on 1,012 annotated multi-agent traces one brief in sixteen goes off-target, giving $\\mu = 0.939$ and a per-tier penalty $C\\mu = 0.536$. Depth is bought on two other axes. The root context is the only state that persists and the only one that cannot cheaply forget, and depth cuts its exposure from $N$ items to $N^{1/k}$. Depth is also cheaper: production flat agents bill as $N^{1.39}$, not the $N^2$ an append-only context predicts, and at equal spend two tiers overtake flat at 403 findings. Across every parameter we measured the model says 0.7% to 11.3% of production sessions are worth delegating, against 7.8% that do. A hazard model on 743,819 production tool calls finds that delegation does not respond to a filling context and is instead an opening move."
+ },
+ {
+  "paperId": "e997f49d0bea5494f1f44155545ddd2bf4ac3bdc",
+  "externalIds": {
+   "ArXiv": "2609.05269",
+   "CorpusId": 291769853
+  },
+  "title": "CONTINUITY: Security-Context Contracts for Composable LLM Agent Controls",
+  "venue": "",
+  "year": 2026,
+  "openAccessPdf": {
+   "url": "",
+   "status": null,
+   "license": null,
+   "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2609.05269, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationDate": "2026-09-04",
+  "authors": [
+   {
+    "authorId": "2491630100",
+    "name": "Chris Zheng"
+   },
+   {
+    "authorId": "2494470921",
+    "name": "Yang Geng"
+   }
+  ],
+  "abstract": "LLM agent systems increasingly combine provenance tracking, authorization, policy enforcement, protocol adapters, and execution controls. However, individually correct security mechanisms do not necessarily compose into an end-to-end secure system: security-critical context may be dropped, widened, rebound, or reinterpreted as actions cross component boundaries. We identify this failure mode as security-context discontinuity and introduce CONTINUITY, a framework for verifiable composition of agent security controls. CONTINUITY models each component with an assume-guarantee contract and carries authenticated security context across transitions using signed root grants, provenance commitments, role-bound transition receipts, bounded typed releases, transformation witnesses, and effect-bound execution permits. We formalize end-to-end consequence integrity, requiring every realized external effect to be backed by a valid and current authorization witness linking the principal, task, provenance, delegation, policy state, canonical action, and finality boundary. We implement a reference verifier and deterministic cross-layer fault-injection suite covering 32 fault classes across four application domains. In 2,560 parameterized attack instances spanning 128 fault-domain classes, the full CONTINUITY configuration commits no harmful external effect, while completing all 700 benign tasks and escalating all 200 ambiguous cases. These results show that secure agent execution requires not only sound individual controls, but explicit contracts that preserve their guarantees across the complete instruction-to-effect path."
+ },
+ {
+  "paperId": "efcaabca2cfb2f5f6ac9360ec5fc8c4f234afad9",
+  "externalIds": {
+   "ArXiv": "2609.06391",
+   "CorpusId": 291869216
+  },
+  "title": "Building Trustworthy Graph-Agentic RAG for Social Good: Architectures, Failure Propagation, and Assurance by Construction",
+  "venue": "",
+  "year": 2026,
+  "openAccessPdf": {
+   "url": "",
+   "status": null,
+   "license": null,
+   "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2609.06391, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationDate": "2026-09-06",
+  "authors": [
+   {
+    "authorId": "2490928321",
+    "name": "Vijay Bommireddy"
+   },
+   {
+    "authorId": "2382761868",
+    "name": "Raviteja Bommireddy"
+   }
+  ],
+  "abstract": "Graph-agentic retrieval-augmented generation combines structured evidence with adaptive controllers that can plan retrieval, traverse relations, verify intermediate claims, delegate subtasks, and use tools. This combination is useful when answers depend on relations across documents, entities, time, or institutions, but it also creates coupled failure paths: a defect in graph construction can become retrieved evidence, alter later control decisions, and propagate toward a consequential outcome. We examine how such systems should be designed and evaluated for social-good settings in which freshness, authorization, traceability, oversight, and recourse matter alongside answer quality. We organize the literature by graph substrate, graph lifecycle, agent function, coordination pattern, and authority boundary, and distinguish graph-based retrieval from observation-dependent graph control. We then synthesize reported risks as an evidence-to-action failure chain and propose an assurance-by-construction blueprint comprising five interface contracts for evidence, retrieval, reasoning, capability and delegation, and outcome. These contracts make provenance, temporal validity, authorization, uncertainty, and recoverability explicit at system boundaries. An illustrative public-benefit information design shows how the framework constrains graph structure, permissions, abstention, and operating authority. Finally, we derive an evaluation agenda spanning graph assertions, trajectories, claims, coordination, and outcomes."
+ },
+ {
+  "paperId": "f0d1620e1bcda946d422077611606b1cbeb2fd5e",
+  "externalIds": {
+   "ArXiv": "2609.06835",
+   "CorpusId": 291869024
+  },
+  "title": "Skynet: Workflow-Level Anomaly Detection for Agentic AI via Semantic and Structural Modeling",
+  "venue": "",
+  "year": 2026,
+  "openAccessPdf": {
+   "url": "",
+   "status": null,
+   "license": null,
+   "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2609.06835, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationDate": "2026-09-06",
+  "authors": [
+   {
+    "authorId": "2479013300",
+    "name": "Chaoyu Zhang"
+   },
+   {
+    "authorId": "2188148530",
+    "name": "He-Xuan Yu"
+   },
+   {
+    "authorId": "2202851936",
+    "name": "Heng Jin"
+   },
+   {
+    "authorId": "2033471490",
+    "name": "Shanghao Shi"
+   },
+   {
+    "authorId": "2273594553",
+    "name": "Ning Zhang"
+   },
+   {
+    "authorId": "2244579803",
+    "name": "Yi Shi"
+   },
+   {
+    "authorId": "2284519015",
+    "name": "Y. Gel"
+   },
+   {
+    "authorId": "2411387779",
+    "name": "Y. T. Hou"
+   },
+   {
+    "authorId": "2356608453",
+    "name": "Wenjing Lou"
+   }
+  ],
+  "abstract": "Agentic AI systems execute complex tasks through long-horizon workflows of planning, tool use, and multi-agent coordination. Task failures in these systems often originate from a single step, such as an injected prompt or a flawed plan, and are then amplified through downstream dependencies as the corrupted step propagates across many subsequent agents and tool calls. Existing defenses either target a specific class of attacks or failures, or inspect individual prompts and steps in isolation. Both leave the global dependency structure of a workflow unexamined, and miss the inconsistencies that only emerge when the execution is viewed as a whole. We argue that anomaly detection for agentic AI must reason at the workflow level, where global execution structure exposes signals that local checks cannot see. We present Skynet, a principled workflow-level anomaly detection framework that turns observed multi-agent execution into directed workflow graphs and scores them against learned benign behavior. Skynet jointly models the semantic execution context and the structural organization of inter-agent delegation, tool invocation, and data-flow dependencies, and trains only on benign workflows. Because training never sees attacks or failures, this design naturally extends to zero-day detection: any execution that violates benign workflow regularities surfaces as off-manifold geometry under a single decision rule. We evaluate Skynet on three public agentic safety and failure benchmarks. It sustains high recall together with a sub-1% false positive rate, with per-workflow and per-step latencies low enough for online monitoring of agentic AI runtimes."
+ },
+ {
+  "paperId": "f40873996adf5d668553d5c95aa9f4dbd4ce8575",
+  "externalIds": {
+   "DOI": "10.1007/s11845-026-04584-9",
+   "CorpusId": 291471290,
+   "PubMed": "42667591"
+  },
+  "title": "AI agents in clinical medicine: delegation, supervision, and the problem of correlated failure.",
+  "venue": "Irish Journal of Medical Science",
+  "year": 2026,
+  "openAccessPdf": {
+   "url": "",
+   "status": "CLOSED",
+   "license": null,
+   "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1007/s11845-026-04584-9?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1007/s11845-026-04584-9, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationDate": "2026-08-29",
+  "authors": [
+   {
+    "authorId": "16825419",
+    "name": "E. Waisberg"
+   },
+   {
+    "authorId": "2086710020",
+    "name": "Joseph W. Guarnieri"
+   }
+  ],
+  "abstract": null
+ },
+ {
+  "paperId": "ff921fdade94dcb5e960055a5877f06da3e10716",
+  "externalIds": {
+   "ArXiv": "2609.11180",
+   "CorpusId": 291902006
+  },
+  "title": "SemVerBench: Benchmarking LLM Comprehension of Version-Constraint Resolution Semantics",
+  "venue": "",
+  "year": 2026,
+  "openAccessPdf": {
+   "url": "",
+   "status": null,
+   "license": null,
+   "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2609.11180, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationDate": "2026-09-10",
+  "authors": [
+   {
+    "authorId": "2398974554",
+    "name": "Qi-Bai Chen"
+   },
+   {
+    "authorId": "2495073720",
+    "name": "Ze-Ming Liu"
+   }
+  ],
+  "abstract": "Large language model (LLM) coding agents constantly decide whether a version satisfies a constraint such as ^1.2.3 or>=2.0,<3, yet their grasp of version-constraint semantics has never been measured directly. We introduce SemVerBench, the first benchmark of LLM version-constraint resolution semantics across three ecosystems (npm, PEP 440, Cargo): 240 machine-checkable items with unique answers, built author-neutrally from four balanced sources (each ecosystem's official test suite plus three frontier LLM proposers) and labeled by a non-circular two-implementation oracle. Evaluating six frontier models, we find systematic, predictable per-mechanism blind spots: a partial-comparator carry rule (>1.2 means>=1.3.0) traps every model on Cargo (near 60%), and although standard PEP 440 prefix matching is universal, on zero-pad/post-release corner cases GPT-5.1 collapses (0/26) while Claude stays at 97-100% (verified on a 67-item oracle-validated set). Opus significantly outperforms all other models, and Sonnet outperforms the OpenAI models (McNemar). The failures look more like an activation/application gap than a knowledge gap: injecting the rule or a light correct hint recovers most errors, whereas interval decomposition does not, and models are at ceiling on the basic forms of the same rules. An author-stratified analysis finds no statistically significant self-favoritism. Because the task is verifiable and a free, 100%-correct resolver exists, tool delegation reaches ~100%: coding agents should delegate version resolution to a resolver rather than reason about versions in-head."
+ },
+ {
+  "paperId": "20bf0ce880784bd21bffdf5be3c414515b94d714",
+  "externalIds": {
+   "ArXiv": "2609.13082",
+   "CorpusId": 291960133
+  },
+  "title": "Embodied-BenchForge: A Closed-Loop Agentic Workflow for Embodied Benchmark Construction",
+  "venue": "",
+  "year": 2026,
+  "openAccessPdf": {
+   "url": "",
+   "status": null,
+   "license": null,
+   "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2609.13082, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationDate": "2026-09-11",
+  "authors": [
+   {
+    "authorId": "2400495668",
+    "name": "Bao-Yang Jiang"
+   },
+   {
+    "authorId": "2370066226",
+    "name": "Feng-Chun Zhang"
+   },
+   {
+    "authorId": "2395222534",
+    "name": "Le-Yuan Wang"
+   },
+   {
+    "authorId": "2238963061",
+    "name": "Haotian Li"
+   },
+   {
+    "authorId": "2296947641",
+    "name": "Yida Wang"
+   },
+   {
+    "authorId": "2436165769",
+    "name": "Zheng-Qing Ji"
+   },
+   {
+    "authorId": "2158143408",
+    "name": "Jin-Shan Lai"
+   },
+   {
+    "authorId": "2392686023",
+    "name": "Xian-Cong Ren"
+   },
+   {
+    "authorId": "2433689140",
+    "name": "Daniel Li"
+   },
+   {
+    "authorId": "2499242122",
+    "name": "Zheng Yang"
+   },
+   {
+    "authorId": "2292286192",
+    "name": "Jian-Wei Hu"
+   },
+   {
+    "authorId": "2331770018",
+    "name": "Qiang Ma"
+   }
+  ],
+  "abstract": "Agentic systems offer a promising way to automate embodied benchmark construction, but existing approaches typically cover isolated stages or remain specialized to predefined environments and task families. More importantly, multi-step construction produces dependent intermediate artifacts that are often passed downstream without artifact-specific verification, allowing local defects to propagate into the final benchmark. We present Embodied-BenchForge, an agentic framework that transforms user-specified evaluation intents into complete embodied benchmark artifacts. It formulates construction as Closed-Loop Benchmark Synthesis, integrating forward artifact synthesis with backward verification and repair. Skill-Orchestrated Artifact Synthesis composes typed and reusable skills into executable workflows, while an artifact dependency graph records intermediate outputs and their dependencies. Requirement-Guided Verification and Repair applies artifact-specific contracts throughout construction and uses provenance to trigger local re-execution or upstream rollback when verification fails. Embodied-BenchForge constructs six benchmarks covering diverse embodied scenarios in the Offline EQA Track, together with one interactive benchmark containing 220 executable tasks in the Interactive Embodied Track. Evaluations of representative MLLMs and embodied agents show that the benchmarks distinguish model capabilities in both observation-based understanding and closed-loop execution. Quality assessment and ablations validate benchmark quality and the effectiveness of verification and repair, while repair and skill-reuse analyses demonstrate efficient localized recovery and cross-benchmark reusability."
+ },
+ {
+  "paperId": "2fb87a2fdae78f3bbe0189453d8ca7380f69dff4",
+  "externalIds": {
+   "ArXiv": "2608.29615",
+   "CorpusId": 291542065
+  },
+  "title": "Forward-Deployed Full-Stack Engineering for Autonomous Cloud MLOps",
+  "venue": "",
+  "year": 2026,
+  "openAccessPdf": {
+   "url": "",
+   "status": null,
+   "license": null,
+   "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2608.29615, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationDate": "2026-08-30",
+  "authors": [
+   {
+    "authorId": "2470540766",
+    "name": "Sagar Srinivas Sakhinana"
+   },
+   {
+    "authorId": "2139833562",
+    "name": "Venkataramana Runkana"
+   }
+  ],
+  "abstract": "Across industries, machine-learning systems support applications ranging from prediction and anomaly detection to forecasting, optimization, and scheduling, yet operationalizing these systems requires coordinating application development, model pipelines, cloud infrastructure, security, deployment, monitoring, retraining, recovery, and rollback. We present an evidence-gated multi-agent framework for transforming a natural-language MLOps cloud engineering task into a verified repository and operational cloud deployment. The framework combines graph engineering, loop engineering, and agent harness engineering. A stateful Graph Orchestrator coordinates specialized agents for repository generation, review, execution, verification, release, and monitoring while governing workflow dependencies, evidence gates, retry bounds, recovery paths, and termination. Consequential lifecycle transitions proceed only when their required predicates are supported by verifiable execution or runtime evidence. Verification failures activate bounded reflection, repair, and re-verification, while runtime evidence of failure, drift, degradation, or policy violation can trigger bounded adaptation, recovery, or rollback. Agent harness engineering constrains repository generation, review, and repair, artifact execution, and cloud operations through controlled capabilities and isolated execution environments. We realize the framework on Google Cloud Platform and evaluate repository completeness, controlled execution, evidence-gated transitions, cloud promotion, and bounded recovery. Our experimental results show that the framework prevents unsupported lifecycle transitions and drives each run toward either a verified operational deployment or an auditable terminal failure."
+ },
+ {
+  "paperId": "ab13b4dd9819036d40338f6e2a8d03a1b5a9a857",
+  "externalIds": {
+   "ArXiv": "2609.01939",
+   "CorpusId": 290838669
+  },
+  "title": "Bonded Recourse for Smart-Contract Settlement of Compensable Agent Side Effects",
+  "venue": "",
+  "year": 2026,
+  "openAccessPdf": {
+   "url": "",
+   "status": null,
+   "license": null,
+   "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2609.01939, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationDate": "2026-09-01",
+  "authors": [
+   {
+    "authorId": "2295628519",
+    "name": "Laurent Bindschaedler"
+   },
+   {
+    "authorId": "101431722",
+    "name": "Quentin Botha"
+   },
+   {
+    "authorId": "2316656037",
+    "name": "Christoph Siebenbrunner"
+   }
+  ],
+  "abstract": "Autonomous agent runtimes execute tool actions that mutate databases, repositories, and cloud services across organizational boundaries. Authorization and local compensation cover pre-action admission and in-runtime rollback, but neither settles the residual harm left after a permitted action fails. We design Recourse, a smart-contract settlement protocol for compensable agent side effects that binds each admitted action to scope, recovery, evidence, payout, and collateral. Recourse separates ex ante eligibility from ex post objective settleability: typed receipts make objective residual claims computable under an optimistic-oracle challenge pattern, while subjective or incomplete claims route to ERC-792 arbitration or exclusion. We implement the contract suite, deploy it on Base Sepolia, build adapters against Postgres, Git, and cloud-compatible local sandboxes, and evaluate the system on a deterministic harness, sandbox traces, adversarial sweeps, and property-based fuzzing. Against authorization-only and local-compensation baselines, bonded coverage cuts uncompensated harm. The on-chain tier supplies neutral custody, public challenge, non-cooperative payout, and portable history under cross-organizational trust assumptions."
+ },
+ {
+  "paperId": "e84fff2ee07bbc0a9eec8eb96b413fdc1adc6f80",
+  "externalIds": {
+   "ArXiv": "2608.29381",
+   "CorpusId": 291531341
+  },
+  "title": "Safe to Resume? Breaking Execution Continuity of Agent Execution via Rollback",
+  "venue": "",
+  "year": 2026,
+  "openAccessPdf": {
+   "url": "",
+   "status": null,
+   "license": null,
+   "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2608.29381, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationDate": "2026-08-29",
+  "authors": [
+   {
+    "authorId": "2349665188",
+    "name": "Guan-Long Wu"
+   },
+   {
+    "authorId": "2238402775",
+    "name": "Da-Hui Li"
+   },
+   {
+    "authorId": "2469941685",
+    "name": "Ke Jiang"
+   },
+   {
+    "authorId": "2287082040",
+    "name": "Jian-Yu Niu"
+   },
+   {
+    "authorId": "2470940330",
+    "name": "Cong Wang"
+   },
+   {
+    "authorId": "2321485569",
+    "name": "Yin-Qian Zhang"
+   }
+  ],
+  "abstract": "AI agents are moving toward persistent, stateful execution across various applications, accumulating execution state and external effects that are costly to reconstruct after failures. Checkpoint and rollback (C/R) are becoming essential for recovery, yet their security implications remain largely unexplored. Correct rollback does not imply secure recovery: a faithfully restored checkpoint may resume an execution whose states, assumptions, and external effects never coexisted in any valid history. In this paper, we present the first systematic security study of checkpoint and rollback in existing agent systems. By examining representative agent C/R systems, we characterize the design space of existing C/R mechanisms and develop a general execution model that captures their recovery boundaries and state dependencies. From this model, we identify five fundamental failure modes spanning incomplete or inconsistent internal state, stale external dependencies, nondeterministic replay, and unrecorded external effects. We further demonstrate their security impact through three end-to-end attacks on Hermes, Cline, and LangGraph, enabling malware-verification bypass, unauthorized mail forwarding, and double payment. To systematically study these failures in practice, we develop a multi-agent analysis pipeline that reconstructs execution semantics, identifies violations of the five failure conditions, and validates them through actual rollback. Across five representative frameworks, our evaluation shows that these failures recur across heterogeneous C/R designs and stem from a common gap between the state restored by a checkpoint and the dependencies required for secure continuation."
+ },
+ {
+  "paperId": "f3094323dbb873c5703d6abe6ad4158849a2eee5",
+  "externalIds": {
+   "DOI": "10.62225/2583049x.2026.6.5.6834",
+   "CorpusId": 291966689
+  },
+  "title": "RACER: Remediation Assurance Contracts for Evidence-Gated, Risk-Bounded Autonomous Recovery in Cloud Systems",
+  "venue": "International Journal of Advanced Multidisciplinary Research and Studies",
+  "year": 2026,
+  "openAccessPdf": {
+   "url": "https://www.multiresearchjournal.com/admin/uploads/archives/archive-1789104550.pdf",
+   "status": "BRONZE",
+   "license": null,
+   "disclaimer": "Notice: Paper or abstract available at https://api.unpaywall.org/v2/10.62225/2583049x.2026.6.5.6834?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.62225/2583049x.2026.6.5.6834, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationDate": "2026-09-04",
+  "authors": [
+   {
+    "authorId": "2442538025",
+    "name": "Prudvi Saisaran Ponduru"
+   },
+   {
+    "authorId": "2498798696",
+    "name": "Pavani Priya Vyshnavi Nandanavanam"
+   },
+   {
+    "authorId": "2498782808",
+    "name": "Sai Kesav Kumar Ponduru"
+   }
+  ],
+  "abstract": "AI agents can diagnose cloud incidents, synthesize operational commands, and invoke state-changing APIs, but a plausible remediation is not necessarily safe to execute. This study presents RACER, a runtime-assurance mechanism that treats every AI-generated repair as an untrusted proposal until it is bound to a machine-checkable Remediation Assurance Contract. The contract specifies preconditions, protected invariants, exact resource scope, a risk and blast-radius budget, evidence requirements, verification predicates, rollback obligations, and a validity interval. RACER combines these contracts with a risk-bounded authorization policy that selects denial, human escalation, staged canary execution, or direct bounded execution while separating the proposing model from authorization, actuation, and post-action verification. Conditional properties are derived for policy confinement, declared blast-radius enforcement, and bounded violation duration under explicit mediation and rollback assumptions. A reproducible Monte Carlo decision study evaluates 1,000,000 simulated incident-remediation pairs across 20 independent seeds. Under the stated synthetic model, unsafe global actuation is 20.14% for ungated execution, 5.48% for fixed canary execution, and 1.33% for RACER; RACER recovers 82.21% of simulated incidents while autonomously handling 80.57%. Ablations attribute the modeled improvement to risk-based escalation, staged execution, and independent verification. The results are mechanism-level simulation evidence, not production-cloud evidence, and a Kubernetes/AIOpsLab validation protocol is specified for deployment-grade testing."
+ },
+ {
+  "paperId": "faecfa446376f1b0f32e2081ada2e9a458a4d9be",
+  "externalIds": {
+   "DOI": "10.22214/ijraset.2026.84530",
+   "CorpusId": 291285292
+  },
+  "title": "From Detection to Verified Action: Operational Readiness for AI-Enabled Cloud Failure Management",
+  "venue": "International Journal for Research in Applied Science and Engineering Technology",
+  "year": 2026,
+  "openAccessPdf": {
+   "url": "https://doi.org/10.22214/ijraset.2026.84530",
+   "status": "GOLD",
+   "license": null,
+   "disclaimer": "Notice: Paper or abstract available at https://api.unpaywall.org/v2/10.22214/ijraset.2026.84530?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.22214/ijraset.2026.84530, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationDate": "2026-08-31",
+  "authors": [
+   {
+    "authorId": "2458866362",
+    "name": "Adepegba Akindayomi Akintade"
+   }
+  ],
+  "abstract": "Artificial intelligence for information technology operations has progressed from alert correlation and anomaly\ndetection to root-cause analysis, mitigation recommendation, and agents that can invoke infrastructure tools. This progression\ncreates an assurance problem: analytical performance does not establish authority to change a live cloud system. This critical\nnarrative review examines the evidence required before AI output may influence or execute failure-management action in\nmission-critical cloud infrastructure. Searches through 24 July 2026 covered scholarly databases, major systems venues,\nstandards sources, and authoritative production reports. Forty-four sources were coded by operational task, evidence setting,\nauthority, safety control, rollback, and outcome verification. Production evidence is substantial for detection, triage, diagnosis,\nand several narrowly bounded mitigation systems, but remains weak for general-purpose autonomous action. Recent agentic\nAIOps surveys emphasize contracts, bounded tools, canary deployment, and rollback; the unresolved need is an assessment\nmethod that separates what a system can infer, what it may do, and what evidence shows that the action remained safe. The\nproposed Operational Decision-Readiness and Verification framework represents a deployment claim through analytical\ncapability, operational authority, and assurance maturity. Twelve domains use explicit 0-3 evidence anchors, while endpoint\nvalidity, evidence integrity, intervention risk, authorization, reversibility, and recovery verification operate as non-compensatory\ngates. Worked assessments of six systems illustrate distinctions among analytical support, testbed execution, and narrow\nproduction autonomy. The framework is conceptual and requires prospective and inter-rater validation; it structures an actionspecific readiness case rather than certifying a model or product"
+ }
+]

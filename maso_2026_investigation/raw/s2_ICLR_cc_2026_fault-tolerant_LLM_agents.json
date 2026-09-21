@@ -1,0 +1,1 @@
+{"name":"RateLimitError","message":"Too many requests: You have made 22 requests, surpassing the limit of 20 requests. Please try again in 11 seconds (2026-09-21-5235428)","status":429,"details":{"limit":20,"remaining":0,"resetTime":"2026-09-21T11:24:24.815Z","used":22,"current":22,"reqId":"2026-09-21-5235428"}}

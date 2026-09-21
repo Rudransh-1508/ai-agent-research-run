@@ -1,0 +1,35 @@
+[error_cascade_agent] all:"error cascade" AND all:"agent"
+  retry 1 after error: suspiciously short response (0 bytes): ; sleeping 5s
+  retry 2 after error: suspiciously short response (0 bytes): ; sleeping 10s
+  retry 3 after error: suspiciously short response (0 bytes): ; sleeping 15s
+  retry 4 after error: suspiciously short response (0 bytes): ; sleeping 20s
+[cascading_failure_llm] all:"cascading failure" AND all:"LLM"
+  retry 1 after error: suspiciously short response (0 bytes): ; sleeping 5s
+  retry 2 after error: suspiciously short response (0 bytes): ; sleeping 10s
+  retry 3 after error: suspiciously short response (0 bytes): ; sleeping 15s
+  retry 4 after error: suspiciously short response (0 bytes): ; sleeping 20s
+[cascading_failures_agent] all:"cascading failures" AND all:"agent"
+  retry 1 after error: suspiciously short response (0 bytes): ; sleeping 5s
+  retry 2 after error: suspiciously short response (0 bytes): ; sleeping 10s
+  retry 3 after error: suspiciously short response (0 bytes): ; sleeping 15s
+  retry 4 after error: suspiciously short response (0 bytes): ; sleeping 20s
+[fault_injection_llm] all:"fault injection" AND all:"LLM"
+  retry 1 after error: suspiciously short response (0 bytes): ; sleeping 5s
+  retry 2 after error: suspiciously short response (0 bytes): ; sleeping 10s
+  retry 3 after error: suspiciously short response (0 bytes): ; sleeping 15s
+  retry 4 after error: suspiciously short response (0 bytes): ; sleeping 20s
+[fault_injection_agent] all:"fault injection" AND all:"agent"
+  retry 1 after error: suspiciously short response (0 bytes): ; sleeping 5s
+  retry 2 after error: suspiciously short response (0 bytes): ; sleeping 10s
+  retry 3 after error: suspiciously short response (0 bytes): ; sleeping 15s
+  retry 4 after error: suspiciously short response (0 bytes): ; sleeping 20s
+[failure_propagation_ma] all:"failure propagation" AND all:"multi-agent"
+  retry 1 after error: suspiciously short response (0 bytes): ; sleeping 5s
+  retry 2 after error: suspiciously short response (0 bytes): ; sleeping 10s
+  retry 3 after error: suspiciously short response (0 bytes): ; sleeping 15s
+  retry 4 after error: suspiciously short response (0 bytes): ; sleeping 20s
+[failure_propagation_llm] all:"failure propagation" AND all:"LLM"
+  retry 1 after error: suspiciously short response (0 bytes): ; sleeping 5s
+  retry 2 after error: suspiciously short response (0 bytes): ; sleeping 10s
+  retry 3 after error: suspiciously short response (0 bytes): ; sleeping 15s
+  retry 4 after error: suspiciously short response (0 bytes): ; sleeping 20s

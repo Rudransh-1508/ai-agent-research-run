@@ -1,0 +1,706 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/Z0hGTCbzNAccdIovQ9OvdAo8CZw</id>
+  <title>arXiv Query: search_query=all:"human-in-the-loop" AND all:"LLM" AND all:"agent"&amp;id_list=&amp;start=0&amp;max_results=20</title>
+  <updated>2026-09-21T11:14:03Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=all:%22human-in-the-loop%22+AND+(all:%22LLM%22+AND+all:%22agent%22)&amp;start=0&amp;max_results=20&amp;id_list=" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>20</opensearch:itemsPerPage>
+  <opensearch:totalResults>258</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/2609.18411v1</id>
+    <title>The Verifiable Action Card: Trustworthy Human-in-the-Loop Control for Secure Autonomous Agents</title>
+    <updated>2026-09-16T10:06:24Z</updated>
+    <link href="https://arxiv.org/abs/2609.18411v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2609.18411v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Agentic browsers can execute security-sensitive actions under a user's authenticated session, making indirect prompt injection and deceptive confirmation interfaces a direct threat to action integrity. Existing human-in-the-loop (HITL) safeguards are insufficient when the approval prompt itself can be influenced by untrusted page content or model-generated text. We present the \emph{Verifiable Action Card} (VAC), an architectural defence that reconstructs approval information from the ground-truth pending browser action and trusted intent provenance, renders it out-of-band in the trusted browser chrome, and binds approval to the exact action re-verified at dispatch. VAC combines provenance fencing, a ground-truth action descriptor, default-deny confirmation, provenance-aware risk gating, and execution binding. We implement VAC in a complete agentic browser and evaluate it on a 24-scenario benchmark covering confused-deputy attacks, Lies-in-the-Loop dialog forging, indirect prompt injection, adaptive action substitution, provenance evasion, and legitimate tasks. Across the evaluated LLMs, attack success without VAC ranges from $68\%$ to $100\%$, whereas VAC reduces attack success to $0\%$ on every model, with $78\%$ legitimate-task completion and a $0\%$ false-block rate. These results show that grounding approval in the action that will actually execute provides architectural protection against security failures that prompt-level defences and conventional HITL confirmation cannot reliably prevent.</summary>
+    <category term="cs.CR" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="eess.SP" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="eess.SY" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-09-16T10:06:24Z</published>
+    <arxiv:comment>18 Pages, double coloumn format</arxiv:comment>
+    <arxiv:primary_category term="cs.CR"/>
+    <author>
+      <name>Hasnain Irshad</name>
+    </author>
+    <author>
+      <name>Anam Mughees</name>
+    </author>
+    <author>
+      <name>Neelam Mughees</name>
+    </author>
+    <author>
+      <name>Abdullah Mughees</name>
+    </author>
+    <author>
+      <name>Imtiaz Ali Soomro</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2609.10780v1</id>
+    <title>Big Enough to Break Out: Tracking the Rising Capability of LLM Penetration-Testing Agents</title>
+    <updated>2026-09-09T19:28:22Z</updated>
+    <link href="https://arxiv.org/abs/2609.10780v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2609.10780v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Large language model (LLM) agents are increasingly applied to penetration testing, but we still know little about what they can do or how they fail. We compare two PentestGPT-based systems: a legacy human-in-the-loop system running the open-weight Kimi K2.5, and a newer autonomous system running Claude Opus 4.8. Across three public targets, the autonomous system solves all three, including the two the legacy system never finishes. The legacy result is the more surprising of the two. Even on the machines the legacy system fails to solve, it completes about half the subtasks, while running on ordinary university GPUs with no provider guardrails. We can describe the trend but not explain it, since model, harness, autonomy, and memory architecture all change together. Its direction still points to the next question: what will limit these agents as they take on more complex tasks? The usual answer is long-horizon memory, the loss of access to earlier findings during long attack chains. We test it by adding a coverage-memory layer to both systems, and neither improves outcomes. In the legacy stalled runs we could review, the limiting factor appeared to be planning and commitment rather than lost memory: agents held the evidence for a route forward and never turned it into a concrete exploitation hypothesis, which may suggest that offensive capability will advance with agents' ability to plan rather than with better memory. The same subtask scoring that tracks this capability is available to defenders, who can measure it as it rises instead of waiting to meet it in the field.</summary>
+    <category term="cs.CR" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-09-09T19:28:22Z</published>
+    <arxiv:comment>17 pages, 1 figure, 1 table</arxiv:comment>
+    <arxiv:primary_category term="cs.CR"/>
+    <author>
+      <name>Victoria Lovelace</name>
+    </author>
+    <author>
+      <name>Cameron Berryman</name>
+    </author>
+    <author>
+      <name>Yuhan You</name>
+    </author>
+    <author>
+      <name>Suhas Reddy Adavelly</name>
+    </author>
+    <author>
+      <name>Joel Sadler</name>
+    </author>
+    <author>
+      <name>Daniel Graham</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2609.08248v1</id>
+    <title>Agentic ML Exploration (A-MLE) for Ads Ranking</title>
+    <updated>2026-09-08T04:48:03Z</updated>
+    <link href="https://arxiv.org/abs/2609.08248v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2609.08248v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Modern industrial ads ranking stacks are increasingly bottlenecked not by model capacity or training compute, but by the throughput of human ML iteration - the cycles of research, implementation, training, debugging, evaluation, and launch required to surface a single statistically significant improvement. A typical ranking stack contains numerous differentiated models with heterogeneous data, architectures, and infrastructure constraints, and each cycle takes days to weeks of senior engineer attention per model. As a result, techniques that have proven effective on one model diffuse into others slowly and unevenly, leaving substantial recoverable signal unexplored. We present Agentic ML Exploration (A-MLE), an autonomous LLM-agent system that systematically explores ML techniques across a portfolio of ads ranking models. A-MLE decomposes ML iteration into five stages involving hypothesis generation, exploration strategy, experiment execution, result analysis and shared knowledge substrate which are orchestrated by a single agent that invokes domain-specific skills and agentic workflows against a sandboxed execution layer, with human-in-the-loop checkpoints at each stage boundary. We deploy A-MLE across a representative set of large-scale ads ranking models and evaluate it along a tiered capability framework (tool availability, autonomous workflow execution, and open-ended exploration). We further report a controlled cross-LLM study using a fixed agent loop, which surfaces qualitative differences in execution reliability and exploration aggressiveness across the Claude Sonnet, Gemini, and GPT families. We discuss failure modes and the design choices that govern reliability. Our findings suggest that agentic exploration is a practical force multiplier for ML engineers in industrial recommenders, especially for the long tail of models that rarely receive expert attention.</summary>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-09-08T04:48:03Z</published>
+    <arxiv:comment>7 pages, 4 figures</arxiv:comment>
+    <arxiv:primary_category term="cs.AI"/>
+    <author>
+      <name>Erwin Gao</name>
+    </author>
+    <author>
+      <name>Vinodh Kumar Sunkara</name>
+    </author>
+    <author>
+      <name>Jingyi Guan</name>
+    </author>
+    <author>
+      <name>Qinjin Jia</name>
+    </author>
+    <author>
+      <name>Hangjun Xu</name>
+    </author>
+    <author>
+      <name>Xiang Ji</name>
+    </author>
+    <author>
+      <name>Sherman Wong</name>
+    </author>
+    <author>
+      <name>Surya Teja Chavali</name>
+    </author>
+    <author>
+      <name>Pratik Vaishnavi</name>
+    </author>
+    <author>
+      <name>Aryan Pandhi</name>
+    </author>
+    <author>
+      <name>Xiaoyu Deng</name>
+    </author>
+    <author>
+      <name>Zhaodong Wang</name>
+    </author>
+    <author>
+      <name>Samarth Inani</name>
+    </author>
+    <author>
+      <name>Fan Yang</name>
+    </author>
+    <author>
+      <name>Jakob Moberg</name>
+    </author>
+    <author>
+      <name>Zoe Zu</name>
+    </author>
+    <author>
+      <name>Nicolas Bievre</name>
+    </author>
+    <author>
+      <name>Sami Khenissi</name>
+    </author>
+    <author>
+      <name>Amit Jaspal</name>
+    </author>
+    <author>
+      <name>Ehsan Fakharizadi</name>
+    </author>
+    <author>
+      <name>Srinidhi Viswanathan</name>
+    </author>
+    <author>
+      <name>Dorothy Sun</name>
+    </author>
+    <author>
+      <name>Abishek Vanam</name>
+    </author>
+    <author>
+      <name>Sneha Iyer</name>
+    </author>
+    <author>
+      <name>Sheela Yadawad</name>
+    </author>
+    <author>
+      <name>Wenjie Chen</name>
+    </author>
+    <author>
+      <name>Gaby Nahum</name>
+    </author>
+    <author>
+      <name>Junhua Gu</name>
+    </author>
+    <author>
+      <name>Peter Chu</name>
+    </author>
+    <author>
+      <name>Yucheng Liu</name>
+    </author>
+    <author>
+      <name>Xin Zhao</name>
+    </author>
+    <author>
+      <name>Vitor Cid</name>
+    </author>
+    <author>
+      <name>Chaorong Chen</name>
+    </author>
+    <author>
+      <name>Vijay Pappu</name>
+    </author>
+    <author>
+      <name>Ashwin Kumar</name>
+    </author>
+    <author>
+      <name>Wenlin Chen</name>
+    </author>
+    <author>
+      <name>Ben Schulte</name>
+    </author>
+    <author>
+      <name>Deepak Chandra</name>
+    </author>
+    <author>
+      <name>Ritwik Tewari</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2609.05314v1</id>
+    <title>Large Language Models for HVAC Operations in Building Energy Systems: A Critical Review of Methods, Applications, and Deployment Readiness</title>
+    <updated>2026-09-04T16:08:05Z</updated>
+    <link href="https://arxiv.org/abs/2609.05314v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2609.05314v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Building automation systems generate rich sensor data yet remain insight-poor because heterogeneous point naming, missing metadata, and fragmented documentation obstruct their operational use. This systematic review analyses and codes 66 peer-reviewed studies on large language models (LLMs) for HVAC operations published between 2023 and March 2026. Each study is classified across five application families and three LLM method families and assessed for evidence realism, deployment readiness, and the responsibility boundary between the LLM and physical HVAC decisions. The corpus is concentrated in building energy modelling (BEM, 32 of 66 papers), while load forecasting remains too sparse for subfield-level conclusions. Only four studies reach pilot-level evidence, and none reports sustained operational deployment. No study was classified as ready-now for industry adoption; three were near-term and 63 research-only. Nevertheless, several bounded, human-in-the-loop uses merit near-term trials, including point-name normalisation, document-grounded operator support, BEM workflow assistance, and advisory interfaces around physics-based controllers. Conventional machine learning (ML), model predictive control (MPC), reinforcement learning (RL) and ontology-based tools remain more adopted for high-frequency control, short-horizon numerical forecasting, and well-posed ontology mapping, while autonomous agentic operation and unvalidated occupant proxies remain research-stage. Current evidence therefore supports LLMs primarily as semantic and workflow layers rather than autonomous HVAC controllers. Future work should prioritise field-validated benchmarks, orchestration evaluation under operational constraints, and LLM-MPC/RL architectures with bounded latency and verifiable safety properties.</summary>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="eess.SY" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-09-04T16:08:05Z</published>
+    <arxiv:comment>38 pages, 9 figures, 16 tables. Submitted to Energy and Buildings</arxiv:comment>
+    <arxiv:primary_category term="cs.AI"/>
+    <author>
+      <name>Alexander Neubauer</name>
+    </author>
+    <author>
+      <name>Tianzhen Hong</name>
+    </author>
+    <author>
+      <name>Han Li</name>
+    </author>
+    <author>
+      <name>Mengbo Yu</name>
+    </author>
+    <author>
+      <name>Amin Darbandi</name>
+    </author>
+    <author>
+      <name>Yannick Fürst</name>
+    </author>
+    <author>
+      <name>Martin Kriegel</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2609.04523v1</id>
+    <title>MaxKernel: Agentic Kernel Generation for TPUs</title>
+    <updated>2026-09-03T22:22:37Z</updated>
+    <link href="https://arxiv.org/abs/2609.04523v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2609.04523v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Designing and authoring high-performance custom kernels for accelerators is a complex task that requires deep hardware-level expertise. Large Language Models (LLM) can be leveraged together with real-time compiler feedback to build agentic systems for kernel generation. In this work, we present MaxKernel, a multi-agent system that implements three distinct paradigms for TPU kernel development: (1) a Human-in-the-Loop (HITL) agent for collaborative, step-by-step design; (2) an Autonomous (Auto) agent that executes a fully automated, metric/trace-driven optimization loop; and (3) a Graph-Based Autonomous Search that scales the Auto agent for global exploration of the design space. All three paradigms leverage a shared pool of specialized sub-agents to handle planning, implementation, self-debugging, testing, and hardware profiling. We evaluate MaxKernel on JaxBench, a comprehensive suite of 50 diverse kernel tasks for TPUs, alongside complex, real-world workloads from state-of-the-art open-source models. We demonstrate that MaxKernel consistently generates highly optimized implementations, matching expert hand-tuned baselines and delivering significant performance across the benchmark. Our agent is open-sourced and available https://github.com/AI-Hypercomputer/accelerator-agents/tree/main/MaxKernel.</summary>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.PF" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.PL" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-09-03T22:22:37Z</published>
+    <arxiv:comment>14 pages, 6 figures, 4 tables</arxiv:comment>
+    <arxiv:primary_category term="cs.AI"/>
+    <author>
+      <name>Shangkun Wang</name>
+    </author>
+    <author>
+      <name>Nina Cai</name>
+    </author>
+    <author>
+      <name>Charles Hoong</name>
+    </author>
+    <author>
+      <name>Julian Walker</name>
+    </author>
+    <author>
+      <name>Gerson Kroiz</name>
+    </author>
+    <author>
+      <name>George Vanica</name>
+    </author>
+    <author>
+      <name>Deepak Patil</name>
+    </author>
+    <author>
+      <name>Andi Gavrilescu</name>
+    </author>
+    <author>
+      <name>Hassan Sipra</name>
+    </author>
+    <author>
+      <name>Sethu Sankaran</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2609.03230v1</id>
+    <title>Two Truths and A Lie? Benchmarking Off-the-Shelf LLMs for Requirements Quality Assessment: Performance, False Alarms, and Misses</title>
+    <updated>2026-09-03T00:06:04Z</updated>
+    <link href="https://arxiv.org/abs/2609.03230v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2609.03230v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Requirements engineering (RE) governs the quality of everything downstream in systems engineering (SE); defective requirements that survive review cycles propagate into design rework, schedule delays, and cost overruns. Because requirements are often written in natural language, recent advances in generative AI have raised expectations that large language models (LLMs) can absorb requirement quality assessment, a task otherwise slow and human expertise-intensive. Yet empirical evidence on whether LLMs can be trusted to do so remains scarce. This study presents the first benchmarking analysis of off-the-shelf LLM performance for requirement quality evaluation. Against an expert-derived ground truth built on INCOSE quality criteria, we evaluate ten models spanning two families (OpenAI and Anthropic) and five generations each, across one hundred independent runs, two requirement sets, and five sampling temperatures. Four contributions follow. First, we quantify a strongly asymmetric error profile: across all models and runs, the best-performing Anthropic model detects a median of only 47% of expert-identified issues while false-flagging 11%. Second, performance degrades significantly where SE judgment is required, as necessity and correctness issues are almost always missed. Third, generational progress is non-monotonic, so newer models cannot be assumed better. Fourth, this error behavior shifts only modestly and non-monotonically across sampling temperatures, indicating characteristic model deficiencies rather than inherent stochasticity. Off-the-shelf LLMs are therefore not yet trustworthy autonomous evaluators. Findings also warrant caution for Agentic AI developers: orchestrating these LLM modules in specialized architectures risks compounding these deficiencies rather than correcting them. Their defensible near-term role is human-in-the-loop decision support.</summary>
+    <category term="cs.SE" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-09-03T00:06:04Z</published>
+    <arxiv:primary_category term="cs.SE"/>
+    <author>
+      <name>Jannatul Shefa</name>
+    </author>
+    <author>
+      <name>Alejandro Salado</name>
+    </author>
+    <author>
+      <name>Paul Wach</name>
+    </author>
+    <author>
+      <name>Taylan G. Topcu</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2609.02149v3</id>
+    <title>OmegaUse-SOP: SOP Engineering for Professional Computer Use from Human Demonstrations</title>
+    <updated>2026-09-10T15:52:42Z</updated>
+    <link href="https://arxiv.org/abs/2609.02149v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2609.02149v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Large language models (LLMs) are increasingly evolving from conversational assistants into agents capable of operating external digital environments. Graphical user interface (GUI) agents play an important role in this transition, as many real-world workflows remain accessible only through user-facing software interfaces. However, despite recent progress on general computer-use benchmarks, domain-specific professional standard operating procedures (SOPs) remain challenging for GUI agents because they often involve implicit domain knowledge, software-specific conventions, and task-level verification requirements. We introduce OmegaUse-SOP, a human-in-the-loop SOP Engineering system for transforming human demonstrations of professional computer use into reusable SOP skills for GUI agents. Analogous to prompt engineering, SOP Engineering iteratively refines demonstrations, execution rules, and domain knowledge to convert professional SOPs into reusable GUI-agent skills. OmegaUse-SOP consists of four modules: Observe, Reason, Configure, and Execute. Together, these modules record expert operations as multimodal GUI traces, abstract low-level events into semantic step-level instructions, incorporate domain rules and task-specific parameters, and execute the resulting skills in live GUI environments through step-wise grounding, action generation, and verification. To demonstrate its effectiveness, we collaborate with a power-sector client and test OmegaUse-SOP on photovoltaic simulation workflows in PVsyst 7.2. The results suggest that OmegaUse-SOP can improve GUI-agent reliability on professional SOP tasks, highlighting a practical path toward deploying GUI agents in domain-specific professional software environments.</summary>
+    <category term="cs.HC" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-09-02T06:03:18Z</published>
+    <arxiv:comment>Accpeted to EMNLP 2026 demo track</arxiv:comment>
+    <arxiv:primary_category term="cs.HC"/>
+    <author>
+      <name>Yixiong Xiao</name>
+    </author>
+    <author>
+      <name>Lang An</name>
+    </author>
+    <author>
+      <name>Hucheng Yang</name>
+    </author>
+    <author>
+      <name>Pinxue Ma</name>
+    </author>
+    <author>
+      <name>Yongquan Chen</name>
+    </author>
+    <author>
+      <name>Jingjia Cao</name>
+    </author>
+    <author>
+      <name>Yusai Zhao</name>
+    </author>
+    <author>
+      <name>Ting Wang</name>
+    </author>
+    <author>
+      <name>Ting Liu</name>
+    </author>
+    <author>
+      <name>Siqi Bao</name>
+    </author>
+    <author>
+      <name>Jingbo Zhou</name>
+    </author>
+    <author>
+      <name>Hua Wu</name>
+    </author>
+    <arxiv:doi>10.21203/rs.3.rs-10741604/v1</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.21203/rs.3.rs-10741604/v1" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2609.00714v1</id>
+    <title>ChatDev 2.0: A No-Code Multi-Agent Platform for Developing Everything</title>
+    <updated>2026-09-01T04:47:30Z</updated>
+    <link href="https://arxiv.org/abs/2609.00714v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2609.00714v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Large language model (LLM)-based multi-agent systems (MAS) have shown strong potential for solving complex tasks, yet their development forces a tradeoff: code frameworks are expressive but engineering-intensive, while no-code builders simplify authoring but constrain agent interactions to author-defined workflows. We present ChatDev 2.0: DevAll (hereafter DevAll), a no-code platform for building, executing, and inspecting heterogeneous MAS that delivers both high expressiveness and ease of use. In terms of expressiveness, DevAll pairs a declarative executable graph abstraction with a cycle-aware execution engine, so that heterogeneous agents and dynamic and cyclic interactions can be represented and executed within a single framework. For ease of use, an integrated visual interface lets users author, run, monitor, and inspect MAS, including human-in-the-loop steps, entirely without writing code. Experiments demonstrate that DevAll reproduces state-of-the-art MAS across three representative tasks at competitive performance and without task-specific orchestration code, highlighting its effectiveness as a general-purpose platform for LLM-based MAS. DevAll is available at https://github.com/OpenBMB/ChatDev.</summary>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.MA" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-09-01T04:47:30Z</published>
+    <arxiv:comment>Accepted at EMNLP 2026 Demo Track</arxiv:comment>
+    <arxiv:primary_category term="cs.AI"/>
+    <author>
+      <name>Yufan Dang</name>
+    </author>
+    <author>
+      <name>Shu Yao</name>
+    </author>
+    <author>
+      <name>Bowen Lai</name>
+    </author>
+    <author>
+      <name>Chenting Xu</name>
+    </author>
+    <author>
+      <name>Ruijie Shi</name>
+    </author>
+    <author>
+      <name>Wai-Shing Leung</name>
+    </author>
+    <author>
+      <name>Huatao Li</name>
+    </author>
+    <author>
+      <name>Chen Qian</name>
+    </author>
+    <author>
+      <name>Zhiyuan Liu</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2608.30976v1</id>
+    <title>A Human-in-the-Loop Autonomous Agent for Industry Time Series Forecasting</title>
+    <updated>2026-08-31T15:36:41Z</updated>
+    <link href="https://arxiv.org/abs/2608.30976v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2608.30976v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Real-world time-series forecasting is rarely a one-shot model invocation: practitioners must formulate tasks, connect data and models, incorporate domain expertise, assess prediction plausibility, and communicate uncertainty. Specialized forecasting models provide strong numerical predictions but usually operate in fixed pipelines, while general-purpose large language model (LLM) agents often lack forecasting-specific checks, constraints, and stopping rules. We present CastClaw, a human-in-the-loop autonomous forecasting system built through forecasting-oriented harness engineering. CastClaw connects data, specialized models, analytical tools, user input, and a versioned execution record in one runtime. Users specify the target, horizon, constraints, and hypotheses in natural language. Starting from a supplied or model-generated forecast, CastClaw checks temporal patterns and user constraints; when evidence is missing, it retrieves context, runs an analysis or another model, or asks the user. It then keeps, revises, or escalates the result under explicit stopping conditions. The output contains the final forecast and an execution report recording inputs, evidence, actions, and revisions. In this five-dataset electricity-price setting, CastClaw reports the lowest point-estimate MSE and MAE among 16 baselines. A Nord Pool case demonstrates the inspectable workflow. CastClaw was also validated offline on provincial electricity-load data from North China covering January--June 2026.</summary>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-08-31T15:36:41Z</published>
+    <arxiv:primary_category term="cs.LG"/>
+    <author>
+      <name>Xiaoyu Tao</name>
+    </author>
+    <author>
+      <name>Mingyue Cheng</name>
+    </author>
+    <author>
+      <name>Ze Guo</name>
+    </author>
+    <author>
+      <name>Bokai Pan</name>
+    </author>
+    <author>
+      <name>Qi Liu</name>
+    </author>
+    <author>
+      <name>Shijin Wang</name>
+    </author>
+    <author>
+      <name>Enhong Chen</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2608.22618v1</id>
+    <title>KMGen: A Skill-based Approach for Synthetic Individual Patient Data Generation</title>
+    <updated>2026-08-23T21:43:01Z</updated>
+    <link href="https://arxiv.org/abs/2608.22618v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2608.22618v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Individual patient data (IPD) from clinical trials is the substrate for survival modeling, meta-analysis, and safety research, yet IPD is rarely released. Prior work has addressed only half of this gap: reconstructing Kaplan-Meier (KM) curves from published plots -- typically requiring manual digitization or human-in-the-loop correction -- while offering no mechanism for generating the adverse-event (AE) streams that constitute the other half of a patient record. We introduce KMGen, the first end-to-end framework that (i) fully automates KM curve extraction at accuracy competitive with human-guided tools, and (ii) generates synthetic per-patient AE trajectories from public trial registry records. The extraction stage is a fully automated agentic pipeline -- an agent generates code to extract each step in the KM curve -- achieving a mean Integrated Absolute Error (IAE) of 0.0151 on a 32-plot benchmark spanning clean, edge-case, and adversarial conditions. The IPD generation stage decouples patient archetype extraction from statistical sampling: an LLM distills the trial record into arm-specific statistics, adverse events, patient demographics, and risk multipliers. A mechanistic sampler generates patient events via clinical archetypes, bootstrap rank-correlation coupling to the empirical KM curve (preserving the marginal survival distribution exactly), and cycle-based AE scheduling with an induction/maintenance split. Across three held-out oncology trials spanning an order of magnitude in cohort size and 30 independent regenerations per trial, KMGen achieves mean integrated KM absolute difference $Δ_{\text{KM}}\,{\leq}\,0.051$, sex/ECOG JSD ${\leq}\,0.013$ on 5 of 6 demographic slots, and recovers ${\geq}\,71\%$ of the top-15 AEs by exact MedDRA term under a single fixed parameter set. The pipeline is released as open source at https://github.com/chufangao/kmgen.</summary>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-08-23T21:43:01Z</published>
+    <arxiv:primary_category term="cs.LG"/>
+    <arxiv:journal_ref>Proceedings of Machine Learning Research 340 (2026) 1-60</arxiv:journal_ref>
+    <author>
+      <name>Jalen Jiang</name>
+    </author>
+    <author>
+      <name>Chufan Gao</name>
+    </author>
+    <author>
+      <name>Ethan Rasmussen</name>
+    </author>
+    <author>
+      <name>Stephen Z. Xie</name>
+    </author>
+    <author>
+      <name>Jimeng Sun</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2608.21069v1</id>
+    <title>Spike-Killer: Evidence-Gated LLM Assistance for Safe Performance Diagnosis on a Real Windows Workstation</title>
+    <updated>2026-08-21T13:11:15Z</updated>
+    <link href="https://arxiv.org/abs/2608.21069v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2608.21069v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>LLM-assisted agents can synthesize system evidence, propose configuration changes, and automate diagnostic tasks, but their flexibility makes an imprecise action or an intrusive collector an operational risk. We present Spike-Killer, a human-approved workflow for diagnosing frame-time complaints on one real Windows workstation. The workflow treats each action as an evidence-gated transaction: it records the exact target state, classifies risk, preserves a snapshot, verifies a postcondition, and retains failed measurements as first-class evidence.
+  This experience paper reports a completed same-day study with Counter-Strike 2 as a demanding target application. The evidence bundle contains preserved state snapshots, exploratory microbenchmarks, a ten-run same-state repeatability probe, live telemetry, a repaired over-broad registry action, incompatible presentation-capture attempts, an invalid local replay, and a system-level tracing replacement. Windows Performance Recorder produced two CS2 local-Bot GPU traces of 90.69 and 85.85 seconds; both were attributed to cs2.exe, exposed DxgKrnl Present metadata, and had zero lost ETW buffers or events. These results qualify trace integrity, not performance: the study reports no frame intervals, P99 estimate, or intervention effect. The contribution is an auditable, human-in-the-loop pattern for trustworthy agent assistance on a real workstation, including explicit stop conditions when evidence is insufficient.</summary>
+    <category term="cs.SE" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-08-21T13:11:15Z</published>
+    <arxiv:comment>6 pages. Experience report; no causal CS2 frame-time improvement or autonomous-safety claim is made</arxiv:comment>
+    <arxiv:primary_category term="cs.SE"/>
+    <author>
+      <name>Baocheng Zeng</name>
+    </author>
+    <author>
+      <name>Jinhao Yang</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2608.20688v1</id>
+    <title>VortexChat: An agentic framework for autonomous multi-objective integrated photonic design</title>
+    <updated>2026-08-21T02:50:44Z</updated>
+    <link href="https://arxiv.org/abs/2608.20688v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2608.20688v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>The advancement of modern integrated photonics is frequently bottlenecked by device design workflows that rely heavily on manual simulation and expert intuition. While inverse design offers an alternative, it remains constrained by expert supervision and a lack of end-to-end automation. To address these issues, we present VortexChat, an agentic framework for the autonomous, end-to-end inverse design of integrated photonic devices directly from natural language specifications. VortexChat couples a large language model (LLM) decision agent with topology generation, gradient-based refinement, and full-wave electromagnetic simulation. This closed-loop architecture enables the system to iteratively decompose design objectives, orchestrate computational tools, and update strategies based on feedback with minimal human intervention. Constrained by the absolute metrics of the Vortex100 Benchmark, VortexChat autonomously generates devices that strictly meet all predefined performance thresholds without any human-in-the-loop. As an experimental demonstration, we fabricated a broadband terahertz perfect vortex beam multiplexer, autonomously designed by VortexChat, with measurements confirming high-efficiency operation, high mode purity and low inter-channel crosstalk in agreement with full-wave simulations. These results demonstrate that an LLM agent can assume key aspects of expert decision-making in photonic inverse design while maintaining physical fidelity and fabrication feasibility, providing a scalable route towards autonomous design of complex integrated photonic systems.</summary>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="physics.optics" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-08-21T02:50:44Z</published>
+    <arxiv:primary_category term="cs.AI"/>
+    <author>
+      <name>Faqian Chong</name>
+    </author>
+    <author>
+      <name>Yulun Wu</name>
+    </author>
+    <author>
+      <name>Shilong Li</name>
+    </author>
+    <author>
+      <name>Andrew Forbes</name>
+    </author>
+    <author>
+      <name>Hongsheng Chen</name>
+    </author>
+    <author>
+      <name>Song Han</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2608.19025v1</id>
+    <title>Self-prompting and cross-model consensus enable reproducible data extraction from scientific literature with large language models</title>
+    <updated>2026-08-19T15:20:11Z</updated>
+    <link href="https://arxiv.org/abs/2608.19025v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2608.19025v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Accurately extracting nuanced, contextualized data from research articles is laborious and time intensive. Here, we investigate the performance of frontier, browser-based large language models (LLMs) to extract highly contextualized information. We demonstrate four escalating workflows, 1) given an expert curated prompt and research articles, most frontier LLMs perform well at data extraction, however can struggle with interpreting scientific context and nuance, 2) given simple instructions, LLMs can author their own prompts which were almost as eNective as expert-written prompts, 3) autonomous discovery of research literature was diNicult, agents either missed or hallucinated references, and 4) LLMs can create new datasets from published guidelines that closely match human-expert judges, but still require a human-in-the-loop. Together, these findings define an auditable division of labour in which experts specify the evidence standard, models cross-check repeated extractions and researchers resolve disputed cases, providing a practical route to scaling scientific data curation without relinquishing expert oversight.</summary>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.DB" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-08-19T15:20:11Z</published>
+    <arxiv:primary_category term="cs.AI"/>
+    <author>
+      <name>Valentin Romanov</name>
+    </author>
+    <author>
+      <name>Monique Bax</name>
+    </author>
+    <author>
+      <name>Steven Niederer</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2608.16045v1</id>
+    <title>Walk Before You Run: The Importance of Data Exploration for Data Analysis Agents</title>
+    <updated>2026-08-17T03:19:59Z</updated>
+    <link href="https://arxiv.org/abs/2608.16045v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2608.16045v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>LLM-based data-analysis tools are increasingly used to help users analyze messy spreadsheets and workbooks, from answering questions over uploaded files to generating code, summaries, and visualizations. These systems are often evaluated by the correctness of their final downstream answers. However, reliable data analysis also depends on an earlier step: understanding what the dataset contains before solving the requested task. For complex workbooks, this Data Exploration step includes identifying the logical tables behind physical sheets, interpreting column semantics, recovering keys and relationships, and detecting quality issues. In current tools and benchmarks, this step is usually left implicit, creating a gap between downstream task performance and the dataset understanding needed for reliable, human-checkable analysis. Our key contribution is to identify this overlooked gap, make Data Exploration a first-class evaluation target, and show through downstream experiments that stronger Data Exploration support improves task performance. To evaluate dataset understanding directly, we introduce two benchmark settings: a real multi-sheet workbook benchmark based on a Vitamin D study dataset, and an extension of DSBench with schema-fixed Data Exploration artifacts. In both settings, systems are evaluated by the quality of a structured artifact capturing tables, columns, semantic roles, relationships, and profiling signals. Our results show that strong LLMs and data-analysis agents still miss important logical structure even when they read spreadsheet content. Furthermore, explicit Data Exploration support often improves downstream correctness, suggesting it should be treated as a first-class, inspectable stage in LLM data-analysis workflows and a natural human-in-the-loop checkpoint where domain experts can review and correct the artifact before downstream analysis proceeds.</summary>
+    <category term="cs.DB" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-08-17T03:19:59Z</published>
+    <arxiv:comment>9 pages, 6 figures. Accepted to VLDB 2026 Workshop: DASHSys: Systems for Data-centric Agents with Human-in-the-loop</arxiv:comment>
+    <arxiv:primary_category term="cs.DB"/>
+    <author>
+      <name>Yike Yuan</name>
+    </author>
+    <author>
+      <name>Virum Ranka</name>
+    </author>
+    <author>
+      <name>Tina Lasisi</name>
+    </author>
+    <author>
+      <name>Lin Ma</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2608.15591v1</id>
+    <title>Agent Gym: A Framework for Continuous Evaluation and Evolution of LLM Agents Through Human-in-the-Loop Feedback</title>
+    <updated>2026-08-16T07:27:26Z</updated>
+    <link href="https://arxiv.org/abs/2608.15591v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2608.15591v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Large Language Model (LLM) agents deployed in production environments face a fundamental tension: the agent's behavior is frozen at deployment time, while the business rules and edge cases it must handle continue to evolve. Existing approaches address agent construction and one-time evaluation but provide no structured mechanism for continuous post-deployment behavioral correction without modifying the agent's source code. Most of the approaches offered in the market, require intense collection of logs and traces, and re-examining the agent design by the engineering team, a process which is heavy, long and negates the economical value of agentic transformation. We introduce Agent Gym, a modular, domain-agnostic framework that wraps any existing LLM-based agent in a continuous evaluation-and-evolution loop. The framework provides six composable capabilities --- Act, Evaluate, Investigate, Correct, Learn, and Observe --- organized across three architectural zones: a constitution layer that codifies domain knowledge in configuration artifacts, a runtime inference pipeline that chains acting, investigation, and adaptive correction, and a learning loop that enables subject matter experts to discover and validate new correction rules through natural language interaction. The key technical contributions include a hybrid deterministic-LLM correction engine with 21 condition operators and three-tier actions, a three-layer investigation architecture for ground-truth-free compliance validation, and a programmatic safety loop that guarantees rule correctness before human approval. We further introduce the Spec-to-Note Gap, an autoencoder-inspired view of agentic system transparency. An open-source reference implementation for invoice processing demonstrates that the framework is fully operational and ready for adoption.</summary>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-08-16T07:27:26Z</published>
+    <arxiv:comment>15 pages, 4 figures</arxiv:comment>
+    <arxiv:primary_category term="cs.AI"/>
+    <author>
+      <name>Pouya Ghiasnezhad Omran</name>
+    </author>
+    <author>
+      <name>Michael Zimmermann</name>
+    </author>
+    <author>
+      <name>Duncan Cambridge</name>
+    </author>
+    <author>
+      <name>Ashmita Kapoor</name>
+    </author>
+    <author>
+      <name>Tanya Dixit</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2608.12133v1</id>
+    <title>GUIDE: Governed Unified Intelligence for Document-to-Artifact Generation in Enterprise Settings</title>
+    <updated>2026-08-12T14:52:33Z</updated>
+    <link href="https://arxiv.org/abs/2608.12133v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2608.12133v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Enterprise guideline documents are heterogeneous and multimodal, combining narrative text, complex tables, and embedded images. Existing LLM and VLM systems face hallucinated content, table structure degradation, and lack governed workflows extending beyond extraction to validation and artifact generation. This leaves enterprises to perform this manually, consuming 2-3 days per document. To address this, we introduce GUIDE, a governed multi-agent framework built on a shared versioned rule store with schema-validated inter-agent contracts and end-to-end provenance tracking. Six specialized agents handle parsing, VLM-driven extraction, consistency checking, evaluation, human-in-the-loop (HITL) escalation, and persona-tailored artifact synthesis. Evaluated on 120 real-world enterprise guideline documents, GUIDE achieves 96% document success, extracts 3,896 rules with 71.4% auto-approved, produces 812 deployment-ready artifacts, and reduces turnaround to 40-125 minutes per document.</summary>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-08-12T14:52:33Z</published>
+    <arxiv:primary_category term="cs.AI"/>
+    <author>
+      <name>Shivali Dalmia</name>
+    </author>
+    <author>
+      <name>Sumukha Thoppanahalli</name>
+    </author>
+    <author>
+      <name>Mohammadreza Sediqin</name>
+    </author>
+    <author>
+      <name>Abhishek Mukherji</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2608.07627v1</id>
+    <title>From Single Chatbots to Governed Agent Ecosystems: An Agentic AI Pattern Catalogue and Orchestration Framework for Mission-Critical Hospital Information Management Systems</title>
+    <updated>2026-08-07T10:57:30Z</updated>
+    <link href="https://arxiv.org/abs/2608.07627v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2608.07627v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Hospitals are racing to embed AI, while coping with the surge in adaptation of the technology in other industries, into the triage management, documentation, scheduling, and revenue-cycle workflows, yet most deployments remain as fragmented pilots that stall at the edge of production, exposing patients and institutions to operational fragility, ungoverned risk, and mounting technical debt. At the same time, the global AI-in-healthcare market is projected to exceed nearly USD 1 trillion by 2034, according to the report of Fortune Business Insights, amplifying the financial consequences of architectural missteps and failed scaling strategies. This research proposes a compliance-first Agentic AI pattern catalogue and orchestration framework, purposely built for HIMS, moving beyond the single LLM chatbots and towards a governed ecosystem of autonomous and semi-autonomous agents. The framework extends by adding (i) a taxonomy of Agentic roles, (ii) a formal risk-stratification model that maps each pattern to risk tiers, human-in-the-loop checkpoints, and governance hooks, and (iii) a unified orchestration runtime capable of coordinating multi-agent workflows across EHR/HIMS landscapes such as Epic, Cerner, and MEDITECH. Technically the framework combines vLLM-based inference, optimized paging memory, confidential computing, and MCP based on-premise deployment, enforcing end-to-end encryption and policy-as-code controls aligned with HIPAA, GDPR, the EU AI Act, India's DPDP and DISHA Acts, ISO 27001, ISO 27002, ISO 14971 and IEC 62304. We exhibit how the proposed architecture is capable and efficient to reduce the documentation time, integration effort, and AI pilot attrition while constricting the governance and auditability, offering hospital leaders and governing authorities an urgently needed blueprint to convert AI investment into sustainable clinical, operational, and financial ROI</summary>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.MA" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-08-07T10:57:30Z</published>
+    <arxiv:comment>Peer-reviewed published article</arxiv:comment>
+    <arxiv:primary_category term="cs.AI"/>
+    <arxiv:journal_ref>International Journal of Innovative Science and Research Technology (IJISRT), 11-2026(5), IJISRT26MAY1651</arxiv:journal_ref>
+    <author>
+      <name>Manideep Dhar</name>
+    </author>
+    <author>
+      <name>Ritwik Singh</name>
+    </author>
+    <author>
+      <name>Sharat Chandra Kumar Manikonda</name>
+    </author>
+    <arxiv:doi>10.38124/ijisrt/26jul830</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.38124/ijisrt/26jul830" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2608.05391v1</id>
+    <title>Adaptive Arena-based Contestable Argumentative Network-of-Experts for Open-Ended Care Plan Coordination</title>
+    <updated>2026-08-05T20:18:45Z</updated>
+    <link href="https://arxiv.org/abs/2608.05391v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2608.05391v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Care plan coordination demands synthesizing heterogeneous clinical, functional, and psychosocial information across multiple professional disciplines, where monolithic LLM pipelines cannot perform in a transparent or safe manner. We present CANOE (Contestable Argumentative Network-of-Experts), a multi-agent neuro-symbolic framework that addresses these limitations through five modules: complexity assessment, adaptive team recruitment, role-based argumentative computation via an Arena-based Quantitative Bipolar Argumentation Framework (A-QBAF), human-in-the-loop contestation, and care-plan synthesis. Role-specialized agents generate supporting and attacking arguments for candidate interventions; conflicts are resolved through arena-based clash resolution before acceptability scores propagate across the argumentation graph. Care planners may accept, reject, edit, or add arguments, and the framework will deterministically recompute the final plan. Evaluation on Discharge Me! and MedicalRAG using ROUGE-L, AlignScore, MEDCON F1, FKGL, and LLM-as-a-judge shows that medically fine-tuned models achieve the strongest clinical correctness and safety, while CANOE's argumentative structure provides faithful explanation and human contestability.</summary>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.MA" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-08-05T20:18:45Z</published>
+    <arxiv:comment>Accepted at the 4th International Conference on Frontiers of Artificial Intelligence, Ethics, and Multidisciplinary Applications</arxiv:comment>
+    <arxiv:primary_category term="cs.AI"/>
+    <author>
+      <name>Truong Thanh Hung Nguyen</name>
+    </author>
+    <author>
+      <name>Hoang-Loc Cao</name>
+    </author>
+    <author>
+      <name>Phuc Ho</name>
+    </author>
+    <author>
+      <name>Phuc Truong Loc Nguyen</name>
+    </author>
+    <author>
+      <name>René Richard</name>
+    </author>
+    <author>
+      <name>Hung Cao</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2608.04341v1</id>
+    <title>Continuous Improvement and Parallel Autonomous Exploration: An LLM-Agent Framework for Searching Large Solution Spaces</title>
+    <updated>2026-08-05T01:40:25Z</updated>
+    <link href="https://arxiv.org/abs/2608.04341v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2608.04341v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We present a framework that gives LLM agents two mechanisms for searching large solution spaces autonomously. First, a leaderboard scored on held-out data acts as a reward signal that drives each agent to refine its solutions over repeated submissions, a loop that operates even with a single agent. Second, the framework enables running many agents in parallel, fully autonomously, with no human in the loop: agents independently analyze, survey methods, implement, self-evaluate, submit, and revise, while a moderator agent handles only logistics. Running agents in parallel under the shared reward broadens the explored region of the solution space rather than refining the single seeded paradigm. We instantiate the framework on product-to-catalog matching (a core e-commerce retrieval task with a large, category-structured solution space), posed as selective prediction with a precision-coverage operating point. A single agent refines within its seeded paradigm, whereas parallel autonomous agents surface qualitatively different solutions. On this testbed, best qualified coverage (&gt;=95% P@1 per category) reaches 47.8-57.4% with a single agent and 62.8-69.4% with five, against a 33.3% baseline. Our contribution is the framework itself: a continuous-improvement reward loop and a substrate for fully autonomous parallel exploration, backed by case-study evidence.</summary>
+    <category term="cs.MA" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-08-05T01:40:25Z</published>
+    <arxiv:comment>5 pages, ACM KDD'26 Workshop on SciSoc Agents &amp; LLMs</arxiv:comment>
+    <arxiv:primary_category term="cs.MA"/>
+    <author>
+      <name>Dulmini Hettiarachchi</name>
+    </author>
+    <author>
+      <name>Andre Rusli</name>
+    </author>
+    <author>
+      <name>Julio Christian Young</name>
+    </author>
+    <author>
+      <name>Sho Akiyama</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2608.04270v1</id>
+    <title>CURATE: Leveraging LLM Agents to Compose, Catalog, and Deploy Reproducible Workflows</title>
+    <updated>2026-08-04T23:01:29Z</updated>
+    <link href="https://arxiv.org/abs/2608.04270v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2608.04270v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Agentic code generation has shown promise in automating and accelerating software development by utilizing Large Language Models (LLMs) to generate, test, and deploy code. For engineers and scientists, such systems have the potential to accelerate the development of applied and scientific workflows while reducing barriers to entry in domains that have yet to fully realize their benefits. However, a key gap remains: existing coding agents primarily focus on code generation and do not address the entire workflow lifecycle, including deployment and sharing. As a result, users develop and stitch modules independently while managing deployment on their own. To address this gap, we propose CURATE - Composition, User-in-the-loop, Reuse, and Automated Task Execution - a novel human-in-the-loop multi-agent system that uses LLM agents to manage and develop composable workflows across their entire lifecycle. A key feature of the system is a catalog that allows for the storage and reuse of modules across workflows. Module catalogs provide a foundation that can be expanded to support FAIR principles by facilitating the sharing and reuse of curated modules and subgraphs. We demonstrate the feasibility of our system with an initial prototype using Claude Opus 4.8, comprising 6 experiments: reproducing and adapting 4 workflows derived from the SeBS-Flow benchmark suite, and automating the development and scaling of a workflow that leverages a complex mechanistic model in environmental engineering used to simulate anaerobic digestion.</summary>
+    <category term="cs.SE" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.MA" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-08-04T23:01:29Z</published>
+    <arxiv:comment>8 pages, 3 figures</arxiv:comment>
+    <arxiv:primary_category term="cs.SE"/>
+    <author>
+      <name>Nolan Cutler</name>
+    </author>
+    <author>
+      <name>Chia-Chen Kuo</name>
+    </author>
+    <author>
+      <name>Nanda Velugoti</name>
+    </author>
+    <author>
+      <name>Kathryn Newhart</name>
+    </author>
+    <author>
+      <name>Renato Figueiredo</name>
+    </author>
+  </entry>
+</feed>

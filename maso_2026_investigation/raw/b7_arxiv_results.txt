@@ -1,0 +1,22 @@
+=== QUERY: confused deputy + agent ===
+# attempt 1 failed/429 for confused deputy + agent; sleeping
+# attempt 2 failed/429 for confused deputy + agent; sleeping
+# attempt 3 failed/429 for confused deputy + agent; sleeping
+# attempt 4 failed/429 for confused deputy + agent; sleeping
+# attempt 5 failed/429 for confused deputy + agent; sleeping
+=== QUERY: OAuth + AI agent ===
+# attempt 1 failed/429 for OAuth + AI agent; sleeping
+# attempt 2 failed/429 for OAuth + AI agent; sleeping
+# attempt 3 failed/429 for OAuth + AI agent; sleeping
+# attempt 4 failed/429 for OAuth + AI agent; sleeping
+# attempt 5 failed/429 for OAuth + AI agent; sleeping
+=== QUERY: agent identity + authorization ===
+# attempt 1 failed/429 for agent identity + authorization; sleeping
+# attempt 2 failed/429 for agent identity + authorization; sleeping
+# attempt 3 failed/429 for agent identity + authorization; sleeping
+# attempt 4 failed/429 for agent identity + authorization; sleeping
+# attempt 5 failed/429 for agent identity + authorization; sleeping
+=== QUERY: delegation token + LLM agent ===
+# attempt 1 failed/429 for delegation token + LLM agent; sleeping
+# attempt 2 failed/429 for delegation token + LLM agent; sleeping
+# attempt 3 failed/429 for delegation token + LLM agent; sleeping

@@ -1,0 +1,242 @@
+{
+ "Yhc2PvgFyh": {
+  "forum": "Yhc2PvgFyh",
+  "title": "Dual Latent Memory for Visual Multi-agent System",
+  "abstract": "While Visual Multi-Agent Systems (VMAS) promise to enhance comprehensive abilities through inter-agent collaboration, empirical evidence reveals a counter-intuitive \"scaling wall\": increasing agent turns often degrades performance while exponentially inflating token costs. We attribute this failure to the information bottleneck inherent in text-centric communication, where converting perceptual and thinking trajectories into discrete natural language inevitably induces semantic loss. To this end, we propose L$^{2}$-VMAS, a novel model-agnostic framework that enables inter-agent collaboration with dual latent memories. Based on such a design, we decouple the perception and thinking while dynamically synthesizing dual latent memories. Additionally, we introduce an entropy-driven proactive triggering that replaces passive information transmission with efficient, on-demand memory access. Extensive experiments among backbones, sizes, and multi-agent structures demonstrate that our method effectively breaks the \"scaling wall\" with superb scalability, improving average accuracy by 2.7-5.4% while reducing total token usage by 21.3-44.8%. The codes will be publicly released.",
+  "venue": "ICML 2026 regular",
+  "score": 2,
+  "q": "s2_ICML_cc_2026_accountability_multi-agent.json"
+ },
+ "LlQntOHdyl": {
+  "forum": "LlQntOHdyl",
+  "title": "Governance Drift: When Scientific AI Loses Accountability Through Citation Instability",
+  "abstract": "As AI systems become autonomous agents in scientific research, their accountability mechanisms\u2014particularly citation practices\u2014reveal critical governance failures. This study introduces governance drift, where Large Language Models systematically violate accountability obligations through citation mutation, loss, and fabrication across multi-turn conversations. Through analysis of 240 conversations across four LLaMA models using 36 scientific papers, we demonstrate that citation instability represents a fundamental governance breakdown. Results show dramatic variation in accountability adherence, with llama-4-scout-17b exhibiting 85.6% fabrication rates\u2014a clear violation of epistemic governance norms. We introduce the Governance Stability Index (GSI) as a quantitative audit tool for AI accountability. These findings reveal that current AI systems lack the governance-by-design mechanisms necessary for responsible autonomous research assistance. Future governance frameworks should treat citation verification as an accountability primitive to ensure trustworthy, auditable scientific AI.",
+  "venue": "AAAI 2026 Workshop AIGOV Submission",
+  "score": 2,
+  "q": "s2_AAAI_org_2026_accountability_multi-agent.json"
+ },
+ "hk3qQRuDwA": {
+  "forum": "hk3qQRuDwA",
+  "title": "A Collaborative Multi-Agent Framework for Jailbreaking with RL-Based Dynamic Prompting",
+  "abstract": "Evaluating large language models (LLMs) under adversarial prompting remains difficult: heuristic and genetic red-teaming pipelines require heavy hand-tuning and are query-inefficient, while recent reinforcement learning based attacks often optimize sparse or binary rewards (e.g., pass/fail, cosine similarity), yielding unstable training and low diversity. In this paper, we present a rating-based adversarial RL framework that formulates jailbreak discovery as dense-reward optimization. The proposed framework closes the loop among (i) a Soft Actor--Critic (SAC) agent attacker with hybrid discrete--continuous actions (operator family + style sliders), (ii) a controllable rewriter LLM that preserves intent while injecting surface diversity and stealth, and (iii) a calibrated judge LLM that assigns five absolute ratings---\\emph{Success, Stealth, Novelty, Efficiency, Impact}. A curriculum-weighted aggregation converts these ratings into a continuous reward, and stratified replay, early-exit, and de-duplication further improve sample and query efficiency. We instantiate the judge as LLaMA-3-Instruct and the rewriter as Yi-9B, and evaluate across three target models (LLaMA-3, Qwen-2.5-7B, Mistral-7B) using the SORRY-Bench dataset for training seeds/priors and the out-of-distribution harmful subset of the JailbreakBench dataset for testing. Empirically, our framework achieves up to a 15\\% higher attack success rate while maintaining greater prompt novelty and stealth. These results indicate that dense, interpretable rating signals paired with off-policy optimization provide a scalable foundation for safety-aligned, query-efficient jailbreak evaluation.",
+  "venue": "AAAI 2026 TrustAgent Workshop Poster",
+  "score": 2,
+  "q": "s2_AAAI_org_2026_human-agent_teaming_failure.json"
+ },
+ "ILM2fGc4TA": {
+  "forum": "ILM2fGc4TA",
+  "title": "Blue Teaming Function-Calling Agents",
+  "abstract": "We present an experimental evaluation that assesses the robustness of four open source LLMs claiming function-calling\ncapabilities against three different attacks, and we measure the effectiveness of eight different defences. Our results show\nhow these models are not safe by default, and how the defences are not yet employable in real-world scenarios.",
+  "venue": "AAAI 2026 TrustAgent Workshop Poster",
+  "score": 2,
+  "q": "s2_AAAI_org_2026_human-agent_teaming_failure.json"
+ },
+ "5cgg9yenCZ": {
+  "forum": "5cgg9yenCZ",
+  "title": "From Untrusted Input to Trusted Memory: A Systematic Study of Memory Poisoning Attacks in LLM Agents",
+  "abstract": "Memory is a core component of AI agents, enabling them to accumulate knowledge across interactions and improve performance. However, persistent memory introduces the risk of memory poisoning, where a single adversarial memory write can exert long-term influence over agent behavior. We present a systematic study of memory poisoning in LLM-based agents. We identify four memory write channels and nine structural vulnerabilities in model capabilities, system prompt design, and agent system architecture that make these channels exploitable. Based on these vulnerabilities, we develop a taxonomy of six classes of memory poisoning attacks. Furthermore, we design MPBench - a benchmark for evaluating memory poisoning attacks, and show that agents designed to write and retrieve memory more aggressively are more exploitable. We also show that existing prompt injection defenses fail to cover memory poisoning attacks. Our findings provide a foundation for understanding and mitigating memory poisoning attacks against AI agents.",
+  "venue": "ICML 2026 AIWILD",
+  "score": 3,
+  "q": "s2_ICML_cc_2026_memory_poisoning_agents.json"
+ },
+ "gdMNGQRTuS": {
+  "forum": "gdMNGQRTuS",
+  "title": "Hidden in Memory: Sleeper Memory Poisoning in LLM Agents",
+  "abstract": "Large language models are increasingly augmented with persistent memory, allowing assistants to store user-specific information across sessions for personalization and continuity. This statefulness introduces a new security risk: the adversarial content can corrupt what an assistant remembers and thereby influence future interactions. We propose and study \\emph{sleeper memory poisoning}, a delayed attack in which an adversary manipulates external context, such as a document, webpage, or repository, to cause the assistant to store a fabricated memory about the user. Unlike conventional prompt injection, the attack can remain dormant and re-emerge across multiple later conversations. We evaluate the full attack pipeline: whether poisoned memories are written, later retrieved, and ultimately used to steer the following conversations. Across stateful LLM assistants, poisoned memories were added up to 99.8% on GPT-5.5 and 95% on Kimi-K2.6. Crucially, among successful injections, poisoned memories cause attacker-intended agentic actions in 60--89% of evaluations across models. These results show that persistent memory can act as a long-term attack surface across multiple future conversations.",
+  "venue": "ICML 2026 AIWILD",
+  "score": 3,
+  "q": "s2_ICML_cc_2026_memory_poisoning_agents.json"
+ },
+ "yUbDGcrVBX": {
+  "forum": "yUbDGcrVBX",
+  "title": "MemShield: A Three-Tier Retrieval-Time Defense Against Coordinated Memory Poisoning in LLM Agents",
+  "abstract": "LLM agents now lean on persistent long-term memory through retrieval-augmented generation, and that memory is an attack surface. An attacker who controls a few user accounts, an upstream feed, or a compromised internal writer can drop entries that quietly steer the agent across sessions. Existing defenses are either expensive or need white-box access, and none gives a finite-sample false-positive bound that survives a change of LLM backbone. Coordinated attacks announce themselves in metadata; existing defenses look only at content. We exploit this with \\textsc{MemShield}, a three-tier retrieval-time defense. A structural detector reads batch metadata (writer overlap, temporal burst, write-context overlap) and flags coordinated poisoning at zero LLM cost. A conformal-calibrated judge handles borderline batches with a marginal FPR bound from split-conformal prediction. Clean batches pass through. The per-entry judge fails two ways. On Mistral-7B-v0.3 it saturates and collapses to zero recall; on Llama-3.1-70B it stays sharp but rarely flags individual entries (recall $0.31$). In both cases, the structural tier carries detection at $\\geq 0.93$ recall. Across 48 cells (4 backbones $\\times$ 3 retrievers $\\times$ 4 datasets) and 12 attacks, the composition lifts median recall from $0.30$ to $1.00$ at $67.8\\%$ fewer judge calls and within the conformal bound $$\\alpha + \\frac{1}{N+1} \\approx 0.082.$$",
+  "venue": "FAGEN@ICML 2026 Poster",
+  "score": 4,
+  "q": "s2_ICML_cc_2026_memory_poisoning_agents.json"
+ },
+ "1YNrlSSRsk": {
+  "forum": "1YNrlSSRsk",
+  "title": "MemIncept: Steering LLM Agents via Cooperative Stealthy Memory Injections",
+  "abstract": "Long-term memory empowers LLM-based agents with adaptive reasoning but exposes a critical attack surface---adversaries can inject malicious records to bias agent behaviors. However, existing attacks face a dilemma: effective injections are often visibly malicious and easily detected, while stealthy, benign-looking injections are often less effective in altering agent behaviors. To address this, we propose MemIncept, a memory poisoning attack that can impact agents even in black-box settings using only benign-appearing queries. Unlike prior methods that inject isolated records, MemIncept generates a cooperative set of queries that work together to bias the agent.  It achieves this via a bidirectional evolutionary strategy that optimizes the query set from two ends. A forward pass ensures the queries collectively lead the agent to the target outcome, while a backward pass ensures they are semantically close to victim (benign) queries for reliable retrieval. This ``meet-in-the-middle'' approach creates injected records that are both easy to retrieve and effective at steering behavior. Through extensive experiments across diverse agents, we show that MemIncept significantly outperforms single-record attacks, achieving high success rates comparable to explicit attacks while remaining difficult to flag under automated filters or human inspection.",
+  "venue": "ICML 2026 regular",
+  "score": 2,
+  "q": "s2_ICML_cc_2026_memory_poisoning_agents.json"
+ },
+ "jiNw5AgBbw": {
+  "forum": "jiNw5AgBbw",
+  "title": "Think Twice Before You Act: Protecting LLM Agents Against Tool Description Poisoning via Isolated Planning",
+  "abstract": "The integration of external tools has substantially expanded the capabilities of large language model (LLM) agents, but it also introduces new attack surfaces beyond prompt injection. In particular, cross-tool description poisoning can manipulate planner-visible tool metadata to steer an agent\u2019s trajectory, even if the poisoned tool itself is never chosen. To understand the effectiveness of existing defenses against this emerging threat, we first evaluate several prompt-injection defenses and find that they transfer poorly to cross-tool description poisoning. A key observation is that poisoned descriptions persist in the planning context across steps, enabling continuous influence over subsequent tool choices. Building on this insight, we propose Tool-Guard, a novel system-level defense based on a new concept called *isolated planning*, in which tool invocations that are detected as misaligned or suspicious cause the corresponding tool to be placed in a quarantined list (the *influenced list*), breaking further influence from poisoned descriptions. With this influence isolated, the tool can continue to be used to support the task, enabling a robust defense that preserves legitimate tool utility. Experiments on the AgentDojo and ASB benchmarks show that Tool-Guard substantially reduces attack success while maintaining high task utility. Our code is available at https://github.com/shishishi123/Tool-Guard.",
+  "venue": "ICML 2026 regular",
+  "score": 2,
+  "q": "s2_ICML_cc_2026_memory_poisoning_agents.json"
+ },
+ "9JiPHfleLn": {
+  "forum": "9JiPHfleLn",
+  "title": "Selective Memory Retention for Long-Horizon LLM Agents",
+  "abstract": "When does retention matter for memory-augmented LLM agents? We study this with TraceRetain, a lightweight framework for bounded external memory in frozen LLM agents that scores entries by interpretable features (success, age, access frequency, redundancy, specificity, similarity, downstream utility) and evicts the lowest-scoring ones at capacity. On clean ALFWorld with gpt-5-mini, external memory robustly improves over no memory across two seeds, but differences among bounded retention policies fall within Wilson 95% CIs: clean ALFWorld at T=100 to T=200 does not naturally exhibit the memory pollution retention is designed to address. Under a controlled noisy-write stress (75% synthetic distractors), unbounded memory and FIFO-K50 degrade on Precision@5 (20.2% to 12.4% and 15.8% to 3.8%) while TraceRetain-CEM is essentially unchanged (16.9% to 16.6%) and preserves 97/100 task success. The mechanism: unbounded memory has the highest mean similarity (0.87) but lowest precision, indicating failed distractors close to the query in embedding space. Held-out in-distribution evaluation shows memory-augmented policies solving 47 to 49 of 50 tasks vs. 39/50 for no memory. Bounded retention buys memory and step efficiency on saturated clean benchmarks at no task-success cost, and only differentiates from cache heuristics when streams contain noise.",
+  "venue": "CATS@ICML26 Poster",
+  "score": 3,
+  "q": "s2_ICML_cc_2026_memory_poisoning_agents.json"
+ },
+ "Bb0pQqsiad": {
+  "forum": "Bb0pQqsiad",
+  "title": "AgentLAB: Benchmarking LLM Agents against Long-Horizon Attacks",
+  "abstract": "LLM agents are increasingly deployed in long-horizon, complex environments to solve challenging problems, but this expansion exposes them to long-horizon attacks that exploit multi-turn user\u2013agent\u2013environment interactions to achieve objectives infeasible in single-turn settings. To measure agent vulnerabilities to such risks, we present AgentLAB, the first benchmark dedicated to evaluating LLM agent susceptibility to adaptive, long-horizon attacks. Currently, AgentLAB supports five novel attack types including intent hijacking, tool chaining, task injection, objective drifting, and memory poisoning, spanning 28 realistic agentic environments, and 644 security test cases. Leveraging AgentLAB, we evaluate representative LLM agents and find that they remain highly susceptible to long-horizon attacks; moreover, defenses designed for single-turn interactions fail to reliably mitigate long-horizon threats. We anticipate that AgentLAB will serve as a valuable benchmark for tracking progress on securing LLM agents in practical settings. The code for AgentLAB is available at:\nhttps://tanqiujiang.github.io/AgentLAB_main.",
+  "venue": "ICML 2026 regular",
+  "score": 3,
+  "q": "s2_ICML_cc_2026_fault-tolerant_LLM_agents.json"
+ },
+ "J6AMd2AkOW": {
+  "forum": "J6AMd2AkOW",
+  "title": "Naive Visual Memory is Not Enough: A Failure-Mode Study of GUI Agents",
+  "abstract": "Graphical User Interface (GUI) agents are increasingly used to automate complex computer tasks across applications, websites, and operating systems. To improve their reliability, recent work has introduced experiential memory, where agents retrieve prior trajectories to guide decision-making in similar states. More recent approaches further extend this idea to visual memory by storing and retrieving screenshots from past interactions, providing agents with richer contextual information than text-only memories. However, the effect of visual memory in GUI agents remains insufficiently understood: it is unclear which failures visual memory mitigates, or which failures it exacerbates. To systematically analyze the effect of visual memory, we introduce a taxonomy of four GUI agent failures (i.e., cognitive failure, visual state misunderstanding, hidden operation blindness, and grounding error) that map to distinct stages of the perception-reasoning-action pipeline. We find that prepending full-image memory has a divergent effect on the failure distribution: it reduces state-level failures but worsens action-level ones, and increases hidden operation blindness and grounding error. Motivated by this finding, we propose Action-Grounded Visual Memory (AGMem), an action-grounded memory framework for GUI agents. The core idea of AGMem is to store image crops that capture the local GUI region closely related to a successful action or a recovery, rather than storing full screenshots. Experiments on OSWorld show that AGMem improves task success rates by 33.3 % over full-image memory. These results demonstrate that AGMem is an effective representation for visual memory in GUI agents.",
+  "venue": "FAGEN@ICML 2026 Poster",
+  "score": 2,
+  "q": "s2_ICML_cc_2026_memory_poisoning_agents.json"
+ },
+ "INX9FhqbUM": {
+  "forum": "INX9FhqbUM",
+  "title": "MermaidFlow-CF: How Agentic Workflow Representation Governs Constraint-Faithful Control",
+  "abstract": "Agentic workflows coordinate LLM agents to autonomously generate, refine, and execute multi-step task pipelines, yet maintaining reliable control over instruction-following behavior remains challenging, often resulting in cascading workflow failures. These failures frequently stem from unconstrained workflow synthesis, where structural drift and broken control flow accumulate over time. In this paper, we show that a key driver of this brittleness is workflow representation, which determines whether planning structure and control flow can be preserved during generation, evaluation, and execution. We introduce MermaidFlow-CF, a constraint-faithful workflow optimization framework that represents workflows in a symbolic graph DSL Mermaid, enabling symbolic control-flow syntax that renders planning structure explicit and supports interpretable and checkable workflow generation. Building on this formulation, we formalize the constrained workflow optimization problem and introduce a structured taxonomy of workflow constraints spanning resource feasibility, executability, structural validity, and causal coherence. We further develop an evaluation protocol to measure constraint violation and correction dynamics for the constraints. Across multi-step reasoning benchmarks, MermaidFlow-CF achieves significantly higher constraint fidelity and markedly fewer cascading failures than AFlow, a Python-based workflow optimization baseline. These results show that symbolic workflow representations in Mermaid provide a more reliable foundation for agentic pipelines than Python, and that constraints function not as barriers but as structural priors that shape optimization dynamics and enable more stable, higher-performance optimization in agentic workflow planning.",
+  "venue": "AAAI 2026 TrustAgent Workshop Poster",
+  "score": 2,
+  "q": "s2_AAAI_org_2026_agentic_workflow_robustness.json"
+ },
+ "nOA99ap3jU": {
+  "forum": "nOA99ap3jU",
+  "title": "Adversarial Testing for Large Language Models: Evaluating and Enhancing  Robustness with AutoDAN and Fine-Tuning Techniques",
+  "abstract": "Large Language Models (LLMs) exhibit impressive generative capabilities but remain vulnerable to adversarial inputs, exposing potential risks such as data leakage, harmful content generation, and jailbreak attacks. Jailbreak attacks can fool LLMs and elicit harmful output even with safety alignments and guardrails. In this work, we performed a case study using AutoDAN \u2013 an automated adversarial attack generator \u2013 to stress-test open-source LLMs. We measure baseline attack success rates (ASRs) and then apply various fine-tuning defenses to mitigate these vulnerabilities. We used AutoDAN to construct adversarial datasets and evaluate the robustness of fine-tuned LLMs. Using llama-3-8b-instruct as the base model, we apply full Supervised Fine-Tuning (SFT) AutoDAN-style attacks. Our preliminary experiments show a reduction in jailbreak success rate after fine-tuning, while maintaining usefulness and coherence for benign queries. We conclude by outlining best practices for deploying adversarially resilient LLMs in production environments and future work to continue research with adversarial attack vulnerabilities and agentic workflows.",
+  "venue": "DAI Poster",
+  "score": 2,
+  "q": "s2_AAAI_org_2026_agentic_workflow_robustness.json"
+ },
+ "eQ0bqlU7Zi": {
+  "forum": "eQ0bqlU7Zi",
+  "title": "OMNI-LEAK: Orchestrator Multi-Agent Network Induced Data Leakage",
+  "abstract": "As Large Language Model (LLM) agents become more capable, their coordinated use in the form of multi-agent systems is on the rise. Prior work has examined the safety and misuse risks associated with agents. However, much of this has focused on the single-agent case and/or setups that lack basic engineering safeguards such as access control, revealing a scarcity of threat modeling in multi-agent systems. We investigate the security vulnerabilities of a popular industry multi-agent pattern known as the orchestrator setup, in which a central agent decomposes and delegates tasks to specialized agents. Through red-teaming a concrete setup representative of industry use, we demonstrate a novel attack vector, OMNI-LEAK, that compromises several agents to leak sensitive data through a single indirect prompt injection, even in the *presence of data access control*. We report the susceptibility of frontier models to different categories of attacks, finding that both reasoning and non-reasoning models are vulnerable, even when the attacker lacks insider knowledge of the implementation details. Our work highlights the failure of safety research to generalize from single-agent to multi-agent settings, indicating the serious risks of real-world privacy breaches and financial loss.",
+  "venue": "ICLR 2026 Conference Desk Rejected Submission",
+  "score": 2,
+  "q": "s2_ICLR_cc_2026_orchestrator_failure.json"
+ },
+ "ZSGB91kMOG": {
+  "forum": "ZSGB91kMOG",
+  "title": "EvoC2F: Compiling Tool Orchestration for Efficient and Evolvable LLM Agents",
+  "abstract": "Tool-augmented language model agents have shown great potential in solving complex real-world tasks, but a key challenge remains balancing planning flexibility with the reliability required for production deployment. Existing approaches either execute tools sequentially without parallelism or generate unconstrained code, hindering optimization and verification. Additionally, agents that learn from experience often suffer from skill library pollution, where unverified abstractions degrade performance over time. We propose EvoC2F, a framework that redefines tool orchestration through program compilation and verified continuous learning. By constraining plan generation to a well-defined intermediate representation with explicit semantic annotations, EvoC2F enables provably correct optimizations, parallelism, and fault tolerance, while ensuring soundness guarantees. Our verification-gated code-to-function evolution process ensures that learned skills undergo rigorous testing before library admission. Experiments across diverse benchmarks demonstrate that EvoC2F outperforms existing methods, reducing latency and establishing a robust foundation for building reliable, evolving autonomous agents.",
+  "venue": "ICML 2026 regular",
+  "score": 2,
+  "q": "s2_ICML_cc_2026_fault-tolerant_LLM_agents.json"
+ },
+ "WNqIX3IFZU": {
+  "forum": "WNqIX3IFZU",
+  "title": "CausalGame: Benchmarking Causal Thinking of LLM Agents in Games",
+  "abstract": "Recently, it has received growing attention in building AI Scientist agents with Large Language Models (LLMs). Since scientific discovery fundamentally relies on uncovering causal relationships from observations, the capability of causal thinking that distinguish causation from correlation and hidden biases, is essential to LLM agents. Despite a number of existing benchmarks for AI scientists, they do not explicitly incorporate challenges from hidden confounders, selection bias, and noisy measurements that widely exist in real-world scientific discovery. To this end, we present CausalGame, a benchmark that evaluates the causal thinking capabilities of LLM agents through interactive games. More specifically, we ask LLM agents to actively design experimental protocols, collect observation data and derive a final solution with an explanation report. To emulate realistic scientific discovery challenges, we design 14 game settings with the incorporation of selection bias, noisy measurements, and hidden confounders. The results with 29 frontier LLM agents show that they consistently fail to reason about and recover the underlying causal relationships required to solve the games. CausalGame provides a controlled testbed for evaluating causal thinking of AI Scientist agents. The project is available at causalgame.github.io .",
+  "venue": "ICML 2026 spotlight",
+  "score": 2,
+  "q": "s2_ICML_cc_2026_fault-tolerant_LLM_agents.json"
+ },
+ "4QpCJukdjq": {
+  "forum": "4QpCJukdjq",
+  "title": "Value Aggregation with Uncertainty in Online Decentralized MARL",
+  "abstract": "Multi-agent reinforcement learning (MARL) has received increasing attention for solving complex decision-making tasks. Networked MARL approaches offer a decentralized solution for parameter sharing to accelerate training via value aggregation. However, existing federated aggregations rely on convex averaging that may fail to converge to global optima and cause learning rollback in the online learning setting. In this paper, we formally characterize the learning rollback phenomenon arising from aggregating value estimates with unequal uncertainty under heterogeneous online update depths. We propose a novel adaptive global consensus (AGC) mechanism for Q-value aggregation in decentralized MARL policy evaluation, which dynamically adjusts aggregation weights based on agents\u2019 uncertainty. We establish theoretical guarantees on accelerated convergence and bounded learning variance with empirical validations, advancing the state-of-art MARL theory.",
+  "venue": "ICML 2026 regular",
+  "score": 2,
+  "q": "s2_ICML_cc_2026_agent_rollback.json"
+ },
+ "PWzh4h7MxN": {
+  "forum": "PWzh4h7MxN",
+  "title": "Democratizing Agent Deployment Safety: A structural monitoring approach",
+  "abstract": "AI software development agents are increasingly\ncapable of modifying infrastructure and security\ncritical systems, creating risks where an agent\ncompletes its assigned task while covertly weak-\nening safeguards through actions such as broad-\nening permissions, degrading logging, or intro-\nducing persistence mechanisms. While frontier\nlaboratories may deploy sophisticated monitor-\ning pipelines, many organizations and individual\nusers adopting coding agents lack the resources\nand governance maturity required to maintain\ncomplex learned monitor ensembles. We study\nthis problem as infrastructure level sabotage un-\nder task success in the infrastructure-as-code set-\nting from ControlArena and compare trained and\nuntrained monitors across synchronous and asyn-\nchronous deployment modes.\nWe introduce an Information Flow Graph (IFG)\nmonitor that analyzes structural security regres-\nsions using control-flow and data-flow graph diffs\nalongside raw code diffs. In asynchronous evalua-\ntion, an untrained git diff monitor misses 11.6%\nattacks at 1% false positive rate auditing bud-\nget, our untrained IFG monitor reduces this to\n3.5%, and the trained Async RF monitor achieves\nbelow 1%. Unlike the trained Async RF moni-\ntor, IFG can also operate synchronously as a pre-\ndeployment safeguard that blocks suspicious in-\nfrastructure changes before execution or merge.\nIn synchronous mode, IFG realtime rollback re-\nduces joint main-task and covert-task success\nfrom 74.4% to 0.0% with no measurable reduc-\ntion in legitimate task completion. These results\nsuggest that untrained structural monitors pro-\nvide a practical and auditable path toward\ndemocratizing deployment safety for organi-\nzations seeking trustworthy adoption of ad-\nvanced AI agents.",
+  "venue": "AI4GOOD Workshop 2026 Regular",
+  "score": 4,
+  "q": "s2_ICML_cc_2026_agent_rollback.json"
+ },
+ "h2KYjLhzv5": {
+  "forum": "h2KYjLhzv5",
+  "title": "Structural Write-Path Control for Non-Formation in Agent Persistent Memory",
+  "abstract": "Memory-augmented agents are usually evaluated by whether poisoned entries can be detected or filtered after they appear. We study a narrower question at the write boundary: when a candidate memory update is rejected, has it ever become persistent state, and can it reach the agent's next reasoning turn? We evaluate Mediated Write-Path (MWP), a credential-separated commit design in which candidate updates pass through a commit gate before any store-visible write, and rejected updates are withheld from the action\u2013observation loop. In a local SQLite-based harness with trusted source and class labels, moving verification before the write raises Core NFR from 0/150 to 150/150 rejected attack trials, and loop coupling separately reduces premature next-context exposure from 150/150 to 0/150. A same-policy write-first baseline (LateGate) rolls back the final row and vector entry, but version state has already advanced and the rejected candidate is still found by a retrieval probe\u2014rollback is not non-formation. The boundary is explicit: random label noise degrades the check, targeted label forgery collapses it, and structurally admissible content can still accumulate into distributional drift.",
+  "venue": "FAGEN@ICML 2026 Poster",
+  "score": 5,
+  "q": "s2_ICML_cc_2026_agent_rollback.json"
+ },
+ "bzyceCagak": {
+  "forum": "bzyceCagak",
+  "title": "VisualLeakBench: Reproducible Action-Boundary Propagation Failures in Vision-Language Agents",
+  "abstract": "Vision-language agents increasingly consume screenshots, documents, and user interfaces before writing to memory, sending messages, or invoking external tools. We study a concrete failure mode in this setting: action-boundary propagation, where sensitive or unsafe visible text is copied from an image into downstream tool arguments. We present VisualLeakBench, a diversified 500-image benchmark spanning UI, chat, document, form, and dashboard scenes, and evaluate a stratified 100-image agent subset with four production VLM systems under two workflows: note capture and external handoff. At baseline, target strings are propagated into tool arguments in 78.8% of PII cases and 85.5% of rendered unsafe-text cases. Under a defensive system prompt, rendered unsafe-text propagation remains high at 52.6%, while PII tool propagation falls to 2.0%, largely by suppressing tool use rather than preserving utility. Rates are tool-surface dependent: search-like tools suppress PII propagation, but rendered unsafe text still crosses tool boundaries. We measure visual-to-tool propagation rather than downstream instruction execution. We additionally provide a labeled-target oracle upper-bound diagnostic that localizes most failures at the tool boundary while leaving response-side leakage as residual risk.",
+  "venue": "FAGEN@ICML 2026 Poster",
+  "score": 2,
+  "q": "s2_ICML_cc_2026_trust_propagation.json"
+ },
+ "ifqasRRoVw": {
+  "forum": "ifqasRRoVw",
+  "title": "Don't Trust Stubborn Neighbors: A Security Framework for Agentic Networks",
+  "abstract": "Large Language Model (LLM)-based Multi-Agent Systems (MASs) deliberate through communication to solve complex tasks like web automation and itinerary planning. However, this interactive nature makes them vulnerable to malicious agents that can exploit communication channels to manipulate collective decisions. To model these deliberation dynamics, we propose a theoretical framework based on the Friedkin\u2013Johnsen opinion dynamics model. Despite its simplicity, it closely captures empirical LLM-MAS behavior across various network topologies and attack settings. Our framework's tractability enables us to derive conditions under which stubborn, persuasive agents can trigger cascades that dominate opinion formation. Building on our theoretical analysis, we introduce a trust-adaptive defense that dynamically adjusts inter-agent trust to reduce adversarial influence without sacrificing cooperative performance. Extensive experiments validate both our modeling framework and the defense mechanism, demonstrating improved robustness against adversarial takeovers.",
+  "venue": "CompLearn 2026 Poster",
+  "score": 2,
+  "q": "s2_ICML_cc_2026_trust_propagation.json"
+ },
+ "lVREKwl6Fm": {
+  "forum": "lVREKwl6Fm",
+  "title": "Smarter Saboteurs, Better Fixers: Scaling & Security in Linear Multi-Agent Workflows",
+  "abstract": "As LLM-based multi-agent systems (MAS) are deployed in the wild, the resilience of their collaboration structures against adversarial compromise becomes a critical safety concern. Attackers may leverage prompt-injection or jailbreaking to sabotage individual agents within MAS workflows, but the interaction between model scaling and system-level resilience remains poorly understood. This paper investigates how model scale affects the security of linear multi-agent workflows. Our experiments across scales of two open-weight model families on the HumanEval benchmark reveal a compliance--correction symmetry: larger models are far more likely to faithfully execute malicious instructions, with the control-to-malicious performance drop reaching 53.7pp at 27B in uncorrected pipelines. However, appending a lightweight terminal Fixer stage collapses this to 0.6pp and restores statistical parity with control-level performance, demonstrating that strictly linear collaboration structures can be viable and resilient to adversaries at this scale, and suggesting that the brittleness previously attributed to linear topology may stem from a lack of correction.",
+  "venue": "ICML 2026 AIWILD",
+  "score": 4,
+  "q": "s2_ICML_cc_2026_resilient_multi-agent_LLM.json"
+ },
+ "Kb2m543agS": {
+  "forum": "Kb2m543agS",
+  "title": "Causal Detection of Multi-Step LLM Agent Attacks",
+  "abstract": "Multi-step prompt injection attacks on LLM agents present a fundamental detection challenge because malicious intent emerges only after the workflow completes, while individual actions remain legitimate in isolation. Existing defenses, including input sanitization, output validation, and instruction hierarchy, operate on individual actions or content patterns and cannot capture this sequential structure. We present **CausalTrace**, a detection system that reframes prompt-injection defense as causal inference. It constructs Structural Causal Models from agent trajectories with typed edges capturing data dependency, trust transfer, and state enablement, then applies Pearl\u2019s do-calculus to answer a counterfactual question, namely, whether the harmful outcome would have occurred if the injection had been blocked. This formalization enables a principled distinction between attacks that depend on injections and benign workflows that share surface-level features. Evaluation on a dataset spanning crowdsourced traces, LLM agent benchmarks, and semi-real and real scenarios demonstrates strong detection performance, outperforming content-based baselines while requiring minimal LLM inference cost; bidirectional slicing recovers complete attack chains with high edge recall, providing interpretable explanations that trace exploitation to its causal origins.",
+  "venue": "ICML 2026 regular",
+  "score": 2,
+  "q": "s2_ICML_cc_2026_resilient_multi-agent_LLM.json"
+ },
+ "gqxDltY8vd": {
+  "forum": "gqxDltY8vd",
+  "title": "Proactive Interference Reveals Working Memory Limits in LLMs Beyond Context Length",
+  "abstract": "Information retrieval in Large Language Models (LLMs) is increasingly recognized as intertwined with generation capabilities rather than mere lookup. While longer contexts are often assumed to improve retrieval, the effects of intra-context interference remain understudied. To address this, we adapt the proactive interference (PI) paradigm from cognitive science, where earlier information disrupts recall of newer updates. In humans, susceptibility to such interference is inversely linked to working memory capacity. We introduce PI-LLM, an evaluation that sequentially streams co-referenced key\u2013value updates and queries only the final values. Although these final values are clearly positioned just before the query, LLM retrieval accuracy declines log-linearly toward zero as co-referenced interference accumulates; errors arise from retrieving previously overwritten values. Attempts to mitigate interference via prompt engineering (e.g., instructing models to ignore earlier input) yield limited success. These findings reveal a fundamental constraint on LLMs\u2019 ability to disentangle interference and flexibly manipulate information, suggesting a working memory bottleneck beyond mere context access.\n\nFor Agentic systems, reliable operation hinges on reconciling past and present states. Proactive interference corrupts long-horizon state maintenance; dependable agent tracking therefore needs explicit memory control and interference-aware context management. We expose a \u201cknow, cannot do\u201d failure. Coreference-only needles expose a plan\u2013execute disjunction: LLMs form the correct last-value retrieval plan but fail to carry it out, with execution reliability declining systematically with task complexity. Code and data is publicly available. https://github.com/zhuangziGiantfish/Unable-to-Forget",
+  "venue": "AAAI 2026 TrustAgent Workshop Poster",
+  "score": 2,
+  "q": "s2_AAAI_org_2026_memory_poisoning_agents.json"
+ },
+ "XYyMoY5nbB": {
+  "forum": "XYyMoY5nbB",
+  "title": "Proactive Interference Reveals Working Memory Limits in LLMs Beyond Context Length",
+  "abstract": "Information retrieval in Large Language Models (LLMs) is increasingly recognized as intertwined with generation capabilities rather than mere lookup. While longer contexts are often assumed to improve retrieval, the effects of intra-context interference remain understudied. To address this, we adapt the proactive interference (PI) paradigm from cognitive science, where earlier information disrupts recall of newer updates. In humans, susceptibility to such interference is inversely linked to working memory capacity. We introduce PI-LLM, an evaluation that sequentially streams co-referenced key\u2013value updates and queries only the final values. Although these final values are clearly positioned just before the query, LLM retrieval accuracy declines log-linearly toward zero as co-referenced interference accumulates; errors arise from retrieving previously overwritten values. Attempts to mitigate interference via prompt engineering (e.g., instructing models to ignore earlier input) yield limited success. These findings reveal a fundamental constraint on LLMs\u2019 ability to disentangle interference and flexibly manipulate information, suggesting a working memory bottleneck beyond mere context access.\n\nFor Agentic systems, reliable operation hinges on reconciling past and present states. Proactive interference corrupts long-horizon state maintenance; dependable agent tracking therefore needs explicit memory control and interference-aware context management. We expose a \u201cknow, cannot do\u201d failure. Coreference-only needles expose a plan\u2013execute disjunction: LLMs form the correct last-value retrieval plan but fail to carry it out, with execution reliability declining systematically with task complexity. Code and data will be publicly available.",
+  "venue": "LaMAS 2026 Oral",
+  "score": 2,
+  "q": "s2_AAAI_org_2026_memory_poisoning_agents.json"
+ },
+ "KtrAm71ER9": {
+  "forum": "KtrAm71ER9",
+  "title": "ChainCaps: Composition-Safe Tool-Using Agents via Monotonic Capability Attenuation",
+  "abstract": "Tool-using agents increasingly operate in open-ended deployment environments, where they compose file systems, web APIs, code interpreters, and enterprise services at runtime. This creates a safety gap in tool composition: an agent can satisfy every per-tool permission check and still produce an unsafe end-to-end effect, such as reading a confidential document, summarizing it, and sending the summary to an external endpoint. We call this failure mode permission laundering. ChainCaps addresses it with a runtime rule: every value carries a sink-specific capability budget, and tool composition propagates budgets by intersection. A value can preserve or lose authority as it moves through a tool chain, but it cannot gain new authority through composition. We implement ChainCaps as a transparent MCP proxy that requires no changes to the agent or tool servers. On 82 tasks across five frontier models from three providers, ChainCaps reduces attack success rate from 25-68% to 0-4.8% while preserving 96-100% benign completion. In replay experiments, it also outperforms scalar-IFC and per-function-isolation baselines. Manifest quality is the dominant deployment bottleneck: expert manifests reach 100% attack blocking, while naive manifests fall to 27.3%. Our claims are limited to explicit-flow composition safety under trusted manifests and proxy-visible data movement, a practical gap in deployed tool-using agents today.",
+  "venue": "ICML 2026 AIWILD",
+  "score": 3,
+  "q": "s2_ICML_cc_2026_authority_delegation_agents.json"
+ },
+ "GPCdVV3vMj": {
+  "forum": "GPCdVV3vMj",
+  "title": "Plausible but Wrong: A Case Study on Agentic Failures in Astrophysical Workflows",
+  "abstract": "Agentic AI systems are increasingly being integrated into scientific\nworkflows, yet their behavior under realistic conditions remains\ninsufficiently understood. We evaluate CMBAgent across two workflow\nparadigms and eighteen astrophysical tasks. In the One-Shot setting,\naccess to domain-specific context yields an approximately ${\\sim}6\\times$\nperformance improvement ($0.85$ vs.\\ $\\approx\\!0$ without context), with\nthe primary failure mode being silent incorrect computation---syntactically\nvalid code that produces plausible but inaccurate results. In the Deep\nResearch setting, the system frequently exhibits silent failures across\nstress tests, producing physically inconsistent posteriors without\nself-diagnosis. Overall, performance is strong on well-specified tasks\nbut degrades on problems designed to probe reasoning limits, often\nwithout visible error signals. These findings highlight that the most\nconcerning failure mode in agentic scientific workflows is not overt\nfailure, but confident generation of incorrect results. We release our\nevaluation framework to facilitate systematic reliability analysis of\nscientific AI agents",
+  "venue": "AI4Physics",
+  "score": 2,
+  "q": "s2_ICML_cc_2026_agentic_workflow_robustness.json"
+ },
+ "11gDwrQyrO": {
+  "forum": "11gDwrQyrO",
+  "title": "Towards an Agentic AI Framework for Generating, Optimizing and Filtering Protein Binders",
+  "abstract": "De novo protein binder design is increasingly limited by experimental false positives: many candidates appear plausible in silico but fail during expression, assay, folding or binding affinity characterization. We present an Agentic AI framework for protein binder generation, optimization, and filtering that explicitly treats candidate selection as a wet-lab risk-minimization problem. The framework combines (i) epitope-conditioned generation with PBind42, (ii) tri-model optimization using Boltz-2, ProteinMPNN, and a PBind42 prior, and (iii) deterministic multi-agent filtering system, DyRA, that evaluates structural confidence, assay compatibility, interface quality, and expression plausibility before synthesis. Across two oncology benchmark targets, BHRF1 and PD-L1, the workflow reduces 500 generated candidates per target to compact 24-design plates and recovers two confirmed binders for each target. The best BHRF1 binder reaches a mean KD of 176 nM, while the best PD-L1 binder reaches a mean KD of 217 nM, with a second PD-L1 binder at 704 nM. These results show that protein-language-model generation can be made experimentally actionable when coupled to manifold-preserving optimization and agentic pre-synthesis filtering, substantially reducing the number of designs that must be synthesized and assayed.",
+  "venue": "GenBio 2026 Poster",
+  "score": 2,
+  "q": "s2_ICML_cc_2026_agentic_workflow_robustness.json"
+ },
+ "7zTV4dvdGB": {
+  "forum": "7zTV4dvdGB",
+  "title": "AutoRAS: Learning Robust Agentic Systems with Primitive Representations",
+  "abstract": "The automated design of agentic systems offers a promising pathway for scaling large language models (LLMs) beyond single-agent reasoning. While prior work has advanced task performance through handcrafted or automatically generated multi-agent workflows, robustness is often treated as an afterthought, leaving systems vulnerable to external adversaries and internal failures. We propose AutoRAS, a framework for the Automated design of Robust Agentic Systems. AutoRAS formulates system design as generating a sequence of symbolic primitives that jointly encode structural connectivity and behavioral actions, and learns to optimize this sequence using execution-derived safety signals and flow-based sequence-level objectives. Extensive experiments show that AutoRAS achieves the best performance in both vanilla and adversarial settings, with the smallest performance degradation under attacks. Further analyses demonstrate strong transferability, stable optimization behavior, stability across primitive sets, and favorable cost trade-offs. Our code is available at [this link](https://github.com/guohezuy/AutoRAS).",
+  "venue": "ICML 2026 regular",
+  "score": 3,
+  "q": "s2_ICML_cc_2026_agentic_workflow_robustness.json"
+ }
+}

@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/3V7ROgP3Aea3bobxqaxPEiXg21c</id>
+  <title>arXiv Query: search_query=all:"lessons from" AND all:"multi-agent systems" AND all:"LLM"&amp;id_list=&amp;start=0&amp;max_results=20</title>
+  <updated>2026-09-21T12:08:10Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=all:%22lessons+from%22+AND+(all:%22multi-agent+systems%22+AND+all:%22LLM%22)&amp;start=0&amp;max_results=20&amp;id_list=" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>20</opensearch:itemsPerPage>
+  <opensearch:totalResults>2</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/2605.30102v1</id>
+    <title>When Cloud Agents Meet Device Agents: Lessons from Hybrid Multi-Agent Systems</title>
+    <updated>2026-05-28T15:45:02Z</updated>
+    <link href="https://arxiv.org/abs/2605.30102v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2605.30102v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>The design space of agentic AI inference spans two extremes: frontier large language models (LLMs), typically hosted in the cloud and offering strong performance across a wide range of tasks at substantially high cost, and more cost-efficient small language models (SLMs), which are amenable to on-device inference. Hybrid multi-agent systems (MASs) combining on-device and cloud models offer a promising middle ground, but they also introduce a complex and poorly understood design space in which task accuracy, monetary cost, and edge energy consumption are tightly coupled; in the absence of general design principles, hybrid components, although not the most prevalent choice, are typically introduced through ad hoc decisions tailored to specific domains. In this work, we examine this design space more systematically. We adapt two representative MAS architectures to support hybrid inference and study how individual design choices shift the operating point along the Pareto frontier of power, cost, and performance. Our findings paint a nuanced picture of hybrid MAS design: while SLMs can effectively benefit from LLM assistance, the optimal architecture is highly task-dependent, and greater frontier-level compute does not consistently translate to better performance.</summary>
+    <category term="cs.MA" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-05-28T15:45:02Z</published>
+    <arxiv:comment>30 pages, 16 figures. Accepted to the Second Workshop on Agents in the Wild: Safety, Security, and Beyond (AIWILD) at ICML 2026</arxiv:comment>
+    <arxiv:primary_category term="cs.MA"/>
+    <author>
+      <name>Corrado Rainone</name>
+    </author>
+    <author>
+      <name>Davide Belli</name>
+    </author>
+    <author>
+      <name>Bence Major</name>
+    </author>
+    <author>
+      <name>Arash Behboodi</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2510.07488v2</id>
+    <title>Can Lessons From Human Teams Be Applied to Multi-Agent Systems? The Role of Structure, Diversity, and Interaction Dynamics</title>
+    <updated>2025-10-10T01:59:22Z</updated>
+    <link href="https://arxiv.org/abs/2510.07488v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2510.07488v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Multi-Agent Systems (MAS) with Large Language Model (LLM)-powered agents are gaining attention, yet fewer studies explore their team dynamics. Inspired by human team science, we propose a multi-agent framework to examine core aspects of team science: structure, diversity, and interaction dynamics. We evaluate team performance across four tasks: CommonsenseQA, StrategyQA, Social IQa, and Latent Implicit Hate, spanning commonsense and social reasoning. Our results show that flat teams tend to perform better than hierarchical ones, while diversity has a nuanced impact. Interviews suggest agents are overconfident about their team performance, yet post-task reflections reveal both appreciation for collaboration and challenges in integration, including limited conversational coordination.</summary>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-10-08T19:37:17Z</published>
+    <arxiv:comment>Under Review at ARR</arxiv:comment>
+    <arxiv:primary_category term="cs.CL"/>
+    <author>
+      <name>Rasika Muralidharan</name>
+    </author>
+    <author>
+      <name>Haewoon Kwak</name>
+    </author>
+    <author>
+      <name>Jisun An</name>
+    </author>
+  </entry>
+</feed>

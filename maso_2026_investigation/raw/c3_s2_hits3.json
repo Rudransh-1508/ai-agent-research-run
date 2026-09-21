@@ -1,0 +1,984 @@
+[
+ {
+  "paperId": "2ac353f6a3451af3391ffae014f7bec7c5968f3c",
+  "externalIds": {
+   "DOI": "10.52571/ptq.v23.n53.2026_02_ghani_pgs_18_28.pdf",
+   "CorpusId": 290916481
+  },
+  "title": "Biofilm Formation, Antibiotic Resistance, and Molecular Detection of the rhlI Gene in Clinical Isolates of Pseudomonas aeruginosa",
+  "venue": "Peri\u00f3dico Tch\u00ea Qu\u00edmica",
+  "year": 2026,
+  "citationCount": 0,
+  "openAccessPdf": {
+   "url": "https://doi.org/10.52571/ptq.v23.n53.2026_02_ghani_pgs_18_28.pdf",
+   "status": "HYBRID",
+   "license": "CCBY",
+   "disclaimer": "Notice: Paper or abstract available at https://api.unpaywall.org/v2/10.52571/ptq.v23.n53.2026_02_ghani_pgs_18_28.pdf?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.52571/ptq.v23.n53.2026_02_ghani_pgs_18_28.pdf, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationDate": "2026-08-03",
+  "authors": [
+   {
+    "authorId": "1422294961",
+    "name": "S. Al-Muhanna"
+   }
+  ],
+  "abstract": "Background: Pseudomonas aeruginosa is a hospital-acquired pathogen that commonly causes healthcare-associated infections, particularly in immunocompromised patients. Its ability to form biofilms and develop resistance to antimicrobial agents plays a key role in treatment failure. Purpose: The study aimed to assess the phenotypic biofilm formation, identify the pattern of antibiotic susceptibility, and identify the rhlI gene in clinical isolates of P. aeruginosa. Methods: Thirty-five clinical samples were obtained through various sources, including urine, wound swabs, ear swabs, and burn samples. Bacterial isolates were identified using standard microbiological methods and examined with the VITEK-2 system. Kirby-Bauer disk diffusion testing was done to determine antimicrobial susceptibility. A tissue culture plate (TCP) assay was conducted to assess biofilm-forming ability, and polymerase chain reaction (PCR) was performed to detect the rhlI gene. The statistical analysis used Fisher's test (p < 0.05). Results: The isolates were resistant to ticarcillin, ceftriaxone, and ciprofloxacin (100% each). Novobiocin (96%), chloramphenicol (93%), and trimethoprim also had high resistance rates (90%). On the contrary, imipenem (9%) and amikacin (5%) showed lower resistance rates, indicating that these antibiotics were comparatively more effective. The analysis of biofilm revealed that 60% of the isolates were strong biofilm producers, while 40% formed moderate biofilms. PCR tests revealed that all isolates (100%) carried the rhlI gene. Conclusions: P. aeruginosa clinical isolates displayed high antimicrobial resistance and biofilm-forming capacity, and the rhlI gene was found in all isolates. These results highlight the need to consider a combination of both phenotypic and molecular approaches to gain more insight and manage infection by this organism.",
+  "matched": [
+   "chain reaction agent failure"
+  ]
+ },
+ {
+  "paperId": "38ab1795b9cd8793299d9824263d226b6c27438d",
+  "externalIds": {
+   "DOI": "10.12956/tjpd.2026.1354",
+   "CorpusId": 290885553
+  },
+  "title": "Comment on \u201cLevetiracetam in childhood epilepsy: Expanding the evidence base\u201d",
+  "venue": "Turkish Journal of Pediatric Disease",
+  "year": 2026,
+  "citationCount": 0,
+  "openAccessPdf": {
+   "url": "https://turkjpediatrdis.org/article/download/1354/1271",
+   "status": "GOLD",
+   "license": "CCBY",
+   "disclaimer": "Notice: Paper or abstract available at https://api.unpaywall.org/v2/10.12956/tjpd.2026.1354?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.12956/tjpd.2026.1354, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationDate": "2026-08-05",
+  "authors": [
+   {
+    "authorId": "2403791428",
+    "name": "Samir Iddir"
+   },
+   {
+    "authorId": "93154706",
+    "name": "Lounis Brahim"
+   },
+   {
+    "authorId": "2287133504",
+    "name": "Z. Benlahreche"
+   }
+  ],
+  "abstract": "We read with genuine interest the article by Toks\u00f6z and Teber recently published in the Turkish Journal of Pediatric Disease, which presents long-term efficacy and safety data on levetiracetam (LEV) monotherapy in 101 children managed at a tertiary pediatric neurology centre (1). The reported seizure-response rate of 72.3%, with complete seizure freedom in 38.0% of patients, positions this study squarely within the broader real-world evidence base and confirms LEV\u2019s standing as a first-line antiseizure medication (ASM) in childhood epilepsy. Particularly clinically useful is the identification of age over four years and low pre-treatment seizure frequency as independent predictors of a favourable response\u2014two stratification criteria that translate directly into day-to-day prescribing decisions. Yet, precisely because this paper contributes to a growing corpus of retrospective evidence on LEV, it also highlights several dimensions that deserve more rigorous prospective investigation.\nTo begin with, situating the results of Toks\u00f6z and Teber within the comparative effectiveness literature raises questions that a single-arm retrospective design cannot resolve. A systematic review and meta-analysis of four randomised controlled trials including 381 children demonstrated that LEV monotherapy was associated with a significantly lower frequency of at least one seizure and a 76% reduction in dermatological adverse events relative to carbamazepine (CBZ), while seizure-freedom rates did not differ significantly between the two agents (2). This context matters: an overall response rate of 72.3% is meaningful, but without a comparator arm\u2014whether historical or concurrent\u2014it remains difficult to determine whether this figure reflects a drug effect, a patient-selection effect, or an institutional effect. A large Turkish tertiary centre cohort of 281 children treated with LEV monotherapy across a decade found seizure reduction rates that, while broadly consistent with the current paper, varied substantially by epilepsy aetiology\u2014ranging from idiopathic to symptomatic and cryptogenic forms (3). Heterogeneity in patient mix is therefore a critical variable, and its underreporting limits how far the findings of Toks\u00f6z and Teber can be generalised to other settings, Table I summarises the efficacy and adverse-event profiles across the major cohorts and meta-analyses cited in this commentary, placing the index study in comparative perspective.\nA closely related limitation concerns the absence of structured epilepsy syndrome classification in the cohort. The International League Against Epilepsy (ILAE) 2017 framework \u2014distinguishing focal, generalised, combined generalised-and-focal, and unknown epilepsies\u2014is not a bureaucratic formality; it carries direct and differential therapeutic implications (4). LEV holds regulatory approval as adjunctive therapy for focal-onset seizures and juvenile myoclonic epilepsy, but its behaviour across syndrome subtypes diverges in ways that aggregate response rates flatten into invisibility. A head-to-head systematic review and meta-analysis comparing LEV versus oxcarbazepine in children found that focal epilepsy subgroups drove most of the seizure-free advantage observed with LEV, while outcomes in other syndromic categories were considerably narrower (5). The clinical decision that a practitioner makes when initiating LEV in a child with Rolandic epilepsy\u2014a syndrome with a favourable natural history regardless of treatment\u2014should not be conflated with the decision made for a child with drug-resistant generalised epilepsy. Disaggregating outcomes by ILAE-classified syndrome type is not merely a methodological nicety; it is the minimum granularity needed to transform observational data into actionable prescribing evidence. Future work from this group should prioritise syndrome classification at enrolment.\nThe adverse-event profile documented by Toks\u00f6z and Teber \u201445.5% of patients affected, with drowsiness, irritability, and fatigue predominating\u2014is numerically consistent with prior series (6). The published literature, however, draws attention to a dimension of LEV toxicity that chart-based retrospective ascertainment systematically underestimates: the neuropsychiatric spectrum. Behavioural dysregulation under LEV, encompassing irritability, emotional lability, hyperactivity, and, in a minority of cases, frank psychotic symptoms, has been documented in up to 37.6% of pediatric patients in series that used structured ascertainment methods (7). A systematic review specifically examining behavioural side effects in children on LEV confirmed a statistically significant relative risk of 2.18 for total behavioural adverse events compared to placebo\u2014hostility, nervousness, and aggression being the most frequently reported domains (8). These reactions are not trivial. A child whose seizures are controlled but who becomes aggressive, oppositional, or emotionally dysregulated has not simply \u2018tolerated\u2019 the drug; the family\u2019s quality of life has been exchanged for seizure freedom, which is a different clinical outcome entirely. Neurodevelopmental comorbidities magnify this risk: children with pre-existing cognitive or psychiatric vulnerabilities are disproportionately susceptible to LEV-related behavioural deterioration, a factor impossible to fully control for in retrospective designs (9). Integrating standardised tools\u2014the Child Behavior Checklist (CBCL) or the Strengths and Difficulties Questionnaire (SDQ)\u2014at baseline and at each scheduled visit would allow future studies to detect these effects early and systematically, before they become reasons for treatment discontinuation rather than data points in the record.\nA dimension not discussed by Toks\u00f6z and Teber, yet central to understanding long-term LEV performance in children, is the concept of treatment retention as an integrated measure of efficacy and tolerability. In a real-world European pediatric cohort, the one-year LEV continuation rate was estimated at 72%, with insufficient efficacy\u2014rather than adverse events\u2014 accounting for the majority of discontinuations. This architecture of drug attrition carries a practical message: achieving initial seizure control is necessary but not sufficient; sustaining it without accumulated tolerability burden is the harder clinical problem. Age-specific pharmacokinetic variability compounds this challenge. LEV clearance in young children is substantially faster than in adults, resulting in lower plasma concentrations at standard weight-based doses and potentially explaining some of the apparent efficacy ceiling observed in younger age groups \u2014a finding that aligns with the age-related predictor identified by Toks\u00f6z and Teber (10). Prospective designs incorporating therapeutic drug monitoring would allow disentanglement of pharmacokinetic from pharmacodynamic sources of treatment failure, a distinction with direct therapeutic implications for dose adjustment strategies in the under-four age group.\nA final perspective, critical from a global pediatric neurology standpoint, concerns the generalisability of these findings beyond well-resourced tertiary settings. A systematic review and meta-analysis estimated the prevalence of childhood epilepsy in sub-Saharan Africa at 7.8 per 1000 population, with treatment gaps exceeding 80% in several regions (11). The recent inclusion of LEV on the WHO Essential Medicines List was a meaningful step, yet access remains constrained in low-and middle-income countries (LMICs) by drug cost, cold-chain logistics, and the scarcity of trained pediatric neurologists (12). A scoping review of epilepsy care outcomes in LMICs underscored that real-world effectiveness data generated in Turkish or European tertiary centres cannot be uncritically transposed to contexts where EEG is unavailable, neuroimaging is sporadic, and the interval between seizure onset and specialist consultation may span years (13). The cohort of Toks\u00f6z and Teber does not report on diagnostic delays, socioeconomic stratification, or access-related variables\u2014all of which shape LEV outcomes in resource-limited settings in ways that standard efficacy metrics do not capture. Collaborative networks linking high-income and LMIC centres could help establish globally representative benchmarks and identify which elements of current management protocols are feasibly exportable, Figure 1 proposes a syndrome-stratified, neurobehaviourally monitored prospective framework that could serve as a blueprint for such collaborative efforts.\nIn summary, the study by Toks\u00f6z and Teber makes a genuine and valuable contribution: it provides real-world evidence of LEV\u2019s efficacy in a sizeable pediatric cohort, documents the adverse-event landscape with clinical honesty, and offers two stratification criteria with immediate utility at the point of prescribing. The path to a more complete understanding of LEV in childhood epilepsy runs through syndrome-specific prospective designs, standardised neurobehavioural monitoring incorporated from enrolment, retention and therapeutic drug monitoring analyses, and deliberate cross-centre collaboration that places these findings within a global epidemiological frame. Levetiracetam has more than justified its first-line status; the question of for whom, at what dose, and at what neuropsychiatric cost remains, in meaningful ways, open.",
+  "matched": [
+   "chain reaction agent failure"
+  ]
+ },
+ {
+  "paperId": "4fb928db7665f9c9eec4790fd6c79b4317c7dcb3",
+  "externalIds": {
+   "DOI": "10.19540/j.cnki.cjcmm.20260108.801",
+   "CorpusId": 289834000,
+   "PubMed": "42392752"
+  },
+  "title": "[Mechanism study on Bushen Yisui Shengxue Formula regulating Hippo/Yap pathway to restore bone marrow hematopoietic function in aplastic anemia].",
+  "venue": "Zhongguo Zhong yao za zhi = Zhongguo zhongyao zazhi = China journal of Chinese materia medica",
+  "year": 2026,
+  "citationCount": 0,
+  "openAccessPdf": {
+   "url": "",
+   "status": null,
+   "license": null,
+   "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.19540/j.cnki.cjcmm.20260108.801?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.19540/j.cnki.cjcmm.20260108.801, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationDate": "2026-05-01",
+  "authors": [
+   {
+    "authorId": "2295304080",
+    "name": "Xin-Yu Tang"
+   },
+   {
+    "authorId": "2115295939",
+    "name": "Di Liu"
+   },
+   {
+    "authorId": "2447884916",
+    "name": "Yi-Lin Chen"
+   },
+   {
+    "authorId": "2447240375",
+    "name": "Mao-Yuan Wang"
+   },
+   {
+    "authorId": "2323734495",
+    "name": "Kui Liu"
+   },
+   {
+    "authorId": "2279097258",
+    "name": "Rui-Rong Xu"
+   },
+   {
+    "authorId": "2295102709",
+    "name": "Yan Wang"
+   }
+  ],
+  "abstract": null,
+  "matched": [
+   "chain reaction agent failure"
+  ]
+ },
+ {
+  "paperId": "53b9299c7ea3ae070f89bd4c368c6e5d61e4e213",
+  "externalIds": {
+   "DOI": "10.1161/CIRCULATIONAHA.125.078593",
+   "CorpusId": 291022028,
+   "PubMed": "42576811"
+  },
+  "title": "ABHD11-Mediated mtDNA Transcription Restored Mitochondrial Function to Attenuate Cardiomyocyte Ferroptosis After Myocardial Infarction.",
+  "venue": "Circulation",
+  "year": 2026,
+  "citationCount": 0,
+  "openAccessPdf": {
+   "url": "https://doi.org/10.1161/circulationaha.125.078593",
+   "status": "HYBRID",
+   "license": "CCBYNCND",
+   "disclaimer": "Notice: Paper or abstract available at https://api.unpaywall.org/v2/10.1161/CIRCULATIONAHA.125.078593?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1161/CIRCULATIONAHA.125.078593, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationDate": "2026-08-11",
+  "authors": [
+   {
+    "authorId": "2257347327",
+    "name": "Yu Liu"
+   },
+   {
+    "authorId": "1519029443",
+    "name": "Yijin Chen"
+   },
+   {
+    "authorId": "2115238584",
+    "name": "Hao Zheng"
+   },
+   {
+    "authorId": "2331455460",
+    "name": "Yingxuan Li"
+   },
+   {
+    "authorId": "2260601658",
+    "name": "Chu-Ling Li"
+   },
+   {
+    "authorId": "2237336019",
+    "name": "Wenlong Xu"
+   },
+   {
+    "authorId": "2260766921",
+    "name": "Wei Chen"
+   },
+   {
+    "authorId": "2237219929",
+    "name": "Zhiwen Xiao"
+   },
+   {
+    "authorId": "49901341",
+    "name": "Guo-Jun Chen"
+   },
+   {
+    "authorId": "3427921",
+    "name": "Senlin Huang"
+   },
+   {
+    "authorId": "2109419737",
+    "name": "Xinzhong Li"
+   },
+   {
+    "authorId": "7934910",
+    "name": "Jia-Guo Zhou"
+   },
+   {
+    "authorId": "2266224211",
+    "name": "Ying Wu"
+   },
+   {
+    "authorId": "2341911603",
+    "name": "Wangjun Liao"
+   },
+   {
+    "authorId": "2237389163",
+    "name": "Yu-Lin Liao"
+   },
+   {
+    "authorId": "4339763",
+    "name": "J. Bin"
+   },
+   {
+    "authorId": "50579781",
+    "name": "Yan-Mei Chen"
+   }
+  ],
+  "abstract": "BACKGROUND\nCardiomyocytes exhibit marked susceptibility to ferroptosis after myocardial infarction (MI), rendering ferroptosis inhibition a promising therapeutic strategy to mitigate ischemic myocardial injury. Although mitochondrial dysfunction is recognized as a core driver of ferroptosis, the potential role of mitochondrial DNA transcription in regulating cardiomyocyte ferroptosis remains unexplored.\n\n\nMETHODS\nTo clarify the temporal role of the various modes of cell death in MI progression, we performed time-course echocardiography in MI models treated with various cell death inhibitors. To characterize the crucial process and molecular regulator in cardiomyocyte ferroptosis, we integrated RNA sequencing and single-nucleus RNA sequencing data from murine post-MI hearts and performed functional rescue experiments using mitochondrial protective agents. To determine the role of ABHD11 (\u03b1\u03b2-hydrolase domain-containing protein 11) in cardiomyocyte ferroptosis and cardiac repair after MI, we used loss- and gain-of-function approaches. To elucidate the underlying mechanisms, we conducted transcriptomics, nontargeted lipidomics, site-specific mutagenesis, molecular docking, coimmunoprecipitation, native gel electrophoresis, proximity ligation assay, methylation-specific polymerase chain reaction, and chromatin immunoprecipitation assay.\n\n\nRESULTS\nWe found that cardiac ferroptosis peaked at day 7 after MI and was enriched in peri-infarct cardiomyocytes. Mitochondrial dysfunction was a key driver of cardiomyocyte ferroptosis after MI, and the lipid enzyme ABHD11 was identified as a potential regulator of both processes. ABHD11 expression was consistently reduced in mouse and human MI hearts, and its transcription was repressed by DNMT1 (DNA methyltransferase 1)-mediated promoter hypermethylation. Functionally, cardiac-specific overexpression of ABHD11 markedly alleviated cardiomyocyte ferroptosis and improved cardiac function after MI. Conversely, loss of ABHD11 in adult mice exacerbated pathological cardiac remodeling and heart failure. Mechanistically, independent of its canonical enzymatic activities, ABHD11 acted as a mitochondrial DNA transcription coactivator by enhancing the TEFM (mitochondrial transcription elongation factor)-POLRMT (mitochondrial RNA polymerase) interaction. This promoted mitochondrial DNA transcription, restored mitochondrial function, and reduced reactive oxygen species/PUFA-PLs (polyunsaturated fatty acid-containing glycerophospholipids)-driven lipid peroxidation and 4-hydroxynonenal generation. The reduction in 4-hydroxynonenal stabilized YY1 (Yin Yang 1), which subsequently regulated key ferroptosis-driving genes governing iron deposition, reactive oxygen species production, and polyunsaturated fatty acid lipids accumulation, further inhibiting lipid peroxidation and ferroptosis, and ultimately promoting cardiac recovery after MI.\n\n\nCONCLUSIONS\nThis study revealed that ABHD11-mediated mitochondrial DNA transcription attenuated cardiomyocyte ferroptosis after MI by orchestrating a mitochondrial-nuclear crosstalk, offering a novel therapeutic strategy for ischemic myocardial injury.",
+  "matched": [
+   "chain reaction agent failure"
+  ]
+ },
+ {
+  "paperId": "5eb74b34065addc9c8ba5689ea460b777fa15c5b",
+  "externalIds": {
+   "PubMedCentral": "13504020",
+   "DOI": "10.1007/s44313-026-00162-1",
+   "CorpusId": 291323647,
+   "PubMed": "42635915"
+  },
+  "title": "Targeting CDK7 to overcome hypomethylating agent resistance in acute myeloid leukemia",
+  "venue": "Blood Research",
+  "year": 2026,
+  "citationCount": 0,
+  "openAccessPdf": {
+   "url": "https://link.springer.com/content/pdf/10.1007/s44313-026-00162-1.pdf",
+   "status": "GOLD",
+   "license": "CCBYNCND",
+   "disclaimer": "Notice: Paper or abstract available at https://pmc.ncbi.nlm.nih.gov/articles/PMC13504020, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationDate": "2026-08-24",
+  "authors": [
+   {
+    "authorId": "2186335871",
+    "name": "Bon-Kwan Koo"
+   },
+   {
+    "authorId": "2257003420",
+    "name": "Eun-Ji Choi"
+   },
+   {
+    "authorId": "2105675769",
+    "name": "J. Moon"
+   },
+   {
+    "authorId": "2295795004",
+    "name": "Ji Yun Kim"
+   },
+   {
+    "authorId": "2310652383",
+    "name": "Hyunkyung Park"
+   },
+   {
+    "authorId": "2384836348",
+    "name": "Joon Young Hur"
+   },
+   {
+    "authorId": "121416630",
+    "name": "Han-Seung Park"
+   },
+   {
+    "authorId": "2303433102",
+    "name": "Yunsuk Choi"
+   },
+   {
+    "authorId": "2272904073",
+    "name": "Jung-Hee Lee"
+   },
+   {
+    "authorId": "2256922139",
+    "name": "Je-Hwan Lee"
+   },
+   {
+    "authorId": "87073666",
+    "name": "E. Hur"
+   }
+  ],
+  "abstract": "Hypomethylating agents (HMAs), such as azacitidine and decitabine, are widely used in elderly or medically unfit patients with acute myeloid leukemia (AML) or myelodysplastic syndrome (MDS). However, most patients eventually develop primary or acquired resistance and outcomes following HMA failure remain poor, particularly in transplantation-ineligible patients. This study evaluated the efficacy of CDK7 inhibition as a therapeutic strategy for overcoming HMA resistance in vitro. HMA-resistant AML cells (MOLM/AZA-1 and MOLM/DEC-5) were generated to evaluate the therapeutic activity of the CDK7 inhibitor, YPN-005. Cell viability was assessed using a CellTiter-Glo assay. Western blotting was performed to examine the dysregulation of DNA methyltransferases (DNMTs) and apoptotic markers. Cell cycle distribution and apoptosis were evaluated using flow cytometry. Transcriptomic changes were analyzed using quantitative reverse transcription polymerase chain reaction. YPN-005 demonstrated potent growth-inhibitory effects in HMA-resistant AML cells, with an efficacy comparable to that observed in parental MOLM-13 cells. Mechanistically, CDK7 inhibition reduced DNMT expression and decreased the phosphorylation of RNA polymerase II (Ser2/5/7). YPN-005 significantly induced apoptosis, as evidenced by increased Annexin V positivity and the activation of PARP and caspase-3. Notably, CD40 expression was markedly upregulated at both the transcript and protein levels. CDK7 inhibition effectively induces apoptosis in HMA-resistant AML cells by suppressing RNA polymerase II phosphorylation and downregulating aberrant DNMT expression. Furthermore, the induction of CD40 suggests a potential role for CDK7 blockade in modulating immunophenotypic features. These findings support CDK7 inhibition as a promising therapeutic strategy for overcoming resistance to epigenetic therapies in patients with AML/MDS.",
+  "matched": [
+   "chain reaction agent failure"
+  ]
+ },
+ {
+  "paperId": "6c6d8e51cc054f84bda8dc3d9790f86c17e78bd8",
+  "externalIds": {
+   "DOI": "10.59325/sjas.v9i2.330",
+   "CorpusId": 291937020
+  },
+  "title": "Valorization of Spent Engine Oil as a Sustainable Polyol Substituent in Flexible Polyurethane Foam Synthesis: A Comparative Study of Starch and Natural Zeolite Filler Systems",
+  "venue": "\u0645\u062c\u0640\u0644\u0640\u0629 \u062c\u0640\u0627\u0645\u0640\u0639\u0640\u0629 \u0627\u0644\u0633\u0640\u0639\u064a\u062f \u0644\u0644\u0639\u0644\u0640\u0648\u0645 \u0627\u0644\u062a\u0637\u0628\u064a\u0642\u064a\u0629",
+  "year": 2026,
+  "citationCount": 0,
+  "openAccessPdf": {
+   "url": "https://journal.alsaeeduni.edu.ye/index.php/SJAS/article/download/330/281",
+   "status": "BRONZE",
+   "license": null,
+   "disclaimer": "Notice: Paper or abstract available at https://api.unpaywall.org/v2/10.59325/sjas.v9i2.330?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.59325/sjas.v9i2.330, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationDate": "2026-09-03",
+  "authors": [
+   {
+    "authorId": "2492268444",
+    "name": "Esmail Mohammed"
+   },
+   {
+    "authorId": "2492496497",
+    "name": "Moataz Nashwan"
+   },
+   {
+    "authorId": "2492555895",
+    "name": "Akram Abdalkarim"
+   },
+   {
+    "authorId": "2492494539",
+    "name": "Sami Al-Naqeed"
+   },
+   {
+    "authorId": "1412687966",
+    "name": "Niyazi A. S. Al-Areqi"
+   },
+   {
+    "authorId": "92988345",
+    "name": "Sameh A. S. Alariqi"
+   }
+  ],
+  "abstract": "The accumulation of used engine oil poses severe ecological threats to soil and groundwater systems, particularly in developing industrial regions where proper waste disposal systems are lacking. Simultaneously, the manufacturing of flexible polyurethane foams remains heavily dependent on volatile, petroleum-derived polyols, contributing to a high carbon footprint. This study presents a circular economy approach by chemically converting hazardous used engine oil into a polyhydroxylated organic extender (oil polyol) to partially replace commercial polyether polyols in flexible polyurethane foam formulations. The non-polar hydrocarbon chains of used engine oil were functionalized via an acid-catalyzed hydration reaction, converting thermally cracked alkenes into reactive secondary hydroxyl groups capable of forming urethane linkages. To investigate structural preservation and prevent cellular collapse, two composite foam series were synthesized using a one-shot free-rise foaming method: one containing \u00a0natural starch as an organic biodegradable filler, and another containing \u00a0natural zeolite as an inorganic nucleating agent and chemical scavenger. The substitution level of polyhydroxylated oil was varied systematically from . Physical and mechanical characterization showed that the starch-filled foams suffered a severe bulk density drop from and catastrophic mechanical failure at \u00a0oil substitution due to thermodynamic phase separation and cell wall thinning. Conversely, the natural zeolite-filled foams maintained highly stable bulk densities (ranging between ) across all substitution levels, with compressibility rising to \u00a0at \u00a0oil. Optical microscopy confirmed that natural zeolite acts as an exceptional cell stabilizer, facilitating uniform heterogeneous bubble nucleation and adsorbing residual heavy metals and acidic impurities from the waste oil. These results demonstrate that natural zeolite provides a robust physical and chemical framework that permits high-ratio waste-oil valorization without compromising the mechanical performance of flexible polyurethane foams.",
+  "matched": [
+   "chain reaction agent failure"
+  ]
+ },
+ {
+  "paperId": "6e4525eb608da2f4653f7e56be911c83c89ac2cb",
+  "externalIds": {
+   "DOI": "10.46889/jdr.2026.7203",
+   "CorpusId": 288886130
+  },
+  "title": "Amastigote-Negative Cutaneous Leishmaniasis without Visceral Involvement: Caused by Leishmania donovani in a Traveler to Spain: A Polymerase Chain Reaction (PCR)-Confirmed Case Report",
+  "venue": "Journal of Dermatology Research",
+  "year": 2026,
+  "citationCount": 0,
+  "openAccessPdf": {
+   "url": "https://athenaeumpub.com/wp-content/uploads/Amastigote-Negative-Cutaneous-Leishmaniasis-without-Visceral-Involvement-Caused-by-Leishmania-donovani-in-a-Traveler-to-Spain-A-Polymerase-Chain-Reaction-PCR-Confirmed-Case-Report.pdf",
+   "status": "HYBRID",
+   "license": "CCBY",
+   "disclaimer": "Notice: Paper or abstract available at https://api.unpaywall.org/v2/10.46889/jdr.2026.7203?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.46889/jdr.2026.7203, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationDate": "2026-06-05",
+  "authors": [
+   {
+    "authorId": "84722266",
+    "name": "Zinah A. A. Sharara"
+   },
+   {
+    "authorId": "2361335419",
+    "name": "Niall Hamad"
+   },
+   {
+    "authorId": "1394371503",
+    "name": "L. Grant"
+   },
+   {
+    "authorId": "2440076027",
+    "name": "Madhavi Maheshwar"
+   },
+   {
+    "authorId": "2485016100",
+    "name": "M. Al Abadie"
+   }
+  ],
+  "abstract": "Background: Leishmania donovani is the primary causative agent of Visceral Leishmaniasis (VL), but its emergence as a cause of purely Cutaneous Leishmaniasis (CL) is an increasing challenge to public health. Conventional diagnosis relies on microscopic identification of amastigotes, a method that frequently fails in pauciparasitic lesions.\n\nCase Presentation: We report the case of a 60-year-old Caucasian female, who presented with a persistent, non-healing, non-painful ulcer on her right mid-arm with positive travel history to Spain. Despite a high clinical suspicion for Cutaneous Leishmaniasis (CL), two separate skin biopsies have failed to detect amastigotes on Giemsa staining, although histology showed non-caseating granuloma. The definitive diagnosis was achieved when tissue from the second biopsy was subjected to Polymerase Chain Reaction (PCR) analysis, which returned a positive result for the Leishmania donovani complex. Systemic workup, including blood Leishmania PCR and rK39 serology, were negative, confirming the absence of visceral involvement. She started Miltefosine 50 mg TDS for 28 days with cessation of her immunosuppressive medication to avoid developing resistance.\n\nConclusion: This case highlights the diagnostic pitfall of relying solely on histopathology for CL, particularly in pauciparasitic and immunosuppressed patients. The failure of two biopsies, contrasted with the definitive molecular confirmation, underscores the critical role high index of clinical suspicion and the PCR as indispensable tool for accurate diagnosis and species identification. This case contributes to the growing evidence of L. donovani causing purely cutaneous disease and advocates for the routine use of molecular diagnostics in challenging leishmaniasis cases.",
+  "matched": [
+   "chain reaction agent failure"
+  ]
+ },
+ {
+  "paperId": "6f4b11a5d8829487283857bd1d142c2275376eff",
+  "externalIds": {
+   "PubMedCentral": "13363848",
+   "DOI": "10.3390/polym18131556",
+   "CorpusId": 289512971,
+   "PubMed": "42452014"
+  },
+  "title": "Intrinsic Chemical Consequences of Interface Failure in Composite Insulators Under Electrical Stress: PD-Induced Degradation of Epoxy/Anhydride Matrix and the Role of Humidity",
+  "venue": "Polymers",
+  "year": 2026,
+  "citationCount": 0,
+  "openAccessPdf": {
+   "url": "https://doi.org/10.3390/polym18131556",
+   "status": "GOLD",
+   "license": "CCBY",
+   "disclaimer": "Notice: Paper or abstract available at https://pmc.ncbi.nlm.nih.gov/articles/PMC13363848, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationDate": "2026-06-23",
+  "authors": [
+   {
+    "authorId": "2308196576",
+    "name": "Ke-Xin Shi"
+   },
+   {
+    "authorId": "2283876670",
+    "name": "Dan-Dan Zhang"
+   },
+   {
+    "authorId": "2114696702",
+    "name": "Zhiyu Wan"
+   },
+   {
+    "authorId": "2261895094",
+    "name": "Li-Xue Chen"
+   },
+   {
+    "authorId": "2291405834",
+    "name": "Zhao-Hua Lu"
+   }
+  ],
+  "abstract": "This study investigates the decay-like degradation mechanisms of the matrix material in composite insulators, focusing on the pronounced influence of humid environments on partial discharge (PD) characteristics and degradation pathways. A sealed chamber discharge platform was established, integrating PD signal monitoring, surface characterization, and gas chromatography-mass spectrometry (GC-MS) with molecular network analysis to examine the synergistic effects of thermal influences from PD and active atmospheric particles at humidity levels of 0% RH, 50% RH, and 100% RH. Results show that dry conditions favor high-energy, low-repetition-rate discharges, promoting cleavage and recombination of high-bond-energy bonds (e.g., benzene rings and (\u03b1)C\u2013O), yielding primarily long-chain carboxylic acids (C9 and above). In contrast, humid conditions shift to low-energy, high-repetition-rate discharges, with water vapor decomposition generating highly oxidizing hydroxyl radicals (\u00b7OH). These facilitate selective scission of lower-bond-energy (\u03b2)C\u2013O bonds and deep oxidation, significantly increasing short-chain dicarboxylic acids\u2014especially oxalic acid\u2014whose acidity and water solubility are nearly an order of magnitude higher than in dry environments, becoming the dominant acidic products. The work demonstrates that many PD-generated organic acids act as intrinsic corrosive agents in insulating systems, independent of ambient nitric acid. This elucidates, at the reaction pathway level, how high humidity modulates PD to enhance corrosive acid production, providing a microchemical basis for understanding regional decay-like failure patterns in composite insulators.",
+  "matched": [
+   "chain reaction agent failure"
+  ]
+ },
+ {
+  "paperId": "8bcb3dbf50b7e728272675f30ae9d92d3ca93883",
+  "externalIds": {
+   "DOI": "10.1093/ajrccm/aamag162.2993",
+   "CorpusId": 288424775
+  },
+  "title": "C42-15 A Rare Case of Daptomycin-Induced Hypersensitivity Pneumonia Presenting as Acute Hypoxic Respiratory Failure",
+  "venue": "American Journal of Respiratory and Critical Care Medicine",
+  "year": 2026,
+  "citationCount": 0,
+  "openAccessPdf": {
+   "url": "",
+   "status": null,
+   "license": null,
+   "disclaimer": "Notice: Paper or abstract available at https://api.unpaywall.org/v2/10.1093/ajrccm/aamag162.2993?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1093/ajrccm/aamag162.2993, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationDate": "2026-05-01",
+  "authors": [
+   {
+    "authorId": "2237258001",
+    "name": "H. Singh"
+   },
+   {
+    "authorId": "2057041371",
+    "name": "J. Popovich"
+   }
+  ],
+  "abstract": "\n \n \n Daptomycin is a lipopeptide antibiotic used to treat resistant gram-positive infections. Although generally well tolerated, it has been associated with rare but serious pulmonary toxicity, including eosinophilic and hypersensitivity pneumonitis. We present a case of acute hypoxic respiratory failure secondary to daptomycin-induced hypersensitivity pneumonia.\n \n \n \n A 58-year-old male with a history of type 2 diabetes mellitus, pulmonary embolism on long-term anticoagulation, prior tobacco use, presented with progressive shortness of breath over three days. He denied fever or sputum production. He had recently started on intravenous daptomycin and ertapenem for sacral osteomyelitis four days prior to symptom onset. On examination, he was tachypneic, using accessory muscles, and speaking in fragmented sentences with diffuse inspiratory crackles on auscultation. He required 3.5 liters per minute of supplemental oxygen via nasal cannula. Laboratory studies revealed leukocytosis (white blood cell count 18,900) and peripheral eosinophilia of three percent. B-type natriuretic peptide level was 32 picograms per milliliter and negative troponin. BioFire respiratory polymerase chain reaction and sputum cultures were negative. C-reactive protein was 22.1 milligrams per deciliter, erythrocyte sedimentation rate was 73 millimeters per hour, and procalcitonin was 0.43 nanograms per milliliter. Urine eosinophils were absent. Computed tomography (CT) of the chest with intravenous contrast demonstrated bilateral mild-to-moderate ground-glass opacities without consolidation or effusion. In the absence of infectious findings and given the temporal association with daptomycin initiation four days prior to symptom onset, a diagnosis of daptomycin-induced hypersensitivity pneumonia was made. Daptomycin was discontinued. The patient was treated with intravenous methylprednisolone 40 milligrams every eight hours for 24\u2009hours resulting in marked improvement in symptoms and complete resolution of peripheral eosinophilia. He was transitioned to 40\u2009mg of oral prednisone daily and was weaned off all supplemental oxygen by day four of admission and discharged on a prednisone taper with complete resolution of symptoms.\n Figure 1: CT chest demonstrating bilateral ground-glass opacities.\n \n \n \n Daptomycin-induced hypersensitivity pneumonia is an uncommon yet reversible cause of respiratory failure. The mechanism likely involves an immune-mediated alveolar inflammatory response with eosinophilic infiltration. Diagnosis is supported by temporal drug exposure, compatible imaging, and peripheral eosinophilia. Early drug withdrawal and corticosteroid therapy can result in rapid recovery.\n \n \n \n Clinicians should maintain a high index of suspicion for daptomycin-induced hypersensitivity pneumonia in patients with hypoxemia following daptomycin exposure. Prompt recognition, cessation of the offending agent, and corticosteroid initiation can lead to complete clinical and hematologic resolution.\n This abstract is funded by: None\n",
+  "matched": [
+   "chain reaction agent failure"
+  ]
+ },
+ {
+  "paperId": "a5a0fbab8059454adb125715537e1376a8b57b51",
+  "externalIds": {
+   "PubMedCentral": "13491768",
+   "DOI": "10.1186/s13071-026-07341-0",
+   "CorpusId": 291250941,
+   "PubMed": "42625234"
+  },
+  "title": "Seroprevalence and molecular surveillance of Dirofilaria immitis in shelter dogs from central New Mexico, USA",
+  "venue": "Parasites & Vectors",
+  "year": 2026,
+  "citationCount": 0,
+  "openAccessPdf": {
+   "url": "https://link.springer.com/content/pdf/10.1186/s13071-026-07341-0.pdf",
+   "status": "GOLD",
+   "license": "CCBY",
+   "disclaimer": "Notice: Paper or abstract available at https://pmc.ncbi.nlm.nih.gov/articles/PMC13491768, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationDate": "2026-08-20",
+  "authors": [
+   {
+    "authorId": "2283544061",
+    "name": "Maureen A. Kelly"
+   },
+   {
+    "authorId": "2434028706",
+    "name": "Alexa Starnes"
+   },
+   {
+    "authorId": "2140866797",
+    "name": "Mary Schech"
+   },
+   {
+    "authorId": "2313822929",
+    "name": "Erin Clarke"
+   },
+   {
+    "authorId": "2262483166",
+    "name": "Rafael A. N. Ramos"
+   },
+   {
+    "authorId": "2389809036",
+    "name": "Hassan Hakimi"
+   },
+   {
+    "authorId": "2036701753",
+    "name": "Pabasara Weerarathne"
+   },
+   {
+    "authorId": "6587339",
+    "name": "G. G. Verocai"
+   }
+  ],
+  "abstract": "Dirofilaria immitis, the causative agent of canine heartworm disease, is a mosquito-borne filarial nematode, endemic to most of North America. Clinical signs may include coughing, exercise intolerance, abnormal heart sounds, and lethargy, which can lead to heart failure and death in severe cases. For accurate diagnosis, the American Heartworm Society (AHS) recommends testing dogs annually for the detection of heartworm antigens and microfilariae. In this study, we assessed the prevalence and potential risk factors for D. immitis in dogs from Albuquerque, New Mexico, using antigen and microfilariae detection tests. In 2023, serum and whole-blood samples (n\u2009=\u2009402) were collected from dogs in Albuquerque, New Mexico, as part of a larger study to detect Onchocerca lupi. Serum samples were screened for D. immitis using a commercially available antigen-detection ELISA (DiroCHEK\u00ae, Zoetis) with pre- and post-immune complex dissociation (ICD) via heat treatment, although this is not currently recommended by AHS. Following genomic DNA extraction, we also screened whole blood using a newly optimized probe-based real-time polymerase chain reaction (qPCR) assay. To assess the potential association between D. immitis presence and risk factors, including age, sex, breed group, and coat color, a univariate analysis was performed using Fisher\u2019s exact test or the chi-squared test. Serum of 4 (0.99%) dogs tested antigen-positive pre-ICD, while 14 (3.47%) dogs tested antigen-positive post-ICD. We did not detect any positive dogs for D. immitis microfilariae by the probe-based qPCR. No risk factors were associated with the detection of the D. immitis antigen in this dog population. Although microfilariae were not detected in this study, it is possible that infections were in the early stages of disease progression, with D. immitis detected in pre- and post-ICD via antigen testing. Low seroprevalence and the absence of microfilariae DNA detected highlight the importance of using both pre- and post-ICD antigen detection alongside molecular-based microfilariae tests, particularly for companion animals living in low-endemic regions and for shelter populations that are less likely to be on heartworm prevention.",
+  "matched": [
+   "chain reaction agent failure"
+  ]
+ },
+ {
+  "paperId": "c4e57aadcf916d49668609cb9d9e36a1c36cca41",
+  "externalIds": {
+   "DOI": "10.70702/bdb/bdb/mhdt5456",
+   "CorpusId": 289791302
+  },
+  "title": "Research progress in low-level viremia in chronic hepatitis B",
+  "venue": "Helios Multidisciplinary",
+  "year": 2026,
+  "citationCount": 0,
+  "openAccessPdf": {
+   "url": "",
+   "status": "CLOSED",
+   "license": null,
+   "disclaimer": "Notice: Paper or abstract available at https://api.unpaywall.org/v2/10.70702/bdb/bdb/mhdt5456?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.70702/bdb/bdb/mhdt5456, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationDate": "2026-07-01",
+  "authors": [
+   {
+    "authorId": "2328286152",
+    "name": "Ying Guo"
+   },
+   {
+    "authorId": "2469741316",
+    "name": "Peng Zhuang"
+   }
+  ],
+  "abstract": "Low-level viremia in chronic hepatitis B has emerged as a distinct clinical entity following the widespread adoption of highly sensitive real-time polymerase chain reaction assays. LLV is defined as persistently detectable hepatitis B virus DNA typically between 20 and 2000 IU per mL in patients receiving nucleoside analogue therapy, representing an intermediate state between complete virological response and overt treatment failure. The prevalence of LLV varies considerably, affecting 10% to 40% of treatment-na\u00efve patients within the first two years of therapy, with higher rates observed in hepatitis B e antigen positive individuals and those with high baseline viral loads. The etiology of LLV is multifactorial, encompassing host-related factors such as poor medication adherence, genetic variations in drug transporters, and impaired HBV-specific T-cell immunity, virus-related factors including preexisting resistance mutations, quasispecies complexity, and persistent covalently closed circular DNA, as well as treatment-related factors involving drug potency and pharmacokinetics. Accumulating evidence demonstrates that LLV, particularly persistent LLV, is associated with adverse clinical outcomes including accelerated hepatic fibrosis progression, increased risk of drug resistance, and significantly elevated hepatocellular carcinoma risk in a dose-dependent manner. Management strategies include optimizing adherence, switching between first-line agents, or combining entecavir with tenofovir, while emerging therapies targeting distinct steps of the HBV life cycle offer potential for functional cure. This review comprehensively synthesizes current knowledge on LLV to inform clinical decision-making and future research directions.",
+  "matched": [
+   "chain reaction agent failure"
+  ]
+ },
+ {
+  "paperId": "d3ade34151373cf1462a596c35dff5f03c3268ba",
+  "externalIds": {
+   "DOI": "10.47363/jcrrr/cardiocare2026/2026(7)9",
+   "CorpusId": 288990864
+  },
+  "title": "Study of Serum Electrolytes and Troponin I in COVID-19 Patients",
+  "venue": "Journal of Cardiology Research Reviews &amp; Reports",
+  "year": 2026,
+  "citationCount": 0,
+  "openAccessPdf": {
+   "url": "",
+   "status": null,
+   "license": null,
+   "disclaimer": "Notice: Paper or abstract available at https://api.unpaywall.org/v2/10.47363/jcrrr/cardiocare2026/2026(7)9?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.47363/jcrrr/cardiocare2026/2026(7)9, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationDate": "2026-05-26",
+  "authors": [
+   {
+    "authorId": "2315417917",
+    "name": "Rajkumari Vidyabati Devi"
+   }
+  ],
+  "abstract": "SARS CoV was the causal agent for first outbreak of acute respiratory distress syndrome in the year 2002 and 2003 in Guangdong province, China. MERS CoV was the causal agent in the second outbreak of Middle East respiratory syndrome in the year 2012, Middle East. Both of these are zoonotic in origin and sometimes associated with fatal illness. Given its genetic diversity and genetic recombination of their genomes, their increasing activities human-animal interface, corona virus is expected to emerge periodically in human population. The clinical spectrum of SARS-CoV-2 infection appeared to be wide, ranging from asymptomatic infection, mild upper respiratory tract illness to severe or even fatal in some cases. The gold standard for the laboratory diagnosis of COVID-19 is the reverse transcription quantitative real-time polymerase chain reaction (RT-qPCR) assay, which searches for SARS-CoV-2 target genes in nasopharyngeal/oropharyngeal (NP/OP) samples, and its performance depends on the quantity and quality of the RNA input. The angiotensin-converting enzyme 2 receptor (ACE2) is expressed in epithelial cells of many tissues including the kidney, and has been identified to interact with human pathogenic coronaviruses, including SARS-CoV-2. Although diffuse alveolar damage and acute respiratory failure are the main features of COVID-19 infection, two recent studies demonstrate that kidney impairment in hospitalized COVID-19 patients is common, and that kidney involvement is associated with high risk of in-hospital death. It has been proposed that low sodium balance may lead to more severe COVID-19. Indeed, studies on electrolyte disturbances during COVID-19 have shown significantly lower sodium concentrations in patients with severe COVID-19 infection. Besides focusing on the severe condition of pneumonia, the novel coronavirus may attack many important organs and cause multiple organ failure with cytokine storm. The heart is one of the most important organs and it is highly suspicious that viral myocarditis and myocardial injury could be also involved and may even be considered as one of the leading causes for the death of COVID-19 patients. Myocarditis and myocardial injury were suspected and may even be considered as one of the leading causes for death of COVID-19 patients. Acute respiratory infections as well as sepsis are often associated with an increase in troponin, which can be used as a marker of disease severity and predicts future cardiovascular events. Elevated troponin levels are frequent in patients with COVID-19 and significantly associated with fatal outcomes. This study is conducted to provide an overview on the current status of electrolytes and troponin-I levels in a small subset of people living in Manipur who are Covid-19 infected and non-infected healthy individuals with a special focus on the potential implications for COVID-19 pandemic.",
+  "matched": [
+   "chain reaction agent failure"
+  ]
+ },
+ {
+  "paperId": "f8513f979f960b08e766af0dd283afa21f7a6379",
+  "externalIds": {
+   "DOI": "10.5812/jjm-169357",
+   "CorpusId": 291108705
+  },
+  "title": "Evaluation of Escherichia coli aggR Gene Expression in the Presence of Different Concentrations of Creatinine",
+  "venue": "Jundishapur Journal of Microbiology",
+  "year": 2026,
+  "citationCount": 0,
+  "openAccessPdf": {
+   "url": "https://brieflands.com/journals/jjm/articles/169357.pdf",
+   "status": "GOLD",
+   "license": "CCBY",
+   "disclaimer": "Notice: Paper or abstract available at https://api.unpaywall.org/v2/10.5812/jjm-169357?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.5812/jjm-169357, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationDate": "2026-07-18",
+  "authors": [
+   {
+    "authorId": "2460781177",
+    "name": "Masoumeh Ayoubnezhad"
+   },
+   {
+    "authorId": "144831159",
+    "name": "M. Mehrabi"
+   },
+   {
+    "authorId": "2394970030",
+    "name": "Mohsen Mirzaei"
+   }
+  ],
+  "abstract": "Background: Chronic renal failure is an irreversible disease associated with elevated blood creatinine levels and substantial mortality and morbidity in children worldwide. Enteroaggregative Escherichia coli (EAEC) is a diarrheagenic agent that possesses several virulence factors, including aggR. Objectives: This study aimed to evaluate aggR gene expression in EAEC under different levels of creatinine exposure. Methods: Initially, three biochemically confirmed E. coli isolates obtained from medical laboratories in Borujerd city, western Iran, were molecularly evaluated by 16S ribosomal RNA (16S rRNA) gene amplification. Next, the isolates were assessed for the aggR gene using polymerase chain reaction (PCR). Isolates carrying the aggR gene were cultured in Brain Heart Infusion (BHI) medium supplemented with 1, 3, and 6 mg/dL creatinine (37oC for 24 hours). The expression level of aggR was evaluated in creatinine-exposed isolates using real-time PCR. Results: Among 50 clinical E. coli isolates, three were EAEC, and one of these isolates carried the aggR gene. Real-time PCR showed that aggR gene expression decreased significantly in the presence of varying creatinine concentrations (P < 0.0001). Conclusions: These findings warrant further investigation to elucidate the role of creatinine in modulating bacterial virulence gene expression in the context of renal disorders.",
+  "matched": [
+   "chain reaction agent failure"
+  ]
+ },
+ {
+  "paperId": "fcb27cb654f4e1f17541d163d6157d1ea5058b36",
+  "externalIds": {
+   "PubMedCentral": "13447568",
+   "DOI": "10.1016/j.idcr.2026.e02706",
+   "CorpusId": 290616091,
+   "PubMed": "42568777"
+  },
+  "title": "Amebic liver abscess: A case report",
+  "venue": "IDCases",
+  "year": 2026,
+  "citationCount": 0,
+  "openAccessPdf": {
+   "url": "https://www.sciencedirect.com/science/article/pii/S2214250926002192/pdf",
+   "status": "GOLD",
+   "license": "CCBYNCND",
+   "disclaimer": "Notice: Paper or abstract available at https://pmc.ncbi.nlm.nih.gov/articles/PMC13447568, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationDate": "2026-07-01",
+  "authors": [
+   {
+    "authorId": "47158084",
+    "name": "Xiaoying Xu"
+   },
+   {
+    "authorId": "35533277",
+    "name": "Qingling Lin"
+   }
+  ],
+  "abstract": "Amebic liver abscess (ALA), caused by Entamoeba histolytica, is the most common extraintestinal manifestation of amebiasis. However, in contemporary clinical practice, diagnosis increasingly relies on serology and polymerase chain reaction (PCR), whereas direct microscopic identification of motile trophozoites in aspirated specimens has become rarely documented. Furthermore, optimal management necessitates complete anti-amebic therapy covering both invasive tissue stages and luminal intestinal colonization to prevent relapse. Here, we report a case of a 25-year-old male with a history of splenectomy and pulmonary tuberculosis, presenting with fever, right upper quadrant pain, and cough. Imaging revealed a right hepatic lobe abscess. While abscess and blood cultures remained sterile, sputum culture grew E. coli. Fresh microscopic examination of the aspirate readily demonstrated motile, erythrophagocytic trophozoites, subsequently confirmed as E. histolytica by sequencing. Although the patient showed initial clinical improvement with metronidazole, he later developed severe bleeding and ulceration of the ascending colon, ultimately requiring partial colectomy. This case underscores the enduring diagnostic value of conventional wet-mount microscopy in the molecular era, offering a rapid and cost-effective tool. Critically, it also highlights a key therapeutic principle ALA treated with a tissue-active agent must be followed by a luminal agent to eradicate intestinal carriage. Failure to do so risks persistent colonic disease, severe complications, or treatment failure, as observed in this patient.",
+  "matched": [
+   "chain reaction agent failure"
+  ]
+ },
+ {
+  "paperId": "fe44f1aa7cbb9a0e2bb911e1d4978d7fa343f520",
+  "externalIds": {
+   "DOI": "10.1016/j.cyto.2026.157163",
+   "CorpusId": 288103561,
+   "PubMed": "42102747"
+  },
+  "title": "Esketamine attenuated sepsis-induced organ injury in mice via the TGF-\u03b2-Smad3 signaling pathway.",
+  "venue": "Cytokine",
+  "year": 2026,
+  "citationCount": 1,
+  "openAccessPdf": {
+   "url": "",
+   "status": null,
+   "license": null,
+   "disclaimer": "Notice: Paper or abstract available at https://api.unpaywall.org/v2/10.1016/j.cyto.2026.157163?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1016/j.cyto.2026.157163, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationDate": "2026-07-01",
+  "authors": [
+   {
+    "authorId": "2433689544",
+    "name": "Haolan"
+   },
+   {
+    "authorId": "2398801808",
+    "name": "Yunjie Wang"
+   },
+   {
+    "authorId": "2491709549",
+    "name": "Yu-Yuan Gao"
+   },
+   {
+    "authorId": "2273766803",
+    "name": "Yitong Liu"
+   },
+   {
+    "authorId": "2365690009",
+    "name": "Boxuan Deng"
+   },
+   {
+    "authorId": "2262181744",
+    "name": "Peizhi Li"
+   },
+   {
+    "authorId": "2392849665",
+    "name": "Jianlin Guo"
+   },
+   {
+    "authorId": "2262398083",
+    "name": "Zhiheng Sun"
+   }
+  ],
+  "abstract": "OBJECTIVE\nSepsis remains a critical global healthcare challenge, with a high mortality rate of 30.8% among critical illnesses, second only to cancer. Currently, there is a lack of effective clinical treatments. The primary cause of early-stage mortality is organ damage and failure induced by an excessive inflammatory response. Macrophages, particularly their polarization states, are deeply involved in driving this pathological inflammatory cascade. This study aimed to investigate the effect of Esketamine (EK) on macrophage polarization and its subsequent role in ameliorating organ injury in a mouse model of sepsis induced by Escherichia coli.\n\n\nMATERIALS AND METHODS\nEK was investigated given its documented anti-inflammatory properties. In vitro, bone marrow-derived macrophages (BMDMs) were stimulated with lipopolysaccharide (LPS) in the presence or absence of EK. In vivo, a septic mouse model was established, with a cohort receiving EK treatment. The expression of macrophage polarization markers was assessed at both transcriptional and protein levels using quantitative polymerase chain reaction (qPCR) and western blotting, respectively. Concurrently, the impact of EK on injury to major organs in septic mice was evaluated.\n\n\nRESULTS\nIn vitro, EK (50-200\u00a0ng/mL) pretreatment of RAW264.7 and BMDM cells significantly suppressed LPS-induced M1 marker expression (TNF-\u03b1, IL-1\u03b2, IL-6, iNOS) and enhanced M2 marker expression (Arg-1, CD206, IL-10, Fizz1) at both mRNA and protein levels (P\u00a0<\u00a00.01). In vivo, C57BL/6 mice (n\u00a0=\u00a08/group) received EK (10\u00a0mg/kg, i.p.) 6 h prior to E. coli challenge. EK pretreatment markedly attenuated lung histopathological injury, reduced serum ALT/AST/lactate levels, and decreased TNF-\u03b1 and IL-6 concentrations in serum and BALF (P\u00a0<\u00a00.01). Mechanistically, EK induced Smad3 phosphorylation, and blockade with SIS3 (2\u00a0mg/kg, i.p.) abolished both M2 polarization in vitro and organ protection in vivo.\n\n\nDISCUSSION\nOur findings suggested that EK reprograms macrophages by shifting their polarization from the pro-inflammatory M1 phenotype toward the anti-inflammatory M2 phenotype. Therefore, EK may represent a potential therapeutic agent for sepsis and related inflammatory conditions not only due to its direct anti-inflammatory property but also because it can remodel the immune landscape by promoting the M2 macrophage phenotype.",
+  "matched": [
+   "chain reaction agent failure"
+  ]
+ },
+ {
+  "paperId": "08886af88bcba6ffebca1f5edcef665fc8cdb142",
+  "externalIds": {
+   "DOI": "10.63544/jbii.v5i5.188",
+   "CorpusId": 291882031
+  },
+  "title": "Self-Evolving Autonomous Software Architectures Using Large-Scale Graph Neural Networks and Real-Time Big Data Feedback Loops for Economic Optimization and Cost-Efficient Resource Allocation",
+  "venue": "Journal of Business Insight and Innovation",
+  "year": 2026,
+  "citationCount": 0,
+  "openAccessPdf": {
+   "url": "https://insightfuljournals.com/index.php/JBII/article/download/188/311",
+   "status": "GOLD",
+   "license": "CCBYNCSA",
+   "disclaimer": "Notice: Paper or abstract available at https://api.unpaywall.org/v2/10.63544/jbii.v5i5.188?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.63544/jbii.v5i5.188, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationDate": "2026-05-26",
+  "authors": [
+   {
+    "authorId": "145295288",
+    "name": "Shoaib Hayat"
+   },
+   {
+    "authorId": "2360022518",
+    "name": "H. Janjua"
+   },
+   {
+    "authorId": "2491370774",
+    "name": "Komal Tanveer"
+   },
+   {
+    "authorId": "2398147468",
+    "name": "M. Siddique"
+   }
+  ],
+  "abstract": "The rapid growth of cloud-native, microservice-based, and distributed computing environments has exposed the limits of conventional software architectures that rely on static rules, manually configured resource policies, and human-driven adaptation. These limitations often produce resource overprovisioning, higher operational costs, delayed failure recovery, and inefficient use of computational capacity. This study proposes a Self-Evolving Autonomous Software Architecture (SEASA) that combines large-scale Graph Neural Networks (GNNs) with real-time big-data feedback loops to enable continuous architectural learning, economic optimization, and cost-efficient resource allocation. The framework represents software ecosystems as dynamic heterogeneous graphs, where services, containers, databases, nodes, and infrastructure resources are modelled as interconnected entities, while dependencies, communication patterns, costs, and data flows are modelled as evolving edges. Runtime data were collected from Microsoft Azure Cloud workload traces, Google Cluster Workload Traces, and a synthetic microservice benchmark containing 500 services and 2.8 million interactions. Graph Convolutional Network, GraphSAGE, Graph Attention Network, and Temporal Graph Neural Network models were evaluated for anomaly detection, workload forecasting, architectural-state prediction, and autonomous adaptation. The TGNN-based framework achieved 97.4% accuracy, 96.8% precision, 96.1% recall, and a 96.4% F1-score, outperforming baseline models. It reduced adaptation latency by 38.7%, resource consumption by 24.5%, cloud operating costs by 21.8%, and overprovisioning by 27.3%. It also improved failure recovery, allocation efficiency, and service-level-objective compliance. These findings show that temporal graph intelligence and real-time economic feedback can transform software architectures into predictive, self-directed, and cost-aware computing ecosystems. \nReferences \nAhmad, B., Jillani, S. A., Rafique, M., & Soomro, A. A. (2026, January). Design and monitoring of a tree-inspired vertical axis wind turbine for efficient urban wind utilization. In 2026 1st International Conference on Innovations in Information and Communication Technologies (IICT) (pp. 1\u20136). IEEE. \nAhmad, B., Majeed, M. K., Soomro, A. A., & Jillani, S. A. (2026, January). Enhancing short-term voltage stability in wind-assisted microgrids using STATCOM technology. In 2026 1st International Conference on Innovations in Information and Communication Technologies (IICT) (pp. 1\u20136). IEEE. \nAlonso, J., Orue-Echevarria, L., Osaba, E., L\u00f3pez Lobo, J., Martinez, I., Diaz de Arcaya, J., & Etxaniz, I. (2021). Optimization and prediction techniques for self-healing and self-learning applications in a trustworthy cloud continuum. Information, 12(8), 308. https://doi.org/10.3390/info12080308 \nAli, S. I. (2026). Cognitive adversarial security neuro: Symbolic and generative AI defense ecosystems for self-evolving cyber resilience. In AI-driven cybersecurity systems, applications, and resilient infrastructure (pp. 139\u2013162). IGI Global Scientific Publishing. \nAlli, B. A., Yusuf, T. A., Ederhion, J., Otunlape, O., Koyenikan, O., Raheem, T. A., \u2026 Alli, Y. A. (2026). Self-evolving cyber defense: An analytical review of AI-driven autonomous and adversarial systems. Journal of Computer Virology and Hacking Techniques, 22(1), 59. \nAnand, H., Khayambashi, K., Zandsalimi, Z., Taghizadeh, M., Hasnat, M. A., & Alemazkoor, N. (2025). Applications of graph neural networks in civil infrastructures: A review on transportation, power, water, and structural systems. Power, Water, and Structural Systems. \nBaulin, V. A., F\u00fcchslin, R. M., Giacometti, A., Hauser, H., & Werner, M. (2025). Material-based intelligence: Self-organizing, autonomous and adaptive cognition embodied in physical substrates. arXiv. https://doi.org/10.48550/arXiv.2511.08838 \nBisht, R., & Chaturvedi, N. (2026). Continual and self-healing cyber defence: An autonomous ML\u2013RL architecture with lifelong learning, attack recovery, and model hardening. Attack Recovery, and Model Hardening. \nChennamsetty, C. S. (2024). Adaptive model training pipelines: Real-time feedback loops for self-evolving systems. International Journal of Advanced Research in Computer Science & Technology, 7(6), 11367\u201311373. https://doi.org/10.15662/IJARCST.2024.0706023 \nCong, W., Tao, W., & Jinsong, B. (2026). Agentic digital twin-embedded maintenance methodology for energy equipment: A self-evolving operational paradigm. Journal of Manufacturing Systems, 84, 100\u2013116. \nDhinakaran, K., Balavigneshwar, T. G., & Kavin, V. (2026, April). ZERO Mind: Self-evolving lifelong multimodal memory architectures for autonomous space digital twins. In 2026 IEEE 2nd International Conference on Quantum Photonics, Artificial Intelligence & Networking (QPAIN) (pp. 1\u20136). IEEE. \nFang, J., Peng, Y., Zhang, X., Wang, Y., Yi, X., Zhang, G., \u2026 Meng, Z. (2025). A comprehensive survey of self-evolving AI agents: A new paradigm bridging foundation models and lifelong agentic systems. arXiv. https://doi.org/10.48550/arXiv.2508.07407 \nHe, J., Treude, C., & Lo, D. (2025). LLM-based multi-agent systems for software engineering: Literature review, vision, and the road ahead. ACM Transactions on Software Engineering and Methodology, 34(5), 1\u201330. https://doi.org/10.1145/3712003 \nJoshi, A., P, A., Prajapati, V., Anbalagan, S., & G, S. (2026). Federated spatio-temporal graph neural network for privacy-preserving vehicle trajectory prediction in autonomous driving. Frontiers in Artificial Intelligence, 9, 1856630. https://doi.org/10.3389/frai.2026.1856630 \nKate, A. (2026). Secure software-defined networking (SDN) integration with zero trust for programmable critical infrastructure defense. \nLi, Q., Ma, Y., Yu, J., Cao, S., Zhang, S., Zhang, P., & Yang, B. (2025). Intelligent fault diagnosis for HVDC systems based on knowledge graph and pre-trained models: A critical and comprehensive review. Energies, 18(24), 6438. https://doi.org/10.3390/en18246438 \nLu, L., Liu, C., Zhang, C., Hu, Z., Lin, S., Liu, Z., \u2026 Chen, J. (2023). Architecture for self-evolution of 6G core network based on intelligent decision making. Electronics, 12(15), 3255. https://doi.org/10.3390/electronics12153255 \nMogra, R., Thirugnanasambantham, K. G., Jain, S. K., & Bairagi, V. (2025, May). Bridging physics and intelligence: A comprehensive review on AI-driven multi-physics FEM for dynamic systems. In International Conference on Interactive Design and Digital Manufacturing (ICIDDM 2K25) (pp. 1\u201319). \nNasir, N., & Al Hamadi, H. (2025). Towards the neuromorphic Cyber-Twin: An architecture for cognitive defense in digital twin ecosystems. Frontiers in Big Data, 8, 1659757. https://doi.org/10.3389/fdata.2025.1659757 \nPaolini, D., Dini, P., Elhanashi, A., & Saponara, S. (2026). Advanced fault detection and diagnosis exploiting machine learning and artificial intelligence for engineering applications. Electronics, 15(2), 476. https://doi.org/10.3390/electronics15020476 \nReddy, K. S. (2026). Next-generation cloud computing architectures with autonomous AI agents for enterprise service optimization. International Journal of Engineering & Extended Technologies Research (IJEETR), 8(2), 4776\u20134785. \nSapkota, R., Roumeliotis, K. I., & Karkee, M. (2025). UAVs meet agentic AI: A multidomain survey of autonomous aerial intelligence and agentic UAVs. arXiv. https://doi.org/10.48550/arXiv.2506.08045 \nSathiri, D. (2026). Autonomous enterprise intelligence platforms enabled by collaborative multi-agent large language models. International Journal of Computer Science and Engineering Innovations, 2(3), 35\u201346. \nVijetha, B. (2026). Agentic intelligence for unified cyber defense: A self-adaptive framework for threat detection across cloud, edge, and IoT systems. IEEE Access, 14, 5104\u20135118. \nWang, J., Huang, N., Zhang, H., Liu, L., Fu, Q., Cao, K., \u2026 Jung, H. (2025). Self-learning model fusion for network anomaly detection: A hybrid CNN-LSTM-transformer framework. PLOS ONE, 20(10), e0332502. https://doi.org/10.1371/journal.pone.0332502 \nWang, Q., Tian, W., Wang, R., Tsai, W. T., Shi, T., Liu, Z., & Xia, T. (2026, April). CogAgent: Self-evolving cognitive agents for multi-source fraud detection in heterogeneous financial networks. In Proceedings of the ACM Web Conference 2026 (pp. 3449\u20133458). \nXiang, Z., Yang, C., Chen, Z., Wei, Z., Tang, Y., Teng, Z., \u2026 Su, J. (2026). A systematic survey of self-evolving agents: From model-centric to environment-driven co-evolution. \nXu, Y., Zhang, W., Chen, Y., Lin, X., & Zhang, Y. (2026). Self-evolving agents as dynamic graph transformation: A survey and new perspective. \nYang, Y., Chai, H., Shao, S., Song, Y., Qi, S., Rui, R., & Zhang, W. (2025). AgentNet: Decentralized evolutionary coordination for LLM-based multi-agent systems. arXiv. https://doi.org/10.48550/arXiv.2504.00587 \nZhang, Y., Zhao, X., Li, Z., Cheng, G., Yin, J., Zhang, L., & Chen, Z. (2024). Integrating artificial intelligence into operating systems: A survey on techniques, applications, and future directions. arXiv. https://doi.org/10.48550/arXiv.2407.14567",
+  "matched": [
+   "multi-agent system trust failure recovery 2026"
+  ]
+ },
+ {
+  "paperId": "035b8c7a5c1cb952d7eba7b70feda24c1d53ad99",
+  "externalIds": {
+   "ArXiv": "2609.07910",
+   "CorpusId": 291870392
+  },
+  "title": "PRIMUS: Identity, Governance, and Verification for Multi-Agent Federations",
+  "venue": "",
+  "year": 2026,
+  "citationCount": 0,
+  "openAccessPdf": {
+   "url": "",
+   "status": null,
+   "license": null,
+   "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2609.07910, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationDate": "2026-09-07",
+  "authors": [
+   {
+    "authorId": "2424026226",
+    "name": "Sasank Annapureddy"
+   },
+   {
+    "authorId": "2424026184",
+    "name": "Anjaneya Prasad Thamatani"
+   }
+  ],
+  "abstract": "Multi-agent federations need governance that answers three questions under adversarial conditions: who participated (identity), did they conform (enforcement), and who decides (authority). A separate question is whether the verification machinery that polices a federation's outputs can also steer a generate-and-test loop toward better answers. Part I. PRIMA introduced prime-power agent identity and a consensus token whose factorization indexes participation, but assumed honest agents. We present PRIMUS, which couples prime-power identity with BLS aggregate signatures (PIAC), derives a safe-kill threshold that reduces false-positive agent termination from 80% to 0.00% under 10% channel noise, gives the closed-form economic boundary where singleton governance outperforms Byzantine quorum ($\\gamma^* \\approx 9f$, verified flat across n = 50 to 10,000), and specifies VRF succession with lease and fencing that makes safety unconditional under partial synchrony. Five problems are identified as provably unfixable within the model and stated as scope boundaries. Part II. A verifier is not a solver. We ask whether PRIMA's binary artifact-fidelity verdict can be converted into a graded fitness signal, and measure the conversion on binary covering codes. Calibration against injected fault burden is strong ($\\rho$ = 0.676 deterministic, 0.819 full); against real LLM-generated candidates the same scores fall to 0.158 and 0.406, roughly a quarter of the calibration value (the same-designer confound, measured). As a pre-filter it beats a random-score control convincingly and a binary gate narrowly. Under 400 iterations of explicit optimization it was not gamed, but only because the objective saturated after one honest answer. A cross-family judge preserves the burden-ordering signal while destroying individual judgments. No covering-code record resulted. Measured program cost: USD 164.78.",
+  "matched": [
+   "byzantine LLM agents multi-agent"
+  ]
+ },
+ {
+  "paperId": "1993dd73996dafdb4d66396646936c9da6a47f99",
+  "externalIds": {
+   "DBLP": "journals/corr/abs-2606-07790",
+   "ArXiv": "2606.07790",
+   "DOI": "10.48550/arXiv.2606.07790",
+   "CorpusId": 289031745
+  },
+  "title": "Byzantine Cheap Talk: Adversarial Resilience and Topology Effects in LLM Coordination Games",
+  "venue": "arXiv.org",
+  "year": 2026,
+  "citationCount": 1,
+  "openAccessPdf": {
+   "url": "",
+   "status": null,
+   "license": null,
+   "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2606.07790, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationDate": "2026-06-05",
+  "authors": [
+   {
+    "authorId": "2241845936",
+    "name": "Aya El Mir"
+   },
+   {
+    "authorId": "144696183",
+    "name": "Martin Tak\u00e1c"
+   },
+   {
+    "authorId": "51474466",
+    "name": "S. Lahlou"
+   }
+  ],
+  "abstract": "Multi-agent LLM systems increasingly rely on communication protocols for coordination, yet their robustness under adversarial and structural constraints remains poorly understood. Building on prior work showing that cheap-talk channels enable cooperation in LLM coordination games, we investigate two vulnerability classes in a 4-player Stag Hunt across six model families and 720 trials. First, when Byzantine agents signal cooperation but defect, non-Byzantine agents detect the betrayal within one round yet fail to adapt collectively: a substantial fraction continue cooperating despite repeated exploitation, unable to recover coordination due to the game's unanimity payoff structure. Second, explicitly restricting communication topology collapses cooperation, while applying identical restrictions silently preserves near-perfect cooperation. This establishes that coordination failure stems from agents'meta-reasoning about hidden information, not information loss itself. We identify two stable behavioral archetypes that replicate across all model cohorts: Defection-Prone models that switch permanently after betrayal, and Cooperation-Persistent models that continue cooperating at significant individual cost. These findings reveal concrete security vulnerabilities: communication channels can be exploited as adversarial injection vectors, and disclosing network topology to agents can degrade coordination even without any adversary present.",
+  "matched": [
+   "byzantine LLM agents multi-agent"
+  ]
+ },
+ {
+  "paperId": "3bdee2cf02cd967e37f6523f8cbc31518e198c69",
+  "externalIds": {
+   "DBLP": "journals/corr/abs-2606-15024",
+   "ArXiv": "2606.15024",
+   "DOI": "10.48550/arXiv.2606.15024",
+   "CorpusId": 289300685
+  },
+  "title": "Resilient Consensus in Agentic AI",
+  "venue": "arXiv.org",
+  "year": 2026,
+  "citationCount": 0,
+  "openAccessPdf": {
+   "url": "",
+   "status": null,
+   "license": null,
+   "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2606.15024, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationDate": "2026-06-12",
+  "authors": [
+   {
+    "authorId": "2099593524",
+    "name": "S. C. Anand"
+   },
+   {
+    "authorId": "2262937183",
+    "name": "George J. Pappas"
+   }
+  ],
+  "abstract": "Large language model (LLM) agents are increasingly deployed in multi-agent systems where they must coordinate and agree on shared decisions. We ask whether classical resilient consensus theory, developed for deterministic agents, transfers to LLM agents that may behave adversarially. Framing LLM agreement as a Byzantine consensus game, we run controlled experiments on complete and general communication graphs. We find that prompted LLM agents fail to reach agreement that is achievable in principle: consensus can fail even in settings where classical theory guarantees that a convergent algorithm exists, and this failure persists across temperatures and horizons. At the same time, wrapping the agents with classical resilient consensus filters improves agreement. The benefit of filtering depends on how much robustness the underlying topology already provides. Our results suggest that classical resilient consensus theory is a useful lens for the safety of agentic AI.",
+  "matched": [
+   "byzantine LLM agents multi-agent"
+  ]
+ },
+ {
+  "paperId": "6319bbd3d9bc098100e18740c19e88b4c74dd3d1",
+  "externalIds": {
+   "DOI": "10.3390/app16168278",
+   "CorpusId": 291304490
+  },
+  "title": "FedMARL-LTI: Federated Multi-Agent Reinforcement Learning with LLM-Compatible Threat Intelligence for Cooperative Cyber Defense",
+  "venue": "Applied Sciences",
+  "year": 2026,
+  "citationCount": 0,
+  "openAccessPdf": {
+   "url": "https://doi.org/10.3390/app16168278",
+   "status": "GOLD",
+   "license": "CCBY",
+   "disclaimer": "Notice: Paper or abstract available at https://api.unpaywall.org/v2/10.3390/app16168278?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.3390/app16168278, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationDate": "2026-08-20",
+  "authors": [
+   {
+    "authorId": "2202700272",
+    "name": "Fatih \u015eahin"
+   }
+  ],
+  "abstract": "Cross-organization cyber defense must reconcile collaborative learning with privacy and adversarial robustness, yet standard federated learning ships full gradient tensors, leaking sensitive posture and inviting Byzantine manipulation. We present FedMARL-LTI, a federated multi-agent reinforcement learning framework whose architecture answers both pressures with a single decision: each organization\u2019s threat intelligence is shared only as a differentially private 768-dimensional semantic embedding, never as raw data. In the evaluated system, a Weight-DP-protected model-weight delta is also exchanged through the federated aggregator (the semantic abstraction embedding is a parallel channel); the privacy guarantee below is stated for the semantic abstraction channel, and an embeddings-only architecture\u2014which the guarantee enables\u2014is the design this points toward. The contribution is fourfold. (1) Semantic Abstraction (SA) channel: per organization, each round, the local gradient is summarized by an LLM, projected to a 768-dim embedding, L2-clipped, and Gaussian-noised before any numeric quantity leaves the host. The bottleneck reduces the aggregate noise magnitude\u2014the expected L2 norm of the DP noise vector\u2014from O(dmodel) to O(m) with m=768\u226admodel\u22483\u00d7105. (2) Formal privacy analysis: the SA + DP cascade satisfies (\u03b5,\u03b4)-DP and bounds per-round mutual information leakage by min{Ttoklog2V, m/2log2(1+C2/(m\u03c32))}, with R\u00e9nyi composition over T federation rounds. Scope of the guarantee: this bound certifies (i) the semantic-abstraction channel. It does not by itself cover (ii) the weight-aggregation channel, whose Weight-DP protection is analyzed separately, nor (iii) the whole deployed system, which is the composition of the two. We therefore state the \u22481.4-bit/MI bound as a per-round guarantee on information leaving the organization through the SA channel not over every byte the system emits; an embeddings-only configuration\u2014which this bound enables\u2014closes the gap to a whole-system guarantee. (3) Byzantine-resilient ClippedClustering aggregator combining L2 clipping with cosine-similarity clustering. (4) Hierarchical MARL policy with threat-profile-aware LLM-IRR reward shaping, wired end-to-end and disclosed honestly (the evaluated system uses a deterministic Johnson\u2013Lindenstrauss projection in place of the LLM call for reproducibility; the architecture is thus LLM-compatible rather than dependent on a specific model, and a full LLM deployment is the planned extension). We evaluate on CybORG CAGE-4 with n=5 organizations, 30 federation rounds \u00d7 5 episodes \u00d7 100 steps per round. Releasing the SA channel in parallel shows no statistically detectable reward cost at N = 5 vs. the no-privacy baseline; this is measured at reward-shaping coefficient \u03b2 = 0, so it establishes that the private semantic release does not disturb weight-channel training rather than that semantic sharing improves defense: SA-only \u0394reward = +4.58 (t=+1.37, NS), dual SA + Weight-DP \u0394reward = +4.31 (t=+1.30, NS), all N=5 seeds, all |t|<1.4. A controlled signal/noise probe confirms a 19.58\u00d7 improvement of SA over Weight-DP at a fixed DP budget\u2014matching the predicted d/m\u224819.8. Under Byzantine sign_flip at 30% (N=15), ClippedClustering is directionally strongest (F1=0.025 vs. FedAvg 0.020, Krum 0.016) but the edge is not statistically significant (CC vs. Krum t=+1.59, p=0.15, d=+0.58; the earlier N=5 \u201c3.4\u00d7\u201d gap was small-sample optimism); its Byzantine behavior is on the harsher random_noise attack. Under a corrected implementation, the undefended baselines do not diverge or collapse; the earlier reading (Krum 0.002, ClippedClustering 0.020) was a noise-injection artifact and is withdrawn; ClippedClustering is now directionally best on F1 but not significantly, and trails Krum on reward (superseded Cohen\u2019s d=+3.77). The cooperative-PPO family (MAPPO, IPPO) outperforms value/actor-critic (QMIX, MADDPG) by \u224820 reward units, p<0.001. All host-level F1 values stay below 0.05 at the 15K-step training horizon used here; the relative claims of the paper (no detectable privacy reward cost, ClippedClustering\u2019s competitive (not decisive) Byzantine behavior on the harsher attacks, cooperative-PPO dominance) are unaffected by this scope. A 200K-step long-horizon replication lifts F1 above the 15K plateau (to \u22480.044, N=5)\u2014confirming that horizon, not the privacy/Byzantine machinery, gates absolute accuracy\u2014but a finer 60-checkpoint run shows the climb is volatile and non-monotonic and does not reach deployment-grade, an honest stability-not-compute limitation. FedMARL-LTI is therefore presented as a proof-of-concept for the relative privacy and robustness trade-offs it isolates, not as an operationally deployable cyber defense system. We release all 141 raw run JSON outputs (Phases 1\u20133, the L4 backend comparison, and the algorithm/aggregator baselines), the figures, and analysis scripts for replication.",
+  "matched": [
+   "byzantine LLM agents multi-agent"
+  ]
+ },
+ {
+  "paperId": "72ea6854710c44a3a088326ea79598754cec5ad5",
+  "externalIds": {
+   "DOI": "10.59543/jidmis.v3.2250",
+   "CorpusId": 291360008
+  },
+  "title": "Adaptive Decision Intelligence through Retrieval-Augmented Multi-Agent Large Language Models",
+  "venue": "Journal of Intelligent Decision Making and Information Science",
+  "year": 2026,
+  "citationCount": 0,
+  "openAccessPdf": {
+   "url": "https://jidmis.org/index.php/jidmis/article/download/2250/960",
+   "status": "HYBRID",
+   "license": "CCBY",
+   "disclaimer": "Notice: Paper or abstract available at https://api.unpaywall.org/v2/10.59543/jidmis.v3.2250?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.59543/jidmis.v3.2250, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationDate": "2026-08-21",
+  "authors": [
+   {
+    "authorId": "2331206078",
+    "name": "Manish Rana"
+   }
+  ],
+  "abstract": "The integration of Retrieval-Augmented Generation (RAG) with multi-agent Large Language Models (LLMs) presents transformative potential for adaptive decision intelligence across critical domains. However, significant challenges including evaluation metric standardization, retrieval latency optimization, multi-agent consistency, dynamic knowledge evolution, and human-AI trust management hinder widespread adoption. This research proposes a comprehensive five-layer framework comprising foundation benchmarks, dynamic hybrid retrieval, multi-agent collaboration with weighted consensus, knowledge graph evolution through graph neural networks, and adaptive human-AI interaction. The system employs hybrid sparse-dense retrieval with reinforcement learning optimization, Byzantine fault-tolerant consensus protocols, and temporal knowledge graph embeddings for real-time updates. Experimental validation across healthcare, manufacturing, and cybersecurity domains demonstrates exceptional performance with 92.3% decision accuracy, 412ms retrieval latency, 94.7% agent agreement rate, and 1150 concurrent request capacity, exceeding all established thresholds. The framework effectively bridges the identified gaps, establishing a robust foundation for trustworthy, scalable, and truly adaptive decision intelligence systems with significant practical applicability across diverse domains.",
+  "matched": [
+   "byzantine LLM agents multi-agent"
+  ]
+ },
+ {
+  "paperId": "a946db88de13b1a6e394973c3ecb191f1dca11d2",
+  "externalIds": {
+   "DBLP": "journals/corr/abs-2605-09076",
+   "ArXiv": "2605.09076",
+   "DOI": "10.48550/arXiv.2605.09076",
+   "CorpusId": 288255145
+  },
+  "title": "Robust Multi-Agent LLMs under Byzantine Faults",
+  "venue": "arXiv.org",
+  "year": 2026,
+  "citationCount": 3,
+  "openAccessPdf": {
+   "url": "",
+   "status": null,
+   "license": null,
+   "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2605.09076, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationDate": "2026-05-09",
+  "authors": [
+   {
+    "authorId": "2322458517",
+    "name": "Haejoon Lee"
+   },
+   {
+    "authorId": "2378955107",
+    "name": "Vincent-Daniel Yun"
+   },
+   {
+    "authorId": "2438919020",
+    "name": "Hyeonho Oh"
+   },
+   {
+    "authorId": "2762989",
+    "name": "Dimitra Panagou"
+   },
+   {
+    "authorId": "2373354279",
+    "name": "Sai Praneeth Karimireddy"
+   }
+  ],
+  "abstract": "Large language model (LLM) agents increasingly collaborate over peer-to-peer networks to improve their reliability. However, these same interactions can also introduce vulnerability to unreliable or Byzantine agents that can propagate incorrect information and degrade overall system performance. To address this, we propose Self-Anchored Consensus (SAC), a fully decentralized filter-and-refine protocol in which agents iteratively exchange responses, locally evaluate and filter unreliable messages, and refine their own outputs. We present $(F{+}1)$-robustness conditions on the communication graph that ensure honest agents preserve and propagate reliable information despite Byzantine influence. Experiments across diverse open- and closed-weight LLMs on mathematical and commonsense reasoning benchmarks show that SAC effectively suppresses Byzantine influence and consistently improves performance across diverse communication topologies, whereas prior methods degrade significantly under Byzantine attacks.",
+  "matched": [
+   "byzantine LLM agents multi-agent"
+  ]
+ },
+ {
+  "paperId": "bc0deb545b4b44fd3e3c13fa0a7b144dcc2ac4a6",
+  "externalIds": {
+   "DBLP": "conf/iwqos/SuWDX26",
+   "DOI": "10.1109/IWQoS70441.2026.11661187",
+   "CorpusId": 291374708
+  },
+  "title": "Semantic Raft: A Fault-Tolerant Multi-Agent Inference Framework for Reliable LLM Services",
+  "venue": "International Workshop on Quality of Service",
+  "year": 2026,
+  "citationCount": 0,
+  "openAccessPdf": {
+   "url": "",
+   "status": "CLOSED",
+   "license": null,
+   "disclaimer": "Notice: Paper or abstract available at https://api.unpaywall.org/v2/10.1109/IWQoS70441.2026.11661187?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1109/IWQoS70441.2026.11661187, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationDate": "2026-06-01",
+  "authors": [
+   {
+    "authorId": "2459857780",
+    "name": "Yi-Dong Su"
+   },
+   {
+    "authorId": "2315916938",
+    "name": "Yangyang Wang"
+   },
+   {
+    "authorId": "2315881205",
+    "name": "Yucong Dong"
+   },
+   {
+    "authorId": "2332972017",
+    "name": "Z. Xu"
+   }
+  ],
+  "abstract": "The reliability of Large Language Models (LLMs) in long-horizon tasks remains a critical bottleneck for Modelas-a-Service (MaaS) deployments. Probabilistic semantic failures in LLMs often manifest as Byzantine-like Behaviors (e.g., logic hallucinations), leading to intermediate state pollution and cascading service failures that unstructured multi-agent debates fail to contain. This paper proposes Semantic Raft, a Probabilistic Byzantine Fault-Tolerant Middleware that formalizes multi-agent inference as a Semantic Replicated State Machine. By adapting the Raft consensus protocol with QoS-aware resource scheduling and Prompt-Enforced Blind Verification, our framework constructs logical firewalls to intercept Correlated Failures at the protocol level. Extensive evaluations on high-failure benchmarks demonstrate significant robustness improvements. Notably, Semantic Raft achieves a 37.2% increase in service success rate on long-chain logical reasoning tasks (CLUTRR) compared to standard debate methods. Furthermore, it exhibits ComplexityAdaptive overhead characteristics, providing an economically viable QoS optimization solution for mission-critical AI services.",
+  "matched": [
+   "byzantine LLM agents multi-agent"
+  ]
+ }
+]

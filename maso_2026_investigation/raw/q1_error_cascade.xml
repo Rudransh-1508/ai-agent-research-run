@@ -1,0 +1,150 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/1pFA0uIFqfXblRavowNk5EO0oeE</id>
+  <title>arXiv Query: search_query=all:"error cascade" AND all:"agent" AND submittedDate:"202606010000 TO 202609212359"&amp;id_list=&amp;start=0&amp;max_results=40</title>
+  <updated>2026-09-21T11:14:23Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=all:%22error+cascade%22+AND+(all:%22agent%22+AND+submittedDate:%22202606010000+TO+202609212359%22)&amp;start=0&amp;max_results=40&amp;id_list=" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>40</opensearch:itemsPerPage>
+  <opensearch:totalResults>5</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/2609.09754v1</id>
+    <title>LexAgentHallu: A Hierarchical Benchmark for Profiling Hallucinations in Legal Agents</title>
+    <updated>2026-09-09T05:52:53Z</updated>
+    <link href="https://arxiv.org/abs/2609.09754v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2609.09754v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>As large language models are increasingly deployed as tool-augmented legal agents, they introduce agentic hallucinations where tool-call and reasoning errors cascade into fabricated holdings and miscited authority. However, existing legal benchmarks evaluate only single-turn QA with outcome-level metrics, while agentic hallucination benchmarks lack legal-specific diagnostic capability. Neither answers to what extent and how a legal agent hallucinates along its trajectory. To address these limitations, we introduce LexAgentHallu, a legal agentic hallucination benchmark designed to evaluate to what extent and how legal agents fail along multi-step trajectories. Built through a four-stage expert-in-the-loop pipeline, LexAgentHallu contains 3414 instances across 17 legal categories and 6 task types. Each instance is annotated under a dual-layer hallucination taxonomy of 7 high-level categories and 27 fine-grained subclasses, covering both substantive errors and agent-procedural failures. We further design fine-grained metrics that quantify to what extent and localize how each failure occurs along an agent's execution path. Our evaluation across 18 proprietary and open-source agents uncovers a Right-Answer-Wrong-Reason effect and reveals that hallucination subclasses cluster rather than scatter, forming distinct agentic framework, legal task, and category profiles. These findings, invisible to outcome-level evaluation, validate the diagnostic power of LexAgentHallu for evaluating agentic hallucination in law.</summary>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-09-09T05:52:53Z</published>
+    <arxiv:comment>EMNLP 2026 Main</arxiv:comment>
+    <arxiv:primary_category term="cs.AI"/>
+    <arxiv:journal_ref>EMNLP 2026 Main</arxiv:journal_ref>
+    <author>
+      <name>Yujin Zhou</name>
+    </author>
+    <author>
+      <name>Mingxuan Zheng</name>
+    </author>
+    <author>
+      <name>Chuxue Cao</name>
+    </author>
+    <author>
+      <name>Huang Yidan</name>
+    </author>
+    <author>
+      <name>Jiale Chen</name>
+    </author>
+    <author>
+      <name>Yike Guo</name>
+    </author>
+    <author>
+      <name>Sirui Han</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2608.26432v1</id>
+    <title>SpeechGym: An Audio-Native Gym for Training Voice Agents via Reinforcement Learning</title>
+    <updated>2026-08-26T22:16:05Z</updated>
+    <link href="https://arxiv.org/abs/2608.26432v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2608.26432v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Voice agents must call tools and hold multi-turn dialogue entirely through speech, yet the dominant paradigm trains them in text. Existing frameworks either cascade TTS and ASR around a proprietary voice API, where gradients cannot flow and per-call cost makes on-policy reinforcement learning prohibitive, or stay in text: they measure voice agents but cannot improve them. We present SpeechGym, an audio-native agentic environment in which two omni-modal models converse in native audio, with no external ASR or TTS and no API boundary, over the unmodified tasks, tools and success check of an established text agentic benchmark, so that the interaction modality is the only variable and the loop stays local and trainable end to end. Audio agentic capability does not follow from audio understanding. The failures speech introduces are perceptual rather than reasoning deficits: the agent picks the right tool and the right argument slot but fills it with a value misheard from the waveform, and that single error cascades into a failed call, a retry of the same call, and a wasted step budget. A second failure is behavioural: under an insistent caller the agent performs an unauthorised write and ends the episode believing it helped. Both are trainable, because the environment labels them for free: a call with a misheard argument fails against the database while a correct one succeeds. The obstacle is sparsity, not signal. Outcome-only GRPO is gradient-starved here, since almost every rollout group fails identically, while a per-turn process reward crediting each successful tool call restores variance to nearly every group. Trained this way, the agent transfers with no further tuning to an independently implemented voice benchmark, more than doubling task success and carrying an open-weights model from last place to second on that leaderboard, while using fewer turns and tokens than before training.</summary>
+    <category term="cs.SD" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-08-26T22:16:05Z</published>
+    <arxiv:primary_category term="cs.SD"/>
+    <author>
+      <name>Jiajun Fan</name>
+    </author>
+    <author>
+      <name>Jingyuan Li</name>
+    </author>
+    <author>
+      <name>Prashanth Gurunath Shivakumar</name>
+    </author>
+    <author>
+      <name>Jia-Hong Huang</name>
+    </author>
+    <author>
+      <name>Qi Luo</name>
+    </author>
+    <author>
+      <name>M. Maruf</name>
+    </author>
+    <author>
+      <name>Ivan Bulyko</name>
+    </author>
+    <author>
+      <name>Ge Liu</name>
+    </author>
+    <author>
+      <name>Roger Ren</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2609.00012v1</id>
+    <title>Long-Horizon State Tracking in LLMs: Executing MD5 through a Deep Sequence of Dependent Tool Calls</title>
+    <updated>2026-08-02T09:38:02Z</updated>
+    <link href="https://arxiv.org/abs/2609.00012v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2609.00012v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Long-horizon tasks remain uncommon in large language model (LLM) evaluation, and for a reason: when each step depends on the last, per-step accuracy that looks excellent in isolation decays catastrophically, as errors cascade and the end-to-end failure probability grows sharply with length. Existing agentic benchmarks report end-to-end success but confound this state-tracking difficulty with instruction interpretation, give no control group that isolates it, and are vulnerable to shortcuts such as a hallucinated final answer, so they cannot say why a long run fails. Whether an LLM can carry exact intermediate state across many tool calls at all is itself not well established. We test this cleanly by having the model compute a cryptographic hash, MD5, step by step: a sequence of $196$ dependent tool calls over $64$ rounds while it carries four $32$-bit words $(a,b,c,d)$ in its own context from one call to the next. Interpretation is trivial and, because we implement MD5 from scratch (RFC~1321), we align every call to the ground-truth trace and check the digest to the bit, so any failure is pure bookkeeping. gpt-oss-120b, a mixture-of-experts model with only $\sim$5.5B active parameters per token, at temperature $0$ with a short fixed prompt, carries the full state across all $196$ calls and returns the correct digest on a majority of completed runs. In the strongest setting we replace every primitive tool with a second LLM, so a driver and a worker compute the whole hash from scratch with no exact-arithmetic oracle in the loop. Two ingredients decide success and neither changes the weights: keeping the model's own reasoning in its context each turn, and voting over a thinking-enabled worker to remove its modular-arithmetic slips. We localize the residual failures by origin, separating state-carrying from arithmetic and from serving.</summary>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CR" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.MA" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-08-02T09:38:02Z</published>
+    <arxiv:comment>6 Pages, 2 figures</arxiv:comment>
+    <arxiv:primary_category term="cs.AI"/>
+    <author>
+      <name>Dheeraj Mohandas Pai</name>
+    </author>
+    <author>
+      <name>Lu Xian</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2606.25332v1</id>
+    <title>Decoupling Reconnaissance and Exploitation: Measuring the Capability Boundaries of LLM-Based Web Penetration Testing</title>
+    <updated>2026-06-24T02:51:58Z</updated>
+    <link href="https://arxiv.org/abs/2606.25332v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2606.25332v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Large Language Models (LLMs) have shown promise for automated penetration testing, yet existing end-to-end black-box evaluations are highly susceptible to error cascading: failures in early reconnaissance can mask an agent's actual ability to exploit vulnerabilities. To more accurately characterize these capabilities, we propose a two-stage decoupled evaluation framework that separates exploit execution from reconnaissance. Using ground-truth injection and knowledge-driven ablation across 70 high-fidelity web vulnerability testbeds, our framework isolates exploitation performance from reconnaissance noise. We empirically evaluate five open-source penetration-testing agents, covering multiagent, monolithic, and graph-driven architectures, on a strictly aligned subset of 50 representative vulnerabilities. The results reveal a substantial capability gap. With accurate vulnerability context, agents achieve a functional success rate of up to 90.0%, whereas autonomous reconnaissance, measured by targeted vulnerability recall, plateaus at approximately 50.0%, primarily due to failures in parsing unstructured telemetry. Cross-architectural analysis further reveals distinct capability niches: multi-agent isolation is more effective for long-sequence interactions such as de-serialization, while monolithic and graph-driven designs perform better on short-chain injections and cross-session access-control vulnerabilities, respectively. This decoupled evaluation work provides a fine-grained benchmarking protocol and an empirical basis for designing next-generation automated offensive security agents.</summary>
+    <category term="cs.CR" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-06-24T02:51:58Z</published>
+    <arxiv:primary_category term="cs.CR"/>
+    <author>
+      <name>Liwei Yu</name>
+    </author>
+    <author>
+      <name>Shuo Li</name>
+    </author>
+    <author>
+      <name>Ming Zhou</name>
+    </author>
+    <author>
+      <name>Ge Chu</name>
+    </author>
+    <author>
+      <name>Yan Guo</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2606.05704v1</id>
+    <title>Critic-Guided Heterogeneous Multi-Agent Reasoning for Reliable Mathematical Problem Solving</title>
+    <updated>2026-06-04T04:52:35Z</updated>
+    <link href="https://arxiv.org/abs/2606.05704v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2606.05704v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Recent Large Language Models (LLMs) have shown impressive reasoning abilities; but they are still susceptible to hallucinations, intermediate reasoning mistakes, and unreliable reasoning results in complex mathematical reasoning problems. In this study, we introduce a critic-based heterogeneous multi-agent approach to improve the dependability of mathematical reasoning. This framework incorporates several LLM agents of different specialties and employs a critic-driven adaptive learning system to assess and guide the reasoning process based on intermediate feedback. The system adopts a generator-validator framework, with the validator not only determining correctness but also offering critiques to guide regeneration of solutions. This allows for adaptive error correction and prevents error cascading. Our experiments on the GSM8K benchmark show that the proposed method achieves up to 13% accuracy improvement over single-shot and non-critic models. Additionally, findings suggest that heterogeneity and critique reduce the need for large models, allowing smaller models to perform on par. Ablation studies reveal the main performance gains are due to the critic-based feedback loop and not model size. In summary, the proposed approach showcases the benefits of combining heterogeneous multi-agent collaboration and critique to obtain reliable and interpretable reasoning systems.</summary>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-06-04T04:52:35Z</published>
+    <arxiv:comment>6 pages</arxiv:comment>
+    <arxiv:primary_category term="cs.AI"/>
+    <author>
+      <name>Muhammad Talha Sharif</name>
+    </author>
+    <author>
+      <name>Abdul Rehman</name>
+    </author>
+  </entry>
+</feed>

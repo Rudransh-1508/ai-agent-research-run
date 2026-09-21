@@ -1,0 +1,557 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/rzV08JAk86XS57S2f7zQ25SWeBY</id>
+  <title>arXiv Query: search_query=all:"revisiting" AND all:"multi-agent" AND all:"large language model"&amp;id_list=&amp;start=0&amp;max_results=20</title>
+  <updated>2026-09-21T12:08:17Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=all:%22revisiting%22+AND+(all:%22multi-agent%22+AND+all:%22large+language+model%22)&amp;start=0&amp;max_results=20&amp;id_list=" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>20</opensearch:itemsPerPage>
+  <opensearch:totalResults>23</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/2608.18575v1</id>
+    <title>Beyond LLM-Based Reasoning: Lightweight GNNs for Agent Failure Attribution</title>
+    <updated>2026-08-19T06:16:09Z</updated>
+    <link href="https://arxiv.org/abs/2608.18575v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2608.18575v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Large language model (LLM)-based multi-agent systems (MAS) often exhibit complex failure modes, which frequently cause agents to produce incorrect outcomes. This motivates the task of Agent Failure Attribution: given a failed multi-agent trajectory, identify the faulty agents and their corresponding error types. Existing approaches predominantly rely on LLMs to perform failure attribution, either through direct prompting, fine-tuning on synthetic data or complex agentic pipelines. While effective, these methods incur substantial computational overhead due to long-context processing, expensive post-training and handcrafted workflows. Moreover, empirical evidence shows that even state-of-the-art models achieve limited accuracy on existing benchmarks, suggesting that scaling model size alone is insufficient. In this work, we revisit this task and question the necessity of such expensive generative solutions. We introduce AFANet, a lightweight graph-based framework that models interaction trajectories through step-level semantic signals and agent-level relationships. We show that with significantly fewer parameters and near-zero inference cost, AFANet (i) matches or outperforms LLM-based baselines, including fine-tuned models on in-domain benchmarks, (ii) maintains robust performance across different GNN architectures and (iii) can be further improved with inexpensive test-time adaptation on the OOD benchmark. Our results suggest that effective agent failure attribution does not require heavy LLM reasoning and a lightweight, structured approach can achieve strong performance.</summary>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-08-19T06:16:09Z</published>
+    <arxiv:primary_category term="cs.CL"/>
+    <author>
+      <name>Ting-Wei Li</name>
+    </author>
+    <author>
+      <name>Yuanchen Bei</name>
+    </author>
+    <author>
+      <name>Xiao Lin</name>
+    </author>
+    <author>
+      <name>Hanghang Tong</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2607.07619v1</id>
+    <title>Rethinking Code Performance Benchmarks for LLMs</title>
+    <updated>2026-07-08T16:36:03Z</updated>
+    <link href="https://arxiv.org/abs/2607.07619v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2607.07619v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Many function-level performance benchmarks have been proposed to evaluate whether large language models (LLMs) can generate efficient programs. However, results on these benchmarks often show that LLM-generated implementations have little or no execution-time difference from canonical solutions. In this paper, we revisit four popular benchmarks: EffiBench, Enamel, EvalPerf, and Mercury. We evaluate 1,538 tasks under more rigorous setting by running each task 30 times and assessing the runtime differences between the canonical solutions and benchmark-provided performant implementations with statistical testing. With the benchmark-provided test suites, only 6.11% of the performant implementations are significantly faster than the canonical solutions. In a manual analysis of 308 non-significant tasks, 99 performant implementations contain no meaningful performance change, while 209 contain potential performance improvements that are not exposed by the original tests. These results suggest that the main limitation is not only the evaluation method, but also the limited sufficiency of the benchmark-provided performance tests. To address this limitation, we propose an LLM-based multi-agent framework to generate performance-oriented tests that expose runtime differences more effectively than the original tests. The framework uses three separate agents to generate, diagnose, and repair deterministic tests that preserve functional correctness while better exposing performance differences. Across 1,345 benchmark tasks for which the original tests found no significant performance difference, tests generated by our framework with DeepSeek-v3.1 and GPT-4o reveal statistically significant improvements in 24.01% and 25.43% of the tasks, respectively, outperforming the SOTA LLM-based performance test generation method.</summary>
+    <category term="cs.SE" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-07-08T16:36:03Z</published>
+    <arxiv:primary_category term="cs.SE"/>
+    <author>
+      <name>Nhat Minh Le</name>
+      <arxiv:affiliation>Peter</arxiv:affiliation>
+    </author>
+    <author>
+      <name>Yisen Xu</name>
+      <arxiv:affiliation>Peter</arxiv:affiliation>
+    </author>
+    <author>
+      <name>Zhijie Wang</name>
+      <arxiv:affiliation>Peter</arxiv:affiliation>
+    </author>
+    <author>
+      <name> Tse-Hsun</name>
+      <arxiv:affiliation>Peter</arxiv:affiliation>
+    </author>
+    <author>
+      <name> Chen</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2607.03853v1</id>
+    <title>CogRad: A Cognitively-Inspired Multi-Agent Framework for Radiology Report Generation</title>
+    <updated>2026-07-04T12:43:04Z</updated>
+    <link href="https://arxiv.org/abs/2607.03853v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2607.03853v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Automated radiology report generation (RRG) can ease radiologist workload, yet most existing systems produce a report in a single forward pass, with no mechanism to check a claim against the image or revisit a finding once stated. We present CogRad, a cognitively inspired multi-agent framework that structures generation around four stages of a radiologist's reading process. A Scout agent discovers anatomical regions directly from image patches via slot attention and assigns region and disease-level triage scores; an Investigator agent concentrates representational capacity on the regions Scout flags as suspicious; a Writer agent compiles these signals into a disease gated visual prefix for a large language model; and a Verifier agent supervises training with a visual entailment loss and, at inference, re-examines its own draft sentence by sentence, regenerating any report it judges insufficiently grounded. On CheXpert Plus, CogRad attains a BLEU-4 of 0.316 and a CIDEr of 0.322, the best scores among the methods we compare against. On IU X-Ray, it attains a BLEU-4 of 0.201 and a CIDEr of 0.724, leading every baseline on every standard NLG metric. We further evaluate CogRad with RadGraph F1, CheXbert F1, and a hallucination analysis to assess clinical accuracy beyond standard text-overlap metrics, complemented by ablation studies and Grad-CAM-based visualizations that characterize each agent's contribution and the model's visual grounding.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-07-04T12:43:04Z</published>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Saif Ur Rehman Khan</name>
+    </author>
+    <author>
+      <name>Hasaan Maqsood</name>
+    </author>
+    <author>
+      <name>Sebastian Vollmer</name>
+    </author>
+    <author>
+      <name>Andreas Dengel</name>
+    </author>
+    <author>
+      <name>Muhammad Nabeel Asim</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2605.25746v1</id>
+    <title>Multi-Agent Coordination Adaptation via Structure-Guided Orchestration</title>
+    <updated>2026-05-25T11:59:58Z</updated>
+    <link href="https://arxiv.org/abs/2605.25746v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2605.25746v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>As large language model (LLM)-based multi-agent systems scale to handle increasingly complex tasks, balancing structural stability and dynamic adaptability becomes increasingly challenging. Existing systems typically adopt either structure-centric methods, committing to structures determined upfront that limit fine-grained control, or orchestration-centric methods, adapting decisions dynamically while leaving coordination structure implicit and unstable. To address this challenge, we revisit multi-agent coordination from a probabilistic perspective, casting it as posterior inference over the joint distribution of structure and orchestration. We introduce MACA, an automated coordination framework that learns a task- and budget-conditioned structural prior over agent participation and interactions. This prior guides a policy-based orchestration as an approximation to posterior inference, enabling efficient solutions with fine-grained control. Across benchmarks, MACA outperforms adaptive multi-agent baselines by an average of 8.42% while using 43.19% fewer tokens. Further investigation reveals that joint adaptation of structure and orchestration suppresses redundant interactions, converging coordination toward task-effective execution.</summary>
+    <category term="cs.MA" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-05-25T11:59:58Z</published>
+    <arxiv:comment>21 pages</arxiv:comment>
+    <arxiv:primary_category term="cs.MA"/>
+    <author>
+      <name>Haoran Li</name>
+    </author>
+    <author>
+      <name>Shulun Chen</name>
+    </author>
+    <author>
+      <name>Shaoyuan Sun</name>
+    </author>
+    <author>
+      <name>Hanchen Wang</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2605.14527v1</id>
+    <title>Lang2MLIP: End-to-End Language-to-Machine Learning Interatomic Potential Development with Autonomous Agentic Workflows</title>
+    <updated>2026-05-14T08:10:42Z</updated>
+    <link href="https://arxiv.org/abs/2605.14527v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2605.14527v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Developing machine learning interatomic potentials (MLIPs) for complex materials systems remains challenging because it requires expertise in atomistic simulations, machine learning, and workflow design, as well as iterative active learning procedures. Existing automated pipelines typically assume a fixed sequence of stages or depend on domain experts, which limits their adaptability to heterogeneous materials systems where the optimal curriculum is not known in advance. To lower the barrier to developing MLIPs for non-experts, we propose Lang2MLIP, a multi-agent framework that takes natural-language input and formulates end-to-end MLIP development as a sequential decision-making problem solved by large language models (LLMs). At each step, a decision-making agent observes the current dataset, model, evaluation results, and execution log, and then automatically selects an appropriate action to improve the model. This removes the need for a predefined pipeline and enables the agent to self-correct by revisiting earlier subsystems when new failures arise. We evaluate this approach on a solid electrolyte interphase (SEI) system with multiple components and interfaces. These results suggest that LLM-based multi-agent systems are a promising direction for automating MLIP development and making it more accessible to non-experts.</summary>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cond-mat.mtrl-sci" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="physics.comp-ph" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-05-14T08:10:42Z</published>
+    <arxiv:comment>31 pages, 12 figures</arxiv:comment>
+    <arxiv:primary_category term="cs.LG"/>
+    <author>
+      <name>Wenwen Li</name>
+    </author>
+    <author>
+      <name>Yuki Orimo</name>
+    </author>
+    <author>
+      <name>Nontawat Charoenphakdee</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2608.20341v1</id>
+    <title>SDAD: Spec-Driven Agentic Development for the AI-Native SDLC</title>
+    <updated>2026-05-05T22:51:56Z</updated>
+    <link href="https://arxiv.org/abs/2608.20341v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2608.20341v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Frontier coding agents backed by large language models with context windows from hundreds of thousands to millions of tokens are restructuring the Software Development Life Cycle (SDLC). Rich context handling and multi-step reasoning now allow substantial Functional Requirement Documents (FRDs) and repository context to be ingested in a single workflow, making specification quality the execution fuel for autonomous delivery. This report formalises Spec-Driven Agentic Development (SDAD) as a synthesis of disciplined up-front formalisation and high-velocity implementation: intent capture, machine-readable specification, agentic synthesis, and independent multi-agent verification under human sign-off. We revisit the historical pendulum between Waterfall and Agile, introduce AI-code as a fourth production paradigm, and compare Human-Agile (circa 2020) with Agentic-SDAD (circa 2026) across artefacts, cadence, accountability, and security posture. Beyond process description, we extend the model to team role metamorphosis (engineer, QA, platform, and product functions), quantitative governance (Ambiguity Tax, Spec Fidelity, SER, and TCI_agentic with repair multiplier phi), and pragmatic adoption via hybrid estimation and a staged migration blueprint. Industrial and research evidence on AI-augmented testing and verification is integrated to motivate separation between synthesis and release authority. Overall, the paper argues that agentic speed does not eliminate engineering discipline; it relocates discipline upstream into specification precision, explicit gates, and auditable provenance.</summary>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.SE" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-05-05T22:51:56Z</published>
+    <arxiv:primary_category term="cs.AI"/>
+    <author>
+      <name>Vu Hung Nguyen</name>
+    </author>
+    <author>
+      <name>Thanh Nguyen</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2602.04234v6</id>
+    <title>When Does Multi-Agent Collaboration Help? An Entropy Perspective</title>
+    <updated>2026-06-04T15:53:48Z</updated>
+    <link href="https://arxiv.org/abs/2602.04234v6" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2602.04234v6" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Multi-agent systems (MAS) have emerged as a prominent paradigm for leveraging large language models (LLMs) to tackle complex tasks. However, the mechanisms governing the effectiveness of MAS built upon publicly available LLMs, specifically the underlying rationales for their success or failure, remain largely unexplored. In this paper, we revisit MAS through the perspective of \textit{entropy}, considering both intra- and inter-agent dynamics by investigating entropy transitions during problem-solving across various topologies, six reasoning benchmarks, and two agentic tasks. By analyzing 245 features spanning token-, agent-, and round-level entropy, we counterintuitively find that a single agent outperforms MAS in approximately 43.3\% of cases, and that entropy dynamics are largely determined during the first round of interaction. Furthermore, we provide three key observations: 1) \textit{Certainty Preference}: peak entropy directly harms and stable entropy directly benefits MAS correctness; 2) \textit{Base Entropy}: base models with lower entropy during problem-solving causally drive MAS performance; and 3) \textit{Task Awareness}: entropy dynamics of MAS play varying roles across different tasks. Building on these insights, we introduce a simple yet effective algorithm, the \textit{Entropy Judger}, to select solutions from MAS's pass@$k$ results, leading to consistent accuracy improvements across all MAS configurations and tasks. Our source code is available at \href{https://github.com/AgenticFinLab/multiagent-entropy}{this https URL}.</summary>
+    <category term="cs.MA" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-02-04T05:53:21Z</published>
+    <arxiv:comment>Project page: https://multiagent-entropy.github.io/</arxiv:comment>
+    <arxiv:primary_category term="cs.MA"/>
+    <author>
+      <name>Yuxuan Zhao</name>
+    </author>
+    <author>
+      <name>Sijia Chen</name>
+    </author>
+    <author>
+      <name>Ningxin Su</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2512.18094v1</id>
+    <title>Rethinking Multi-Agent Intelligence Through the Lens of Small-World Networks</title>
+    <updated>2025-12-19T22:05:43Z</updated>
+    <link href="https://arxiv.org/abs/2512.18094v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2512.18094v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Large language models (LLMs) have enabled multi-agent systems (MAS) in which multiple agents argue, critique, and coordinate to solve complex tasks, making communication topology a first-class design choice. Yet most existing LLM-based MAS either adopt fully connected graphs, simple sparse rings, or ad-hoc dynamic selection, with little structural guidance. In this work, we revisit classic theory on small-world (SW) networks and ask: what changes if we treat SW connectivity as a design prior for MAS? We first bridge insights from neuroscience and complex networks to MAS, highlighting how SW structures balance local clustering and long-range integration. Using multi-agent debate (MAD) as a controlled testbed, experiment results show that SW connectivity yields nearly the same accuracy and token cost, while substantially stabilizing consensus trajectories. Building on this, we introduce an uncertainty-guided rewiring scheme for scaling MAS, where long-range shortcuts are added between epistemically divergent agents using LLM-oriented uncertainty signals (e.g., semantic entropy). This yields controllable SW structures that adapt to task difficulty and agent heterogeneity. Finally, we discuss broader implications of SW priors for MAS design, framing them as stabilizers of reasoning, enhancers of robustness, scalable coordinators, and inductive biases for emergent cognitive roles.</summary>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.MA" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-12-19T22:05:43Z</published>
+    <arxiv:comment>Under Review</arxiv:comment>
+    <arxiv:primary_category term="cs.AI"/>
+    <author>
+      <name>Boxuan Wang</name>
+    </author>
+    <author>
+      <name>Zhuoyun Li</name>
+    </author>
+    <author>
+      <name>Xiaowei Huang</name>
+    </author>
+    <author>
+      <name>Yi Dong</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2512.15363v1</id>
+    <title>Revisiting Task-Oriented Dataset Search in the Era of Large Language Models: Challenges, Benchmark, and Solution</title>
+    <updated>2025-12-17T12:08:28Z</updated>
+    <link href="https://arxiv.org/abs/2512.15363v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2512.15363v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>The search for suitable datasets is the critical "first step" in data-driven research, but it remains a great challenge. Researchers often need to search for datasets based on high-level task descriptions. However, existing search systems struggle with this task due to ambiguous user intent, task-to-dataset mapping and benchmark gaps, and entity ambiguity. To address these challenges, we introduce KATS, a novel end-to-end system for task-oriented dataset search from unstructured scientific literature. KATS consists of two key components, i.e., offline knowledge base construction and online query processing. The sophisticated offline pipeline automatically constructs a high-quality, dynamically updatable task-dataset knowledge graph by employing a collaborative multi-agent framework for information extraction, thereby filling the task-to-dataset mapping gap. To further address the challenge of entity ambiguity, a unique semantic-based mechanism is used for task entity linking and dataset entity resolution. For online retrieval, KATS utilizes a specialized hybrid query engine that combines vector search with graph-based ranking to generate highly relevant results. Additionally, we introduce CS-TDS, a tailored benchmark suite for evaluating task-oriented dataset search systems, addressing the critical gap in standardized evaluation. Experiments on our benchmark suite show that KATS significantly outperforms state-of-the-art retrieval-augmented generation frameworks in both effectiveness and efficiency, providing a robust blueprint for the next generation of dataset discovery systems.</summary>
+    <category term="cs.DB" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-12-17T12:08:28Z</published>
+    <arxiv:comment>Accepted to Proc. VLDB Endow. (PVLDB), Vol. 19. 14 pages, 8 figures</arxiv:comment>
+    <arxiv:primary_category term="cs.DB"/>
+    <author>
+      <name>Zixin Wei</name>
+    </author>
+    <author>
+      <name>Yucan Guo</name>
+    </author>
+    <author>
+      <name>Jinyang Li</name>
+    </author>
+    <author>
+      <name>Xiaolin Han</name>
+    </author>
+    <author>
+      <name>Xiaolong Jin</name>
+    </author>
+    <author>
+      <name>Chenhao Ma</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2511.15061v1</id>
+    <title>Beyond GeneGPT: A Multi-Agent Architecture with Open-Source LLMs for Enhanced Genomic Question Answering</title>
+    <updated>2025-11-19T03:08:20Z</updated>
+    <link href="https://arxiv.org/abs/2511.15061v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2511.15061v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Genomic question answering often requires complex reasoning and integration across diverse biomedical sources. GeneGPT addressed this challenge by combining domain-specific APIs with OpenAI's code-davinci-002 large language model to enable natural language interaction with genomic databases. However, its reliance on a proprietary model limits scalability, increases operational costs, and raises concerns about data privacy and generalization.
+  In this work, we revisit and reproduce GeneGPT in a pilot study using open source models, including Llama 3.1, Qwen2.5, and Qwen2.5 Coder, within a monolithic architecture; this allows us to identify the limitations of this approach. Building on this foundation, we then develop OpenBioLLM, a modular multi-agent framework that extends GeneGPT by introducing agent specialization for tool routing, query generation, and response validation. This enables coordinated reasoning and role-based task execution.
+  OpenBioLLM matches or outperforms GeneGPT on over 90% of the benchmark tasks, achieving average scores of 0.849 on Gene-Turing and 0.830 on GeneHop, while using smaller open-source models without additional fine-tuning or tool-specific pretraining. OpenBioLLM's modular multi-agent design reduces latency by 40-50% across benchmark tasks, significantly improving efficiency without compromising model capability. The results of our comprehensive evaluation highlight the potential of open-source multi-agent systems for genomic question answering. Code and resources are available at https://github.com/ielab/OpenBioLLM.</summary>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.IR" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-11-19T03:08:20Z</published>
+    <arxiv:comment>This paper has been accepted to SIGIR-AP 2025</arxiv:comment>
+    <arxiv:primary_category term="cs.AI"/>
+    <author>
+      <name>Haodong Chen</name>
+    </author>
+    <author>
+      <name>Guido Zuccon</name>
+    </author>
+    <author>
+      <name>Teerapong Leelanupab</name>
+    </author>
+    <arxiv:doi>10.1145/3767695.3769488</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1145/3767695.3769488" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2510.14312v1</id>
+    <title>Terrarium: Revisiting the Blackboard for Multi-Agent Safety, Privacy, and Security Studies</title>
+    <updated>2025-10-16T05:19:13Z</updated>
+    <link href="https://arxiv.org/abs/2510.14312v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2510.14312v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>A multi-agent system (MAS) powered by large language models (LLMs) can automate tedious user tasks such as meeting scheduling that requires inter-agent collaboration. LLMs enable nuanced protocols that account for unstructured private data, user constraints, and preferences. However, this design introduces new risks, including misalignment and attacks by malicious parties that compromise agents or steal user data. In this paper, we propose the Terrarium framework for fine-grained study on safety, privacy, and security in LLM-based MAS. We repurpose the blackboard design, an early approach in multi-agent systems, to create a modular, configurable testbed for multi-agent collaboration. We identify key attack vectors such as misalignment, malicious agents, compromised communication, and data poisoning. We implement three collaborative MAS scenarios with four representative attacks to demonstrate the framework's flexibility. By providing tools to rapidly prototype, evaluate, and iterate on defenses and designs, Terrarium aims to accelerate progress toward trustworthy multi-agent systems.</summary>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CR" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-10-16T05:19:13Z</published>
+    <arxiv:primary_category term="cs.AI"/>
+    <author>
+      <name>Mason Nakamura</name>
+    </author>
+    <author>
+      <name>Abhinav Kumar</name>
+    </author>
+    <author>
+      <name>Saaduddin Mahmud</name>
+    </author>
+    <author>
+      <name>Sahar Abdelnabi</name>
+    </author>
+    <author>
+      <name>Shlomo Zilberstein</name>
+    </author>
+    <author>
+      <name>Eugene Bagdasarian</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2509.25185v1</id>
+    <title>PixelCraft: A Multi-Agent System for High-Fidelity Visual Reasoning on Structured Images</title>
+    <updated>2025-09-29T17:59:49Z</updated>
+    <link href="https://arxiv.org/abs/2509.25185v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2509.25185v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Structured images (e.g., charts and geometric diagrams) remain challenging for multimodal large language models (MLLMs), as perceptual slips can cascade into erroneous conclusions. Intermediate visual cues can steer reasoning; however, existing cue-based methods are constrained with low-fidelity image processing and linear, rigid reasoning patterns, limiting their effectiveness on complex structured-image tasks. In this paper, we propose PixelCraft, a novel multi-agent system for high-fidelity image processing and flexible visual reasoning on structured images. The system comprises a dispatcher, a planner, a reasoner, critics, and a set of visual tool agents. To achieve high-fidelity processing, we construct a high-quality corpus and fine-tune an MLLM into a grounding model, whose pixel-level localizations are integrated with traditional computer vision (CV) algorithms in tool agents. Building on this foundation, PixelCraft facilitates flexible visual reasoning through a dynamic three-stage workflow of tool selection, agent discussion, and self-criticism. Moreover, unlike prior linear reasoning patterns that simply append historical images, PixelCraft maintains an image memory to allow the planner to adaptively revisit earlier visual steps, explore alternative reasoning branches, and dynamically adjust the reasoning trajectory during discussion. Extensive experiments on challenging chart and geometry benchmarks demonstrate that PixelCraft significantly improves visual reasoning performance for advanced MLLMs, setting a new standard for structured image reasoning. Our code will be available at https://github.com/microsoft/PixelCraft.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-09-29T17:59:49Z</published>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Shuoshuo Zhang</name>
+    </author>
+    <author>
+      <name>Zijian Li</name>
+    </author>
+    <author>
+      <name>Yizhen Zhang</name>
+    </author>
+    <author>
+      <name>Jingjing Fu</name>
+    </author>
+    <author>
+      <name>Lei Song</name>
+    </author>
+    <author>
+      <name>Jiang Bian</name>
+    </author>
+    <author>
+      <name>Jun Zhang</name>
+    </author>
+    <author>
+      <name>Yujiu Yang</name>
+    </author>
+    <author>
+      <name>Rui Wang</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2509.00115v3</id>
+    <title>Adaptive Monitoring and Real-World Evaluation of Agentic AI Systems</title>
+    <updated>2025-09-13T03:25:07Z</updated>
+    <link href="https://arxiv.org/abs/2509.00115v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2509.00115v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Agentic artificial intelligence (AI) -- multi-agent systems that combine large language models with external tools and autonomous planning -- are rapidly transitioning from research laboratories into high-stakes domains. Our earlier "Basic" paper introduced a five-axis framework and proposed preliminary metrics such as goal drift and harm reduction but did not provide an algorithmic instantiation or empirical evidence. This "Advanced" sequel fills that gap. First, we revisit recent benchmarks and industrial deployments to show that technical metrics still dominate evaluations: a systematic review of 84 papers from 2023--2025 found that 83% report capability metrics while only 30% consider human-centred or economic axes [2]. Second, we formalise an Adaptive Multi-Dimensional Monitoring (AMDM) algorithm that normalises heterogeneous metrics, applies per-axis exponentially weighted moving-average thresholds and performs joint anomaly detection via the Mahalanobis distance [7]. Third, we conduct simulations and real-world experiments. AMDM cuts anomaly-detection latency from 12.3 s to 5.6 s on simulated goal drift and reduces false-positive rates from 4.5% to 0.9% compared with static thresholds. We present a comparison table and ROC/PR curves, and we reanalyse case studies to surface missing metrics. Code, data and a reproducibility checklist accompany this paper to facilitate replication. The code supporting this work is available at https://github.com/Manishms18/Adaptive-Multi-Dimensional-Monitoring.</summary>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.MA" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-08-28T15:52:49Z</published>
+    <arxiv:primary_category term="cs.AI"/>
+    <author>
+      <name>Manish Shukla</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2507.03498v2</id>
+    <title>Reinforcement Learning-based Feature Generation Algorithm for Scientific Data</title>
+    <updated>2025-07-09T11:30:58Z</updated>
+    <link href="https://arxiv.org/abs/2507.03498v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2507.03498v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Feature generation (FG) aims to enhance the prediction potential of original data by constructing high-order feature combinations and removing redundant features. It is a key preprocessing step for tabular scientific data to improve downstream machine-learning model performance. Traditional methods face the following two challenges when dealing with the feature generation of scientific data: First, the effective construction of high-order feature combinations in scientific data necessitates profound and extensive domain-specific expertise. Secondly, as the order of feature combinations increases, the search space expands exponentially, imposing prohibitive human labor consumption. Advancements in the Data-Centric Artificial Intelligence (DCAI) paradigm have opened novel avenues for automating feature generation processes. Inspired by that, this paper revisits the conventional feature generation workflow and proposes the Multi-agent Feature Generation (MAFG) framework. Specifically, in the iterative exploration stage, multi-agents will construct mathematical transformation equations collaboratively, synthesize and identify feature combinations ex-hibiting high information content, and leverage a reinforcement learning mechanism to evolve their strategies. Upon completing the exploration phase, MAFG integrates the large language models (LLMs) to interpreta-tively evaluate the generated features of each significant model performance breakthrough. Experimental results and case studies consistently demonstrate that the MAFG framework effectively automates the feature generation process and significantly enhances various downstream scientific data mining tasks.</summary>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-07-04T11:52:09Z</published>
+    <arxiv:comment>12 pages, in Chinese language, accepted by Journal of Computer Research and Development</arxiv:comment>
+    <arxiv:primary_category term="cs.LG"/>
+    <author>
+      <name>Meng Xiao</name>
+    </author>
+    <author>
+      <name>Junfeng Zhou</name>
+    </author>
+    <author>
+      <name>Yuanchun Zhou</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2506.06175v1</id>
+    <title>Does It Run and Is That Enough? Revisiting Text-to-Chart Generation with a Multi-Agent Approach</title>
+    <updated>2025-06-06T15:39:17Z</updated>
+    <link href="https://arxiv.org/abs/2506.06175v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2506.06175v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Large language models can translate natural-language chart descriptions into runnable code, yet approximately 15\% of the generated scripts still fail to execute, even after supervised fine-tuning and reinforcement learning. We investigate whether this persistent error rate stems from model limitations or from reliance on a single-prompt design. To explore this, we propose a lightweight multi-agent pipeline that separates drafting, execution, repair, and judgment, using only an off-the-shelf GPT-4o-mini model. On the \textsc{Text2Chart31} benchmark, our system reduces execution errors to 4.5\% within three repair iterations, outperforming the strongest fine-tuned baseline by nearly 5 percentage points while requiring significantly less compute. Similar performance is observed on the \textsc{ChartX} benchmark, with an error rate of 4.6\%, demonstrating strong generalization. Under current benchmarks, execution success appears largely solved. However, manual review reveals that 6 out of 100 sampled charts contain hallucinations, and an LLM-based accessibility audit shows that only 33.3\% (\textsc{Text2Chart31}) and 7.2\% (\textsc{ChartX}) of generated charts satisfy basic colorblindness guidelines. These findings suggest that future work should shift focus from execution reliability toward improving chart aesthetics, semantic fidelity, and accessibility.</summary>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-06-06T15:39:17Z</published>
+    <arxiv:comment>8 pages</arxiv:comment>
+    <arxiv:primary_category term="cs.CL"/>
+    <author>
+      <name>James Ford</name>
+    </author>
+    <author>
+      <name>Anthony Rios</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2505.22960v2</id>
+    <title>Revisiting Multi-Agent Debate as Test-Time Scaling: A Systematic Study of Conditional Effectiveness</title>
+    <updated>2025-06-20T03:07:38Z</updated>
+    <link href="https://arxiv.org/abs/2505.22960v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2505.22960v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>The remarkable growth in large language model (LLM) capabilities has spurred exploration into multi-agent systems, with debate frameworks emerging as a promising avenue for enhanced problem-solving. These multi-agent debate (MAD) approaches, where agents collaboratively present, critique, and refine arguments, potentially offer improved reasoning, robustness, and diverse perspectives over monolithic models. Despite prior studies leveraging MAD, a systematic understanding of its effectiveness compared to self-agent methods, particularly under varying conditions, remains elusive. This paper seeks to fill this gap by conceptualizing MAD as a test-time computational scaling technique, distinguished by collaborative refinement and diverse exploration capabilities. We conduct a comprehensive empirical investigation comparing MAD with strong self-agent test-time scaling baselines on mathematical reasoning and safety-related tasks. Our study systematically examines the influence of task difficulty, model scale, and agent diversity on MAD's performance. Key findings reveal that, for mathematical reasoning, MAD offers limited advantages over self-agent scaling but becomes more effective with increased problem difficulty and decreased model capability, while agent diversity shows little benefit. Conversely, for safety tasks, MAD's collaborative refinement can increase vulnerability, but incorporating diverse agent configurations facilitates a gradual reduction in attack success through the collaborative refinement process. We believe our findings provide critical guidance for the future development of more effective and strategically deployed MAD systems.</summary>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-05-29T01:02:55Z</published>
+    <arxiv:comment>Preprint, under review</arxiv:comment>
+    <arxiv:primary_category term="cs.AI"/>
+    <author>
+      <name>Yongjin Yang</name>
+    </author>
+    <author>
+      <name>Euiin Yi</name>
+    </author>
+    <author>
+      <name>Jongwoo Ko</name>
+    </author>
+    <author>
+      <name>Kimin Lee</name>
+    </author>
+    <author>
+      <name>Zhijing Jin</name>
+    </author>
+    <author>
+      <name>Se-Young Yun</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2505.21298v4</id>
+    <title>Large Language Models Miss the Multi-Agent Mark</title>
+    <updated>2025-12-06T00:24:57Z</updated>
+    <link href="https://arxiv.org/abs/2505.21298v4" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2505.21298v4" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Recent interest in Multi-Agent Systems of Large Language Models (MAS LLMs) has led to an increase in frameworks leveraging multiple LLMs to tackle complex tasks. However, much of this literature appropriates the terminology of MAS without engaging with its foundational principles. In this position paper, we highlight critical discrepancies between MAS theory and current MAS LLMs implementations, focusing on four key areas: the social aspect of agency, environment design, coordination and communication protocols, and measuring emergent behaviours. Our position is that many MAS LLMs lack multi-agent characteristics such as autonomy, social interaction, and structured environments, and often rely on oversimplified, LLM-centric architectures. The field may slow down and lose traction by revisiting problems the MAS literature has already addressed. Therefore, we systematically analyse this issue and outline associated research opportunities; we advocate for better integrating established MAS concepts and more precise terminology to avoid mischaracterisation and missed opportunities.</summary>
+    <category term="cs.MA" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-05-27T15:01:06Z</published>
+    <arxiv:comment>NeurIPS 2025 - position track -</arxiv:comment>
+    <arxiv:primary_category term="cs.MA"/>
+    <author>
+      <name>Emanuele La Malfa</name>
+    </author>
+    <author>
+      <name>Gabriele La Malfa</name>
+    </author>
+    <author>
+      <name>Samuele Marro</name>
+    </author>
+    <author>
+      <name>Jie M. Zhang</name>
+    </author>
+    <author>
+      <name>Elizabeth Black</name>
+    </author>
+    <author>
+      <name>Michael Luck</name>
+    </author>
+    <author>
+      <name>Philip Torr</name>
+    </author>
+    <author>
+      <name>Michael Wooldridge</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2506.05364v2</id>
+    <title>Survey of LLM Agent Communication with MCP: A Software Design Pattern Centric Review</title>
+    <updated>2026-05-22T02:16:39Z</updated>
+    <link href="https://arxiv.org/abs/2506.05364v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2506.05364v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>This survey investigates how classical software design patterns can enhance the reliability and scalability of communication in Large Language Model (LLM)-driven agentic AI systems, focusing particularly on the Model Context Protocol (MCP). It examines the foundational architectures of LLM-based agents and their evolution from isolated operation to sophisticated, multi-agent collaboration, addressing key communication hurdles that arise in this transition. The study revisits well-established patterns, including Mediator, Observer, Publish-Subscribe, and Broker, and analyzes their relevance in structuring agent interactions within MCP-compliant frameworks. To clarify these dynamics, the article provides conceptual schematics and formal models that map out communication pathways and optimize data flow. It further explores architectural variations suited to different degrees of agent autonomy and system complexity. Real-world applications in domains such as real-time financial processing and investment banking are discussed, illustrating how these patterns and MCP can meet specific operational demands. The article concludes by outlining open challenges, potential security risks, and promising directions for advancing robust, interoperable, and scalable multi-agent LLM ecosystems.</summary>
+    <category term="cs.SE" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-05-26T09:11:17Z</published>
+    <arxiv:primary_category term="cs.SE"/>
+    <author>
+      <name>Anjana Sarkar</name>
+    </author>
+    <author>
+      <name>Soumyendu Sarkar</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2503.16905v2</id>
+    <title>MAPS: Multi-Agent Personality Shaping for Collaborative Reasoning</title>
+    <updated>2025-11-12T06:46:52Z</updated>
+    <link href="https://arxiv.org/abs/2503.16905v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2503.16905v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Collaborative reasoning with multiple agents offers the potential for more robust and diverse problem-solving. However, existing approaches often suffer from homogeneous agent behaviors and lack of reflective and rethinking capabilities. We propose Multi-Agent Personality Shaping (MAPS), a novel framework that enhances reasoning through agent diversity and internal critique. Inspired by the Big Five personality theory, MAPS assigns distinct personality traits to individual agents, shaping their reasoning styles and promoting heterogeneous collaboration. To enable deeper and more adaptive reasoning, MAPS introduces a Critic agent that reflects on intermediate outputs, revisits flawed steps, and guides iterative refinement. This integration of personality-driven agent design and structured collaboration improves both reasoning depth and flexibility. Empirical evaluations across three benchmarks demonstrate the strong performance of MAPS, with further analysis confirming its generalizability across different large language models and validating the benefits of multi-agent collaboration.</summary>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-03-21T07:13:45Z</published>
+    <arxiv:comment>AAAI 2026</arxiv:comment>
+    <arxiv:primary_category term="cs.AI"/>
+    <author>
+      <name>Jian Zhang</name>
+    </author>
+    <author>
+      <name>Zhiyuan Wang</name>
+    </author>
+    <author>
+      <name>Zhangqi Wang</name>
+    </author>
+    <author>
+      <name>Fangzhi Xu</name>
+    </author>
+    <author>
+      <name>Qika Lin</name>
+    </author>
+    <author>
+      <name>Lingling Zhang</name>
+    </author>
+    <author>
+      <name>Rui Mao</name>
+    </author>
+    <author>
+      <name>Erik Cambria</name>
+    </author>
+    <author>
+      <name>Jun Liu</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2502.15153v2</id>
+    <title>When Disagreements Elicit Robustness: Investigating Self-Repair Capabilities under LLM Multi-Agent Disagreements</title>
+    <updated>2025-10-02T15:55:21Z</updated>
+    <link href="https://arxiv.org/abs/2502.15153v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2502.15153v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Recent advances in Large Language Models (LLMs) have upgraded them from sophisticated text generators to autonomous agents capable of cooperation and tool use in multi-agent systems (MAS). However, it remains unclear how disagreements shape collective decision-making. In this paper, we revisit the role of disagreement and argue that general, partially overlapping disagreements prevent premature consensus and expand the explored solution space, while disagreements on task-critical steps can derail collaboration depending on the topology of solution paths. We investigate two collaborative settings with distinct path structures: collaborative reasoning (CounterFact, MQuAKE-cf), which typically follows a single evidential chain, whereas collaborative programming (HumanEval, GAIA) often adopts multiple valid implementations. Disagreements are instantiated as general heterogeneity among agents and as task-critical counterfactual knowledge edits injected into context or parameters. Experiments reveal that general disagreements consistently improve success by encouraging complementary exploration. By contrast, task-critical disagreements substantially reduce success on single-path reasoning, yet have a limited impact on programming, where agents can choose alternative solutions. Trace analyses show that MAS frequently bypasses the edited facts in programming but rarely does so in reasoning, revealing an emergent self-repair capability that depends on solution-path rather than scale alone. Our code is available at https://github.com/wbw625/MultiAgentRobustness.</summary>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-02-21T02:24:43Z</published>
+    <arxiv:comment>Working in progress</arxiv:comment>
+    <arxiv:primary_category term="cs.CL"/>
+    <author>
+      <name>Tianjie Ju</name>
+    </author>
+    <author>
+      <name>Bowen Wang</name>
+    </author>
+    <author>
+      <name>Hao Fei</name>
+    </author>
+    <author>
+      <name>Mong-Li Lee</name>
+    </author>
+    <author>
+      <name>Wynne Hsu</name>
+    </author>
+    <author>
+      <name>Yun Li</name>
+    </author>
+    <author>
+      <name>Qianren Wang</name>
+    </author>
+    <author>
+      <name>Pengzhou Cheng</name>
+    </author>
+    <author>
+      <name>Zongru Wu</name>
+    </author>
+    <author>
+      <name>Haodong Zhao</name>
+    </author>
+    <author>
+      <name>Zhuosheng Zhang</name>
+    </author>
+    <author>
+      <name>Gongshen Liu</name>
+    </author>
+  </entry>
+</feed>

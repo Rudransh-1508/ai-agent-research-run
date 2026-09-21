@@ -1,0 +1,164 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/D7AeyAJ2J5v48ennggA94myPkQY</id>
+  <title>arXiv Query: search_query=all:"exception handling" AND all:"LLM agents"&amp;id_list=&amp;start=0&amp;max_results=15</title>
+  <updated>2026-09-21T12:08:38Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=all:%22exception+handling%22+AND+all:%22LLM+agents%22&amp;start=0&amp;max_results=15&amp;id_list=" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>15</opensearch:itemsPerPage>
+  <opensearch:totalResults>4</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/2608.15931v1</id>
+    <title>PLSQLBench: Benchmarking LLM Systems for Executable Procedural Database Programming</title>
+    <updated>2026-08-16T21:03:21Z</updated>
+    <link href="https://arxiv.org/abs/2608.15931v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2608.15931v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We present PLSQLBench, to our knowledge the first benchmark for evaluating whether LLMs can write executable PL/SQL programs, with correctness measured through execution-based tests. Existing LLM evaluations largely target general-purpose code generation or declarative text-to-SQL, leaving procedural database programming underexplored. PLSQLBench contains 2,865 instances: 2,594 single-turn tasks and 271 multi-turn conversations spanning 978 turns. The benchmark combines complex schema-grounded tasks over enterprise-style Spider 2 databases, simpler schema-grounded tasks derived from Spider, and MBPP-derived procedural problems, covering varying levels of database grounding and procedural complexity. Experiments with eight LLMs reveal recurring difficulties in schema grounding, PL/SQL dialect fidelity, procedural control flow, exception handling, and cross-turn consistency. Tool-augmented LLM agents improve performance on several schema-grounded evaluations, although substantial gaps remain. These results highlight procedural database programming capabilities not directly assessed by conventional code generation or text-to-SQL benchmarks. Our code is available at https://github.com/oracle-samples/plsqlbench.</summary>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-08-16T21:03:21Z</published>
+    <arxiv:primary_category term="cs.CL"/>
+    <author>
+      <name>Marianne Menglin Liu</name>
+    </author>
+    <author>
+      <name>Leonid Boytsov</name>
+    </author>
+    <author>
+      <name>Daniel W. Peterson</name>
+    </author>
+    <author>
+      <name>Pramuditha Perera</name>
+    </author>
+    <author>
+      <name>Rongguang Wang</name>
+    </author>
+    <author>
+      <name>Sai Ashish Somayajula</name>
+    </author>
+    <author>
+      <name>Syed Hamza Rafique</name>
+    </author>
+    <author>
+      <name>Rohit Saini</name>
+    </author>
+    <author>
+      <name>Shubham Pathak</name>
+    </author>
+    <author>
+      <name>Sujeeth Bharadwaj</name>
+    </author>
+    <author>
+      <name>Tao Sheng</name>
+    </author>
+    <author>
+      <name>Graham Horwood</name>
+    </author>
+    <author>
+      <name>Fahad Shah</name>
+    </author>
+    <author>
+      <name>Ankan Bansal</name>
+    </author>
+    <author>
+      <name>Sujith Ravi</name>
+    </author>
+    <author>
+      <name>Dan Roth</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2512.15784v1</id>
+    <title>Beyond Training: Enabling Self-Evolution of Agents with MOBIMEM</title>
+    <updated>2025-12-15T12:38:43Z</updated>
+    <link href="https://arxiv.org/abs/2512.15784v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2512.15784v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Large Language Model (LLM) agents are increasingly deployed to automate complex workflows in mobile and desktop environments. However, current model-centric agent architectures struggle to self-evolve post-deployment: improving personalization, capability, and efficiency typically requires continuous model retraining/fine-tuning, which incurs prohibitive computational overheads and suffers from an inherent trade-off between model accuracy and inference efficiency.
+  To enable iterative self-evolution without model retraining, we propose MOBIMEM, a memory-centric agent system. MOBIMEM first introduces three specialized memory primitives to decouple agent evolution from model weights: (1) Profile Memory uses a lightweight distance-graph (DisGraph) structure to align with user preferences, resolving the accuracy-latency trade-off in user profile retrieval; (2) Experience Memory employs multi-level templates to instantiate execution logic for new tasks, ensuring capability generalization; and (3) Action Memory records fine-grained interaction sequences, reducing the reliance on expensive model inference. Building upon this memory architecture, MOBIMEM further integrates a suite of OS-inspired services to orchestrate execution: a scheduler that coordinates parallel sub-task execution and memory operations; an agent record-and-replay (AgentRR) mechanism that enables safe and efficient action reuse; and a context-aware exception handling that ensures graceful recovery from user interruptions and runtime errors.
+  Evaluation on AndroidWorld and top-50 apps shows that MOBIMEM achieves 83.1% profile alignment with 23.83 ms retrieval time (280x faster than GraphRAG baselines), improves task success rates by up to 50.3%, and reduces end-to-end latency by up to 9x on mobile devices.</summary>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-12-15T12:38:43Z</published>
+    <arxiv:primary_category term="cs.AI"/>
+    <author>
+      <name>Zibin Liu</name>
+    </author>
+    <author>
+      <name>Cheng Zhang</name>
+    </author>
+    <author>
+      <name>Xi Zhao</name>
+    </author>
+    <author>
+      <name>Yunfei Feng</name>
+    </author>
+    <author>
+      <name>Bingyu Bai</name>
+    </author>
+    <author>
+      <name>Dahu Feng</name>
+    </author>
+    <author>
+      <name>Erhu Feng</name>
+    </author>
+    <author>
+      <name>Yubin Xia</name>
+    </author>
+    <author>
+      <name>Haibo Chen</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2508.07935v1</id>
+    <title>SHIELDA: Structured Handling of Exceptions in LLM-Driven Agentic Workflows</title>
+    <updated>2025-08-11T12:50:46Z</updated>
+    <link href="https://arxiv.org/abs/2508.07935v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2508.07935v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Large Language Model (LLM) agentic systems are software systems powered by LLMs that autonomously reason, plan, and execute multi-step workflows to achieve human goals, rather than merely executing predefined steps. During execution, these workflows frequently encounter exceptions. Existing exception handling solutions often treat exceptions superficially, failing to trace execution-phase exceptions to their reasoning-phase root causes. Furthermore, their recovery logic is brittle, lacking structured escalation pathways when initial attempts fail. To tackle these challenges, we first present a comprehensive taxonomy of 36 exception types across 12 agent artifacts. Building on this, we propose SHIELDA (Structured Handling of Exceptions in LLM-Driven Agentic Workflows), a modular runtime exception handling framework for LLM agentic workflows. SHIELDA uses an exception classifier to select a predefined exception handling pattern from a handling pattern registry. These patterns are then executed via a structured handling executor, comprising local handling, flow control, and state recovery, to enable phase-aware recovery by linking exceptions to their root causes and facilitating composable strategies. We validate SHIELDA's effectiveness through a case study on the AutoPR agent, demonstrating effective, cross-phase recovery from a reasoning-induced exception.</summary>
+    <category term="cs.SE" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-08-11T12:50:46Z</published>
+    <arxiv:primary_category term="cs.SE"/>
+    <author>
+      <name>Jingwen Zhou</name>
+    </author>
+    <author>
+      <name>Jieshan Chen</name>
+    </author>
+    <author>
+      <name>Qinghua Lu</name>
+    </author>
+    <author>
+      <name>Dehai Zhao</name>
+    </author>
+    <author>
+      <name>Liming Zhu</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2403.15852v2</id>
+    <title>SOEN-101: Code Generation by Emulating Software Process Models Using Large Language Model Agents</title>
+    <updated>2024-10-31T14:43:58Z</updated>
+    <link href="https://arxiv.org/abs/2403.15852v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2403.15852v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Software process models are essential to facilitate collaboration and communication among software teams to solve complex development tasks. Inspired by these software engineering practices, we present FlowGen - a code generation framework that emulates software process models based on multiple Large Language Model (LLM) agents. We emulate three process models, FlowGenWaterfall, FlowGenTDD, and FlowGenScrum, by assigning LLM agents to embody roles (i.e., requirement engineer, architect, developer, tester, and scrum master) that correspond to everyday development activities and organize their communication patterns. The agents work collaboratively using chain-of-thought and prompt composition with continuous self-refinement to improve the code quality. We use GPT3.5 as our underlying LLM and several baselines (RawGPT, CodeT, Reflexion) to evaluate code generation on four benchmarks: HumanEval, HumanEval-ET, MBPP, and MBPP-ET. Our findings show that FlowGenScrum excels compared to other process models, achieving a Pass@1 of 75.2, 65.5, 82.5, and 56.7 in HumanEval, HumanEval-ET, MBPP, and MBPP-ET, respectively (an average of 15% improvement over RawGPT). Compared with other state-of-the-art techniques, FlowGenScrum achieves a higher Pass@1 in MBPP compared to CodeT, with both outperforming Reflexion. Notably, integrating CodeT into FlowGenScrum resulted in statistically significant improvements, achieving the highest Pass@1 scores. Our analysis also reveals that the development activities impacted code smell and exception handling differently, with design and code review adding more exception handling and reducing code smells. Finally, FlowGen models maintain stable Pass@1 scores across GPT3.5 versions and temperature values, highlighting the effectiveness of software process models in enhancing the quality and stability of LLM-generated code.</summary>
+    <category term="cs.SE" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2024-03-23T14:04:48Z</published>
+    <arxiv:comment>ICSE 2025</arxiv:comment>
+    <arxiv:primary_category term="cs.SE"/>
+    <author>
+      <name>Feng Lin</name>
+      <arxiv:affiliation>Peter</arxiv:affiliation>
+    </author>
+    <author>
+      <name>Dong Jae Kim</name>
+      <arxiv:affiliation>Peter</arxiv:affiliation>
+    </author>
+    <author>
+      <name> Tse-Husn</name>
+      <arxiv:affiliation>Peter</arxiv:affiliation>
+    </author>
+    <author>
+      <name> Chen</name>
+    </author>
+  </entry>
+</feed>

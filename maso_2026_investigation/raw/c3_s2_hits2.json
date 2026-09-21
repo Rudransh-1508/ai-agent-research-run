@@ -1,0 +1,482 @@
+[
+ {
+  "paperId": "1d971f86edce4e28a70cec037bc73cc5a465699a",
+  "externalIds": {
+   "ArXiv": "2606.06545",
+   "DBLP": "journals/corr/abs-2606-06545",
+   "DOI": "10.48550/arXiv.2606.06545",
+   "CorpusId": 288984854
+  },
+  "title": "Queen-Bee Agents: A BeeSpec-Centered Architecture for Governed Enterprise MCP Orchestration",
+  "venue": "arXiv.org",
+  "year": 2026,
+  "citationCount": 0,
+  "openAccessPdf": {
+   "url": "",
+   "status": null,
+   "license": null,
+   "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2606.06545, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationDate": "2026-06-04",
+  "authors": [
+   {
+    "authorId": "2383250732",
+    "name": "Dutao Zhang"
+   },
+   {
+    "authorId": "2440708633",
+    "name": "Liaotian"
+   }
+  ],
+  "abstract": "Enterprise agent systems increasingly need to connect large language models to private tools, internal knowledge, and Model Context Protocol (MCP) interfaces. In this setting, raw task capability is insufficient: organizations also require policy enforcement, tenant-scoped isolation, and execution that remains within explicit operational boundaries. We present Queen-Bee, a governed multi-agent architecture in which a Queen control plane retrieves capabilities, plans task-scoped execution, and compiles a structured BeeSpec that is executed by specialized Bee agents under constrained tool access. We implement a working prototype with tenant-scoped MCP connectors, audit-backed execution-time governance, retrieval-driven weak incubation, and multiple provisioning backends. We evaluate the system on 59 enterprise-style tasks spanning governance-sensitive requests, retrieval-driven provisioning, scoped local execution, and chemistry workflow integration. The retrieval-driven Queen-Bee variant achieves a task success rate of 0.964, zero governance failures, and substantially better scoped execution quality than both a static Queen-Bee baseline and a permissive single-agent baseline. We further show a multi-Bee chemistry workflow with explicit approval gating and a concrete top-3 shortlist grounded in real upstream evidence and screening artifacts. Additional comparisons with hybrid retrieval and LLM-guided provisioning show that richer provisioning backends are viable but do not outperform the lightweight structured retriever on the current small, highly structured capability registry. The results provide prototype-level systems evidence rather than a production deployment study, and suggest that enterprise agent platforms should be evaluated not only by capability, but also by governed provisioning, isolation behavior, scoped execution quality, and artifact-aware workflow coordination.",
+  "matched": [
+   "organizational structure multi-agent LLM failure"
+  ]
+ },
+ {
+  "paperId": "209c5441a16ccb9f68976ade87b3fe481d39d21f",
+  "externalIds": {
+   "ArXiv": "2608.19861",
+   "CorpusId": 291257099
+  },
+  "title": "PolicyGuide: From Guarding One Action to Guiding the Whole Workflow for Policy-Compliant LLM Agents",
+  "venue": "",
+  "year": 2026,
+  "citationCount": 1,
+  "openAccessPdf": {
+   "url": "",
+   "status": null,
+   "license": null,
+   "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2608.19861, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationDate": "2026-08-20",
+  "authors": [
+   {
+    "authorId": "2361262034",
+    "name": "Seongjae Kang"
+   },
+   {
+    "authorId": "2445694152",
+    "name": "Taehyung Yu"
+   },
+   {
+    "authorId": "2266441169",
+    "name": "Sung Ju Hwang"
+   }
+  ],
+  "abstract": "Customer-service LLM agents must follow organizational policy when acting on a user's behalf. Compliance failures arise from either forbidden actions, such as granting an ineligible change, or omitted procedural requirements, such as identification or confirmation. Runtime safeguards can intervene on risky actions, but action-local checks do not guide an agent through a multi-step procedure. Workflow-following systems support prescribed process execution, but primarily target workflow completion rather than safeguarding agent behavior. PolicyGuide instead compiles each domain policy into a workflow graph and invokes a proactive verifier at user-turn boundaries. From persisted graph state, the verifier reconciles open requests and returns step-specific remediation along a policy-compliant path. Across the $\\tau^2$-bench airline, retail, and telecom domains with a GPT-5.4 agent and verifier, PolicyGuide raises mean $\\mathrm{Pass}^4$ from $0.42$ to $0.62$, with the largest gain on telecom ($0.19$ to $0.61$), the most workflow-structured domain. The same workflows transfer to Claude Sonnet 4.6 and Gemini 2.5 Pro agents. Complementary evaluations find the lowest observed attack-success rate under adversarial users and the strongest procedural compliance in an author-designed workflow-level validation.",
+  "matched": [
+   "organizational structure multi-agent LLM failure"
+  ]
+ },
+ {
+  "paperId": "86b74e7829727543ceb0fd092e24739fc5ea14b0",
+  "externalIds": {
+   "ArXiv": "2609.21533",
+   "CorpusId": 292194416
+  },
+  "title": "MACE: Memory-Agent Co-Evolution with Adaptive Memory Graphs for Multi-Agent Systems",
+  "venue": "",
+  "year": 2026,
+  "citationCount": 0,
+  "openAccessPdf": {
+   "url": "",
+   "status": null,
+   "license": null,
+   "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2609.21533, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationDate": "2026-09-18",
+  "authors": [
+   {
+    "authorId": null,
+    "name": "Kai-Rui Yang"
+   },
+   {
+    "authorId": "2501732661",
+    "name": "Ming-Hao An"
+   },
+   {
+    "authorId": null,
+    "name": "Xun-Kai Li"
+   },
+   {
+    "authorId": "2501816794",
+    "name": "Zi-Heng Yi"
+   },
+   {
+    "authorId": null,
+    "name": "Ze-Kai Chen"
+   },
+   {
+    "authorId": "2501819204",
+    "name": "Guang-Yuan He"
+   },
+   {
+    "authorId": null,
+    "name": "Rong-Hua Li"
+   }
+  ],
+  "abstract": "LLM-based multi-agent systems generate collaboration traces that record how agents plan tasks, verify intermediate results, and repair failures. Reusing these procedures requires preserving an action's prerequisites and the outputs needed by subsequent agents. Our empirical studies show that grouping these dependencies into functional memory units improves their retention, while connecting units increases retrieval of the units and links jointly required by a task. The preferred combination of units also changes between instructions and checklists, even when each combination's content is fixed across formats. Updating choices from the outcomes of each combination and format pairing outperforms scoring combinations and formats separately. These findings motivate MACE, a memory-agent co-evolution framework that adapts memory organization and agent memory use through execution feedback. Its MemGoG structure represents functional units as subgraphs of related conditions, actions, and outputs, connecting them through support, conflict, and repair relations. MACE Loop selects task-relevant units and relations within a memory budget and provides each agent with instructions or checklists for its current operation. It records the selected units, presentation formats, agent outputs, and task outcomes to update unit scores and relations for retrieval and inform subsequent presentation choices. Across eight benchmarks, MACE outperforms ten baselines with an average score of 81.11%, compared with 78.97% for the strongest baseline, SAGE.",
+  "matched": [
+   "organizational structure multi-agent LLM failure"
+  ]
+ },
+ {
+  "paperId": "bada16ef576a4d9bfaca81267d58a42093ec6b28",
+  "externalIds": {
+   "DOI": "10.1145/3842390",
+   "CorpusId": 292034646
+  },
+  "title": "KGMACG: Knowledge-Guided Multi-Agent Orchestration for Scalable Application-Level Code Generation",
+  "venue": "ACM Transactions on Software Engineering and Methodology",
+  "year": 2026,
+  "citationCount": 0,
+  "openAccessPdf": {
+   "url": "",
+   "status": "CLOSED",
+   "license": null,
+   "disclaimer": "Notice: Paper or abstract available at https://api.unpaywall.org/v2/10.1145/3842390?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1145/3842390, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationDate": "2026-09-15",
+  "authors": [
+   {
+    "authorId": "2188470227",
+    "name": "Bo Yang"
+   },
+   {
+    "authorId": "2456401958",
+    "name": "Xiao Zhang"
+   },
+   {
+    "authorId": "2294671786",
+    "name": "Weisong Sun"
+   },
+   {
+    "authorId": "2499922921",
+    "name": "Guo-Hao Ma"
+   },
+   {
+    "authorId": "2499951434",
+    "name": "Han Liu"
+   },
+   {
+    "authorId": "2499936326",
+    "name": "Xiao-Wei Yang"
+   },
+   {
+    "authorId": "2330028873",
+    "name": "Qian Xiong"
+   },
+   {
+    "authorId": "2107952604",
+    "name": "Yi-Ran Zhang"
+   },
+   {
+    "authorId": "2265665080",
+    "name": "Tianlin Li"
+   },
+   {
+    "authorId": "2265753296",
+    "name": "Yang Liu"
+   },
+   {
+    "authorId": "2256947608",
+    "name": "Zhi Jin"
+   }
+  ],
+  "abstract": "Automated code generation driven by Large Language Models (LLMs) has enhanced development efficiency, yet generating complex application-level software code remains challenging. Multi-agent frameworks show potential, but existing methods perform inadequately in large-scale application-level software code generation: they fail to maintain a semantically reasonable project structure and generate fragmented outputs that lack traceable requirement-to-code mappings, making them difficult to extend or scale. To address these limitations, this paper proposes KGMACG, a Knowledge-Guided Multi-Agent framework for scalable Code Generation. KGMACG orchestrates three specialized agents in a closed-loop: the Code Organization & Planning Agent (COPA) transforms software requirements specification (SRS) and architectural design document (ADD) into a modular build plan and project skeleton; the Coding Agent (CA) synthesizes repository-level code guided by a five-pillar knowledge base; and the Testing Agent (TA) continuously generates unit tests and feeds failure traces back for rectification. The loop terminates only when the project compiles and achieves \\(\\geq\\) 95% requirement coverage, guaranteeing both syntactic correctness and functional completeness. We evaluate KGMACG on three industrial-scale case studies (E-Commerce, Campus Security, Stock Trading) against six state-of-the-art multi-agent baselines: MetaGPT, AutoGen, CAMEL, CrewAI, ChatDev and CodeAgent. With the same backbone LLMs (DeepSeek R1 and gpt-5-codex-medium), The results indicate that KGMACG advances the automation of application-level software development.",
+  "matched": [
+   "organizational structure multi-agent LLM failure"
+  ]
+ },
+ {
+  "paperId": "d8d8994c46431fac2f37add3e833f9bbe9eeed60",
+  "externalIds": {
+   "ArXiv": "2607.25283",
+   "DBLP": "journals/corr/abs-2607-25283",
+   "DOI": "10.48550/arXiv.2607.25283",
+   "CorpusId": 290635413
+  },
+  "title": "ContractHIL-HLS: Contract-Aligned Multi-Agent Workflow with Hardware-in-the-Loop Feedback for HLS Design",
+  "venue": "arXiv.org",
+  "year": 2026,
+  "citationCount": 0,
+  "openAccessPdf": {
+   "url": "",
+   "status": null,
+   "license": null,
+   "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2607.25283, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationDate": "2026-07-28",
+  "authors": [
+   {
+    "authorId": "2457304421",
+    "name": "Jing Zhang"
+   },
+   {
+    "authorId": "2453982812",
+    "name": "Haoxiang Sun"
+   },
+   {
+    "authorId": "2440594921",
+    "name": "Wenbo Wang"
+   },
+   {
+    "authorId": "2454193889",
+    "name": "Wen-Bo Zhang"
+   }
+  ],
+  "abstract": "This paper presents ContractHIL-HLS, a contract-aligned multi-agent workflow for practical high-level synthesis (HLS) engineering. The workflow makes three contributions. First, it introduces a structured contract as the semantic-alignment and task-execution artifact that translates natural language requirements into explicit interfaces, constraints, validation checks, and rollback rules. Second, it incorporates hardware information into the feedback loop by feeding HLS, Vivado, PYNQ runtime, power, and failure evidence back into generation, thereby extending LLM-assisted HLS from kernel code toward system- and board-level closure. Third, it decomposes agents by semantic lowering and execution tasks rather than by conversational roles: a Contract Agent lowers natural language into the contract, an HTML Agent renders the contract as persistent structured HTML, and a Hardware-in-the-Loop Agent implements and revises the design with measured evidence. We evaluate ContractHIL-HLS in two parts. On 94 locally executable HLS-Eval tasks, the structured contract provides the largest small design gain, improving the estimated single-sample testbench pass rate from 64.0% to 70.2%; the full flow reaches 70.4% pass@1 and 76.6% pass@5. Because HLS-Eval does not exercise board-level design, we also validate ContractHIL-HLS on a board tested ML-KEM/ML-DSA post-quantum cryptography (PQC) secure-message accelerator, where the retained dual-bitstream organization reduces six-message average text runtime from 207.3 ms to 52.4 ms with positive routed WNS on both images while preserving decrypted-message verification. We open-source our work at BJUT-CS316-LAB/ContractHIL-HLS (https://github.com/BJUT-CS316-LAB/ContractHIL-HLS).",
+  "matched": [
+   "organizational structure multi-agent LLM failure"
+  ]
+ },
+ {
+  "paperId": "e2ce190fabd1c4a20bd395f8df413063a2e68483",
+  "externalIds": {
+   "DOI": "10.61260/2218-130x-2026-2-111-119",
+   "CorpusId": 290543560
+  },
+  "title": "ANALYSIS OF ARCHITECTURAL COMPONENTS OF MULTI-AGENT SYSTEMS",
+  "venue": "Scientific and analytical journal \u00abVestnik Saint-Petersburg university of State fire service of EMERCOM of Russia\u00bb",
+  "year": 2026,
+  "citationCount": 0,
+  "openAccessPdf": {
+   "url": "",
+   "status": "CLOSED",
+   "license": null,
+   "disclaimer": "Notice: Paper or abstract available at https://api.unpaywall.org/v2/10.61260/2218-130x-2026-2-111-119?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.61260/2218-130x-2026-2-111-119, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationDate": "2026-07-09",
+  "authors": [
+   {
+    "authorId": "2404797885",
+    "name": "T. Saratova"
+   },
+   {
+    "authorId": "2453218178",
+    "name": "Aleksandr Apuhtin"
+   }
+  ],
+  "abstract": "The aim of this work is to analyze the architectural components of LLM-based multi-agent systems. The research method involves a comparative analysis of MetaGPT, Generative Agents, AutoGen, OrgAgent, MIRIX, and ChatDev architectures against a uniform set of criteria (role organization, memory, coordination, structured outputs, communication, quality control), followed by integration of the components into a single system and experimental evaluation on two task types in single-agent and multi-agent modes. It is found that on the examined tasks the multi-agent mode underperforms the single-agent baseline in quality (scores of 3,0 and 4,5 versus 9,0 on a ten-point scale). The architectural cause is identified: a mismatch between task type and the preconfigured action chain. A pattern is discovered: the integration of three verification loops \u2013 a failure detector, a compliance check, and a decision-making loop \u2013 produces a self-diagnosis capability not observed in any of the examined systems individually. The three loops jointly identified result unreliability and refused to deliver it. This property differs from known multi-agent systems diagnostic approaches where analysis is performed after task completion. The results may be applied when designing multi-agent systems for tasks where the cost of error is high.",
+  "matched": [
+   "organizational structure multi-agent LLM failure"
+  ]
+ },
+ {
+  "paperId": "427323e7a7e466e4539b6d90d8e31aed776efb44",
+  "externalIds": {
+   "DOI": "10.1007/s44206-026-00288-w",
+   "CorpusId": 292025611
+  },
+  "title": "The Responsibility Cascade: Moral Attribution and Governance Challenges in Agentic AI Systems",
+  "venue": "Digital Society",
+  "year": 2026,
+  "citationCount": 0,
+  "openAccessPdf": {
+   "url": "https://link.springer.com/content/pdf/10.1007/s44206-026-00288-w.pdf",
+   "status": "HYBRID",
+   "license": "CCBYNCND",
+   "disclaimer": "Notice: Paper or abstract available at https://api.unpaywall.org/v2/10.1007/s44206-026-00288-w?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1007/s44206-026-00288-w, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationDate": "2026-09-15",
+  "authors": [
+   {
+    "authorId": "2287514382",
+    "name": "Ravi Kalluri"
+   }
+  ],
+  "abstract": "The emergence of agentic AI systems that can pursue complex goals through multi-step planning and adaptive execution presents new challenges for attributing moral responsibility for the products developed by human-agentic AI teams. While the \u201cresponsibility gap\u201d literature examines blame attribution for AI outcomes and the \u201cmoral crumple zone\u201d concept identifies how humans absorb misattributed responsibility, neither framework adequately addresses the temporal distribution of moral responsibility across sequential agentic workflows in human-AI teams. This article introduces the responsibility cascade, a phenomenon whereby moral responsibility diffuses, dilutes, and redistributes across the sequential steps of an agentic AI workflow, contrary to traditional moral attribution frameworks. Drawing on philosophical accounts of guidance control, collective agency, and organizational responsibility, we argue that agentic AI creates chains of delegated agencies that fundamentally transform how responsibility propagates through human-AI collaborations. We propose a Sequential Responsibility Attribution Framework (SRAF) that distinguishes four modes of responsibility distribution in agentic workflows: initiation responsibility, checkpoint responsibility, delegation responsibility, and outcome responsibility. This framework provides diagnostic value by identifying responsibility gaps and normative guidance for designing agentic systems that preserve meaningful human control and avoid moral crumple zones. Beyond its philosophical contribution, the framework has direct implications for AI governance, informing how regulators, organizations, and system designers can preserve accountability as agentic AI becomes prevalent in consequential domains including healthcare, finance, software development, and critical infrastructure.",
+  "matched": [
+   "agent accountability blame attribution multi-agent"
+  ]
+ },
+ {
+  "paperId": "aacfa3406362ad1d3ab0148a6f2ef3da45407b0a",
+  "externalIds": {
+   "ArXiv": "2608.01710",
+   "CorpusId": 290830606
+  },
+  "title": "Beyond Single-Use Tokens: Durable Authorization State for Replay-Resistant LLM Agent Actions",
+  "venue": "",
+  "year": 2026,
+  "citationCount": 2,
+  "openAccessPdf": {
+   "url": "",
+   "status": null,
+   "license": null,
+   "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2608.01710, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationDate": "2026-08-03",
+  "authors": [
+   {
+    "authorId": "2457134019",
+    "name": "Jingheng Xu"
+   },
+   {
+    "authorId": "2455441802",
+    "name": "Long-Ze Fan"
+   },
+   {
+    "authorId": "2455433424",
+    "name": "Zeyuan Wang"
+   },
+   {
+    "authorId": "2455176770",
+    "name": "Xinjin Li"
+   },
+   {
+    "authorId": "2455179990",
+    "name": "Hankai Liu"
+   }
+  ],
+  "abstract": "Tool-using large language model agents frequently replan, retry failed operations, delegate tasks, and resume after crashes. These behaviors can cause one user authorization to be requested and executed multiple times under freshly issued token identifiers, even when each individual token is single-use. We call this failure semantic replay: exceeding the execution budget of a token-independent authorization instance rather than merely reusing an old token identifier. We show that identifier-local token consumption cannot prevent fresh reissuance unless the issuer retains monotonic durable state over the authorized action, confirmation event, and remaining execution budget. We introduce CapLease, an authorization-consumption layer that follows proposal- and authority-level defenses, binds an authenticated user confirmation to a canonical action, and enforces transactional Issue-Prepare-Commit transitions. Across LLM-agent replanning, retry, delegation, concurrency, confirmation-replay, and crash-recovery scenarios, identifier-local tokens permit fresh semantic reissuance, whereas CapLease and an equally stateful Server Ledger prevent duplicate admission and, with an idempotent sink, duplicate external effects. Our results identify durable authorization state, rather than token representation alone, as the systems requirement for replay-resistant agent execution.",
+  "matched": [
+   "authority delegation failure LLM agents"
+  ]
+ },
+ {
+  "paperId": "fbfed6b528e6808d77ec2e0c9261714ccdb24e81",
+  "externalIds": {
+   "DOI": "10.1109/ICERA72709.2026.11666599",
+   "CorpusId": 291663225
+  },
+  "title": "Containing the Cascade: A Benchmark and Reference Mediator for Failure Propagation in Tool-Using LLM Multi-Agent Systems",
+  "venue": "2026 5th International Conference on Electronics Representation and Algorithm (ICERA)",
+  "year": 2026,
+  "citationCount": 0,
+  "openAccessPdf": {
+   "url": "https://doi.org/10.5281/zenodo.21314250",
+   "status": "GREEN",
+   "license": null,
+   "disclaimer": "Notice: Paper or abstract available at https://api.unpaywall.org/v2/10.1109/ICERA72709.2026.11666599?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1109/ICERA72709.2026.11666599, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationDate": "2026-07-01",
+  "authors": [
+   {
+    "authorId": "2454574728",
+    "name": "Veera Ravindra Divi"
+   },
+   {
+    "authorId": "40757231",
+    "name": "Sneha Gullapalli"
+   },
+   {
+    "authorId": "2357577843",
+    "name": "Balajee Asish Brahmandam"
+   }
+  ],
+  "abstract": "Large language model (LLM) multi-agent systems (MAS) increasingly automate multi-step, tool-using workflows, yet they fail far more often than their single-agent counterparts. Recent diagnostic studies attribute these failures to cascades: a single agent\u2019s hallucination, malformed tool call, or role drift propagates through the agent graph and corrupts the final output. The community has so far concentrated on diagnosing such failures after the fact; there is no standard, reproducible benchmark for measuring whether a system can contain a cascade as it unfolds. We address this gap with three contributions. First, we introduce a taxonomy of six recurring cascading-failure modes and a suite of containment metrics\u2014containment rate, cascade depth, blast radius, and mean time-to-detection\u2014that quantify propagation rather than only end-task success. Second, we present Cascade-Bench, a controlled fault-injection testbed of 1080 scenarios across six task domains, instantiated on a discrete-event simulation of agent message passing that is calibrated to reported MAS failure statistics. Third, we propose Sentinel, a lightweight reference mediator that combines typed inter-agent message contracts, a semantic anomaly gate, a circuit breaker, and checkpoint-based recovery. Across 48 system configurations and over 590000 simulated task executions, Sentinel raises task success from 31.3% to 83.7% and containment from 46.2% to 99.4%, while holding cascade depth nearly constant as the system scales from 3 to 12 agents\u2014where the unguarded depth nearly doubles. An ablation cleanly separates a fail-safe role (the circuit breaker, which governs containment) from a fail-operational role (checkpoint rollback, which governs task completion). We release Cascade-Bench and Sentinel as an open baseline for reliability research on tool-using MAS.",
+  "matched": [
+   "circuit breaker agent containment"
+  ]
+ },
+ {
+  "paperId": "a96d1118b026d24af509a0e6ecd47b710bf0f138",
+  "externalIds": {
+   "DBLP": "journals/corr/abs-2606-12474",
+   "ArXiv": "2606.12474",
+   "DOI": "10.48550/arXiv.2606.12474",
+   "CorpusId": 289187238
+  },
+  "title": "SAIGuard: Communication-State Simulation for Proactive Defense of LLM Multi-Agent Systems",
+  "venue": "arXiv.org",
+  "year": 2026,
+  "citationCount": 1,
+  "openAccessPdf": {
+   "url": "",
+   "status": null,
+   "license": null,
+   "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2606.12474, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationDate": "2026-06-10",
+  "authors": [
+   {
+    "authorId": "2357506933",
+    "name": "Ru-Xue Shi"
+   },
+   {
+    "authorId": "2298205559",
+    "name": "Yi-Li Wang"
+   },
+   {
+    "authorId": "2301212822",
+    "name": "Mengnan Du"
+   },
+   {
+    "authorId": "2172162773",
+    "name": "Qinggang Zhang"
+   },
+   {
+    "authorId": "2171753488",
+    "name": "Rui Miao"
+   },
+   {
+    "authorId": "2130192950",
+    "name": "Yixin Liu"
+   },
+   {
+    "authorId": "2298094103",
+    "name": "Xin Wang"
+   }
+  ],
+  "abstract": "LLM-based multi-agent systems (MAS) solve complex tasks through inter-agent collaboration, but their communication-driven nature also allows security risks to spread across agents and trigger system-wide failures. Existing MAS defenses mainly follow a reactive paradigm after execution by detecting and isolating harmful agents, which may cause irreversible damage and degrade collaborative utility. To address this, we propose a proactive defense framework for MAS security, namely a Simulation-aware Interception Guard (SAIGuard). SAIGuard performs communication-state simulation over the MAS interaction graph, estimates the impact of incoming messages on local agent states and the global MAS state, and detects risky messages via reconstruction deviations from benign communication patterns. Instead of isolating agents, SAIGuard sanitizes or regenerates suspicious messages before it propagation into system. Experiments across diverse topologies and attack scenarios show that SAIGuard reduces attack success rates while maintaining MAS utility, outperforming reactive defenses.",
+  "matched": [
+   "multi-agent topology failure spread"
+  ]
+ },
+ {
+  "paperId": "df1e9ffff1a2d7865b22c7445407ee15dce61854",
+  "externalIds": {
+   "ArXiv": "2607.26836",
+   "DBLP": "journals/corr/abs-2607-26836",
+   "DOI": "10.48550/arXiv.2607.26836",
+   "CorpusId": 290648213
+  },
+  "title": "Before Agents Speak: Pre-hoc Failure Risk Inference in Multi-Agent Systems",
+  "venue": "arXiv.org",
+  "year": 2026,
+  "citationCount": 0,
+  "openAccessPdf": {
+   "url": "",
+   "status": null,
+   "license": null,
+   "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2607.26836, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationDate": "2026-07-29",
+  "authors": [
+   {
+    "authorId": "2312656038",
+    "name": "Shi Lin"
+   },
+   {
+    "authorId": "2304898588",
+    "name": "Chenpei Wang"
+   },
+   {
+    "authorId": "2066135394",
+    "name": "Peng Qian"
+   },
+   {
+    "authorId": "2358315436",
+    "name": "Dezhang Kong"
+   },
+   {
+    "authorId": "2346153709",
+    "name": "Minghao Li"
+   },
+   {
+    "authorId": "2454233582",
+    "name": "Yu-Feng Li"
+   },
+   {
+    "authorId": "2312421505",
+    "name": "Xun Wang"
+   }
+  ],
+  "abstract": "LLM-based multi-agent systems (MAS) have exhibited remarkable capabilities in collaborative reasoning and decision-making, yet their interconnected communications introduce new systemic risk: localized hallucinations can propagate along agent communication chain, amplify through interactions, and ultimately trigger cascading failures. Existing countermeasures predominantly follow a post-hoc paradigm, identifying failures only after unsafe behaviors emerge, by which time harmful effects may have already spread throughout the agent network. To tackle this problem, we investigate a complementary pre-hoc approach and propose HalluProp, a Propagation-aware Hallucination inference framework that estimates individual agent failures and emergent system-level hallucination risks before inter-agent interaction. First, we model intrinsic hallucination risks by identifying fine-grained semantic misalignment between agent roles and task queries. We then characterize inter-agent risk propagation by modeling both semantic influence and communication topology. Finally, we integrate these two risks via a differentiable Noisy-OR inference mechanism to derive a systemic diagnosis. Extensive experiments show that HalluProp accurately localizes faulty agents, achieving an average AUROC of 84.6%, while enabling sub-second diagnosis with over $65\\times$ speedup over post-hoc methods. By facilitating early intervention through upstream screening, HalluProp effectively complements post-hoc methods, highlighting the potential of pre-hoc risk inference for building more reliable multi-agent systems.",
+  "matched": [
+   "multi-agent topology failure spread"
+  ]
+ }
+]

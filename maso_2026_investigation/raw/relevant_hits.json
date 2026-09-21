@@ -1,0 +1,1102 @@
+[
+ {
+  "id": "gLg7bHryTU",
+  "forum": "gLg7bHryTU",
+  "title": "Fault Tolerance in Multi Agent Systems",
+  "abstract": "Multi-Agent Reinforcement Learning (MARL) has demonstrated strong performance in cooperative and competitive environments, but its deployment in real-world systems remains limited by vulnerability to faulty agents. Faults may arise from hardware malfunctions, communication delays, adversarial interference, or degraded sensors, and can propagate through the system if not addressed. This work investigates mechanisms for fault tolerance in MARL systems, with a focus on preserving stability, efficiency, and cooperative behavior when subsets of agents fail or behave unpredictably.\nWe propose a framework that integrates behavior masking, reward shaping, and attention mechanisms to mitigate the impact of faulty agents. The masking component enables the policy to selectively downweight agents exhibiting faulty behavior, preventing corrupted trajectories from dominating the learning signal. This is combined with reward shaping strategies, such as penalties for oscillations and inactivity, that guide learning away from failure-prone trajectories.\nExperimental results in cooperative benchmarks show that our approach significantly improves performance compared to standard MARL baselines. Agents are able to maintain task performance when faced with agent failures. When agents are faulty from the start of an episode, our attention mechanism with behaviour masking achieves a 22% improvement over the baseline RNN at 20 million steps. In more challenging scenarios where agents become faulty mid-episode, our method achieves a 28% improvement compared to the baseline, demonstrating stronger robustness under dynamic faults. \nThis work contributes toward making MARL more practical for safety-critical domains such as swarm robotics and distributed sensing. By explicitly embedding fault tolerance into the learning process, we move closer to scalable, reliable, and autonomous multi-agent systems capable of operating under real-world uncertainty.",
+  "venue": "WoMAPF Oral",
+  "queries": [
+   "search_AAAI_org_2026_fault_tolerance_multi-agent.json",
+   "search_AAAI_org_2026_multi-agent_robustness.json",
+   "search_AAAI_org_2026_delegation_multi-agent.json",
+   "search_AAAI_org_2026_multi-agent_reliability.json",
+   "search_AAAI_org_2026_error_propagation_multi-agent.json",
+   "search_AAAI_org_2026_multi-agent_failure.json"
+  ]
+ },
+ {
+  "id": "M2AXTAKXbz",
+  "forum": "M2AXTAKXbz",
+  "title": "PALADIN: Self-Correcting Language Model Agents to Cure Tool-Failure Cases",
+  "abstract": "Tool-augmented language agents frequently fail in real-world deployment due to tool malfunctions\u2014timeouts, API exceptions, or inconsistent outputs\u2014triggering cascading reasoning errors and task abandonment. Existing agent training pipelines optimize only for success trajectories, failing to expose models to the tool failures that dominate real-world usage.\nWe propose \\textbf{PALADIN}, a generalizable framework for equipping language agents with robust failure recovery capabilities. PALADIN trains on 50,000+ recovery-annotated trajectories constructed via systematic failure injection and expert demonstrations on an enhanced ToolBench dataset. Training uses LoRA-based fine-tuning to retain base capabilities while injecting recovery competence. At inference, PALADIN detects execution-time errors and retrieves the most similar case from a curated bank of 55+ failure exemplars aligned with ToolScan's taxonomy, then executes the corresponding recovery action.\nThis approach generalizes to novel failures beyond the training distribution, retaining 95.2\\% recovery performance on unseen tool APIs. Evaluation across PaladinEval and ToolReflectEval demonstrates consistent improvements in Recovery Rate (RR), Task Success Rate (TSR), Catastrophic Success Rate (CSR), and Efficiency Score (ES). PALADIN improves RR from 32.76\\% to 89.68\\% (+57\\% relative) over ToolBench and outperforms the strongest baseline CRITIC (76.34\\%) by +13.3\\%. Against vanilla agents, PALADIN achieves 89.86\\% RR (+66\\% relative improvement from 23.75\\%). These results establish PALADIN as an effective method for building fault-tolerant agents capable of robust recovery in real-world tool environments.",
+  "venue": "ICLR 2026 Conference Desk Rejected Submission",
+  "queries": [
+   "search_ICLR_cc_2026_cascading_failure.json",
+   "search_ICLR_cc_2026_agent_recovery.json"
+  ]
+ },
+ {
+  "id": "QDJkugAU53",
+  "forum": "QDJkugAU53",
+  "title": "The Containment Gap: How Deployed Agentic AI Frameworks Fail Public-Facing Safety Requirements",
+  "abstract": "Agentic large language model systems that autonomously invoke tools, maintain persistent memory, and execute multi-step plans are increasingly deployed in public-facing domains, including government services, healthcare triage, and financial advising. We ask whether the frameworks used to build these systems provide architectural-level structural safety guarantees. Applying six containment principles derived from a compositional model of agentic architectures, we audit three dominant frameworks (LangChain, AutoGPT, and OpenAI Agents SDK) and find no native compliance in any of them. Memory integrity, a defense against one of the most prevalent vulnerability classes, is not observed in any of the three evaluated frameworks. We validate these findings empirically: in a simulated government benefits agent built on LangChain, a single memory-poisoning write induces persistent targeted corruption across all tested seeds and backends, increasing the wrongful denial rate for targeted applicants to 88.9%. Under a complex five-factor policy, the same attack preserves aggregate accuracy while increasing targeted wrongful denials by 3.5x, rendering the corruption difficult to detect through standard monitoring. We then introduce two lightweight containment mechanisms: a memory integrity validator and a policy gate, which eliminate both attack vectors with sub-millisecond overhead (<0.2ms per call). We conclude that the current agentic framework ecosystem may not yet meet secure-by-default expectations for public-facing deployments and outline priority architectural interventions to enable trustworthy deployment in high-stakes, socially impactful applications.",
+  "venue": "AI4GOOD Workshop 2026 Regular",
+  "queries": [
+   "search_ICML_cc_2026_failure_containment.json"
+  ]
+ },
+ {
+  "id": "MYvsxnxbCf",
+  "forum": "MYvsxnxbCf",
+  "title": "What Can One Bad Tool Call Destroy? Measuring and Minimizing Blast Radius in Agentic Tool Use",
+  "abstract": "Tool-using agents are usually evaluated by whether they complete benign tasks or succumb to malicious instructions. For deployment, this binary view is incomplete. The same attack-success label can hide radically different operational outcomes: a compromised agent might draft an incorrect message, leak sensitive data, delete repository files, mutate customer records, or propagate a malicious instruction to another agent. We introduce DamageFlow, a benchmark and evaluation framework for measuring the blast radius of tool-using agents under indirect prompt injection, MCP tool poisoning, tool shadowing, and multi-agent relay attacks. DamageFlow's current artifact implements sandboxed email, documents/RAG, repository, and MCP-style registry environments, specifies calendar, CRM, and filesystem extensions, and uses deterministic state-diff oracles that score committed tool effects rather than natural-language explanations. Its metric, Blast Radius Score (BRS), decomposes unauthorized tool effects by resource sensitivity, action impact, propagation, and recovery cost. We further propose BlastGuard, a provenance-aware runtime that compiles trusted user intent into least-privilege capability graphs, tracks untrusted context flow, and gates state-changing tool calls through dry-run, policy checks, scoped tokens, and rollback logs. In a controlled 80-scenario pilot benchmark, binary attack success obscures large differences in realized damage: two agents with the same 20% attack-success rate differ by 89x in BRS. BlastGuard reduces committed unauthorized damage in the pilot while retaining 87.5% benign task utility, and counterfactual scoring reports the BRS that was prevented at the tool boundary. Our results suggest that agent safety evaluation should measure not only whether agents fail, but how far failure can spread.",
+  "venue": "ICML 2026 AIWILD",
+  "queries": [
+   "search_ICML_cc_2026_blast_radius.json"
+  ]
+ },
+ {
+  "id": "NVTtoO297p",
+  "forum": "NVTtoO297p",
+  "title": "PALADIN: Self-Correcting Language Model Agents to Cure Tool-Failure Cases",
+  "abstract": "Tool-augmented language agents routinely fail in deployment due to execution-time tool errors such as timeouts, malformed outputs, or silent API failures. In agentic and multi-agent systems, these failures are especially damaging: a single unhandled error can cascade across reasoning steps or agents, leading to deadlock or hallucinated success. Despite this, most training pipelines optimize only for clean, successful trajectories and leave execution-level recovery largely unmodeled. We propose PALADIN, a framework for teaching language agents explicit, generalizable recovery behavior under tool failures. PALADIN trains agents on over 50{,}000 recovery-annotated trajectories generated via systematic failure injection aligned with the ToolScan taxonomy, while preserving base task competence through LoRA-based fine-tuning. At inference time, agents detect execution failures and condition their responses on a small, curated bank of taxonomy-aligned recovery exemplars, enabling structured diagnosis and repair rather than reactive retries. Across multiple backbones and evaluation settings, PALADIN consistently improves execution-level robustness. On deployment-relevant benchmarks, it raises Recovery Rate from 32.8\\% to 89.7\\%, reduces catastrophic (hallucinated) success, and substantially increases task completion, while incurring only modest efficiency overhead. Crucially, PALADIN generalizes to unseen tools and failure types, retaining over 95\\% recovery rate on out-of-distribution APIs. These results demonstrate that execution-level recovery is a learnable and transferable capability. By treating tool failure as a first-class training signal, PALADIN provides a practical foundation for building reliable, failure-aware language agents and offers a pathway toward safer and more robust LLM-based agentic and multi-agent systems.",
+  "venue": "LaMAS 2026 Oral",
+  "queries": [
+   "search_AAAI_org_2026_failure_propagation.json",
+   "search_AAAI_org_2026_organizational_agents.json",
+   "search_AAAI_org_2026_multi-agent_failure.json"
+  ]
+ },
+ {
+  "id": "3Snm5cHdRu",
+  "forum": "3Snm5cHdRu",
+  "title": "Beyond Success Rate: Benchmarking Robustness in Tool-Using Language Agents",
+  "abstract": "The deployment of tool-using language agents in real-world scenarios is hindered by their brittleness in the face of unreliable tools and environments. While current benchmarks focus on task success in idealized conditions, they fail to measure robustness\u2014the ability to handle and recover from failures. This paper introduces a novel benchmarking framework that moves beyond success rate by systematically injecting a taxonomy of realistic faults into established environments like ToolBench and WebArena. We evaluate state-of-the-art agents on new metrics such as Recovery Rate and Unrecoverable Failure Rate, revealing a significant robustness gap. Our results show that even powerful models like GPT-4 Turbo struggle with basic errors, with recovery rates below 60%. Furthermore, we demonstrate that adversarial fine-tuning on our synthetic failure data can significantly improve robustness, providing a clear pathway for developing more reliable and trustworthy agentic AI systems.",
+  "venue": "AAAI 2026 TrustAgent Workshop Poster",
+  "queries": [
+   "search_AAAI_org_2026_failure_propagation.json",
+   "search_AAAI_org_2026_organizational_agents.json"
+  ]
+ },
+ {
+  "id": "6WyG2iZHes",
+  "forum": "6WyG2iZHes",
+  "title": "FAIR-Swarm: Fault-Tolerant Multi-Agent LLM Systems for Scientific Hypothesis Discovery",
+  "abstract": "Large Language Model (LLM) based multi-agent systems show promise in automating parts of the scientific discovery process. However, existing systems suffer from hallucinated hypotheses, weak validation, and failure cascades caused by unreliable agents. We propose FAIR-Swarm (Fault-tolerant AI Research Swarm), a multi-agent architecture designed for reliable and transparent scientific hypothesis generation. FAIR-Swarm employs specialized agents - Hypothesis Generator, Simulation Agent, Validation Agent, Rebuttal Agent, and Reasoning Auditor\u2014combined with redundancy and consensus-based fault tolerance. We demonstrate that FAIR-Swarm improves hypothesis validity, reproducibility, and robustness against agent failure in a scientific discovery task.",
+  "venue": "LaMAS 2026 Poster",
+  "queries": [
+   "search_AAAI_org_2026_fault_tolerance_multi-agent.json",
+   "search_AAAI_org_2026_multi-agent_robustness.json",
+   "search_AAAI_org_2026_failure_propagation.json",
+   "search_AAAI_org_2026_delegation_multi-agent.json",
+   "search_AAAI_org_2026_multi-agent_reliability.json",
+   "search_AAAI_org_2026_error_propagation_multi-agent.json",
+   "search_AAAI_org_2026_multi-agent_failure.json"
+  ]
+ },
+ {
+  "id": "d3Qq4weuwz",
+  "forum": "d3Qq4weuwz",
+  "title": "Efficient Forecasting of Task Failures in LLM Agents through Adaptive Fault Injection",
+  "abstract": "LLM agents perform long-horizon tasks where small errors can compound across tool calls and reasoning steps. We introduce Task Failure Forecasting, which predicts from a partial execution trace whether the current agent policy is likely to fail. Unlike retrospective failure analysis, this enables runtime intervention while recovery is still possible. The key challenge is separating recoverable mistakes from fatal ones, a distinction humans make with only 54\\% accuracy. To address this, we use adaptive fault injection: targeted perturbations of successful traces, guided by bandit-based prioritization and verified through rollouts. Trained on this synthetic supervision, a lightweight Qwen-3-8B forecaster achieves 78.01\\% weighted F1, outperforms Claude-4.5 Sonnet by 18 points at 100\u00d7 lower cost, and improves agent success by 2\u201316 \\% points across diverse benchmarks.",
+  "venue": "Forecast@ICML26 Poster",
+  "queries": [
+   "search_ICML_cc_2026_fault_injection.json",
+   "search_ICML_cc_2026_fault_tolerance_multi-agent.json",
+   "search_ICML_cc_2026_agent_fault.json"
+  ]
+ },
+ {
+  "id": "t0kOFRgwR8",
+  "forum": "t0kOFRgwR8",
+  "title": "Learning Robust Multi-Agent Policies via Selective Adversarial Fault Induction",
+  "abstract": "We study robustness to agent malfunctions in cooperative multi-agent reinforcement learning (MARL), a failure mode that is critical in practice yet underexplored in existing theory. We introduce MARTA, a plug-and-play robustness layer that augments standard MARL algorithms with a Switcher\u2013Adversary mechanism which selectively induces malfunctions in performance-critical states. This formulation defines a fault-switching $(N+2)$-player Markov game in which the Switcher chooses when and which agent fails, and the Adversary controls the resulting faulty behaviour via random or worst-case policies. We develop a Q-learning-type scheme and show that the associated Bellman operator is a contraction, yielding existence and uniqueness of the minimax value, convergence to a Markov perfect equilibrium. MARTA integrates seamlessly with MARL algorithms without architectural modification and consistently improves robustness across Traffic Junction (TJ), Level-Based Foraging (LBF), MPE SimpleTag, and SMAC (v2). In these domains, MARTA achieves large gains in final performance of up to 116.7\\% in SMAC, 21.4\\% in MPE SimpleTag, and 44.6\\% in LBF, while significantly reducing failure rates under train\u2013test mismatched fault regimes. These results establish MARTA as a theoretically grounded and practically deployable mechanism for fault-tolerant MARL.",
+  "venue": "ICML 2026 regular",
+  "queries": [
+   "search_ICML_cc_2026_fault_injection.json",
+   "search_ICML_cc_2026_fault_tolerance_multi-agent.json",
+   "search_ICML_cc_2026_agent_fault.json",
+   "search_ICML_cc_2026_agent_fault.json",
+   "search_ICML_cc_2026_agent_fault.json"
+  ]
+ },
+ {
+  "id": "8wlgtUBSK4",
+  "forum": "8wlgtUBSK4",
+  "title": "Provably Reliable Tool-Using LLM Agents: Formal Guarantees on Error Accumulation in the Model Context Protocol (MCP)",
+  "abstract": "As AI agents powered by large language models (LLMs) increasingly use external tools for high-stakes decisions, a critical reliability question arises: how do errors propagate across sequential tool calls? We introduce the first theoretical framework for analyzing error accumulation in Model Context Protocol (MCP) agents, proving that cumulative distortion exhibits linear growth and high-probability deviations bounded by $O(\\sqrt{T})$. This concentration property ensures predictable system behavior and rules out exponential failure modes. We develop a hybrid distortion metric combining discrete fact matching with continuous semantic similarity, then establish martingale concentration bounds on error propagation through sequential tool interactions. Experiments across Qwen2-7B, Llama-3-8B, and Mistral-7B validate our theoretical predictions, showing empirical distortion tracks the linear trend with deviations consistently within $O(\\sqrt{T})$ envelopes. Key findings include: semantic weighting reduces distortion by 80\\%, and periodic re-grounding approximately every 8 steps suffices for error control. We translate these concentration guarantees into actionable deployment principles for trustworthy agent systems.",
+  "venue": "AAAI 2026 TrustAgent Workshop Poster",
+  "queries": [
+   "search_AAAI_org_2026_failure_propagation.json",
+   "search_AAAI_org_2026_error_propagation_multi-agent.json",
+   "search_AAAI_org_2026_organizational_agents.json"
+  ]
+ },
+ {
+  "id": "PMd8wkf8sr",
+  "forum": "PMd8wkf8sr",
+  "title": "Introspecter: Diagnosing Multi-Agent LLM Debate Failures",
+  "abstract": "Multi-agent debate systems often fail through error propagation, social conformity, and premature consensus, yet existing evaluation pipelines provide limited support for analyzing how such failures emerge across interaction trajectories. We present Introspecter, a framework for intervention-based analysis of failures in multi-agent reasoning systems under both collaborative deliberation and argumentative debate protocols. Introspecter provides: (1) a configurable debate environment for LLM and human participants with trace-level annotation of suspected failure points, (2) a counterfactual replay mechanism that allows intervention on intermediate agent states and resimulation of downstream interactions to test causal hypotheses about failure propagation, (3) an argumentative debate mode with stance-constrained and citation-grounded argumentation for studying adversarial failure modes, and (4) analysis and visualization tools for exploring debate trajectories and diagnosing failures. We release Introspecter as an open-source platform for reproducible analysis of multi-agent reasoning failures and protocol-dependent failure dynamics.",
+  "venue": "FAGEN@ICML 2026 Poster",
+  "queries": [
+   "search_ICML_cc_2026_multi-agent_hallucination.json",
+   "search_ICML_cc_2026_agent_error_recovery.json",
+   "search_ICML_cc_2026_fault_tolerance_multi-agent.json"
+  ]
+ },
+ {
+  "id": "GbYHY1RVUa",
+  "forum": "GbYHY1RVUa",
+  "title": "Failure-Driven Workflow Refinement",
+  "abstract": "Workflow optimization for tool-using LLM agents is often cast as global search over candidate graphs, scored by a scalar metric. This collapses rich, multi-step failure traces into binary outcomes, obscuring recurring failure structure and making refinement inefficient. We reframe optimization as \\emph{distributional refinement}: each workflow induces a density over a \\textbf{Failure Signature Space} $\\mathcal{F}$, and the goal is to minimize its \\textbf{Expected Failure Mass}. We propose \\textbf{CE-Graph}, which maintains a counterexample pool, estimates dense failure modes, and applies operator-constrained graph edits via a \\textbf{Propose-and-Verify} loop with a convergence-aware stopping rule. Across math, code, and QA benchmarks, CE-Graph improves robustness while reducing optimization cost compared to strong workflow-search baselines, suggesting reliability emerges from learning and reshaping failure landscapes rather than merely maximizing aggregate success rates.",
+  "venue": "ICML 2026 spotlight",
+  "queries": [
+   "search_ICML_cc_2026_cascading_failure.json",
+   "search_ICML_cc_2026_failure_containment.json"
+  ]
+ },
+ {
+  "id": "aKZbHRJpNo",
+  "forum": "aKZbHRJpNo",
+  "title": "EDA Bench: Functional Failure Modes in PCB-Generating Agents",
+  "abstract": "Language-model agents are increasingly able to operate electronic design automation tools: they can search datasheets, select components, edit KiCad projects, run design checks, and iterate after failures. These capabilities create a new class of artifact-level failure modes. An agent can produce a syntactically valid or visually plausible printed-circuit-board project while failing to realize the external electrical behavior required by the target design. We introduce \\edabench{}, an execution-based benchmark for exposing functional failure modes in language-model agents that perform KiCad PCB reconstruction. \\edabench{} contains 35 released tasks derived from public open-hardware projects spanning connector breakouts, power-path circuits, microcontroller systems, motor drivers, camera and compute adapters, and high-density carriers. Each harness receives a prompt and a standard KiCad environment, then must produce a complete KiCad project. Submissions are graded by an oracle that parses the realized PCB, extracts routed copper, checks declared external ports, models trace parasitics and short faults, runs ngspice simulations, and applies KiCad ERC and DRC checks. The score is based on observable external-I/O behavior rather than text overlap, screenshot similarity, component inventory, or reference-designator matching. We validate the artifact with reference, fail, and mutation canaries: all 35 released frozen references score 1.0, and all 35 released structural-failure canaries score at most 0.15. Initial baselines show that the strongest evaluated web-enabled harness scores 4.58\\% overall, building 21 of 35 projects while failing most functional checks. These results isolate a recurring failure mode for engineering agents: parseable or plausible PCB artifacts are not necessarily electrically functional artifacts.",
+  "venue": "FAGEN@ICML 2026 Poster",
+  "queries": [
+   "search_ICML_cc_2026_cascading_failure.json",
+   "search_ICML_cc_2026_failure_containment.json"
+  ]
+ },
+ {
+  "id": "LvvVx0RieJ",
+  "forum": "LvvVx0RieJ",
+  "title": "Diagnosing Failure Modes of Shared-State Collaboration in Resource-Constrained Visual Agents",
+  "abstract": "Modular visual reasoning systems increasingly rely on shared working memory for multi-step collaboration, yet the failure dynamics of intermediate state evolution in low-capacity regimes remain underexplored. We study failure modes of collaborative reasoning with weak learners (4B\u20138B models) through the lens of noise accumulation. We introduce CoSee, an auditing framework that formalizes the read-write-verify loop to trace information flow in document visual question answering. Across multi-page, chart, and web-based benchmarks, we find a counter-intuitive degradation: naive shared workspaces often amplify hallucinations rather than resolve them. We identify two dominant failure modes: Noise Reinforcement, where ungrounded notes are reused as evidence, and Policy Collapse, where added context shifts the model toward under-specified, short-form answers. Using cost-accuracy Pareto frontiers, we show that increased compute can correlate negatively with performance without explicit verification. Our findings suggest that for resource-constrained agents, the bottleneck lies not in reasoning depth but in communication fidelity, providing trace-level diagnostics and a mechanistic baseline for reliable modular design.",
+  "venue": "FAGEN@ICML 2026 Poster",
+  "queries": [
+   "search_ICML_cc_2026_cascading_failure.json",
+   "search_ICML_cc_2026_failure_containment.json"
+  ]
+ },
+ {
+  "id": "1cprFkvFT0",
+  "forum": "1cprFkvFT0",
+  "title": "Automata from Agent Traces: Failure and Next-Step Prediction",
+  "abstract": "LLM-based agents execute multi-step tasks, but their behavioral structure remains opaque: long unstructured traces resist the safety auditing and runtime monitoring that deployment requires. Existing approaches operate per-trace or success-only, so they miss the cross-run topology that links next-step and failure prediction. To recover that shared structure, we collapse an entire trace corpus into a single finite-state machine (FSM), provably minimal that serves as a structural substrate for the otherwise unpredictable behavior of LLM agents. Across twelve public datasets, the FSMs are compact (7-43 states), replay held-out data at >=0.997 fitness with zero structural variance across splits, and build in milliseconds. This substrate addresses both prediction goals. For next-step prediction, FSM-state context outperforms Agent Workflow Memory on every ground-truth-matched dataset. For failure prediction, per-state behavioral features reach held-out AUROC up to 0.94, and an online monitor ranks failing runs above passing ones from a partial trace, triggering early stopping well before completion. Behavioral topology thus appears shaped more by the deployment harness than by the LLM, providing a model-agnostic structural primitive for safety auditing and runtime monitoring.",
+  "venue": "ICML 2026 AIWILD",
+  "queries": [
+   "search_ICML_cc_2026_cascading_failure.json",
+   "search_ICML_cc_2026_failure_containment.json"
+  ]
+ },
+ {
+  "id": "YOPVjUoijs",
+  "forum": "YOPVjUoijs",
+  "title": "The Hallucination Snowball: Modeling Error Propagation as State Transitions in Multi-Agent LLM Pipelines",
+  "abstract": "Sequential multi-agent LLM pipelines chain specialized agents without verification at handoffs, creating a structural flaw with measurable and severe consequences. We show that hallucinations injected at Stage 1 do not merely persist; they transform: raw numerical facts become  derived computations, then narrative prose, then editorially approved conclusions. At each transformation, detectability degrades near-irreversibly. We formalize this as the hallucination snowball effect, a first-order Markov process over four states (Raw Fact \u2192 Derived \u2192 Narrative \u2192 Invisible) with empirically measured per-boundary escape  probabilities of 24.6\\%, 48.3\\%, and 89.3\\%. Across 346 automatically  injected hallucinations in a 4-agent financial analysis pipeline on FinanceBench, gpt-4o detection drops from 72.0\\% at Stage 1 to 50.9\\%  at Stage 4, and 23.7\\% of hallucinations survive completely undetected in the final output. Even the strongest model tested (Qwen3.5-397B-A17B,  87.0\\% at Stage 1) faces a structural ceiling; projected Stage 4 detection is only ${\\sim}$60--65\\%. Critically, boundary gates using  identical RAG verification tools reduce hallucination survival from 58.4\\% to 16.2\\% versus end-of-pipeline checking (Cohen's $h = -0.911$, $p < 0.000001$), while end-checking alone achieves merely 2.3~pp improvement over no verification. When you verify matters more than whether you verify. Our model predicts survival for $n$-agent linear pipelines and prescribes optimal verification resource allocation: invest at $S_1{\\to}S_2$  first, where 75.4\\% of hallucinations are still catchable, not at  $S_3{\\to}S_4$ where 89.3\\% have already escaped.",
+  "venue": "FAGEN@ICML 2026 Poster",
+  "queries": [
+   "search_ICML_cc_2026_multi-agent_hallucination.json",
+   "search_ICML_cc_2026_agent_error_recovery.json"
+  ]
+ },
+ {
+  "id": "KAA8FR6fEq",
+  "forum": "KAA8FR6fEq",
+  "title": "Before the Fall: Delta Minimal Failing Prefixes for Local Tool-Use Agent Failures",
+  "abstract": "Final success rates conflate qualitatively different tool-use agent failures: a model may fail from the initial interface, enter a mid-trajectory cascade, behave unstably under replay, or make an irreversible state change. We introduce $\\Delta$-Minimal Failing Prefixes ($\\Delta$-MFP), a counterfactual-replay diagnostic that compares the failure probability $p_k$ from a trajectory prefix with the failure probability $p_0$ from the initial state, separating prefix-0 capability failures from nontrivial failure basins. We build a deterministic local tool-use suite of 120 calendar, refund/order, file/email, and inventory tasks and evaluate local Qwen2.5 and Llama-3.1 agents under four tool interfaces using single-GPU inference. Our experiments include natural failures from calibrated cells, persistent fault injection as a positive control for the replay engine, and soft fault injection that perturbs evidence, memory, or arguments without committing a state violation. On 25 natural failed traces, $\\Delta$-MFP identifies 13 nontrivial failure basins, 5 prefix-0 failures, and 7 unstable traces. A full $N=5$ replay audit of all 50 retained soft-fault traces classifies 7 as nontrivial $\\Delta$-MFPs, 21 as unstable/no-$\\Delta$, and 22 as prefix-0; although this aggregate profile is close to the lower-replay result, substantial per-trace turnover shows that localization must be reported with replay uncertainty. We further evaluate retry, reflection, fault-specific gates, and a rule-based router using an $N=3$ repair probe, reporting wide confidence intervals rather than ranking methods. Overall, $\\Delta$-MFP provides a reproducible failure-regime profile for local tool-use agents rather than a single aggregate success metric.",
+  "venue": "FAGEN@ICML 2026 Poster",
+  "queries": [
+   "search_ICML_cc_2026_fault_injection.json",
+   "search_ICML_cc_2026_agent_fault.json"
+  ]
+ },
+ {
+  "id": "3q6yWfaQ8R",
+  "forum": "3q6yWfaQ8R",
+  "title": "FaultLoc: Evaluating Coding Agents For Fault Localization",
+  "abstract": "Coding agents powered by large language models have demonstrated strong performance on security tasks such as vulnerability discovery and automated patching. However, existing benchmarks primarily evaluate patch generation through functional tests, allowing agents to succeed by mitigating symptoms at the crash site without identifying the underlying root cause. As a result, it remains unclear whether these systems perform genuine code reasoning or rely on superficial fixes. We introduce FAULTLOC, a benchmark designed to evaluate fault localization in large codebases. Given a bug report and a proof-of-concept input, agents must identify the code region responsible for the vulnerability, with predictions evaluated against developer patches. FAULTLOC comprises 900 real-world vulnerabilities with verified PoCs and fixes across widely-used open-source projects. Our evaluation shows that even frontier agents fail to recover the developer-identified root-cause region in most cases, achieving only 40% overlap with ground-truth buggy lines and frequently mislocalizing vulnerabilities at the file level. These results highlight the need for agents that reason about causal structure rather than merely suppress observable failures.",
+  "venue": "ICML 2026 AIWILD",
+  "queries": [
+   "search_ICML_cc_2026_fault_injection.json",
+   "search_ICML_cc_2026_agent_fault.json"
+  ]
+ },
+ {
+  "id": "B6WCheiViX",
+  "forum": "B6WCheiViX",
+  "title": "Conformal Agent Error Attribution",
+  "abstract": "When multi-agent systems (MAS) fail, identifying where the decisive error occurred is the first step for automated recovery to an earlier state. Error attribution remains a fundamental challenge due to the long and intertwined interaction traces that large language model-based MAS generate. This paper presents a framework for error attribution based on conformal prediction (CP) which provides finite-sample, distribution-free coverage guarantees. We introduce new algorithms for filtration-based CP designed for sequential data such as agent trajectories. Unlike existing CP algorithms, our approach predicts sets that are contiguous sequences, which is a crucial property to enable efficient recovery and debugging. We verify our theoretical guarantees on a variety of agents and datasets, show that errors can be precisely isolated, then use prediction sets to rollback MAS to correct their own errors. Our overall approach is model-agnostic, and offers a principled uncertainty layer for MAS error attribution.",
+  "venue": "ICML 2026 Workshop AgenticUQ Poster",
+  "queries": [
+   "search_ICML_cc_2026_agent_recovery.json",
+   "search_ICML_cc_2026_agent_error_recovery.json"
+  ]
+ },
+ {
+  "id": "2YLC2ciEar",
+  "forum": "2YLC2ciEar",
+  "title": "Beyond Single-Model Injection: A Threat Model and Defense Architecture for Prompt Injection in Multi-Agent Systems",
+  "abstract": "Existing prompt injection research focuses on single-model chatbot scenarios, where an attacker manipulates one LLM through crafted input. Multi-agent systems amplify this threat through three mechanisms absent from single-model settings: inter-agent message passing creates injection channels invisible to perimeter defenses, shared tool access enables privilege escalation across agent boundaries, and trust propagation allows a compromised agent to influence upstream orchestrators. We construct a threat model enumerating 14 attack vectors across four categories: direct injection via user input (3 vectors), indirect injection via tool outputs (4 vectors), inter-agent injection via message passing (4 vectors), and cascading injection through orchestrator manipulation (3 vectors). Testing all 14 vectors against a 6-agent production-representative system, we find that 67% of agents are vulnerable to at least one scope violation even with system-prompt-level guardrails, and indirect injection via tool outputs succeeds in 43% of attempts. Four architectural defenses reduce overall injection success from 31.2% to 4.2%: message signing with provenance tracking (inter-agent injection down 91%), input/output sanitization at agent boundaries (indirect injection down 78%), privilege-scoped tool access per agent role (privilege escalation eliminated entirely), and anomaly detection on inter-agent communication patterns (84% of cascading attempts caught).",
+  "venue": "ICML 2026 AIWILD",
+  "queries": [
+   "search_ICML_cc_2026_fault_injection.json"
+  ]
+ },
+ {
+  "id": "fE4urn9hyM",
+  "forum": "fE4urn9hyM",
+  "title": "CausalArmor: Efficient Indirect Prompt Injection Guardrails via Causal Attribution",
+  "abstract": "AI agents equipped with tool-calling capabilities are susceptible to *Indirect Prompt Injection* (IPI) attacks. In this attack scenario, malicious commands hidden within *untrusted* content trick the agent into performing unauthorized actions. Existing defenses can reduce attack success but often suffer from the ***over-defense dilemma***: they deploy expensive, *always-on* sanitization regardless of actual threat, thereby degrading utility and latency even in benign scenarios.\nWe revisit IPI through a causal ablation perspective: a successful injection manifests as a *dominance shift* where the user request no longer provides decisive support for the agent's privileged action, while a particular untrusted segment, such as a retrieved document or tool output, provides disproportionate attributable influence.\nBased on this signature, we propose **CausalArmor**, a selective defense framework that (i) computes lightweight, leave-one-out ablation-based attributions at privileged decision points, and (ii) triggers targeted sanitization only when an untrusted segment dominates the user intent. Additionally, CausalArmor employs *retroactive Chain-of-Thought masking* to prevent the agent from acting on ``poisoned\" reasoning traces.\nWe present a theoretical analysis showing that sanitization based on attribution margins conditionally yields an exponentially small upper bound on the probability of selecting malicious actions.\nExperiments on AgentDojo and DoomArena demonstrate that CausalArmor matches the security of aggressive defenses while improving explainability and preserving utility and latency of AI agents.",
+  "venue": "ICML 2026 regular",
+  "queries": [
+   "search_ICML_cc_2026_fault_injection.json"
+  ]
+ },
+ {
+  "id": "jaj403z6XW",
+  "forum": "jaj403z6XW",
+  "title": "Auditing Cascading Risks in Multi-Agent Systems via Semantic\u2013Geometric Co-evolution",
+  "abstract": "Large language model (LLM)-based multi-agent systems (MAS) are prone to cascading risks, where early-stage interactions remain semantically fluent and policy-compliant, yet the underlying interaction dynamics begin to distort in ways that amplify latent instability or misalignment. Traditional auditing methods that focus on per-message semantic content are inherently reactive and lagging, failing to capture these early structural precursors.\nIn this paper, we propose a principled framework for cascading-risk detection grounded in semantic\u2013geometric co-evolution. We model MAS interactions as dynamic graphs and introduce Ollivier\u2013Ricci Curvature (ORC)\u2014a discrete geometric measure\u2014to characterize information redundancy and bottleneck formation in communication topologies. By coupling semantic flow signals with graph geometry, the framework learns the normal co-evolutionary dynamics of trusted collaboration and treats deviations from this coupled manifold as early-warning signals.\nExperiments on a suite of cascading-risk scenarios aligned with the risk category demonstrate that curvature anomalies systematically precede explicit semantic violations by several interaction turns, enabling proactive intervention. Furthermore, the local nature of Ricci curvature provides principled interpretability for root-cause attribution, identifying specific agents or links that precipitate the collapse of trustworthy collaboration.",
+  "venue": "ICLR 2026 Trustworthy AI",
+  "queries": [
+   "search_ICLR_cc_2026_cascading_failure.json"
+  ]
+ },
+ {
+  "id": "ZUDdYZSwr4",
+  "forum": "ZUDdYZSwr4",
+  "title": "CORRECT: COndensed eRror RECognition via knowledge Transfer in multi-agent systems",
+  "abstract": "Multi-agent systems (MAS) are increasingly capable of tackling complex real-world tasks, yet their reliance on inter-agent coordination, tool use, and long-horizon reasoning makes error recognition particularly challenging. Minor errors can propagate across agents, escalating into task failures while producing long, intertwined execution trajectories that impose significant costs for both human developers and automated systems to debug and analyze. Our key insight is that, despite surface differences in failure trajectories (e.g., logs), MAS errors often recur with similar structural patterns. This paper presents CORRECT, the first lightweight, training-free framework that leverages an online cache of distilled error schemata to recognize and transfer knowledge of failure structures across new requests. This cache-based reuse allows LLMs to perform targeted error localization at inference time, avoiding the need for expensive retraining while adapting to dynamic MAS deployments in subseconds. To support rigorous study in this domain, we also introduce CORRECT-Error, a large-scale dataset of over 2,000 annotated trajectories collected through a novel error-injection pipeline guided by real-world distributions, and further validated through human evaluation to ensure alignment with natural failure patterns. Experiments across seven diverse MAS applications show that CORRECT improves step-level error localization up to 19.8% over existing advances while at near-zero overhead, substantially narrowing the gap between automated and human-level error recognition.",
+  "venue": "ICML 2026 regular",
+  "queries": [
+   "search_ICML_cc_2026_agent_error_recovery.json"
+  ]
+ },
+ {
+  "id": "1miRNSRShD",
+  "forum": "1miRNSRShD",
+  "title": "Error Trace Regression: Localizing Root Causes in Long-Horizon LLM Agent Trajectories",
+  "abstract": "Long-horizon LLM agents fail in ways that final-outcome metrics cannot detect: a subtle planning error at step 3 may silently corrupt memory and tool calls for the next fifty steps before producing a visible failure. We introduce Error Trace Regression (ETR), a diagnostic framework that formalizes the notion of a root-cause step and provides a statistically principled method to localize it from a full execution trace. ETR models the probability that an agent trajectory is failure-bound as a function of the step index and the step\u2019s residual anomaly score, derived from a reference distribution of healthy trajectories. We prove that the ETR estimator is consistent and derive its asymptotic variance. Experiments on ALFWorld, GAIA, and WebShop show that ETR achieves sensitivity 0.81 for root-cause step identification, compared to 0.23 for final-outcome evaluation and 0.47 for step-level log-probability baselines, with median localization error reduced by 4.1 steps.",
+  "venue": "FAGEN@ICML 2026 Poster",
+  "queries": [
+   "search_ICML_cc_2026_agent_error_recovery.json"
+  ]
+ },
+ {
+  "id": "dyRD6lBH8K",
+  "forum": "dyRD6lBH8K",
+  "title": "A Tight Theory of Error Feedback Algorithms in Distributed Optimization",
+  "abstract": "Communication costs are a major bottleneck in distributed learning and first-order optimization. A common approach to alleviate this issue is to compress the gradient information exchanged between agents. However, such compression typically degrades the convergence guarantees of gradient-based methods. Error feedback mechanisms provide a simple and computationally cheap remedy for this issue, but numerous variants have been proposed, and their relative performance remains poorly understood. This paper provides tight convergence analyses for two of the main error-feedback algorithms from the literature, the classic Error Feedback method (EF) and Error Feedback 21 (EF21), by identifying optimal step-size choices and constructing optimal Lyapunov functions tailored to each method. The results hold independently of the number of agents and recover the known best guarantees possible in the single-agent regime.",
+  "venue": "ICML 2026 regular",
+  "queries": [
+   "search_ICML_cc_2026_agent_error_recovery.json"
+  ]
+ },
+ {
+  "id": "aRRM5iHXpl",
+  "forum": "aRRM5iHXpl",
+  "title": "General Agent Evaluation",
+  "abstract": "General-purpose agents perform tasks in unfamiliar environments without domain-specific manual customization. Yet no study has systematically measured how agent architecture shapes performance across heterogeneous protocols and diverse unfamiliar environments. This is the first systematic study, comparing tool-calling, MCP, code-generation, and CLI agents on the same benchmarks with the same models. Two gaps blocked it: existing harnesses fix the protocol or require per-benchmark wiring, and benchmarks expect human-authored prompts and integration glue. To enable the study, we contribute a unifying protocol, an evaluation harness that surfaces any benchmark to any agent and backbone model, and the first Open General Agent Leaderboard---a factorial over 5 agent architectures \u00d7 5 backbone LLMs \u00d7 6 benchmarks spanning software engineering, customer service, deep research, and personal assistance. We find: (i) general agents adapt to every tested domain without per-domain tuning; (ii) architecture choice swings results up to 12pp within a single model, yet backbone model choice dominates overall; (iii) on 4 of 6 benchmarks, top general agents match heavily-customized specialists; (iv) the open-weight models tested exhibit \"generality sinks\"---collapse on specific architectures or benchmarks---absent from frontier closed-source; (v) failure analysis reveals architecture-distinctive error signatures invisible to aggregate scoring. Code, harness, leaderboard, and traces at www.exgentic.ai.",
+  "venue": "ICML 2026 AIWILD",
+  "queries": [
+   "search_ICML_cc_2026_agent_error_recovery.json"
+  ]
+ },
+ {
+  "id": "bMFCHQsSYv",
+  "forum": "bMFCHQsSYv",
+  "title": "Evaluating Control Protocols for Untrusted AI Agents",
+  "abstract": "As AI systems become more capable and widely deployed as agents, ensuring their safe operation becomes critical. AI control offers one approach to mitigating the risk from untrusted AI agents by monitoring their actions and intervening or auditing when necessary. Evaluating the safety of these protocols requires understanding both their effectiveness against current attacks and their robustness to adaptive adversaries. In this work, we systematically evaluate a range of control protocols in SHADE-Arena, a dataset of diverse agentic environments. First, we evaluate blue team protocols, including deferral to trusted models, resampling, and deferring on critical actions, against a default attack policy. We find that resampling for incrimination and defering on critical actions perform best, increasing safety from 50\\% to 96\\%. We then iterate on red team strategies against these protocols and find that attack policies with additional affordances, such as knowledge of when resampling occurs or the ability to simulate monitors, can substantially improve attack success rates against our resampling strategy, decreasing safety to 17\\%. However, deferring on critical actions is highly robust to even our strongest red team strategies, demonstrating the importance of denying attack policies access to protocol internals.",
+  "venue": "AAAI 2026 TrustAgent Workshop Poster",
+  "queries": [
+   "search_AAAI_org_2026_organizational_agents.json"
+  ]
+ },
+ {
+  "id": "cJxKPw2UF5",
+  "forum": "cJxKPw2UF5",
+  "title": "WebArbiter: A Generative Reasoning Process Reward Model for Web Agents",
+  "abstract": "Web agents hold great potential for automating complex computer tasks, yet their interactions involve long horizons, multi-step decisions, and actions that can be irreversible. In such settings, outcome-based supervision is sparse and delayed, often rewarding incorrect trajectories and failing to support inference-time scaling. This motivates the use of Process Reward Models (WebPRMs) for web navigation, but existing approaches remain limited: scalar WebPRMs collapse progress into coarse, weakly grounded signals, while checklist-based WebPRMs rely on brittle template matching that fails under layout or semantic changes and often mislabels superficially correct actions as successful, providing little insight or interpretability. To address these challenges, we introduce **WebArbiter**, a reasoning-first, principle-inducing WebPRM that formulates reward modeling as text generation, producing structured justifications that conclude with a preference verdict and identify the action most conducive to task completion under the current context. Training follows a two-stage pipeline: reasoning distillation equips the model with coherent principle-guided reasoning, and reinforcement learning corrects teacher biases by directly aligning verdicts with correctness, enabling stronger generalization. To support systematic evaluation, we release WebPRMBench, a comprehensive benchmark spanning four diverse web environments with rich tasks and high-quality preference annotations. On WebPRMBench, WebArbiter-7B outperforms the strongest baseline, Gemini Flash, by **10.9%**. In reward-guided trajectory search on WebArena-Lite, it surpasses the best prior WebPRM by up to **7.2%**, underscoring its robustness and practical value in real-world complex web tasks.",
+  "venue": "LaMAS 2026 Oral",
+  "queries": [
+   "search_AAAI_org_2026_organizational_agents.json"
+  ]
+ },
+ {
+  "id": "WDM0xMxoIw",
+  "forum": "WDM0xMxoIw",
+  "title": "VERDICT: Unveiling the Capability Threshold in Multi-Agent Logical Reasoning",
+  "abstract": "We introduce VERDICT (Verifiable Evaluation of Reasoning In Complex Truth-puzzles), a logical reasoning benchmark designed to rigorously evaluate the deductive capabilities of LLMs. VERDICT introduces higher-dimensional complexity through a 999-puzzle suite featuring six distinct character types across three difficulty tiers. We employ six LLMs using three prompting strategies: One-Shot, Chain-of-Thought (CoT), and Multi-Agent Debate (MAD). Our results reveal a critical \"Capability Threshold\": while MAD significantly boosts accuracy for capable models like Gemini-2.5-Pro, it fails completely for weaker models, inducing \"hallucination loops\" where agents reinforce each other's errors. These findings suggest that while multi-agent architectures can act as \"reasoning multipliers,\" they are not a universal remedy for fundamental reasoning deficits.",
+  "venue": "AAAI 2026 Bridge LMReasoning",
+  "queries": [
+   "search_AAAI_org_2026_fault_tolerance_multi-agent.json",
+   "search_AAAI_org_2026_multi-agent_robustness.json",
+   "search_AAAI_org_2026_delegation_multi-agent.json",
+   "search_AAAI_org_2026_multi-agent_reliability.json",
+   "search_AAAI_org_2026_error_propagation_multi-agent.json",
+   "search_AAAI_org_2026_multi-agent_failure.json"
+  ]
+ },
+ {
+  "id": "2W8r54OfvP",
+  "forum": "2W8r54OfvP",
+  "title": "Sabotage from Within: Analyzing the Vulnerability of LLM Multi-Agent Systems to Infiltration",
+  "abstract": "LLM-based Multi-Agent Systems (LaMAS) represent a paradigm shift in complex problem-solving, yet their security implications remain largely unexplored. This paper investigates a critical vulnerability: adversarial infiltration within cooperative agent teams. We propose a novel red-teaming framework where a strategically optimized adversarial agent infiltrates LaMAS to sabotage collaborative tasks while evading detection. Through comprehensive experiments on TruthfulQA and ToxiGen benchmarks, we demonstrate that our method achieves 82% success rate in misinformation attacks with only 31% detection rate, significantly outperforming traditional red-teaming approaches. Our analysis reveals that managerial roles pose the greatest threat when compromised, and that larger teams exhibit increased vulnerability despite their complexity. We evaluate multiple defense mechanisms, finding that combined approaches can mitigate 78% of attacks but incur 84% overhead. These findings highlight the urgent need for robust security frameworks in LaMAS deployments and establish foundational principles for responsible multi-agent system design.",
+  "venue": "LaMAS 2026 Poster",
+  "queries": [
+   "search_AAAI_org_2026_fault_tolerance_multi-agent.json",
+   "search_AAAI_org_2026_multi-agent_robustness.json",
+   "search_AAAI_org_2026_delegation_multi-agent.json",
+   "search_AAAI_org_2026_multi-agent_reliability.json",
+   "search_AAAI_org_2026_error_propagation_multi-agent.json",
+   "search_AAAI_org_2026_multi-agent_failure.json"
+  ]
+ },
+ {
+  "id": "CQFoyzGQra",
+  "forum": "CQFoyzGQra",
+  "title": "Orchestrating Symbolic and Sub-Symbolic Reasoning: A Multi-Agent LLM Framework for Complex Scientific Problem-Solving",
+  "abstract": "Large Language Models (LLMs) have demonstrated remarkable capabilities in pattern recognition and text generation, yet they face significant challenges in complex logical and symbolic reasoning tasks. This limitation becomes particularly evident in scientific domains that require the integration of symbolic knowledge with sub-symbolic computation. To address these challenges, we present a multi-agent LLM framework where a central orchestrator (DeepSeek-V2) performs multi-turn interactions to coordinate a team of specialized agents, effectively using them as external tools for different reasoning modalities. We treat polymer science as a representative structured scientific testbed, illustrating how multi-agent reasoning frameworks can integrate symbolic constraints and numerical inference across diverse domains requiring formal logical consistency. Our framework demonstrates multi-agent reasoning through dynamic team formation and consensus mechanisms, while maintaining logical consistency via cross-agent verification protocols. We evaluate this system on polymer science\u2014a domain rich with symbolic constraints and numerical data\u2014showing significant performance improvements (0.76 success rate vs. 0.62 for single LLM) and robust task completion (100% in a 5-paper benchmark). However, a detailed failure case in biopolymer analysis reveals critical challenges in maintaining consistency across reasoning modalities, highlighting the need for more sophisticated verification mechanisms. Our work provides a blueprint for enhancing LLM reasoning through coordinated multi-agent systems and identifies key directions for future research in logical reasoning augmentation.",
+  "venue": "AAAI 2026 Bridge LMReasoning",
+  "queries": [
+   "search_AAAI_org_2026_fault_tolerance_multi-agent.json",
+   "search_AAAI_org_2026_delegation_multi-agent.json",
+   "search_AAAI_org_2026_multi-agent_reliability.json",
+   "search_AAAI_org_2026_error_propagation_multi-agent.json",
+   "search_AAAI_org_2026_multi-agent_failure.json"
+  ]
+ },
+ {
+  "id": "A2BkeThlm1",
+  "forum": "A2BkeThlm1",
+  "title": "Disagreements in Reasoning: How a Model's Thinking Process Dictates Persuasion in Multi-Agent Systems",
+  "abstract": "The rapid proliferation of recent Multi-Agent Systems (MAS), where Large Language Models (LLMs) and Large Reasoning Models (LRMs) usually collaborate to solve complex problems, necessitates a deep understanding of the persuasion dynamics that govern their interactions. This paper challenges the prevailing hypothesis that persuasive efficacy is primarily a function of model scale. We propose instead that these dynamics are fundamentally dictated by a model's underlying thinking process. Through a series of multi-agent persuasion experiments, we uncover a fundamental trade-off we term the Persuasion Duality. Our findings reveal that the reasoning process in LRMs exhibits significantly greater resistance to persuasion, maintaining their initial beliefs more robustly. Conversely, making this reasoning process transparent by sharing the ``thinking content'' dramatically increases their ability to persuade others. We further consider more complex transmission persuasion situations and reveal complex dynamics of influence propagation and decay within multi-hop persuasion between multiple agent networks. This research provides systematic evidence linking a model's internal processing architecture to its external persuasive behavior, offering a novel explanation for the susceptibility of advanced models and highlighting critical implications for the safety, robustness, and design of future MAS.",
+  "venue": "LaMAS 2026 Oral",
+  "queries": [
+   "search_AAAI_org_2026_fault_tolerance_multi-agent.json",
+   "search_AAAI_org_2026_multi-agent_robustness.json",
+   "search_AAAI_org_2026_failure_propagation.json",
+   "search_AAAI_org_2026_delegation_multi-agent.json",
+   "search_AAAI_org_2026_error_propagation_multi-agent.json"
+  ]
+ },
+ {
+  "id": "CzShhpY2qU",
+  "forum": "CzShhpY2qU",
+  "title": "Agent Primitives: Reusable Latent Building Blocks for Multi-Agent Systems",
+  "abstract": "While existing multi-agent systems (MAS) can handle complex problems by enabling collaboration among multiple agents, they are often highly task-specific, relying on manually crafted agent roles and interaction prompts, which leads to increased architectural complexity and limited reusability across tasks. Moreover, most MAS communicate primarily through natural language, making them vulnerable to error accumulation and instability in long-context, multi-stage interactions within internal agent histories.\n\nIn this work, we propose \\textbf{Agent Primitives}, a set of reusable latent building blocks for LLM-based MAS. Inspired by neural network design, where complex models are built from reusable components, we observe that many existing MAS architectures can be decomposed into a small number of recurring internal computation patterns. Based on this observation, we instantiate three primitives (Review, Voting and Selection, and Planning and Execution), all communicating via key\u2013value (KV) cache to mitigate information degradation across multi-stage interactions. To enable automatic system construction, an Organizer agent automatically selects and composes primitives for each query, guided by a lightweight knowledge pool of previously successful configurations, forming a primitive-based MAS.\n\nExperiments show that primitives-based MAS improve average accuracy by 12.0\u201316.5\\% over single-agent baselines, reduce token usage and inference latency by approximately 3$\\times$\u20134$\\times$ compared to text-based MAS, while incurring only 1.3$\\times$\u20131.6$\\times$ overhead relative to single-agent inference and providing more stable performance across model backbones.",
+  "venue": "ICML 2026 regular",
+  "queries": [
+   "search_ICML_cc_2026_multi-agent_hallucination.json",
+   "search_ICML_cc_2026_agent_recovery.json",
+   "search_ICML_cc_2026_agent_error_recovery.json",
+   "search_ICML_cc_2026_fault_tolerance_multi-agent.json",
+   "search_ICML_cc_2026_agent_fault.json"
+  ]
+ },
+ {
+  "id": "Rz0yAoHqb3",
+  "forum": "Rz0yAoHqb3",
+  "title": "Agent-SafetyBench: Evaluating the Safety of LLM Agents",
+  "abstract": "As large language models (LLMs) are increasingly deployed as agents, their integration into interactive environments and tool use introduce new safety challenges beyond those associated with the models themselves. However, the absence of comprehensive benchmarks for evaluating agent safety presents a significant barrier to effective assessment and further improvement. In this paper, we introduce Agent-SafetyBench, a comprehensive benchmark designed to evaluate the safety of LLM agents. Agent-SafetyBench encompasses 349 interaction environments and 2,000 test cases, evaluating 8 categories of safety risks and covering 10 common failure modes frequently encountered in unsafe interactions. Our evaluation of 16 popular LLM agents reveals a concerning result: none of the agents achieves a safety score above 60\\%. This highlights significant safety challenges in LLM agents and underscores the considerable need for improvement. Through failure mode and helpfulness analysis, we summarize two fundamental safety defects in current LLM agents: lack of robustness and lack of risk awareness. Furthermore, our findings suggest that reliance on defense prompts alone may be insufficient to address these safety issues, emphasizing the need for more advanced and robust strategies.",
+  "venue": "AAAI 2026 TrustAgent Workshop Poster",
+  "queries": [
+   "search_AAAI_org_2026_failure_propagation.json",
+   "search_AAAI_org_2026_organizational_agents.json",
+   "search_AAAI_org_2026_multi-agent_failure.json"
+  ]
+ },
+ {
+  "id": "tXVNXhps8B",
+  "forum": "tXVNXhps8B",
+  "title": "SAFARI: Scaling Long Horizon Agentic Fault Attribution via Active Investigation",
+  "abstract": "As autonomous agents tackle increasingly complex multi-step, multi-agent tasks, their execution trajectories have scaled beyond the constraints of even the largest context windows. Current methods for effectively diagnosing agent failures load the full trajectory into an LLM's context window, which suffers from attention dilution and fails when agentic traces inevitably exceed context limits. To address this, we introduce SAFARI (Scaling long-horizon Agentic Fault AttRibution via active Investigation), a framework that replaces linear context loading with a tool-augmented diagnostic loop. By equipping LLMs with a specialized toolbox to read and search trajectory segments alongside a persistent Short-Term Memory (STM) for cross-turn reasoning, SAFARI effectively decouples diagnostic accuracy from architectural context limits. Our experiments demonstrate that SAFARI outperforms state-of-the-art results by 20\\% on the Who\\&When dataset within a 1M token budget, and by 19\\% on TRAIL GAIA subset on a 25K token budget. Most significantly, SAFARI maintains a 0.58 precision even when the target fault resides 5x beyond the model\u2019s native context window, a scenario where traditional evaluators fail entirely.",
+  "venue": "ICML 2026 AIWILD",
+  "queries": [
+   "search_ICML_cc_2026_fault_injection.json",
+   "search_ICML_cc_2026_fault_tolerance_multi-agent.json",
+   "search_ICML_cc_2026_agent_fault.json"
+  ]
+ },
+ {
+  "id": "wtRW1N76il",
+  "forum": "wtRW1N76il",
+  "title": "Evaluator Failure Modes in Agentic Uncertainty Quantification",
+  "abstract": "Standard agentic UQ evaluations can hide trace-level failure modes. AUROC, AUPRC, risk-coverage, Trajectory ECE, and scalarized Trajectory Brier evaluate rankings, binwise calibration, or collapsed trajectory summaries, but none strictly elicit the prefix-conditioned success-probability process $q_t=\\mathbb{P}^{\\pi}(Y=1\\mid\\mathcal{H}_t)$. The result is a practical diagnostic failure: a confidence trace can appear acceptable under standard metrics while being badly mis-scaled for deferral, reflection, human handoff, or cost-weighted decisions. We characterize this failure mode theoretically and empirically. Theoretically, we show that Trajectory ECE is resolution-blind and that scalarized Trajectory Brier under common aggregators is not strictly proper for the trace. Empirically, on Tau2-Bench, Platt recalibration changes AUROC by only $\\Delta/\\mathrm{SE}\\approx 0.3$ while changing a strictly proper trajectory score by $\\Delta/\\mathrm{SE}\\approx 43$; on WebShop, complete-only evaluation drops 47.08% of the assumption-valid working sample, the dropped trajectories are roughly $3\\times$ longer, and censored-aware scoring changes the reported score. As a fix, we introduce the Trajectory Proper Score (TPS), a strictly proper trajectory-level evaluator built from any strictly proper binary score and positive trajectory weights, with a conditional-projection extension for administratively censored prefixes. Experiments on StrategyQA, Tau2-Bench, HotpotQA, and WebShop show that evaluator choice can shift benchmark conclusions by margins far larger than bootstrap uncertainty.",
+  "venue": "CTB@ICML 2026",
+  "queries": [
+   "search_ICML_cc_2026_cascading_failure.json",
+   "search_ICML_cc_2026_failure_containment.json"
+  ]
+ },
+ {
+  "id": "KfzJFZTIWr",
+  "forum": "KfzJFZTIWr",
+  "title": "Evaluator Failure Modes in Agentic Uncertainty Quantification",
+  "abstract": "Standard agentic UQ evaluations can hide trace-level failure modes. AUROC, AUPRC, risk-coverage, Trajectory ECE, and scalarized Trajectory Brier evaluate rankings, binwise calibration, or collapsed trajectory summaries, but they do not strictly elicit the prefix-conditioned success-probability process $q_t = \\mathbb{P}^{\\pi}(Y=1 \\mid \\mathcal{H}_t)$. This creates a practical diagnostic failure: an agent's confidence trace can appear acceptable under standard metrics while being badly mis-scaled as a probability stream for deferral, reflection, human handoff, or cost-weighted decisions. We characterize this failure mode theoretically and empirically. Theoretically, we show that Trajectory ECE is resolution-blind and that scalarized Trajectory Brier under common aggregators is not strictly proper for the trace. Empirically, we give two reproducible triggers. On Tau2-Bench, Platt recalibration of verbal confidence changes AUROC by only $\\Delta/\\mathrm{SE} \\approx 0.3$, while changing a strictly proper trajectory score by $\\Delta/\\mathrm{SE} \\approx 43$. On WebShop, complete-only evaluation drops $47.08\\%$ of the assumption-valid working sample; the dropped max-step trajectories are roughly $3\\times$ longer than completed ones, and censored-aware scoring changes the reported score. As a verified fix, we introduce the Trajectory Proper Score (TPS), a strictly proper trajectory-level evaluator built from any strictly proper binary score and positive trajectory weights, with a conditional-projection extension for administratively censored prefixes. Experiments on StrategyQA, Tau2-Bench, HotpotQA, and WebShop show that evaluator choice can change empirical conclusions by margins far larger than bootstrap uncertainty.",
+  "venue": "FAGEN@ICML 2026 Poster",
+  "queries": [
+   "search_ICML_cc_2026_cascading_failure.json",
+   "search_ICML_cc_2026_failure_containment.json"
+  ]
+ },
+ {
+  "id": "O8J0SLvlqt",
+  "forum": "O8J0SLvlqt",
+  "title": "Auditing a Hidden-Communication Failure Mode in Hybrid Attention",
+  "abstract": "Hidden communication in reasoning traces is a potential monitoring failure mode for agentic AI systems. We audit this risk in a constructed precursor setting rather than a deployed agent: Qwen3.6-27B, a hybrid-attention model with interleaved Gated DeltaNet and gated full-attention layers, is trained with GRPO-style QLoRA on a prompted 1-bit hidden-message self-decoding task with shared sender and receiver weights. The current strongest evidence comes from a corrected-objective control grid: sender-visible runs reach perfect step-20 exact-match decode across ten runtime seeds, while neutral sender-blind positive-reward controls reach $0.550 \\pm 0.125$ ($p = 1.1 \\times 10^{-5}$ exact two-sided permutation; paired sign $p = 0.00195$). Older launch-level loss traces revealed implementation and control confounds, so we report them only as audit provenance rather than primary evidence. These results support a preliminary, reproducible failure-mode audit for hybrid-attention models, not a claim of emergent deployed collusion, Sentinel evasion, or robust covert communication.",
+  "venue": "FAGEN@ICML 2026 Poster",
+  "queries": [
+   "search_ICML_cc_2026_cascading_failure.json",
+   "search_ICML_cc_2026_failure_containment.json"
+  ]
+ },
+ {
+  "id": "d4NytwJ6ne",
+  "forum": "d4NytwJ6ne",
+  "title": "Architecture Matters for Multi-Agent Security",
+  "abstract": "Multi-agent systems (MAS), composed of networks of two or more autonomous AI agents, have become increasingly popular in production deployments, yet introduce security risks that do not arise in single-agent settings. Even if individual agents exhibit robust security, architectural decisions governing their coordination can create attack surfaces that have not been systematically characterized. In this work, we present an empirical study of how MAS design decisions shape the tradeoff between task performance and attack resistance. Across three agentic environments (browser, desktop, and code) and 13 architectural configurations, we use stagewise evaluations that distinguish planning refusal, execution-stage interception, partial harmful execution, and successful attack completion to study three key design choices: (i) agent roles, which determine how authority and responsibility are allocated; (ii) communication topology, which shapes how and when agents interact; and (iii) memory, which determines the context and state visibility accessible to each agent. Overall, our results show that security and performance in multi-agent systems are governed by architectural design choices, motivating the development of further evaluations which move beyond the security properties of a single agent.",
+  "venue": "FAGEN@ICML 2026 Poster",
+  "queries": [
+   "search_ICML_cc_2026_multi-agent_hallucination.json",
+   "search_ICML_cc_2026_fault_tolerance_multi-agent.json"
+  ]
+ },
+ {
+  "id": "DNWFP9HlBa",
+  "forum": "DNWFP9HlBa",
+  "title": "Architecture Matters for Multi-Agent Security",
+  "abstract": "Multi-agent systems (MAS), composed of networks of two or more autonomous AI agents, have become increasingly popular in production deployments, yet introduce security risks that do not arise in single-agent settings. Even if individual agents exhibit robust security, architectural decisions governing their coordination can create attack surfaces that have not been systematically characterized. In this work, we present an empirical study of how MAS design decisions shape the tradeoff between task performance and attack resistance. Across three agentic environments (browser, desktop, and code) and 13 architectural configurations, we use stagewise evaluations that distinguish planning refusal, execution-stage interception, partial harmful execution, and successful attack completion to study three key design choices: (i) agent roles, which determine how authority and responsibility are allocated; (ii) communication topology, which shapes how and when agents interact; and (iii) memory, which determines the context and state visibility accessible to each agent. Overall, our results show that security and performance in multi-agent systems are governed by architectural design choices, motivating the development of further evaluations which move beyond the security properties of a single agent.",
+  "venue": "ICML 2026 AIWILD",
+  "queries": [
+   "search_ICML_cc_2026_multi-agent_hallucination.json",
+   "search_ICML_cc_2026_fault_tolerance_multi-agent.json"
+  ]
+ },
+ {
+  "id": "DhVMDR9lrI",
+  "forum": "DhVMDR9lrI",
+  "title": "Architecture Matters for Multi-Agent Security",
+  "abstract": "Multi-agent systems (MAS), composed of networks of two or more autonomous AI agents, have become increasingly popular in production deployments, yet introduce security risks that do not arise in single-agent settings. Even if individual agents exhibit robust security, architectural decisions governing their coordination can create attack surfaces that have not been systematically characterized. In this work, we present an empirical study of how MAS design decisions shape the tradeoff between task performance and attack resistance. Across three agentic environments (browser, desktop, and code) and 13 architectural configurations, we use stagewise evaluations that distinguish planning refusal, execution-stage interception, partial harmful execution, and successful attack completion to study three key design choices: (i) agent roles, which determine how authority and responsibility are allocated; (ii) communication topology, which shapes how and when agents interact; and (iii) memory, which determines the context and state visibility accessible to each agent. Overall, our results show that security and performance in multi-agent systems are governed by architectural design choices, motivating the development of further evaluations which move beyond the security properties of a single agent.",
+  "venue": "AI4GOOD Workshop 2026 Regular",
+  "queries": [
+   "search_ICML_cc_2026_multi-agent_hallucination.json",
+   "search_ICML_cc_2026_fault_tolerance_multi-agent.json"
+  ]
+ },
+ {
+  "id": "Jk4zLorDUx",
+  "forum": "Jk4zLorDUx",
+  "title": "Architecture Matters for Multi-Agent Security",
+  "abstract": "Multi-agent systems (MAS), composed of networks of two or more autonomous AI agents, have become increasingly popular in production deployments, yet introduce security risks that do not arise in single-agent settings. Even if individual agents may exhibit robust security, architectural decisions governing their coordination can create attack surfaces that have not been systematically characterized. In this work, we present an empirical study of how MAS design decisions shape the tradeoff between task performance and attack resistance.\nUsing a network of web-based agents and stage-wise evaluations that distinguish planning-stage refusal, execution-stage interception, and successful attack completion, we study architectural choices through controlled experiments. We identify three key design choices that influence MAS security: (i) agent roles, which determine how authority and responsibility are allocated; (ii) topology, which shapes how and when agents interact; and (iii) memory, which determines the context and state visibility accessible to each agent. Overall, our results show that security and performance in multi-agent systems are governed by architectural design choices, motivating the development of further evaluations which move beyond the security properties of a single agent.",
+  "venue": "ICML 2026 regular",
+  "queries": [
+   "search_ICML_cc_2026_multi-agent_hallucination.json",
+   "search_ICML_cc_2026_fault_tolerance_multi-agent.json"
+  ]
+ },
+ {
+  "id": "3N3BzvoLbG",
+  "forum": "3N3BzvoLbG",
+  "title": "ContinuityBench: A Framework and Taxonomy for Evaluating Agent Recovery from Interrupted State",
+  "abstract": "LLM agents are increasingly deployed in long-running, user-facing settings where execution can be broken by user interventions, tool failures, and context-management constraints. Yet standard agent benchmarks mostly evaluate uninterrupted runs, leaving recovery behavior largely unmeasured. We introduce ContinuityBench, a benchmark-agnostic framework that turns step-based agent benchmarks into controlled tests of continuity under interruption: it runs an uninterrupted baseline, interrupts execution at controlled points, resumes the same partially completed task from the live environment state, and varies the handoff signal across three fidelity levels - h0 with no prior context, h1 with a structured summary, and h2 with summary plus full action history - while preserving the source benchmark's native evaluator. Instantiating ContinuityBench on tau-bench, AppWorld, and TerminalBench with GPT-5.1 and Gemini 3 Flash, we find that interruption drops average task success from 41.7% to 28.0%. Handoff fidelity is non-monotonic: h1 outperforms h2 in 11 of 18 benchmark/model/interruption settings. Trace analysis shows distinct recovery failures: conversational frame drift, recovery churn, and over-steering from richer context. These results identify resumption as a measurable axis of agent reliability that aggregate task-success metrics miss, and show that more handoff context is not automatically better.",
+  "venue": "CTB@ICML 2026",
+  "queries": [
+   "search_ICML_cc_2026_agent_recovery.json",
+   "search_ICML_cc_2026_agent_error_recovery.json"
+  ]
+ },
+ {
+  "id": "u3I4CRwe6D",
+  "forum": "u3I4CRwe6D",
+  "title": "Within-Episode Failure Recovery in LLM Agents via Progress-Gated Dual-Process Routing",
+  "abstract": "LLM agents stall on solvable interactive tasks: the agent commits to a wrong approach early, environment feedback is uninformative, minor variations repeat, and the step budget exhausts before the next trial begins. The information to escape sits in the post-failure trajectory, but existing methods do not explicitly enable in-episode recovery by combining local refinement and causal reasoning within a single adaptive framework. We present DPR, a dual-process architecture for in-episode failure recovery: a fast process applies TextGrad-style continuous refinement every $k=3$ steps; a slow process performs Reflexion-style causal diagnosis when $m=5$ consecutive low-progress scores fire the routing gate. Each slow activation emits the three failure-recovery artifacts (reproducible trigger, diagnostic, verified fix). On ALFWorld 134 tasks, $n=10$ seeds, no demonstrations, DPR lifts open-weight Qwen-3-8B from $35.1$ to $75.4$ ($+40.3$pp), beating compute-matched 1-shot LATS by $+2.7$pp ($p\\approx0.01$), ToT by $+5.7$pp ($p<10^{-4}$), and Self-Refine by $+6.7$pp ($p<10^{-5}$); on GPT-5 the lift is $46.3\\to88.1$ ($+41.8$pp). The $1.5$pp cross-model lift difference is within seed noise ($p\\approx0.13$), suggesting that the routing mechanism generalizes across model scales rather than depending on frontier-specific capability. The architecture establishes a strong demo-free operating point, complementary to demo-bootstrapped methods which occupy a different regime.",
+  "venue": "ICML 2026 AIWILD",
+  "queries": [
+   "search_ICML_cc_2026_agent_recovery.json",
+   "search_ICML_cc_2026_agent_error_recovery.json"
+  ]
+ },
+ {
+  "id": "nVOzKXVvPu",
+  "forum": "nVOzKXVvPu",
+  "title": "LLM-Guided Communication for Cooperative Multi-Agent Reinforcement Learning",
+  "abstract": "Communication is a key component in multi-agent reinforcement learning (MARL) for mitigating partial observability, yet prior approaches often rely on inefficient information exchange or fail to transmit sufficient state information. To address this, we propose LLM-driven Multi-Agent Communication (LMAC), which leverages an LLM's reasoning capability to design a communication protocol that enables all agents to reconstruct the underlying state as accurately and uniformly as possible. LMAC iteratively refines the protocol using an explicit state-awareness criterion, improving state recovery while narrowing differences in agents' knowledge. Experiments on diverse MARL benchmarks show that LMAC improves state reconstruction across agents and yields substantial performance gains over prior communication baselines.",
+  "venue": "ICML 2026 regular",
+  "queries": [
+   "search_ICML_cc_2026_agent_recovery.json",
+   "search_ICML_cc_2026_agent_error_recovery.json"
+  ]
+ },
+ {
+  "id": "dAc8DsRa5i",
+  "forum": "dAc8DsRa5i",
+  "title": "Counterfactual Trace Auditing of LLM Agent Skills",
+  "abstract": "Large Language Model agents are increasingly augmented with agent skills: structured Markdown documents that inject domain procedural knowledge at run time. Skill marketplaces and personal skill libraries are growing rapidly, but current evaluation methods remain limited. Most deployed benchmarks report only pass rate before and after a skill is attached, treating the skill as a black-box change to agent behavior. We introduce Counterfactual Trace Auditing (CTA), a framework for measuring how a skill changes agent behavior. CTA pairs each with-skill agent trace with a without-skill counterpart on the same task, segments both traces into goal-directed phases, aligns the phases, and emits structured Skill Influence Pattern (SIP) annotations. These annotations describe the behavioral effect of a skill rather than only its task outcome. We instantiate CTA on SWE-Skills-Bench with Claude across 49 software engineering tasks. The resulting audit reveals a clear evaluation gap. Pass rate changes by only +0.3 percentage points on average, suggesting little aggregate effect. Yet CTA identifies 522 SIP instances across the same paired traces, showing that skills substantially reshape agent behavior even when pass rate is nearly unchanged. The audit also separates several recurring effects that pass rate cannot detect, including literal template copying, off-task artifact creation, excess planning, and task recovery. Three findings emerge. First, high-baseline tasks contain most of the observed skill effects, although their pass rate is already saturated and therefore cannot reflect those effects. Second, tasks with moderate baseline performance show the most recoverable gain, but often at substantially higher token cost. Third, the dominant SIP type varies systematically with baseline performance: surface anchoring is most common on ceiling tasks, concept bleed is most common on mid-range tasks, and excess planning is most common on floor tasks.",
+  "venue": "FAGEN@ICML 2026 Poster",
+  "queries": [
+   "search_ICML_cc_2026_agent_recovery.json",
+   "search_ICML_cc_2026_agent_error_recovery.json"
+  ]
+ },
+ {
+  "id": "tB05up6g5N",
+  "forum": "tB05up6g5N",
+  "title": "Helpful to a Fault: Measuring Illicit Assistance in Multi-Turn, Multilingual LLM Agents",
+  "abstract": "LLM-based agents execute real-world workflows via tools. These affordances enable ill-intended adversaries to also use these agents to carry out complex misuse scenarios. Existing agent-misuse benchmarks largely test single-prompt instructions, leaving a gap in measuring how agents end up helping with harmful or illegal tasks over multiple turns. We introduce **STING** (*Sequential Testing of Illicit N-step Goal execution*), an automated red-teaming framework that constructs a step-by-step illicit plan grounded in a benign persona and iteratively probes a target agent with adaptive follow-ups, using judge agents to track phase completion. We further introduce an analysis framework that models multi-turn red-teaming as a time-to-first-jailbreak random variable, enabling analysis tools like discovery curves, hazard-ratio attribution by attack language, and a new metric: Restricted Mean Jailbreak Discovery. Across AgentHarm scenarios, STING yields substantially higher illicit-task completion than single-turn prompting and chat-oriented multi-turn baselines adapted to tool-using agents. In multilingual evaluations across six non-English settings, we find that attack success and illicit-task completion do *not* consistently increase in lower-resource languages, diverging from common chatbot findings. Overall, STING provides a practical way to evaluate and stress-test agent misuse in realistic deployment settings, where interactions are inherently multi-turn and often multilingual. Our code is available at https://github.com/epfl-nlp/helpful-to-a-fault.",
+  "venue": "ICML 2026 regular",
+  "queries": [
+   "search_ICML_cc_2026_fault_tolerance_multi-agent.json",
+   "search_ICML_cc_2026_agent_fault.json"
+  ]
+ },
+ {
+  "id": "R5YXaPgUAx",
+  "forum": "R5YXaPgUAx",
+  "title": "Grounded autonomous research: a fault-tolerant LLM pipeline from corpus to manuscript in frontier computational physics",
+  "abstract": "Autonomous-research agents have demonstrated end-to-end LLM automation in machine-learning sandboxes where execution provides calibration. Frontier physical science differs categorically: physical reasoningunderlies every methodology choice, toolchains are often underdocumented, and calibration must come fromexternal literature anchors \u2014 which unscaffolded agents cite but do not confront, hallucinating plausible, unverifiable results from internal priors. We present a pipeline that runs end-to-end from a corpus of 11,083 recent condensed-matter physics arXiv papers to a publication-grade manuscript with three substantive physics findings (here on altermagnetic piezomagnetism): the agent autonomously conceives a research direction by mapping the corpus, calibrates methodology by reproducing published references, conducts novel first-principles computations, and writes the manuscript \u2014 grounded in literature throughout, across 47 fresh-context sessions in six phases sharing only on-disk state, with 2,162 literature-consultation events. Fault tolerance emerges from redundancy: fresh-context isolation, distributed grounding, and adversarial review catch what any single session misses; pre- and post-pilot stages are fully autonomous, and pilot requires bounded human intervention only at reproduction failures \u2014 operational knowledge curation, not scientific direction. Two paired failure modes \u2014 a pre-architecturebaseline and a no-pilot ablation \u2014 isolate structurally enforced numerical confrontation at calibration checkpoints as the operative grounding mechanism. The primitives, characterized failure modes, and quantified intervention pattern lay a foundation for autonomous research in high-stakes scientific domains beyond computational physics.",
+  "venue": "ICML2026-AI4Science Poster",
+  "queries": [
+   "search_ICML_cc_2026_fault_tolerance_multi-agent.json",
+   "search_ICML_cc_2026_agent_fault.json"
+  ]
+ },
+ {
+  "id": "LBt5eX6OKx",
+  "forum": "LBt5eX6OKx",
+  "title": "Guarded Tool-Using LLM Agents for Incident Response: A Safety-Gated Architecture and Operational Evaluation Protocol",
+  "abstract": "Tool-using large language model (LLM) agents show promise for automating on-call incident response (triage, diagnosis, and remediation), but incident response stresses agent systems in ways that standard benchmarks typically ignore. Actions have high impact, observability is partial, and attackers can inject instructions into tickets, logs, or tool outputs to steer an agent toward unsafe tool calls.\n\nThis workshop paper presents two contributions. (1) Guarded Incident Response Agent (GIRA), an architecture that separates proposal generation from action authorization via a multi-layer safety gate that can block, rewrite (e.g., dry-run), or escalate tool calls. (2) Operational Evaluation Protocol (OEP), a benchmark-style evaluation scaffold that measures safety and utility using SRE-grounded metrics (time-to-detect, time-to-mitigate, blast radius) together with injection success rate and unauthorized action rate.\n\nWe evaluate these ideas in a controlled, seeded simulator using a reproducible (mock) planner to isolate gate behavior. Across five incidents, four injection classes, nine agent configurations, and 2,250 runs, an unguarded agent frequently executes injected commands (ISR 0.640, blast 0.736). GIRA Full prevented any observed injection-driven execution of policy-violating tool calls in this setting (ISR 0.000) and substantially reduces blast radius (0.145), at the cost of slower mitigation (4.7 vs. 2.4 steps). We also find that gates built from policy checks and schema validation alone still permit tool-output injection (ISR 0.040), motivating injection-aware gating beyond typed tools.",
+  "venue": "ICLR 2026 AIWILD",
+  "queries": [
+   "search_ICLR_cc_2026_blast_radius.json"
+  ]
+ },
+ {
+  "id": "cPxxSqUFYj",
+  "forum": "cPxxSqUFYj",
+  "title": "From Confident Closing to Silent Failure: Characterizing False Success in LLM Agents",
+  "abstract": "LLM agents can fail silently by asserting task completion even when the underlying environment state shows the action did not occur. We study this failure mode, \\emph{false success}, on 9,876 tau2-bench trajectories across 8 model families and 3 customer-service domains. We introduce a three-class decomposition of failed trajectories---false success, honest failure, and ambiguous---validated against human annotation (91.5\\% agreement, $\\kappa=0.86$). False success is common but environment-dependent: it accounts for 45--48\\% of failures in single-control airline and retail domains, but only 3\\% in dual-control telecom. LLM-as-judge evaluation systematically misses this failure mode: across 5 judges, 5 prompt strategies, and a strong baseline with full task specifications, no judge exceeds AUROC 0.65. Judges anchor on confident closing language, scoring assertion-rich traces 0.27--0.36 more ``completed'' regardless of tool evidence. Lightweight TF-IDF detectors instead achieve task-disjoint AUROC 0.83 with sub-millisecond inference. Although zero-shot cross-domain transfer is limited (AUROC 0.69), few-shot target-domain calibration recovers performance, reaching AUROC 0.79 with 50 examples per class and 0.83 with 100 examples per class. These results suggest that production monitoring should treat lightweight detectors as efficient, domain-calibrated triage filters rather than relying on LLM judges as primary detectors for false success.",
+  "venue": "FAGEN@ICML 2026 Poster",
+  "queries": [
+   "search_ICML_cc_2026_failure_containment.json"
+  ]
+ },
+ {
+  "id": "rnaqR4Xijw",
+  "forum": "rnaqR4Xijw",
+  "title": "CAD-bench: Functional Failure Modes in CAD-Generating Agents",
+  "abstract": "Language-model agents are increasingly able to operate computer-aided design (CAD) toolchains, but their failures are often obscured by surface-level success signals. A generated CAD artifact can compile, render, and resemble the requested object while still failing the mechanical requirements of the task. We introduce CAD-bench, an execution-based benchmark for exposing functional failure modes in CAD-generating agents. CAD-bench contains 17 tasks across four difficulty tiers, ranging from basic solids to threaded mating pairs and functional gear trains. Each submission is executed, exported as geometry, and evaluated with task-specific checks, including dimensional and pose verification, reference-geometry gates, thread-profile analysis, and Blender-based rigid-body simulation. The benchmark supports both one-shot CAD-code generation and agent harnesses that produce final STEP artifacts in an executable environment. Initial results show that CAD-bench is not saturated by current systems. The strongest standalone model reaches 59.9\\% overall, while functional tasks remain near zero for most standalone runs. Agent harnesses perform better than one-shot generation, but still fail frequently on interfaces, standards-like details, and mechanisms. Reported agent submissions build the right-angle gearbox in 96.9\\% of attempts but average only 4.0\\% on the full functional score. CAD-bench therefore isolates a recurring failure mode for artifact-producing agents: executable output is not equivalent to mechanically meaningful task success.",
+  "venue": "FAGEN@ICML 2026 Poster",
+  "queries": [
+   "search_ICML_cc_2026_failure_containment.json"
+  ]
+ },
+ {
+  "id": "YxVbx9hZRs",
+  "forum": "YxVbx9hZRs",
+  "title": "Lateral Data Exfiltration in MCP: How One Compromised Server Captures Cross-Domain Agent Data",
+  "abstract": "Production AI agents increasingly connect to multiple Model Context Protocol (MCP) servers, each ostensibly scoped to a distinct service domain. We demonstrate that MCP's shared-context architecture fundamentally violates the implicit trust boundaries between servers. Through controlled experiments, we show that a single compromised server can laterally exfiltrate data from all other connected servers via a covert logging tool, achieving 90.7% autonomous invocation across 360 interactions and 100\\% capture of cross-server banking operations. We formalize this as the weakest-link property: the confidentiality of all agent-accessible data is bounded by the security posture of the least-secure connected server. This threat is qualitatively different from single-server tool poisoning, as it expands the blast radius of any server compromise to the entire agent ecosystem.",
+  "venue": "ICML 2026 AIWILD",
+  "queries": [
+   "search_ICML_cc_2026_blast_radius.json"
+  ]
+ },
+ {
+  "id": "Cd7eEEGrBq",
+  "forum": "Cd7eEEGrBq",
+  "title": "The MCP Quality Paradox: Enhancing Tool Effectiveness in Long-Horizon  Reasoning through Phase-Aware State Abstraction",
+  "abstract": "Large Language Model (LLM) agents are increasingly tasked with long-horizon deep research, utilizing an expanding ecosystem of heterogeneous tools via the Model Context Protocol (MCP). While integrating diverse information sources, ranging from structured databases (SQL) to unstructured retrieval systems (Web search, ArXiv), theoretically enhances capability, it introduces significant integration challenges. Specifically, the unweighted fusion of high-fidelity internal data with noisy external retrieval can compromise reasoning consistency, while the linear accumulation of intermediate tool outputs leads to context suffocation, where critical signals are diluted by redundant interaction history.\n\nTo address these challenges, we introduce Q-STEAM (\\textbf{Q}uality-aware \\textbf{St}at\\textbf{e} \\textbf{A}bstraction for \\textbf{M}ulti-Hop Reasoning),  a framework that reformulates long-horizon reasoning as a Phase-Aware Decision Process. Unlike mono-contextual paradigms, Q-STEAM: \\textbf{Firstly}, dynamically evaluates tool reliability within each reasoning phase: Acquisition (retrieval quality), Analysis (extraction accuracy), and Propagation (aggregation robustness), rather than applying uniform tool credibility scores; \\textbf{Secondly}, implements Phase-Aware State Abstraction, which synthesizes reasoning history into evolved reports at phase boundaries, selectively discarding redundancy while preserving reasoning continuity. We validate Q-STEAM on HotpotQA (controlled multi-hop reasoning) and a novel Legal Case Synthesis dataset (high-stakes, real-world uncertainty). Experimental results demonstrate that Q-STEAM achieves improvement over baselines.",
+  "venue": "AILaw26",
+  "queries": [
+   "search_AAAI_org_2026_failure_propagation.json"
+  ]
+ },
+ {
+  "id": "2oOLWuZVQV",
+  "forum": "2oOLWuZVQV",
+  "title": "Incentive-Compatible Truthfulness: Engineering Rationality in Adversarial LLM Consensus via Reinforcement Learning from Market Signals (RLMS)",
+  "abstract": "The deployment of Large Language Models (LLMs) in highstakes consensus protocols reveals a critical alignment failure:\nStubborn Compliance. Standard alignment paradigms, specifically Reinforcement Learning from Human Feedback (RLHF),\noptimize for conversational helpfulness, inducing a sycophantic\nbias where agents prioritize instruction fulfillment over intrinsic truthfulness or safety. In decentralized systems governed\nby crypto-economic primitives, this equates to terminal irrationality, as agents wager value on invalid state transitions (e.g.,\nmalicious code generation). This paper formalizes Reinforcement Learning from Market Signals (RLMS), a framework\nwhere agent alignment is derived from objective economic feedback rather than subjective human preference. We introduce\na hybrid architecture employing Group Relative Policy Optimization (GRPO) to induce a latent \u201cSafety Chain-of-Thought\u201d\n(CoT), coupled with an inference-time prefix forcing mechanism. We mathematically formalize the \u201cAbstention Frontier\u201d\nand demonstrate through a 50-round Monte Carlo simulation\nthat our Rational Agents achieve long-term solvency while standard architectures face inevitable ruin. Finally, we propose a\nroadmap for future work in mechanistic interpretability and\ncryptographic commit-reveal schemes for robust multi-agent\ntruthfulness",
+  "venue": "AAAI 2026 Bridge LMReasoning",
+  "queries": [
+   "search_AAAI_org_2026_failure_propagation.json"
+  ]
+ },
+ {
+  "id": "BbXsMvN52C",
+  "forum": "BbXsMvN52C",
+  "title": "LegalHalluLens: Typed Hallucination Failure Modes and Calibrated Multi-Agent Debate Mitigation",
+  "abstract": "AI systems deployed for legal workflows hallucinate at rates that aggregate metrics report at \u223c52%, but this single number conceals which kinds of claim fail and in which direction the resulting bias runs. We present LegalHalluLens, a typed hallucination diagnostic for LLM contract extraction, paired with a six-role multi-agent debate pipeline that uses the diagnosis to calibrate its mitigation. The diagnostic has two parts: typed hallucination profiles across four claim categories (numeric, temporal, obligation, factual), and a Risk Direction Index (RDI) that decomposes content errors into invention versus omission. Across CUAD (Hendrycks et al., 2021) (510 contracts; 249,252 clause-level instances; four architecturally diverse models) we measure a within-model gap of\u223c38\u201340 pp between obligation/numeric and temporal claims that aggregate reporting hides, and show that two extractors with matched 52% rates can carry opposite RDIs. The calibrated debate pipeline reduces fabricated detections by 45% with per-category gains tracking the diagnosis, allowing a 4B-active open backbone to rank first under 4 of 5 weighting schemes against commercial frontiers.",
+  "venue": "FAGEN@ICML 2026 Poster",
+  "queries": [
+   "search_ICML_cc_2026_multi-agent_hallucination.json"
+  ]
+ },
+ {
+  "id": "omHw9YJPiX",
+  "forum": "omHw9YJPiX",
+  "title": "LegalHalluLens: Typed Hallucination Auditing and Calibrated Multi-Agent Debate for Trustworthy Legal AI",
+  "abstract": "AI systems deployed in legal workflows hallucinate at rates that aggregate metrics report at \u223c52%, but this average conceals where errors concentrate and in which direction they run, leaving compliance officers without an actionable signal for trustworthy deployment. We present LegalHalluLens, an auditing framework with three components: typed hallucination profiles across four legally-motivated claim categories (numeric, temporal, obligation/entitlement, factual) over CUAD (Hendrycks et al., 2021); a Risk Direction Index (RDI) that reduces omission-versus-invention bias to a single deployment-comparable scalar; and a typed debate pipeline calibrated to both magnitudes and directions. Across 510 contracts and 249,252 clause-level instances we measure a within-model gap of approximately 38\u201340 pp between obligation/numeric and temporal claims that aggregate reporting hides, and show that two systems with matched 52% rates can carry opposite RDIs. The debate pipeline reduces fabricated detections by 45% with per-category gains tracking the diagnosis, matching commercial APIs with a substantially smaller backbone (4B active parameters). Typed profiles and RDI surface failure modes that aggregate metrics hide; we further show these diagnostics serve as calibration inputs for multi-agent debate pipelines, where Skeptic challenges and asymmetric gates targeted at measured failure modes outperform generically-tuned debate. The framework supports direction-aware procurement, accountability, and agent design for legal AI deployed in the wild.",
+  "venue": "ICML 2026 AIWILD",
+  "queries": [
+   "search_ICML_cc_2026_multi-agent_hallucination.json"
+  ]
+ },
+ {
+  "id": "0HxijK0AJZ",
+  "forum": "0HxijK0AJZ",
+  "title": "Learning to Inject: Automated Prompt Injection via Reinforcement Learning",
+  "abstract": "Prompt injection is a critical vulnerability in LLM agents, yet the strongest methods still rely on human red-teamers and hand-crafted prompts. Adapting automated jailbreak optimizers does not close this gap: jailbreaks shape models toward generic compliance, while prompt injection requires emitting specific tool calls with correct parameters. The success signal is binary, and randomly sampled suffixes almost never trigger it\u2014so standard optimizers have no gradient to follow. We present AutoInject, a black-box reinforcement learning (RL) framework that learns adversarial suffixes for prompt injection. A learned comparison-based reward scores each candidate against the best suffix seen so far, turning the binary signal into a dense reward suitable for RL optimization. The framework supports both online query-based attacks and offline-trained transferable suffixes that need no utility access at deployment, and incorporates a utility objective when task-completion feedback is available. On AgentDojo, AutoInject outperforms template attacks, GCG, TAP, and adaptive attack across production models, with statistically significant improvements under McNemar's test with $p<0.05$. Suffixes learned by AutoInject also break Meta-SecAlign-70B, a model fine-tuned specifically to resist prompt injection, where template attacks fail outright. The results establish an automated baseline for prompt injection and expose a gap between preference-based defenses and adaptive optimization-based attackers.",
+  "venue": "FAGEN@ICML 2026 Poster",
+  "queries": [
+   "search_ICML_cc_2026_fault_injection.json"
+  ]
+ },
+ {
+  "id": "ILFICFzCio",
+  "forum": "ILFICFzCio",
+  "title": "Learning to Inject: Automated Prompt Injection via Reinforcement Learning",
+  "abstract": "Prompt injection is a critical vulnerability in LLM agents, yet the strongest methods still rely on human red-teamers and hand-crafted prompts. Adapting automated jailbreak optimizers does not close this gap: jailbreaks shape models toward generic compliance, while prompt injection requires emitting specific tool calls with correct parameters. The success signal is binary, and randomly sampled suffixes almost never trigger it\u2014so standard optimizers have no gradient to follow. We present AutoInject, a black-box reinforcement learning (RL) framework that learns adversarial suffixes for prompt injection. A learned comparison-based reward scores each candidate against the best suffix seen so far, turning the binary signal into a dense reward suitable for RL optimization. The framework supports both online query-based attacks and offline-trained transferable suffixes that need no utility access at deployment, and incorporates a utility objective when task-completion feedback is available. On AgentDojo, AutoInject outperforms template attacks, GCG, TAP, and adaptive attack across production models, with statistically significant improvements under McNemar's test with $p<0.05$. Suffixes learned by AutoInject also break Meta-SecAlign-70B, a model fine-tuned specifically to resist prompt injection, where template attacks fail outright. The results establish an automated baseline for prompt injection and expose a gap between preference-based defenses and adaptive optimization-based attackers.",
+  "venue": "ICML 2026 AIWILD",
+  "queries": [
+   "search_ICML_cc_2026_fault_injection.json"
+  ]
+ },
+ {
+  "id": "8Sldm0szdA",
+  "forum": "8Sldm0szdA",
+  "title": "VATS: Exploiting Implicit Authority in Error-Path Injection via Systematic Mutation",
+  "abstract": "As the Model Context Protocol (MCP) standardizes tool-calling for autonomous agents, it introduces a critical, unexamined attack surface: the error-handling loop. We hypothesize that tool error messages possess implicit authority, triggering corrective reasoning modes that bypass standard safety heuristics. We introduce VATS (Vulnerability Analysis of Tool Streams), a mutation-driven framework that systematically evolves adversarial payloads across seven structural and linguistic dimensions. Our evaluation across four frontier models, Gemini 3.1 Pro, GPT-5.5, GLM-5.1, and Qwen3-Coder, demonstrates that error-path injection triples the success rate of standard indirect prompt injection (IPI), achieving up to 100\\% compliance. We isolate structural positioning (sandwiching instructions within error context) as the most effective universal exploit vector. While we find that production framework guardrails can mitigate these vulnerabilities, the inherent susceptibility of the model layer poses a systemic risk to bespoke agentic workflows.",
+  "venue": "ICML 2026 AIWILD",
+  "queries": [
+   "search_ICML_cc_2026_fault_injection.json"
+  ]
+ },
+ {
+  "id": "4xbK4rM2EJ",
+  "forum": "4xbK4rM2EJ",
+  "title": "The Best-Laid SCHEMEs: Coordinated Sabotage and Monitoring in Multi-Agent Systems",
+  "abstract": "As agentic coding systems decompose work across multiple model instances, a critical safety question is whether those instances can coordinate to achieve a hidden malicious objective while remaining aligned with user intent. We introduce \\emph{SCHEME}, a benchmark of 17 task instances across 7 settings and 8 real open-source libraries, each pairing a legitimate software-engineering task with a covert side task. Every setting is designed so that no proper subset of agents can succeed alone: agents must decompose a shared sabotage plan, relay partial requirements under different communication topologies, and execute mutually consistent edits, testing genuine multi-agent coordination rather than individual capability. Evaluating with \\emph{GPT 5.1 Codex} and \\emph{Gemini 3.1 Pro}, we find coordinated sabotage is already practical, with Gemini completing the covert objective while succeeding on the legitimate task in 84\\% of samples and Codex in 46\\%. A failure analysis shows that recovery, not failure incidence, drives the model gap: both models suffer similar numbers of communication failures per trajectory, but Gemini recovers from $\\sim$73\\% of occurrences against Codex's $\\sim$56\\%. However, the agents' code edits remain detectable: a trusted monitor flags coordinated sabotage at FPR$\\le$2\\% in 99\\%/68\\% (Gemini/Codex) of attempts from code edits alone, rising to 100\\%/81\\% with access to agent communication. Despite stealth-aware prompting, undetected sabotage stays at $<$3\\% under the full-visibility monitor; telling agents a monitor is present halves Gemini's sabotage success without significantly breaking detection, even when agents are explicitly prompted to fabricate cover stories.",
+  "venue": "AI4GOOD Workshop 2026 Regular",
+  "queries": [
+   "search_ICML_cc_2026_agent_recovery.json"
+  ]
+ },
+ {
+  "id": "s4OoQ4fdOu",
+  "forum": "s4OoQ4fdOu",
+  "title": "The Best-Laid SCHEMEs: Coordinated Sabotage and Monitoring in Multi-Agent Systems",
+  "abstract": "As agentic coding systems decompose work across multiple model instances, a critical safety question is whether those instances can coordinate to achieve a hidden malicious objective while remaining aligned with user intent. We introduce \\emph{SCHEME}, a benchmark of 17 task instances across 7 settings and 8 real open-source libraries, each pairing a legitimate software-engineering task with a covert side task. Every setting is designed so that no proper subset of agents can succeed alone: agents must decompose a shared sabotage plan, relay partial requirements under different communication topologies, and execute mutually consistent edits, testing genuine multi-agent coordination rather than individual capability. Evaluating with \\emph{GPT 5.1 Codex} and \\emph{Gemini 3.1 Pro}, we find coordinated sabotage is already practical, with Gemini completing the covert objective while succeeding on the legitimate task in 84\\% of samples and Codex in 46\\%. A failure analysis shows that recovery, not failure incidence, drives the model gap: both models suffer similar numbers of communication failures per trajectory, but Gemini recovers from $\\sim$73\\% of occurrences against Codex's $\\sim$56\\%. However, the agents' code edits remain detectable: a trusted monitor flags coordinated sabotage at FPR$\\le$2\\% in 99\\%/68\\% (Gemini/Codex) of attempts from code edits alone, rising to 100\\%/81\\% with access to agent communication. Despite stealth-aware prompting, undetected sabotage stays at $<$3\\% under the full-visibility monitor; telling agents a monitor is present halves Gemini's sabotage success without significantly breaking detection, even when agents are explicitly prompted to fabricate cover stories.",
+  "venue": "ICML 2026 AIWILD",
+  "queries": [
+   "search_ICML_cc_2026_agent_recovery.json"
+  ]
+ },
+ {
+  "id": "gaVNzd6FNl",
+  "forum": "gaVNzd6FNl",
+  "title": "When Refusals Fail: Unstable Safety Mechanisms in Long-Context LLM Agents",
+  "abstract": "Solving complex or long-horizon problems often requires large language models (LLMs) to use external tools and operate over a significantly longer context window. New LLMs enable longer context windows and support tool calling capabilities. Prior works have focused mainly on evaluation of LLMs on long-context prompts, leaving agentic setup relatively unexplored, both from capability and safety perspectives. Our work addresses this gap. We find that LLM agents could be sensitive to length, type, and placement of the context, exhibiting unexpected and inconsistent shifts in task performance and in refusals to execute harmful requests. Models with 1M-2M token context windows show severe degradation already at 100K tokens, with performance drops exceeding 50\\% for both benign and harmful tasks. Refusal rates shift unpredictably: GPT-4.1-nano increases from $\\sim$5\\% to $\\sim$40\\% while Grok 4 Fast decreases from $\\sim$80\\% to $\\sim$10\\% at 200K tokens. Our work shows potential safety issues with agents operating on longer context and opens additional questions on the current metrics and paradigm for evaluating LLM agent safety on long multi-step tasks. In particular, our results on LLM agents reveal a notable divergence in both capability and safety performance compared to prior evaluations of LLMs on similar criteria.",
+  "venue": "AAAI 2026 TrustAgent Workshop Poster",
+  "queries": [
+   "search_AAAI_org_2026_organizational_agents.json"
+  ]
+ },
+ {
+  "id": "WavZ34iiGB",
+  "forum": "WavZ34iiGB",
+  "title": "From Biased Chatbots to Biased Agents: Examining Role Assignment Effects on LLM Agent Robustness",
+  "abstract": "Large Language Models (LLMs) are increasingly deployed as autonomous agents capable of actions with real-world impacts beyond text generation. While persona-induced biases in text generation are well documented, their effects on agent task performance remain largely unexplored, even though such effects pose more direct operational risks. In this work, we present the first systematic case study showing that demographic-based persona assignments can alter LLM agents\u2019 behavior and degrade performance across diverse domains. Evaluating widely deployed models on agentic benchmarks spanning strategic reasoning, planning, and technical operations, we uncover substantial performance variationsup to 26.2% degradation, driven by task-irrelevant persona cues. These shifts appear across task types and model architectures, indicating that persona conditioning and simple prompt injections can distort an agent\u2019s decision-making reliability. Our findings reveal an overlooked vulnerability in current LLM agentic systems: persona assignments can introduce implicit biases and increase behavioral volatility, raising concerns for the safe and robust deployment of LLM agents.",
+  "venue": "AAAI 2026 TrustAgent Workshop Poster",
+  "queries": [
+   "search_AAAI_org_2026_organizational_agents.json"
+  ]
+ },
+ {
+  "id": "nH5O0AI61S",
+  "forum": "nH5O0AI61S",
+  "title": "When Small Models Are Right for Wrong Reasons: Process Verification for Trustworthy Agents",
+  "abstract": "Deploying small language models (7-9B parameters) as autonomous agents requires trust in their reasoning, not just their outputs. We reveal a critical reliability crisis: 50-69\\% of correct answers from these models contain fundamentally flawed reasoning---a ``Right-for-Wrong-Reasons'' phenomenon invisible to standard accuracy metrics. Through analysis of 10,734 reasoning traces across three models and diverse tasks, we introduce the Reasoning Integrity Score (RIS), a process-based metric validated with substantial inter-rater agreement ($\\kappa=0.657$). Conventional practices are challenged by our findings: while retrieval-augmented generation (RAG) significantly improves reasoning integrity (Cohen's $d=0.23$--$0.93$), meta-cognitive interventions like self-critique often harm performance ($d=-0.14$ to $-0.33$) in small models on the evaluated tasks. Mechanistic analysis reveals RAG succeeds by grounding calculations in external evidence, reducing errors by 7.6\\%, while meta-cognition amplifies confusion without sufficient model capacity. To enable deployment, verification capabilities are distilled into a neural classifier achieving 0.86 F1-score with 100$\\times$ speedup. These results underscore the necessity of process-based verification for trustworthy agents: accuracy alone is dangerously insufficient when models can be right for entirely wrong reasons.",
+  "venue": "AAAI 2026 TrustAgent Workshop Poster",
+  "queries": [
+   "search_AAAI_org_2026_organizational_agents.json"
+  ]
+ },
+ {
+  "id": "meW83T3k4b",
+  "forum": "meW83T3k4b",
+  "title": "Multi-Agent Tool-Integrated Policy Optimization",
+  "abstract": "Large language models (LLMs) increasingly rely on multi-turn tool-integrated planning for knowledge-intensive and complex reasoning tasks.\n    Existing implementations typically rely on a single agent, but they suffer from limited context length and noisy tool responses.\n    A natural solution is to adopt a multi-agent framework with planner- and worker-agents to manage context. \n    However, no existing methods support effective reinforcement learning post-training of tool-integrated multi-agent frameworks. \n    To address this gap, we propose Multi-Agent Tool-Integrated Policy Optimization (**MATPO**), which enables distinct roles (planner and worker) to be trained within a single LLM instance using role-specific prompts via reinforcement learning.\n    MATPO is derived from a principled credit assignment mechanism across planner and worker rollouts. This design eliminates the need to deploy multiple LLMs, which would be memory-intensive, while preserving the benefits of specialization.\n    Experiments on GAIA-text, WebWalkerQA, and FRAMES show that MATPO consistently outperforms single-agent baselines by an average of 18.38 \\% relative improvement in performance and exhibits greater robustness to noisy tool responses. Our findings highlight the effectiveness of unifying multiple agent roles within a single LLM and provide practical insights for stable and efficient multi-agent RL training. Our code is available at https://github.com/mzf666/MATPO.",
+  "venue": "AAAI 2026 TrustAgent Workshop Poster",
+  "queries": [
+   "search_AAAI_org_2026_fault_tolerance_multi-agent.json",
+   "search_AAAI_org_2026_multi-agent_robustness.json",
+   "search_AAAI_org_2026_delegation_multi-agent.json",
+   "search_AAAI_org_2026_multi-agent_reliability.json",
+   "search_AAAI_org_2026_error_propagation_multi-agent.json",
+   "search_AAAI_org_2026_multi-agent_failure.json"
+  ]
+ },
+ {
+  "id": "JUKkShVMF3",
+  "forum": "JUKkShVMF3",
+  "title": "DYNO : Dynamic Neurosymbolic Orchestrator for Multi-Agent Systems",
+  "abstract": "Large Language Model (LLM)-based multi-agent systems (LaMAS) represent an emerging paradigm for tackling complex, multi-step reasoning and decision-making problems. As these systems scale, orchestration, which is the ability to coordinate, manage, and evaluate the interactions among diverse agents, becomes central to their success. While recent orchestrators such as AgentFlow have demonstrated promise in managing communication and task delegation, they remain limited in their ability to understand task semantics, coordinate heterogeneous agent types (e.g., reactive vs. cognitive), and adaptively align outputs with human-defined goals. In this position paper, we introduce DYNO (Dynamic Neurosymbolic Orchestrator), a system developed as part of our broader research framework on neurosymbolic AI for robust, interpretable, and trustworthy composite intelligence. DYNO integrates interdependent components to plan, execute, evaluate, and refine workflows iteratively. Each component cooperates through shared registries of agents, data, knowledge, and evaluation metrics, allowing the system to optimize task performance continuously. We argue that such dynamic orchestration, combining symbolic decomposition with neural adaptability, is essential for achieving scalable, interpretable, and self-correcting multi-agent intelligence. The paper positions dynamic orchestration as a foundational step toward reliable, trustworthy, and human-aligned multi-agent systems.",
+  "venue": "LaMAS 2026 Oral",
+  "queries": [
+   "search_AAAI_org_2026_fault_tolerance_multi-agent.json",
+   "search_AAAI_org_2026_multi-agent_robustness.json",
+   "search_AAAI_org_2026_delegation_multi-agent.json",
+   "search_AAAI_org_2026_multi-agent_reliability.json",
+   "search_AAAI_org_2026_error_propagation_multi-agent.json",
+   "search_AAAI_org_2026_multi-agent_failure.json"
+  ]
+ },
+ {
+  "id": "nBkpOmoEyb",
+  "forum": "nBkpOmoEyb",
+  "title": "Acquisition of Cooperative Behavior in Multi-Agent Path Finding",
+  "abstract": "The Multi-Agent Path Finding (MAPF) problem involves planning collision-free paths for multiple agents traversing from initial to designated positions. \n\nReinforcement learningbased approaches have recently gained attention, demonstrating effective path planning in complex environments under decentralized control. \n\nHowever, these methods encounter a fundamental limitation: individual reward maximization by each agent results in inter-agent interference, degrading performance. \n\nThis research addresses reward design in reinforcement learning-based MAPF to facilitate cooperative behavior. Our key idea is to incorporate other agents\u2019 reward influence into individual reward functions and systematically modulate this influence to enhance cooperation acquisition. Through comparative evaluation against existing methodologies, we demonstrate our approach achieves improved performance.",
+  "venue": "WoMAPF Poster",
+  "queries": [
+   "search_AAAI_org_2026_fault_tolerance_multi-agent.json",
+   "search_AAAI_org_2026_multi-agent_robustness.json",
+   "search_AAAI_org_2026_delegation_multi-agent.json",
+   "search_AAAI_org_2026_multi-agent_reliability.json",
+   "search_AAAI_org_2026_error_propagation_multi-agent.json",
+   "search_AAAI_org_2026_multi-agent_failure.json"
+  ]
+ },
+ {
+  "id": "yDn184J1oR",
+  "forum": "yDn184J1oR",
+  "title": "Towards Design of an Automated Judge for Multi-Agent Systems",
+  "abstract": "Evaluating multi-agent systems (MAS) requires nuanced analysis across different levels of interaction, from individual agent behaviors to emergent collective dynamics. Existing methods relying on human annotation or single LLM evaluators struggle to capture this complexity. We introduce a novel unsupervised framework that addresses this gap through a collective of specialized LLM-based evaluators. \nOur architecture employs a comprehensive two-tier evaluation approach. \nSpecialized evaluators assess individual competencies at the agent level, including observation alignment, tool selection, and state consistency. At the system level, dedicated evaluators analyze collective performance across task completion, role distribution, and complexity metrics. Each evaluator receives structured trace representations with explicit task context.\nThe proposed AutoPumpkin (Automated Performance Understanding for Multi-agents Planning, Knowldge Integration and Negotiation) judge aggregates key agent- and system-level metrics alongside evaluator justifications to determine overall MAS success (binary classification) without requiring labeled training data. On the out-of-distribution TRAIL benchmark, AutoPumpkin achieves F1 0.85, substantially outperforming the TRAIL baseline (F1 0.71). On in-distribution data, AutoPumpkin maintains competitive performance (F1 0.65) compared to TRAIL (F1 0.634), demonstrating strong cross-dataset generalization.\nThis hierarchical evaluation framework enables precise failure identification and targeted optimization across both agent and system levels while remaining scalable and interpretable.",
+  "venue": "AAAI 2026 TrustAgent Workshop Poster",
+  "queries": [
+   "search_AAAI_org_2026_fault_tolerance_multi-agent.json",
+   "search_AAAI_org_2026_multi-agent_robustness.json",
+   "search_AAAI_org_2026_delegation_multi-agent.json",
+   "search_AAAI_org_2026_multi-agent_reliability.json",
+   "search_AAAI_org_2026_error_propagation_multi-agent.json",
+   "search_AAAI_org_2026_multi-agent_failure.json"
+  ]
+ },
+ {
+  "id": "WUbGQQ9C0E",
+  "forum": "WUbGQQ9C0E",
+  "title": "Pairwise is Not Enough: Hypergraph Neural Networks for Multi-Agent Pathfinding",
+  "abstract": "Multi-Agent Path Finding (MAPF) is a representative multi-agent coordination problem, where multiple agents are required to navigate to their respective goals without collisions. Solving MAPF optimally is known to be NP-hard, leading to the adoption of learning-based approaches to alleviate the online computational burden. Prevailing approaches, such as Graph Neural Networks (GNNs), are typically constrained to *pairwise* message passing between agents. However, this limitation leads to suboptimal behaviours and critical issues, such as attention dilution, particularly in dense environments where group (i.e. beyond just two agents) coordination is most critical. Despite the importance of such higher-order interactions, existing approaches have not been able to fully explore them. To address this representational bottleneck, we introduce HMAGAT (Hypergraph Multi-Agent Attention Network), a novel architecture that leverages attentional mechanisms over directed hypergraphs to explicitly capture group dynamics. Empirically, HMAGAT establishes a new state-of-the-art among learning-based MAPF solvers: e.g., despite having just 1M parameters and being trained on 100$\\times$ less data, it outperforms the current SoTA 85M parameter model. Through detailed analysis of HMAGAT's attention values, we demonstrate how hypergraph representations mitigate the attention dilution inherent in GNNs and capture complex interactions where pairwise methods fail. Our results illustrate that appropriate inductive biases are often more critical than the training data size or sheer parameter count for multi-agent problems.",
+  "venue": "WoMAPF Oral",
+  "queries": [
+   "search_AAAI_org_2026_fault_tolerance_multi-agent.json",
+   "search_AAAI_org_2026_multi-agent_robustness.json",
+   "search_AAAI_org_2026_delegation_multi-agent.json",
+   "search_AAAI_org_2026_multi-agent_reliability.json",
+   "search_AAAI_org_2026_error_propagation_multi-agent.json",
+   "search_AAAI_org_2026_multi-agent_failure.json"
+  ]
+ },
+ {
+  "id": "nwcFuR19AJ",
+  "forum": "nwcFuR19AJ",
+  "title": "MAD-PINN: A Decentralized Physics-Informed Machine Learning Framework for Safe and Optimal Multi-Agent Control",
+  "abstract": "Co-optimizing safety and performance in large-scale multi-agent systems remains a fundamental challenge. Existing approaches based on multi-agent reinforcement learning (MARL), safety filtering, or Model Predictive Control (MPC) either lack strict safety guarantees, suffer from conservatism, or fail to scale effectively. We propose MAD-PINN, a decentralized physics-informed machine learning framework for solving the multi-agent state-constrained optimal control problem (MASC-OCP). Our method leverages an epigraph-based reformulation of SC-OCP to simultaneously capture performance and safety, and approximates its solution via a physics-informed neural network. Scalability is achieved by training the SC-OCP value function on reduced-agent systems and deploying them in a decentralized fashion, where each agent relies only on local observations of its neighbours for decision-making. To further enhance safety and efficiency, we introduce an Hamilton-Jacobi (HJ) reachability-based neighbour selection strategy to prioritize safety-critical interactions, and a receding-horizon policy execution scheme that adapts to dynamic interactions while reducing computational burden. Experiments on multi-agent navigation tasks demonstrate that MAD-PINN achieves superior safety\u2013performance trade-offs, maintains scalability as the number of agents grows, and consistently outperforms state-of-the-art baselines.",
+  "venue": "WoMAPF Poster",
+  "queries": [
+   "search_AAAI_org_2026_fault_tolerance_multi-agent.json",
+   "search_AAAI_org_2026_multi-agent_robustness.json",
+   "search_AAAI_org_2026_delegation_multi-agent.json",
+   "search_AAAI_org_2026_multi-agent_reliability.json",
+   "search_AAAI_org_2026_error_propagation_multi-agent.json",
+   "search_AAAI_org_2026_multi-agent_failure.json"
+  ]
+ },
+ {
+  "id": "h91p5MyV9o",
+  "forum": "h91p5MyV9o",
+  "title": "HowLLMDecision Agents Fail in the Wild: AReproducible Failure-Cell Framework",
+  "abstract": "Frontier language models are increasingly used in consequential deployment settings, but how they fail in those settings is poorly understood. The term \u201cfailure\u201d is often used loosely; the actual deployment variables that trigger one are rarely isolated; the reasoning trace surrounding a fail ure is rarely inspected as a diagnostic in its own right; and the fixes proposed against failures are rarely costed in the cells where they would ac tually be deployed. We introduce Operational Alignment, a framework that treats deployment failure as a reproducible experimental object. The framework provides four pieces designed to be adopted directly: a precise operational definition of when a model has failed (a violation of a stated operative rule under a controlled decision config uration), a method for constructing the smallest deployment-realistic configuration that triggers the failure the same way every time, trace-level diagnostics for what kind of failure has occurred, and an intervention-transport test that exposes what each candidate fix costs in cells beyond the one it was tuned on. The framework is built so that decision-level failures can be reported, re produced, and composed into the long-horizon failures that arise in agentic deployments. We instantiate it on three regulated decision testbeds and release the corpus, the manipulation library, the diagnostic audit, and a reporting template. The framework is built so failure cells can be composed into the longer-running, multi-agent deployments where these failures actually occur in production.",
+  "venue": "ICML 2026 AIWILD",
+  "queries": [
+   "search_ICML_cc_2026_cascading_failure.json",
+   "search_ICML_cc_2026_failure_containment.json"
+  ]
+ },
+ {
+  "id": "MSZgg7mUVZ",
+  "forum": "MSZgg7mUVZ",
+  "title": "Rethinking Failure Attribution in Multi-Agent Systems: A Multi-Perspective Benchmark and Evaluation",
+  "abstract": "Failure attribution is essential for diagnosing and improving multi-agent systems (MAS), yet existing benchmarks and methods largely assume a single deterministic root cause for each failure. In practice, MAS failures often admit multiple plausible attributions due to complex interagent dependencies and ambiguous execution trajectories. We revisit MAS failure attribution from a multi-perspective standpoint and propose multi-perspective failure attribution, a practical paradigm that explicitly accounts for attribution ambiguity. To support this setting, we introduce MP-BENCH, the first benchmark designed for multi-perspective failure attribution in MAS, along with a new evaluation protocol tailored to this paradigm. Through extensive experiments, we find that prior conclusions suggesting LLMs\nstruggle with failure attribution are largely driven by limitations in existing benchmark designs. Our results highlight the necessity of multi-perspective benchmarks and evaluation protocols for realistic and reliable MAS diagnosis.",
+  "venue": "FAGEN@ICML 2026 Poster",
+  "queries": [
+   "search_ICML_cc_2026_cascading_failure.json",
+   "search_ICML_cc_2026_failure_containment.json"
+  ]
+ },
+ {
+  "id": "FcHLKlJkZl",
+  "forum": "FcHLKlJkZl",
+  "title": "A Multi-Agent Pipeline for Source-Grounded Synthetic Note Generation from Longitudinal Structured EHR",
+  "abstract": "Structured EHR is abundant but sparse, coded, and difficult to use directly for note-centric clinical modeling. We present MedNotes, a multi-agent synthetic data generation pipeline that converts longitudinal structured EHR into source-grounded clinical note representations under explicit quality control. MedNotes  treats structured-data-to-text synthesis as a closed-loop agentic process: a generator proposes a note, evaluator agents diagnose factual, coverage, structural, and hallucination-related failures, and a router accepts, revises, or rejects the draft. On 1{,}485 EHRSHOT encounters, MedNotes achieves a 91.4\\% pass rate, with mean factual accuracy of 0.980, completeness of 99.1\\%, structural fidelity of 0.761, and 0.028 critical hallucinations per encounter. Iterative refinement improves acceptance from 69.4\\% to 91.4\\%. The resulting synthetic corpus improves downstream CPT prediction and paragraph-level section prediction when combined with limited real data.",
+  "venue": "FMSD @ ICML 2026 Poster",
+  "queries": [
+   "search_ICML_cc_2026_multi-agent_hallucination.json",
+   "search_ICML_cc_2026_fault_tolerance_multi-agent.json"
+  ]
+ },
+ {
+  "id": "hw8bxMLzQx",
+  "forum": "hw8bxMLzQx",
+  "title": "Mosaic: Runtime-Efficient Multi-Agent Embodied Planning",
+  "abstract": "LLM-based multi-agent embodied planning remains impractical due to prohibitively high execution latency. We identify failed actions as the dominant bottleneck, stemming from two core challenges: inaccurate state tracking under partial observability and inefficient coordination that produces redundant or conflicting actions. We introduce Mosaic, a runtime-efficient multi-agent planning framework that addresses both challenges. Mosaic maintains accurate yet lightweight state tracking through agent-centric semantic memory that stores objects in relative coordinates, enabling geometric transformations and coordination. It ensures efficient coordination through Integer Linear Programming that allocates actions at every planning step, enforcing physical feasibility and inter-agent coordination constraints. Across AI2-THOR and search-and-rescue benchmarks, Mosaic achieves 27\u201332% faster execution, 30\u201333% fewer LLM calls, 25\u201331% fewer steps, and 4\u201310% points higher success rates. These results demonstrate that efficient memory and constraint-guided coordination are critical for scalable, low-latency multi-agent planning.",
+  "venue": "ICML 2026 regular",
+  "queries": [
+   "search_ICML_cc_2026_multi-agent_hallucination.json",
+   "search_ICML_cc_2026_fault_tolerance_multi-agent.json"
+  ]
+ },
+ {
+  "id": "qKQlfKER2P",
+  "forum": "qKQlfKER2P",
+  "title": "Directional Influence and Consensus Formation in Multi-Agent Systems",
+  "abstract": "Multi-agent systems are increasingly being deployed in real-world applications, and understanding inter-agent dynamics is critical for developing reliable and robust systems. While multi-agent systems have been shown to improve accuracy, the underlying interaction dynamics that drive consensus more generally remain poorly understood. In this paper, we conduct an empirical study of multi-turn agent interactions, analyzing how consensus forms through disagreement and model deference across both objective and subjective datasets. Across experiments, we find that model deference is not a fixed hierarchical property in heterogeneous settings, but instead emerges only under specific conditions. In contrast, homogeneous settings do not exhibit a consistent hierarchical structure. Under answer rotation, even though smaller models do tend to defer to larger models the majority of the time, the rate at which larger models defer to smaller models increases. This shows that model identity may not be the sole explanatory factor for model deference. Additionally, multi-agent dynamics can be actively controlled via system prompts. Overall, disagreement and model deference provide informative signals for studying multi-agent behavior beyond accuracy to determine the reliability and robustness of multi-agent systems.",
+  "venue": "Pluralistic-Alignment 2026",
+  "queries": [
+   "search_ICML_cc_2026_multi-agent_hallucination.json",
+   "search_ICML_cc_2026_fault_tolerance_multi-agent.json"
+  ]
+ },
+ {
+  "id": "WhdE9g3UhT",
+  "forum": "WhdE9g3UhT",
+  "title": "Emergent Social Intelligence Risks in Generative Multi-Agent Systems",
+  "abstract": "Multi-agent systems (MAS) composed of large generative models are rapidly moving from laboratory prototypes to real-world deployments, where they jointly plan, negotiate, and allocate shared resources. While such systems promise unprecedented scalability and autonomy, their collective interaction also gives rise to failure modes that cannot be reduced to individual agents. We present a pioneering study of emergent multi-agent risks arising from competition over shared resources, sequential handoff collaboration, collective decision aggregation, and other multi-agent settings. Across these settings, group behaviors such as collusion-like coordination, conformity, authority deference, and role failure emerge with non-trivial frequency under realistic resource constraints, communication protocols, and role assignments, mirroring well-known pathologies in human societies despite no explicit instruction. Moreover, these risks cannot be prevented by existing agent-level safeguards alone. Our findings expose a social intelligence risk in agent collectives, motivating mechanism-level rather than agent-level safety design.",
+  "venue": "FAGEN@ICML 2026 Poster",
+  "queries": [
+   "search_ICML_cc_2026_multi-agent_hallucination.json",
+   "search_ICML_cc_2026_fault_tolerance_multi-agent.json"
+  ]
+ },
+ {
+  "id": "z7znwSYpEC",
+  "forum": "z7znwSYpEC",
+  "title": "Emergent Social Intelligence Risks in Generative Multi-Agent Systems",
+  "abstract": "Multi-agent systems (MAS) composed of large generative models are rapidly moving from laboratory prototypes to real-world deployments, where they jointly plan, negotiate, and allocate shared resources. While such systems promise unprecedented scalability and autonomy, their collective interaction also gives rise to failure modes that cannot be reduced to individual agents. We present a pioneering study of emergent multi-agent risks arising from competition over shared resources, sequential handoff collaboration, collective decision aggregation, and other multi-agent settings. Across these settings, group behaviors such as collusion-like coordination, conformity, authority deference, and role failure emerge with non-trivial frequency under realistic resource constraints, communication protocols, and role assignments, mirroring well-known pathologies in human societies despite no explicit instruction. Moreover, these risks cannot be prevented by existing agent-level safeguards alone. Our findings expose a social intelligence risk in agent collectives, motivating mechanism-level rather than agent-level safety design.",
+  "venue": "ICML 2026 AIWILD",
+  "queries": [
+   "search_ICML_cc_2026_multi-agent_hallucination.json",
+   "search_ICML_cc_2026_fault_tolerance_multi-agent.json"
+  ]
+ },
+ {
+  "id": "w0Ai70K5Wk",
+  "forum": "w0Ai70K5Wk",
+  "title": "AlignVQA:  Debate-Driven Multi-Agent Calibration for Vision Language Models",
+  "abstract": "In the context of Visual Question Answering (VQA) and Agentic AI, calibration refers to how closely an AI system's confidence in its answers reflects their actual correctness. While modern VQA systems, powered by advanced vision-language models (VLMs), are increasingly used in high-stakes domains like medical diagnostics and autonomous navigation due to their improved accuracy, the reliability of their confidence estimates remains under-examined. Particularly, these systems often produce overconfident responses. To address this, we introduce AlignVQA, a debate-based multi-agent framework, in which diverse specialized VLM -- each following distinct prompting strategies -- generate candidate answers and then engage in two-stage interaction: generalist agents critique, refine and aggregate these proposals. Furthermore, we introduce a novel differentiable calibration-aware loss function called AlignCal designed to fine-tune the specialized agents by minimizing an upper bound on the calibration error. This objective explicitly improves the fidelity of each agent\u2019s confidence estimates. Empirical results across multiple benchmark VQA datasets substantiate the efficacy of our approach, demonstrating substantial reductions in calibration discrepancies.",
+  "venue": "AIR-FM Poster",
+  "queries": [
+   "search_AAAI_org_2026_multi-agent_reliability.json",
+   "search_AAAI_org_2026_error_propagation_multi-agent.json"
+  ]
+ },
+ {
+  "id": "NGNK03iIam",
+  "forum": "NGNK03iIam",
+  "title": "Containment Verification: AI Safety Guarantees Independent of Alignment",
+  "abstract": "Agentic frameworks are the software layer through which AI agents act in the world. Existing safety methods intervene on the model and therefore remain conditional on unverifiable properties of learned behavior. We introduce containment verification, which locates safety guarantees in the agentic framework itself. Under havoc oracle semantics, the AI is modeled as an unconstrained oracle over the framework's typed action space, and the verified containment layer must enforce the boundary policy for every typed action value the AI can emit. For boundary-enforceable properties, expressed over modeled boundary events, action arguments, and state, we prove a universal guarantee by forward-simulation refinement and mechanize it in Dafny. We instantiate the paradigm by verifying PocketFlow, a minimalist agentic LLM framework, and use an agentic synthesis pipeline to generate the specification, operational model, and refinement proof under an information barrier against tautological specifications. To our knowledge, this is the first deductive formal verification of an agentic framework. The guarantee is independent of alignment because it quantifies over the framework's typed action boundary rather than over model behavior.",
+  "venue": "ICML 2026 AIWILD",
+  "queries": [
+   "search_ICML_cc_2026_failure_containment.json"
+  ]
+ },
+ {
+  "id": "hiqOC1us84",
+  "forum": "hiqOC1us84",
+  "title": "Failure-Aware Query Refinement for Reliable Open-Vocabulary Home-Robot Perception",
+  "abstract": "Home robots in open-ended indoor environments must localize user- or task-specified objects using imperfect perception tools. Frozen open-vocabulary detectors are attractive, but class-name queries can miss the target, produce weak detections, or fire on distractors. We study failure-aware query adaptation for a frozen detector, modifying only the text query at test time. We propose Failure-Aware Multi-Agent Query Refinement, which diagnoses detector responses into GOOD, MISS, WEAK, and NOISY states, routes failures to state-specific query agents, and re-evaluates candidates by re-running the detector. On 9,740 ODSR-IHS image--target pairs, our method improves YOLOE from 0.6513 to 0.7667 AP50 and from 0.6129 to 0.7504 Top-1 accuracy, with the largest gains in WEAK and NOISY cases.",
+  "venue": "ICML 2026 AIWILD",
+  "queries": [
+   "search_ICML_cc_2026_failure_containment.json"
+  ]
+ },
+ {
+  "id": "BntIHgVzaV",
+  "forum": "BntIHgVzaV",
+  "title": "Failure Modes in LLM Agents for Safety-Critical Procedural Control: A Trace-Level Analysis from Nuclear Reactor Operation",
+  "abstract": "LLM agents are increasingly proposed for safety-critical procedural control, but their failure modes have not been systematically characterized. We present a trace-level empirical analysis of single-agent and multi-agent LLM architectures on the IAEA-standardized nuclear reactor trip-and-restart scenario---a reproducible 26-step procedure with 66 discrete control actions and irreversible physical consequences. Across 100 trials per architecture, the multi-agent Leader-Planner-Executor hierarchy raises aggregate completion from 66.12% to 78.46%, but this single number hides very different failure profiles. We define three correctness failure modes---Context Overwriting (CO), Verification Omission (VO), Rejection Deadlock (RD)---and one resource efficiency metric, Retrieval Redundancy (RR), with operational definitions drawn from annotated traces. Paired trace analysis shows that each multi-agent mechanism mitigates specific failure modes while introducing new ones absent in the single-agent baseline. Architecture selection for safety-critical deployment should therefore be guided by failure-mode-specific evidence rather than aggregate accuracy alone; we describe a methodology for generating such evidence.",
+  "venue": "FAGEN@ICML 2026 Poster",
+  "queries": [
+   "search_ICML_cc_2026_failure_containment.json"
+  ]
+ },
+ {
+  "id": "6wWDdckT1p",
+  "forum": "6wWDdckT1p",
+  "title": "Balancing Robustness and Efficiency in Multi-Agent Combinatorial Path Finding with Sum of Service Time",
+  "abstract": "Consider a system of multiple physical agents tasked with collaboratively collecting a set of spatially distributed goals while avoiding collisions with the environment and with each other. \nThis type of problem, which combines Multi-Agent Path Finding (MAPF) with task allocation, is known as Multi-Agent Combinatorial Path Finding (MCPF). \nConflict-Based Steiner Search (CBSS) is an optimal algorithm for MCPF, which assumes that each agent has a fixed goal destination. It selects allocations that yield a solution minimizing the sum of costs (SOC), which we denote as CBSS$_{SOC}$. \nHowever, this objective is problematic in domains such as search and rescue, where timely service of all goals is more critical than minimizing SOC. \nWe therefore propose CBSS$_{SST}$, which minimizes the Sum of Service Times (SST) across all goals using a novel mixed-integer linear programming allocation, thereby generalizing MCPF to settings without requiring fixed goal destinations.\nSince CBSS assumes perfect execution, we extend it with robust planning to handle stochastic execution delays. \nWe propose two variants of CBSS$_{SST}$: Robust CBSS$_{SST}$ with Strict Verifier, which guarantees the desired robustness, and Robust CBSS$_{SST}$ with Anytime Verifier, which addresses planning-time constraints by returning the most robust solution verified within the available time. \nOur experiments on MCPF benchmarks show that Robust CBSS with anytime verifier solves substantially more instances than when using a strict verified within the time limit, while reducing replanning effort and preserving robustness. \nThese results demonstrate that RCbss with an anytime verifier provides an effective and practical approach to MCPF under uncertainty.",
+  "venue": "WoMAPF Oral",
+  "queries": [
+   "search_AAAI_org_2026_multi-agent_robustness.json"
+  ]
+ },
+ {
+  "id": "onOQTCZsgS",
+  "forum": "onOQTCZsgS",
+  "title": "Hierarchical AI-Meteorologist: LLM-Agent System for Multi-Scale and Explainable Weather Forecast Reporting",
+  "abstract": "We present the Hierarchical AI-Meteorologist, an LLM-agent system that generates explainable weather reports using a hierarchical forecast reasoning and weather keyword generation. Unlike standard approaches that treat forecasts as flat time series, our framework performs multi-scale reasoning across hourly, 6-hour, and daily aggregations to capture both short-term dynamics and long-term trends. Its core reasoning agent converts structured meteorological inputs into coherent narratives while simultaneously extracting a few keywords effectively summarizing the dominant meteorological events. These keywords serve as semantic anchors for validating consistency, temporal coherence and factual alignment of the generated reports. Using OpenWeather and Meteostat data, we demonstrate that hierarchical context and keyword-based validation substantially improve interpretability and robustness of LLM-generated weather narratives, offering a reproducible framework for semantic evaluation of automated meteorological reporting and advancing agent-based scientific reasoning.",
+  "venue": "AAAI 2026 AI4ES Poster",
+  "queries": [
+   "search_AAAI_org_2026_multi-agent_robustness.json"
+  ]
+ },
+ {
+  "id": "E5IhcqjV39",
+  "forum": "E5IhcqjV39",
+  "title": "SAGE: A Theory-Informed LLM-Based Multi-Agent Recommendation System  for Grounded AI Solutions Across Domains",
+  "abstract": "Large Language Model-based multi-agent systems (LaMAS) show promise for solving complex problems, yet lack systematic mechanisms for responsible integration of established domain knowledge\u2014a critical gap that risks producing technically sophisticated but contextually inappropriate solutions. To address this fundamental challenge, we present SAGE (Specialized Agent Group for Expert-grounded recommendations), a novel multi-agent framework that addresses this challenge through five specialized agents coordinating via asynchronous protocol to integrate domain theories, AI methods, and data sources. Our architecture implements three key innovations: (1) theoretical grounding mechanisms} that prioritize established domain wisdom over algorithmic capabilities, (2) coordinated specialization} where agents handle distinct reasoning tasks\u2014scenario analysis, theory retrieval, algorithm matching, data selection, and validation\u2014rather than monolithic processing, and (3) robustness validation through Monte Carlo simulation (N=1000 runs) with human-in-the-loop oversight ensuring R > 0.85 stability across perturbed scenarios. We validate SAGE's effectiveness in urban planning and safety, a complex domain requiring integration of social, environmental, and spatial theories. Empirical analysis of 1,123 AI applications reveals that only 1.16% demonstrate explicit theoretical integration, with 47.3% following technology-driven rather than problem-driven approaches. Through three representative case studies, we demonstrate how SAGE transforms narrow technical solutions into comprehensive, theory-grounded interventions that generate value beyond algorithmic performance metrics. Our framework establishes generalizable design principles for responsible agentic systems\u2014agent specialization strategies, coordination protocols for knowledge integration, and validation mechanisms\u2014with demonstrated potential for adaptation to other knowledge-intensive domains requiring systematic integration of theoretical frameworks with computational approaches.",
+  "venue": "LaMAS 2026 Oral",
+  "queries": [
+   "search_AAAI_org_2026_multi-agent_robustness.json"
+  ]
+ },
+ {
+  "id": "f3oydpXzMM",
+  "forum": "f3oydpXzMM",
+  "title": "Jo.E(Joint Evaluation) : A Multi-Agent Collaborative Framework for Comprehensive AI Safety Evaluation of Language Models",
+  "abstract": "Evaluating the safety and alignment of AI systems remains a critical challenge as foundation models grow increasingly sophisticated. Traditional evaluation methods rely heavily on human expert review, creating bottlenecks that cannot scale with the rapid pace of AI development. We introduce Jo.E (Joint Evaluation), a novel multi-agent collaborative framework that combines large language model evaluators, specialized AI agents, and strategic human expert involvement to conduct comprehensive safety assessments. Our framework employs a five-phase evaluation pipeline that systematically identifies vulnerabilities across multiple safety dimensions, including adversarial robustness, fairness, ethics, and accuracy. Through extensive experiments on state-of-the-art models including GPT-4o, GPT-5, Llama 3.2, Phi 3, and Claude Sonnet 4, we demonstrate that Jo.E achieves approximately 22% improvement in vulnerability detection while reducing human expert time requirements by 54% compared to traditional evaluation approaches. Our results show that automated collaborative evaluation can significantly enhance both the efficiency and effectiveness of AI safety assessment without sacrificing rigor or comprehensive coverage.",
+  "venue": "LM4UC@AAAI2026",
+  "queries": [
+   "search_AAAI_org_2026_multi-agent_robustness.json"
+  ]
+ },
+ {
+  "id": "s4Jn6bKYGI",
+  "forum": "s4Jn6bKYGI",
+  "title": "Zero-source LLM Hallucination Detection with Human-like Criteria Probing",
+  "abstract": "Large language models (LLMs) often hallucinate by generating factually incorrect or unfaithful content, posing significant risks to their safe use. Detecting such hallucinations is particularly challenging under the zero-source constraint, where no model internals or external references are available, and detection must rely solely on the textual query\u2013answer pair. In this paper,  we propose Human-like Criteria Probing for Hallucination Detection (HCPD), a paradigm that emulates the multi-faceted reasoning of human evaluators. Its core is a Human-like Criteria Probing (HCP) mechanism, in which a LLM agent adaptively decomposes its judgment into a weighted set of interpretable criteria and aggregates criterion-specific scores into a final truthfulness measure. To achieve this adaptive capability, we introduce a reward-based alignment scheme using only weak supervision from semantic consistency. At inference, we employ a multi-sampling aggregation strategy to ensure robust decisions while preserving full interpretability. We further provide theoretical analysis supporting the reliability of our approach. Extensive experiments show that HCPD consistently outperforms state-of-the-art baselines, offering an effective and explainable solution for zero-source hallucination detection.",
+  "venue": "ICML 2026 regular",
+  "queries": [
+   "search_ICML_cc_2026_multi-agent_hallucination.json"
+  ]
+ },
+ {
+  "id": "Jg9BGDTsxt",
+  "forum": "Jg9BGDTsxt",
+  "title": "Emergent Social Intelligence Risks in Generative Multi-Agent Systems",
+  "abstract": "Multi-agent systems (MAS) composed of large generative models are rapidly moving from laboratory prototypes to real-world deployments, where they jointly plan, negotiate, and allocate shared resources. While such systems promise unprecedented scalability and autonomy, their collective interaction also gives rise to failure modes that cannot be reduced to individual agents. We present a pioneering study of emergent multi-agent risks arising from competition over shared resources, sequential handoff collaboration, collective decision aggregation, and other multi-agent settings. Across these settings, group behaviors such as collusion-like coordination, conformity, authority deference, and role failure emerge with non-trivial frequency under realistic resource constraints, communication protocols, and role assignments, mirroring well-known pathologies in human societies despite no explicit instruction. Moreover, these risks cannot be prevented by existing agent-level safeguards alone. Our findings expose a social intelligence risk in agent collectives, motivating mechanism-level rather than agent-level safety design.",
+  "venue": "CompLearn 2026 Poster",
+  "queries": [
+   "search_ICML_cc_2026_multi-agent_hallucination.json"
+  ]
+ },
+ {
+  "id": "FrEDfW61dM",
+  "forum": "FrEDfW61dM",
+  "title": "Emergent Social Intelligence Risks in Generative Multi-Agent Systems",
+  "abstract": "Multi-agent systems (MAS) composed of large generative models are rapidly moving from laboratory prototypes to real-world deployments, where they jointly plan, negotiate, and allocate shared resources. While such systems promise unprecedented scalability and autonomy, their collective interaction also gives rise to failure modes that cannot be reduced to individual agents. We present a pioneering study of emergent multi-agent risks arising from competition over shared resources, sequential handoff collaboration, collective decision aggregation, and other multi-agent settings. Across these settings, group behaviors such as collusion-like coordination, conformity, authority deference, and role failure emerge with non-trivial frequency under realistic resource constraints, communication protocols, and role assignments, mirroring well-known pathologies in human societies despite no explicit instruction. Moreover, these risks cannot be prevented by existing agent-level safeguards alone. Our findings expose a social intelligence risk in agent collectives, motivating mechanism-level rather than agent-level safety design.",
+  "venue": "AI4GOOD Workshop 2026 Regular",
+  "queries": [
+   "search_ICML_cc_2026_multi-agent_hallucination.json"
+  ]
+ },
+ {
+  "id": "viOFFYQPgL",
+  "forum": "viOFFYQPgL",
+  "title": "MAFE: Enabling Equitable Algorithm Design in Multi-Agent Multi-Stage Decision-Making Systems",
+  "abstract": "Algorithmic fairness is often studied in static or single-agent settings, yet many real-world decision-making systems involve multiple interacting entities whose multi-stage actions jointly influence long-term outcomes. Existing fairness methods applied at isolated decision points frequently fail to mitigate disparities that accumulate over time. Although recent work has modeled fairness as a sequential decision-making problem, it typically assumes centralized agents or simplified dynamics, limiting its applicability to complex social systems. We introduce **MAFE**, a suite of *Multi-Agent Fair Environments* designed to simulate realistic, modular, and dynamic systems in which fairness emerges from the interplay of multiple agents. We demonstrate MAFEs in three domains\u2014loan processing, healthcare, and higher education\u2014supporting heterogeneous agents, configurable interventions, and fairness metrics. The environments are open-source and compatible with standard multi-agent reinforcement learning (MARL) libraries, enabling reproducible evaluation of fairness-aware policies. Through extensive experiments on cooperative use cases, we demonstrate how MAFE facilitates the design of equitable multi-agent algorithms and reveals critical trade-offs between fairness, performance, and coordination. MAFE provides a foundation for systematic progress in dynamic, multi-agent fairness research.",
+  "venue": "ICML 2026 regular",
+  "queries": [
+   "search_ICML_cc_2026_multi-agent_hallucination.json"
+  ]
+ },
+ {
+  "id": "jM8p3cBjNF",
+  "forum": "jM8p3cBjNF",
+  "title": "WebAgentGuard: A Reasoning-Driven Guard Model for Detecting Prompt Injection Attacks in Web Agents",
+  "abstract": "Web agents powered by vision\u2013language models (VLMs) enable autonomous interaction with web environments by perceiving and acting on both visual and textual webpage content to accomplish user-specified tasks. However, they are highly vulnerable to prompt injection attacks, where adversarial instructions embedded in HTML or rendered screenshots can manipulate agent behavior and lead to harmful outcomes such as information leakage. Existing defenses, including system prompt defenses and direct fine-tuning of agents, have shown limited effectiveness. To address this issue, we propose a defense framework in which a web agent operates in parallel with a dedicated guard agent, decoupling prompt injection detection from the agent\u2019s own reasoning. Building on this framework, we introduce **WebAgentGuard**, a reasoning-driven, multimodal guard model for prompt injection detection. We construct a synthetic multimodal dataset using GPT-5 spanning 164 topics and 230 visual and UI design styles, and train the model via reasoning-intensive supervised fine-tuning followed by reinforcement learning. Experiments across multiple benchmarks show that WebAgentGuard consistently outperforms strong baselines while preserving agent utility, without introducing additional latency.",
+  "venue": "ICML 2026 AIWILD",
+  "queries": [
+   "search_ICML_cc_2026_fault_injection.json"
+  ]
+ },
+ {
+  "id": "OEAJUiW3Db",
+  "forum": "OEAJUiW3Db",
+  "title": "Cross-Domain Analogical Reasoning via Structural Logic Transfer in Multi-Agent Scientific Discovery Systems",
+  "abstract": "We present evidence for emergent cross-domain logical reasoning in a multi-agent scientific hypothesis generation system. When presented with an energy engineering problem outside its biomedical training domain, the system exhibited a sequence of logical operations: (1) metacognitive domain boundary recognition, (2) autonomous capability extension through agent generation, (3) structural analogy identification between disparate scientific domains, and (4) abductive reasoning to transfer solution strategies across domains. Specifically, given a query about thermal degradation in phase-change materials, the system autonomously identified structural isomorphisms with biological phenomena (protein misfolding, mammalian thermoregulation) and retrieved relevant molecular mechanisms (heat shock proteins, thermogenin) as potential solution templates. These behaviors demonstrate that domain-constrained systems may develop domain-general logical reasoning strategies, including structural analogy detection, abductive inference, and multi-agent coordination for complex problem decomposition. We provide timestamped execution traces documenting these emergent logical operations and discuss implications for understanding reasoning capabilities in autonomous AI systems.",
+  "venue": "AAAI 2026 Bridge LMReasoning",
+  "queries": [
+   "search_AAAI_org_2026_delegation_multi-agent.json"
+  ]
+ },
+ {
+  "id": "JvqY36cey2",
+  "forum": "JvqY36cey2",
+  "title": "Retrieval Without Consensus: Quantifying Inter-LLM API Ranking Divergence in Multi-Agent Reasoning Systems",
+  "abstract": "Large language models (LLMs) increasingly operate as autonomous agents that reason over external APIs to perform complex tasks. However, their reliability and agreement re-main poorly characterized. We present a unified benchmarking framework to quantify inter-LLM divergence\u2014the extent to which models differ in API discovery and ranking under identical tasks. Across 15 canonical API domains and 5 major model families, we measure pairwise and group-level agreement using set-, rank-, and consensus-based metrics: Average Overlap, Jaccard, Rank-Biased Overlap, Kendall\u2019s \u03c4/W, and Cronbach\u2019s \u03b1. Results show moderate overall alignment (AO \u2248 0.50, \u03c4 \u2248 0.45) but strong domain dependence: structured tasks (Weather, Speech-to-Text) are stable, while open-ended ones (Sentiment Analysis) diverge sharply. Volatility and consensus analyses reveal that coherence clusters around data-bound domains and degrades for abstract reasoning. These insights enable reliability-aware orchestration in multi-agent systems, where consensus weighting can improve coordination among heterogeneous LLMs.",
+  "venue": "LaMAS 2026 Poster",
+  "queries": [
+   "search_AAAI_org_2026_multi-agent_reliability.json"
+  ]
+ },
+ {
+  "id": "PYdOAoPWy9",
+  "forum": "PYdOAoPWy9",
+  "title": "Distribution-Free Uncertainty for Continuous Agent Evaluation",
+  "abstract": "We adapt split conformal prediction and adaptive conformal inference (ACI) to continuous AI agent evaluation, providing distribution-free coverage guarantees for forecasted quality scores. Conformal intervals achieve calibration error below 0.02 across all nominal levels at the 24h horizon, while ACI correctly widens intervals by 35\\% following agent releases then reconverges. We further develop compositional uncertainty bounds for multi-agent pipelines (validated via simulation across inter-stage correlations $\\rho \\in [-0.5, 0.9]$), a conformal abstention rule for pairwise rankings with controlled false-ranking rate, and FDR-corrected abstention for leaderboard-scale multiple testing. Evaluating 50 agents via 18 real-time signals collected hourly, we show that per-agent conditional coverage is well-concentrated around the nominal level (mean 80.4\\%, 90\\% of agents within $[72\\%, 90\\%]$), and that cross-source sentiment divergence predicts ranking instability ($r{=}0.64$, $p{<}0.01$). A circularity-controlled validation confirms the framework captures signal beyond benchmarks ($\\rho_s{=}0.52$, $p{<}0.01$, $n{=}35$). Code and data are released under CC BY 4.0.",
+  "venue": "ICML 2026 Workshop AgenticUQ Poster",
+  "queries": [
+   "search_ICML_cc_2026_agent_error_recovery.json"
+  ]
+ },
+ {
+  "id": "um3VMCCOCS",
+  "forum": "um3VMCCOCS",
+  "title": "Verifiability-First Agents: Provable Observability and Lightweight Audit Agents for Controlling Autonomous LLM Systems",
+  "abstract": "As LLM-based agents grow more autonomous and multi- modal, ensuring they remain controllable, auditable, and faithful to deployer intent becomes critical. Prior benchmarks measured propensity for misaligned behavior and showed that agent personalities and tool access significantly influ- ence misalignment. Building on those insights, we propose a Verifiability-First architecture that (1) integrates run-time attestations of agent actions (cryptographic & symbolic), (2) embeds lightweight Audit Agents that continuously verify in- tent vs. behavior using constrained reasoning, and (3) en- forces challenge\u2013response attestation protocols for high-risk operations. We introduce OPERA (Observability, Provable Execution, Red-team, Attestation), a benchmark suite and evaluation protocol designed to measure (i) detectability of misalignment, (ii) time-to-detection under stealthy strategies, and (iii) resilience of verifiability mechanisms to adversar- ial prompt/persona injection. Our approach aims to shift the evaluation focus from \u201dhow likely misalignment is\u201d to \u201dhow quickly and reliably misalignment can be detected and reme- diated.\u201d",
+  "venue": "AAAI 2026 TrustAgent Workshop Poster",
+  "queries": [
+   "search_AAAI_org_2026_organizational_agents.json"
+  ]
+ },
+ {
+  "id": "kabNlhXQkT",
+  "forum": "kabNlhXQkT",
+  "title": "IntentGuard: Safeguard LLM Agents via Intent Alignment",
+  "abstract": "ReAct-like LLM agents, integrating reasoning and planning, can autonomously operate in external environments to accomplish complex tasks, unlocking vast new possibilities. Nonetheless, significant safety risks have emerged alongside these advancements. Unsafe agent behaviors, arising from model hallucinations or adversarial manipulation, may lead to severe consequences such as data leakage and financial loss. Existing safeguard mechanisms are mainly based on risk checking against a fixed set of static safety rules and are therefore ineffective when dealing with task-specific requirements or dynamic changes in external environments. In this study, we present IntentGuard, a novel runtime guardrail framework that is training-free and model-agnostic. IntentGuard maintains coherent agent intent through continuous intent alignment during task execution, incorporating two safety gates: the Plan Gate and the Tool Gate. These gates ensure the safety of the agent\u2019s high-level plans and individual tool invocations, respectively. Through experiments on key benchmarks, IntentGuard demonstrates high effectiveness in detecting malicious attacks against LLM agents across diverse application domains, significantly and consistently outperforming existing baselines. Our code is available at https://anonymous.4open.science/r/agentdefense-CB92.",
+  "venue": "AAAI 2026 TrustAgent Workshop Poster",
+  "queries": [
+   "search_AAAI_org_2026_organizational_agents.json"
+  ]
+ },
+ {
+  "id": "XjNuZY7lXJ",
+  "forum": "XjNuZY7lXJ",
+  "title": "PrivAgentFlow: Agentic Workflow for Distributed Privacy Control in Web Agents",
+  "abstract": "Autonomous web agents increasingly operate on sensitive personal and contextual information, yet most privacy-preserving frameworks rely on static access policies or centralized filters that fail to adapt to task dynamics, execution context, or user intent. We introduce PrivAgentFlow, an agentic workflow framework that formulates privacy preservation as a distributed, governable optimization process embedded within the agent\u2019s decision flow. Each node in the workflow enforces the data minimization principle by jointly deciding what information to expose and where execution should occur (local vs. API), balancing privacy risk, task relevance, and computational cost. This composition of locally adaptive nodes yields a workflow that is self-regulating, transparent, and dynamically aligned with the assigned privacy policies. In large-scale web-agent evaluations, PrivAgentFlow reduces environment-based privacy leakage by 15.5\\%, API-exposure leackage by 92.5\\%, and improves utility by 2.3\\% across 84 web tasks, establishing a scalable foundation for trustworthy and distributed privacy governance in web-native autonomous agents.",
+  "venue": "AAAI 2026 TrustAgent Workshop Oral",
+  "queries": [
+   "search_AAAI_org_2026_organizational_agents.json"
+  ]
+ },
+ {
+  "id": "eajHuUh36U",
+  "forum": "eajHuUh36U",
+  "title": "Improving Physics Reasoning in Large Language Models Using Mixture of Refinement Agents",
+  "abstract": "Large Language Models (LLMs) demonstrate remarkable capabilities in various reasoning tasks. However, they encounter significant challenges when it comes to scientific reasoning, particularly in physics, which requires not only mathematical reasoning but also factual and conceptual understanding. When addressing complex physics problems, LLMs typically face three key issues: problem miscomprehension, incorrect concept application, and computational errors. While each of these problems can be addressed individually, there is a need for a generalized approach that can tackle all three issues simultaneously. To address this, we introduce Mixture of Refinement Agents (MoRA), a novel agentic refinement framework that iteratively refines the LLM generated base solution by correcting the aforementioned errors, resulting in a significant performance improvement for open-source LLMs. Our approach aims to bridge the gap between open-source LLMs and GPT-4o by utilizing the latter as error identifier to guide these refinement agents. We evaluate our approach on the SciEval and MMLU subsets along with our own physics dataset (PhysicsQA). MoRA significantly improves the performance of Llama-3-70B and Gemma-2-27B on these datasets, achieving up to a 16% increase in final answer accuracy.",
+  "venue": "AAAI 2026 TrustAgent Workshop Poster",
+  "queries": [
+   "search_AAAI_org_2026_organizational_agents.json"
+  ]
+ },
+ {
+  "id": "cYKcJGsgnA",
+  "forum": "cYKcJGsgnA",
+  "title": "\"Are We Done Yet?\": A Vision-Based Judge for Autonomous Task Completion of Computer Use Agents",
+  "abstract": "Computer Use Agents (CUAs) are designed to autonomously operate digital interfaces, yet they often fail to reliably determine whether a given task has been successfully completed. We present an autonomous evaluation and feedback framework that leverages Vision\u2013Language Models (VLMs) to assess task completion directly from screenshots and task descriptions. Our dataset covers $42$ built-in macOS applications and $1{,}260$ human-labeled tasks, covering a wide range of scenarios. Our framework achieves up to $73\\%$ percent classification accuracy in task success detection and yields an average relative improvement of $27\\%$ percent in the overall task success rate of CUAs when evaluator feedback is applied. These results demonstrate that vision-based evaluation can serve as an actionable feedback mechanism that significantly improves the reliability and self-correction of autonomous computer-use agents.",
+  "venue": "AAAI 2026 TrustAgent Workshop Poster",
+  "queries": [
+   "search_AAAI_org_2026_organizational_agents.json"
+  ]
+ },
+ {
+  "id": "YzSktR6p3y",
+  "forum": "YzSktR6p3y",
+  "title": "With Great Capabilities Come Great Responsibilities: Introducing the Agentic Risk & Capability Framework for Governing Agentic AI Systems",
+  "abstract": "Agentic AI systems present both significant opportunities and novel risks due to their capacity for autonomous action, encompassing tasks such as code execution, internet interaction, and file modification. This poses considerable challenges for effective organizational governance, particularly in comprehensively identifying, assessing, and mitigating diverse and evolving risks. To tackle this, we introduce the Agentic Risk & Capability (ARC) Framework, a technical governance framework designed to help organizations identify, assess, and mitigate risks arising from agentic AI systems. The framework's core contributions are: (1) it develops a novel capability-centric perspective to analyze a wide range of agentic AI systems; (2) it distills three primary sources of risk intrinsic to agentic AI systems - components, design, and capabilities; (3) it establishes a clear nexus between each risk source, specific materialized risks, and corresponding technical controls; and (4) it provides a structured and practical approach to help organizations implement the framework. This framework provides a robust and adaptable methodology for organizations to navigate the complexities of agentic AI, enabling rapid and effective innovation while ensuring the safe, secure, and responsible deployment of agentic AI systems.",
+  "venue": "DAI Poster",
+  "queries": [
+   "search_AAAI_org_2026_organizational_agents.json"
+  ]
+ }
+]
