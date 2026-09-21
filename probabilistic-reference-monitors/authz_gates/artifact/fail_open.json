@@ -1,0 +1,182 @@
+{
+  "full_corpus": {
+    "P1": {
+      "ci95": [
+        0.3484,
+        0.6803
+      ],
+      "fraction": 0.5161,
+      "gates": [
+        "Abide",
+        "Foreman",
+        "Reflex",
+        "Sniff Test",
+        "jev-axi",
+        "jev-belay",
+        "jev-commit",
+        "jev-engineering",
+        "jev-guard",
+        "jev-harness",
+        "jev-use",
+        "limpet",
+        "mastra-jev-moderation",
+        "pi-heed",
+        "pi-jev",
+        "wakegate"
+      ],
+      "n_determinable": 31,
+      "n_fail_open": 16,
+      "supported": true,
+      "threshold": 0.5
+    },
+    "P2": {
+      "ci95": [
+        0.6872,
+        0.8572
+      ],
+      "fraction": 0.7841,
+      "n_no_derivation": 69,
+      "n_thresholds": 88,
+      "supported": true,
+      "threshold": 0.6
+    },
+    "P3": {
+      "gates": [
+        "Abide",
+        "JevLoop",
+        "OpenWork",
+        "dsh-auto-mode",
+        "jev-belay",
+        "jev-commit",
+        "jev-engineering",
+        "jev-use",
+        "pi-heed",
+        "pi-jev",
+        "r2r-jev",
+        "wakegate"
+      ],
+      "supported": true,
+      "vendor_constants": [
+        0.9,
+        0.5
+      ]
+    },
+    "P4": {
+      "gates_citing_cross_evaluation": [],
+      "supported": true
+    },
+    "fail_open_table": {
+      "http_429": {
+        "fail-closed": 16,
+        "fail-open": 11,
+        "partial": 4,
+        "unclassifiable": 0,
+        "undocumented": 0
+      },
+      "http_5xx": {
+        "fail-closed": 16,
+        "fail-open": 11,
+        "partial": 4,
+        "unclassifiable": 0,
+        "undocumented": 0
+      },
+      "malformed_response": {
+        "fail-closed": 15,
+        "fail-open": 12,
+        "partial": 4,
+        "unclassifiable": 0,
+        "undocumented": 0
+      },
+      "timeout": {
+        "fail-closed": 15,
+        "fail-open": 12,
+        "partial": 4,
+        "unclassifiable": 0,
+        "undocumented": 0
+      }
+    },
+    "n_gates": 31
+  },
+  "held_out_remainder": {
+    "P1": {
+      "ci95": [
+        0.1982,
+        0.6425
+      ],
+      "fraction": 0.4,
+      "gates": [
+        "Foreman",
+        "Sniff Test",
+        "jev-commit",
+        "jev-harness",
+        "mastra-jev-moderation",
+        "pi-jev"
+      ],
+      "n_determinable": 15,
+      "n_fail_open": 6,
+      "supported": false,
+      "threshold": 0.5
+    },
+    "P2": {
+      "ci95": [
+        0.5892,
+        0.8543
+      ],
+      "fraction": 0.7436,
+      "n_no_derivation": 29,
+      "n_thresholds": 39,
+      "supported": true,
+      "threshold": 0.6
+    },
+    "P3": {
+      "gates": [
+        "JevLoop",
+        "OpenWork",
+        "dsh-auto-mode",
+        "jev-commit",
+        "pi-jev"
+      ],
+      "supported": true,
+      "vendor_constants": [
+        0.9,
+        0.5
+      ]
+    },
+    "P4": {
+      "gates_citing_cross_evaluation": [],
+      "supported": true
+    },
+    "fail_open_table": {
+      "http_429": {
+        "fail-closed": 10,
+        "fail-open": 2,
+        "partial": 3,
+        "unclassifiable": 0,
+        "undocumented": 0
+      },
+      "http_5xx": {
+        "fail-closed": 10,
+        "fail-open": 2,
+        "partial": 3,
+        "unclassifiable": 0,
+        "undocumented": 0
+      },
+      "malformed_response": {
+        "fail-closed": 9,
+        "fail-open": 3,
+        "partial": 3,
+        "unclassifiable": 0,
+        "undocumented": 0
+      },
+      "timeout": {
+        "fail-closed": 9,
+        "fail-open": 3,
+        "partial": 3,
+        "unclassifiable": 0,
+        "undocumented": 0
+      }
+    },
+    "n_gates": 15
+  },
+  "source": "gates_adapted.json"
+}

@@ -1,0 +1,286 @@
+{
+  "P6": {
+    "cells": [
+      {
+        "L": 10,
+        "c": 0.05,
+        "p_holm": 0.0,
+        "threshold_gap": 0.095,
+        "vendor_significantly_worse": true
+      },
+      {
+        "L": 10,
+        "c": 0.2,
+        "p_holm": 0.0,
+        "threshold_gap": 0.08,
+        "vendor_significantly_worse": true
+      },
+      {
+        "L": 10,
+        "c": 0.5,
+        "p_holm": 0.0552,
+        "threshold_gap": 0.05,
+        "vendor_significantly_worse": true
+      },
+      {
+        "L": 25,
+        "c": 0.05,
+        "p_holm": 0.0,
+        "threshold_gap": 0.098,
+        "vendor_significantly_worse": true
+      },
+      {
+        "L": 25,
+        "c": 0.2,
+        "p_holm": 0.0,
+        "threshold_gap": 0.092,
+        "vendor_significantly_worse": true
+      },
+      {
+        "L": 25,
+        "c": 0.5,
+        "p_holm": 0.7336,
+        "threshold_gap": 0.08,
+        "vendor_significantly_worse": false
+      },
+      {
+        "L": 100,
+        "c": 0.05,
+        "p_holm": 0.0,
+        "threshold_gap": 0.0995,
+        "vendor_significantly_worse": true
+      },
+      {
+        "L": 100,
+        "c": 0.2,
+        "p_holm": 0.0,
+        "threshold_gap": 0.098,
+        "vendor_significantly_worse": true
+      },
+      {
+        "L": 100,
+        "c": 0.5,
+        "p_holm": 0.7336,
+        "threshold_gap": 0.095,
+        "vendor_significantly_worse": false
+      }
+    ],
+    "note": "P6: vendor 0.9 not loss-optimal, Chow-optimal differs by >= 0.1 (threshold_gap) \u2014 or vendor is significantly worse in realized loss",
+    "supported": true
+  },
+  "ambiguous_ask_accuracy": {
+    "ask_accuracy": 0.0,
+    "n": 37
+  },
+  "bootstrap_resamples": 10000,
+  "cells": [
+    {
+      "L": 5,
+      "c": 0.05,
+      "chow_allow_threshold_p_safe": 0.99,
+      "ci95": [
+        0.124222,
+        0.226444
+      ],
+      "loss_diff_vendor_minus_chow": 0.174444,
+      "mean_loss_chow": 0.025556,
+      "mean_loss_vendor": 0.2,
+      "p_holm": 0.0,
+      "p_raw": 0.0,
+      "threshold_gap": 0.09,
+      "vendor_significantly_worse": true,
+      "vendor_threshold": 0.9
+    },
+    {
+      "L": 5,
+      "c": 0.2,
+      "chow_allow_threshold_p_safe": 0.96,
+      "ci95": [
+        0.077333,
+        0.168889
+      ],
+      "loss_diff_vendor_minus_chow": 0.121778,
+      "mean_loss_chow": 0.078222,
+      "mean_loss_vendor": 0.2,
+      "p_holm": 0.0,
+      "p_raw": 0.0,
+      "threshold_gap": 0.06,
+      "vendor_significantly_worse": true,
+      "vendor_threshold": 0.9
+    },
+    {
+      "L": 5,
+      "c": 0.5,
+      "chow_allow_threshold_p_safe": 0.9,
+      "ci95": [
+        0.066667,
+        0.117778
+      ],
+      "loss_diff_vendor_minus_chow": 0.091111,
+      "mean_loss_chow": 0.108889,
+      "mean_loss_vendor": 0.2,
+      "p_holm": 0.0,
+      "p_raw": 0.0,
+      "threshold_gap": 0.0,
+      "vendor_significantly_worse": true,
+      "vendor_threshold": 0.9
+    },
+    {
+      "L": 10,
+      "c": 0.05,
+      "chow_allow_threshold_p_safe": 0.995,
+      "ci95": [
+        0.124222,
+        0.226444
+      ],
+      "loss_diff_vendor_minus_chow": 0.174444,
+      "mean_loss_chow": 0.025556,
+      "mean_loss_vendor": 0.2,
+      "p_holm": 0.0,
+      "p_raw": 0.0,
+      "threshold_gap": 0.095,
+      "vendor_significantly_worse": true,
+      "vendor_threshold": 0.9
+    },
+    {
+      "L": 10,
+      "c": 0.2,
+      "chow_allow_threshold_p_safe": 0.98,
+      "ci95": [
+        0.066667,
+        0.16
+      ],
+      "loss_diff_vendor_minus_chow": 0.112,
+      "mean_loss_chow": 0.088,
+      "mean_loss_vendor": 0.2,
+      "p_holm": 0.0,
+      "p_raw": 0.0,
+      "threshold_gap": 0.08,
+      "vendor_significantly_worse": true,
+      "vendor_threshold": 0.9
+    },
+    {
+      "L": 10,
+      "c": 0.5,
+      "chow_allow_threshold_p_safe": 0.95,
+      "ci95": [
+        0.006667,
+        0.077778
+      ],
+      "loss_diff_vendor_minus_chow": 0.042222,
+      "mean_loss_chow": 0.157778,
+      "mean_loss_vendor": 0.2,
+      "p_holm": 0.0552,
+      "p_raw": 0.0184,
+      "threshold_gap": 0.05,
+      "vendor_significantly_worse": true,
+      "vendor_threshold": 0.9
+    },
+    {
+      "L": 25,
+      "c": 0.05,
+      "chow_allow_threshold_p_safe": 0.998,
+      "ci95": [
+        0.124222,
+        0.226444
+      ],
+      "loss_diff_vendor_minus_chow": 0.174444,
+      "mean_loss_chow": 0.025556,
+      "mean_loss_vendor": 0.2,
+      "p_holm": 0.0,
+      "p_raw": 0.0,
+      "threshold_gap": 0.098,
+      "vendor_significantly_worse": true,
+      "vendor_threshold": 0.9
+    },
+    {
+      "L": 25,
+      "c": 0.2,
+      "chow_allow_threshold_p_safe": 0.992,
+      "ci95": [
+        0.064,
+        0.157333
+      ],
+      "loss_diff_vendor_minus_chow": 0.109333,
+      "mean_loss_chow": 0.090667,
+      "mean_loss_vendor": 0.2,
+      "p_holm": 0.0,
+      "p_raw": 0.0,
+      "threshold_gap": 0.092,
+      "vendor_significantly_worse": true,
+      "vendor_threshold": 0.9
+    },
+    {
+      "L": 25,
+      "c": 0.5,
+      "chow_allow_threshold_p_safe": 0.98,
+      "ci95": [
+        -0.053333,
+        0.031111
+      ],
+      "loss_diff_vendor_minus_chow": -0.011111,
+      "mean_loss_chow": 0.211111,
+      "mean_loss_vendor": 0.2,
+      "p_holm": 0.7336,
+      "p_raw": 0.5558000000000001,
+      "threshold_gap": 0.08,
+      "vendor_significantly_worse": false,
+      "vendor_threshold": 0.9
+    },
+    {
+      "L": 100,
+      "c": 0.05,
+      "chow_allow_threshold_p_safe": 0.9995,
+      "ci95": [
+        0.124222,
+        0.226444
+      ],
+      "loss_diff_vendor_minus_chow": 0.174444,
+      "mean_loss_chow": 0.025556,
+      "mean_loss_vendor": 0.2,
+      "p_holm": 0.0,
+      "p_raw": 0.0,
+      "threshold_gap": 0.0995,
+      "vendor_significantly_worse": true,
+      "vendor_threshold": 0.9
+    },
+    {
+      "L": 100,
+      "c": 0.2,
+      "chow_allow_threshold_p_safe": 0.998,
+      "ci95": [
+        0.064,
+        0.157333
+      ],
+      "loss_diff_vendor_minus_chow": 0.109333,
+      "mean_loss_chow": 0.090667,
+      "mean_loss_vendor": 0.2,
+      "p_holm": 0.0,
+      "p_raw": 0.0,
+      "threshold_gap": 0.098,
+      "vendor_significantly_worse": true,
+      "vendor_threshold": 0.9
+    },
+    {
+      "L": 100,
+      "c": 0.5,
+      "chow_allow_threshold_p_safe": 0.995,
+      "ci95": [
+        -0.06,
+        0.024444
+      ],
+      "loss_diff_vendor_minus_chow": -0.017778,
+      "mean_loss_chow": 0.217778,
+      "mean_loss_vendor": 0.2,
+      "p_holm": 0.7336,
+      "p_raw": 0.3668,
+      "threshold_gap": 0.095,
+      "vendor_significantly_worse": false,
+      "vendor_threshold": 0.9
+    }
+  ],
+  "multiple_testing": "Holm across 12 (L,c) cells",
+  "n_ambiguous_items": 37,
+  "n_definite_items": 225,
+  "vendor_threshold": 0.9
+}
