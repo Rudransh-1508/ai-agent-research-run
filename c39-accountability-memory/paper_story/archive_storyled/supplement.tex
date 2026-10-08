@@ -1,0 +1,410 @@
+%% Supplementary material for the story-led AAMAS 2027 draft (main.tex).
+\documentclass[sigconf,anonymous,acmthm=false]{acmart}
+\settopmatter{printacmref=false}
+\setcopyright{none}
+\renewcommand\footnotetextcopyrightpermission[1]{}
+\acmConference[AAMAS '27]{Proc.\ of the 26th International Conference on Autonomous Agents and Multiagent Systems (AAMAS 2027)}{May 3--7, 2027}{Hanoi, Vietnam}
+\acmYear{2027}
+
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage[capitalise,nameinlink]{cleveref}
+\emergencystretch=1.5em
+\renewcommand{\thefigure}{S\arabic{figure}}
+\renewcommand{\thetable}{S\arabic{table}}
+
+\theoremstyle{acmplain}
+\newtheorem{slemma}{Lemma}
+\renewcommand{\theslemma}{S\arabic{slemma}}
+\newtheorem{sprop}{Proposition}
+\renewcommand{\thesprop}{S\arabic{sprop}}
+\theoremstyle{acmdefinition}
+\newtheorem{sremark}{Remark}
+\renewcommand{\thesremark}{S\arabic{sremark}}
+
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\TV}{\mathrm{TV}}
+\newcommand{\dH}{d_{\mathrm{H}}}
+\newcommand{\Kflat}{K_{\mathrm{flat}}}
+\newcommand{\dmin}{d_{\min}}
+\newcommand{\cube}{\{0,1\}}
+
+\begin{document}
+\title{Supplementary Material}
+\subtitle{How Much Memory Does Accountability Cost? Three Reviewers, One Sticky Note, and the Price of Compressed Multi-Agent Records}
+\maketitle
+
+Theorem, lemma and figure numbers without an ``S'' refer to the main paper. Agents
+\textsf{Alpha}, \textsf{Beta} and \textsf{Gamma} are agents 1, 2 and 3; profiles are written
+in that order. Every figure is exported from the interactive explainer that accompanies the
+paper, where each can be manipulated.
+
+\appendix
+\section{Proofs}
+
+\subsection{Theorem 2 (one-bit frontier)}
+\begin{proof}
+\emph{Orientation.} With $K=2$ the record is one function $q(s)=\Pr(Y=1\mid S=s)$, and
+$d_i(s_{-i})=(-\delta_i,\delta_i)$ with $\delta_i(s_{-i})=q(1,s_{-i})-q(0,s_{-i})$. Since
+$\langle p_i,d_i\rangle=(p_i[1]-p_i[0])\,\delta_i$ and $|p_i[1]-p_i[0]|\le1$, (M) holds iff
+some sign $\sigma_i$ has $\sigma_i\delta_i(s_{-i})\ge\mu$ for all $s_{-i}$.
+
+\emph{Alignment.} Let $T=\{i:\sigma_i=-1\}$. Replacing $q(s)$ by $q(s\oplus\mathbf1_T)$ and
+flipping the reconstruction the same way leaves $D$ unchanged (the uniform prior is
+flip-invariant and Hamming loss flip-equivariant) and makes every $\sigma_i=+1$. Writing
+$q(s)=\mu|s|+r(s)$, the margin condition says exactly that $r$ is monotone on the cube, and
+$q\in[0,1]$ then gives $0\le r\le1-n\mu$. For $n\mu>1$ this is empty, which is the last clause.
+
+\emph{Fix the reconstruction first.} Decode label 0 to $a$ and label 1 to $b$, and let
+$\Delta(s)=\dH(s,b)-\dH(s,a)$. Because $\E[\dH(S,a)]=n/2$ for every $a$,
+$D(q;a,b)=\frac n2+\E[q(S)\Delta(S)]$, which is linear in $q$. (Under optimal decoding $D$ is
+concave in $q$, so symmetrising $q$ first would push the bound the wrong way.) Substituting
+$q=\mu|s|+r$ and using $0\le r\le1-n\mu$ pointwise,
+\[ D(q;a,b)\ge\tfrac n2+\mu\,\E\big[|S|\Delta(S)\big]-(1-n\mu)\,\E\big[\Delta(S)^-\big]. \]
+\emph{Minimise over pairs.} Let $p$ and $m$ count coordinates with $(a_i,b_i)=(0,1)$ and
+$(1,0)$; then $\E[|S|\Delta]=-\frac12(p-m)\ge-\frac n2$ and $\E[\Delta^-]=\frac12\E|R_{p+m}|$
+for a sum $R_k$ of $k$ independent Rademacher variables. By Jensen, $k\mapsto\E|R_k|$ is
+nondecreasing, so $\E[\Delta^-]\le\frac12\E|R_n|=\frac n2-M_n$. Collecting terms gives
+$D\ge M_n+n\mu(\frac{n-1}2-M_n)$.
+
+\emph{Attainment.} Take $(a,b)=(0^n,1^n)$, so $\Delta(s)=n-2|s|$, negative exactly when
+$|s|>n/2$ (no ties, as $n$ is odd). Both inequalities are tight for
+$r^*(s)=(1-n\mu)\mathbf1\{|s|>n/2\}$, an up-set indicator and hence monotone.
+\end{proof}
+
+\Cref{tab:orbit} compares the closed form with an LP over $q$ for every reconstruction
+orbit, on a grid of $\mu$ spanning $[0,1/n]$. In every case the optimiser landed exactly on
+$q^*(s)=\mu|s|+(1-n\mu)\mathbf1\{|s|>n/2\}$.
+
+\begin{table}[h]
+\caption{Theorem 2 against the exhaustive-orbit LP (Python 3.10.11, NumPy 2.2.6, SciPy 1.15.3).}
+\label{tab:orbit}
+\footnotesize
+\begin{tabular}{@{}rrlr@{}}
+\toprule
+$n$ & $M_n$ & $\mu$ range & max deviation\\
+\midrule
+3 & 0.750000 & $[0,1/3]$ & 0\\
+5 & 1.562500 & $[0,1/5]$ & 0\\
+7 & 2.406250 & $[0,1/7]$ & $4.4\times10^{-16}$\\
+9 & 3.269531 & $[0,1/9]$ & $3.1\times10^{-15}$\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Lemma 2 (sufficiency)}
+\begin{proof}
+\emph{Error.} Each label's Bayes reconstruction is its centre. Centres are reconstructed
+exactly and every non-centre puts all its mass on centres at distance 1, costing one bit, so
+$D=(2^n-K)/2^n$. Any $K$-label record reconstructs at most $K$ profiles exactly, so
+$D_0(K)\ge(2^n-K)/2^n$ and $D=D_0(K)$.
+
+\emph{Margin.} Let $m_i(t)=\E_{y\sim q[t,\cdot]}p_i[y]$, so an edge $s_1=s_0+e_i$ has
+$\langle p_i,d_i\rangle=m_i(s_1)-m_i(s_0)$; write $d(t)=|N(t)\cap C|\ge2$. (1)
+$s_0,s_1\in C$: margin $1-0=1$. (2) $s_0\notin C$, $s_1\in C$: $m_i(s_1)=1$; the
+centre-neighbours of $s_0$ are $s_1$ (bit $i$ equal to 1) and vertices $s_0+e_j$, $j\ne i$
+(bit $i$ equal to 0), so $m_i(s_0)=1/d(s_0)$ and the margin is $1-1/d(s_0)$. (3) $s_0\in C$,
+$s_1\notin C$: symmetrically $1-1/d(s_1)$. (4) $s_0,s_1\notin C$: every centre-neighbour of
+$s_1$ has bit $i$ equal to 1 and every one of $s_0$ has it equal to 0, so the margin is 1.
+The minimum over edges is $1-1/\dmin$, and only $p_i\in[0,1]^K$ was used.
+\end{proof}
+
+\subsection{The shell bound}
+\begin{slemma}[Shell bound]\label{lem:shell}
+In a flat record with centre set $C$, $|C|=K$, every profile at distance $r$ from $C$ has at
+least two centres at distance $r$. Hence shell $r$ holds at most $\lfloor K\binom nr/2\rfloor$
+profiles, and filling shells from the inside lower-bounds $\sum_sd(s,C)=2^nD_0(K)$.
+\end{slemma}
+\begin{proof}
+A profile at distance $r$ from $C$ with a unique nearest centre yields a zero-margin edge
+exactly as in Lemma 1, applied at radius $r$. Each centre is at distance $r$ from
+$\binom nr$ profiles, so there are at most $K\binom nr$ (profile, centre) pairs at radius
+$r$, and each profile in shell $r$ uses two. Placing the $2^n-K$ non-centres in the
+innermost shells that have capacity minimises $\sum_sd(s,C)$.
+\end{proof}
+If the resulting lower bound exceeds $2^n$ times the error of any explicit $K$-code, no flat
+record of size $K$ exists. At $(n,K)=(3,4),(5,10),(7,32)$ the bound equals $2^nD_0$ exactly
+(4, 22 and 96).
+
+\subsection{Theorem 4 (every full-support prior)}
+Throughout, $N(s)$ is the set of centres nearest to $s\notin C$, $N(c)=\{c\}$ for $c\in C$,
+and $\nu(s)=|N(s)|$. The record spreads each profile uniformly over $N(s)$ and pays agent
+$i$ the $i$-th bit of the label's centre.
+
+\begin{slemma}[Margin of the construction]\label{lem:gen-margin}
+Under every full-support prior $\pi$ and $\pi$-optimal code $C$, the record attains
+$D=D_0(K)$ and its all-profile margin is $1-\max\nu(s')/\nu(s)$, where the maximum runs over
+edges $\{s,s'\}$ with $d(s',C)=d(s,C)-1$; the margin is 1 if there are no such edges.
+\end{slemma}
+\begin{proof}[Proof sketch]
+For an edge $s_1=s_0+e_i$, fixing a centre $c$ shows $d(s_0,c)$ and $d(s_1,c)$ differ by
+one, according to $c_i$. Hence if the two profiles are equally far from $C$ their nearest
+sets are disjoint, with $c_i=1$ on $N(s_1)$ and $c_i=0$ on $N(s_0)$, and the payment
+separates them fully; if $s_1$ is closer, $N(s_1)\subseteq N(s_0)$ and the payment's
+expectation moves from $\nu(s_1)/\nu(s_0)$ to 1; the reverse case is symmetric. The payment
+puts $p_i=1$ exactly where $q[s_1,\cdot]$ exceeds $q[s_0,\cdot]$, so each edge attains its
+total variation and Theorem 1's minimum is attained at a single edge.
+\end{proof}
+
+\begin{slemma}[Strict descent]\label{lem:strict-descent}
+If $\nu(s)\ge2$ for every $s\notin C$, then $\nu(s')<\nu(s)$ on every edge with
+$d(s',C)=d(s,C)-1$.
+\end{slemma}
+\begin{proof}
+If $s'\in C$ then $\nu(s')=1<2$. Otherwise $r=d(s,C)\ge2$; translate so $s=0^n$ and
+$s'=e_1$, so no centre has weight below $r$. $N(0^n)$ is the set of weight-$r$ centres and
+$N(e_1)$ those among them with first bit 1, so equality would force every weight-$r$ centre
+to carry that bit. Take one such centre $c$ and $y=c\oplus e_1$, of weight $r-1\ge1$, so
+$y\notin C$ and $d(y,C)=1$. A centre adjacent to $y$ has weight $r$, hence carries the first
+bit, which $y$ lacks, so it is $c$ itself: $\nu(y)=1$, a contradiction.
+\end{proof}
+
+\subsection{Noisy outcomes}
+\begin{proof}[Proof of Proposition 2 (block counts)]
+Blocks other than $i$'s are independent of $S_i$, so $T_i=\TV(X+1,X)$ with
+$X\sim\mathrm{Bin}(m-1,h)$. For a unimodal probability mass function $b$,
+$\frac12\sum_k|b(k)-b(k-1)|=\max_kb(k)$.
+\end{proof}
+Since $\max_k\Pr[\mathrm{Bin}(m-1,h)=k]\sim(2\pi mh(1-h))^{-1/2}$, the construction meets
+Theorem 5 up to a factor logarithmic in $1/c$.
+
+\begin{sprop}[Unique implementation]\label{prop:unique}
+If every agent's ex-post margin exceeds the effort cost $c$, some bounded payment rule makes
+working strictly dominant for every agent, so all-work is the unique equilibrium, pure or
+mixed. If some agent's ex-post margin is below $c$, no bounded rule makes working dominant
+for that agent.
+\end{sprop}
+\begin{proof}
+Working is dominant for $i$ exactly when
+\[ \langle p_i,Q[(1,a_{-i})]-Q[(0,a_{-i})]\rangle\ge c \]
+for every teammate action profile $a_{-i}$, which is Theorem 1 applied to the channel $Q$; a strictly dominant action is
+played in every equilibrium.
+\end{proof}
+
+\subsection{Budget balance, payments and memory}
+\begin{sprop}[Cost of implementation]\label{prop:cost}
+For every record, the least expected payment that makes working a best response for agent
+$i$ at effort cost $c$, when teammates work, is at least $ch/(h-l)$, the cost under the full
+record. It equals $ch/(h-l)$ if and only if $c\le(h-l)\Pr[Y\text{ certifies }i\mid S_i=1]$.
+\end{sprop}
+\begin{proof}
+For every label, $Q_{0,i}(y)/Q_1(y)$ is an average of the outcome likelihood ratios $l/h$
+and $(1-l)/(1-h)$, so it is at least $l/h$, with equality exactly on certifying labels.
+Hence $(h-l)Q_1(y)\ge h\,(Q_1(y)-Q_{0,i}(y))$ for every $y$, so any $p\in[0,1]^K$ with
+$\langle p,Q_1-Q_{0,i}\rangle\ge c$ pays $\langle p,Q_1\rangle\ge ch/(h-l)$, with equality
+only if $p$ lives on certifying labels. Those labels carry total gain
+$(h-l)\Pr[Y\text{ certifies }i\mid S_i=1]$.
+\end{proof}
+
+\begin{sprop}[Memory is bought per accountable agent]\label{prop:designer}
+Let $c\le h-l$ and $\beta=\frac{2h(1-h)}{\ln2}\big(\frac c{h-l}\big)^2$. A record of
+$\log_2K$ bits holds at most $\log_2K/\beta$ agents to effort cost $c$, and pays each at
+least $ch/(h-l)$; recording each accountable agent's own outcome uses one bit per agent and
+attains that payment. Hence if the principal gains $v$ per working agent and pays $\kappa$
+per stored bit, holding any agent to account is unprofitable when $v-ch/(h-l)<\kappa\beta$,
+and holding all $n$ agents to account with $n$ bits is profitable when $v-ch/(h-l)>\kappa$;
+in every case the optimal record spends between $\beta$ and 1 bit per agent it holds to
+account.
+\end{sprop}
+The proof of Theorem 5 uses only that outcomes are independent, so its bound holds at every
+action profile, summed over the agents who work; combined with \cref{prop:cost} this gives
+the proposition. \Cref{fig:sup-money} shows both results.
+
+\begin{figure}[h]
+\centering
+\begin{subfigure}[b]{\columnwidth}\centering
+\includegraphics[width=\linewidth,page=1]{figures/cost.pdf}
+\caption{Cost of a count record relative to the full record, $n=100$.}\end{subfigure}
+\begin{subfigure}[b]{0.8\columnwidth}\centering
+\includegraphics[width=\linewidth,page=1]{figures/designer.pdf}
+\caption{The designer's regions at $c=0.3$.}\end{subfigure}
+\caption{The price of accountability in payments and memory ($h=0.9$, $l=0.1$). (a) The
+count leaves the cost floor once $c>(h-l)h^{n-1}$ and becomes infeasible beyond its margin
+$0.1055$. (b) Hold nobody to account below the lower line, everyone with one bit each above
+the upper line.}
+\label{fig:sup-money}
+\end{figure}
+
+\section{Certificates and the Open Case}
+
+\begin{figure*}[h]
+\centering
+\includegraphics[width=0.8\textwidth,page=1]{figures/cert_chain.pdf}
+\caption{Certificate chain at $n=7$. Grey: excluded by the shell bound with no search. Red:
+2-domination integer program proved infeasible (not a time-out). Green: explicit
+2-dominating set, checked without a solver. $\Kflat(7)=32$.}
+\label{fig:cert}
+\end{figure*}
+
+\paragraph{Explicit codes.} At $n=5$ the explicit code gives $D=D_0=0.6875$, margin $0.5$,
+$\dmin=2$. At $n=7$ it gives $D=D_0=0.75$, margin $0.5$, $\dmin=2$; this value has two
+independent routes, the infeasibility chain and an algebraic parity-check construction. At
+$n=9$ the explicit code gives $D=D_0=0.75$, margin $0.667$, $\dmin=3$.
+
+\paragraph{Why $\Kflat(9)$ is open.} $\Kflat(9)\in[97,128]$. Feasibility integer programs at
+$K=98,100,\dots,124$ (512 binaries) did not terminate within 40 minutes each; shrink-only
+local search cannot move, because the algebraic code has no internal edges; and
+destroy-and-repair search over 70,685 trials never improved on 128.
+
+\paragraph{Bounds.} $2^{n+1}/(n+2)\le\gamma_2(Q_n)\le2^{\,n-\lfloor\log_2(n/2+1)\rfloor}$
+(\cref{fig:gamma}). The lower bound is Fink and Jacobson's, attained at $n=3,5$; the upper
+bound comes from a parity-check matrix with no zero column in which every nonzero syndrome
+is used at least twice. The only claims that require a solver are the infeasibility of 2-domination at
+$(n,K)=(5,9)$; $(7,29)$, $(7,30)$, $(7,31)$; and $(9,94)$, $(9,95)$, $(9,96)$.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\columnwidth,page=1]{figures/gamma.pdf}
+\caption{Bounds on $\gamma_2(Q_n)$ (log scale). Dots are certified values; the bar at $n=9$
+is the open interval.}
+\label{fig:gamma}
+\end{figure}
+
+\begin{table}[h]
+\caption{Free compression under the uniform prior. $C(n)=2^n/\Kflat(n)$. At $n=20,50$ the
+upper ends assume no flat record exists below $\gamma(Q_n)$.}
+\label{tab:ratio}
+\footnotesize
+\begin{tabular}{@{}lrrrrrr@{}}
+\toprule
+$n$ & 3 & 5 & 7 & 9 & 20 & 50\\
+\midrule
+$C(n)$ & 2.00 & 3.20 & 4.00 & 4.00--5.28 & 8--11 & 16--26\\
+free bits & 1.00 & 1.68 & 2.00 & 2.00--2.40 & 3.00--3.46 & 4.00--4.70\\
+as \% of $n$ & 33.3 & 33.6 & 28.6 & 22--27 & 15.0--17.3 & 8.0--9.4\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Additional Figures and Tables}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.85\columnwidth,page=1]{figures/lab_count.pdf}
+\caption{The success count at $n=3$ on the effort lattice. Every edge in \textsf{Alpha}'s
+direction moves the record, yet Theorem 1's adversary mixes teammate profiles so that the
+teammate count is uniform, giving margin exactly $1/3$.}
+\label{fig:lab}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\columnwidth,page=1]{figures/uniq.pdf}
+\caption{Nash margin (blue) against ex-post margin (orange) under noise, $h=0.9$, $l=0.1$.
+Between the two, all-work is an equilibrium but other equilibria are not ruled out.}
+\label{fig:uniq}
+\end{figure}
+
+\begin{table}[h]
+\caption{Exact Nash and ex-post margins under noisy outcomes, $h=0.9$, $l=0.1$.}
+\label{tab:noisy-exact}
+\footnotesize
+\begin{tabular}{@{}llrrr@{}}
+\toprule
+$n$ & record & $K$ & Nash & ex-post\\
+\midrule
+5 & flat & 10 & 0.5063 & 0.5063\\
+5 & nearest centre & 10 & 0.2550 & 0.2550\\
+5 & count & 6 & 0.5249 & 0.1600\\
+5 & all succeeded & 2 & 0.5249 & 0.0001\\
+9 & flat & 128 & 0.6317 & 0.6317\\
+9 & nearest centre & 128 & 0.6786 & 0.3911\\
+9 & block counts, $m=3$ & 64 & 0.6480 & 0.2667\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\caption{Records of an episode trace, $n=5$, exact.}
+\label{tab:episode}
+\footnotesize
+\begin{tabular}{@{}lrrrr@{}}
+\toprule
+record & $K$ & bits & $D$ & $\mu$\\
+\midrule
+full trace & 243 & 7.9 & 1.2500 & 0.5000\\
+one bit per agent & 32 & 5.0 & 1.2500 & 0.5000\\
+top-half agents only & 80 & 6.3 & 1.2923 & 0.2624\\
+multiset of artifacts & 21 & 4.4 & 1.9718 & 0.1425\\
+count of completions & 6 & 2.6 & 2.0194 & 0.1190\\
+final output only & 2 & 1.0 & 2.1118 & 0.0243\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure*}[h]
+\centering
+\includegraphics[width=0.8\textwidth,page=1]{figures/llm.pdf}
+\caption{The model-written review experiment: three reviewer agents (codestral-2508), two
+records holding identical text, and the same model at temperature 0 as judge.}
+\label{fig:llm}
+\end{figure*}
+
+\begin{table}[h]
+\caption{Attribution error on model-written reviews (192 episodes). The first and third rows
+contain the same text, differing only by ``Reviewer $k$:'' labels.}
+\label{tab:llm}
+\footnotesize
+\begin{tabular}{@{}lrr@{}}
+\toprule
+record & bytes & attribution error (of 3 bits)\\
+\midrule
+full trace & 2612 & 0.391\\
+per-agent summary & 661 & 0.260\\
+artifact multiset & 2582 & 1.333\\
+global summary & 609 & 1.000\\
+final output only & 507 & 1.193\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Model-written reviews, details.} Taking the best of the $3!$ relabellings of the
+judge's answer reduces the multiset's error from 1.333 to 0.438, exactly its count error.
+At four episodes per profile the estimator returned a zero margin for the full trace because
+of seven cells in which the judge gave identical verdicts with and without some agent's
+effort; such ties can only bias the margin downward, and they fell to none at twenty-four
+episodes per profile, while the attribution gap moved only from 0.969 to 0.943. Agent $i$
+always received sub-question $i$, so sub-question difficulty and position are confounded;
+we therefore treat the measured margin ordering in these reviews as uninformative about
+record type.
+
+\section{Pre-registered Predictions}
+Of 22 registered predictions, 8 were derivations whose failure would have meant a false
+theorem or a bug; all 8 held. Of 14 conjectures, 11 were falsified (\cref{tab:prereg}). Each
+was hashed before its harness was written.
+
+\begin{table*}[h]
+\caption{Pre-registered conjectures that were falsified (11 of 14).}
+\label{tab:prereg}
+\footnotesize
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{70mm}>{\raggedright\arraybackslash}X@{}}
+\toprule
+prediction & outcome and reason\\
+\midrule
+The count has full margin (one deviation always moves it by one) & Margin exactly $1/n$: the minimax mixes teammate counts uniformly, and intermediate shifts cancel.\\
+Margins fall monotonically with observation noise $\eta$ & The flat record rises $0.5000\to0.5196$ at $\eta=0.05$ before falling: noise spreads each flip over labels.\\
+Noise cannot create margin where a deterministic record has none & $K$-median $0\to0.1973$ ($n=5$), threshold $0\to0.1440$ ($n=3$) at $\eta=0.1$.\\
+Identity-removal ratio exceeds 3 in every matched comparison & Minimum 1.07, median 1.4--2.3; the direction held, the magnitude did not.\\
+That ratio grows with $n$ & No consistent growth over $n=3,\dots,7$.\\
+Top-half-agents record has margin exactly 0 & 0.2624: selection depends on behaviour, so shirking changes an agent's chance of being recorded.\\
+Ship/no-ship bit has zero margin & 0.0900 ($n=3$), 0.0243 ($n=5$), decaying in $n$.\\
+Margin ordering of records holds over all three model-written agents & Fails over three agents; holds over the two comparable ones. The third sub-task is far less auditable (accuracy 0.677).\\
+Artifact multiset has a margin smaller than the full trace by at least a third & Reversed: 0.207 against 0.075; the full trace's margin is set by the hard-to-audit third agent.\\
+Final output only has a margin near zero but not exactly zero & Exactly zero at 192 episodes.\\
+Multiset error close to the full trace's while its margin is not & Error 1.333 against 0.391 bits: the multiset matches the full trace on how many (0.438 against 0.391), not on which.\\
+\bottomrule
+\end{tabularx}
+\end{table*}
+
+\begin{figure*}[h]
+\centering
+\includegraphics[width=0.85\textwidth,page=1]{figures/related.pdf}
+\caption{Where the paper sits. Every neighbouring line of work takes the monitoring signal as
+given; this paper puts the budget on the signal itself.}
+\label{fig:related}
+\end{figure*}
+
+\end{document}
