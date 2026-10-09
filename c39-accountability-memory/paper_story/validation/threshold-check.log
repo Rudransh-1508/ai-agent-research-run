@@ -1,0 +1,16 @@
+n= 4 m= 2  exact=0.720000  predicted=0.720000  ok
+n= 6 m= 3  exact=0.648000  predicted=0.648000  ok
+n= 6 m= 2  exact=0.720000  predicted=0.720000  ok
+n= 7 m= 3  exact=0.648000  predicted=0.648000  ok
+n= 8 m= 4  exact=0.583200  predicted=0.583200  ok
+n= 9 m= 3  exact=0.648000  predicted=0.648000  ok
+n=10 m= 5  exact=0.524880  predicted=0.524880  ok
+n=10 m=10  exact=0.309936  predicted=0.309936  ok
+mode probability nonincreasing in N (exact, N < 120): True
+c=0.2   m(c)=    28  (1/m)/beta=2.200   pi ln 2=2.178
+c=0.1   m(c)=   114  (1/m)/beta=2.162   pi ln 2=2.178
+c=0.05  m(c)=   453  (1/m)/beta=2.176   pi ln 2=2.178
+c=0.02  m(c)=  2828  (1/m)/beta=2.179   pi ln 2=2.178
+c=0.01  m(c)= 11317  (1/m)/beta=2.178   pi ln 2=2.178
+n=100 threshold records: 0.624 to 1.000 of the bound; count 0.260
+ALL CHECKS PASS

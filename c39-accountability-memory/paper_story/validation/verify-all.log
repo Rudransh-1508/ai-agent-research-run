@@ -1,0 +1,120 @@
+
+A. gamma_2(Q_n) by complete enumeration of all subsets
+  [PASS] gamma_2(Q_1) = 2   got 2
+  [PASS] gamma_2(Q_2) = 2   got 2
+  [PASS] gamma_2(Q_3) = 4   got 4
+  [PASS] gamma_2(Q_4) = 7   got 7
+
+B. flat records: D = D_0(K) and margin = 1 - 1/d_min, solver-free
+  [PASS] n=3 K=4: C is 2-dominating
+  [PASS] n=3 K=4: D = D_0(K) = 0.5   D=0.500000000000
+  [PASS] n=3 K=4: margin = 1 - 1/d_min   margin=0.666667  d_min=3
+  [PASS] n=3 K=4: margin >= 1/2
+  [PASS] n=5 K=10: C is 2-dominating
+  [PASS] n=5 K=10: D = D_0(K) = 0.6875   D=0.687500000000
+  [PASS] n=5 K=10: margin = 1 - 1/d_min   margin=0.500000  d_min=2
+  [PASS] n=5 K=10: margin >= 1/2
+  [PASS] n=6 K=16: C is 2-dominating
+  [PASS] n=6 K=16: D = D_0(K) = 0.75   D=0.750000000000
+  [PASS] n=6 K=16: margin = 1 - 1/d_min   margin=0.500000  d_min=2
+  [PASS] n=6 K=16: margin >= 1/2
+  [PASS] n=7 K=32: C is 2-dominating
+  [PASS] n=7 K=32: D = D_0(K) = 0.75   D=0.750000000000
+  [PASS] n=7 K=32: margin = 1 - 1/d_min   margin=0.500000  d_min=2
+  [PASS] n=7 K=32: margin >= 1/2
+  [PASS] n=9 K=128: C is 2-dominating
+  [PASS] n=9 K=128: D = D_0(K) = 0.75   D=0.750000000000
+  [PASS] n=9 K=128: margin = 1 - 1/d_min   margin=0.666667  d_min=3
+  [PASS] n=9 K=128: margin >= 1/2
+
+   (D_0(K) >= (2^n - K)/2^n for every record: with K labels at most K
+    profiles are reconstructed exactly and each of the rest costs >= 1 bit,
+    so these records are optimal and the equality above is meaningful.)
+
+C. shell counting bound
+  [PASS] does not exclude the flat point n=3 K=4   shell_lower=4  N*D0=4
+  [PASS] does not exclude the flat point n=5 K=10   shell_lower=22  N*D0=22
+  [PASS] does not exclude the flat point n=7 K=32   shell_lower=96  N*D0=96
+  [PASS] n=3: shell bound excludes every K <= 3
+  [PASS] n=5: shell bound excludes every K <= 9
+  [PASS] n=7: shell bound excludes every K <= 28
+  [PASS] n=9: shell bound excludes every K <= 93
+
+D. one-bit frontier: closed form vs the explicit record
+  [PASS] n=3: D(q_opt) matches M_n + n*gamma*((n-1)/2 - M_n)   M_n=0.750000  max dev=2.22e-16
+  [PASS] n=5: D(q_opt) matches M_n + n*gamma*((n-1)/2 - M_n)   M_n=1.562500  max dev=4.44e-16
+  [PASS] n=7: D(q_opt) matches M_n + n*gamma*((n-1)/2 - M_n)   M_n=2.406250  max dev=1.78e-15
+  [PASS] n=9: D(q_opt) matches M_n + n*gamma*((n-1)/2 - M_n)   M_n=3.269531  max dev=2.35e-14
+
+E. decoder-pair minimisation: the antipodal pair is optimal
+  [PASS] E|R_k| is nondecreasing in k (k <= 11)   E|R_9|=2.460938
+  [PASS] n=3: E[d_H(S,a)] = n/2 for every a
+  [PASS] n=3: E[Delta^-] = (1/2)E|R_(p+m)| on every orbit   max dev=0.00e+00
+  [PASS] n=3: no decoder pair beats Theorem 1 (all 4^n pairs)   max improvement=0.00e+00
+  [PASS] n=3: the antipodal pair attains the closed form   max dev=0.00e+00
+  [PASS] n=3: the minimiser r* is monotone, hence feasible
+  [PASS] n=5: E[d_H(S,a)] = n/2 for every a
+  [PASS] n=5: E[Delta^-] = (1/2)E|R_(p+m)| on every orbit   max dev=0.00e+00
+  [PASS] n=5: no decoder pair beats Theorem 1 (all 4^n pairs)   max improvement=0.00e+00
+  [PASS] n=5: the antipodal pair attains the closed form   max dev=0.00e+00
+  [PASS] n=5: the minimiser r* is monotone, hence feasible
+  [PASS] n=7: E[d_H(S,a)] = n/2 for every a
+  [PASS] n=7: E[Delta^-] = (1/2)E|R_(p+m)| on every orbit   max dev=0.00e+00
+  [PASS] n=7: no decoder pair beats Theorem 1 (all (p,m) orbits)   max improvement=0.00e+00
+  [PASS] n=7: the antipodal pair attains the closed form   max dev=0.00e+00
+  [PASS] n=7: the minimiser r* is monotone, hence feasible
+  [PASS] n=9: E[d_H(S,a)] = n/2 for every a
+  [PASS] n=9: E[Delta^-] = (1/2)E|R_(p+m)| on every orbit   max dev=0.00e+00
+  [PASS] n=9: no decoder pair beats Theorem 1 (all (p,m) orbits)   max improvement=0.00e+00
+  [PASS] n=9: the antipodal pair attains the closed form   max dev=0.00e+00
+  [PASS] n=9: the minimiser r* is monotone, hence feasible
+
+F. compression ratio C(n) = 2^n / K_flat(n)
+  [PASS] n=3: C(n) in [2.0, 2.0]   computed [2.00, 2.00]
+  [PASS] n=3: free bits in [1.0, 1.0]   computed [1.00, 1.00]
+  [PASS] n=5: C(n) in [3.2, 3.2]   computed [3.20, 3.20]
+  [PASS] n=5: free bits in [1.68, 1.68]   computed [1.68, 1.68]
+  [PASS] n=7: C(n) in [4.0, 4.0]   computed [4.00, 4.00]
+  [PASS] n=7: free bits in [2.0, 2.0]   computed [2.00, 2.00]
+  [PASS] n=9: C(n) in [4.0, 5.28]   computed [4.00, 5.28]
+  [PASS] n=9: free bits in [2.0, 2.4]   computed [2.00, 2.40]
+  [PASS] n=20: C(n) in [8.0, 11.0]   computed [8.00, 11.00]
+  [PASS] n=20: free bits in [3.0, 3.46]   computed [3.00, 3.46]
+  [PASS] n=50: C(n) in [16.0, 26.0]   computed [16.00, 26.00]
+  [PASS] n=50: free bits in [4.0, 4.7]   computed [4.00, 4.70]
+  [PASS] n=3: the two bounds bracket K_flat   bounds [4, 4]  K_flat [4, 4]
+  [PASS] n=5: the two bounds bracket K_flat   bounds [10, 16]  K_flat [10, 10]
+  [PASS] n=7: the two bounds bracket K_flat   bounds [29, 32]  K_flat [32, 32]
+  [PASS] n=9: the two bounds bracket K_flat   bounds [94, 128]  K_flat [97, 128]
+  [PASS] n=3: C(n) <= (n+2)/2   C_max=2.00  (n+2)/2=2.50
+  [PASS] n=5: C(n) <= (n+2)/2   C_max=3.20  (n+2)/2=3.50
+  [PASS] n=7: C(n) <= (n+2)/2   C_max=4.00  (n+2)/2=4.50
+  [PASS] n=9: C(n) <= (n+2)/2   C_max=5.28  (n+2)/2=5.50
+  [PASS] n=20: C(n) <= (n+2)/2   C_max=11.00  (n+2)/2=11.00
+  [PASS] n=50: C(n) <= (n+2)/2   C_max=26.00  (n+2)/2=26.00
+  [PASS] n=20: flatness needs K in [95326, 131072]   got [95326, 131072]
+  [PASS] n=20: that is 16.5-17.0 of 20 bits   [16.54, 17.00]
+  [PASS] n=50: that is 45.3-46.0 of 50 bits   [45.30, 46.00]
+
+G. the general-prior threshold: the withdrawn claim, refuted
+  [PASS] n=3 q=0.7: the witness code is pi-optimal at K=4   D_0(4) = 0.243000
+  [PASS] n=3 q=0.7: D_0(4) = 0.243   0.243000
+  [PASS] n=3 q=0.7: the witness is NOT dominating   at distance >= 2: 000
+  [PASS] n=3 q=0.7: every non-centre has >= 2 centres at its own distance
+  [PASS] n=3 q=0.7: the spread record attains D_0 exactly   D = 0.243000  D_0 = 0.243000
+  [PASS] n=3 q=0.7: it achieves a positive margin, so it is FLAT   gamma >= 0.333333 (certified by an explicit payment rule)
+  [PASS] n=3 q=0.7: that margin is 0.3333   0.333333
+  [PASS] n=3 q=0.7: K=4 < 6, refuting the withdrawn claim   a flat record exists at K=4; the withdrawn claim said 6
+  [PASS] n=4 q=0.7: the witness code is pi-optimal at K=5   D_0(5) = 0.440100
+  [PASS] n=4 q=0.7: D_0(5) = 0.4401   0.440100
+  [PASS] n=4 q=0.7: the witness is NOT dominating   at distance >= 2: 0000, 0001, 0010, 0100, 1000
+  [PASS] n=4 q=0.7: every non-centre has >= 2 centres at its own distance
+  [PASS] n=4 q=0.7: the spread record attains D_0 exactly   D = 0.440100  D_0 = 0.440100
+  [PASS] n=4 q=0.7: it achieves a positive margin, so it is FLAT   gamma >= 0.250000 (certified by an explicit payment rule)
+  [PASS] n=4 q=0.7: that margin is 0.2500   0.250000
+  [PASS] n=4 q=0.7: K=5 < 13, refuting the withdrawn claim   a flat record exists at K=5; the withdrawn claim said 13
+  [PASS] n=3 uniform: K_flat = gamma_2(Q_3) = 4   enumeration gives 4
+  [PASS] n=4 uniform: K_flat = gamma_2(Q_4) = 7   enumeration gives 7
+
+==============================================================
+ALL CHECKS PASSED -- no solver was used.

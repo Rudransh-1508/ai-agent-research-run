@@ -40,11 +40,12 @@ on Autonomous Agents and Multiagent Systems (AAMAS 2027)}{3--7 May 2027}{Hanoi, 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%% OpenReview submission number: printed on the first page in anonymous mode.
-\acmSubmissionID{<<OpenReview submission id>>}
+% Set the actual OpenReview number before submission: \acmSubmissionID{...}
 
 \submissionType{Research Paper Track}
 
 \usepackage{booktabs}
+\usepackage{tabularx}
 \usepackage{graphicx}
 \usepackage{subcaption}
 \usepackage[capitalise,nameinlink]{cleveref}
@@ -75,28 +76,27 @@ on Autonomous Agents and Multiagent Systems (AAMAS 2027)}{3--7 May 2027}{Hanoi, 
 \begin{document}
 
 \title[How Much Memory Does Accountability Cost?]{How Much Memory Does Accountability Cost?}
-\subtitle{Linear Memory, Attribution and Free Accountability in Compressed Multi-Agent Records}
+\subtitle{Incentives and Reconstruction from Bounded Multi-Agent Records}
 
 \begin{abstract}
-When a team of AI agents compacts its execution history to fit a context window, the
-compacted record becomes the only evidence left for deciding who did the work. Contract
-theory designs payments for a given signal and trace compression ignores incentives, so it
-is not known what a record of bounded size must retain for payments read from it to sustain
-effort. Here, we model the record as a stochastic encoder of the team's effort profile into
-$K$ labels and characterise its \emph{accountability margin}, the largest effort cost that a
-bounded payment reading only the record can implement. By eliminating the payment rule, we
-reduce the margin to the least total-variation shift that an agent's lone deviation causes
-under the worst mixture of teammate behaviour. With noisy outcomes, the squared Nash margins
-of all agents sum to at most a constant times the record's entropy, and one threshold bit per
-block of agents attains this bound up to a factor $\pi\ln2\approx2.18$: accountability at
-effort cost $c$ costs $\Theta(c^2)$ bits per agent, and any sublinear summary, such as a
-success count, loses all incentive power as the team grows. Under budget balance no record
-symmetric in the agents supports effort at any size. Over repeated tasks, per-task settlement
-changes nothing, while deferred settlement lets one review bit per agent sustain effort that
-no one-shot record can. With exact outcomes, accountability becomes free at the 2-domination
-number of the hypercube. On code reviews written by a language model, deleting 30 bytes of
-authorship labels raises attribution error by 0.943 bits. Accountability is priced in agent
-identity, not in content volume.
+What must a compressed record retain to support incentives for a team? We study a principal
+who commits to an encoder of observable outcomes into $K$ labels and to bounded payments
+that depend only on the retained label. A minimax characterisation eliminates the payment
+rule and gives the largest effort cost supportable in dominant strategies. With independent
+noisy binary outcomes, even Nash implementation requires the squared incentive margins to
+sum to at most a constant times record entropy. For fixed noise parameters and positive
+effort cost, memory therefore grows linearly with team size. One threshold bit per block
+gives a constructive upper bound; its asymptotic per-agent rate is within $\pi\ln2$ of the
+lower bound as effort cost tends to zero. Under a fixed total payment, the margin is instead
+bounded by how well the record distinguishes individual deviators; permutation-invariant
+outcome records cannot sustain positive effort. Deferred settlement can improve incentives
+without increasing the maximum payment per task when agents receive no interim feedback.
+For exact outcomes we derive the one-bit reconstruction--incentive frontier and identify
+2-domination as the threshold for reconstruction-optimal accountability in the dominating-code
+regime, with certified unrestricted thresholds in small dimensions. A model-written review
+study illustrates attribution loss after removing names and shuffling reports, without
+establishing strategic implementation. The results distinguish preserving task information
+from preserving the evidence on which incentives depend.
 \end{abstract}
 
 \keywords{Moral hazard in teams; contract design; budget balance; information structures; mechanism design; repeated games; accountability; compressed records; LLM multi-agent systems}
@@ -107,30 +107,27 @@ identity, not in content volume.
 \section{Introduction}\label{sec:intro}
 %% =====================================================================
 
-A coordinator agent receives a pull request and splits the review three ways: \A{} checks
-the API changes, \B{} the tests, \G{} the security-sensitive diff. Each reviewer works
-through tens of thousands of tokens and returns a verdict. When the coordinator's context
-window fills, it replaces the three traces with a short summary of themselves. A week
-later the change causes an incident, and someone asks which reviewer actually read the
-diff and whose verdicts the team's reputation system should reward. The summary is all
-that is left.
+Consider a principal commissioning a code review from three independently operated agents:
+\A{} checks API changes, \B{} tests, and \G{} security. Their operators incur a cost for
+careful work and receive a reward based on the evidence retained after review. Suppose the
+principal can retain only a bounded record and settlement cannot consult the original traces.
+A useful summary of the findings may then omit the evidence needed to reward an individual
+reviewer. Which records preserve both functions?
 
-Multi-agent systems built from language models discard their execution histories in
-exactly this way: sub-agents return summaries rather than traces, and coordinators compact
-older exchanges as their context nears its limit. Unlike a storage bill, a context window
-cannot be extended, so the budget on what survives is hard. The surviving record then has
-two jobs (\cref{fig:pipeline}). \emph{Reconstruction} recovers what the team did accurately
-enough to act on. \emph{Accountability} keeps enough about each agent that a later bounded
-payment, read from the record alone, still rewards that agent's effort whatever its
-teammates did. The jobs conflict: a reconstruction-optimal record spends its few labels by
-merging profiles that are cheap to confuse, while accountability needs each agent, acting
-alone, to visibly move the record.
+This is a question about information design under a retention constraint. Context compaction
+in language-model systems motivates it, but does not by itself imply that external logs are
+unavailable. Our assumption is explicit: reconstruction and settlement see only the retained
+record. The agents are strategic service providers or their operators; the model does not
+assume that a language model intrinsically values money. \emph{Reconstruction} recovers an
+outcome profile under Hamming loss. \emph{Accountability} preserves the effect of an agent's
+effort on its expected bounded payment. Accurate reconstruction alone need not preserve that
+effect (\cref{fig:pipeline}).
 
 \begin{figure*}[t]
 \centering
 \includegraphics[width=\textwidth,page=1]{figures/pipeline_v3.pdf}
 \caption{The object of study on the running example. Three agents choose effort; \A{} and \B{}
-work and \G{} shirks, so the outcome profile is $S=110$. When the context fills, the record $q$
+work and \G{} shirks; the displayed noisy outcome realisation is $S=110$. The record $q$
 maps profiles to $K=4$ labels; the flat record of \cref{lem:suff} spreads $110$ over its three
 neighbouring centres. Only the label survives. A reconstruction rule and a bounded payment rule
 both read it, and agents anticipate the payment when choosing effort.}
@@ -144,78 +141,79 @@ the margin formula. A dashed line returns from settlement to the agents.}
 \label{fig:pipeline}
 \end{figure*}
 
-Contract theory rewards unobserved effort through payments on a signal: moral hazard in
-teams~\cite{holmstrom1982teams}, algorithmic
+Moral hazard in teams~\cite{holmstrom1982teams} and algorithmic
 contracts~\cite{babaioff2006combinatorial,castiglioni2023multiagent,dutting2025multiagent,dutting2025combinatorial,goel2024weighted,dutting2024survey}
-and the ranking of signals~\cite{holmstrom1979moral,blackwell1953comparisons} all take the
-monitoring signal as given. Failure attribution in LLM multi-agent
-systems~\cite{zhang2025which,zhang2025agentracer,cemri2025fail,chen2026elephant} and trace
-compression~\cite{hong2026trace,lin2026tracer} work from the trace but have no incentive term.
-The gap matters in deployment: Bittensor validators who copied a merged consensus were reported
-to out-earn honest ones, and the fix changed what the record kept rather than the
-monitoring~\cite{opentensor2024weightcopy,liu2024bittensor,opentensor2025commit}. The open
-question is therefore: \emph{given a budget on the record, which information structures can be
-retained, and which still support payment?} The record and the payment rule interact
-bilinearly, and a direct search over both did not terminate at seven agents.
+connect observable outcomes to incentives. Bounded-payment contracts~\cite{kadanswinkels2008}
+study limits on rewards for a given information structure; optimal monitoring
+design~\cite{georgiadisszentes2020} also makes information acquisition endogenous.
+Our constraint concerns a shared, finite retained alphabet, serving multiple agents'
+incentives and reconstruction simultaneously. LLM failure
+attribution~\cite{zhang2025which,zhang2025agentracer,cemri2025fail,chen2026elephant} and trace
+compression~\cite{hong2026trace,lin2026tracer} motivate evaluating these objectives separately.
+We ask: \emph{which outcome records fit a given information budget and still support effort?}
 
-In this work, we model the record as a stochastic encoder that maps the effort profile to
-one of $K$ labels, and we score it on reconstruction error and on the accountability margin.
-Our contributions are:
+The contributions are three connected results.
 \begin{enumerate}
-\item \textbf{The payment rule can be eliminated} (\cref{thm:elim}). An agent's margin
-equals the least total-variation shift its lone deviation causes in the record, minimised
-over mixtures of teammate behaviour; Nash and Bayesian margins are special cases, and the
-margin of any record is one linear program per agent.
-\item \textbf{Accountability needs linear memory} (\cref{thm:noisy}). With noisy outcomes the
-squared Nash margins of all agents sum to at most a constant times the record's entropy, so
-each accountable agent costs a constant number of bits. One threshold bit per block attains
-the bound up to the constant $\pi\ln2$ (\cref{thm:tight}), so the memory cost is
-$\Theta(c^2)$ bits per agent, and a designer buys memory per accountable agent
-(\cref{prop:designer}). Impossibility results survive a strategic compactor
-(\cref{prop:strategic}).
-\item \textbf{Budget balance needs attribution} (\cref{thm:bb}). The budget-balanced margin is
-at most the mean distance between ``$i$ deviated'' and ``a random agent deviated'' in the
-record, so every record symmetric in the agents fails at any size; payments stay at the
-full-record level exactly when the record certifies each agent's success
-(\cref{prop:cost}).
-\item \textbf{Repetition helps only through deferral and identity} (\cref{prop:pertask,thm:deferred}).
-Over $T$ tasks, per-task settlement is $T$ copies of the one-shot game; deferred settlement
-lets one review bit per agent make working strictly dominant at costs above any one-shot
-record's reach, but symmetric records still fail and memory still grows with $n$.
-\item \textbf{When accountability is free} (\cref{thm:onebit,thm:flat}). With exact
-outcomes, the one-bit trade-off is linear in closed form, and the least size at which a
-reconstruction-optimal record can pay is $\gamma_2(Q_n)$, the 2-domination number of the
-hypercube, with certificates at $n=3,5,7$; the supplement extends the threshold to every
-full-support prior.
-\item \textbf{Measured mechanisms} (\cref{sec:experiments}). Common compaction mechanisms are
-unaccountable by accident, and on model-written reviews deleting 30 bytes of authorship
-labels raises attribution error by 0.943 bits.
+\item \textbf{The memory price of incentives.} A minimax reduction characterises a fixed
+record's dominant-strategy margin (\cref{thm:elim}). For independent noisy outcomes,
+\cref{thm:noisy,thm:tight} give finite-size lower and constructive upper bounds for Nash
+implementation. At fixed noise parameters, the achievable per-agent memory rate is
+$\Theta(c^2)$ in the small-cost, large-team regime, with asymptotic ratio $\pi\ln2$ between
+the block construction and the lower bound.
+\item \textbf{Attribution and settlement constraints.} Under fixed-total payments,
+\cref{thm:bb} bounds incentives by distinguishability among individual deviators, ruling out
+permutation-invariant outcome records. Separate results characterise minimum expected
+payments and show how deferred settlement helps without interim feedback
+(\cref{prop:cost,thm:deferred}). These statements distinguish detection, attribution, and timing.
+\item \textbf{Reconstruction without an incentive penalty.} With exact outcomes,
+\cref{thm:onebit} gives the one-bit frontier. \Cref{thm:flat} identifies the 2-domination
+threshold within the dominating-code regime and supplies a universal construction. The
+supplement gives small-dimension certificates and a nearest-centre characterisation for
+every full-support prior. Equal-error records can have margins $1/2$ and zero
+(\cref{tab:mech}).
 \end{enumerate}
-Every number is recomputed by an independent implementation (135 checks), and 22
-predictions were registered and hashed before each harness was written; code, certificates
-and an interactive explainer are in the supplementary material. \Cref{sec:model}
-defines the model, \cref{sec:elim} eliminates the payment rule, \cref{sec:noisy,sec:bb}
-treat noisy outcomes and budget balance, \cref{sec:repeated} repeated tasks,
-\cref{sec:exact} exact outcomes,
-\cref{sec:experiments} measures deployed-style records, and
-\cref{sec:related,sec:conclusion} discuss related work and conclude.
+The proofs are accompanied by executable checks and explicit code certificates. The
+model-written review study is an attribution illustration, not evidence that the agents
+respond strategically to payments. \Cref{tab:settings} separates the assumptions behind the
+main results; the supplement documents computation and the study's limitations.
 
 %% =====================================================================
 \section{Model and the Settlement Game}\label{sec:model}
 %% =====================================================================
 
-\paragraph{Effort and records.} A team of $n$ agents produces an \emph{effort profile}
+\paragraph{Exact outcomes and records.} We first define the exact-outcome benchmark. A team of $n$ agents produces a profile
 $S\in\cube^n$, where $S_i=1$ means agent $i$ did its work; we write profiles in agent order,
-so with agents \A, \B, \G, the profile $011$ means only \A{} shirked. $S$ is uniform on
-$\cube^n$ unless stated (the supplement treats other priors). A \emph{record} of size $K$
+so with agents \A, \B, \G, the profile $011$ means only \A{} shirked. The uniform prior on $S$ evaluates reconstruction in this benchmark; it is not an equilibrium
+assumption. In \cref{sec:noisy}, effort is hidden and $S$ instead denotes noisy outcomes,
+with an action-dependent distribution. A \emph{record} of size $K$
 is a stochastic encoder $q:\cube^n\to\Delta([K])$ with $q[s,y]=\Pb(Y=y\mid S=s)$. The label
 $Y$ is everything that persists: the encoder's coins are not retained, and any seed, receipt
 or identifier kept outside the record counts toward $K$, since one private bit per agent
-beside a single shared label would satisfy every condition below at $K=1$.
+beside a single shared label would evade the intended information budget. We report
+$\log_2K$ as log-cardinality in bits; a fixed-length binary representation requires
+$\lceil\log_2K\rceil$ bits. The known encoder and payment rules are not part of this
+per-instance budget.
 
 \paragraph{Reconstruction.} A rule $\shat:[K]\to\cube^n$ has expected Hamming error
 $D(q,\shat)=\E[\dH(S,\shat(Y))]$, and $D_0(K)=\min_{q,\shat}D(q,\shat)$ is the $K$-median
 value of the cube.
+
+\begin{table}[t]
+\caption{Settings and guarantees. DS: dominant strategies; Nash: all-work is a Nash equilibrium.
+Unless specified, each payment lies in $[0,1]$.}
+\label{tab:settings}
+\footnotesize
+\begin{tabularx}{\columnwidth}{@{}lXX@{}}
+\toprule
+result & observations & guarantee / restriction\\
+\midrule
+Theorems 2--3 & independent noisy outcomes & Nash; no fixed total\\
+Theorem 4 & noisy outcomes & Nash; fixed total payment\\
+Theorem 5 & repeated noisy outcomes & no interim feedback; payment in $[0,T]$\\
+Theorems 6--7 & exact outcomes; uniform prior & DS and optimal reconstruction\\
+\bottomrule
+\end{tabularx}
+\end{table}
 
 \paragraph{Payment and the margin.} Agent $i$ is paid by a bounded decoder $p_i\in[0,1]^K$
 that also sees only $Y$. The \emph{deviation vector} of agent $i$ at teammate profile
@@ -249,15 +247,15 @@ $11$ & 1.00 & 0.67 & 0.33\\
 \begin{definition}[Settlement game]\label{def:game}
 Fix a record $q$. Each agent $i$ chooses $a_i\in\cube$ at cost $c_i\ge0$; the profile draws
 $Y\sim q[a,\cdot]$; agent $i$ is paid $p_i(Y)\in[0,1]$ and gets $\E[p_i(Y)]-c_ia_i$. A payment
-rule \emph{ex-post implements} effort by $i$ if working is a best response whatever the
+rule \emph{implements in dominant strategies} effort by $i$ if working is a best response whatever the
 teammates do: $\langle p_i,d_i(s_{-i})\rangle\ge c_i$ for every $s_{-i}$.
 \end{definition}
 
 \begin{proposition}[The margin is a price]\label{prop:threshold}
 Let $\mu_i(q)$ be the largest margin $q$ implements for agent $i$. Effort costing $c_i$ is
-ex-post implementable from $q$ by bounded payments if and only if $\mu_i(q)\ge c_i$. When
-this holds for every agent, all-work is an ex-post equilibrium with automatic participation,
-and no mechanism whose transfers are functions of $Y$ does better.
+implementable in dominant strategies from $q$ by bounded payments if and only if $\mu_i(q)\ge c_i$. When
+this holds for every agent, all-work is a dominant-strategy equilibrium with automatic participation,
+and no payment rule with the same $[0,1]$ bounds and access only to $Y$ does better.
 \end{proposition}
 \begin{proof}
 The first claim is \cref{def:game} at $\mu=c_i$. Participation holds since
@@ -271,7 +269,7 @@ $D^*(K,\mu)=\min\{D(q,\shat):(q,\shat)\text{ implements margin }\mu\}$. A record
 \emph{flat} at $(n,K)$ if it attains $D_0(K)$ while implementing some $\mu>0$; $\Kflat(n)$ is
 the least such $K$, the size at which accountability is free. With exact outcomes the
 two-label record ``everyone worked or not'' already makes all-work a Nash equilibrium with
-margin 1, which is why \cref{sec:exact} uses the ex-post notion; \cref{sec:noisy} shows
+margin 1, which is why \cref{sec:exact} uses the dominant-strategy notion; \cref{sec:noisy} shows
 that with noisy outcomes even Nash accountability needs memory linear in $n$.
 
 \paragraph{Strategic compaction.} The record is a rule fixed before effort, as a deployed
@@ -325,10 +323,10 @@ label distribution gives that agent margin 0 under every bounded payment.
 \end{corollary}
 
 \paragraph{What \cref{thm:elim} adds.} That a deviation must move the signal is classical:
-the informativeness principle~\cite{holmstrom1979moral} and the pairwise full-rank
-conditions of~\cite{fudenberg1994folk} are qualitative and allow unbounded transfers, under
-which any detectable deviation can be deterred. A payment read from a bounded budget is
-bounded, and the question becomes quantitative; \cref{thm:elim} gives its exact value. It
+informativeness and identification conditions have long played a central role in
+contracting and repeated games~\cite{holmstrom1979moral,fudenberg1994folk}.
+Here bounded payments make the question quantitative; \cref{thm:elim} gives
+the exact robust margin by standard minimax duality. It
 departs from the pointwise intuition of \cref{cor:edge} in two ways that matter here. First,
 the minimum is over \emph{mixtures} of teammate behaviour, so a record can move under every
 unilateral deviation and still have a small margin: every edge of the count has total
@@ -350,7 +348,7 @@ $a_i=1$ and Bernoulli$(l)$ if $a_i=0$, independently, with $0\le l<h<1$. Actions
 label through $Q[a,\cdot]=\sum_s\Pr(S=s\mid a)\,q[s,\cdot]$, and \cref{thm:elim} applies to
 $Q$ unchanged. The \emph{Nash margin} of agent $i$ is
 $\mu_i^N=\TV(Q[\mathbf1,\cdot],Q[(0,\mathbf1_{-i}),\cdot])$, the largest cost at which
-working is a best response to a working team; the ex-post margin is never larger.
+working is a best response to a working team; the dominant-strategy margin is never larger.
 
 \begin{theorem}[Accountability needs linear memory]\label{thm:noisy}
 Let $Y$ be the label under all-work and $H(Y)$ its entropy in nats. For every record,
@@ -381,12 +379,13 @@ record can sustain for every agent tends to 0 as $n$ grows.
 
 This is Holmstr\"om's team problem with the hiding done by compression rather than by the
 production technology, and it is quantitative: the price of accountability is a constant
-number of bits per agent. The bound is vacuous exactly when $h\in\{0,1\}$, where one bit
-suffices for Nash accountability. It is also tight. Write
+number of bits per agent. The positive-noise assumption is essential: in the exact benchmark $h=1,l=0$,
+one all-work bit suffices for Nash accountability. We next give a construction. Write
 $p^*_N=\max_k\Pr[\mathrm{Bin}(N,h)=k]$ and $k^*_N$ for a maximiser.
 
 \begin{proposition}[Block records]\label{prop:blocks}
-Split the agents into blocks of at most $m$ agents. (a) Recording each block's number of
+Split the agents into $\lceil n/m\rceil$ blocks of size $m$, except for a possibly
+smaller final block. (a) Recording each block's number of
 successes uses $\sum_b\log_2(m_b+1)$ bits. (b) Recording for each block only the bit
 $\mathbf1\{\text{block successes}>k^*_{m_b-1}\}$ uses $\lceil n/m\rceil$ bits. Under both, an
 agent in a block of size $m_b$ has Nash margin exactly $(h-l)\,p^*_{m_b-1}\ge(h-l)\,p^*_{m-1}$.
@@ -403,7 +402,7 @@ $\mathrm{Bin}(N+1,h)$ is a convex combination of two masses of $\mathrm{Bin}(N,h
 A count therefore spends $\log_2(m+1)$ bits per block on exactly the margin that one bit buys:
 its extra bits encode the block total, which a deviation moves only through the pivotal event.
 
-\begin{theorem}[The memory bound is tight]\label{thm:tight}
+\begin{theorem}[Memory bounds and asymptotic tightness]\label{thm:tight}
 Let $0<c<h-l$, $\beta(c)=\frac{2h(1-h)}{\ln2}\big(\frac c{h-l}\big)^2$, and let $K^*(n,c)$ be
 the least $K$ for which some $K$-label record gives every agent Nash margin at least $c$.
 With $m(c)=\max\{m:(h-l)\,p^*_{m-1}\ge c\}$, for every $n$,
@@ -417,8 +416,10 @@ Moivre--Laplace local limit theorem $p^*_N\sqrt{2\pi Nh(1-h)}\to1$, so
 $m(c)\sim(h-l)^2/(2\pi h(1-h)c^2)$ and $1/(m(c)\beta(c))\to\pi\ln2$.
 \end{proof}
 
-Accountability thus costs $\Theta(c^2)$ bits per agent, and memory is necessary and sufficient
-in proportion to the number of agents held to account. As shown in \cref{fig:noisy}(a), at
+For fixed $h,l,c>0$, these inequalities give $\Theta(n)$ memory. More precisely,
+$\beta(c)\le\log_2K^*(n,c)/n\le1/m(c)+1/n$: after taking the large-team
+limit, the small-cost per-agent rate is $\Theta(c^2)$. The factor $\pi\ln2$ is
+asymptotic as $c\downarrow0$, not a uniform finite-size approximation guarantee. As shown in \cref{fig:noisy}(a), at
 $n=100$, $h=0.9$, $l=0.1$, one bit per agent keeps the largest possible margin $h-l=0.8$;
 blocks of 5 keep $0.5249$ with 20 threshold bits or 51.7 count bits; and a single threshold
 bit for the whole team keeps $0.1055$, the margin of the 6.7-bit success count, while ``all
@@ -428,9 +429,9 @@ count 26\%; at $n=1000$ the count's margin falls to $0.0336$. On 3000 random sto
 records at $n=3$ to 6 the largest ratio of margin to bound was 0.764.
 
 \begin{proposition}[Unique implementation]\label{prop:unique}
-If every agent's ex-post margin exceeds the cost $c$, some bounded payment makes working
+If every agent's dominant-strategy margin exceeds the cost $c$, some bounded payment makes working
 strictly dominant, so all-work is the unique equilibrium, pure or mixed. If some agent's
-ex-post margin is below $c$, no bounded rule makes working dominant for that agent.
+dominant-strategy margin is below $c$, no bounded rule makes working dominant for that agent.
 \end{proposition}
 \begin{proof}
 Working is dominant for $i$ exactly when
@@ -439,13 +440,14 @@ for every teammate action profile $a_{-i}$, which is \cref{thm:elim} applied to 
 every equilibrium.
 \end{proof}
 
-The ex-post margin thus decides robustness. Noise gives the record that sends each profile to
+The dominant-strategy margin thus decides robustness. Noise gives the record that sends each profile to
 one nearest centre a positive margin, so the deterministic contrast of \cref{sec:exact}
-becomes quantitative: the flat record of \cref{lem:suff} has equal Nash and ex-post margins
-($0.5063$ at $n=5$, $0.6317$ at $n=9$), so whenever it sustains effort it does so uniquely.
+becomes quantitative: the flat record of \cref{lem:suff} has equal Nash and dominant-strategy margins
+($0.5063$ at $n=5$, $0.6317$ at $n=9$); costs strictly below these margins give
+unique implementation. At equality, uniqueness is not implied.
 By contrast, the count sustains all-work as a Nash equilibrium up to $c=0.5249$ at $n=5$ but
 makes working dominant only up to $c=0.1600$, and at $n=9$ the nearest-centre record has
-the larger Nash margin ($0.6786$) and the smaller ex-post one ($0.3911$).
+the larger Nash margin ($0.6786$) and the smaller dominant-strategy one ($0.3911$).
 
 %% =====================================================================
 \section{Budget Balance Needs Attribution}\label{sec:bb}
@@ -480,14 +482,16 @@ different agents.
 (i) A record symmetric in the agents, meaning its label law is unchanged when agents are
 permuted, admits no budget-balanced rule sustaining any positive cost, at any size $K$: all
 $Q_{0,i}$ coincide. This covers success counts, ``all succeeded'', every function of the
-multiset of outcomes, and the artifact multiset of \cref{sec:experiments}. (ii) The
+multiset of these exchangeable binary outcomes. An unlabelled text record satisfies this
+condition only if its induced law is also permutation invariant. (ii) The
 budget-balanced margin is at most twice the mean Nash margin, by convexity and the triangle
 inequality through $Q_1$, so \cref{thm:noisy} applies to budget balance too.
 \end{corollary}
 
 Part (i) is Holmstr\"om's theorem with the joint output replaced by any symmetric record. As
 shown in \cref{fig:noisy}(b), at $n=5$ the count and ``all succeeded'' detect deviations as
-well as any record (Nash margin $0.5249$) and attribute none. The bound is attained by the
+well as each other (Nash margin $0.5249$) but attribute none; the full record has
+Nash margin $0.8$. The bound is attained by the
 flat record at $n=3$ ($0.2133$), and among 1200 random records the largest ratio of
 budget-balanced margin to bound was $1.000$. Budget balance also restores the flat record's
 advantage over the nearest-centre record ($0.4543$ against $0.2550$ at $n=5$), which noise
@@ -512,17 +516,18 @@ the shaded region is infeasible for every record at effort cost $c=0.3$ (amber l
 \label{fig:noisy}
 \end{figure*}
 
-\paragraph{The price in payments.} A record can sustain effort and still make it expensive.
+\paragraph{The price in payments.} We now return to separately bounded payments, without
+the fixed-total constraint. A record can sustain effort and still make it expensive.
 Say a label \emph{certifies} agent $i$'s success if every profile that can produce it has
 $S_i=1$.
 
 \begin{proposition}[Cost of implementation]\label{prop:cost}
-For every record, the least expected payment making working a best response for agent $i$ at
-cost $c$, when teammates work, is at least $ch/(h-l)$, the cost under the full record. It
+Let $0<c\le h-l$. For every record, the least expected payment making working a best
+response for agent $i$ at cost $c$, when teammates work, is at least $ch/(h-l)$, the cost under the full record. It
 equals $ch/(h-l)$ if and only if $c\le(h-l)\Pr[Y\text{ certifies }i\mid S_i=1]$.
 \end{proposition}
 \begin{proof}
-For every label, $Q_{0,i}(y)/Q_1(y)$ is an average of the likelihood ratios $l/h$ and
+For every label with $Q_1(y)>0$, $Q_{0,i}(y)/Q_1(y)$ is an average of the likelihood ratios $l/h$ and
 $(1-l)/(1-h)$, so it is at least $l/h$, with equality exactly on certifying labels. Hence
 $(h-l)Q_1(y)\ge h(Q_1(y)-Q_{0,i}(y))$ for every $y$, so any $p\in[0,1]^K$ with
 $\langle p,Q_1-Q_{0,i}\rangle\ge c$ pays $\langle p,Q_1\rangle\ge ch/(h-l)$, with equality
@@ -536,22 +541,24 @@ $n=100$ and 6.989 times at $n=1000$, and it cannot sustain $c=0.05$ at $n=1000$.
 record certifies nothing and pays a premium of 6 to 7\% at $n=5$ for its robustness.
 
 \begin{proposition}[Memory is bought per accountable agent]\label{prop:designer}
-Let $c\le h-l$ and $\beta=\beta(c)$ as in \cref{thm:tight}. A record of $\log_2K$
+Let $0<c\le h-l$ and $\beta=\beta(c)$ as in \cref{thm:tight}. A record of $\log_2K$
 bits holds at most $\log_2K/\beta$ agents to cost $c$ and pays each at least $ch/(h-l)$;
 recording each accountable agent's own outcome uses one bit per agent and attains that
-payment. If the principal gains $v$ per working agent and pays $\kappa$ per stored bit,
+payment. For the incentive-only objective, with no reconstruction constraint, suppose the principal
+gains $v$ per working agent and pays $\kappa>0$ per bit of log-cardinality. Then
 holding any agent to account is unprofitable when $v-ch/(h-l)<\kappa\beta$, holding all $n$
-with $n$ bits is profitable when $v-ch/(h-l)>\kappa$, and in every case the optimal record
-spends between $\beta$ and 1 bit per agent it holds to account.
+with $n$ bits is profitable when $v-ch/(h-l)>\kappa$, and any optimal record implementing a nonempty working set uses between $\beta$ and
+1 bit per working agent.
 \end{proposition}
 \begin{proof}
 The proof of \cref{thm:noisy} uses only independence of outcomes, so its bound holds at every
 action profile, summed over the agents who work; this gives the capacity. The payment floor
-is \cref{prop:cost}, and the one-bit record certifies every success.
+is \cref{prop:cost}. For any selected working set, retaining its outcome bits attains
+that floor; a record using more bits is strictly more expensive when $\kappa>0$.
 \end{proof}
 
-The designer's choice is therefore not how much to compress the team but how many agents to
-keep accountable; memory then scales with that number.
+The designer jointly chooses the working set and its record. The bounds constrain memory
+per incentivised agent; they do not solve the trade-off within the intermediate region.
 
 %% =====================================================================
 \section{Repeated Tasks and Deferred Settlement}\label{sec:repeated}
@@ -565,7 +572,7 @@ chooses an effort plan $a_i\in\cube^T$ at cost $c$ per worked task and observes 
 before settlement. Under \emph{per-task settlement}, task $t$ has its own record $Y_t$ of
 $(S_{1,t},\dots,S_{n,t})$ and agent $i$ receives $p_{i,t}(Y_t)\in[0,1]$. Under \emph{deferred
 settlement}, one record $Y$ encodes the whole history and agent $i$ receives
-$P_i(Y)\in[0,T]$: the same budget, paid once.
+$P_i(Y)\in[0,T]$: the same aggregate payment cap per agent, paid once; expected payments need not be equal.
 
 \begin{proposition}[Per-task settlement adds nothing]\label{prop:pertask}
 Under per-task settlement the game is $T$ independent copies of the one-shot game: all-work at
@@ -617,12 +624,11 @@ bits per agent per task & 1 & 0.2 & 0.1 & 0.05 & 0.02 & 0.01\\
 \end{tabular}
 \end{table}
 
-Repetition therefore changes the answer only through deferral, and only for records that keep
-identity. As listed in \cref{tab:review}, one bit per agent sustains costs above $h-l$, which no
+Within this no-feedback model, deferral improves achievable effort costs. Distinguishability among individual deviators is additionally necessary for positive incentives under a fixed total payment. As listed in \cref{tab:review}, one bit per agent sustains costs above $h-l$, which no
 one-shot or per-task record can reach, whereas per-task settlement at $c=0.5$ needs at least
 $0.10\,T$ bits per agent; this is the record-design counterpart of linking
 decisions~\cite{jacksonsonnenschein2007} and review strategies~\cite{radner1985repeated}.
-Part (ii) keeps symmetric records out, and part (i) keeps memory linear in $n$. The closed form
+Part (ii) keeps symmetric records out, and part (i) keeps memory linear in $n$ for fixed $T$ and $c$; its coefficient decreases as $1/T$. The closed form
 was checked against brute force over all $2^T$ effort plans for $T\le8$. Review records need
 the absence of interim feedback: an agent that sees its outcomes before settlement can condition
 effort on progress, the known weakness of review strategies~\cite{radner1985repeated}.
@@ -645,7 +651,7 @@ and no record implements margin $\mu>1/n$, whatever the payment rule.
 \end{theorem}
 
 \begin{proof}
-\emph{Orientation.} The record is one function $q(s)=\Pr(Y=1\mid S=s)$ and
+For $\mu=0$, the reconstruction-pair bound below gives $M_n$, attained by majority. Suppose $\mu>0$. \emph{Orientation.} The record is one function $q(s)=\Pr(Y=1\mid S=s)$ and
 $d_i=(-\delta_i,\delta_i)$ with $\delta_i(s_{-i})=q(1,s_{-i})-q(0,s_{-i})$. Since
 $|p_i[1]-p_i[0]|\le1$, \eqref{eq:M} holds iff some sign $\sigma_i$ has
 $\sigma_i\delta_i(s_{-i})\ge\mu$ for all $s_{-i}$. \emph{Alignment.} Flipping the inputs and
@@ -704,7 +710,7 @@ neighbours in $C$: $C$ is a \emph{2-dominating set} of the hypercube $Q_n$. The 
 constructively.
 
 \begin{lemma}[Sufficiency]\label{lem:suff}
-Let $C$ be 2-dominating with $|C|=K$. The record that maps each centre to its own label and
+Let $C$ be 2-dominating with $|C|=K<2^n$. The record that maps each centre to its own label and
 each other profile uniformly to the labels of its neighbouring centres, decoded to the centre
 and paying agent $i$ the $i$-th bit of the centre, has $D=D_0(K)=(2^n-K)/2^n$ and margin
 $1-1/\dmin\ge1/2$, where $\dmin=\min_{t\notin C}|N(t)\cap C|$.
@@ -719,17 +725,26 @@ neither is, every centre-neighbour of $s_1$ has bit $i$ equal to 1 and every one
 it 0, so the gap is 1.
 \end{proof}
 
-\begin{theorem}[Flatness threshold]\label{thm:flat}
-Restricted to $K\ge\gamma(Q_n)$, the regime in which some optimal $K$-median code is
-dominating, $\Kflat(n)=\gamma_2(Q_n)$, the 2-domination number of the $n$-cube, attained with
-margin $1-1/\dmin\ge1/2$ by the record of \cref{lem:suff}.
+\begin{theorem}[Flatness in the dominating-code regime]\label{thm:flat}
+Under the uniform prior, for $\gamma(Q_n)\le K\le2^n$, a flat record of size $K$ exists
+if and only if $K\ge\gamma_2(Q_n)$. In particular,
+$\Kflat(n)\le\gamma_2(Q_n)$ for every $n$. For a proper 2-dominating code, the construction
+in \cref{lem:suff} has margin at least $1/2$; the full code has margin 1.
 \end{theorem}
+\begin{proof}
+For $K\ge\gamma(Q_n)$ a dominating code attains $D_0(K)=(2^n-K)/2^n$.
+Any optimal code must then be dominating: a non-centre at distance at least 2 would
+strictly increase this sum. By \cref{lem:nec}, a flat optimal code is 2-dominating.
+Conversely, enlarge a minimum 2-dominating code to size $K$; 2-domination is preserved,
+and \cref{lem:suff} applies (or use the full record when $K=2^n$).
+\end{proof}
 
-The restriction affects only necessity, so $\Kflat(n)\le\gamma_2(Q_n)$ for every $n$. Smaller
-$K$ is excluded by counting.
+Equality $\Kflat(n)=\gamma_2(Q_n)$ requires excluding flat codes below $\gamma(Q_n)$.
+The following necessary condition supports finite-dimensional exclusions; no general
+exclusion below that regime is claimed.
 
 \begin{lemma}[Shell bound]\label{lem:shell}
-In a flat record every profile at distance $r$ from $C$ has at least two centres at distance
+In a flat record, for each $r\ge1$, every profile at distance $r$ from $C$ has at least two centres at distance
 $r$, so shell $r$ holds at most $\lfloor K\binom nr/2\rfloor$ profiles, and filling shells from
 the inside lower-bounds $2^nD_0(K)=\sum_sd(s,C)$.
 \end{lemma}
@@ -739,55 +754,36 @@ centre is at distance $r$ from $\binom nr$ profiles, and each profile in shell $
 of the at most $K\binom nr$ (profile, centre) pairs.
 \end{proof}
 
-In shell 1 this is Fink and Jacobson's bound $\gamma_k(G)\ge k|V|/(\Delta+k)$~\cite{fink1985ndomination},
-and it is tight at all three known flat points. Since $\gamma(Q_n)$ is known for
-$n\le9$~\cite{ostergard2001length9}, \cref{thm:flat} holds unconditionally there: $\Kflat(3)=4$,
-$\Kflat(5)=10$, $\Kflat(7)=32$ ($K=29,30,31$ proved infeasible), and $\Kflat(9)\in[97,128]$ is
-open (certificate chain in the supplement); \cref{fig:cubes}(a,b) shows the smallest case. In general
-$2^{n+1}/(n+2)\le\gamma_2(Q_n)\le2^{\,n-\lfloor\log_2(n/2+1)\rfloor}$, so flatness saves few
-bits: at $n=20$ a flat record keeps about 17 of 20.
+In shell 1 this gives Fink and Jacobson's bound
+$\gamma_k(G)\ge k|V|/(\Delta+k)$~\cite{fink1985ndomination}. Combined with known
+domination numbers~\cite{ostergard2001length9}, explicit codes, and the supplement's
+certificate chain, the exclusions give $\Kflat(3)=4$, $\Kflat(5)=10$,
+$\Kflat(7)=32$, and $\Kflat(9)\in[97,128]$. The $n=9$ threshold remains open.
+For general $n$, the bounds
+$2^{n+1}/(n+2)\le\gamma_2(Q_n)\le2^{n-\lfloor\log_2(n/2+1)\rfloor}$
+describe the 2-dominating construction, not an unconditional lower bound on $\Kflat(n)$.
+For example, this construction retains 17 bits at $n=20$.
 
 
-
-\begin{figure*}[t]
-\centering
-\begin{subfigure}[b]{0.3\textwidth}\centering
-\includegraphics[width=\linewidth,page=1]{figures/g_cube_flat.pdf}
-\caption{Flat: $D=0.5$, $\mu=2/3$.}\end{subfigure}\hfill
-\begin{subfigure}[b]{0.3\textwidth}\centering
-\includegraphics[width=\linewidth,page=1]{figures/g_cube_near.pdf}
-\caption{Nearest centre: $D=0.5$, $\mu=0$.}\end{subfigure}\hfill
-\begin{subfigure}[b]{0.3\textwidth}\centering
-\includegraphics[width=\linewidth,page=1]{figures/g_cube_prior.pdf}
-\caption{Bernoulli$(0.7)$ prior: flat, $\mu=1/3$.}\end{subfigure}
-\caption{Records on the 3-cube; filled corners are centres and edge width is the total
-variation across the edge. (a) The odd-weight class is 2-dominating, so spreading each other
-corner over its three centre-neighbours is flat: $\Kflat(3)=\gamma_2(Q_3)=4$. (b) The same
-centres with each corner sent to one nearest centre: same error, three dead edges (red), margin
-0. (c) Under i.i.d.\ Bernoulli$(0.7)$ effort the unique optimal 4-code leaves $000$ at distance
-2 with three nearest centres (label d2$\cdot$3); it is not 2-dominating, yet flat (Theorem S1).}
-\Description{Three drawings of the 3-dimensional cube of effort profiles. Left: four filled centres forming the odd-weight class, all edges solid. Middle: the same centres with each other profile sent to one nearest centre; three edges are red and dashed, meaning one agent changing its effort leaves the record unchanged. Right: a different set of four centres for a tilted prior; profile 000 is at distance two from three centres, yet every edge is solid.}
-\label{fig:cubes}
-\end{figure*}
 
 \paragraph{Other priors.} \eqref{eq:M} never mentions the prior, and \cref{lem:nec} survives
 for any full-support prior at whatever radius the nearest centre lies. The supplement
 (Theorem S1) shows that the threshold is the least $K$ for which some prior-optimal code gives
 every non-centre at least two nearest centres; tilting moves it either way (7 at $n=4$ under
 the uniform prior, 5 when each agent works with probability $0.7$, 13 at $0.6$), and
-\cref{fig:cubes}(c) shows a flat record that is not 2-dominating.
+a supplementary cube diagram shows a flat record that is not 2-dominating.
 
 %% =====================================================================
 \section{Measured Mechanisms}\label{sec:experiments}
 %% =====================================================================
 
-No coordinator chooses an optimal record: it keeps a count, a threshold, the first few
-sub-agents' reports, or a hash into a fixed number of buckets. We measured these. Every profile
-is enumerated, so all numbers are exact, and predictions were registered and hashed before
-each harness was written; 11 of 14 conjectures failed and are listed in the supplement.
+We evaluate stylised count, threshold, prefix, hash and nearest-centre records by enumerating
+all profiles and solving the margin LP. These finite-model calculations are separate from
+the sampled language-model study below. The supplement reports the registered conjectures,
+including failures, and the reproducibility checks.
 
 \paragraph{Compaction mechanisms.} As listed in \cref{tab:mech}, no mechanism beats the
-frontier, and none below $K=\gamma_2(Q_n)$ is flat. The last two rows use the same ten labels
+frontier, and at this $n=5$ none below the certified threshold $K=10$ is flat. The last two rows use the same ten labels
 and have the same error $D_0(10)=0.6875$; one admits margin $1/2$ and the other none, for any
 bounded decoder, so a designer comparing records on reconstruction alone cannot see the
 difference. Keeping the first $m$ agents' bits gives margin exactly 0 for every $m<n$: prefix-4
@@ -818,63 +814,77 @@ $K$-median & 10 & 0.6875 & 0.6875 & 0.0000 & no\\
 $n=5$ the full trace and one bit per agent keep margin $0.5000$, while the multiset of artifacts,
 which loses only authorship, keeps $0.1425$.
 
-\paragraph{Reviews a model wrote.} In a three-agent code review written by codestral-2508 (192
-episodes), the same model at temperature 0 judged which reviewers read the diff. The full trace
-and the artifact multiset hold the same text and differ by about 30 bytes of ``Reviewer $k$:''
-labels; attribution error rises from 0.391 to 1.333 bits, a gap of 0.943 bits (95\% bootstrap CI
-$[0.802,1.089]$). The multiset recovers \emph{how many} reviewers worked; the gap is
-\emph{which}, and by \cref{cor:bb} no budget-balanced rule can settle from it. Sub-question
-difficulty is confounded with position, so the experiment illustrates identity loss rather
-than ranking records.
+\paragraph{Model-written reviews: an attribution illustration.}
+The saved codestral-2508 study has 192 episodes, 24 for each of eight three-agent effort
+profiles, using one fixed diff and three fixed reviewer roles. ``Effort'' is an assigned
+prompt condition: the reviewer receives the diff or writes generic guidance without it.
+The same model at temperature 0 predicts three effort bits. The labelled and unlabelled
+records retain identical review text, but the latter removes names \emph{and shuffles order},
+saving 30 bytes on average. Mean Hamming error (wrong agent labels out of three) rises
+from 0.391 to 1.333, a paired difference of 0.943 (episode-bootstrap 95\% CI
+$[0.802,1.089]$). This measures the joint effect of label removal and shuffling on this judge.
+It neither identifies their separate effects nor proves permutation invariance of the
+record law: specialised review content may reveal identity. Thus \cref{cor:bb} cannot be
+invoked for this experiment. Fixed roles, a single diff and a shared generator/judge limit
+generalisability; no strategic effort response is measured. The supplement defines the
+metric, reports all five record conditions and describes its limitations.
 
 %% =====================================================================
 \section{Related Work}\label{sec:related}
 %% =====================================================================
 
-Georgiadis and Szentes~\cite{georgiadisszentes2020} let a principal buy signals about one
-agent at constant marginal cost, and Kadan and Swinkels~\cite{kadanswinkels2008} characterise
-contracts under our payment bounds for a given information structure; we ask which structures
-a $K$-label record can provide, for a team, while also serving reconstruction. Contracts also
-align learning agents~\cite{haupt2023contracts,ivanov2024principal,shao2025truth}, and
-repeated games~\cite{radner1985repeated} and linked mechanisms~\cite{jacksonsonnenschein2007}
-use repetition to relax incentive constraints; \cref{sec:repeated} prices what they require of
-a bounded record. Fadel and Segal~\cite{fadelsegal2009} and Blumrosen, Nisan and
-Segal~\cite{blumrosen2007auctions} price the communication that incentives need for hidden
-types; \cref{thm:noisy} prices the memory that accountability needs for hidden action.
-Information design~\cite{kamenica2011persuasion} chooses a signal for a receiver; differential
-privacy~\cite{dwork2006calibrating} bounds each individual's influence on a record from above,
-accountability from below. Cooperative MARL decomposes a shared
-reward~\cite{foerster2018coma,sunehag2018vdn,rashid2018qmix,li2025nucleolus}, and introspective
-judges approximate removal-based attribution poorly~\cite{lu2026agents}. For 2-domination we use
-known bounds~\cite{fink1985ndomination,chellali2012survey,bujtas2016bounds,ostergard2001length9}
-and claim no novelty for the invariant, only the reduction to it.
+\paragraph{Contracts and information.}
+Jewitt, Kadan and Swinkels~\cite{kadanswinkels2008} study moral hazard with upper and lower
+payment constraints. Georgiadis and Szentes~\cite{georgiadisszentes2020} allow a principal to
+acquire signals about one agent at constant marginal cost. Our contribution is not the
+observation that signals can be designed: it is the memory--incentive trade-off for a shared
+$K$-label record of multiple agents' outcomes, including a reconstruction objective.
+The minimax and total-variation tools in \cref{thm:elim} are standard; their role here is to
+remove bounded decoders and support record design. Signal comparisons and the
+informativeness principle~\cite{blackwell1953comparisons,holmstrom1979moral} provide the
+background. Information design~\cite{kamenica2011persuasion} studies signals for receivers;
+our constraints require one retained signal to support multiple hidden-action incentives.
+
+\paragraph{Teams, repetition and communication.}
+Team moral hazard~\cite{holmstrom1982teams,legrosmatthews1993,rahmanobara2010} motivates
+the fixed-total constraint. \Cref{thm:bb} quantifies distinguishability among deviators;
+it does not claim a new general team impossibility. Repeated
+games~\cite{radner1985repeated} and linked decisions~\cite{jacksonsonnenschein2007} already
+use repetition to relax incentives; \cref{sec:repeated} supplies a retained-record bound
+and an explicit finite-horizon review threshold without interim feedback.
+Fadel and Segal~\cite{fadelsegal2009} and Blumrosen, Nisan and Segal~\cite{blumrosen2007auctions}
+study communication and hidden types; our lower bound concerns retained evidence of hidden
+actions. Contracts for learning agents~\cite{haupt2023contracts,ivanov2024principal,shao2025truth}
+and cooperative credit assignment~\cite{foerster2018coma,sunehag2018vdn,rashid2018qmix,li2025nucleolus}
+address related incentive and learning questions. Failure attribution and compression motivate
+our application, but attribution accuracy is distinct from implementable incentives.
+The 2-domination invariant and its bounds are classical~\cite{fink1985ndomination,chellali2012survey,bujtas2016bounds,ostergard2001length9};
+the contribution is their connection to reconstruction-optimal records in the specified regime.
 
 %% =====================================================================
 \section{Conclusion}\label{sec:conclusion}
 %% =====================================================================
 
-In conclusion, a size-bounded record of a team's work supports payment exactly to the extent
-that each agent can move it. With noisy outcomes each accountable agent costs $\Theta(c^2)$ bits,
-met up to $\pi\ln2$ by one threshold bit per block; under budget balance only attribution pays;
-repetition helps only with deferred settlement and identity; and with exact outcomes
-accountability is free at $\gamma_2(Q_n)$ labels.
+For independent noisy outcomes, fixed-cost Nash incentives require linear memory in
+team size; threshold blocks attain the same order. Fixed-total payments additionally
+require distinguishable individual deviators. For exact outcomes, 2-dominating codes
+combine optimal reconstruction with positive dominant-strategy incentives. Designers
+should therefore test incentive margins separately from reconstruction error and specify
+what evidence settlement can retain. Names are one way to preserve attribution;
+threshold bits and deferred review provide other savings under their stated assumptions.
 
-Five design rules follow. \textbf{R1} Preserve identity before content (\cref{cor:bb}).
-\textbf{R2} Keep one witness per accountable agent; bits for a fixed subset give margin 0.
-\textbf{R3} Record whether each block reached its usual level, not how many succeeded. \textbf{R4} Budget at least $\beta$ bits per
-accountable agent (\cref{prop:designer}). \textbf{R5} Measure accountability separately from
-reconstruction; equal error can hide margins $1/2$ and 0 (\cref{tab:mech}). Returning to the
-opening example, three bits, one per reviewer, would have kept every reviewer accountable;
-a summary of what was found, without who found it, keeps almost none and cannot settle a fixed budget at all.
-
-\paragraph{Limitations and outlook.} Effort is binary and loss is Hamming, though
-\cref{thm:elim,thm:bb} hold for any finite outcome space and \cref{thm:noisy} uses binary
-outcomes only in its Pinsker step; \cref{thm:onebit} needs the uniform prior. Repetition is
-treated without interim feedback, and audits or side channels outside the record change the
-question; a strategic compactor can only lower the margins
-(\cref{prop:strategic}), and designing incentives for the compactor itself is open. Other open
-problems are $\Kflat(9)\in[97,128]$, the one-bit frontier under non-uniform priors, and
-whether the constant $\pi\ln2$ in \cref{thm:tight} can be improved.
+\paragraph{Limitations and outlook.}
+The model assumes binary costly actions, commitment to the encoder and payments, and no
+settlement evidence outside the record. The noisy memory bound uses independent outcomes
+and fixed $h,l$; correlated production, heterogeneous tasks, or extra audit channels require
+new analysis. Exact-outcome reconstruction results use Hamming loss, and the one-bit
+frontier uses a uniform prior. The repeated model excludes interim feedback and counts
+terminal record size, not the working memory needed to compute that record online. A
+strategic compactor still induces a channel subject to the universal bounds, but implementing
+the desired channel needs its own incentive analysis. Open problems include excluding flat
+codes below the domination regime in general, resolving $\Kflat(9)\in[97,128]$, and closing
+the asymptotic memory gap. Controlled multi-task attribution experiments are also needed
+before drawing conclusions about LLM deployments.
 
 \label{endbody}\clearpage
 \balance
@@ -882,3 +892,4 @@ whether the constant $\pi\ln2$ in \cref{thm:tight} can be improved.
 \bibliography{refs}
 
 \end{document}
+

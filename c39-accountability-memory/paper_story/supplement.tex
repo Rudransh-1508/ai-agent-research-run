@@ -40,7 +40,7 @@ on Autonomous Agents and Multiagent Systems (AAMAS 2027)}{3--7 May 2027}{Hanoi, 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%% OpenReview submission number: printed on the first page in anonymous mode.
-\acmSubmissionID{<<OpenReview submission id>>}
+% Set the actual OpenReview submission ID before submission.
 
 \submissionType{Research Paper Track}
 
@@ -74,7 +74,7 @@ on Autonomous Agents and Multiagent Systems (AAMAS 2027)}{3--7 May 2027}{Hanoi, 
 
 \begin{document}
 \title[How Much Memory Does Accountability Cost? (Supplement)]{Supplementary Material}
-\subtitle{How Much Memory Does Accountability Cost? Three Reviewers, One Sticky Note, and the Price of Compressed Multi-Agent Records}
+\subtitle{How Much Memory Does Accountability Cost? Incentives and Reconstruction from Bounded Multi-Agent Records}
 
 \maketitle
 
@@ -269,6 +269,26 @@ as \% of $n$ & 33.3 & 33.6 & 28.6 & 22--27 & 15.0--17.3 & 8.0--9.4\\
 \end{table}
 
 \section{Additional Figures and Tables}
+\begin{figure*}[t]
+\centering
+\begin{subfigure}[b]{0.3\textwidth}\centering
+\includegraphics[width=\linewidth,page=1]{figures/g_cube_flat.pdf}
+\caption{Flat: $D=0.5$, $\mu=2/3$.}\end{subfigure}\hfill
+\begin{subfigure}[b]{0.3\textwidth}\centering
+\includegraphics[width=\linewidth,page=1]{figures/g_cube_near.pdf}
+\caption{Nearest centre: $D=0.5$, $\mu=0$.}\end{subfigure}\hfill
+\begin{subfigure}[b]{0.3\textwidth}\centering
+\includegraphics[width=\linewidth,page=1]{figures/g_cube_prior.pdf}
+\caption{Bernoulli$(0.7)$ prior: flat, $\mu=1/3$.}\end{subfigure}
+\caption{Records on the 3-cube; filled corners are centres and edge width is the total
+variation across the edge. (a) The odd-weight class is 2-dominating, so spreading each other
+corner over its three centre-neighbours is flat: $\Kflat(3)=\gamma_2(Q_3)=4$. (b) The same
+centres with each corner sent to one nearest centre: same error, three dead edges (red), margin
+0. (c) Under i.i.d.\ Bernoulli$(0.7)$ effort the unique optimal 4-code leaves $000$ at distance
+2 with three nearest centres (label d2$\cdot$3); it is not 2-dominating, yet flat (Theorem S1).}
+\Description{Three drawings of the 3-dimensional cube of effort profiles. Left: four filled centres forming the odd-weight class, all edges solid. Middle: the same centres with each other profile sent to one nearest centre; three edges are red and dashed, meaning one agent changing its effort leaves the record unchanged. Right: a different set of four centres for a tilted prior; profile 000 is at distance two from three centres, yet every edge is solid.}
+\label{fig:cubes}
+\end{figure*}
 
 \begin{figure}[h]
 \centering
@@ -283,19 +303,19 @@ teammate count is uniform, giving margin exactly $1/3$.}
 \begin{figure}[h]
 \centering
 \includegraphics[width=\columnwidth,page=1]{figures/uniq.pdf}
-\caption{Nash margin (blue) against ex-post margin (orange) under noise, $h=0.9$, $l=0.1$.
+\caption{Nash margin (blue) against dominant-strategy margin (orange) under noise, $h=0.9$, $l=0.1$.
 Between the two, all-work is an equilibrium but other equilibria are not ruled out.}
-\Description{Dumbbell chart for seven records comparing the Nash margin and the ex-post margin under noise; for the flat records the two coincide, while the count and all-succeeded records have much smaller ex-post margins.}
+\Description{Dumbbell chart for seven records comparing the Nash margin and the dominant-strategy margin under noise; for the flat records the two coincide, while the count and all-succeeded records have much smaller dominant-strategy margins.}
 \label{fig:uniq}
 \end{figure}
 
 \begin{table}[h]
-\caption{Exact Nash and ex-post margins under noisy outcomes, $h=0.9$, $l=0.1$.}
+\caption{Exact Nash and dominant-strategy margins under noisy outcomes, $h=0.9$, $l=0.1$.}
 \label{tab:noisy-exact}
 \footnotesize
 \begin{tabular}{@{}llrrr@{}}
 \toprule
-$n$ & record & $K$ & Nash & ex-post\\
+$n$ & record & $K$ & Nash & dominant-strategy\\
 \midrule
 5 & flat & 10 & 0.5063 & 0.5063\\
 5 & nearest centre & 10 & 0.2550 & 0.2550\\
@@ -326,23 +346,14 @@ final output only & 2 & 1.0 & 2.1118 & 0.0243\\
 \end{tabular}
 \end{table}
 
-\begin{figure*}[h]
-\centering
-\includegraphics[width=0.8\textwidth,page=1]{figures/llm.pdf}
-\caption{The model-written review experiment: three reviewer agents (codestral-2508), two
-records holding identical text, and the same model at temperature 0 as judge.}
-\Description{Flow diagram of the model-written review experiment: three reviewer agents feed two records holding identical text, a labelled full trace and an unlabelled artifact multiset; a judge reads each record, with attribution error 0.391 bits from the full trace and 1.333 bits from the multiset.}
-\label{fig:llm}
-\end{figure*}
-
 \begin{table}[h]
 \caption{Attribution error on model-written reviews (192 episodes). The first and third rows
-contain the same text, differing only by ``Reviewer $k$:'' labels.}
+retain the same review texts; the third removes names and shuffles order.}
 \label{tab:llm}
 \footnotesize
 \begin{tabular}{@{}lrr@{}}
 \toprule
-record & bytes & attribution error (of 3 bits)\\
+record & bytes & wrong agent labels (of 3)\\
 \midrule
 full trace & 2612 & 0.391\\
 per-agent summary & 661 & 0.260\\
@@ -353,15 +364,51 @@ final output only & 507 & 1.193\\
 \end{tabular}
 \end{table}
 
-\paragraph{Model-written reviews, details.} Taking the best of the $3!$ relabellings of the
-judge's answer reduces the multiset's error from 1.333 to 0.438, exactly its count error.
-At four episodes per profile the estimator returned a zero margin for the full trace because
-of seven cells in which the judge gave identical verdicts with and without some agent's
-effort; such ties can only bias the margin downward, and they fell to none at twenty-four
-episodes per profile, while the attribution gap moved only from 0.969 to 0.943. Agent $i$
-always received sub-question $i$, so sub-question difficulty and position are confounded;
-we therefore treat the measured margin ordering in these reviews as uninformative about
-record type.
+\paragraph{Model-written reviews, details.} The saved experiment uses
+\texttt{codestral-2508} at temperature 0, with 24 episodes for each of the eight
+assigned profiles (192 total), one fixed code diff, and three distinct fixed
+review questions. Working is implemented by supplying the diff; shirking uses
+a generic prompt without it. The historical system prompts describe incident
+analysis although the user prompts supply a code review task. These are
+experimentally assigned information conditions, not observed strategic effort
+choices or incentive responses. The same model judges retained records.
+The artifact-multiset transformation removes labels \emph{and shuffles order};
+it does not isolate the causal effect of name removal. Questions and agent
+positions are confounded, and heterogeneous content can reveal identity even
+after names are removed.
+
+The error is Hamming loss on three binary agent labels, not entropy or stored
+bits. Taking the best of the $3!$ permutations of each judge answer reduces
+the multiset error from 1.333 to 0.438, its count error. The paired mean gap
+against the full trace is 0.943 wrong labels (episode-bootstrap 95\% interval
+$[0.802,1.089]$); this interval describes resampling of the collected episodes,
+not generalisation to other tasks, models, or role assignments.
+
+The empirical channel maps the assigned profile to the \emph{judge's predicted
+profile}; its alphabet has at most eight outcomes regardless of text length.
+Margins and Bayes errors computed from this channel concern the judge's
+compression, not the maximum incentives attainable from raw text. Finite-sample
+margin errors can have either sign. At four episodes per profile, seven
+identical empirical conditional-distribution pairs forced an estimated zero
+full-trace margin; no such ties remained at 24 episodes. This is not a
+one-sided statistical bound. The estimated multiset margin (0.207) exceeds
+the full-trace margin (0.075), reversing the preregistered ordering. We retain
+this negative result and make no causal claim that identity removal reduces
+incentives in this experiment.
+
+\paragraph{Verification scope.} The revision reruns the solver-free suite
+\texttt{src/verify\_all.py} and the checks in \texttt{experiments/},
+\texttt{threshold\_tightness.py} and
+\texttt{repeated\_review.py}. All pass. These check finite instances,
+numerical formulae, and supplied constructions; they do not replace the proofs
+or independently reproduce every optimisation certificate and model API call.
+The theorem on threshold tightness has an asymptotic constant at fixed noise
+parameters and vanishing effort cost, with finite-size rounding as stated in
+the main paper. The repeated-review result assumes a committed effort plan
+without intermediate feedback and bounds final record size, not online
+working memory. The general flatness equality in the main paper is restricted
+to the dominating-code regime; Theorem S1 gives the unrestricted prior-specific
+characterisation.
 
 \section{Pre-registered Predictions}
 Of 22 registered predictions, 8 were derivations whose failure would have meant a false
@@ -386,18 +433,18 @@ Ship/no-ship bit has zero margin & 0.0900 ($n=3$), 0.0243 ($n=5$), decaying in $
 Margin ordering of records holds over all three model-written agents & Fails over three agents; holds over the two comparable ones. The third sub-task is far less auditable (accuracy 0.677).\\
 Artifact multiset has a margin smaller than the full trace by at least a third & Reversed: 0.207 against 0.075; the full trace's margin is set by the hard-to-audit third agent.\\
 Final output only has a margin near zero but not exactly zero & Exactly zero at 192 episodes.\\
-Multiset error close to the full trace's while its margin is not & Error 1.333 against 0.391 bits: the multiset matches the full trace on how many (0.438 against 0.391), not on which.\\
+Multiset error close to the full trace's while its margin is not & Error 1.333 against 0.391 wrong agent labels: the multiset matches the full trace on how many (0.438 against 0.391), not on which.\\
 \bottomrule
 \end{tabularx}
 \end{table*}
 
-\begin{figure*}[h]
-\centering
-\includegraphics[width=0.85\textwidth,page=1]{figures/related.pdf}
-\caption{Where the paper sits. Every neighbouring line of work takes the monitoring signal as
-given; this paper puts the budget on the signal itself.}
-\Description{Map of related work: a central box for this paper connected to boxes for Holmstrom, Legros-Matthews and Rahman-Obara, Kadan-Swinkels, algorithmic contracts, Georgiadis-Szentes, Blackwell and information design, Fadel-Segal and Blumrosen et al., differential privacy, LLM failure attribution and covering codes.}
-\label{fig:related}
-\end{figure*}
+
+\paragraph{Relation to prior work.} Monitoring and information structures are
+endogenous in parts of the contracting and information-design literature.
+Our restriction is specifically the finite alphabet of the retained public
+record, combined with bounded payments and a reconstruction objective. The
+main paper distinguishes the standard total-variation/minimax and information
+inequality tools from the threshold construction, attribution bound, and
+nearest-centre geometry studied here.
 
 \end{document}

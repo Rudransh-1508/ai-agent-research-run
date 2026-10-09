@@ -1,0 +1,12 @@
+closed form matches brute force over all plans, T <= 8: True
+T    k*   c_T(k*)   bits per agent per task
+1    0    0.8000    1.0000
+2    1    0.8000    0.5000
+5    3    0.9181    0.2000
+10   7    0.9298    0.1000
+20   15   0.9568    0.0500
+50   40   0.9755    0.0200
+100  83   0.9794    0.0100
+200  169  0.9905    0.0050
+per-task settlement cap h - l = 0.8
+ALL CHECKS PASS

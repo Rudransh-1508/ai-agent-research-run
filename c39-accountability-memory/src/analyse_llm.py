@@ -5,7 +5,7 @@ Compaction and the judge together induce a channel on the cube,
     q[s][y] = P(judge's predicted profile = y | true effort profile = s),
 
 estimated from the episodes. Once that channel exists the paper's own
-instruments apply unchanged: the margin comes from the Theorem 3 LP and the
+instruments apply unchanged: the margin comes from the minimax LP and the
 distortion from Bayes decoding, exactly as in the synthetic experiments. Storage
 is the record's real size in bytes.
 
@@ -108,7 +108,7 @@ for rec, i, sm in ties[:4]:
     print("   " + rec + ": agent " + str(i) + ", teammates " + sm
           + " -- identical predictions with and without that agent's effort")
 if ties:
-    print("   gamma is therefore biased DOWNWARD here and is not interpretable; "
+    print("   empirical ties force gamma=0; estimation error has no guaranteed sign; "
           "see L5 below.")
 
 
@@ -257,3 +257,4 @@ if "full_trace" in g:
 
 json.dump(results, open(data("results") / "experiment_llm_scored.json", "w"), indent=1)
 print("\nwrote results/experiment_llm_scored.json")
+
