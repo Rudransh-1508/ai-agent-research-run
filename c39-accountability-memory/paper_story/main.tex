@@ -114,14 +114,11 @@ principal can retain only a bounded record and settlement cannot consult the ori
 A useful summary of the findings may then omit the evidence needed to reward an individual
 reviewer. Which records preserve both functions?
 
-This is a question about information design under a retention constraint. Context compaction
-in language-model systems motivates it, but does not by itself imply that external logs are
-unavailable. Our assumption is explicit: reconstruction and settlement see only the retained
-record. The agents are strategic service providers or their operators; the model does not
-assume that a language model intrinsically values money. \emph{Reconstruction} recovers an
-outcome profile under Hamming loss. \emph{Accountability} preserves the effect of an agent's
-effort on its expected bounded payment. Accurate reconstruction alone need not preserve that
-effect (\cref{fig:pipeline}).
+Context compaction motivates an explicit retention constraint: reconstruction and
+settlement see only the retained record. Strategic agents are service providers or their
+operators, who bear effort costs and value rewards. Reconstruction recovers an outcome
+profile under Hamming loss; accountability preserves effort's effect on expected bounded
+payment. Accuracy alone need not preserve incentives (\cref{fig:pipeline}).
 
 \begin{figure*}[t]
 \centering
@@ -766,12 +763,32 @@ For example, this construction retains 17 bits at $n=20$.
 
 
 
+\begin{figure*}[t]
+\centering
+\begin{subfigure}[b]{0.3\textwidth}\centering
+\includegraphics[width=\linewidth,page=1]{figures/g_cube_flat.pdf}
+\caption{Flat: $D=0.5$, $\mu=2/3$.}\end{subfigure}\hfill
+\begin{subfigure}[b]{0.3\textwidth}\centering
+\includegraphics[width=\linewidth,page=1]{figures/g_cube_near.pdf}
+\caption{Nearest centre: $D=0.5$, $\mu=0$.}\end{subfigure}\hfill
+\begin{subfigure}[b]{0.3\textwidth}\centering
+\includegraphics[width=\linewidth,page=1]{figures/g_cube_prior.pdf}
+\caption{Bernoulli$(0.7)$ prior: flat, $\mu=1/3$.}\end{subfigure}
+\caption{Records on the 3-cube. Filled vertices are centres; edge width denotes total
+variation. (a) Uniformly choosing a neighbouring centre is flat. (b) Deterministic nearest-centre
+assignment has the same error but zero margin: three edges are dead (red).
+(c) Under a Bernoulli$(0.7)$ prior, an optimal code is flat without being 2-dominating
+(Theorem S1): $000$ has three nearest centres at distance 2.}
+\Description{Three drawings of the 3-dimensional cube of effort profiles. Left: four filled centres forming the odd-weight class, all edges solid. Middle: the same centres with each other profile sent to one nearest centre; three edges are red and dashed, meaning one agent changing its effort leaves the record unchanged. Right: a different set of four centres for a tilted prior; profile 000 is at distance two from three centres, yet every edge is solid.}
+\label{fig:cubes}
+\end{figure*}
+
 \paragraph{Other priors.} \eqref{eq:M} never mentions the prior, and \cref{lem:nec} survives
 for any full-support prior at whatever radius the nearest centre lies. The supplement
 (Theorem S1) shows that the threshold is the least $K$ for which some prior-optimal code gives
 every non-centre at least two nearest centres; tilting moves it either way (7 at $n=4$ under
 the uniform prior, 5 when each agent works with probability $0.7$, 13 at $0.6$), and
-a supplementary cube diagram shows a flat record that is not 2-dominating.
+\cref{fig:cubes}(c) shows a flat record that is not 2-dominating.
 
 %% =====================================================================
 \section{Measured Mechanisms}\label{sec:experiments}
@@ -815,51 +832,40 @@ $n=5$ the full trace and one bit per agent keep margin $0.5000$, while the multi
 which loses only authorship, keeps $0.1425$.
 
 \paragraph{Model-written reviews: an attribution illustration.}
-The saved codestral-2508 study has 192 episodes, 24 for each of eight three-agent effort
-profiles, using one fixed diff and three fixed reviewer roles. ``Effort'' is an assigned
-prompt condition: the reviewer receives the diff or writes generic guidance without it.
-The same model at temperature 0 predicts three effort bits. The labelled and unlabelled
-records retain identical review text, but the latter removes names \emph{and shuffles order},
-saving 30 bytes on average. Mean Hamming error (wrong agent labels out of three) rises
-from 0.391 to 1.333, a paired difference of 0.943 (episode-bootstrap 95\% CI
-$[0.802,1.089]$). This measures the joint effect of label removal and shuffling on this judge.
-It neither identifies their separate effects nor proves permutation invariance of the
-record law: specialised review content may reveal identity. Thus \cref{cor:bb} cannot be
-invoked for this experiment. Fixed roles, a single diff and a shared generator/judge limit
-generalisability; no strategic effort response is measured. The supplement defines the
-metric, reports all five record conditions and describes its limitations.
+The saved codestral-2508 study uses 192 episodes, one fixed diff and three reviewer roles.
+``Effort'' is assigned by supplying the diff or requesting generic guidance without it;
+no strategic response is measured. The same model judges retained records at temperature 0.
+Removing names \emph{and shuffling order} retains identical review text and saves 30 bytes
+on average, but raises mean Hamming error from 0.391 to 1.333 wrong agent labels out of three
+(paired difference 0.943; episode-bootstrap 95\% CI $[0.802,1.089]$).
+The comparison combines both transformations. Specialised content may reveal identity,
+so it does not establish the symmetry required by \cref{cor:bb}. Fixed roles, one diff and
+a shared generator/judge limit generalisability. The supplement reports all conditions,
+metric definitions and finite-sample limitations.
 
 %% =====================================================================
 \section{Related Work}\label{sec:related}
 %% =====================================================================
 
 \paragraph{Contracts and information.}
-Jewitt, Kadan and Swinkels~\cite{kadanswinkels2008} study moral hazard with upper and lower
-payment constraints. Georgiadis and Szentes~\cite{georgiadisszentes2020} allow a principal to
-acquire signals about one agent at constant marginal cost. Our contribution is not the
-observation that signals can be designed: it is the memory--incentive trade-off for a shared
-$K$-label record of multiple agents' outcomes, including a reconstruction objective.
-The minimax and total-variation tools in \cref{thm:elim} are standard; their role here is to
-remove bounded decoders and support record design. Signal comparisons and the
-informativeness principle~\cite{blackwell1953comparisons,holmstrom1979moral} provide the
-background. Information design~\cite{kamenica2011persuasion} studies signals for receivers;
-our constraints require one retained signal to support multiple hidden-action incentives.
+Jewitt, Kadan and Swinkels~\cite{kadanswinkels2008} study bounded-payment moral hazard;
+Georgiadis and Szentes~\cite{georgiadisszentes2020} design monitoring for one agent.
+We constrain a shared retained alphabet serving multiple agents' incentives and reconstruction.
+The minimax/total-variation tools are standard, with signal comparisons and informativeness
+as background~\cite{blackwell1953comparisons,holmstrom1979moral}.
+Unlike persuasion~\cite{kamenica2011persuasion}, our signal supports hidden-action incentives.
 
 \paragraph{Teams, repetition and communication.}
 Team moral hazard~\cite{holmstrom1982teams,legrosmatthews1993,rahmanobara2010} motivates
-the fixed-total constraint. \Cref{thm:bb} quantifies distinguishability among deviators;
-it does not claim a new general team impossibility. Repeated
-games~\cite{radner1985repeated} and linked decisions~\cite{jacksonsonnenschein2007} already
-use repetition to relax incentives; \cref{sec:repeated} supplies a retained-record bound
-and an explicit finite-horizon review threshold without interim feedback.
-Fadel and Segal~\cite{fadelsegal2009} and Blumrosen, Nisan and Segal~\cite{blumrosen2007auctions}
-study communication and hidden types; our lower bound concerns retained evidence of hidden
-actions. Contracts for learning agents~\cite{haupt2023contracts,ivanov2024principal,shao2025truth}
+fixed-total payments; \cref{thm:bb} quantifies attribution among deviators.
+Repetition~\cite{radner1985repeated,jacksonsonnenschein2007} already relaxes incentives;
+we bound retained memory and give a finite-horizon threshold without interim feedback.
+Communication models~\cite{fadelsegal2009,blumrosen2007auctions} address hidden types;
+our evidence concerns hidden actions. Learning-agent contracts~\cite{haupt2023contracts,ivanov2024principal,shao2025truth}
 and cooperative credit assignment~\cite{foerster2018coma,sunehag2018vdn,rashid2018qmix,li2025nucleolus}
-address related incentive and learning questions. Failure attribution and compression motivate
-our application, but attribution accuracy is distinct from implementable incentives.
-The 2-domination invariant and its bounds are classical~\cite{fink1985ndomination,chellali2012survey,bujtas2016bounds,ostergard2001length9};
-the contribution is their connection to reconstruction-optimal records in the specified regime.
+address related questions. Attribution accuracy alone does not establish implementable incentives.
+The 2-domination invariant is classical~\cite{fink1985ndomination,chellali2012survey,bujtas2016bounds,ostergard2001length9};
+we connect it to reconstruction-optimal records in the specified regime.
 
 %% =====================================================================
 \section{Conclusion}\label{sec:conclusion}
@@ -874,17 +880,13 @@ what evidence settlement can retain. Names are one way to preserve attribution;
 threshold bits and deferred review provide other savings under their stated assumptions.
 
 \paragraph{Limitations and outlook.}
-The model assumes binary costly actions, commitment to the encoder and payments, and no
-settlement evidence outside the record. The noisy memory bound uses independent outcomes
-and fixed $h,l$; correlated production, heterogeneous tasks, or extra audit channels require
-new analysis. Exact-outcome reconstruction results use Hamming loss, and the one-bit
-frontier uses a uniform prior. The repeated model excludes interim feedback and counts
-terminal record size, not the working memory needed to compute that record online. A
-strategic compactor still induces a channel subject to the universal bounds, but implementing
-the desired channel needs its own incentive analysis. Open problems include excluding flat
-codes below the domination regime in general, resolving $\Kflat(9)\in[97,128]$, and closing
-the asymptotic memory gap. Controlled multi-task attribution experiments are also needed
-before drawing conclusions about LLM deployments.
+We assume binary costly actions, commitment, and no settlement evidence outside the record.
+The noisy bound uses independent outcomes and fixed $h,l$; reconstruction uses Hamming loss.
+Repetition excludes interim feedback and counts terminal records, not online working memory.
+A strategic compactor needs separate incentives to implement the desired channel.
+Open problems include correlated or heterogeneous outcomes, excluding flat codes below the
+domination regime, resolving $\Kflat(9)\in[97,128]$, and closing the asymptotic memory gap.
+Controlled multi-task experiments are needed for LLM deployment claims.
 
 \label{endbody}\clearpage
 \balance

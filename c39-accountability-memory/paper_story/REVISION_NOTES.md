@@ -18,7 +18,7 @@ The strongest case is the combination of a retained-alphabet constraint, a const
 - Corrected the empirical comparison: both names and order change; Hamming error counts wrong agent labels, not information-theoretic bits; estimated margins describe the judge-induced channel.
 - Removed the claim that finite-sample margin errors must be downward. The scoring script now states the limitation accurately.
 - Corrected the authorship of Jewitt, Kadan and Swinkels and removed the inaccurate claim that related research always fixes monitoring.
-- Moved cube illustrations to the supplement, preserved the official class, and used its intended Libertine/Biolinum/Libertinus fonts.
+- Restored all three hypercube panels as Figure 4 in the main paper at the authors' request. Shortened repeated introductory, empirical, related-work and concluding prose to retain eight body pages; preserved the official class and its intended Libertine/Biolinum/Libertinus fonts.
 - Removed the literal placeholder submission ID. The real ID must be entered if the submission instructions require it.
 
 ## Validation
@@ -33,7 +33,7 @@ python experiments/repeated_review.py
 
 All three scripts reported passing checks. Logs are in `validation/`. These are numerical and construction checks, not an independent proof certification. The revision did not rerun model API experiments or every integer-program infeasibility run. Saved empirical results are reported with their limitations. Historical preregistration and solver claims are retained from the supplied materials rather than newly independently authenticated.
 
-The compiled main paper has eight body pages and one reference page; the supplement has four pages. Both were rendered and visually inspected. Compilation has no undefined references/citations or overflowing text lines. The official class emits an existing incomplete-conditional warning. Neither prevents generation or produces visible clipping. Some supplied figures contain embedded Type 3 fonts; they were retained rather than redrawn with unverified data.
+The compiled main paper has eight body pages and one reference page; the supplement has five pages. Both were rendered and visually inspected. Compilation has no undefined references/citations or overflowing text lines. The official class emits an existing incomplete-conditional warning and small vertical-box warnings. These do not prevent generation or produce visible clipping. Some supplied figures contain embedded Type 3 fonts; they were retained rather than redrawn with unverified data.
 
 ## Highest-value further work
 
