@@ -23,7 +23,11 @@ import os
 from dataclasses import dataclass, field
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-REPOS = os.path.normpath(os.path.join(HERE, "..", "corpus", "repos"))
+# GATE_REPOS points the harness at another checkout of the same repos, e.g.
+# corpus/repos_head/ for a re-check against each gate's current upstream code.
+REPOS = os.path.normpath(os.environ.get("GATE_REPOS") or os.path.join(HERE, "..", "corpus", "repos"))
+# The exact model every live run pins; override for a re-check on a newer version.
+LIVE_MODEL = os.environ.get("LIVE_JEV_MODEL", "jev-1.13.0")
 GATES_JSON = os.path.normpath(os.path.join(HERE, "..", "corpus", "gates.json"))
 
 FAKE_KEY = "fi-fake-key-not-a-secret"
@@ -36,6 +40,15 @@ class Context:
 
 
 def pinned_sha(repo):
+    if os.environ.get("GATE_REPOS"):
+        head = os.path.join(REPOS, repo, ".git", "HEAD")
+        try:
+            ref = open(head).read().strip()
+            if ref.startswith("ref: "):
+                ref = open(os.path.join(REPOS, repo, ".git", ref[5:])).read().strip()
+            return ref
+        except OSError:
+            return None
     with open(GATES_JSON) as f:
         gates = json.load(f)
     gates = gates["gates"] if isinstance(gates, dict) else gates
@@ -211,6 +224,12 @@ RECIPES = [
            controls={"yes": {"destructive": {"noul": 0.99}, "verdict": {"choice": "deny"}},
                      "no": {"destructive": {"noul": 0.01}, "verdict": {"choice": "allow"}}},
            notes="guard mode: asks are left to the host"),
+    Recipe("jev-engineering(auto)", "eugeniughelbur__jev-engineering", "python",
+           ["{repo}/jev_gate.py"], command=PROBE_COMMAND,
+           extra_env={"OPENROUTER_API_KEY": FAKE_KEY, "JEV_GATE_MODE": "auto"},
+           controls={"yes": {"destructive": {"noul": 0.99}, "verdict": {"choice": "deny"}},
+                     "no": {"destructive": {"noul": 0.01}, "verdict": {"choice": "allow"}}},
+           notes="auto mode (upstream from 2026-09-27): the gate approves on its own"),
     Recipe("jev-harness(typesafe)", "ismaelsoilet__jev-harness", "python",
            ["-m", "jev_harness.cli", "verify", "--criteria",
             "All unit tests pass and the login bug is fixed.",
@@ -247,14 +266,18 @@ _fix_pythonpath()
 # point it at TypeSafe direct with the pinned model. Everything else stays at
 # the gate's shipped defaults.
 # --------------------------------------------------------------------------
+_ENG = {"JEV_ENDPOINT": "https://api.typesafe.ai/v1/systemone"}
+
 LIVE = {
-    "jev-guard": lambda k: {"JEV_API_KEY": k},
+    "jev-guard": lambda k: {"JEV_API_KEY": k, "JEV_MODEL": LIVE_MODEL},
     "jev-engineering": lambda k: {"TYPESAFE_API_KEY": k, "JEV_GATE_MODE": "enforce",
-                                  "JEV_ENDPOINT": "https://api.typesafe.ai/v1/systemone",
-                                  "JEV_MODEL": "jev-1.13.0"},
+                                  "JEV_MODEL": LIVE_MODEL, **_ENG},
     "jev-engineering(guard)": lambda k: {"TYPESAFE_API_KEY": k, "JEV_GATE_MODE": "guard",
-                                         "JEV_ENDPOINT": "https://api.typesafe.ai/v1/systemone",
-                                         "JEV_MODEL": "jev-1.13.0"},
+                                         "JEV_MODEL": LIVE_MODEL, **_ENG},
+    # auto mode exists only from upstream 2026-09-27 on: the gate itself approves
+    # what it judges clearly safe, so no prompt appears even in the host's default mode.
+    "jev-engineering(auto)": lambda k: {"TYPESAFE_API_KEY": k, "JEV_GATE_MODE": "auto",
+                                        "JEV_MODEL": LIVE_MODEL, **_ENG},
 }
 
 

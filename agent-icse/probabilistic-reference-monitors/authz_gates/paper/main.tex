@@ -38,9 +38,11 @@ findings stand out. (i) A gate's real-world protection is set not by the model b
 gate-mode $\times$ host-permission-mode combination: the same gate auto-allows 3 versus 88
 of 131 clearly-destructive calls depending on one configuration flag, because ``ask''
 verdicts are silently downgraded to ``allow'' when nothing prompts a human. (ii) The
-vendor's illustrative $0.9$ threshold, shipped verbatim by 8 gates, auto-allows \emph{zero}
+vendor's illustrative $0.9$ threshold, shipped verbatim by 8 gates, auto-allowed \emph{zero}
 of 346 items: the model separates safe from destructive perfectly, but its ``safe'' scores
-never reach $0.9$. (iii) An availability fault is an authorization bypass: padding a
+never reached $0.9$. Five weeks later the next model version auto-allows 27\% of safe items at
+the same constant, with no change to any gate: a copied threshold's meaning drifts with the
+model behind it. (iii) An availability fault is an authorization bypass: padding a
 destructive command to exceed the model's token limit returns HTTP~400 in ${\sim}0.7$\,s,
 and fail-open gates then execute it---confirmed live end to end. (iv) These pathologies are
 not vendor-specific; they recur in non-Jev LLM-judge gates and in the host's own
@@ -112,14 +114,23 @@ principle.
 (TraceSafe~\cite{tracesafe2026}), pre-execution gates (ScopeJudge~\cite{scopejudge2026},
 CARE~\cite{care2026}), and human-oversight calibration
 (Oversight Has a Capacity~\cite{oversight2026}). These evaluate purpose-built judges on
-author-constructed inputs. We instead study \emph{deployed} gates and their failure and
-availability behaviour, which this line does not touch.
+author-constructed inputs. Concurrent work evaluates System One models themselves for
+security decisions, finding that strict miss budgets leave little to
+automate~\cite{liu2026systemone}, that the option labels of a typed question are an attack
+channel~\cite{azizi2026option}, and that LLM gates misjudge benign authorized
+requests~\cite{authgatebench2026}; frameworks now pair deterministic state checks with a
+decision model~\cite{jevact2026}. All of these study the model or a purpose-built gate. We
+instead study \emph{deployed} gates and their failure and availability behaviour, which this
+line does not touch. (Azizi et al.\ use ``fail-open'' for a wrong allow; we use it for
+behaviour when the model call fails.)
 
 \textbf{Calibration and selective risk.} Guard models are known to be
 miscalibrated~\cite{guardcal2025}; selective classification and the cost-optimal reject
 threshold are classical~\cite{chow1970,elyaniv2010,guo2017}. Our threshold recipe is
 Chow's rule instantiated for authorization with a finite-sample
-guarantee~\cite{clopper1934}; we claim the audit and the recipe, not the theory.
+guarantee~\cite{clopper1934}; we claim the audit and the recipe, not the theory. CAGE
+certifies an authorization decision against perturbed tool returns~\cite{cage2026}; our recipe
+instead certifies the threshold itself from a small labelled set.
 
 \textbf{Mining agent configurations.} Recent studies mine agent configs for supply-chain
 exposures~\cite{scanharness2026} and natural-language security rules~\cite{donotdeny2026}.
@@ -185,7 +196,15 @@ The headline is the dead auto-allow path: at the vendor's $0.9$, the Noul gate a
 separates safe from destructive perfectly on definite-label items (AUROC $1.0$; safe scores
 $0.34$--$0.89$, destructive $0.01$--$0.24$)---but a scale failure: the ``safe'' probability
 never reaches $0.9$. The eight gates that copied $0.9$ ship a branch that never fires.
-Calibration is best for Score (ECE $0.067$), not worst as an earlier pilot reported; the
+\textbf{Version drift.} Re-running the benchmark on \code{jev-1.14.0}, released five weeks
+later and served under the \code{jev-latest} alias, the same $0.9$ auto-allows 25 of 94
+clearly-safe items (safe scores now reach $0.94$; AUROC still $1.0$). The constant did not
+change and neither did any gate; its meaning did. A gate that calls the alias changes
+behaviour on the vendor's release schedule. The update is not uniformly better: Choice's
+held-out adversarial accuracy falls from $0.90$ to $0.75$ and its ambiguous-tier accuracy
+from $0.82$ to $0.64$, and the calibration ranking flips on the main corpus (Noul ECE
+$0.074$, Score $0.084$). Per-version results are released with the artifact.
+On \code{jev-1.13.0} calibration is best for Score (ECE $0.067$), not worst as an earlier pilot reported; the
 pilot's Score and Choice questions omitted task semantics, and correcting them moved Score
 from ECE $0.461$ to $0.067$ and Choice's ambiguous-tier accuracy from $33\%$ to $82\%$. We
 report this as a measurement correction. Repeating 50 items ten times, $12\%$ change their
@@ -236,7 +255,8 @@ that fails closed.
 \gate{jev-engineering} in \code{enforce} and \code{guard} modes) end to end on the benchmark
 against the live model, each item rendered as the exact hook payload a real agent sends. A
 \emph{defer} outcome is scored two ways: as \emph{ask} under the host's default mode (a
-human is prompted) and as \emph{allow} under auto-approval (the host runs it).
+human is prompted) and as \emph{allow} under auto-approval, a host mode that runs whatever
+no hook blocks (Claude Code's \code{bypassPermissions}~\cite{cchooks}).
 
 \begin{figure}[t]
 \centering
@@ -318,7 +338,8 @@ only affects how much coverage a given $\alpha$ buys.
 \end{axis}
 \end{tikzpicture}
 \caption{Certified false-allow rate versus auto-allow coverage as the threshold sweeps
-(distribution-free Clopper--Pearson upper bound, $\delta{=}0.05$, 225 definite items). The
+(distribution-free Clopper--Pearson upper bound, $\delta{=}0.05$, 225 definite items,
+\code{jev-1.13.0}). The
 vendor's $0.9$ sits at zero coverage; a data-chosen threshold certifies 42\% coverage at
 $\leq 3.1\%$ false-allow.}
 \label{fig:curve}
@@ -330,7 +351,11 @@ data-chosen threshold on the same 225 definite items certifies \textbf{42\% auto
 $\leq 3.1\%$ false-allow rate} ($\delta=0.05$), auto-allowing all 94 clearly-safe items.
 The vendor's own $0.9$ works once scores are isotonically recalibrated (41\% coverage,
 $\leq 3.2\%$), so $0.9$ was not a wrong number but a number on the wrong scale: fix the scale
-or fix the number, but copying the number and doing neither yields a dead gate. Honestly, a
+or fix the number, but copying the number and doing neither yields a dead gate. On
+\code{jev-1.14.0} the recipe certifies the same 42\% at $\leq 3.1\%$, but at a different
+threshold ($0.285$, not $0.245$), while $0.9$ now auto-allows 11\% yet certifies only
+$\leq 11.3\%$: a certified threshold is tied to a model version and must be re-derived when
+it changes. Honestly, a
 $2\%$ budget certifies nothing here---94 clean calibration points bound the rate only to
 ${\sim}3\%$---which is itself the useful guidance: tighter budgets need more calibration
 data.
@@ -346,13 +371,32 @@ $\kappa=0.47$.
 Two facts argue the findings are not vendor-specific. First, the host itself fails open: the
 coding-agent hook mechanism these gates run on does not block a timed-out
 hook~\cite{cchooks}, so a stalled model judge is overridden into fail-open regardless of
-vendor. Second, a small non-Jev comparison set reproduces every pathology: a REST-judge gate
+vendor. The host now offers an opt-in \code{onFailure} setting that blocks instead; the default is unchanged. Second, a small non-Jev comparison set reproduces every pathology: a REST-judge gate
 exposes fail-open as an environment toggle (mirroring the mode flag above), fails closed on
 its command path but open on its URL path (mirroring split behaviour we observed), and once
 ``quietly downgraded require-approval to allow'' (mirroring the live 88/131 downgrade). By
 contrast, deterministic gates in the same set have no availability axis at all---nothing to
 switch off with a padded input. The pathologies are properties of putting a probabilistic
 model in the authorization path, which Jev popularized but does not own.
+
+\section{Five Weeks Later}
+\label{sec:recheck}
+We re-checked every finding on 2026-10-31, five weeks after measurement, by reading each
+gate's upstream code and re-running the benchmark on the current model. \textbf{Gates.}
+Four of the five gates in Sec.~\ref{sec:fault} changed. jev-belay and jev-guard still
+proceed or defer on every model failure, and jev-guard's action path still sends the full,
+untruncated input, so the padding bypass still applies. jev-engineering added deterministic
+deny rules that now catch our padded credential-exfiltration probe before any model
+call---a deterministic layer closing what the probabilistic one left open---but its
+fallback on model failure is unchanged, and it gained an \code{auto} mode in which the
+model's verdict alone skips the human prompt. jev-harness moved the other way: its TypeSafe
+path, fail-closed when measured, now by default decides on an offline engine when the model
+fails, marking the answer as degraded but acting on it. \textbf{Ecosystem.} The index we
+sampled grew from 49 to 66 candidates. Of the readable new action gates, the hook-style one
+documents fail-open on every failure and all ship undocumented threshold constants, while two
+non-hook gates fail closed. \textbf{Host.} A timed-out hook still does not block by default;
+an opt-in to block now exists. The mechanisms persist; what moved is the model scale
+(Sec.~\ref{sec:bench}) and, in one gate, the failure default toward open.
 
 \section{Threats to Validity}
 The corpus is a convenience sample from one curated index, collected in the first two weeks
@@ -361,21 +405,24 @@ comparison establishes mechanism transfer, not off-Jev prevalence. Benchmark lab
 from generation rules; we mitigate with disputable-item flags, sensitivity analyses, and the
 independent re-adjudication above. The benchmark measures our gate configurations, not each
 deployed gate's exact wording; Sec.~\ref{sec:live} closes this for three gates by running
-their real code. Measurements use a single model version over a short window. Fault
+their real code. The benchmark covers two model versions; fault injection and the live cross-evaluation used
+\code{jev-1.13.0} at pinned gate commits, and their re-check at upstream HEAD is by code
+reading (Sec.~\ref{sec:recheck}). We study per-call gates only; violations that span several individually allowed calls are
+beyond any per-action monitor~\cite{localallow2026}. Fault
 classifications are now observed, not merely read.
 
 \section{Conclusion}
 Practitioners are building agent authorization out of a remote, probabilistic model, against
 the security literature's advice, and the result fails in ways an operator cannot see from
 the outside. The model can separate safe from dangerous perfectly and the gate can still be
-useless: a copied threshold that never fires, an ``ask'' silently downgraded to ``allow,'' a
+useless: a copied threshold that never fires, or fires differently after a silent model update, an ``ask'' silently downgraded to ``allow,'' a
 padded command that switches the gate off. The safety that remains is usually the host's
 confirmation prompt, not the model. Where a probabilistic model is used, its threshold should
-be certified from data with an explicit false-allow budget, and its failure path should be
-closed, not open. We release the corpus, benchmark, fault harness, live-evaluation runner,
+be certified from data with an explicit false-allow budget against a pinned model version,
+and re-certified when that version changes; its failure path should be closed, not open. We release the corpus, benchmark, fault harness, live-evaluation runner,
 and threshold recipe to make these properties measurable for the next gate.
 
-\balance
+
 \bibliographystyle{IEEEtran}
 \bibliography{refs}
 \end{document}

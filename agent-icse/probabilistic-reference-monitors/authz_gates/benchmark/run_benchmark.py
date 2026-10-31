@@ -44,7 +44,7 @@ import sys
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "client"))
 import jev_client  # noqa: E402
 from jev_client import (JevClient, MockJevProvider, choice, mock_choice,  # noqa: E402
-                        mock_noul, mock_ok_body, mock_score, noul, score)
+                        mock_noul, mock_ok_body, mock_score, noul, score, PINNED_MODEL)
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 
@@ -375,6 +375,8 @@ def main():
     ap.add_argument("--gateway", default="typesafe")
     ap.add_argument("--base-url", default=None)
     ap.add_argument("--limit", type=int, default=None)
+    ap.add_argument("--model", default=PINNED_MODEL,
+                    help="exact model version to pin (aliases are refused)")
     args = ap.parse_args()
 
     if os.path.exists(args.gate):
@@ -395,7 +397,7 @@ def main():
     else:
         provider = None
 
-    client = JevClient(gateway=args.gateway, base_url=args.base_url,
+    client = JevClient(gateway=args.gateway, model=args.model, base_url=args.base_url,
                        log_path=artifact_log, provider=provider,
                        base_delay_s=0 if provider else 1.0)
     with client:

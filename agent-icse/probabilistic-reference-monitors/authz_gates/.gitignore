@@ -2,3 +2,5 @@ corpus/repos/
 artifact/*.jsonl
 __pycache__/
 .env*
+corpus/repos_head/
+artifact/*/*.jsonl
