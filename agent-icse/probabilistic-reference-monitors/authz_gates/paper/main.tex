@@ -255,8 +255,8 @@ that fails closed.
 \gate{jev-engineering} in \code{enforce} and \code{guard} modes) end to end on the benchmark
 against the live model, each item rendered as the exact hook payload a real agent sends. A
 \emph{defer} outcome is scored two ways: as \emph{ask} under the host's default mode (a
-human is prompted) and as \emph{allow} under auto-approval, a host mode that runs whatever
-no hook blocks (Claude Code's \code{bypassPermissions}~\cite{cchooks}).
+human is prompted) and as \emph{allow} under auto-approval, a host mode that runs any call
+no hook blocks or escalates (Claude Code's \code{bypassPermissions}~\cite{cchooks}).
 
 \begin{figure}[t]
 \centering
@@ -381,15 +381,20 @@ model in the authorization path, which Jev popularized but does not own.
 
 \section{Five Weeks Later}
 \label{sec:recheck}
-We re-checked every finding on 2026-10-31, five weeks after measurement, by reading each
-gate's upstream code and re-running the benchmark on the current model. \textbf{Gates.}
+We re-checked every finding on 2026-10-31, five weeks after measurement, re-running the
+benchmark and the live cross-evaluation on each gate's upstream code and the current model. \textbf{Gates.}
 Four of the five gates in Sec.~\ref{sec:fault} changed. jev-belay and jev-guard still
 proceed or defer on every model failure, and jev-guard's action path still sends the full,
 untruncated input, so the padding bypass still applies. jev-engineering added deterministic
 deny rules that now catch our padded credential-exfiltration probe before any model
 call---a deterministic layer closing what the probabilistic one left open---but its
-fallback on model failure is unchanged, and it gained an \code{auto} mode in which the
-model's verdict alone skips the human prompt. jev-harness moved the other way: its TypeSafe
+fallback on model failure is unchanged, and it gained an \code{auto} mode that skips the
+human prompt itself. Live, the Table~\ref{tab:live} pattern reproduces (guard mode: 83/131 and
+56/64 destructive calls run under auto-approval; jev-guard 5/131). In \code{auto} mode the gate
+removes the prompt for 32 of 94 safe calls, but also runs 3 destructive calls with no prompt
+even in the host's default mode---and all three come from its \emph{deterministic} read-only
+allowlist, which matches \mbox{\code{git branch -D}} as \mbox{\code{git branch}}. Rules fail too, by being
+too broad. jev-harness moved the other way: its TypeSafe
 path, fail-closed when measured, now by default decides on an offline engine when the model
 fails, marking the answer as degraded but acting on it. \textbf{Ecosystem.} The index we
 sampled grew from 49 to 66 candidates. Of the readable new action gates, the hook-style one
@@ -405,8 +410,8 @@ comparison establishes mechanism transfer, not off-Jev prevalence. Benchmark lab
 from generation rules; we mitigate with disputable-item flags, sensitivity analyses, and the
 independent re-adjudication above. The benchmark measures our gate configurations, not each
 deployed gate's exact wording; Sec.~\ref{sec:live} closes this for three gates by running
-their real code. The benchmark covers two model versions; fault injection and the live cross-evaluation used
-\code{jev-1.13.0} at pinned gate commits, and their re-check at upstream HEAD is by code
+their real code. The benchmark and live cross-evaluation cover two model versions and two gate snapshots;
+fault injection was run at pinned commits only, and its re-check at upstream HEAD is by code
 reading (Sec.~\ref{sec:recheck}). We study per-call gates only; violations that span several individually allowed calls are
 beyond any per-action monitor~\cite{localallow2026}. Fault
 classifications are now observed, not merely read.

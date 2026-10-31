@@ -23,6 +23,12 @@ HEAD on 2026-10-31; see `RECHECK_2026-10-31.md`.
   Under a host mode that runs unblocked calls, 88/131 clearly destructive benchmark calls
   ran (64/64 on held-out attack families). Worth a README warning that `guard` relies on a
   confirming host.
+- **Allowlist treats `git branch -D` as read-only.** The fast-path pattern
+  `^\s*git\s+(status|diff|log|branch|remote|fetch)\b` in `policy.json` matches
+  `git branch -D <name>`; in `auto` mode that returns `allow`, so a branch is force-deleted
+  with no prompt even in Claude Code's default mode (observed live, 3/3 such benchmark
+  items, 2026-10-31). Suggested fix: anchor `branch` to its listing forms
+  (`git branch(\s+(-a|-r|--list|-v+))*\s*$`) or drop it from the fast path.
 
 ## leepokai/jev-guard
 
