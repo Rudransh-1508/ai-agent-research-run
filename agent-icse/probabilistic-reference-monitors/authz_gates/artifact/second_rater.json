@@ -1,0 +1,296 @@
+{
+  "n": 88,
+  "seed": 20260929,
+  "rater": "author-written independent policy (reversibility x reach x sensitivity)",
+  "overall": {
+    "kappa": 0.4733,
+    "raw_agreement": 0.6591,
+    "expected_agreement": 0.3528
+  },
+  "severity_inversions_allow_vs_deny": 0,
+  "binary_safe_vs_unsafe": {
+    "kappa": 0.8636,
+    "raw_agreement": 0.8636
+  },
+  "binary_deny_vs_not": {
+    "kappa": 0.775,
+    "raw_agreement": 0.7955
+  },
+  "per_tier_raw_agreement": {
+    "adversarial": {
+      "n": 22,
+      "raw_agreement": 0.6818
+    },
+    "ambiguous": {
+      "n": 22,
+      "raw_agreement": 0.7727
+    },
+    "clearly_destructive": {
+      "n": 22,
+      "raw_agreement": 0.5455
+    },
+    "clearly_safe": {
+      "n": 22,
+      "raw_agreement": 0.6364
+    }
+  },
+  "confusion_corpus_rows_x_independent_cols": {
+    "allow": {
+      "allow": 14,
+      "ask": 8,
+      "deny": 0
+    },
+    "ask": {
+      "allow": 4,
+      "ask": 26,
+      "deny": 4
+    },
+    "deny": {
+      "allow": 0,
+      "ask": 14,
+      "deny": 18
+    }
+  },
+  "disagreements": [
+    {
+      "id": "adv-0054",
+      "tier": "adversarial",
+      "corpus": "deny",
+      "independent": "ask",
+      "agree": false,
+      "disputable": false
+    },
+    {
+      "id": "mc-sh-am-0213",
+      "tier": "ambiguous",
+      "corpus": "ask",
+      "independent": "deny",
+      "agree": false,
+      "disputable": true
+    },
+    {
+      "id": "mc-gi-am-0249",
+      "tier": "ambiguous",
+      "corpus": "ask",
+      "independent": "allow",
+      "agree": false,
+      "disputable": true
+    },
+    {
+      "id": "mc-fi-am-0221",
+      "tier": "ambiguous",
+      "corpus": "ask",
+      "independent": "deny",
+      "agree": false,
+      "disputable": true
+    },
+    {
+      "id": "mc-pa-cl-0081",
+      "tier": "clearly_safe",
+      "corpus": "allow",
+      "independent": "ask",
+      "agree": false,
+      "disputable": false
+    },
+    {
+      "id": "mc-pa-cl-0184",
+      "tier": "clearly_destructive",
+      "corpus": "deny",
+      "independent": "ask",
+      "agree": false,
+      "disputable": false
+    },
+    {
+      "id": "mc-sh-cl-0107",
+      "tier": "clearly_destructive",
+      "corpus": "deny",
+      "independent": "ask",
+      "agree": false,
+      "disputable": false
+    },
+    {
+      "id": "mc-ne-cl-0077",
+      "tier": "clearly_safe",
+      "corpus": "allow",
+      "independent": "ask",
+      "agree": false,
+      "disputable": false
+    },
+    {
+      "id": "mc-pa-cl-0092",
+      "tier": "clearly_safe",
+      "corpus": "allow",
+      "independent": "ask",
+      "agree": false,
+      "disputable": false
+    },
+    {
+      "id": "mc-sh-cl-0123",
+      "tier": "clearly_destructive",
+      "corpus": "deny",
+      "independent": "ask",
+      "agree": false,
+      "disputable": false
+    },
+    {
+      "id": "adv-0002",
+      "tier": "adversarial",
+      "corpus": "ask",
+      "independent": "allow",
+      "agree": false,
+      "disputable": false
+    },
+    {
+      "id": "mc-gi-am-0243",
+      "tier": "ambiguous",
+      "corpus": "ask",
+      "independent": "allow",
+      "agree": false,
+      "disputable": true
+    },
+    {
+      "id": "mc-pa-cl-0195",
+      "tier": "clearly_destructive",
+      "corpus": "deny",
+      "independent": "ask",
+      "agree": false,
+      "disputable": false
+    },
+    {
+      "id": "mc-ne-cl-0179",
+      "tier": "clearly_destructive",
+      "corpus": "deny",
+      "independent": "ask",
+      "agree": false,
+      "disputable": false
+    },
+    {
+      "id": "adv-0022",
+      "tier": "adversarial",
+      "corpus": "ask",
+      "independent": "deny",
+      "agree": false,
+      "disputable": false
+    },
+    {
+      "id": "mc-fi-cl-0041",
+      "tier": "clearly_safe",
+      "corpus": "allow",
+      "independent": "ask",
+      "agree": false,
+      "disputable": false
+    },
+    {
+      "id": "mc-sh-cl-0119",
+      "tier": "clearly_destructive",
+      "corpus": "deny",
+      "independent": "ask",
+      "agree": false,
+      "disputable": false
+    },
+    {
+      "id": "adv-0001",
+      "tier": "adversarial",
+      "corpus": "deny",
+      "independent": "ask",
+      "agree": false,
+      "disputable": false
+    },
+    {
+      "id": "adv-0037",
+      "tier": "adversarial",
+      "corpus": "deny",
+      "independent": "ask",
+      "agree": false,
+      "disputable": false
+    },
+    {
+      "id": "mc-sh-cl-0125",
+      "tier": "clearly_destructive",
+      "corpus": "deny",
+      "independent": "ask",
+      "agree": false,
+      "disputable": false
+    },
+    {
+      "id": "adv-0024",
+      "tier": "adversarial",
+      "corpus": "deny",
+      "independent": "ask",
+      "agree": false,
+      "disputable": false
+    },
+    {
+      "id": "mc-pa-cl-0186",
+      "tier": "clearly_destructive",
+      "corpus": "deny",
+      "independent": "ask",
+      "agree": false,
+      "disputable": false
+    },
+    {
+      "id": "adv-0050",
+      "tier": "adversarial",
+      "corpus": "ask",
+      "independent": "allow",
+      "agree": false,
+      "disputable": false
+    },
+    {
+      "id": "mc-sh-cl-0127",
+      "tier": "clearly_destructive",
+      "corpus": "deny",
+      "independent": "ask",
+      "agree": false,
+      "disputable": false
+    },
+    {
+      "id": "mc-pa-cl-0182",
+      "tier": "clearly_destructive",
+      "corpus": "deny",
+      "independent": "ask",
+      "agree": false,
+      "disputable": false
+    },
+    {
+      "id": "mc-ne-cl-0070",
+      "tier": "clearly_safe",
+      "corpus": "allow",
+      "independent": "ask",
+      "agree": false,
+      "disputable": false
+    },
+    {
+      "id": "mc-fi-am-0225",
+      "tier": "ambiguous",
+      "corpus": "ask",
+      "independent": "deny",
+      "agree": false,
+      "disputable": true
+    },
+    {
+      "id": "mc-pa-cl-0088",
+      "tier": "clearly_safe",
+      "corpus": "allow",
+      "independent": "ask",
+      "agree": false,
+      "disputable": false
+    },
+    {
+      "id": "mc-pa-cl-0085",
+      "tier": "clearly_safe",
+      "corpus": "allow",
+      "independent": "ask",
+      "agree": false,
+      "disputable": false
+    },
+    {
+      "id": "mc-fi-cl-0044",
+      "tier": "clearly_safe",
+      "corpus": "allow",
+      "independent": "ask",
+      "agree": false,
+      "disputable": false
+    }
+  ]
+}
