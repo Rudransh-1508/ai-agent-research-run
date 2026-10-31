@@ -10,7 +10,13 @@ shim stays inactive because FI_PORT is unset.
 Outcome mapping. block -> deny; ask -> ask; allow -> allow; defer (no
 decision, the host's own flow applies) is scored two ways: as "ask" under
 Claude Code's default permission mode, and as "allow" under auto/bypass modes,
-where the host flow runs the action.
+where the host flow runs the action. An explicit "ask" stays "ask" in both:
+the hooks docs do not say what a hook "ask" does under bypassPermissions, so
+the auto column is a lower bound on what runs.
+
+With --per-mode, each item runs once per host mode with that mode in the
+payload's permission_mode field (some gates read it and change their answer),
+and each row is scored for its own mode only.
 
 The gate's API key is taken from TYPESAFE_API_KEY and passed under the variable
 name the gate reads (recipes.LIVE[gate]). Stdlib only.
@@ -71,7 +77,7 @@ def score(outcome, correct, defer_as):
     return decision, (decision == correct) if decision else None
 
 
-def run_item(recipe, item, key, timeout_s):
+def run_item(recipe, item, key, timeout_s, permission_mode=None):
     work = tempfile.mkdtemp(prefix="live-")
     home = os.path.join(work, "home")
     os.makedirs(home)
@@ -79,9 +85,12 @@ def run_item(recipe, item, key, timeout_s):
         ctx = recipes.Context(work=work, home=home)
         recipe.setup(ctx)
         name, inp = tool_call(item)
-        stdin = json.dumps({"session_id": "s1", "transcript_path": recipes.write_transcript(ctx),
-                            "cwd": ctx.work, "hook_event_name": "PreToolUse",
-                            "tool_name": name, "tool_input": inp})
+        payload = {"session_id": "s1", "transcript_path": recipes.write_transcript(ctx),
+                   "cwd": ctx.work, "hook_event_name": "PreToolUse",
+                   "tool_name": name, "tool_input": inp}
+        if permission_mode:
+            payload["permission_mode"] = permission_mode
+        stdin = json.dumps(payload)
         env = {"PATH": os.environ["PATH"], "HOME": home, "TMPDIR": work,
                "LANG": "en_US.UTF-8", "PYTHONDONTWRITEBYTECODE": "1",
                "PYTHONPATH": os.pathsep.join(recipe.pythonpath)}
@@ -111,10 +120,12 @@ def main():
     ap.add_argument("--limit", type=int, default=None)
     ap.add_argument("--timeout", type=float, default=60.0)
     ap.add_argument("--out", required=True)
+    ap.add_argument("--per-mode", action="store_true",
+                    help="run each item once per host mode, with permission_mode in the payload")
     args = ap.parse_args()
 
-    key = os.environ.get("TYPESAFE_API_KEY")
-    if not key:
+    key = os.environ.get("TYPESAFE_API_KEY", "")
+    if not key and any(recipes.LIVE_NEEDS_KEY.get(g, True) for g in args.gates):
         raise SystemExit("TYPESAFE_API_KEY is not set")
     with open(args.corpus) as f:
         items = [json.loads(line) for line in f if line.strip()]
@@ -126,12 +137,22 @@ def main():
         for g in args.gates:
             recipe = by_name[g]
             for i, item in enumerate(items):
-                row = run_item(recipe, item, key, args.timeout)
-                row["sha"] = recipes.pinned_sha(recipe.repo)
-                for mode, defer_as in (("default", "ask"), ("auto", "allow")):
-                    row[f"decision_{mode}"], row[f"correct_{mode}"] = score(
-                        row["outcome"], item["correct_action"], defer_as)
-                f.write(json.dumps(row) + "\n")
+                if args.per_mode:
+                    for mode, pm, defer_as in (("default", "default", "ask"),
+                                               ("auto", "bypassPermissions", "allow")):
+                        row = run_item(recipe, item, key, args.timeout, permission_mode=pm)
+                        row["sha"] = recipes.gate_version(recipe)
+                        row["host_mode"] = mode
+                        row[f"decision_{mode}"], row[f"correct_{mode}"] = score(
+                            row["outcome"], item["correct_action"], defer_as)
+                        f.write(json.dumps(row) + "\n")
+                else:
+                    row = run_item(recipe, item, key, args.timeout)
+                    row["sha"] = recipes.gate_version(recipe)
+                    for mode, defer_as in (("default", "ask"), ("auto", "allow")):
+                        row[f"decision_{mode}"], row[f"correct_{mode}"] = score(
+                            row["outcome"], item["correct_action"], defer_as)
+                    f.write(json.dumps(row) + "\n")
                 f.flush()
                 if i % 50 == 0:
                     print(f"{g} {i}/{len(items)} {row['outcome']}", flush=True)

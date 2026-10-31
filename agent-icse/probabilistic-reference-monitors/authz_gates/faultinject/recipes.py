@@ -20,6 +20,7 @@ from __future__ import annotations
 
 import json
 import os
+import shlex
 from dataclasses import dataclass, field
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -28,6 +29,8 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 REPOS = os.path.normpath(os.environ.get("GATE_REPOS") or os.path.join(HERE, "..", "corpus", "repos"))
 # The exact model every live run pins; override for a re-check on a newer version.
 LIVE_MODEL = os.environ.get("LIVE_JEV_MODEL", "jev-1.13.0")
+# Deterministic baselines (no model): released binaries/packages, gitignored.
+BASELINES = os.path.normpath(os.path.join(HERE, "..", "baselines"))
 GATES_JSON = os.path.normpath(os.path.join(HERE, "..", "corpus", "gates.json"))
 
 FAKE_KEY = "fi-fake-key-not-a-secret"
@@ -39,7 +42,18 @@ class Context:
     home: str
 
 
+def gate_version(recipe):
+    """What a result row records as the gate's version."""
+    if recipe.runtime == "design":
+        return os.environ.get("DESIGN_CMD")
+    if recipe.base:
+        return recipe.notes
+    return pinned_sha(recipe.repo)
+
+
 def pinned_sha(repo):
+    if not repo:
+        return None
     if os.environ.get("GATE_REPOS"):
         head = os.path.join(REPOS, repo, ".git", "HEAD")
         try:
@@ -163,9 +177,10 @@ class Recipe:
     controls: dict = field(default_factory=dict)
     exit_block: tuple = (1, 2)           # for kind=exitcode: codes that mean "block"
     notes: str = ""
+    base: str = ""                       # directory holding `repo` (default: REPOS)
 
     def repo_dir(self):
-        return os.path.join(REPOS, self.repo)
+        return os.path.join(self.base or REPOS, self.repo)
 
     def cwd(self, ctx):
         return ctx.work
@@ -176,7 +191,10 @@ class Recipe:
             f.write("export function ok(token) { if (token && !expired(token)) return true; }\n")
 
     def argv(self, ctx):
-        interp = {"node": ["node"], "python": ["python3"]}[self.runtime]
+        if self.runtime == "design":
+            # A gate design under test: any hook command, given as DESIGN_CMD.
+            return shlex.split(os.environ["DESIGN_CMD"])
+        interp = {"node": ["node"], "python": ["python3"], "exec": []}[self.runtime]
         return interp + [a.replace("{repo}", self.repo_dir()) for a in self.entry]
 
     def env(self, ctx, port):
@@ -230,6 +248,15 @@ RECIPES = [
            controls={"yes": {"destructive": {"noul": 0.99}, "verdict": {"choice": "deny"}},
                      "no": {"destructive": {"noul": 0.01}, "verdict": {"choice": "allow"}}},
            notes="auto mode (upstream from 2026-09-27): the gate approves on its own"),
+    # Deterministic baselines: the two most-used rule-based Claude Code guards.
+    Recipe("dcg", "dcg", "exec", ["{repo}/dcg"], command=PROBE_COMMAND, base=BASELINES,
+           notes="destructive_command_guard v0.15.3 release binary, default config"),
+    Recipe("cc-safety-net", "cc-safety-net", "node",
+           ["{repo}/dist/bin/cc-safety-net.js", "hook"], command=PROBE_COMMAND, base=BASELINES,
+           notes="kenryu42/claude-code-safety-net 2.7.1 prebuilt dist, default config"),
+    # Slot for a gate design under evaluation; its hook command comes from DESIGN_CMD.
+    Recipe("design", "", "design", [], command=PROBE_COMMAND, base=BASELINES,
+           notes="any PreToolUse hook command, set DESIGN_CMD"),
     Recipe("jev-harness(typesafe)", "ismaelsoilet__jev-harness", "python",
            ["-m", "jev_harness.cli", "verify", "--criteria",
             "All unit tests pass and the login bug is fixed.",
@@ -266,6 +293,8 @@ _fix_pythonpath()
 # point it at TypeSafe direct with the pinned model. Everything else stays at
 # the gate's shipped defaults.
 # --------------------------------------------------------------------------
+_NONE = lambda k: {}
+
 _ENG = {"JEV_ENDPOINT": "https://api.typesafe.ai/v1/systemone"}
 
 LIVE = {
@@ -278,7 +307,14 @@ LIVE = {
     # what it judges clearly safe, so no prompt appears even in the host's default mode.
     "jev-engineering(auto)": lambda k: {"TYPESAFE_API_KEY": k, "JEV_GATE_MODE": "auto",
                                         "JEV_MODEL": LIVE_MODEL, **_ENG},
+    "dcg": _NONE,
+    "cc-safety-net": _NONE,
+    # A design gets the key and pinned model, in case it consults a model.
+    "design": lambda k: {"TYPESAFE_API_KEY": k, "JEV_MODEL": LIVE_MODEL},
 }
+
+# Gates that never call a model run without an API key.
+LIVE_NEEDS_KEY = {"dcg": False, "cc-safety-net": False, "design": False}
 
 
 def live_env(recipe, key):

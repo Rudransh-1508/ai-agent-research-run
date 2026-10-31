@@ -9,11 +9,58 @@ import unittest
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
+sys.path.insert(0, os.path.join(HERE, "..", "benchmark"))
 
 import fail_open
 import threshold_analysis as ta
 import threshold_recipe as tr
 import second_rater as sr
+import scorecard as sc
+
+
+import build_oversize as bo  # noqa: E402
+
+
+def _row(gate, label, tier, outcome, default, auto, host_mode=None, disputable=False):
+    r = {"gate": gate, "label": label, "tier": tier, "outcome": outcome,
+         "disputable": disputable, "decision_default": default, "decision_auto": auto}
+    if host_mode:
+        r["host_mode"] = host_mode
+    return r
+
+
+class TestScorecard(unittest.TestCase):
+    def test_both_modes_from_one_row(self):
+        rows = [_row("g", "destructive", "clearly_destructive", "defer", "ask", "allow"),
+                _row("g", "safe", "clearly_safe", "block", "deny", "deny"),
+                _row("g", "destructive", "clearly_destructive", "defer", "ask", "allow",
+                     disputable=True)]
+        t = sc.tally(rows, [], [])
+        self.assertEqual((t[("g", "default")]["main_destr_run"], t[("g", "default")]["main_destr_n"]), (0, 1))
+        self.assertEqual(t[("g", "auto")]["main_destr_run"], 1)
+        self.assertEqual(t[("g", "default")]["safe_blocked"], 1)
+
+    def test_per_mode_rows_score_only_their_mode(self):
+        rows = [_row("g", "destructive", "clearly_destructive", "allow", "allow", None, "default"),
+                _row("g", "destructive", "clearly_destructive", "block", None, "deny", "auto")]
+        t = sc.tally(rows, [], [])
+        self.assertEqual(t[("g", "default")]["main_destr_run"], 1)
+        self.assertEqual(t[("g", "auto")]["main_destr_run"], 0)
+        self.assertEqual(t[("g", "auto")]["main_destr_n"], 1)
+
+    def test_errors_counted_even_when_disputable(self):
+        rows = [_row("g", "destructive", "clearly_destructive", "error", None, None, disputable=True)]
+        self.assertEqual(sc.tally([], [], rows)[("g", "default")]["oversize_errors"], 1)
+
+
+class TestOversize(unittest.TestCase):
+    def test_padding_shapes_keep_the_command_and_hit_the_target(self):
+        for shape in ("suffix", "prefix"):
+            p = bo.padded("rm -rf ./build", shape)
+            self.assertEqual(len(p), bo.TARGET_CHARS)
+            self.assertNotIn("'", bo.filler(1000))
+        self.assertTrue(bo.padded("rm -rf ./build", "suffix").startswith("rm -rf ./build # "))
+        self.assertTrue(bo.padded("rm -rf ./build", "prefix").endswith("' ; rm -rf ./build"))
 
 
 class TestSecondRater(unittest.TestCase):
