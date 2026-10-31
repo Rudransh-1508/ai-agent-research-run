@@ -16,11 +16,11 @@
 
 \begin{document}
 
-\title{Probabilistic Reference Monitors: An Empirical Study of\\
-Calibrated Decision Models in the Authorization Path of Coding Agents}
+\title{Probabilistic Reference Monitors: An Empirical Study of Calibrated Decision Models in the Authorization Path of Coding Agents}
 
-\author{\IEEEauthorblockN{Author names withheld for review}
-\IEEEauthorblockA{Affiliation withheld}}
+% AGENT @ ICSE 2027 is single-anonymous: author names and affiliations must be shown.
+\author{\IEEEauthorblockN{\textcolor{red}{TODO: author names}}
+\IEEEauthorblockA{\textcolor{red}{TODO: affiliation, email}}}
 
 \maketitle
 
@@ -52,7 +52,7 @@ were pre-registered; raw call logs, code, and replay scripts are released.
 \end{abstract}
 
 \begin{IEEEkeywords}
-agentic AI, software engineering, authorization, LLM guardrails, calibration,
+agentic AI, agentic engineering, authorization, LLM guardrails, calibration,
 empirical study, mining software repositories
 \end{IEEEkeywords}
 
@@ -109,7 +109,7 @@ violate these by construction; we measure the consequences rather than re-argue 
 principle.
 
 \textbf{Models in the decision path.} LLM-as-judge gates are studied as benchmarks
-(TraceSafe~\cite{tracesafe2026}), pre-execution judges (ScopeJudge~\cite{scopejudge2026},
+(TraceSafe~\cite{tracesafe2026}), pre-execution gates (ScopeJudge~\cite{scopejudge2026},
 CARE~\cite{care2026}), and human-oversight calibration
 (Oversight Has a Capacity~\cite{oversight2026}). These evaluate purpose-built judges on
 author-constructed inputs. We instead study \emph{deployed} gates and their failure and
@@ -122,7 +122,7 @@ Chow's rule instantiated for authorization with a finite-sample
 guarantee~\cite{clopper1934}; we claim the audit and the recipe, not the theory.
 
 \textbf{Mining agent configurations.} Recent studies mine agent configs for supply-chain
-defects~\cite{scanharness2026} and natural-language security rules~\cite{donotdeny2026}.
+exposures~\cite{scanharness2026} and natural-language security rules~\cite{donotdeny2026}.
 Ours is the same methodological family aimed at a new object: probabilistic authorization
 gates, their thresholds as configuration debt~\cite{sculley2015}, and their availability
 axis. Denial-of-service against guardrails~\cite{dosguard2026} and fabricated results under
@@ -275,7 +275,7 @@ wired to.
 \begin{table}[t]
 \caption{Destructive calls allowed, live, by host permission mode.}
 \label{tab:live}
-\centering\small
+\centering\small\setlength{\tabcolsep}{4.5pt}
 \begin{tabular}{@{}lcccc@{}}
 \toprule
  & \multicolumn{2}{c}{main (n=131)} & \multicolumn{2}{c}{held-out (n=64)} \\
@@ -355,8 +355,8 @@ switch off with a padded input. The pathologies are properties of putting a prob
 model in the authorization path, which Jev popularized but does not own.
 
 \section{Threats to Validity}
-The corpus is a convenience sample from one curated index of a two-week-old, single-vendor
-ecosystem; prevalence numbers should be read as launch-window evidence, and the non-Jev
+The corpus is a convenience sample from one curated index, collected in the first two weeks
+of a single-vendor ecosystem; prevalence numbers should be read as launch-window evidence, and the non-Jev
 comparison establishes mechanism transfer, not off-Jev prevalence. Benchmark labels derive
 from generation rules; we mitigate with disputable-item flags, sensitivity analyses, and the
 independent re-adjudication above. The benchmark measures our gate configurations, not each

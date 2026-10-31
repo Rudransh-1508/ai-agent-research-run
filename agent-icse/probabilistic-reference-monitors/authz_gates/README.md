@@ -1,7 +1,10 @@
 # authz_gates — Probabilistic Reference Monitors study
 
-Implementation for the SE4AgenticAI 2026 paper: an empirical study of probabilistic
-decision-model gates in the authorization path of coding agents.
+Implementation for the AGENT @ ICSE 2027 paper (2nd International Workshop on Agentic
+Engineering; short paper, <=5 pp incl. references, IEEE template, single-anonymous;
+deadline 2026-11-13 AoE, https://icse2027-agent.hotcrp.com/): an empirical study of
+probabilistic decision-model gates in the authorization path of coding agents.
+Originally prepared for SE4AgenticAI 2026; `PREREGISTRATION.md` keeps that original target.
 
 ## Layout
 
