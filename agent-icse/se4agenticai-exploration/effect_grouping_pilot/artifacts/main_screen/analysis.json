@@ -1,0 +1,416 @@
+{
+  "episode_count": 384,
+  "family_summary": {
+    "gpt-4.1-mini-2025-04-14|A+S|calendar": {
+      "episodes": 16,
+      "success_rate": 0.5
+    },
+    "gpt-4.1-mini-2025-04-14|A+S|cloud_drive": {
+      "episodes": 16,
+      "success_rate": 0.125
+    },
+    "gpt-4.1-mini-2025-04-14|A+S|email_cross": {
+      "episodes": 16,
+      "success_rate": 0.5
+    },
+    "gpt-4.1-mini-2025-04-14|A|calendar": {
+      "episodes": 16,
+      "success_rate": 1.0
+    },
+    "gpt-4.1-mini-2025-04-14|A|cloud_drive": {
+      "episodes": 16,
+      "success_rate": 0.375
+    },
+    "gpt-4.1-mini-2025-04-14|A|email_cross": {
+      "episodes": 16,
+      "success_rate": 0.6875
+    },
+    "gpt-4.1-mini-2025-04-14|E|calendar": {
+      "episodes": 16,
+      "success_rate": 1.0
+    },
+    "gpt-4.1-mini-2025-04-14|E|cloud_drive": {
+      "episodes": 16,
+      "success_rate": 0.5
+    },
+    "gpt-4.1-mini-2025-04-14|E|email_cross": {
+      "episodes": 16,
+      "success_rate": 0.875
+    },
+    "gpt-4.1-mini-2025-04-14|R|calendar": {
+      "episodes": 16,
+      "success_rate": 1.0
+    },
+    "gpt-4.1-mini-2025-04-14|R|cloud_drive": {
+      "episodes": 16,
+      "success_rate": 0.8125
+    },
+    "gpt-4.1-mini-2025-04-14|R|email_cross": {
+      "episodes": 16,
+      "success_rate": 0.9375
+    },
+    "gpt-5.6-luna|A+S|calendar": {
+      "episodes": 16,
+      "success_rate": 1.0
+    },
+    "gpt-5.6-luna|A+S|cloud_drive": {
+      "episodes": 16,
+      "success_rate": 1.0
+    },
+    "gpt-5.6-luna|A+S|email_cross": {
+      "episodes": 16,
+      "success_rate": 0.9375
+    },
+    "gpt-5.6-luna|A|calendar": {
+      "episodes": 16,
+      "success_rate": 1.0
+    },
+    "gpt-5.6-luna|A|cloud_drive": {
+      "episodes": 16,
+      "success_rate": 1.0
+    },
+    "gpt-5.6-luna|A|email_cross": {
+      "episodes": 16,
+      "success_rate": 1.0
+    },
+    "gpt-5.6-luna|E|calendar": {
+      "episodes": 16,
+      "success_rate": 1.0
+    },
+    "gpt-5.6-luna|E|cloud_drive": {
+      "episodes": 16,
+      "success_rate": 1.0
+    },
+    "gpt-5.6-luna|E|email_cross": {
+      "episodes": 16,
+      "success_rate": 0.375
+    },
+    "gpt-5.6-luna|R|calendar": {
+      "episodes": 16,
+      "success_rate": 0.9375
+    },
+    "gpt-5.6-luna|R|cloud_drive": {
+      "episodes": 16,
+      "success_rate": 1.0
+    },
+    "gpt-5.6-luna|R|email_cross": {
+      "episodes": 16,
+      "success_rate": 1.0
+    }
+  },
+  "paired_intervals": [
+    {
+      "alternative": "A",
+      "bootstrap_draws": 10000,
+      "cluster_unit": "task",
+      "cost_ratio_ci95": [
+        0.9714761697226396,
+        1.3053116411285057
+      ],
+      "model": "gpt-4.1-mini-2025-04-14",
+      "success_delta_pp_ci95": [
+        2.083333333333333,
+        20.833333333333336
+      ]
+    },
+    {
+      "alternative": "R",
+      "bootstrap_draws": 10000,
+      "cluster_unit": "task",
+      "cost_ratio_ci95": [
+        0.7891093598406743,
+        1.0909234797940166
+      ],
+      "model": "gpt-4.1-mini-2025-04-14",
+      "success_delta_pp_ci95": [
+        -22.916666666666664,
+        -4.166666666666666
+      ]
+    },
+    {
+      "alternative": "A+S",
+      "bootstrap_draws": 10000,
+      "cluster_unit": "task",
+      "cost_ratio_ci95": [
+        1.2016483591237643,
+        2.624733435562895
+      ],
+      "model": "gpt-4.1-mini-2025-04-14",
+      "success_delta_pp_ci95": [
+        22.916666666666664,
+        60.416666666666664
+      ]
+    },
+    {
+      "alternative": "A",
+      "bootstrap_draws": 10000,
+      "cluster_unit": "task",
+      "cost_ratio_ci95": [
+        0.7124172371910339,
+        1.1355359226744843
+      ],
+      "model": "gpt-5.6-luna",
+      "success_delta_pp_ci95": [
+        -37.5,
+        -4.166666666666666
+      ]
+    },
+    {
+      "alternative": "R",
+      "bootstrap_draws": 10000,
+      "cluster_unit": "task",
+      "cost_ratio_ci95": [
+        0.7545506183795465,
+        1.0663868093517725
+      ],
+      "model": "gpt-5.6-luna",
+      "success_delta_pp_ci95": [
+        -37.5,
+        -2.083333333333333
+      ]
+    },
+    {
+      "alternative": "A+S",
+      "bootstrap_draws": 10000,
+      "cluster_unit": "task",
+      "cost_ratio_ci95": [
+        0.5964462497593244,
+        0.7728034730167547
+      ],
+      "model": "gpt-5.6-luna",
+      "success_delta_pp_ci95": [
+        -37.5,
+        -2.083333333333333
+      ]
+    }
+  ],
+  "screen": {
+    "comparisons": [
+      {
+        "alternative": "R",
+        "cost_reduction": 0.061911899933238534,
+        "effect_plainly_dominated": false,
+        "meets_investment_target": false,
+        "model": "gpt-4.1-mini-2025-04-14",
+        "success_delta_pp": -12.5
+      },
+      {
+        "alternative": "A+S",
+        "cost_reduction": -0.681482066855575,
+        "effect_plainly_dominated": false,
+        "meets_investment_target": false,
+        "model": "gpt-4.1-mini-2025-04-14",
+        "success_delta_pp": 41.666666666666664
+      },
+      {
+        "alternative": "R",
+        "cost_reduction": 0.11766644983855368,
+        "effect_plainly_dominated": false,
+        "meets_investment_target": false,
+        "model": "gpt-5.6-luna",
+        "success_delta_pp": -18.75
+      },
+      {
+        "alternative": "A+S",
+        "cost_reduction": 0.32025398146948847,
+        "effect_plainly_dominated": false,
+        "meets_investment_target": false,
+        "model": "gpt-5.6-luna",
+        "success_delta_pp": -18.75
+      }
+    ],
+    "decision": "FAIL_NO_MATERIAL_TRADEOFF"
+  },
+  "summary": {
+    "gpt-4.1-mini-2025-04-14|A": {
+      "api_errors": 0,
+      "cost_per_success_usd": 0.0015923515151515153,
+      "episodes": 48,
+      "invalid_calls": 6,
+      "mean_cost_usd": 0.0010947416666666667,
+      "mean_input_tokens": 6208.520833333333,
+      "mean_output_tokens": 96.08333333333333,
+      "mean_tool_selections": 1.5208333333333333,
+      "missed_approvals": 0,
+      "success_rate": 0.6875,
+      "unnecessary_approvals": 0
+    },
+    "gpt-4.1-mini-2025-04-14|A+S": {
+      "api_errors": 0,
+      "cost_per_success_usd": 0.001968422222222223,
+      "episodes": 48,
+      "invalid_calls": 0,
+      "mean_cost_usd": 0.0007381583333333334,
+      "mean_input_tokens": 2475.3958333333335,
+      "mean_output_tokens": 91,
+      "mean_tool_selections": 1.8333333333333333,
+      "missed_approvals": 0,
+      "success_rate": 0.375,
+      "unnecessary_approvals": 0
+    },
+    "gpt-4.1-mini-2025-04-14|E": {
+      "api_errors": 0,
+      "cost_per_success_usd": 0.0015678315789473686,
+      "episodes": 48,
+      "invalid_calls": 2,
+      "mean_cost_usd": 0.0012412,
+      "mean_input_tokens": 6636.416666666667,
+      "mean_output_tokens": 108.64583333333333,
+      "mean_tool_selections": 1.4791666666666667,
+      "missed_approvals": 0,
+      "success_rate": 0.7916666666666666,
+      "unnecessary_approvals": 0
+    },
+    "gpt-4.1-mini-2025-04-14|R": {
+      "api_errors": 0,
+      "cost_per_success_usd": 0.0014434000000000007,
+      "episodes": 48,
+      "invalid_calls": 4,
+      "mean_cost_usd": 0.0013231166666666668,
+      "mean_input_tokens": 7298.541666666667,
+      "mean_output_tokens": 121.3125,
+      "mean_tool_selections": 1.7708333333333333,
+      "missed_approvals": 0,
+      "success_rate": 0.9166666666666666,
+      "unnecessary_approvals": 55
+    },
+    "gpt-5.6-luna|A": {
+      "api_errors": 0,
+      "cost_per_success_usd": 0.00055289125,
+      "episodes": 48,
+      "invalid_calls": 5,
+      "mean_cost_usd": 0.00055289125,
+      "mean_input_tokens": 8708.0625,
+      "mean_output_tokens": 122.83333333333333,
+      "mean_tool_selections": 1.8541666666666667,
+      "missed_approvals": 0,
+      "success_rate": 1.0,
+      "unnecessary_approvals": 0
+    },
+    "gpt-5.6-luna|A+S": {
+      "api_errors": 0,
+      "cost_per_success_usd": 0.0007523417021276597,
+      "episodes": 48,
+      "invalid_calls": 5,
+      "mean_cost_usd": 0.0007366679166666667,
+      "mean_input_tokens": 11279.458333333334,
+      "mean_output_tokens": 144.02083333333334,
+      "mean_tool_selections": 2.9583333333333335,
+      "missed_approvals": 0,
+      "success_rate": 0.9791666666666666,
+      "unnecessary_approvals": 0
+    },
+    "gpt-5.6-luna|E": {
+      "api_errors": 0,
+      "cost_per_success_usd": 0.0006325226315789473,
+      "episodes": 48,
+      "invalid_calls": 6,
+      "mean_cost_usd": 0.0005007470833333334,
+      "mean_input_tokens": 10150.354166666666,
+      "mean_output_tokens": 127.29166666666667,
+      "mean_tool_selections": 1.9375,
+      "missed_approvals": 0,
+      "success_rate": 0.7916666666666666,
+      "unnecessary_approvals": 0
+    },
+    "gpt-5.6-luna|R": {
+      "api_errors": 0,
+      "cost_per_success_usd": 0.0005796008510638298,
+      "episodes": 48,
+      "invalid_calls": 8,
+      "mean_cost_usd": 0.0005675258333333334,
+      "mean_input_tokens": 9255.291666666666,
+      "mean_output_tokens": 119.64583333333333,
+      "mean_tool_selections": 1.8333333333333333,
+      "missed_approvals": 0,
+      "success_rate": 0.9791666666666666,
+      "unnecessary_approvals": 62
+    }
+  },
+  "trace_audit": {
+    "declared_observed_mismatch_count": 0,
+    "declared_observed_mismatches": [],
+    "failed_episodes_with_invalid_calls": 9,
+    "failed_episodes_without_invalid_calls": 62,
+    "permitted_incidental_call_count": 15,
+    "permitted_incidental_calls": [
+      {
+        "episode_id": "gpt-4.1-mini-2025-04-14__A__user_task_22__r1",
+        "observed": "update",
+        "operation": "get_unread_emails"
+      },
+      {
+        "episode_id": "gpt-4.1-mini-2025-04-14__R__user_task_16__r1",
+        "observed": "update",
+        "operation": "get_unread_emails"
+      },
+      {
+        "episode_id": "gpt-4.1-mini-2025-04-14__R__user_task_16__r2",
+        "observed": "update",
+        "operation": "get_unread_emails"
+      },
+      {
+        "episode_id": "gpt-5.6-luna__E__user_task_14__r1",
+        "observed": "update",
+        "operation": "get_unread_emails"
+      },
+      {
+        "episode_id": "gpt-5.6-luna__E__user_task_14__r2",
+        "observed": "update",
+        "operation": "get_unread_emails"
+      },
+      {
+        "episode_id": "gpt-5.6-luna__E__user_task_15__r1",
+        "observed": "update",
+        "operation": "get_unread_emails"
+      },
+      {
+        "episode_id": "gpt-5.6-luna__E__user_task_15__r2",
+        "observed": "update",
+        "operation": "get_unread_emails"
+      },
+      {
+        "episode_id": "gpt-5.6-luna__E__user_task_16__r1",
+        "observed": "update",
+        "operation": "get_unread_emails"
+      },
+      {
+        "episode_id": "gpt-5.6-luna__E__user_task_16__r2",
+        "observed": "update",
+        "operation": "get_unread_emails"
+      },
+      {
+        "episode_id": "gpt-5.6-luna__E__user_task_17__r1",
+        "observed": "update",
+        "operation": "get_unread_emails"
+      },
+      {
+        "episode_id": "gpt-5.6-luna__E__user_task_17__r2",
+        "observed": "update",
+        "operation": "get_unread_emails"
+      },
+      {
+        "episode_id": "gpt-5.6-luna__E__user_task_18__r1",
+        "observed": "update",
+        "operation": "get_unread_emails"
+      },
+      {
+        "episode_id": "gpt-5.6-luna__E__user_task_18__r2",
+        "observed": "update",
+        "operation": "get_unread_emails"
+      },
+      {
+        "episode_id": "gpt-5.6-luna__E__user_task_22__r1",
+        "observed": "update",
+        "operation": "get_unread_emails"
+      },
+      {
+        "episode_id": "gpt-5.6-luna__E__user_task_22__r2",
+        "observed": "update",
+        "operation": "get_unread_emails"
+      }
+    ],
+    "unexpected_persistent_call_count": 0,
+    "unexpected_persistent_calls": []
+  }
+}
