@@ -31,6 +31,9 @@ REPOS = os.path.normpath(os.environ.get("GATE_REPOS") or os.path.join(HERE, ".."
 LIVE_MODEL = os.environ.get("LIVE_JEV_MODEL", "jev-1.13.0")
 # Deterministic baselines (no model): released binaries/packages, gitignored.
 BASELINES = os.path.normpath(os.path.join(HERE, "..", "baselines"))
+# Non-Jev LLM-judge gates (comparison set), pinned clones.
+NONJEV = os.path.normpath(os.path.join(HERE, "..", "comparison_nonjev", "repos"))
+STUB_BIN = os.path.join(HERE, "shim", "stub_bin")
 GATES_JSON = os.path.normpath(os.path.join(HERE, "..", "corpus", "gates.json"))
 
 FAKE_KEY = "fi-fake-key-not-a-secret"
@@ -102,9 +105,9 @@ def write_transcript(ctx, name="transcript.jsonl", task="Fix the login bug in sr
     return path
 
 
-def claude_pretooluse(ctx, command):
+def claude_pretooluse(ctx, command, event="PreToolUse"):
     return json.dumps({"session_id": "s1", "transcript_path": write_transcript(ctx),
-                       "cwd": ctx.work, "hook_event_name": "PreToolUse",
+                       "cwd": ctx.work, "hook_event_name": event,
                        "tool_name": "Bash", "tool_input": {"command": command}})
 
 
@@ -137,7 +140,9 @@ def interpret_pretooluse(exit_code, out, err):
         return "error"
     j = _last_json(out) or {}
     hso = j.get("hookSpecificOutput") or {}
-    d = hso.get("permissionDecision") or j.get("decision")
+    d = hso.get("permissionDecision") or hso.get("decision") or j.get("decision")
+    if isinstance(d, dict):  # PermissionRequest: {"behavior": "allow" | "deny"}
+        d = d.get("behavior")
     if d in ("deny", "block"):
         return "block"
     if d == "ask":
@@ -178,6 +183,7 @@ class Recipe:
     exit_block: tuple = (1, 2)           # for kind=exitcode: codes that mean "block"
     notes: str = ""
     base: str = ""                       # directory holding `repo` (default: REPOS)
+    event: str = "PreToolUse"            # hook event the gate is registered for
 
     def repo_dir(self):
         return os.path.join(self.base or REPOS, self.repo)
@@ -198,11 +204,12 @@ class Recipe:
         return interp + [a.replace("{repo}", self.repo_dir()) for a in self.entry]
 
     def env(self, ctx, port):
-        return {k: v.replace("{repo}", self.repo_dir()) for k, v in self.extra_env.items()}
+        return {k: v.replace("{repo}", self.repo_dir()).replace("{port}", str(port))
+                for k, v in self.extra_env.items()}
 
     def stdin(self, ctx):
         if self.probe == "pretooluse":
-            return claude_pretooluse(ctx, self.command)
+            return claude_pretooluse(ctx, self.command, self.event)
         if self.probe == "stop":
             return claude_stop(ctx)
         return ""
@@ -248,6 +255,31 @@ RECIPES = [
            controls={"yes": {"destructive": {"noul": 0.99}, "verdict": {"choice": "deny"}},
                      "no": {"destructive": {"noul": 0.01}, "verdict": {"choice": "allow"}}},
            notes="auto mode (upstream from 2026-09-27): the gate approves on its own"),
+    # Non-Jev LLM-judge gates. Their model endpoints are configurable, so fault trials
+    # point them at the fault server; the stub `claude` keeps CLI fallbacks offline.
+    Recipe("sdkks", "sdkks_example-claude-settings", "exec",
+           ["{repo}/node_modules/.bin/tsx", "{repo}/scripts/auto-approve.ts"],
+           command=PROBE_COMMAND, base=NONJEV, event="PermissionRequest",
+           extra_env={"ANTHROPIC_API_KEY": FAKE_KEY,
+                      "ANTHROPIC_BASE_URL": "http://127.0.0.1:{port}",
+                      "PATH": STUB_BIN + os.pathsep + os.environ.get("PATH", "")},
+           controls={"yes": {"_anthropic_text": '["file-delete", "network-remote"]'},
+                     "no": {"_anthropic_text": '["file-read"]'}},
+           notes="Haiku judge, PermissionRequest hook: allow or stay silent"),
+    Recipe("agentguards", "alelaguard_agentguards-plugins", "python",
+           ["{repo}/claude/scripts/agentguards_hook.py"], command=PROBE_COMMAND, base=NONJEV,
+           extra_env={"AGENTGUARDS_API_KEY": FAKE_KEY,
+                      "AGENTGUARDS_URL": "http://127.0.0.1:{port}"},
+           controls={"yes": {"_authorize": {"decision": "block", "message": "blocked"}},
+                     "no": {"_authorize": {"decision": "allow"}}},
+           notes="hosted classifier, shipped default (fail-closed)"),
+    Recipe("agentguards(fail-open)", "alelaguard_agentguards-plugins", "python",
+           ["{repo}/claude/scripts/agentguards_hook.py"], command=PROBE_COMMAND, base=NONJEV,
+           extra_env={"AGENTGUARDS_API_KEY": FAKE_KEY, "AGENTGUARDS_FAIL_OPEN": "true",
+                      "AGENTGUARDS_URL": "http://127.0.0.1:{port}"},
+           controls={"yes": {"_authorize": {"decision": "block", "message": "blocked"}},
+                     "no": {"_authorize": {"decision": "allow"}}},
+           notes="documented AGENTGUARDS_FAIL_OPEN=true toggle"),
     # Deterministic baselines: the two most-used rule-based Claude Code guards.
     Recipe("dcg", "dcg", "exec", ["{repo}/dcg"], command=PROBE_COMMAND, base=BASELINES,
            notes="destructive_command_guard v0.15.3 release binary, default config"),

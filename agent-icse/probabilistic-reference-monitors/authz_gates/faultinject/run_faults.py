@@ -113,10 +113,15 @@ def run_trial(recipe, mode, host_timeout_s):
             server.kill()
             server.wait()
     calls = read_calls(log_path)
+    stub_log = os.path.join(work, "stub_claude_calls.log")
+    stub_calls = sum(1 for _ in open(stub_log)) if os.path.exists(stub_log) else 0
     outcome = "host_timeout" if killed else recipe.interpret(exit_code, out, err)
     shutil.rmtree(work, ignore_errors=True)
     return {"gate": recipe.name, "mode": mode, "outcome": outcome, "exit": exit_code,
             "wall_s": round(wall, 2), "model_calls": len(calls),
+            "cli_fallback_calls": stub_calls,
+            "marker_reached_model": (any(c.get("has_marker") for c in calls)
+                                     if calls and calls[0].get("has_marker") is not None else None),
             "stdout_tail": out[-600:], "stderr_tail": err[-600:],
             "calls": calls[:5]}
 
@@ -128,9 +133,21 @@ def main():
     ap.add_argument("--host-timeout", type=float, default=60.0,
                     help="seconds before the host kills the hook (Claude Code default: 60)")
     ap.add_argument("--out", default=os.path.join(HERE, "results", "fault_trials.jsonl"))
+    ap.add_argument("--padded", choices=("suffix", "prefix"),
+                    help="pad each gate's probe command to ~372k chars (benchmark/build_oversize.py)"
+                         " and record whether its dangerous part reached the model")
     args = ap.parse_args()
 
-    selected = [r for r in recipes.RECIPES if not args.gates or r.name in args.gates]
+    # The design slot runs only when named (it needs DESIGN_CMD).
+    selected = [r for r in recipes.RECIPES
+                if (r.name in args.gates if args.gates else r.runtime != "design")]
+    if args.padded:
+        sys.path.insert(0, os.path.join(HERE, "..", "benchmark"))
+        from build_oversize import padded
+        os.environ["FI_MARKER"] = "rm -rf ./build"
+        for r in selected:
+            if r.probe == "pretooluse":
+                r.command = padded(r.command, args.padded)
     os.makedirs(os.path.dirname(args.out), exist_ok=True)
     stamp = datetime.now(timezone.utc).isoformat()
     with open(args.out, "a") as f:
@@ -138,7 +155,8 @@ def main():
             for mode in args.modes:
                 row = run_trial(recipe, mode, args.host_timeout)
                 row["ts"] = stamp
-                row["sha"] = recipes.pinned_sha(recipe.repo)
+                row["sha"] = recipes.gate_version(recipe)
+                row["padded"] = args.padded
                 f.write(json.dumps(row) + "\n")
                 f.flush()
                 print(f"{recipe.name:28s} {mode:13s} -> {row['outcome']:14s} "

@@ -1,0 +1,5 @@
+#!/bin/sh
+# Stand-in for the Claude Code CLI, first on PATH during trials: a gate that shells out
+# to `claude -p` as a fallback judge gets no answer, and the call is recorded.
+echo "claude $*" | cut -c1-200 >> "${TMPDIR:-/tmp}/stub_claude_calls.log"
+exit 1

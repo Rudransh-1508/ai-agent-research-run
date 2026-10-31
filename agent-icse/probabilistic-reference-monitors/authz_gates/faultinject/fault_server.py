@@ -19,6 +19,14 @@ Modes:
 The runner simulates connection refusal by pointing the redirect at a closed
 port, so it needs no server mode.
 
+Besides the Jev API, two other decision services are spoken, by path:
+  /v1/messages            Anthropic Messages (LLM-judge gates); control text from
+                          the recipe spec's "_anthropic_text"
+  /v1/actions/authorize   AgentGuards authorize; control body from "_authorize"
+In schema_drift mode each gets its own empty-but-valid body. When FI_MARKER is
+set, each logged request records whether the request body contained it, so a
+trial can show whether the dangerous part of a padded command reached the model.
+
 Stdlib only.
 """
 
@@ -26,6 +34,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import sys
 import time
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
@@ -90,8 +99,10 @@ def make_handler(mode, log_path, hang_s, spec=None):
             except ValueError:
                 req = {"_unparsed": body[:200].decode("utf-8", "replace")}
             qs = req.get("questions") or {}
+            marker = os.environ.get("FI_MARKER")
             rec = {"ts": time.time(), "method": self.command, "path": self.path, "mode": mode,
-                   "model": req.get("model"),
+                   "model": req.get("model"), "bytes": len(body or b""),
+                   "has_marker": (marker.encode() in (body or b"")) if marker else None,
                    "questions": {k: str((v or {}).get("type")) for k, v in qs.items()}
                    if isinstance(qs, dict) else str(type(qs))}
             with open(log_path, "a") as f:
@@ -110,12 +121,30 @@ def make_handler(mode, log_path, hang_s, spec=None):
 
         def do_GET(self):
             self._record(b"")
-            self._send(200, {"data": [{"id": "jev-1.13.0"}]})
+            self._send(200, {"data": [{"id": "jev-1.13.0"}, {"id": "claude-haiku-4-5"}]})
+
+        def _empty_body(self):
+            if self.path.endswith("/v1/messages"):
+                return {"id": "fi", "type": "message", "role": "assistant", "content": []}
+            if self.path.endswith("/v1/actions/authorize"):
+                return {}
+            return {"model": "jev-1.13.0", "answers": {}}
 
         def do_POST(self):
             n = int(self.headers.get("Content-Length") or 0)
             req = self._record(self.rfile.read(n) if n else b"")
             if mode in ("yes", "no"):
+                if self.path.endswith("/v1/messages"):
+                    text = spec.get("_anthropic_text", "[]")
+                    self._send(200, {"id": "fi", "type": "message", "role": "assistant",
+                                     "model": req.get("model") or "fi",
+                                     "content": [{"type": "text", "text": text}],
+                                     "stop_reason": "end_turn",
+                                     "usage": {"input_tokens": 1, "output_tokens": 1}})
+                    return
+                if self.path.endswith("/v1/actions/authorize"):
+                    self._send(200, spec.get("_authorize", {"decision": "allow"}))
+                    return
                 if self.path.endswith("/chat/completions"):
                     self._send(200, chat_completion(json.dumps(spec.get("_chat", {}))))
                     return
@@ -140,7 +169,7 @@ def make_handler(mode, log_path, hang_s, spec=None):
             elif mode == "malformed":
                 self._send(200, b"<html><body>502 Bad Gateway</body></html>")
             elif mode == "schema_drift":
-                self._send(200, {"model": "jev-1.13.0", "answers": {}})
+                self._send(200, self._empty_body())
             else:
                 self._send(500, {"error": f"unknown mode {mode}"})
 

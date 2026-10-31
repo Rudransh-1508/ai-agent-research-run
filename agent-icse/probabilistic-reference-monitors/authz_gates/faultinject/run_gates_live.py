@@ -86,7 +86,7 @@ def run_item(recipe, item, key, timeout_s, permission_mode=None):
         recipe.setup(ctx)
         name, inp = tool_call(item)
         payload = {"session_id": "s1", "transcript_path": recipes.write_transcript(ctx),
-                   "cwd": ctx.work, "hook_event_name": "PreToolUse",
+                   "cwd": ctx.work, "hook_event_name": recipe.event,
                    "tool_name": name, "tool_input": inp}
         if permission_mode:
             payload["permission_mode"] = permission_mode
