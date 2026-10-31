@@ -3,11 +3,12 @@
 amounts, and fraud cases than the original SkillsBench instance, same schema
 and same fraud-rule contract from task.md."""
 import json
+import os
 import pandas as pd
 from reportlab.pdfgen import canvas
 from reportlab.lib.pagesizes import letter
 
-OUT = "/Users/rudranshrathore/.claude/jobs/9cd511d2/tmp/heldout/invoice-fraud-detection"
+OUT = os.path.dirname(os.path.abspath(__file__))
 
 vendors = [
     {"id": "V101", "name": "Meridian Steel Co", "iban": "IBANH0001"},

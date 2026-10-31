@@ -5,9 +5,10 @@ debris tetrahedron (material ID 1 = Generic Debris) far away, so the
 largest-connected-component filter has something real to filter out.
 Coordinates are written directly in the pinned convention: centimeters.
 """
+import os
 import struct
 
-OUT = "/Users/rudranshrathore/.claude/jobs/9cd511d2/tmp/heldout/mesh-analysis/scan_data.stl"
+OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scan_data.stl")
 
 # Box corners (cm): 10 x 10 x 5
 c = [

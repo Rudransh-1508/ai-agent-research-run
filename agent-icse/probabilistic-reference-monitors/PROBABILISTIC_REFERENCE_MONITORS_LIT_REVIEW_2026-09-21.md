@@ -1,7 +1,7 @@
 # Probabilistic Reference Monitors: thorough literature review
 
 Date: 2026-09-21. Target: SE4AgenticAI 2026 regular paper (8-10 pp, IEEE 2-col), deadline 2026-10-10 AoE.
-Companions: [gap audit](../SE4AgenticAI/JEV_RESEARCH_GAP_AUDIT_2026-09-21.md) | [academic lit review](../SE4AgenticAI/JEV_IDEA_EXPANSION_AND_LIT_REVIEW_2026-09-21.md) | [MT paper spec](../SE4AgenticAI/MR_TYPED_DECISION_MODELS_SPEC_2026-09-21.md)
+Companions: [gap audit](../se4agenticai-exploration/JEV_RESEARCH_GAP_AUDIT_2026-09-21.md) | [academic lit review](../se4agenticai-exploration/JEV_IDEA_EXPANSION_AND_LIT_REVIEW_2026-09-21.md) | [MT paper spec](../se4agenticai-exploration/MR_TYPED_DECISION_MODELS_SPEC_2026-09-21.md)
 Method: three parallel verification sweeps (authorization/enforcement cluster; calibration/selective-prediction cluster; mining-precedent + grey gate corpus). Every arXiv ID below was verified against a live abstract page on 2026-09-21. Grey repos were read directly where marked.
 
 ## 0. The candidate
@@ -150,7 +150,7 @@ After all three sweeps, the unoccupied space is exactly this combination:
 
 ## 8. This paper vs the MT paper (the other live candidate)
 
-| | Probabilistic reference monitors (this) | MT for typed decision models ([spec](../SE4AgenticAI/MR_TYPED_DECISION_MODELS_SPEC_2026-09-21.md)) |
+| | Probabilistic reference monitors (this) | MT for typed decision models ([spec](../se4agenticai-exploration/MR_TYPED_DECISION_MODELS_SPEC_2026-09-21.md)) |
 |---|---|---|
 | Story | Stronger: literature-vs-practice tension, named theory, security stakes | Smaller: testing methodology for a new API class |
 | Novelty position | Framing occupied; specific combination free; moving fast | Relations mostly known; 3 API-native MRs new; statistical procedure incremental (AgentAssay collision) |

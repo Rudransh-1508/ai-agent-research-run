@@ -1,7 +1,7 @@
 # Pilot Study: Testing the Deployment Boundary of Agent Frameworks
 
 **Status:** Not started. This folder is the operational implementation of the research plan in
-[`SE4AgenticAI/DEPLOYMENT_BOUNDARY_RESEARCH_PLAN_2026-09-10.md`](../SE4AgenticAI/DEPLOYMENT_BOUNDARY_RESEARCH_PLAN_2026-09-10.md).
+[`agent-icse/se4agenticai-exploration/DEPLOYMENT_BOUNDARY_RESEARCH_PLAN_2026-09-10.md`](../agent-icse/se4agenticai-exploration/DEPLOYMENT_BOUNDARY_RESEARCH_PLAN_2026-09-10.md).
 That document is the source of truth for *why* we are doing this and what counts as a valid result.
 This folder is the source of truth for *who does what, in what order, with what commands, and
 recorded where*.

@@ -52,7 +52,7 @@ All 8 are from the single accepted source, SkillsBench, pinned commit `9a1f4dd5f
 
 Every candidate above has been qualified only against its **original** SkillsBench task instance. The plan's target is 2 instances per candidate (original + held-out) to distinguish a genuine repair effect from overfitting to one dataset's quirks.
 
-**Update:** held-out instances for all 5 primary candidates have now been constructed and validated by execution — real command output in [GATE0_QUALIFICATION_AND_SECOND_SOURCE_2026-09-12.md](GATE0_QUALIFICATION_AND_SECOND_SOURCE_2026-09-12.md) Sections 12 and 14, artifacts persisted at `SE4AgenticAI/held_out_instances/<task>/`. This was **single-reviewer** construction only — the two-person validation this section still requires has not happened yet.
+**Update:** held-out instances for all 5 primary candidates have now been constructed and validated by execution — real command output in [GATE0_QUALIFICATION_AND_SECOND_SOURCE_2026-09-12.md](GATE0_QUALIFICATION_AND_SECOND_SOURCE_2026-09-12.md) Sections 12 and 14, artifacts persisted at `agent-icse/se4agenticai-exploration/held_out_instances/<task>/`. This was **single-reviewer** construction only — the two-person validation this section still requires has not happened yet.
 
 | Candidate | Held-out instance requirement | Status |
 |---|---|---|

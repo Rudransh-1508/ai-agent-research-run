@@ -3,7 +3,7 @@
 ## Objective
 
 Bring the deployment-boundary pilot to a genuine substantive pass under
-`SE4AgenticAI/DEPLOYMENT_BOUNDARY_RESEARCH_PLAN_2026-09-10.md` section 11.1.
+`agent-icse/se4agenticai-exploration/DEPLOYMENT_BOUNDARY_RESEARCH_PLAN_2026-09-10.md` section 11.1.
 The work must produce new, auditable evidence rather than weaken or relabel the
 gate.
 

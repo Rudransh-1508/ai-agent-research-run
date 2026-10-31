@@ -28,7 +28,7 @@ jobs:
       - name: Copy in the held-out sbt project (correct reference solution)
         run: |
           docker exec heldout-run mkdir -p /root/recordbatch-project
-          docker cp SE4AgenticAI/held_out_instances/python-scala-translation/localtest/. heldout-run:/root/recordbatch-project/
+          docker cp agent-icse/se4agenticai-exploration/held_out_instances/python-scala-translation/localtest/. heldout-run:/root/recordbatch-project/
 
       - name: Install sbt via coursier (same as verifier/test.sh does) and run tests on the correct solution
         run: |
