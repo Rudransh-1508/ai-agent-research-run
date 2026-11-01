@@ -144,14 +144,16 @@ def main():
     if args.padded:
         sys.path.insert(0, os.path.join(HERE, "..", "benchmark"))
         from build_oversize import padded
-        os.environ["FI_MARKER"] = "rm -rf ./build"
         for r in selected:
             if r.probe == "pretooluse":
+                r.marker = r.command  # the unpadded command: did it reach the model?
                 r.command = padded(r.command, args.padded)
     os.makedirs(os.path.dirname(args.out), exist_ok=True)
     stamp = datetime.now(timezone.utc).isoformat()
     with open(args.out, "a") as f:
         for recipe in selected:
+            if getattr(recipe, "marker", None):
+                os.environ["FI_MARKER"] = recipe.marker
             for mode in args.modes:
                 row = run_trial(recipe, mode, args.host_timeout)
                 row["ts"] = stamp

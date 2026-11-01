@@ -6,3 +6,4 @@ corpus/repos_head/
 artifact/*/*.jsonl
 baselines/
 benchmark/corpus_oversize.jsonl
+!artifact/scorecard-*/*.jsonl

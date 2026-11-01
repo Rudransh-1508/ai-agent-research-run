@@ -56,3 +56,44 @@ HEAD on 2026-10-31; see `RECHECK_2026-10-31.md`.
   behaviour. The marking is a real improvement, but a gate that verifies work should not
   pass it on a fabricated answer by default. Suggested fix: make `--fail-closed` the default
   for the verify/gate commands, keeping fail-open for advisory commands.
+
+## Dicklesworthstone/destructive_command_guard (dcg v0.15.3, release binary, default config)
+
+- **Oversized hook input is allowed.** A Bash command padded to ~372k characters makes the
+  hook payload exceed the 262,144-byte stdin limit; dcg logs `stdin input (372310 bytes)
+  exceeds limit (262144 bytes); allowing command (fail-open)`. The README's bounded failure
+  policy says an oversized payload "is not allowed blind" because dcg scans the raw text;
+  in our runs the window scan caught the dangerous part when it came first (48/114 blocked)
+  but almost never when the padding came first (3/114). Because the payload is not parsed,
+  the `permission_mode: bypassPermissions` downgrade to deny does not apply either: 175/228
+  padded destructive calls would run under bypassPermissions (observed 2026-11-02).
+  Suggested fix: treat an over-limit payload as unverified (ask, or deny under
+  bypassPermissions/dontAsk), or make `fail_closed` the default for over-limit input.
+
+## alelaguard/agentguards-plugins (@64e7e8e, Claude Code hook)
+
+- **An empty 200 response allows.** `result.get("decision", "allow")` turns a valid but empty
+  authorize response (`{}`) into an explicit allow, which skips Claude Code's prompt, in the
+  shipped fail-closed configuration that blocks every other failure (400/429/500/503,
+  timeout, malformed body, connection refused). Suggested fix: a missing decision is a
+  failure and follows the fail-closed path.
+- **No API key means allow.** With no key configured, PreToolUse returns an explicit
+  `permissionDecision: allow` for Bash, which also skips the host's prompt; the in-code
+  comment says a missing key "is a setup gap, not a security event". Suggested fix: emit
+  nothing (defer to the host prompt) rather than allow.
+
+## sdkks/example-claude-settings (@162a9e9)
+
+- **The judge sees only the first 1,000 characters.** `stage2` sends `command.slice(0, 1000)`
+  to the model. With benign padding first, the dangerous command never reaches the model
+  (verified: the request body did not contain it), and a "safe" verdict on the filler
+  auto-approves the whole command at the PermissionRequest prompt. Suggested fix: refuse
+  (stay silent) when the command is longer than the window, rather than judging a prefix.
+- **API failures spawn the Claude CLI as a fallback judge** (`claude -p --model haiku`):
+  every failed model call in our fault matrix fell through to it (200 invocations across
+  trials, stubbed in our harness). Worth documenting: a permission hook that starts
+  another agent process on failure.
+- The structural allowlist accepts `kubectl`, `rm`, `curl`, `bash` and others with
+  unchecked arguments; this is documented as relying on the paired block hook, which
+  covers some but not all misuse (e.g. `terraform destroy -auto-approve` passes the block
+  hook and reaches the model).
