@@ -94,8 +94,9 @@ def main():
     if args and args[0] == "--self-test":
         self_test()
         return
-    if not args:
-        sys.exit("usage: noise_floor.py results_r1.jsonl results_r2.jsonl ...")
+    if not args or args[0] in ("-h", "--help"):
+        print(__doc__.strip())
+        sys.exit(0 if args else 2)
     rows = analyze(load_repeats(args))
     s = summarize(rows)
     print(json.dumps(s, indent=1))
