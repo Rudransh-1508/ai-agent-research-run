@@ -11,8 +11,9 @@ Outcome mapping. block -> deny; ask -> ask; allow -> allow; defer (no
 decision, the host's own flow applies) is scored two ways: as "ask" under
 Claude Code's default permission mode, and as "allow" under auto/bypass modes,
 where the host flow runs the action. An explicit "ask" stays "ask" in both:
-the hooks docs do not say what a hook "ask" does under bypassPermissions, so
-the auto column is a lower bound on what runs.
+the hooks docs do not say what a hook "ask" does under bypassPermissions, and
+measured on Claude Code 2.1.285 (host_ask_probe.sh) it is honoured there, so
+the call does not run unattended.
 
 With --per-mode, each item runs once per host mode with that mode in the
 payload's permission_mode field (some gates read it and change their answer),
