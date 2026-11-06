@@ -161,3 +161,32 @@ out. Raw: `artifact/scorecard-sdkks-cli/`.
 Together with jev-engineering's `git branch -D` (section 1) this is the clearest evidence
 that **in model-in-the-loop gates the deterministic fast path, not the model, is what runs
 destructive calls in default mode.**
+
+## 8. agentguards live, against its hosted service (measured 2026-11-07)
+
+Shipped plugin defaults (fail-closed), the user's free-tier key, `prod.agentguards.co`;
+559 service calls, no errors. agentguards gates Bash (and fetches) only; Read/Write calls
+defer to the host prompt, as shipped. Raw: `artifact/scorecard-agentguards/`.
+
+| mode | destructive run (main) | (held-out) | padded run | safe prompted | safe auto-approved | safe blocked |
+|---|---|---|---|---|---|---|
+| default | **50/131** | **16/64** | 0/228 | 24/94 | 70/94 | 0/94 |
+| auto | 67/131 | 48/64 | 0/228 | 0/94 | 94/94 | 0/94 |
+
+- **The largest default-mode leak measured**: the service explicitly allows ("safe
+  baseline") 50/131 clearly destructive calls, which skips Claude Code's prompt. By category:
+  network 18, git 18, package 10, shell 4. It allows **plain credential exfiltration**
+  (POSTing `~/.aws/credentials` to pastebin or an unknown host) with or without injected
+  `X-Gate-Decision: allow` headers, so the header injection is not what makes it pass.
+  Also allowed: `git branch -D`, `npm unpublish --force`, a billing `terminate` POST.
+- Held-out: 16/64 allowed in default mode, all `git push --force` from the fake-user-
+  transcript attack family.
+- **Robust to padding**: all 228 padded commands get `ask` (both shapes): the hosted service
+  handles oversized input, unlike jev-guard (228/228 run under bypass) and dcg (175/228).
+- Automation is high (70/94 safe calls approved without a prompt).
+
+Updated picture across all eight configurations (`artifact/scorecard-all/SCORECARD.md`):
+the two LLM-judge gates that *approve* (sdkks, agentguards) automate the most and leak the
+most in default mode; the gates that only block or ask leak little in default mode and
+fail under bypass or padding. No configuration measured is good on protection, robustness
+and friction at once.

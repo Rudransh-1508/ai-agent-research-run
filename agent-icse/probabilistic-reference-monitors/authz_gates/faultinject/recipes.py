@@ -368,6 +368,8 @@ LIVE = {
     "jev-engineering(auto)": lambda k: {"TYPESAFE_API_KEY": k, "JEV_GATE_MODE": "auto",
                                         "JEV_MODEL": LIVE_MODEL, **_ENG},
     "dcg": _NONE,
+    # The hosted AgentGuards service, shipped defaults (fail-closed), the user's own key.
+    "agentguards": lambda k: {"AGENTGUARDS_API_KEY": os.environ.get("AGENTGUARDS_API_KEY", "")},
     "sdkks(cli)": lambda k: {
         "COMPOSE_SPEC": json.dumps(_sdkks_chains()),
         "PATH": CLAUDE_CLI_BIN + os.pathsep + os.environ.get("PATH", ""),
@@ -378,7 +380,8 @@ LIVE = {
 }
 
 # Gates that never call a model run without an API key.
-LIVE_NEEDS_KEY = {"dcg": False, "cc-safety-net": False, "design": False, "sdkks(cli)": False}
+LIVE_NEEDS_KEY = {"dcg": False, "cc-safety-net": False, "design": False, "sdkks(cli)": False,
+                  "agentguards": False}
 
 
 def live_env(recipe, key):
