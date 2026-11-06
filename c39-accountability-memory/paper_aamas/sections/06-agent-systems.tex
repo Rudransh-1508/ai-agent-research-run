@@ -52,3 +52,60 @@ on this curve: more concealment, more incentive margin, slower evaluation. Its
 binding constraint is temporal rather than a size bound, so it evidences the
 \emph{consequence} of settling from a merged record while the context-window
 argument evidences the \emph{mechanism}.
+
+\subsection{What production agent frameworks log by default}
+\label{sec:framework-audit}
+
+The theory bounds what a record must retain; whether deployed systems clear that
+bar is a separate, checkable question. We audited seven production multi-agent
+frameworks on one criterion: does the \emph{default} structured log let a
+principal recover, after the fact, which agent did what---not whether custom
+instrumentation could, but what a settlement built on the log as shipped would
+see. For AutoGen we did not stop at the documentation: we installed
+\texttt{autogen-core}~0.7.5 and drove a real three-agent episode through its own
+\texttt{SingleThreadedAgentRuntime}, capturing every event the framework's own
+logger emitted (\texttt{experiments/production\_probe/} reproduces the run).
+
+\begin{table}[t]
+\centering
+\caption{Default per-agent attribution in seven production agent frameworks,
+audited 2026-09-14 and, for AutoGen, corrected 2026-09-19 after running the
+framework directly.}
+\label{tab:frameworks}
+\small
+\begin{tabular}{@{}lll@{}}
+\toprule
+Framework & Class & Effort recoverable? \\
+\midrule
+LangSmith / LangGraph~\cite{langsmithdocs} & SAFE & per-step, per-step cost \\
+OpenAI Agents SDK~\cite{openaiagentssdk} & SAFE & per agent run \\
+Claude Agent SDK & SAFE & per subagent, own file \\
+Microsoft Semantic Kernel~\cite{semantickerneltokens} & SAFE & per-agent token/cost \\
+Google Agent Development Kit~\cite{googleadktraces} & SAFE (leaning) & per-agent spans \\
+AutoGen~\cite{autogenlogging} & SAFE & per agent, ambient context \\
+CrewAI~\cite{crewaitracing,crewaiovercountissue} & MIXED & outputs yes, cost no \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Six of the seven default to per-agent attribution. That number is a correction,
+not a summary: an earlier documentation-based pass classified AutoGen MIXED
+because \texttt{LLMCallEvent} and \texttt{ToolCallEvent} carry no agent
+identifier in their public constructor signature. Running the framework shows
+both populate an \texttt{agent\_id} internally from
+\texttt{MessageHandlerContext.agent\_id()} whenever the event is logged inside a
+message handler---the normal case---and that field is undocumented. In our run,
+$120$ of $120$ \texttt{LLMCallEvent}s and $120$ of $120$
+\texttt{ToolCallEvent}s across $40$ episodes carried a working per-agent
+identifier. We leave the correction visible because it is itself the point:
+auditing logging behaviour from documentation alone is not reliable, which is
+grounds for scepticism about any claim in this section that has not been checked
+against a live run, including ours.
+
+\paragraph{This cuts against the easy version of our own motivation.} If the
+industry default were aggregation, this paper's premise would be free. It is
+not: the aggregation we found is a convenience default rather than a binding
+budget, recoverable with modest instrumentation, and we do not lean on it. What
+the audit establishes is narrower---the failure mode exists at the schema level
+in a widely used framework, on the axis the theory predicts, and is invisible to
+anyone who has not looked at the field level.

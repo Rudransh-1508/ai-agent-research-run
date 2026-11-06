@@ -310,7 +310,7 @@ def main():
             row["verdict"] = ("NOT FLAT (proved, arbitrary bounded payment decoders, "
                               "via Lemma 3 counting corollary)")
             out[K] = row
-            json.dump(out, open(f"kflat_structure_n{n}.json", "w"), indent=1, default=float)
+            json.dump(out, open(f"kflat_structure_n{n}.json", "w", newline="\n"), indent=1, default=float)
             continue
 
         codes, exhausted = enumerate_codes(n, K, D0, limit=limit)
@@ -329,7 +329,7 @@ def main():
             else:
                 row["verdict"] = "INCONCLUSIVE (code enumeration did not finish)"
             out[K] = row
-            json.dump(out, open(f"kflat_structure_n{n}.json", "w"), indent=1, default=float)
+            json.dump(out, open(f"kflat_structure_n{n}.json", "w", newline="\n"), indent=1, default=float)
             continue
 
         row["gammas"] = {}
@@ -366,9 +366,9 @@ def main():
                       f"(exhaustive={exhausted})", flush=True)
         row["seconds"] = round(time.time() - t0, 1)
         out[K] = row
-        json.dump(out, open(f"kflat_structure_n{n}.json", "w"), indent=1, default=float)
+        json.dump(out, open(f"kflat_structure_n{n}.json", "w", newline="\n"), indent=1, default=float)
 
-    json.dump(out, open(f"kflat_structure_n{n}.json", "w"), indent=1, default=float)
+    json.dump(out, open(f"kflat_structure_n{n}.json", "w", newline="\n"), indent=1, default=float)
 
 
 if __name__ == "__main__":

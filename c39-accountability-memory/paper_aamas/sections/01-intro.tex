@@ -83,6 +83,15 @@ record size.
       exist that are reconstruction-optimal at their budget and admit \emph{no}
       positive margin at any price; an aggregate count has margin exactly $1/n$;
       retaining a strict subset of agents' bits is worth exactly nothing.
+\item \textbf{Identity, not volume, carries attribution in a running agent
+      system} (Section~\ref{sec:llm}). Over $192$ episodes of a three-agent
+      code review written by a language model, two records holding \emph{the
+      same text} and differing by $30$ bytes of authorship labels differ by
+      $0.943$ bits of attribution error, $95\%$ interval $[0.802, 1.089]$: the
+      count survives compaction, the assignment does not. And
+      Section~\ref{sec:framework-audit} audits seven production frameworks for
+      whether they clear the bar---running one of them rather than reading its
+      documentation, which reverses its classification.
 \end{enumerate}
 
 \noindent A claim in an earlier version of this work---that every tilted product

@@ -12,7 +12,7 @@ import json, sys, time, warnings
 import numpy as np, scipy
 import sys as _sys, pathlib as _pl
 _sys.path.insert(0, str(_pl.Path(__file__).resolve().parents[1]))
-from c39.paths import data, out
+from c39.paths import data, out as outpath
 warnings.filterwarnings("ignore")
 from kflat_theory import two_dominating_set
 
@@ -43,7 +43,7 @@ out = {
     "rows": rows,
     "all_agree_with_prepinned": bool(agree),
 }
-json.dump(out, open(out("gamma2_n9_lb_rerun.json"), "w"), indent=1)
+json.dump(out, open(outpath("gamma2_n9_lb_rerun.json"), "w", newline="\n"), indent=1)
 print("\n" + ("ALL ROWS AGREE -- the n=9 lower bound holds in the pinned environment."
               if agree else "DISAGREEMENT -- the n=9 lower bound is NOT reproduced."),
       flush=True)

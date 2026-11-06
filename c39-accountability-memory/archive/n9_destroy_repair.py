@@ -76,4 +76,4 @@ print(f"\nBEST |C|={len(Cs)} 2-dom={chk['is_2_dominating']} min_deg={chk['min_de
       f"internal_edges={chk['internal_edges']} | D={v['D']:.8f} D0={v['D0']:.8f} "
       f"FLAT={v['flat']} margin={v['min_margin']:.6f}  (trials={trial})")
 json.dump(dict(size=len(Cs), check=chk, verify=v, centers=Cs, trials=trial),
-          open(out("n9_destroy_repair.json"),"w"), indent=1, default=float)
+          open(out("n9_destroy_repair.json"),"w", newline="\n"), indent=1, default=float)

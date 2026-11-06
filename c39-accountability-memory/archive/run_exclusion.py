@@ -1,7 +1,7 @@
 import json, warnings
 import sys as _sys, pathlib as _pl
 _sys.path.insert(0, str(_pl.Path(__file__).resolve().parents[1]))
-from c39.paths import data, out
+from c39.paths import data, out as outpath
 warnings.filterwarnings("ignore")
 from kflat_theory import exclusion_scan
 
@@ -17,4 +17,4 @@ for n, Kmax in [(3,3),(5,9),(7,15),(9,61)]:
         v=rows[K]
         print(f"     K={K}: N*D0<= {v['N_D0_upper']}  rhs={v['rhs']}  "
               f"(sphere LB on N*D0 = {v['N_D0_lower']})", flush=True)
-    json.dump(out, open(out("exclusion_scan.json"),"w"), indent=1, default=float)
+    json.dump(out, open(outpath("exclusion_scan.json"),"w", newline="\n"), indent=1, default=float)

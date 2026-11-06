@@ -29,7 +29,7 @@ import numpy as np
 from experiment_agents import popcount, prior, distortion, margin
 import sys as _sys, pathlib as _pl
 _sys.path.insert(0, str(_pl.Path(__file__).resolve().parents[1]))
-from c39.paths import data, out
+from c39.paths import data, out as outpath
 
 L = 3                      # artifact quality levels
 TAU = 2                    # A_i >= TAU counts as a completed subtask
@@ -181,6 +181,6 @@ if __name__ == "__main__":
             print(f"    [{eps} episodes] {name:<17} dD={abs(Ds-exact['D']):.4f}"
                   f"  dgamma={abs(gs-exact['gamma']):.4f}", flush=True)
         out[str(n)] = dict(exact=rows, sampled=check, episodes=eps)
-        json.dump(out, open(out("experiment_episodes.json"), "w"), indent=1)
+        json.dump(out, open(outpath("experiment_episodes.json"), "w", newline="\n"), indent=1)
         print(flush=True)
     print("wrote experiment_episodes.json")

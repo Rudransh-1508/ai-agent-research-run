@@ -24,7 +24,7 @@ import exp3_bracket
 import exp_kflat
 import sys as _sys, pathlib as _pl
 _sys.path.insert(0, str(_pl.Path(__file__).resolve().parents[1]))
-from c39.paths import data, out
+from c39.paths import data, out as outpath
 
 
 def M_n(n):
@@ -63,7 +63,7 @@ if __name__ == "__main__":
     print(f"  A: {'PASS' if okA else 'FAIL'}\n", flush=True)
 
     if not okA:
-        json.dump(out, open(out("validate_kflat_model.json"), "w"), indent=1, default=float)
+        json.dump(out, open(outpath("validate_kflat_model.json"), "w", newline="\n"), indent=1, default=float)
         raise SystemExit("STOP: exp3_bracket K=2 does not reproduce T1 in the "
                          "pinned environment. Bracket model is void.")
 
@@ -112,5 +112,5 @@ if __name__ == "__main__":
     out["C_pass"] = bool(okC)
     print(f"  C: {'PASS' if okC else 'FAIL'}", flush=True)
 
-    json.dump(out, open(out("validate_kflat_model.json"), "w"), indent=1, default=float)
+    json.dump(out, open(outpath("validate_kflat_model.json"), "w", newline="\n"), indent=1, default=float)
     print(f"\nOVERALL: A={okA} B={okB} C={okC}")

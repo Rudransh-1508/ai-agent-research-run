@@ -1,4 +1,4 @@
-"""Phase 1: does the Lemma 8 construction survive at nearest-distance r >= 2?
+r"""Phase 1: does the Lemma 8 construction survive at nearest-distance r >= 2?
 
     python experiments/general_prior_margin.py            # n = 3,4 full sweep
     python experiments/general_prior_margin.py 5          # add an n=5 sampled sweep
@@ -250,9 +250,9 @@ if __name__ == "__main__":
         construction_attained_D0_on_every_code=True,
         counterexamples=len(cx),
         witnesses=[{k: v for k, v in x.items()} for x in cx],
-        seconds=round(time.time() - t0, 1))), open(p, "w"), indent=1)
+        seconds=round(time.time() - t0, 1))), open(p, "w", newline="\n"), indent=1)
     print(f"wrote {p}")
     if "--full" in sys.argv:
         pf = out("general_prior_margin_full.json")
-        json.dump(_clean([dict(x) for x in allrows]), open(pf, "w"), indent=1)
+        json.dump(_clean([dict(x) for x in allrows]), open(pf, "w", newline="\n"), indent=1)
         print(f"wrote {pf}  (per-row dump; not part of the archive)")

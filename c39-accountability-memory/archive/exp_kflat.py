@@ -405,7 +405,7 @@ def main():
     out = json.load(open(path)) if os.path.exists(path) else {}
 
     def flush():
-        json.dump(out, open(path, "w"), indent=1, default=float)
+        json.dump(out, open(path, "w", newline="\n"), indent=1, default=float)
 
     print(f"=== n={n} K={K} symbreak={symbreak} time_limit={tl}s ===", flush=True)
 

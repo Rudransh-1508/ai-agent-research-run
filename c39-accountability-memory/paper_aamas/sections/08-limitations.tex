@@ -41,15 +41,17 @@ neither is fixed here. We therefore report attribution error, which averages ove
 agents, and treat the measured $\gamma$ ordering as uninformative about record
 type.
 
-\emph{The experiments are exact, and synthetic.}
+\emph{The experiments are exact, and synthetic where they are exact.}
 Section~\ref{sec:experiment} enumerates every profile, so its numbers carry no
-sampling error---but the mechanisms are stylised compaction rules on a binary
-effort model, not instrumented runs of a deployed agent stack. They establish
-that records which are reconstruction-optimal and accountability-dead exist and
-are easy to build by accident; they do not establish that any particular
-production system has built one. The episode model of
+sampling error---but those mechanisms are stylised compaction rules on a binary
+effort model. They establish that records which are reconstruction-optimal and
+accountability-dead exist and are easy to build by accident; they do not
+establish that any particular production system has built one.
+Section~\ref{sec:llm} is the other way round---real model-written artifacts,
+hence sampling error and a bootstrap interval---and the episode model of
 Appendix~\ref{app:episodes} generates artifacts from a two-distribution model we
-chose, so what transfers is the ordering of record types, not the magnitudes.
+chose, so what transfers there is the ordering of record types, not the
+magnitudes.
 
 \emph{The empirical case is assembled from two halves.} We are not aware of a
 single deployed system that both pays money and compresses across agents under a
@@ -57,10 +59,8 @@ storage bound within an episode. Systems that aggregate across agents under a
 hard budget use the result for orchestration; the system that settles money from
 a merged record is bounded temporally rather than in size. We claim the tension
 for deferred accountability, and do not claim that conjunction has been observed.
-Where production frameworks lose per-agent attribution they do so by default
-convenience rather than under a binding bound, and it is recoverable with modest
-instrumentation---a weaker premise than a genuinely bounded record, and one we do
-not lean on.
+Section~\ref{sec:framework-audit} states the same limit from the other side: the
+aggregation we found is a convenience default, not a binding budget.
 
 \paragraph{Open directions.}
 Closing $\Kflat(9)$, plausibly via published bounds on $\mu$-fold $1$-coverings

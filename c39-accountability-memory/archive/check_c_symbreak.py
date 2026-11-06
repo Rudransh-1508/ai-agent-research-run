@@ -41,5 +41,5 @@ for n, K in cases:
               f"sym={b['value']} ({b['seconds']}s)  dev={dev}  "
               f"{'PASS' if good else 'FAIL'}", flush=True)
         json.dump(dict(rows=rows, C_pass=bool(ok)),
-                  open(out("check_c_symbreak.json"), "w"), indent=1, default=float)
+                  open(out("check_c_symbreak.json"), "w", newline="\n"), indent=1, default=float)
 print(f"CHECK C: {'PASS' if ok else 'FAIL'}")

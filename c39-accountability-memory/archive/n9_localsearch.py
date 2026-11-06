@@ -77,4 +77,4 @@ print(f"\nBEST |C|={len(Cs)}  2-dominating={chk['is_2_dominating']} "
 print(f"construction check: D={v['D']:.8f} D0={v['D0']:.8f} FLAT={v['flat']} "
       f"margin={v['min_margin']:.6f}")
 json.dump(dict(size=len(Cs), check=chk, verify=v, centers=Cs, trials=trial),
-          open(out("n9_localsearch.json"), "w"), indent=1, default=float)
+          open(out("n9_localsearch.json"), "w", newline="\n"), indent=1, default=float)

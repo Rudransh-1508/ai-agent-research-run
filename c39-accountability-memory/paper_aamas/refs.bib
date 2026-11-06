@@ -268,3 +268,91 @@
   archivePrefix = {arXiv},
   primaryClass  = {cs.AI}
 }
+
+@misc{autogenlogging,
+  author       = {{Microsoft}},
+  title        = {{AutoGen Core}: Logging Events},
+  year         = {2026},
+  howpublished = {AutoGen documentation},
+  url          = {https://microsoft.github.io/autogen/stable/reference/python/autogen_core.logging.html},
+  note         = {The public \texttt{\_\_init\_\_} signatures of
+                  \texttt{LLMCallEvent} and \texttt{ToolCallEvent} (messages,
+                  response, prompt\_tokens, completion\_tokens / tool\_name,
+                  arguments, result) omit any agent identifier, which is what
+                  this documentation page shows. Running
+                  \texttt{autogen-core}~0.7.5 directly (2026-09-19) shows both
+                  classes in fact populate an internal \texttt{agent\_id}
+                  field via \texttt{MessageHandlerContext.agent\_id()} when
+                  logged from inside a message handler --- undocumented here,
+                  but present. See \texttt{experiments/production\_probe/} for
+                  the instrumented run; the paper cites this source for the
+                  documented signature but relies on the live-run result for
+                  the SAFE classification.}
+}
+
+@misc{crewaiovercountissue,
+  author       = {{CrewAI, Inc.}},
+  title        = {{crew.usage\_metrics} overcounts tokens when agents share
+                  one {LLM} instance},
+  year         = {2026},
+  howpublished = {GitHub issue},
+  url          = {https://github.com/crewAIInc/crewAI/issues/7259},
+  note         = {Open as of 2026-09-19. Sharing one LLM instance across
+                  agents is described as the usual way to write a crew, so
+                  the bug is not an edge case.}
+}
+
+@misc{crewaitracing,
+  author       = {{CrewAI, Inc.}},
+  title        = {{CrewAI} Observability: Tracing},
+  year         = {2026},
+  howpublished = {CrewAI documentation},
+  url          = {https://docs.crewai.com/en/observability/tracing},
+  note         = {Token usage is exposed crew-wide by default; per-agent
+                  attribution requires hooking \texttt{LLMCallCompletedEvent}
+                  or subclassing the LLM client.}
+}
+
+@misc{googleadktraces,
+  author       = {{Google}},
+  title        = {Agent Development Kit: Observability and Traces},
+  year         = {2026},
+  howpublished = {Google ADK documentation},
+  url          = {https://adk.dev/observability/traces/},
+  note         = {Built-in OpenTelemetry instrumentation traces every agent
+                  operation with per-agent spans in a multi-agent
+                  orchestration tree; per-agent granularity of cost/token
+                  fields specifically was not independently confirmed.}
+}
+
+@misc{langsmithdocs,
+  author       = {{LangChain}},
+  title        = {{LangSmith} Observability: Runs and Traces},
+  year         = {2026},
+  howpublished = {LangSmith documentation},
+  url          = {https://docs.smith.langchain.com/observability},
+  note         = {Defines a Run as a single unit of work by an agent and
+                  reports per-run \texttt{usage\_metadata} (input/output
+                  tokens) and per-run cost.}
+}
+
+@misc{openaiagentssdk,
+  author       = {{OpenAI}},
+  title        = {{OpenAI} Agents {SDK}: Tracing},
+  year         = {2026},
+  howpublished = {OpenAI Agents SDK documentation},
+  url          = {https://openai.github.io/openai-agents-python/tracing/},
+  note         = {Tracing is enabled by default; each agent run is wrapped in
+                  an \texttt{agent\_span()}.}
+}
+
+@misc{semantickerneltokens,
+  author       = {{Microsoft}},
+  title        = {Track Your Token Usage and Costs with {Semantic Kernel}},
+  year         = {2026},
+  howpublished = {Microsoft Agent Framework blog},
+  url          = {https://devblogs.microsoft.com/agent-framework/track-your-token-usage-and-costs-with-semantic-kernel/},
+  note         = {Per-request token metering plus OpenTelemetry integration;
+                  Azure Application Insights' Agents view breaks token usage
+                  down by agent.}
+}

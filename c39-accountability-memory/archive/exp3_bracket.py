@@ -136,4 +136,4 @@ if __name__ == "__main__":
             print(f"n={n} K={K} gamma={g:.6f}  LB={lv}  UB={uv}  [{tag}]  {time.time()-t0:.1f}s",
                   flush=True)
             out[f"K{K}_g{frac}"] = dict(gamma=g, LB=L, UB=U, certified=(tag == "CERTIFIED"))
-            json.dump(out, open(f"exp3_n{n}.json", "w"), indent=1, default=float)
+            json.dump(out, open(f"exp3_n{n}.json", "w", newline="\n"), indent=1, default=float)

@@ -255,5 +255,5 @@ if "full_trace" in g:
                     + ("" if usable else "  -- EXPERIMENT INCONCLUSIVE, "
                                          "the ordering below is noise"))
 
-json.dump(results, open(data("results") / "experiment_llm_scored.json", "w"), indent=1)
+json.dump(results, open(data("results") / "experiment_llm_scored.json", "w", newline="\n"), indent=1)
 print("\nwrote results/experiment_llm_scored.json")

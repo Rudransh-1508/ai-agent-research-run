@@ -87,7 +87,7 @@ if __name__ == "__main__":
     p = out(f"general_prior_n{n}_search.json")
     json.dump(dict(n=n, examined=total, hits=len(hits),
                    examples=[[int(c) for c in h[0]] for h in hits[:20]],
-                   seconds=round(dt, 1)), open(p, "w"), indent=1)
+                   seconds=round(dt, 1)), open(p, "w", newline="\n"), indent=1)
     print(f"wrote {p}")
     if not hits:
         print(f"\n=> no configuration exists at n={n}: Proposition 12 appears "

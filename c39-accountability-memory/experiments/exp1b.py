@@ -16,7 +16,7 @@ import numpy as np
 from scipy.optimize import linprog
 import sys as _sys, pathlib as _pl
 _sys.path.insert(0, str(_pl.Path(__file__).resolve().parents[1]))
-from c39.paths import data, out
+from c39.paths import data, out as outpath
 
 def states(n):
     return np.array(list(itertools.product([0, 1], repeat=n)), dtype=int)
@@ -91,7 +91,7 @@ if __name__ == "__main__":
             print(f"n={n} gamma={g:.6f}  LP={D:.10f}  claimed={cl:.10f}"
                   f"  gap={D-cl:+.3e}  q=conj:{ok}", flush=True)
         out[n] = dict(M_n=M_n(n), seconds=time.time() - t0, rows=rows)
-        json.dump(out, open(out("exp1b_results.json"), "w"), indent=1, default=float)
+        json.dump(out, open(outpath("exp1b_results.json"), "w", newline="\n"), indent=1, default=float)
         print(f"  [n={n} done in {time.time()-t0:.1f}s]\n", flush=True)
 
     # cross-check: orbit reduction vs full enumeration at n=3 and n=5
@@ -110,4 +110,4 @@ if __name__ == "__main__":
         vals.append(float(D)); print(f"  {orient} -> {D:.10f}", flush=True)
     out["orientation_spread_n3"] = max(vals) - min(vals)
     print("  spread:", max(vals) - min(vals))
-    json.dump(out, open(out("exp1b_results.json"), "w"), indent=1, default=float)
+    json.dump(out, open(outpath("exp1b_results.json"), "w", newline="\n"), indent=1, default=float)

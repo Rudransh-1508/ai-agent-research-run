@@ -15,7 +15,7 @@ import json, time
 from prior_threshold import prior, d0_weighted, best_two_dominating, TOL
 import sys as _sys, pathlib as _pl
 _sys.path.insert(0, str(_pl.Path(__file__).resolve().parents[1]))
-from c39.paths import data, out
+from c39.paths import data, out as outpath
 
 out = {"claim": "K_flat = 2^n - (n-1) for a tilted product prior, any n >= 3",
        "even_n": {}, "strict_decrease": {}}
@@ -53,7 +53,7 @@ for n in (3, 4):
     print(f"D_0 strictly decreasing at n={n} over K=1..{N}: {not ties}"
           + (f"  ties at {ties}" if ties else ""), flush=True)
 
-json.dump(out, open(out("prior_threshold_even.json"), "w"), indent=1)
+json.dump(out, open(outpath("prior_threshold_even.json"), "w", newline="\n"), indent=1)
 ok = all(v["agrees"] for v in out["even_n"].values()) and \
      all(v["strictly_decreasing"] for v in out["strict_decrease"].values())
 print("\n" + ("BOTH HYPOTHESES SETTLED: parity is not needed, D_0 is strictly decreasing"

@@ -42,7 +42,7 @@ for K in Ks:
         tag = "FLATNESS IMPOSSIBLE" if cb["flatness_excluded"] else "not excluded"
         print(f"K={K:3d}: D0={D0:.6f} gap={r['gap']}  N*D0={cb['lhs_N_D0']:.2f} "
               f"vs rhs={cb['rhs']:.2f}  -> {tag}   [{r['seconds']}s]", flush=True)
-    json.dump(rows, open(out("kflat_n7_bound.json"), "w"), indent=1, default=float)
+    json.dump(rows, open(out("kflat_n7_bound.json"), "w", newline="\n"), indent=1, default=float)
 
 excl = [K for K, v in rows.items() if v.get("flatness_excluded")]
 ok = [K for K, v in rows.items() if v.get("flatness_excluded") is False]

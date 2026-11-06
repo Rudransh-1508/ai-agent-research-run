@@ -131,7 +131,7 @@ def main(seed=SEED, trials_per_n=4000):
     print(f"\n{'ALL CLAIMS HELD' if ok else 'A CLAIM FAILED'}  ({dt:.1f}s)")
     p = out("general_prior_theorem_check.json")
     json.dump(dict(seed=seed, per_n=stats, violations=len(viol),
-                   seconds=round(dt, 1)), open(p, "w"), indent=1)
+                   seconds=round(dt, 1)), open(p, "w", newline="\n"), indent=1)
     print(f"wrote {p}")
     return 0 if ok else 1
 

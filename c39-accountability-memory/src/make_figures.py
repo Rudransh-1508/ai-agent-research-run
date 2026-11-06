@@ -48,7 +48,7 @@ for n in (3, 5, 7, 9):
 
 lines += [r"\end{axis}", r"\end{tikzpicture}"]
 
-open(out("paper/figures/frontier.tex"), "w").write("\n".join(lines) + "\n")
+open(out("paper/figures/frontier.tex"), "w", newline="\n").write("\n".join(lines) + "\n")
 print("wrote paper/figures/frontier.tex")
 
 # sanity: the closed form must terminate at ((1/n), (n-1)/2)

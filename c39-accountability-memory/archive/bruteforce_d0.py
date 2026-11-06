@@ -41,7 +41,7 @@ import itertools, json, time
 import numpy as np
 import sys as _sys, pathlib as _pl
 _sys.path.insert(0, str(_pl.Path(__file__).resolve().parents[1]))
-from c39.paths import data, out
+from c39.paths import data, out as outpath
 
 
 def dist_matrix(n):
@@ -212,7 +212,7 @@ if __name__ == "__main__":
     out["method_B_validated"] = bool(okBE)
     print(f"  method B validated: {okBE}\n", flush=True)
     if not okBE:
-        json.dump(out, open(out("bruteforce_d0.json"), "w"), indent=1, default=float)
+        json.dump(out, open(outpath("bruteforce_d0.json"), "w", newline="\n"), indent=1, default=float)
         raise SystemExit("STOP: branch and bound disagrees with complete "
                          "enumeration. Brute-force reference is itself broken.")
 
@@ -249,11 +249,11 @@ if __name__ == "__main__":
             print(f"    K={K:3d}  brute={brute:.10f}  fast={fast:.10f}  "
                   f"diff={brute-fast:+.2e}  gap={gap}{flag}", flush=True)
         out[f"compare_n{n}"] = dict(method=method, nodes=int(nodes), rows=rows)
-        json.dump(out, open(out("bruteforce_d0.json"), "w"), indent=1, default=float)
+        json.dump(out, open(outpath("bruteforce_d0.json"), "w", newline="\n"), indent=1, default=float)
 
     out["all_match"] = bool(verdict_all)
     out["first_disagreement"] = first_bad
-    json.dump(out, open(out("bruteforce_d0.json"), "w"), indent=1, default=float)
+    json.dump(out, open(outpath("bruteforce_d0.json"), "w", newline="\n"), indent=1, default=float)
     print(f"\nVERDICT: all K at n=3 and n=5 match: {verdict_all}")
     if first_bad:
         print(f"FIRST DISAGREEMENT: n={first_bad[0]} K={first_bad[1]} "

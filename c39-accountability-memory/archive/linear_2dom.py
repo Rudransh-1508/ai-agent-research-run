@@ -16,7 +16,7 @@ Verified here directly against the flat construction, no solver.
 import json, warnings
 import sys as _sys, pathlib as _pl
 _sys.path.insert(0, str(_pl.Path(__file__).resolve().parents[1]))
-from c39.paths import data, out
+from c39.paths import data, out as outpath
 warnings.filterwarnings("ignore")
 from math import floor, log2
 import numpy as np
@@ -69,4 +69,4 @@ if __name__ == "__main__":
             print(f"n={n:3d}: |C|={len(C):6d}  2-dominating={chk['is_2_dominating']} "
                   f"min_deg={chk['min_deg_outside']}", flush=True)
         out[n] = row
-        json.dump(out, open(out("linear_2dom.json"), "w"), indent=1, default=float)
+        json.dump(out, open(outpath("linear_2dom.json"), "w", newline="\n"), indent=1, default=float)

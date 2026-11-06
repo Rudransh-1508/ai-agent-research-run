@@ -13,7 +13,8 @@ ROOT = Path(__file__).resolve().parent
 PY = sys.executable
 
 TASKS = {
-    "verify":  [("src/check_manifest.py", "archive integrity"),
+    "verify":  [("src/check_scripts.py", "script-level faults"),
+                ("src/check_manifest.py", "archive integrity"),
                 ("src/verify_all.py", "solver-free checks")],
     "audit":   [("src/audit_paper_numbers.py", "paper vs artifacts")],
     "score":   [("src/analyse_experiment.py", "pre-registered predictions")],

@@ -31,7 +31,7 @@ import numpy as np
 from scipy.optimize import linprog, milp, LinearConstraint, Bounds
 import sys as _sys, pathlib as _pl
 _sys.path.insert(0, str(_pl.Path(__file__).resolve().parents[1]))
-from c39.paths import data, out
+from c39.paths import data, out as outpath
 
 
 def all_states(n):
@@ -195,7 +195,7 @@ if __name__ == "__main__":
                   f"d(A,exp1b)={D_milp-D_exp1b:+.3e}  d(A,cf)={D_milp-D_cf:+.3e}",
                   flush=True)
         out[n] = dict(seconds=time.time() - t0, rows=rows)
-        json.dump(out, open(out("verify_t1_independent.json"), "w"), indent=1, default=float)
+        json.dump(out, open(outpath("verify_t1_independent.json"), "w", newline="\n"), indent=1, default=float)
         print(f"  [n={n} done in {time.time()-t0:.1f}s]\n", flush=True)
 
     ns = [k for k in out if isinstance(k, int)]
@@ -209,4 +209,4 @@ if __name__ == "__main__":
     out["max_dev_milp_vs_exp1b"] = worst
     out["max_dev_milp_vs_closed_form"] = worst_cf
     out["max_dev_enum_vs_milp"] = worst_enum
-    json.dump(out, open(out("verify_t1_independent.json"), "w"), indent=1, default=float)
+    json.dump(out, open(outpath("verify_t1_independent.json"), "w", newline="\n"), indent=1, default=float)

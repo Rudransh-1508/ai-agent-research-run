@@ -8,7 +8,7 @@ import numpy as np, scipy
 import warnings
 import sys as _sys, pathlib as _pl
 _sys.path.insert(0, str(_pl.Path(__file__).resolve().parents[1]))
-from c39.paths import data, out
+from c39.paths import data, out as outpath
 warnings.filterwarnings("ignore")
 
 from kflat_theory import two_dominating_set, check_two_dominating
@@ -52,5 +52,5 @@ out["codes"]["n9"] = {
 }
 print(f"n=9 K={len(C9)}: min_deg={chk9['min_deg_outside']}", flush=True)
 
-json.dump(out, open(out("certified_codes.json"), "w"), indent=1)
+json.dump(out, open(outpath("certified_codes.json"), "w", newline="\n"), indent=1)
 print("\nwrote certified_codes.json")

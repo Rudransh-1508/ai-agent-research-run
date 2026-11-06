@@ -508,6 +508,196 @@ for n, kflat in [(3, 4), (4, 7)]:
           f"enumeration gives {found}")
 
 
+# ================================================================== block H
+# Noisy outcomes (revision_2026-09-30): S_i ~ Bernoulli(h) if agent i works,
+# Bernoulli(l) if not. Recomputed by direct enumeration, sharing no code with
+# experiments/noisy_outcomes.py.
+
+def _out_prob(n, s, probs):
+    w = 1.0
+    for i in range(n):
+        w *= probs[i] if (s >> i) & 1 else 1.0 - probs[i]
+    return w
+
+
+def _label_law(n, labels, probs):
+    """Law of a deterministic record's label when S_i ~ Bernoulli(probs[i])."""
+    law = {}
+    for s in range(1 << n):
+        law[labels[s]] = law.get(labels[s], 0.0) + _out_prob(n, s, probs)
+    return law
+
+
+def _spread_law(n, C, probs):
+    """Law of the flat record's label (spread over centre neighbours)."""
+    law = [0.0] * len(C)
+    for s in range(1 << n):
+        w = _out_prob(n, s, probs)
+        if s in C:
+            law[C.index(s)] += w
+        else:
+            nb = [j for j, c in enumerate(C) if popcount(s ^ c) == 1]
+            for j in nb:
+                law[j] += w / len(nb)
+    return dict(enumerate(law))
+
+
+def _tv(a, b):
+    return 0.5 * sum(abs(a.get(k, 0.0) - b.get(k, 0.0)) for k in set(a) | set(b))
+
+
+def _nash(n, law_fn, h, l):
+    base = law_fn([h] * n)
+    return min(_tv(base, law_fn([l if j == i else h for j in range(n)]))
+               for i in range(n))
+
+
+def _entropy(law):
+    return -sum(p * math.log(p) for p in law.values() if p > 0)
+
+
+def _max_binom(m, h):
+    return max(math.comb(m, k) * h ** k * (1 - h) ** (m - k) for k in range(m + 1))
+
+
+print("\nH. noisy outcomes: linear-memory bound and block counts")
+h_, l_ = 0.9, 0.1
+H_RECORDS = {
+    "count": lambda n: [popcount(s) for s in range(1 << n)],
+    "all succeeded": lambda n: [int(s == (1 << n) - 1) for s in range(1 << n)],
+    "block counts m=2": lambda n: [tuple(popcount((s >> b) & 3) for b in range(0, n, 2))
+                                   for s in range(1 << n)],
+}
+for n in (4, 6):
+    for name, lab in H_RECORDS.items():
+        labels = lab(n)
+        fn = lambda probs, labels=labels: _label_law(n, labels, probs)
+        nash = _nash(n, fn, h_, l_)
+        bound = (h_ - l_) * math.sqrt(_entropy(fn([h_] * n)) / (2 * h_ * (1 - h_) * n))
+        check(f"n={n} {name}: Nash margin {nash:.4f} <= bound {bound:.4f}",
+              nash <= bound + 1e-12)
+        if name != "all succeeded":
+            m = n if name == "count" else 2
+            closed = (h_ - l_) * _max_binom(m - 1, h_)
+            check(f"n={n} {name}: margin = (h-l) max pmf Bin({m-1}, h)",
+                  abs(nash - closed) < 1e-12, f"{nash:.6f} vs {closed:.6f}")
+
+# The printed Nash margins of the two reconstruction-optimal records.
+for n, want_flat, want_near in [(5, 0.5063, 0.2550), (9, 0.6317, 0.6786)]:
+    C = CERT[f"n{n}"]["centres"]
+    near = [min(range(len(C)), key=lambda j: popcount(s ^ C[j])) for s in range(1 << n)]
+    m_flat = _nash(n, lambda probs: _spread_law(n, C, probs), h_, l_)
+    m_near = _nash(n, lambda probs: _label_law(n, near, probs), h_, l_)
+    check(f"n={n}: flat Nash margin {m_flat:.4f} and nearest-centre {m_near:.4f}",
+          round(m_flat, 4) == want_flat and round(m_near, 4) == want_near)
+
+# Table noisy-scaling: block-count closed forms at n = 100, 1000.
+for n, m, bits, mu in [(100, 1, 100.0, 0.8000), (100, 5, 51.7, 0.5249),
+                       (100, 20, 22.0, 0.2281), (100, 100, 6.7, 0.1055),
+                       (1000, 5, 517.0, 0.5249), (1000, 20, 219.6, 0.2281),
+                       (1000, 1000, 10.0, 0.0336)]:
+    sizes = [min(m, n - b) for b in range(0, n, m)]
+    got_bits = sum(math.log2(sz + 1) for sz in sizes)
+    got_mu = min((h_ - l_) * _max_binom(sz - 1, h_) for sz in sizes)
+    check(f"n={n} m={m}: {got_bits:.1f} bits, margin {got_mu:.4f}",
+          round(got_bits, 1) == bits and round(got_mu, 4) == mu)
+
+
+# ================================================================== block I
+# Budget balance and the cost of implementation (revision_2026-09-30).
+# The budget-balanced margins themselves are LP values and are audited against
+# results/budget_balance_cost.json; here we recheck, without a solver, the
+# attribution bound they are compared with, the symmetric-record zero, and the
+# certification characterisation of the least payment (a greedy knapsack).
+
+def _laws(n, law_fn, h, l):
+    q1 = law_fn([h] * n)
+    q0 = [law_fn([l if j == i else h for j in range(n)]) for i in range(n)]
+    return q1, q0
+
+
+def _attribution(q0):
+    keys = set().union(*q0)
+    mean = {k: sum(q.get(k, 0.0) for q in q0) / len(q0) for k in keys}
+    return sum(_tv(q, mean) for q in q0) / len(q0)
+
+
+def _least_payment(q1, q0, c):
+    gain = {y: q1.get(y, 0.0) - q0.get(y, 0.0) for y in set(q1) | set(q0)}
+    order = sorted((y for y in gain if gain[y] > 0), key=lambda y: -gain[y] / q1[y])
+    need, cost = c, 0.0
+    for y in order:
+        if need <= 0:
+            break
+        take = min(1.0, need / gain[y])
+        cost += take * q1[y]
+        need -= take * gain[y]
+    return cost if need <= 1e-12 else math.inf
+
+
+print("\nI. budget balance: attribution bound, symmetric records, certification")
+for n in (4, 6):
+    for name in ("count", "all succeeded"):
+        labels = H_RECORDS[name](n)
+        q1, q0 = _laws(n, lambda probs: _label_law(n, labels, probs), h_, l_)
+        check(f"n={n} {name}: symmetric, so attribution bound is 0",
+              _attribution(q0) < 1e-12, f"{_attribution(q0):.2e}")
+
+C5 = CERT["n5"]["centres"]
+near5 = [min(range(len(C5)), key=lambda j: popcount(s ^ C5[j])) for s in range(32)]
+table_bb = {   # record -> (law function, printed attribution, cost ratio c=0.2, c=0.4)
+    "full profile": (lambda p: _label_law(5, list(range(32)), p), 0.6400, 1.000, 1.000),
+    "block counts m=2": (lambda p: _label_law(5, [tuple(popcount((s >> b) & 3) for b in range(0, 5, 2))
+                                                  for s in range(32)], p), 0.4774, 1.000, 1.000),
+    "flat": (lambda p: _spread_law(5, C5, p), 0.5198, 1.062, 1.073),
+    "nearest centre": (lambda p: _label_law(5, near5, p), 0.5431, 1.000, None),
+}
+for name, (fn, attr, r2, r4) in table_bb.items():
+    q1, q0 = _laws(5, fn, h_, l_)
+    got_attr = _attribution(q0)
+    ratios = []
+    for c in (0.2, 0.4):
+        cost = sum(_least_payment(q1, q0[i], c) for i in range(5))
+        ratios.append(None if math.isinf(cost) else cost / (5 * c * h_ / (h_ - l_)))
+    ok = (round(got_attr, 4) == attr and ratios[0] is not None
+          and round(ratios[0], 3) == r2
+          and (ratios[1] is None if r4 is None else round(ratios[1], 3) == r4))
+    check(f"n=5 {name}: attribution {got_attr:.4f}, cost ratios {ratios}", ok)
+
+C3 = CERT["n3"]["centres"]
+q1, q0 = _laws(3, lambda p: _spread_law(3, C3, p), h_, l_)
+check("n=3 flat: attribution bound 0.2133 (the LP attains it)",
+      round(_attribution(q0), 4) == 0.2133, f"{_attribution(q0):.4f}")
+
+
+def _count_laws(n):
+    def pmf(k, m):
+        if k < 0 or k > m:
+            return 0.0
+        return math.exp(math.lgamma(m + 1) - math.lgamma(k + 1) - math.lgamma(m - k + 1)
+                        + k * math.log(h_) + (m - k) * math.log(1 - h_))
+    q1 = {k: pmf(k, n) for k in range(n + 1)}
+    q0 = {k: l_ * pmf(k - 1, n - 1) + (1 - l_) * pmf(k, n - 1) for k in range(n + 1)}
+    return q1, q0
+
+
+for n, c, want in [(100, 0.02, 1.699), (1000, 0.02, 6.989)]:
+    q1, q0 = _count_laws(n)
+    ratio = _least_payment(q1, q0, c) / (c * h_ / (h_ - l_))
+    check(f"count n={n}, c={c}: cost {ratio:.3f} x the full record", round(ratio, 3) == want)
+q1, q0 = _count_laws(1000)
+check("count n=1000 cannot sustain c=0.05", math.isinf(_least_payment(q1, q0, 0.05)))
+
+# Certification: the count certifies agent i only at 'all succeeded', so its
+# cost is at the floor iff c <= (h-l) h^(n-1).
+q1, q0 = _count_laws(20)
+cert = (h_ - l_) * h_ ** 19
+for c in (0.05, 0.1, cert, 0.11, 0.2):
+    at_floor = abs(_least_payment(q1, q0, c) - c * h_ / (h_ - l_)) < 1e-12
+    check(f"count n=20, c={c:.4f}: at the cost floor iff c <= {cert:.4f}",
+          at_floor == (c <= cert + 1e-15))
+
+
 # ================================================================== summary
 print("\n" + "=" * 62)
 if FAILS:

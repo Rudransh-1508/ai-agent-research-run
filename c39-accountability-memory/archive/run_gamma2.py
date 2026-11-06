@@ -1,7 +1,7 @@
 import json, warnings, time
 import sys as _sys, pathlib as _pl
 _sys.path.insert(0, str(_pl.Path(__file__).resolve().parents[1]))
-from c39.paths import data, out
+from c39.paths import data, out as outpath
 warnings.filterwarnings("ignore")
 from kflat_theory import (two_dominating_set, check_two_dominating,
                           verify_flat_construction, exclusion_scan)
@@ -28,4 +28,4 @@ for n, known in [(3, 4), (5, 10)]:
     out[f"n{n}_gamma2"] = K
     print(f"  => gamma_2(Q_{n}) = {K}   (known K_flat({n}) = {known})  "
           f"{'MATCH' if K == known else 'MISMATCH'}\n", flush=True)
-    json.dump(out, open(out("gamma2_results.json"), "w"), indent=1, default=float)
+    json.dump(out, open(outpath("gamma2_results.json"), "w", newline="\n"), indent=1, default=float)

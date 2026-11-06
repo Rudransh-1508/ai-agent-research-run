@@ -1,7 +1,7 @@
 import json, warnings, time
 import sys as _sys, pathlib as _pl
 _sys.path.insert(0, str(_pl.Path(__file__).resolve().parents[1]))
-from c39.paths import data, out
+from c39.paths import data, out as outpath
 warnings.filterwarnings("ignore")
 from kflat_theory import (two_dominating_set, check_two_dominating,
                           verify_flat_construction, exclusion_scan)
@@ -30,14 +30,14 @@ def run(n, lo, hi, tl):
             res[K] = dict(feasible=True, check=chk, verify=v, centers=C, **info)
             out[f"n{n}_gamma2"] = K
             out[f"n{n}_detail"] = res
-            json.dump(out, open(out("gamma2_results.json"), "w"), indent=1, default=float)
+            json.dump(out, open(out("gamma2_results.json"), "w", newline="\n"), indent=1, default=float)
             return K
         out[f"n{n}_detail"] = res
-        json.dump(out, open(out("gamma2_results.json"), "w"), indent=1, default=float)
+        json.dump(out, open(out("gamma2_results.json"), "w", newline="\n"), indent=1, default=float)
     return None
 
 for n, lo, hi, tl in [(7, 28, 34, 900), (9, 92, 100, 1800)]:
     t0 = time.time()
     g = run(n, lo, hi, tl)
     print(f"  => gamma_2(Q_{n}) = {g}   [{time.time()-t0:.1f}s total]\n", flush=True)
-json.dump(out, open(out("gamma2_results.json"), "w"), indent=1, default=float)
+json.dump(out, open(outpath("gamma2_results.json"), "w", newline="\n"), indent=1, default=float)

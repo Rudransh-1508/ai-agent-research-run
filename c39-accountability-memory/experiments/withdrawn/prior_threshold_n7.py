@@ -19,7 +19,7 @@ import json, time
 from prior_threshold import prior, d0_weighted, best_two_dominating, TOL
 import sys as _sys, pathlib as _pl
 _sys.path.insert(0, str(_pl.Path(__file__).resolve().parents[1]))
-from c39.paths import data, out
+from c39.paths import data, out as outpath
 
 N_ = 7
 BAND = range(117, 126)
@@ -47,7 +47,7 @@ for q in (0.6, 0.7, 0.8):
     print(f"  => first flat K in band = {first}  "
           f"(claim {CLAIM}: {'AGREE' if first == CLAIM else 'DISAGREE'})\n", flush=True)
 
-json.dump(out, open(out("prior_threshold_n7.json"), "w"), indent=1)
+json.dump(out, open(outpath("prior_threshold_n7.json"), "w", newline="\n"), indent=1)
 ok = all(v["agrees_with_claim"] for v in out["q"].values())
 print("ALL TILTS AGREE WITH 2^n-(n-1) = 122" if ok else "DISAGREEMENT")
 raise SystemExit(0 if ok else 1)

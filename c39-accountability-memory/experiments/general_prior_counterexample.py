@@ -164,5 +164,5 @@ if __name__ == "__main__":
           f"full-support prior")
     p = out(f"general_prior_counterexample_n{n}.json")
     json.dump(dict(n=n, stage_a=len(hits), realisable=len(found), found=found,
-                   seconds=round(time.time() - t0, 1)), open(p, "w"), indent=1)
+                   seconds=round(time.time() - t0, 1)), open(p, "w", newline="\n"), indent=1)
     print(f"wrote {p}")

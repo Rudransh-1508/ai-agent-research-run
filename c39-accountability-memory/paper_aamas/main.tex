@@ -1,6 +1,21 @@
 % =====================================================================
 %  C39 -- AAMAS 2027 main track (GTEP)
 %
+%  TRACK: GTEP, decided 2026-09-23 on three years of chairs'-report data plus
+%  the novelty audit. COINE's stated scope (accountability, governance) reads
+%  like the better fit, and the counter-argument is real -- Theorem 1 removes
+%  the payment rule, after which no payment appears again. It loses to two
+%  independent findings:
+%    1. Base rates. Full-paper acceptance, 3-yr weighted: GTEP 31.3% vs COINE
+%       19.0%. COINE is also tiny (N=122 over 3 years) and wildly unstable --
+%       28% in 2023, 4% in 2024, 17% in 2025. GTEP sits at 29/30/35%.
+%    2. Intellectual neighbourhood. The novelty audit found every nearest
+%       prior work in economics -- Fadel-Segal (JET 2009), Kadan-Swinkels
+%       (JET 2008), Georgiadis-Szentes (Econometrica 2020), Green-Laffont,
+%       Holmstrom, FLM. None in a COINE venue. GTEP reviewers are the ones
+%       equipped to judge this.
+%  See docs/track_decision_2026-09-23.md for the full data and reasoning.
+%
 %  CLASS: AAMAS ships `aamas.cls`, which is `acmart` with an IFAAMAS
 %  copyright modification. For submission replace the line below with
 %      \documentclass[sigconf, anonymous]{aamas}
@@ -35,6 +50,7 @@ payments; information-theoretic limits; domination number}
 \input{sections/05-threshold}
 \input{sections/06-agent-systems}
 \input{sections/055-mechanisms}
+\input{sections/066-llm}
 \input{sections/07-related}
 \input{sections/08-limitations}
 
@@ -46,7 +62,7 @@ payments; information-theoretic limits; domination number}
 \appendix
 \input{sections/A-proofs}
 \input{sections/065-experiment}
-\input{sections/066-llm}
+\input{sections/066b-llm-appendix}
 \input{sections/07-design}
 
 \end{document}

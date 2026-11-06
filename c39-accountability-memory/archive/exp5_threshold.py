@@ -38,4 +38,4 @@ for K in Ks:
     print(f"n={n} K={K:3d} gamma={gamma}  D0={d0}  D(gamma)={dg}  -> {verdict}"
           f"   [{time.time()-t0:.1f}s, gaps {D0.get('gap')},{Dg.get('gap')}]", flush=True)
     out[K] = dict(D0=d0, Dg=dg, verdict=verdict)
-    json.dump(out, open(f"exp5_n{n}.json", "w"), indent=1, default=float)
+    json.dump(out, open(f"exp5_n{n}.json", "w", newline="\n"), indent=1, default=float)

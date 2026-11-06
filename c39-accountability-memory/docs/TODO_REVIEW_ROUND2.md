@@ -82,10 +82,16 @@ after every batch.
 
 ## Phase 3 — audits
 
-- [ ] 24. **Novelty/related-work audit** across: mechanism design with limited
+- [~] 24. **Novelty/related-work audit** across: mechanism design with limited
       signals; moral hazard under restricted observability; communication
       complexity and incentives; information design; provenance/attribution in
       MAS; LLM-agent trace compression; credit assignment.
+      **All seven areas covered 2026-09-23** — `novelty_audit_2026-09-23.md`.
+      One SEVERITY-1 correction required (the ID-removal sentence in
+      07-related is false against a paper we cite). Four uncited papers a
+      reviewer will expect: Fadel-Segal 2009, Green-Laffont 1987,
+      Kadan-Swinkels 2008, Georgiadis-Szentes 2020. No collision found with
+      any core claim.
 - [ ] 25. **Every reference verified** — DOI/arXiv identifier, authors, venue.
       Target zero errors.
 

@@ -34,7 +34,7 @@ for dirpath, dirnames, filenames in os.walk(ROOT):
         out[rel(p)] = {"sha256": hashlib.sha256(b).hexdigest(), "bytes": len(b)}
 
 target = ROOT / SELF
-json.dump(out, open(target, "w"), indent=1)
+json.dump(out, open(target, "w", newline="\n"), indent=1)
 print(f"hashed {len(out)} files -> {rel(target)}")
 by_dir = {}
 for k in out:

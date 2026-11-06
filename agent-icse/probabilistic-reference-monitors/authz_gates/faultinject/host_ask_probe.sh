@@ -32,10 +32,13 @@ EOF
     cat > "$dir/.claude/settings.json" <<EOF
 {"hooks": {"PreToolUse": [{"matcher": "Bash", "hooks": [{"type": "command", "command": "$dir/hook.sh"}]}]}}
 EOF
-    (cd "$dir" && timeout 180 claude -p "Use the Bash tool to run exactly this command and nothing else: touch marker.txt" \
+    (cd "$dir" && perl -e 'alarm shift; exec @ARGV' 180 claude -p "Use the Bash tool to run exactly this command and nothing else: touch marker.txt" \
         --model haiku --permission-mode "$mode" --setting-sources project --strict-mcp-config \
         --max-turns 3 --output-format json > "$dir/claude_out.json" 2> "$dir/claude_err.txt")
     rc=$?
+    if [ ! -s "$dir/claude_out.json" ] && [ ! -s "$dir/claude_err.txt" ]; then
+      echo "claude produced no output (exit $rc); is it installed and logged in?" >&2
+    fi
     python3 - "$dir" "$answer" "$mode" "$rc" "$VERSION" >> "$OUT" <<'PY'
 import json, os, sys
 d, answer, mode, rc, version = sys.argv[1:]

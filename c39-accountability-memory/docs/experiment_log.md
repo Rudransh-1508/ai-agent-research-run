@@ -1365,3 +1365,81 @@ gives `run.py` commands but names no host.
 **Still open for submission:** the AI-use disclosure the CFP requires (documented
 prompts and tools) is not written, and the appendix is currently appended after
 the references rather than packaged as the supplementary zip the CFP describes.
+
+## E48 - Noisy outcomes: accountability needs linear memory; general-prior threshold re-checked (2026-09-30)
+
+**Why.** Review of `main_aamas27.pdf` for AAMAS 2027 GTEP: with outcomes equal
+to the effort profile, the two-label record "all succeeded or not" makes
+all-work a Nash equilibrium with margin 1, so a GTEP reviewer can dismiss the
+tension as an artefact of the ex-post quantifier. First check (scratchpad,
+n = 3, 5): with noisy outcomes the zero-margin nearest-centre record gains a
+positive margin and at n = 3 under Nash beats the flat record, so Table 5's
+"1/2 against 0" does not survive noise as stated.
+
+**Result (a proof, not a fit).** Outcomes S_i ~ Bernoulli(h) if i works,
+Bernoulli(l) if not. For every record with K labels,
+sum_i (Nash margin_i)^2 <= (h-l)^2 H(Y) / (2h(1-h)) <= (h-l)^2 ln K / (2h(1-h)).
+Pinsker per agent plus sum_i I(Y;S_i) <= I(Y;S) for independent S_i. Block
+success counts attain the order (margin (h-l) max pmf Bin(m-1,h)), so Theta(n)
+bits are necessary and sufficient for a constant margin; any o(n)-bit summary
+drives the sustainable effort cost to 0. Vacuous at h in {0,1}, as it must be.
+
+**Checks.** `experiments/noisy_outcomes.py` (seed 20260930): gates G1-G4 pass;
+3000 random stochastic records, max margin/bound 0.764. `verify_all.py` block
+H recomputes the printed values independently, no solver. Under noise the
+flat record's ex-post margin equals its Nash margin (0.5063 at n=5, 0.6317 at
+n=9); the nearest-centre record on the same code has Nash 0.6786 but ex-post
+0.3911 at n=9. So flatness buys robustness to shirking teammates under noise,
+not a larger Nash margin.
+
+**General prior.** The AAMAS draft calls the threshold open; paper_gtep proves
+it (strict-descent lemma). `experiments/general_prior_strict_descent.py`
+checks the lemma, the margin formula (against the Theorem 1 LP) and the
+theorem against brute force on all 46,592 optimal codes at n = 3, 4 under
+uniform, product(0.6, 0.7, 0.85) and three random priors: no exceptions.
+product(0.6) at n = 4 gives K_flat = 13 against uniform 7: tilt moves the
+threshold either way.
+
+**Not pre-registered.** Both results are derivations checked by enumeration,
+written after the first check above; no prediction was hashed beforehand.
+
+**Paper text.** Drop-in LaTeX in `revision_2026-09-30/` (the source of
+main_aamas27.pdf is not in this repo). Audit block `07_audit_noisy_block.py`
+passes 23/23 against the revision text and catches two planted errors.
+
+## E49 - Budget balance needs attribution; cost of implementation; designer's memory (2026-09-30)
+
+**Why.** Make the GTEP content the spine of the paper: after E48 the draft
+had one game-theoretic theorem beyond the minimax lemma.
+
+**Budget balance (a proof).** For budget-balanced rules (sum_i p_i(y) = B for
+every label) with p_i in [0,1]^K, the all-work margin t satisfies
+t <= (1/n) sum_i TV(Q_{0,i}, mean_j Q_{0,j}): expand sum_i <p_i, d_i> around
+the mean deviation, the B-term vanishes. Every record symmetric in the agents
+(count, all succeeded, any function of the multiset of outcomes) has margin 0
+at any size, which is the Holmstrom / Legros-Matthews / Rahman-Obara
+attribution requirement, priced for compressed records. t <= 2 * mean Nash
+margin, so E48's memory bound carries over.
+
+**Cost of implementation (a proof).** Least expected payment for agent i at
+cost c is >= c h/(h-l) for every record (the likelihood ratio of any label is
+at least l/h), with equality iff c <= (h-l) P(Y certifies S_i = 1 | S_i = 1).
+The count certifies only at "all succeeded", so it leaves the floor once
+c > (h-l) h^(n-1): 1.699x the full record at n=100 and 6.989x at n=1000 for
+c = 0.02. The flat record certifies nothing and pays 6-7% more at n=5.
+
+**Designer.** From E48's bound (which holds at every action profile, summed
+over working agents) and the cost floor: memory per accountable agent is
+between beta = 2h(1-h)(c/(h-l))^2 / ln 2 and 1 bit.
+
+**Checks.** `experiments/budget_balance_cost.py` (seed 20260930): all gates
+pass; 1200 random records, max BB/attribution = 1.000 (attained); the
+certification iff on 885 record/agent/cost cases (726 at the floor, 103
+above, 56 infeasible). `verify_all.py` block I (solver-free), 135 checks.
+Audit block 09 passes and catches planted errors.
+
+**Not done: complexity.** An NP-hardness result would need arbitrary
+deviation graphs and an unconfirmed hardness result for 2-domination on
+triangle-free graphs; left as future work rather than claimed.
+
+**Not pre-registered**, as in E48.

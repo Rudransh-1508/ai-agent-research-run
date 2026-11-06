@@ -23,7 +23,7 @@ import scipy.sparse as sp
 from scipy.optimize import milp, LinearConstraint, Bounds
 import sys as _sys, pathlib as _pl
 _sys.path.insert(0, str(_pl.Path(__file__).resolve().parents[1]))
-from c39.paths import data, out
+from c39.paths import data, out as outpath
 
 
 def local_2dom_feasible(n, K, time_limit=600):
@@ -77,4 +77,4 @@ if __name__ == "__main__":
                 verdict = "not excluded (a local-condition C exists)"
             out[n][K] = dict(verdict=verdict, **info)
             print(f"n={n} K={K}: {verdict}  [{info['seconds']}s]", flush=True)
-            json.dump(out, open(out("local2dom.json"), "w"), indent=1, default=float)
+            json.dump(out, open(outpath("local2dom.json"), "w", newline="\n"), indent=1, default=float)

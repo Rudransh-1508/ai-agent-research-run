@@ -414,3 +414,107 @@ The withdrawn scripts and artifacts are kept unmodified under
 `experiments/withdrawn/` and `results/withdrawn/` as the evidence for that
 methodological point. `verify_all.py` block G now constructs the
 counterexamples instead, and the check count drops from 145 to 99.
+
+# Addendum 4 — randomized subtask assignment, written 2026-09-24
+
+**Written before the harness was modified and before any episode of this
+variant was run.** Appendix L (`app:llm`) reports that four of five registered
+predictions for Addendum 3 were falsified, and diagnoses why: the third
+sub-question ("what is now untested") is intrinsically harder to audit than
+the other two (per-position accuracy $0.677$ vs $0.990$ and $0.943$ on
+`full_trace`), and because agent $i$ always received sub-question $i$ in every
+episode, the design cannot separate "this position is hard to hold
+accountable" from "this sub-question is hard to hold accountable." The
+appendix names the fix and declines to run it: *"Randomising the assignment
+would [separate them]; we did not."* This addendum runs it.
+
+## Design
+
+Identical to Addendum 3a in every respect — same three code-review
+sub-questions, same material, same effort/shirk instructions, same five
+records, same judge, same model (`codestral-2508`, temperature $0$), same $8$
+profiles $\times$ $24$ episodes $=192$ — with one change: **for each episode, an
+independent uniform random permutation of $\{0,1,2\}$ assigns sub-questions to
+agent positions**, drawn from the same seeded RNG already threaded through the
+harness (seed $20260915$, unchanged). Position $i$'s effort bit $S_i$ still
+governs whether *whatever sub-question it was assigned* is answered with the
+diff or bluffed without it. The assignment is recorded per episode alongside
+the artifacts, so both the original (position-indexed) and the new
+(question-indexed) groupings can be computed from the same run.
+
+One incidental correction, made because the harness is being touched anyway
+and noted so it is not mistaken for a silent change to Addendum 3's already-
+reported numbers: `run_episode`'s inline system prompts describe the agent as
+an "incident analyst" reading an "incident log," left over from before
+Addendum 3a's pivot to code review, while the module-level `EFFORT_SYS` /
+`SHIRK_SYS` constants (correctly framed for code review) go unused. Addendum
+3's already-published numbers were produced under the mismatched framing and
+are **not** rerun or altered here. This addendum's new code path uses the
+correct constants. We flag rather than fix retroactively, per the paper's own
+rule that falsifications and errors are reported, not quietly corrected.
+
+## Predictions
+
+**R1** Regrouping accuracy by the *actual sub-question asked* (not by
+position) reproduces close to the original per-position accuracies on
+`full_trace` ($\approx 0.99$, $\approx 0.94$, $\approx 0.68$ for the
+correctness, concurrency, and test-coverage questions respectively) —
+confirming the gap is a property of the question, not of where it sits.
+
+**R2** The position-indexed margin $\gamma$ (minimum over positions $i=0,1,2$,
+computed exactly as in Addendum 3) rises relative to Addendum 3's reported
+$0.075$ for `full_trace`'s binding agent, because no position is now
+permanently anchored to the hard question — each position draws it roughly
+$1/3$ of episodes rather than always.
+
+**R3** The headline attribution gap (`full_trace` vs `artifact_multiset`,
+Addendum 3's $0.943$ bits, $95\%$ CI $[0.802, 1.089]$) survives randomization:
+still positive, its own bootstrap CI still excludes zero. We do not predict
+the interval will be unchanged, since removing the position confound changes
+what is being measured, but we predict the sign and rough order of magnitude
+hold.
+
+**R4** L1's registered ordering (`full_trace` $\ge$ `per_agent_summary` $>$
+`artifact_multiset` $\ge$ `global_summary` $\ge$ `final_output`), which
+Addendum 3 only recovered after restricting to two of three agents, holds
+across all three positions without that restriction — because the
+appendix's own diagnosis was that the restriction repaired exactly the
+confound this design removes.
+
+## Rules fixed in advance
+
+* Same rules as Addendum 3a (model/temperature/seed pinned and recorded,
+  raw artifacts saved, failed episodes retried once then recorded as failed).
+* If, as in Addendum 3, small-sample ties force an exact-zero margin cell,
+  it is reported as a sample-size artefact per the existing `analyse_llm.py`
+  diagnostic, not hidden.
+* This addendum does not replace Table~\ref{tab:llm} or Addendum 3's numbers;
+  it is reported alongside them as the deconfounded version, in the appendix
+  section that already names the confound.
+
+## Addendum 4b — isolating the prompt fix from randomization, written 2026-09-24
+
+**Written after Addendum 4's run completed, before this run started, upon
+noticing a confound in Addendum 4 itself.** Addendum 4's harness changes bundle
+two things at once: randomizing the assignment, and switching to the
+correctly-framed prompts (see Addendum 4's incidental-correction note). The
+first result came back with `full_trace`'s margin jumping from $0.075$
+(Addendum 3) to $0.750$ and per-position/per-question accuracy rising to a
+near-uniform $0.94$-$1.0$ across the board, which is a bigger and more uniform
+shift than "one sub-question was structurally harder" predicts. Since two
+things changed at once, that shift cannot yet be attributed to randomization
+specifically.
+
+**Design.** Identical harness, identical episode budget ($192$), but
+`--fixed-corrected`: the sub-question-to-position assignment is **not**
+shuffled (agent $i$ always gets sub-question $i$, as in Addendum 3), while the
+prompt framing is corrected (as in Addendum 4). This isolates the prompt
+fix's effect.
+
+**Prediction R5.** If the prompt fix alone explains Addendum 4's jump, this
+run's per-position accuracy and margin will resemble Addendum 4's (uniformly
+high, no binding near-zero agent) despite fixed assignment. If randomization
+is doing the work, this run will reproduce Addendum 3's pattern instead (one
+structurally weak position, low `full_trace` margin) despite the corrected
+prompts. A result splitting the difference implicates both, and the writeup
+will say so rather than assigning credit to either alone.

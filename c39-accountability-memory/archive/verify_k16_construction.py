@@ -53,4 +53,4 @@ res = dict(n=n, K=K, D=float(D), D0_target=0.5, per_agent_margin=margins,
            min_margin=float(min(margins)),
            flat=bool(abs(D - 0.5) < 1e-12), payments_binary=True)
 print(json.dumps(res, indent=1))
-json.dump(res, open(out("verify_k16_construction.json"), "w"), indent=1)
+json.dump(res, open(out("verify_k16_construction.json"), "w", newline="\n"), indent=1)

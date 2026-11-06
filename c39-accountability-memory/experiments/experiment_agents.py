@@ -39,7 +39,7 @@ import numpy as np
 from scipy.optimize import linprog
 import sys as _sys, pathlib as _pl
 _sys.path.insert(0, str(_pl.Path(__file__).resolve().parents[1]))
-from c39.paths import data, out
+from c39.paths import data, out as outpath
 
 TOL = 1e-9
 
@@ -288,5 +288,5 @@ if __name__ == "__main__":
                 print(f"n={n}  prior q={q_prior}  noise eta={eta}", flush=True)
                 out[str(n)][key] = evaluate(n, q_prior, eta, cert)
                 print(f"  [{time.time()-t0:.1f}s]\n", flush=True)
-                json.dump(out, open(out("experiment_agents.json"), "w"), indent=1)
+                json.dump(out, open(outpath("experiment_agents.json"), "w", newline="\n"), indent=1)
     print("wrote experiment_agents.json")

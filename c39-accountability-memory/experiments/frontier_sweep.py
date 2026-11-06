@@ -27,7 +27,7 @@ from scipy.optimize import linprog
 from experiment_agents import popcount, prior, distortion, margin
 import sys as _sys, pathlib as _pl
 _sys.path.insert(0, str(_pl.Path(__file__).resolve().parents[1]))
-from c39.paths import data, out
+from c39.paths import data, out as outpath
 
 RNG = np.random.default_rng(20260915)
 STARTS = 6
@@ -152,6 +152,6 @@ if __name__ == "__main__":
                 for r in row:
                     closed = M + n * r["gamma"] * ((n - 1) / 2 - M)
                     assert abs(r["D"] - closed) < 1e-6, (r["gamma"], r["D"], closed)
-            json.dump(out, open(out("frontier_sweep.json"), "w"), indent=1)
+            json.dump(out, open(outpath("frontier_sweep.json"), "w", newline="\n"), indent=1)
     print("\nanchors hold: gamma=0 reproduces D_0(K), and K=2 reproduces Theorem 5")
     print("wrote frontier_sweep.json")

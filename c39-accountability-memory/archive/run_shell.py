@@ -1,7 +1,7 @@
 import json, warnings
 import sys as _sys, pathlib as _pl
 _sys.path.insert(0, str(_pl.Path(__file__).resolve().parents[1]))
-from c39.paths import data, out
+from c39.paths import data, out as outpath
 warnings.filterwarnings("ignore")
 from kflat_theory import shell_exclusion_scan, shell_bound
 out={}
@@ -18,4 +18,4 @@ for n,Kmax in [(3,3),(5,9),(7,31),(9,96)]:
     out[n]=dict(rows=rows,not_excluded=bad,newly_excluded_vs_session1=gained)
     print(f"n={n}: K=2..{Kmax}  not excluded by shell bound: {bad}", flush=True)
     print(f"        newly excluded vs session-1 bound: {gained}", flush=True)
-    json.dump(out, open(out("shell_exclusion.json"),"w"), indent=1, default=float)
+    json.dump(out, open(outpath("shell_exclusion.json"),"w", newline="\n"), indent=1, default=float)

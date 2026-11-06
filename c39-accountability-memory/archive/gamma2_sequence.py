@@ -26,7 +26,7 @@ import itertools, json, time, warnings
 from math import comb
 import sys as _sys, pathlib as _pl
 _sys.path.insert(0, str(_pl.Path(__file__).resolve().parents[1]))
-from c39.paths import data, out
+from c39.paths import data, out as outpath
 
 warnings.filterwarnings("ignore")
 
@@ -116,7 +116,7 @@ if __name__ == "__main__":
               f"METHOD M = {gm} | {'AGREE' if agree else 'DISAGREE'}", flush=True)
         out[f"n{n}"] = dict(method_X=gx, method_X_subsets=nsub, method_X_set=setx,
                             method_M=gm, agree=bool(agree), milp_rows=rows)
-        json.dump(out, open(out("gamma2_sequence.json"), "w"), indent=1, default=float)
+        json.dump(out, open(outpath("gamma2_sequence.json"), "w", newline="\n"), indent=1, default=float)
 
     # ---------------- n = 5, 6, 7 ----------------
     print("\n=== MILP for n = 5, 6, 7 (with independent recheck of each witness) ===",
@@ -145,10 +145,10 @@ if __name__ == "__main__":
             if info["status"] != 2:
                 break
         out[f"n{n}"] = dict(method_M=gm, fink_jacobson_lb=lo, milp_rows=rows)
-        json.dump(out, open(out("gamma2_sequence.json"), "w"), indent=1, default=float)
+        json.dump(out, open(outpath("gamma2_sequence.json"), "w", newline="\n"), indent=1, default=float)
 
     seq = [out.get(f"n{n}", {}).get("method_M") or out.get(f"n{n}", {}).get("method_X")
            for n in range(1, 8)]
     out["sequence_n1_to_n7"] = seq
     print(f"\ngamma_2(Q_n) for n=1..7: {seq}")
-    json.dump(out, open(out("gamma2_sequence.json"), "w"), indent=1, default=float)
+    json.dump(out, open(outpath("gamma2_sequence.json"), "w", newline="\n"), indent=1, default=float)

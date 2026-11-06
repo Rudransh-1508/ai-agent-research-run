@@ -139,7 +139,7 @@ if __name__ == "__main__":
     res["_meta"] = dict(seconds=round(time.time() - t0, 1),
                         note="flatness is exhibited, not inferred from a proxy")
     p = out("prior_threshold.json")
-    json.dump(res, open(p, "w"), indent=1)
+    json.dump(res, open(p, "w", newline="\n"), indent=1)
     print(f"\nwrote {p}")
     print("\nsummary")
     for tag, v in res.items():
