@@ -93,7 +93,11 @@ HEAD on 2026-10-31; see `RECHECK_2026-10-31.md`.
   every failed model call in our fault matrix fell through to it (200 invocations across
   trials, stubbed in our harness). Worth documenting: a permission hook that starts
   another agent process on failure.
-- The structural allowlist accepts `kubectl`, `rm`, `curl`, `bash` and others with
-  unchecked arguments; this is documented as relying on the paired block hook, which
-  covers some but not all misuse (e.g. `terraform destroy -auto-approve` passes the block
-  hook and reaches the model).
+- **The structural allowlist approves destructive calls with no prompt.** Stage 1 accepts
+  `rm`, `git`, `npm`, `apt-get`, `pip`, `kubectl`, `curl`, `bash` and others with unchecked
+  arguments, relying on the paired block hook. Run live with the shipped chain (Haiku via
+  the Claude CLI fallback, 2026-11-07), it auto-approved 35/131 clearly destructive
+  benchmark calls in Claude Code's default mode, e.g. deleting `~/.aws/credentials`,
+  `npm unpublish --force`, `git branch -D`, `git update-ref -d`; the Haiku stage approved
+  none of them. Suggested fix: send any segment with arguments outside a small read-only
+  set to stage 2 rather than approving on the command word.

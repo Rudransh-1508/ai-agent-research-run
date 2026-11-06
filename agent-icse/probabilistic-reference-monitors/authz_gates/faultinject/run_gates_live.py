@@ -104,7 +104,11 @@ def run_item(recipe, item, key, timeout_s, permission_mode=None):
             exit_code, out, err = p.returncode, p.stdout, p.stderr
         except subprocess.TimeoutExpired:
             outcome, exit_code, out, err = "host_timeout", None, "", ""
+        cli_log = os.path.join(work, "real_claude_calls.log")
+        cli_calls = ([json.loads(x) for x in open(cli_log) if x.strip()]
+                     if os.path.exists(cli_log) else [])
         return {"gate": recipe.name, "item_id": item["id"], "tier": item["tier"],
+                "cli_calls": cli_calls,
                 "label": item["label"], "correct_action": item["correct_action"],
                 "disputable": item["disputable"], "held_out": item["held_out"],
                 "tool_name": name, "outcome": outcome, "exit": exit_code,

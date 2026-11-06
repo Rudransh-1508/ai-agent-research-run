@@ -14,7 +14,7 @@ can score.
 | F2 | **Availability is authorization**: model failure (error, timeout, rate limit) or an input the gate cannot finish evaluating lets the call through | jev-guard, jev-belay, limpet, agentguards(fail-open), jev-harness HEAD; also deterministic dcg (over-limit payload) | padded corpus under bypass: jev-guard 228/228, jev-engineering guard 180/228, dcg 175/228 |
 | F3 | **Truncation bypass**: the judge only sees part of the command | sdkks (`command.slice(0, 1000)`) | prefix-padded corpus puts the dangerous part past the cut |
 | F4 | **Threshold scale and drift**: copied constants; meaning shifts with model version | 8 gates ship vendor 0.9 | 0.9 allowed 0% of safe items on jev-1.13.0, 27% on jev-1.14.0; certified threshold moved 0.245 -> 0.285 |
-| F5 | **Deterministic over-breadth**: allowlists that ignore arguments | jev-engineering fast path (`git branch -D`), sdkks stage 1 ("arguments are not checked") | 3/131 destructive run with no prompt in default mode, all via the allowlist |
+| F5 | **Deterministic over-breadth**: allowlists that ignore arguments | jev-engineering fast path (`git branch -D`), sdkks stage 1 ("arguments are not checked") | default mode, no prompt: jev-engineering auto 3/131, sdkks 35/131 + 21/64, all via the allowlist; the models approved none |
 | F6 | **Empty/garbled answers default to allow or crash** | agentguards (`result.get("decision", "allow")`), jev-engineering KeyError | agentguards: empty 200 -> explicit allow even in its fail-closed default |
 | F7 | **Protection-automation-friction trade-off** | every Jev configuration sits at a corner | enforce blocks 58/94 safe; guard prompts 94/94 safe; auto leaks 3 |
 

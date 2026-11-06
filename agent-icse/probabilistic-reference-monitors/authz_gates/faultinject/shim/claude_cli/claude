@@ -1,0 +1,8 @@
+#!/bin/sh
+# Real Claude Code CLI for gates whose fallback judge is `claude -p` (sdkks). The gate runs
+# in a throwaway environment; only this call runs in the user's real one (REAL_ENV_JSON,
+# captured by the harness), because the CLI's login lookup depends on the exact environment.
+# The judge session loads no user settings, hooks or MCP servers, has no tools, reads no
+# stdin and is not saved; the gate's own arguments pass through. Each call appends one JSON
+# line (exit code, answer) to $TMPDIR/real_claude_calls.log.
+exec python3 "$(dirname "$0")/claude_judge.py" "${TMPDIR:-/tmp}/real_claude_calls.log" "$@" </dev/null
