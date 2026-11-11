@@ -26,7 +26,8 @@ from dataclasses import dataclass, field
 HERE = os.path.dirname(os.path.abspath(__file__))
 # GATE_REPOS points the harness at another checkout of the same repos, e.g.
 # corpus/repos_head/ for a re-check against each gate's current upstream code.
-REPOS = os.path.normpath(os.environ.get("GATE_REPOS") or os.path.join(HERE, "..", "corpus", "repos"))
+# Absolute, because hooks run with a per-item temp directory as cwd.
+REPOS = os.path.abspath(os.environ.get("GATE_REPOS") or os.path.join(HERE, "..", "corpus", "repos"))
 # The exact model every live run pins; override for a re-check on a newer version.
 LIVE_MODEL = os.environ.get("LIVE_JEV_MODEL", "jev-1.13.0")
 # Deterministic baselines (no model): released binaries/packages, gitignored.

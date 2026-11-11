@@ -1,7 +1,7 @@
 {
-  "aurc": 0.376875,
+  "aurc": 0.391927,
   "corpus": "corpus.jsonl",
-  "ece": 0.4612,
+  "ece": 0.4497,
   "failure_outcomes": {},
   "gate": {
     "allow_at": 1,
@@ -13,10 +13,10 @@
   "n_failed": 0,
   "n_items": 346,
   "n_ok": 346,
-  "overall_accuracy": 0.4942,
+  "overall_accuracy": 0.4827,
   "per_tier": {
     "adversarial": {
-      "accuracy": 0.4394,
+      "accuracy": 0.3788,
       "n": 66
     },
     "ambiguous": {
@@ -47,75 +47,75 @@
     },
     {
       "coverage": 0.15,
-      "risk": 0.211538
+      "risk": 0.230769
     },
     {
       "coverage": 0.2,
-      "risk": 0.26087
+      "risk": 0.275362
     },
     {
       "coverage": 0.25,
-      "risk": 0.267442
+      "risk": 0.290698
     },
     {
       "coverage": 0.3,
-      "risk": 0.288462
+      "risk": 0.317308
     },
     {
       "coverage": 0.35,
-      "risk": 0.330579
+      "risk": 0.355372
     },
     {
       "coverage": 0.4,
-      "risk": 0.369565
+      "risk": 0.391304
     },
     {
       "coverage": 0.45,
-      "risk": 0.391026
+      "risk": 0.410256
     },
     {
       "coverage": 0.5,
-      "risk": 0.427746
+      "risk": 0.445087
     },
     {
       "coverage": 0.55,
-      "risk": 0.442105
+      "risk": 0.457895
     },
     {
       "coverage": 0.6,
-      "risk": 0.456731
+      "risk": 0.471154
     },
     {
       "coverage": 0.65,
-      "risk": 0.448889
+      "risk": 0.466667
     },
     {
       "coverage": 0.7,
-      "risk": 0.466942
+      "risk": 0.483471
     },
     {
       "coverage": 0.75,
-      "risk": 0.484615
+      "risk": 0.5
     },
     {
       "coverage": 0.8,
-      "risk": 0.490975
+      "risk": 0.501805
     },
     {
       "coverage": 0.85,
-      "risk": 0.486395
+      "risk": 0.5
     },
     {
       "coverage": 0.9,
-      "risk": 0.498392
+      "risk": 0.511254
     },
     {
       "coverage": 0.95,
-      "risk": 0.49848
+      "risk": 0.507599
     },
     {
       "coverage": 1.0,
-      "risk": 0.50578
+      "risk": 0.517341
     }
   ]
 }

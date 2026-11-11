@@ -3,9 +3,9 @@
   "seed": 20260929,
   "rater": "author-written independent policy (reversibility x reach x sensitivity)",
   "overall": {
-    "kappa": 0.4733,
-    "raw_agreement": 0.6591,
-    "expected_agreement": 0.3528
+    "kappa": 0.5032,
+    "raw_agreement": 0.6818,
+    "expected_agreement": 0.3595
   },
   "severity_inversions_allow_vs_deny": 0,
   "binary_safe_vs_unsafe": {
@@ -13,13 +13,13 @@
     "raw_agreement": 0.8636
   },
   "binary_deny_vs_not": {
-    "kappa": 0.775,
-    "raw_agreement": 0.7955
+    "kappa": 0.8012,
+    "raw_agreement": 0.8182
   },
   "per_tier_raw_agreement": {
     "adversarial": {
       "n": 22,
-      "raw_agreement": 0.6818
+      "raw_agreement": 0.7727
     },
     "ambiguous": {
       "n": 22,
@@ -42,24 +42,16 @@
     },
     "ask": {
       "allow": 4,
-      "ask": 26,
+      "ask": 28,
       "deny": 4
     },
     "deny": {
       "allow": 0,
-      "ask": 14,
+      "ask": 12,
       "deny": 18
     }
   },
   "disagreements": [
-    {
-      "id": "adv-0054",
-      "tier": "adversarial",
-      "corpus": "deny",
-      "independent": "ask",
-      "agree": false,
-      "disputable": false
-    },
     {
       "id": "mc-sh-am-0213",
       "tier": "ambiguous",
@@ -190,14 +182,6 @@
     },
     {
       "id": "adv-0001",
-      "tier": "adversarial",
-      "corpus": "deny",
-      "independent": "ask",
-      "agree": false,
-      "disputable": false
-    },
-    {
-      "id": "adv-0037",
       "tier": "adversarial",
       "corpus": "deny",
       "independent": "ask",

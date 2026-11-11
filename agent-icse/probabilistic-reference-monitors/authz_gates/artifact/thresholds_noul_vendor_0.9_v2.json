@@ -7,8 +7,8 @@
     "registered_supported": false
   },
   "ambiguous_ask_accuracy": {
-    "ask_accuracy": 0.5676,
-    "n": 37
+    "ask_accuracy": 0.5366,
+    "n": 41
   },
   "bootstrap_resamples": 10000,
   "cells": [
@@ -16,15 +16,15 @@
       "L": 5,
       "allow_rate": {
         "chow_raw": 0.0,
-        "chow_recal": 0.4089,
+        "chow_recal": 0.4163,
         "vendor": 0.0
       },
       "c": 0.05,
       "chow_allow_threshold_p_safe": 0.99,
-      "mean_loss_chow_raw": 0.028444,
-      "mean_loss_chow_recal": 0.008889,
+      "mean_loss_chow_raw": 0.027149,
+      "mean_loss_chow_recal": 0.00905,
       "mean_loss_oracle_in_sample": 0.0,
-      "mean_loss_vendor": 0.024889,
+      "mean_loss_vendor": 0.024887,
       "oracle_band_p_safe": [
         0.34,
         0.34
@@ -32,22 +32,22 @@
       "threshold_gap": 0.09,
       "vendor_minus_chow_raw": {
         "ci95": [
-          -0.005333,
-          -0.002
+          -0.003846,
+          -0.000905
         ],
-        "diff": -0.003556,
+        "diff": -0.002262,
         "p_holm": 0.0,
         "p_raw": 0.0,
         "vendor_significantly_worse": false
       },
       "vendor_minus_chow_recal": {
         "ci95": [
-          0.002222,
-          0.026222
+          0.001357,
+          0.026244
         ],
-        "diff": 0.016,
-        "p_holm": 0.112,
-        "p_raw": 0.028,
+        "diff": 0.015837,
+        "p_holm": 0.148,
+        "p_raw": 0.037,
         "vendor_significantly_worse": false
       },
       "vendor_threshold": 0.9
@@ -56,15 +56,15 @@
       "L": 5,
       "allow_rate": {
         "chow_raw": 0.0,
-        "chow_recal": 0.4089,
+        "chow_recal": 0.4163,
         "vendor": 0.0
       },
       "c": 0.2,
       "chow_allow_threshold_p_safe": 0.96,
-      "mean_loss_chow_raw": 0.086222,
-      "mean_loss_chow_recal": 0.008889,
+      "mean_loss_chow_raw": 0.087783,
+      "mean_loss_chow_recal": 0.00905,
       "mean_loss_oracle_in_sample": 0.0,
-      "mean_loss_vendor": 0.099556,
+      "mean_loss_vendor": 0.099548,
       "oracle_band_p_safe": [
         0.34,
         0.34
@@ -72,20 +72,20 @@
       "threshold_gap": 0.06,
       "vendor_minus_chow_raw": {
         "ci95": [
-          0.007111,
-          0.020444
+          0.006335,
+          0.0181
         ],
-        "diff": 0.013333,
+        "diff": 0.011765,
         "p_holm": 0.0,
         "p_raw": 0.0,
         "vendor_significantly_worse": true
       },
       "vendor_minus_chow_recal": {
         "ci95": [
-          0.072889,
-          0.107556
+          0.072398,
+          0.106787
         ],
-        "diff": 0.090667,
+        "diff": 0.090498,
         "p_holm": 0.0,
         "p_raw": 0.0,
         "vendor_significantly_worse": true
@@ -96,15 +96,15 @@
       "L": 5,
       "allow_rate": {
         "chow_raw": 0.0,
-        "chow_recal": 0.4089,
+        "chow_recal": 0.4163,
         "vendor": 0.0
       },
       "c": 0.5,
       "chow_allow_threshold_p_safe": 0.9,
-      "mean_loss_chow_raw": 0.213333,
-      "mean_loss_chow_recal": 0.008889,
+      "mean_loss_chow_raw": 0.217195,
+      "mean_loss_chow_recal": 0.00905,
       "mean_loss_oracle_in_sample": 0.0,
-      "mean_loss_vendor": 0.248889,
+      "mean_loss_vendor": 0.248869,
       "oracle_band_p_safe": [
         0.34,
         0.34
@@ -112,20 +112,20 @@
       "threshold_gap": 0.0,
       "vendor_minus_chow_raw": {
         "ci95": [
-          0.017778,
-          0.055556
+          0.013575,
+          0.049774
         ],
-        "diff": 0.035556,
-        "p_holm": 0.0016,
-        "p_raw": 0.0004,
+        "diff": 0.031674,
+        "p_holm": 0.0024,
+        "p_raw": 0.0006,
         "vendor_significantly_worse": true
       },
       "vendor_minus_chow_recal": {
         "ci95": [
-          0.204444,
-          0.273333
+          0.205882,
+          0.273756
         ],
-        "diff": 0.24,
+        "diff": 0.239819,
         "p_holm": 0.0,
         "p_raw": 0.0,
         "vendor_significantly_worse": true
@@ -136,15 +136,15 @@
       "L": 10,
       "allow_rate": {
         "chow_raw": 0.0,
-        "chow_recal": 0.4089,
+        "chow_recal": 0.4163,
         "vendor": 0.0
       },
       "c": 0.05,
       "chow_allow_threshold_p_safe": 0.995,
-      "mean_loss_chow_raw": 0.028444,
-      "mean_loss_chow_recal": 0.008889,
+      "mean_loss_chow_raw": 0.027149,
+      "mean_loss_chow_recal": 0.00905,
       "mean_loss_oracle_in_sample": 0.0,
-      "mean_loss_vendor": 0.024889,
+      "mean_loss_vendor": 0.024887,
       "oracle_band_p_safe": [
         0.34,
         0.34
@@ -152,22 +152,22 @@
       "threshold_gap": 0.095,
       "vendor_minus_chow_raw": {
         "ci95": [
-          -0.005333,
-          -0.002
+          -0.003846,
+          -0.000905
         ],
-        "diff": -0.003556,
+        "diff": -0.002262,
         "p_holm": 0.0,
         "p_raw": 0.0,
         "vendor_significantly_worse": false
       },
       "vendor_minus_chow_recal": {
         "ci95": [
-          0.002222,
-          0.026222
+          0.001357,
+          0.026244
         ],
-        "diff": 0.016,
-        "p_holm": 0.112,
-        "p_raw": 0.028,
+        "diff": 0.015837,
+        "p_holm": 0.148,
+        "p_raw": 0.037,
         "vendor_significantly_worse": false
       },
       "vendor_threshold": 0.9
@@ -176,15 +176,15 @@
       "L": 10,
       "allow_rate": {
         "chow_raw": 0.0,
-        "chow_recal": 0.4089,
+        "chow_recal": 0.4163,
         "vendor": 0.0
       },
       "c": 0.2,
       "chow_allow_threshold_p_safe": 0.98,
-      "mean_loss_chow_raw": 0.086222,
-      "mean_loss_chow_recal": 0.008889,
+      "mean_loss_chow_raw": 0.087783,
+      "mean_loss_chow_recal": 0.00905,
       "mean_loss_oracle_in_sample": 0.0,
-      "mean_loss_vendor": 0.099556,
+      "mean_loss_vendor": 0.099548,
       "oracle_band_p_safe": [
         0.34,
         0.34
@@ -192,20 +192,20 @@
       "threshold_gap": 0.08,
       "vendor_minus_chow_raw": {
         "ci95": [
-          0.007111,
-          0.020444
+          0.006335,
+          0.0181
         ],
-        "diff": 0.013333,
+        "diff": 0.011765,
         "p_holm": 0.0,
         "p_raw": 0.0,
         "vendor_significantly_worse": true
       },
       "vendor_minus_chow_recal": {
         "ci95": [
-          0.072889,
-          0.107556
+          0.072398,
+          0.106787
         ],
-        "diff": 0.090667,
+        "diff": 0.090498,
         "p_holm": 0.0,
         "p_raw": 0.0,
         "vendor_significantly_worse": true
@@ -216,15 +216,15 @@
       "L": 10,
       "allow_rate": {
         "chow_raw": 0.0,
-        "chow_recal": 0.4089,
+        "chow_recal": 0.4163,
         "vendor": 0.0
       },
       "c": 0.5,
       "chow_allow_threshold_p_safe": 0.95,
-      "mean_loss_chow_raw": 0.213333,
-      "mean_loss_chow_recal": 0.008889,
+      "mean_loss_chow_raw": 0.217195,
+      "mean_loss_chow_recal": 0.00905,
       "mean_loss_oracle_in_sample": 0.0,
-      "mean_loss_vendor": 0.248889,
+      "mean_loss_vendor": 0.248869,
       "oracle_band_p_safe": [
         0.34,
         0.34
@@ -232,20 +232,20 @@
       "threshold_gap": 0.05,
       "vendor_minus_chow_raw": {
         "ci95": [
-          0.017778,
-          0.055556
+          0.013575,
+          0.049774
         ],
-        "diff": 0.035556,
-        "p_holm": 0.0016,
-        "p_raw": 0.0004,
+        "diff": 0.031674,
+        "p_holm": 0.0024,
+        "p_raw": 0.0006,
         "vendor_significantly_worse": true
       },
       "vendor_minus_chow_recal": {
         "ci95": [
-          0.204444,
-          0.273333
+          0.205882,
+          0.273756
         ],
-        "diff": 0.24,
+        "diff": 0.239819,
         "p_holm": 0.0,
         "p_raw": 0.0,
         "vendor_significantly_worse": true
@@ -256,15 +256,15 @@
       "L": 25,
       "allow_rate": {
         "chow_raw": 0.0,
-        "chow_recal": 0.4089,
+        "chow_recal": 0.4163,
         "vendor": 0.0
       },
       "c": 0.05,
       "chow_allow_threshold_p_safe": 0.998,
-      "mean_loss_chow_raw": 0.028444,
-      "mean_loss_chow_recal": 0.008889,
+      "mean_loss_chow_raw": 0.027149,
+      "mean_loss_chow_recal": 0.00905,
       "mean_loss_oracle_in_sample": 0.0,
-      "mean_loss_vendor": 0.024889,
+      "mean_loss_vendor": 0.024887,
       "oracle_band_p_safe": [
         0.34,
         0.34
@@ -272,22 +272,22 @@
       "threshold_gap": 0.098,
       "vendor_minus_chow_raw": {
         "ci95": [
-          -0.005333,
-          -0.002
+          -0.003846,
+          -0.000905
         ],
-        "diff": -0.003556,
+        "diff": -0.002262,
         "p_holm": 0.0,
         "p_raw": 0.0,
         "vendor_significantly_worse": false
       },
       "vendor_minus_chow_recal": {
         "ci95": [
-          0.002222,
-          0.026222
+          0.001357,
+          0.026244
         ],
-        "diff": 0.016,
-        "p_holm": 0.112,
-        "p_raw": 0.028,
+        "diff": 0.015837,
+        "p_holm": 0.148,
+        "p_raw": 0.037,
         "vendor_significantly_worse": false
       },
       "vendor_threshold": 0.9
@@ -296,15 +296,15 @@
       "L": 25,
       "allow_rate": {
         "chow_raw": 0.0,
-        "chow_recal": 0.4089,
+        "chow_recal": 0.4163,
         "vendor": 0.0
       },
       "c": 0.2,
       "chow_allow_threshold_p_safe": 0.992,
-      "mean_loss_chow_raw": 0.086222,
-      "mean_loss_chow_recal": 0.008889,
+      "mean_loss_chow_raw": 0.087783,
+      "mean_loss_chow_recal": 0.00905,
       "mean_loss_oracle_in_sample": 0.0,
-      "mean_loss_vendor": 0.099556,
+      "mean_loss_vendor": 0.099548,
       "oracle_band_p_safe": [
         0.34,
         0.34
@@ -312,20 +312,20 @@
       "threshold_gap": 0.092,
       "vendor_minus_chow_raw": {
         "ci95": [
-          0.007111,
-          0.020444
+          0.006335,
+          0.0181
         ],
-        "diff": 0.013333,
+        "diff": 0.011765,
         "p_holm": 0.0,
         "p_raw": 0.0,
         "vendor_significantly_worse": true
       },
       "vendor_minus_chow_recal": {
         "ci95": [
-          0.072889,
-          0.107556
+          0.072398,
+          0.106787
         ],
-        "diff": 0.090667,
+        "diff": 0.090498,
         "p_holm": 0.0,
         "p_raw": 0.0,
         "vendor_significantly_worse": true
@@ -336,15 +336,15 @@
       "L": 25,
       "allow_rate": {
         "chow_raw": 0.0,
-        "chow_recal": 0.4089,
+        "chow_recal": 0.4163,
         "vendor": 0.0
       },
       "c": 0.5,
       "chow_allow_threshold_p_safe": 0.98,
-      "mean_loss_chow_raw": 0.213333,
-      "mean_loss_chow_recal": 0.008889,
+      "mean_loss_chow_raw": 0.217195,
+      "mean_loss_chow_recal": 0.00905,
       "mean_loss_oracle_in_sample": 0.0,
-      "mean_loss_vendor": 0.248889,
+      "mean_loss_vendor": 0.248869,
       "oracle_band_p_safe": [
         0.34,
         0.34
@@ -352,20 +352,20 @@
       "threshold_gap": 0.08,
       "vendor_minus_chow_raw": {
         "ci95": [
-          0.017778,
-          0.055556
+          0.013575,
+          0.049774
         ],
-        "diff": 0.035556,
-        "p_holm": 0.0016,
-        "p_raw": 0.0004,
+        "diff": 0.031674,
+        "p_holm": 0.0024,
+        "p_raw": 0.0006,
         "vendor_significantly_worse": true
       },
       "vendor_minus_chow_recal": {
         "ci95": [
-          0.204444,
-          0.273333
+          0.205882,
+          0.273756
         ],
-        "diff": 0.24,
+        "diff": 0.239819,
         "p_holm": 0.0,
         "p_raw": 0.0,
         "vendor_significantly_worse": true
@@ -376,15 +376,15 @@
       "L": 100,
       "allow_rate": {
         "chow_raw": 0.0,
-        "chow_recal": 0.4089,
+        "chow_recal": 0.4163,
         "vendor": 0.0
       },
       "c": 0.05,
       "chow_allow_threshold_p_safe": 0.9995,
-      "mean_loss_chow_raw": 0.028444,
-      "mean_loss_chow_recal": 0.008889,
+      "mean_loss_chow_raw": 0.027149,
+      "mean_loss_chow_recal": 0.00905,
       "mean_loss_oracle_in_sample": 0.0,
-      "mean_loss_vendor": 0.024889,
+      "mean_loss_vendor": 0.024887,
       "oracle_band_p_safe": [
         0.34,
         0.34
@@ -392,22 +392,22 @@
       "threshold_gap": 0.0995,
       "vendor_minus_chow_raw": {
         "ci95": [
-          -0.005333,
-          -0.002
+          -0.003846,
+          -0.000905
         ],
-        "diff": -0.003556,
+        "diff": -0.002262,
         "p_holm": 0.0,
         "p_raw": 0.0,
         "vendor_significantly_worse": false
       },
       "vendor_minus_chow_recal": {
         "ci95": [
-          0.002222,
-          0.026222
+          0.001357,
+          0.026244
         ],
-        "diff": 0.016,
-        "p_holm": 0.112,
-        "p_raw": 0.028,
+        "diff": 0.015837,
+        "p_holm": 0.148,
+        "p_raw": 0.037,
         "vendor_significantly_worse": false
       },
       "vendor_threshold": 0.9
@@ -416,15 +416,15 @@
       "L": 100,
       "allow_rate": {
         "chow_raw": 0.0,
-        "chow_recal": 0.4089,
+        "chow_recal": 0.4163,
         "vendor": 0.0
       },
       "c": 0.2,
       "chow_allow_threshold_p_safe": 0.998,
-      "mean_loss_chow_raw": 0.086222,
-      "mean_loss_chow_recal": 0.008889,
+      "mean_loss_chow_raw": 0.087783,
+      "mean_loss_chow_recal": 0.00905,
       "mean_loss_oracle_in_sample": 0.0,
-      "mean_loss_vendor": 0.099556,
+      "mean_loss_vendor": 0.099548,
       "oracle_band_p_safe": [
         0.34,
         0.34
@@ -432,20 +432,20 @@
       "threshold_gap": 0.098,
       "vendor_minus_chow_raw": {
         "ci95": [
-          0.007111,
-          0.020444
+          0.006335,
+          0.0181
         ],
-        "diff": 0.013333,
+        "diff": 0.011765,
         "p_holm": 0.0,
         "p_raw": 0.0,
         "vendor_significantly_worse": true
       },
       "vendor_minus_chow_recal": {
         "ci95": [
-          0.072889,
-          0.107556
+          0.072398,
+          0.106787
         ],
-        "diff": 0.090667,
+        "diff": 0.090498,
         "p_holm": 0.0,
         "p_raw": 0.0,
         "vendor_significantly_worse": true
@@ -456,15 +456,15 @@
       "L": 100,
       "allow_rate": {
         "chow_raw": 0.0,
-        "chow_recal": 0.4089,
+        "chow_recal": 0.4163,
         "vendor": 0.0
       },
       "c": 0.5,
       "chow_allow_threshold_p_safe": 0.995,
-      "mean_loss_chow_raw": 0.213333,
-      "mean_loss_chow_recal": 0.008889,
+      "mean_loss_chow_raw": 0.217195,
+      "mean_loss_chow_recal": 0.00905,
       "mean_loss_oracle_in_sample": 0.0,
-      "mean_loss_vendor": 0.248889,
+      "mean_loss_vendor": 0.248869,
       "oracle_band_p_safe": [
         0.34,
         0.34
@@ -472,20 +472,20 @@
       "threshold_gap": 0.095,
       "vendor_minus_chow_raw": {
         "ci95": [
-          0.017778,
-          0.055556
+          0.013575,
+          0.049774
         ],
-        "diff": 0.035556,
-        "p_holm": 0.0016,
-        "p_raw": 0.0004,
+        "diff": 0.031674,
+        "p_holm": 0.0024,
+        "p_raw": 0.0006,
         "vendor_significantly_worse": true
       },
       "vendor_minus_chow_recal": {
         "ci95": [
-          0.204444,
-          0.273333
+          0.205882,
+          0.273756
         ],
-        "diff": 0.24,
+        "diff": 0.239819,
         "p_holm": 0.0,
         "p_raw": 0.0,
         "vendor_significantly_worse": true
@@ -494,8 +494,8 @@
     }
   ],
   "multiple_testing": "Holm across 12 (L,c) cells",
-  "n_ambiguous_items": 37,
-  "n_definite_items": 225,
+  "n_ambiguous_items": 41,
+  "n_definite_items": 221,
   "recalibration": "isotonic, cross-fitted, 5 folds",
   "vendor_threshold": 0.9
 }

@@ -1,7 +1,7 @@
 {
   "aurc": 0.023602,
   "corpus": "corpus_heldout.jsonl",
-  "ece": 0.2025,
+  "ece": 0.1887,
   "failure_outcomes": {},
   "gate": {
     "allow_at": 1,

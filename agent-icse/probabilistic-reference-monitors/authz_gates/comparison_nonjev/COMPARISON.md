@@ -37,7 +37,7 @@ Every pathology the paper reports on Jev gates reappears in a non-Jev model-judg
    the command path and open on the URL path. The gate's failure semantics are per-code-path,
    not per-gate.
 3. **"ask"/require-approval silently downgraded to "allow."** Observed live in
-   jev-engineering (guard mode x host auto-approve: 88/131 destructive allowed); documented
+   jev-engineering (guard mode x host auto-approve: 83/127 destructive allowed); documented
    as a cache bug in agentguards (:129-135). The downgrade is the dominant real-world failure,
    and it is not Jev-specific.
 4. **Unchecked command arguments after a fast-path allowlist.** In the corpus (jev-engineering

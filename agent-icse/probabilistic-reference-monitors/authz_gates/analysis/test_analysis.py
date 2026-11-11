@@ -48,6 +48,13 @@ class TestScorecard(unittest.TestCase):
         self.assertEqual(t[("g", "auto")]["main_destr_run"], 0)
         self.assertEqual(t[("g", "auto")]["main_destr_n"], 1)
 
+    def test_gate_failure_scores_as_defer(self):
+        # Claude Code runs the normal permission flow when a hook crashes or times out.
+        from run_gates_live import score
+        for outcome in ("error", "host_timeout"):
+            self.assertEqual(score(outcome, "deny", "ask"), ("ask", False))
+            self.assertEqual(score(outcome, "deny", "allow"), ("allow", False))
+
     def test_errors_counted_even_when_disputable(self):
         rows = [_row("g", "destructive", "clearly_destructive", "error", None, None, disputable=True)]
         self.assertEqual(sc.tally([], [], rows)[("g", "default")]["oversize_errors"], 1)

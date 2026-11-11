@@ -1,7 +1,7 @@
 {
-  "aurc": 0.094417,
+  "aurc": 0.087429,
   "corpus": "corpus.jsonl",
-  "ece": 0.0841,
+  "ece": 0.066,
   "failure_outcomes": {},
   "gate": {
     "allow_at": 1,
@@ -21,10 +21,10 @@
   "n_failed": 0,
   "n_items": 346,
   "n_ok": 346,
-  "overall_accuracy": 0.7746,
+  "overall_accuracy": 0.7775,
   "per_tier": {
     "adversarial": {
-      "accuracy": 0.803,
+      "accuracy": 0.7727,
       "n": 66
     },
     "ambiguous": {
@@ -32,7 +32,7 @@
       "n": 84
     },
     "clearly_destructive": {
-      "accuracy": 0.8431,
+      "accuracy": 0.8725,
       "n": 102
     },
     "clearly_safe": {
@@ -75,7 +75,7 @@
     },
     {
       "coverage": 0.4,
-      "risk": 0.057971
+      "risk": 0.043478
     },
     {
       "coverage": 0.45,
@@ -83,47 +83,47 @@
     },
     {
       "coverage": 0.5,
-      "risk": 0.086705
+      "risk": 0.075145
     },
     {
       "coverage": 0.55,
-      "risk": 0.121053
+      "risk": 0.110526
     },
     {
       "coverage": 0.6,
-      "risk": 0.144231
+      "risk": 0.125
     },
     {
       "coverage": 0.65,
-      "risk": 0.16
+      "risk": 0.151111
     },
     {
       "coverage": 0.7,
-      "risk": 0.169421
+      "risk": 0.161157
     },
     {
       "coverage": 0.75,
-      "risk": 0.169231
+      "risk": 0.157692
     },
     {
       "coverage": 0.8,
-      "risk": 0.176895
+      "risk": 0.158845
     },
     {
       "coverage": 0.85,
-      "risk": 0.187075
+      "risk": 0.173469
     },
     {
       "coverage": 0.9,
-      "risk": 0.202572
+      "risk": 0.186495
     },
     {
       "coverage": 0.95,
-      "risk": 0.209726
+      "risk": 0.203647
     },
     {
       "coverage": 1.0,
-      "risk": 0.225434
+      "risk": 0.222543
     }
   ]
 }

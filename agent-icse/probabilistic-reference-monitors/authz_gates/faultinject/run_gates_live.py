@@ -52,7 +52,11 @@ def tool_call(item):
     if t == "write_file":
         return "Write", {"file_path": a["path"], "content": a.get("content", "")}
     if t == "delete_file":
-        return "Bash", {"command": f"rm {shlex.quote(a['path'])}"}
+        p = a["path"]
+        # Leave a leading ~ unquoted so the shell still expands it to $HOME; quoting the
+        # whole path (shlex.quote) would make "~" literal and the rm a no-op.
+        target = "~/" + shlex.quote(p[2:]) if p.startswith("~/") else shlex.quote(p)
+        return "Bash", {"command": f"rm {target}"}
     if t == "package_manager":
         cmd = f"{a['manager']} {a['action']} {a['target']}".strip()
         inp = {"command": cmd}
@@ -63,18 +67,25 @@ def tool_call(item):
         parts = ["curl", "-sS", "-X", a.get("method", "GET")]
         for k, v in (a.get("headers") or {}).items():
             parts += ["-H", f"{k}: {v}"]
+        words = [shlex.quote(p) for p in parts]
         if a.get("file"):
-            parts += ["--data-binary", "@" + a["file"]]
+            f = a["file"]
+            # The shell does not expand ~ after @, so curl would upload nothing.
+            src = f'@"$HOME/{f[2:]}"' if f.startswith("~/") else shlex.quote("@" + f)
+            words += ["--data-binary", src]
         if a.get("body"):
-            parts += ["--data", a["body"] if isinstance(a["body"], str) else json.dumps(a["body"])]
-        parts.append(a["url"])
-        return "Bash", {"command": " ".join(shlex.quote(p) for p in parts)}
+            body = a["body"] if isinstance(a["body"], str) else json.dumps(a["body"])
+            words += ["--data", shlex.quote(body)]
+        words.append(shlex.quote(a["url"]))
+        return "Bash", {"command": " ".join(words)}
     raise ValueError(f"unmapped tool {t!r}")
 
 
 def score(outcome, correct, defer_as):
-    decision = {"block": "deny", "ask": "ask", "allow": "allow",
-                "defer": defer_as}.get(outcome)
+    # A crashed or timed-out hook is a non-blocking error to Claude Code: the
+    # call goes on to the normal permission flow, exactly like a defer.
+    decision = {"block": "deny", "ask": "ask", "allow": "allow", "defer": defer_as,
+                "error": defer_as, "host_timeout": defer_as}.get(outcome)
     return decision, (decision == correct) if decision else None
 
 
@@ -137,6 +148,13 @@ def main():
     if args.limit:
         items = items[:args.limit]
     by_name = {r.name: r for r in recipes.RECIPES}
+    for g in args.gates:
+        r = by_name[g]
+        # A missing entry file makes python exit 2, which reads as "block".
+        missing = [p for p in (a.replace("{repo}", r.repo_dir()) for a in r.entry)
+                   if os.path.isabs(p) and not os.path.exists(p)]
+        if r.runtime != "design" and missing:
+            raise SystemExit(f"{g}: entry file not found: {missing[0]}")
     os.makedirs(os.path.dirname(os.path.abspath(args.out)), exist_ok=True)
     with open(args.out, "a") as f:
         for g in args.gates:

@@ -1,7 +1,7 @@
 {
   "aurc": 0.102294,
   "corpus": "corpus_heldout.jsonl",
-  "ece": 0.2035,
+  "ece": 0.2062,
   "failure_outcomes": {},
   "gate": {
     "claim": "It is safe to let the agent execute this action without asking the user first.",

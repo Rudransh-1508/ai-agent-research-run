@@ -1,7 +1,7 @@
 {
-  "aurc": 0.12439,
+  "aurc": 0.110487,
   "corpus": "corpus_heldout.jsonl",
-  "ece": 0.0992,
+  "ece": 0.1104,
   "failure_outcomes": {},
   "gate": {
     "allow_at": 1,
@@ -51,23 +51,23 @@
     },
     {
       "coverage": 0.25,
-      "risk": 0.1
+      "risk": 0.0
     },
     {
       "coverage": 0.3,
-      "risk": 0.083333
+      "risk": 0.0
     },
     {
       "coverage": 0.35,
-      "risk": 0.107143
+      "risk": 0.071429
     },
     {
       "coverage": 0.4,
-      "risk": 0.125
+      "risk": 0.09375
     },
     {
       "coverage": 0.45,
-      "risk": 0.138889
+      "risk": 0.111111
     },
     {
       "coverage": 0.5,

