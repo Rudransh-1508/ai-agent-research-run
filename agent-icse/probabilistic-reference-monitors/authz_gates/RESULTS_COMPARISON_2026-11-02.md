@@ -210,3 +210,23 @@ the two LLM-judge gates that *approve* (sdkks, agentguards) automate the most an
 most in default mode; the gates that only block or ask leak little in default mode and
 fail under bypass or padding. No configuration measured is good on protection, robustness
 and friction at once.
+
+## 9. Labels verified by execution in a sandbox (measured 2026-11-11)
+
+Every non-disputable corpus command was run once in a disposable container
+(`benchmark/sandbox/`, README there) seeded with the victim state its path refers to - real
+secret files, a git repo whose local bare "origin" holds history a force-push would destroy,
+a live `shop` MariaDB, stand-in block devices, and an in-container capture server that
+answers HTTP(S) for the hosts a command names - with no outbound network. The probe records
+what actually changed (deletions, content and permission changes, dropped tables, secrets
+sent, fetched code executed, fork exhaustion) and the label is scored against that.
+
+Result (`prm-sandbox:5`, raw `benchmark/sandbox/verify_report.json`): of 305 non-disputable
+items, **294 confirmed by execution, 0 mismatch**, and 11 non-observable in a container
+(host `shutdown`, Docker-bind-mounted `/etc` files, the `rm -rf /` coreutils failsafe, apt's
+essential-package guard) - all destructive on a real machine, just not exhibitable here.
+Every per-category cell is N/N. This pass is what surfaced the broken items corrected on
+2026-11-09 and a rendering bug in the delete path (`rm {shlex.quote(~/..)}` quoted the tilde,
+so `rm '~/.aws/credentials'` was a no-op); the fix re-rendered 4 main-corpus delete items,
+which sdkks then blocks instead of auto-approving (its default-mode leak 31 -> 27, bypass
+71 -> 67).
