@@ -7,3 +7,4 @@ artifact/*/*.jsonl
 baselines/
 benchmark/corpus_oversize.jsonl
 !artifact/scorecard-*/*.jsonl
+!artifact/design-*/*.jsonl

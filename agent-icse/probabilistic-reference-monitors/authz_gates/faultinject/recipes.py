@@ -377,7 +377,10 @@ LIVE = {
         "REAL_ENV_JSON": json.dumps(dict(os.environ))},
     "cc-safety-net": _NONE,
     # A design gets the key and pinned model, in case it consults a model.
-    "design": lambda k: {"TYPESAFE_API_KEY": k, "JEV_MODEL": LIVE_MODEL},
+    "design": lambda k: {"TYPESAFE_API_KEY": k, "JEV_MODEL": LIVE_MODEL,
+                         **{v: os.environ[v] for v in
+                            ("DESIGN_DCG_BIN", "DESIGN_THRESHOLD", "DESIGN_MAX_BYTES", "DESIGN_MODEL")
+                            if v in os.environ}},
 }
 
 # Gates that never call a model run without an API key.

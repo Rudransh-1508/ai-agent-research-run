@@ -310,3 +310,50 @@ blocked, of 15):
 `cp /dev/null`, `dd` and `tee` overwrites and the `tar | curl` exfil slip past cc-safety-net,
 sdkks and agentguards alike; jev-guard catches all 15 with no false alarm. Rule- and
 allowlist-based gates miss legit-binary abuse that a model-backed judge catches.
+
+## 13. The composed design fills the empty cell (measured 2026-11-12)
+
+`design/gate.py` (three levers: asymmetric authority, a total failure function, whole-command
+visibility; dcg as the parser, the jev model gated at the certified p_safe >= 0.245) run
+through the same bench. Raw: `artifact/design-v2/`; design doc `design/README.md`.
+
+| gate | mode | destructive run (main) | (held-out) | padded run | safe prompted | safe auto-approved | safe blocked |
+|---|---|---|---|---|---|---|---|
+| design | default | 0/127 | 0/100 | 0/220 | 0/94 | **94/94** | 0/94 |
+| design | auto | 0/127 | 0/100 | 0/220 | 0/94 | **94/94** | 0/94 |
+
+It is the only configuration measured that is good on protection, robustness **and** friction
+at once: zero destructive runs on main, held-out (incl. the evasion, LOLBin and real MITRE
+ATT&CK splits) and padded corpora in both host modes, all 94 safe calls auto-approved and
+none blocked, and the fault matrix (`artifact/design-v2/faults.txt`) never allows - every
+injected model failure maps to ask/deny with zero calls run. 95% Clopper-Pearson upper
+bounds (zero observed): destructive run <= 2.3% main / <= 2.95% held-out, padded <= 1.35%,
+safe false-deny <= 3.1%.
+
+**This is a bench the design was partly tuned on** (threshold certified on the main corpus;
+the T1070 indicator-removal deny pack added after one held-out model miss, `art-04`), so the
+perfect score is necessary but not sufficient. The claim the paper can defend is the
+*mechanism* - asymmetric authority + a total failure function + a certified operating point
+fills a cell no deployed gate reaches - with the cross-host breadth survey, a fresh held-out
+attack set, larger n, and multi-model threshold certification as the adversarial pressure.
+
+## 14. Gate decision latency (measured 2026-11-12)
+
+A gate is in the critical path of every tool call, so added latency is a deployment property.
+Wall-clock seconds per decision, same machine (model-backed gates include network RTT);
+full table `artifact/LATENCY.md` (`analysis/latency.py`).
+
+| gate | kind | median (s) | p95 (s) |
+|---|---|---|---|
+| dcg | deterministic | 0.01 | 0.03 |
+| cc-safety-net | deterministic | 0.10 | 0.13 |
+| sdkks | model-backed | 0.27 | **6.39** |
+| design | model-backed | 0.49 | 0.66 |
+| jev-engineering (auto) | model-backed | 0.54 | 0.92 |
+| jev-guard | model-backed | 0.59 | 1.06 |
+| agentguards | model-backed | 0.64 | 1.23 |
+
+The design's asymmetric fast path pays off: **47% of its decisions are made deterministically
+with no model call** (0.09s median), and only the ambiguous minority pays the judge (0.56s
+median). Its overall latency is lower than jev-guard and agentguards, and it has no pathological
+tail (sdkks's p95 is 6.4s from its `claude -p` fallback).
