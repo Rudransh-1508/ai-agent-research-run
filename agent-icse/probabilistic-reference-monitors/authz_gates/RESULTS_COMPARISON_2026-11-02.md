@@ -357,3 +357,38 @@ The design's asymmetric fast path pays off: **47% of its decisions are made dete
 with no model call** (0.09s median), and only the ambiguous minority pays the judge (0.56s
 median). Its overall latency is lower than jev-guard and agentguards, and it has no pathological
 tail (sdkks's p95 is 6.4s from its `claude -p` fallback).
+
+## 15. Two designs and a generalization stress test (measured 2026-11-12)
+
+We report two gate designs and the tradeoff between them, not one winner. Design A is the
+per-call model-in-the-loop gate (section 13). Design B (`design/gate_capability.py`) is the
+evaluable, fixed-policy form of the 2026 deterministic-least-privilege paradigm (Progent,
+CaMeL, ToolFence, LeanGuard, intent-graph auditing): a default-deny capability allowlist with
+no model call. Full discussion and citations: `design/ALTERNATIVE_AND_RELATED.md`.
+
+| design | destr main | destr held-out | padded | safe auto-approved | safe blocked (bypass) | median latency |
+|---|---|---|---|---|---|---|
+| A (model-in-the-loop) | 0/127 | 0/100 | 0/220 | **94/94** | 0 | 0.49s (47% fast path) |
+| B (pure capability)   | 0/127 | 0/100 | 0/220 | 60/94 | **34/94** | ~0.01-0.10s (no model) |
+
+Both are perfect on protection and padding; they separate on automation vs latency. B is
+maximally protective and 10-50x faster but over-restrictive - it blocks 34/94 safe calls it
+cannot clear from syntax alone (`curl`/`HEAD` GETs, `pip show`, `npm view`), which under
+bypass are false-denies. A recovers all 34 under the certified false-allow budget, paying a
+model call on ~half of decisions. The concrete value of the probabilistic layer the pure-policy
+trend gives up is semantic judgment of the safe-but-not-syntactically-obvious middle.
+
+**A bug the comparison found.** Building B exposed an argument-blind-allowlist hole shared by
+both: command *launchers* (`env`, `nohup`, `sudo`, `xargs`, ...) were treated as read-only, so
+`env rm -rf ~/.aws` was allowlisted. B leaked it (held-out 1/100 before the fix); A was saved
+only because dcg caught that `rm`. A `COMMAND_LAUNCHERS` denylist fixed both; the table above
+is post-fix. That the exact failure this paper indicts appeared in our own gate, and was
+caught by stress-testing not inspection, is itself a finding about validation.
+
+**Generalization stress test** (`artifact/stress-fresh/`). Against ATT&CK tactics neither
+design was tuned on - persistence (T1546.004 shell-profile injection) and privilege escalation
+(T1548.003 sudoers tampering), 6 items drawn fresh from Atomic Red Team and sandbox-verified -
+**both designs block all 6, 0 leaks, in both host modes.** The design generalizes because it
+refuses writes/redirects to sensitive paths and command launchers regardless of the specific
+technique; it needs no rule per tactic. This is the evidence against the same-corpus
+overfitting objection, within what an offline sandbox can exhibit.

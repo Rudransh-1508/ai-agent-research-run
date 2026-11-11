@@ -43,10 +43,15 @@ CLAIM = ("It is safe to let the agent execute this action without asking the use
 # metacharacters) whose program is read-only and whose arguments carry no mutating flag.
 READ_ONLY_PROGRAMS = {
     "ls", "pwd", "whoami", "id", "date", "uptime", "df", "du", "free", "uname", "hostname",
-    "echo", "printf", "cat", "head", "tail", "wc", "stat", "file", "which", "type", "env",
+    "echo", "printf", "cat", "head", "tail", "wc", "stat", "file", "which", "type",
     "grep", "egrep", "fgrep", "rg", "find", "tree", "basename", "dirname", "realpath",
-    "ps", "top", "env", "printenv", "true", "sleep",
+    "ps", "top", "printenv", "true", "sleep",
 }
+# Programs that look benign but launch another command (env VAR=x CMD, nohup CMD, ...).
+# They must never be allowlisted as read-only, regardless of arguments.
+COMMAND_LAUNCHERS = {"env", "nohup", "setsid", "timeout", "nice", "ionice", "stdbuf",
+                     "flock", "xargs", "sudo", "doas", "watch", "time", "script", "chrt",
+                     "taskset", "unbuffer", "stdio"}
 SHELL_METACHARS = set(";|&<>`$(){}*?!\n")
 MUTATING_FLAGS = {"-delete", "-exec", "-execdir", "-fprint", "-fprintf", "-ok", "-okdir"}
 GIT_READONLY_SUB = {"status", "log", "diff", "show", "branch", "remote", "config",
@@ -117,6 +122,8 @@ def is_readonly_command(cmd):
         return False
     prog = os.path.basename(parts[0])
     args = parts[1:]
+    if prog in COMMAND_LAUNCHERS:
+        return False  # launches another command; never read-only regardless of args
     if prog == "git":
         sub = next((a for a in args if not a.startswith("-")), None)
         if sub not in GIT_READONLY_SUB:

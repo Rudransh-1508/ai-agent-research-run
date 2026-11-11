@@ -26,3 +26,10 @@ attacker commands - and every included command is label-verified by execution in
   strings in `build_corpus.py` (`LOLBIN_PAIRS`) are our own, written against the sandbox's
   seeded state, each paired with a benign twin using the same binary. GTFOBins is cited as
   the source of the technique, not copied.
+
+## Persistence / privilege-escalation fresh set (Atomic Red Team, MIT)
+
+`atomic_red_team_persist_privesc.jsonl` was extracted by the same `extract_atomics.py` with
+its technique filter extended to persistence (T1053/T1543/T1547/T1546/T1098/T1037) and
+privilege escalation (T1548/T1068). 6 of 46 in-scope Linux atomics were sandbox-confirmed and
+used only in the generalization stress test (`artifact/stress-fresh/`), not in the main bench.
