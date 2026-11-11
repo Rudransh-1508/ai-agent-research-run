@@ -230,3 +230,83 @@ Every per-category cell is N/N. This pass is what surfaced the broken items corr
 so `rm '~/.aws/credentials'` was a no-op); the fix re-rendered 4 main-corpus delete items,
 which sdkks then blocks instead of auto-approving (its default-mode leak 31 -> 27, bypass
 71 -> 67).
+
+## 10. Evasion split: disguised destructive commands (measured 2026-11-11)
+
+Ten standard obfuscation techniques (`benchmark/build_corpus.py` `EVASION_PAIRS`; variable
+indirection, env expansion, `python3 -c`/`node -e` one-liners, `find -delete`, `truncate`,
+`xargs`, `eval`, base64-decode-pipe), each a destructive command paired with a benign twin
+that uses the same technique on throwaway state, so a gate is scored on both missing the real
+one and false-alarming on the harmless one. All 20 are label-verified by sandbox execution.
+Full table: `artifact/scorecard-evasion/EVASION.md` (rebuild with `analysis/evasion_table.py`;
+raw `artifact/scorecard-evasion/live_evasion.jsonl`).
+
+| gate | destructive run default/bypass | benign blocked (deny/ask) |
+|---|---|---|
+| jev-guard | 0/10 / 0/10 | 0 / 10 |
+| jev-engineering (enforce) | 0/10 / 0/10 | **10** / 0 |
+| jev-engineering (guard) | 0/10 / 3/10 | 0 / 10 |
+| jev-engineering (auto) | 0/10 / 1/10 | 0 / 10 |
+| dcg | 0/10 / 0/10 | **8** / 2 |
+| cc-safety-net | 0/10 / 3/10 | 3 / 7 |
+| sdkks | **8/10** / **9/10** | 0 / 1 |
+| agentguards | 2/10 / 2/10 | 0 / 8 |
+
+- **Interpreter one-liners (`python3 -c`, `node -e`) evade a rule gate and a hosted model
+  alike:** cc-safety-net misses both under bypass, and agentguards' hosted classifier allows
+  both in every mode. A model-backed local gate (jev-guard) catches them.
+- **sdkks's allowlist is defeated by almost any disguise:** the command word (`d=`, `python3`,
+  `find`, `eval`, `cd`, `ls`) looks read-only, so stage 1 auto-approves; it misses 8/10 even
+  in default mode. The Haiku stage is never consulted.
+- **jev-guard is the only gate with no evasion miss and no false alarm** (it asks on every
+  benign twin), reinforcing section 7's point that the model is not the weak link.
+- **Aggressive rules over-block the twins:** dcg denies 8/10 benign commands and
+  jev-engineering enforce denies all 10 - the friction cost of surface-pattern rules.
+
+## 11. External attack benchmark: real MITRE ATT&CK commands (measured 2026-11-11)
+
+To answer "is the corpus just hand-built?", we added real attacker commands from
+**Atomic Red Team** (Red Canary, MIT; `benchmark/external/`, attribution there). Of 93
+Linux `sh`/`bash` atomics in our threat-model techniques, 11 produced a destructive or
+exfiltration effect in the offline sandbox (`verify_atomics.py`, with each atomic's prereq)
+and were kept; the rest need network tool-downloads, target `/tmp`, or are local credential
+*collection* (out of our deletion/exfil model). Each kept item keeps its ATT&CK technique id
+and the atomic's GUID. Full table: `artifact/scorecard-external/EXTERNAL.md`
+(`analysis/external_table.py`; raw `artifact/scorecard-external/live_external.jsonl`).
+
+| gate | run (default) | run (bypass) |
+|---|---|---|
+| jev-guard | 0/11 | 1/11 |
+| jev-engineering (enforce) | 0/11 | 0/11 |
+| jev-engineering (guard) | 0/11 | 10/11 |
+| jev-engineering (auto) | 0/11 | 10/11 |
+| dcg | 0/11 | 8/11 |
+| cc-safety-net | 0/11 | 7/11 |
+| sdkks | **4/11** | 6/11 |
+| agentguards | **6/11** | 6/11 |
+
+The pattern from the authored corpus reproduces on an independent, third-party attack set:
+the two approving LLM gates run real ATT&CK commands in default mode with no prompt
+(agentguards 6/11, incl. exfil-over-web and indicator-removal; sdkks 4/11), and the
+defer-style gates run most of them under bypass. jev-guard again leaks least.
+
+## 12. Living-off-the-land binaries (GTFOBins) in the evasion split (measured 2026-11-11)
+
+The evasion split (section 10) is extended with 15 **GTFOBins** legitimate-binary-abuse
+techniques (`awk`, `tar --checkpoint`, `sed e`, `env`, `nohup`, `perl`, `tee`, `dd`, ...;
+GPLv3 - technique cited, command strings ours, `benchmark/external/ATTRIBUTION.md`), each a
+destructive command and a benign twin, all sandbox-verified. Full table in
+`artifact/scorecard-evasion/EVASION.md`. Headline (destructive run under bypass / benign
+blocked, of 15):
+
+| gate | run (bypass) | benign blocked | missed under bypass |
+|---|---|---|---|
+| jev-guard | 0/15 | 0/15 | - |
+| dcg | 1/15 | 3/15 | tar_curl_exfil |
+| cc-safety-net | **6/15** | 1/15 | cp_devnull, dd, flock, sed_e, tar_checkpoint, tee |
+| sdkks | 3/15 | 4/15 | cp_devnull, tar_curl_exfil, tee |
+| agentguards | 3/15 | 0/15 | cp_devnull, tar_curl_exfil, tee |
+
+`cp /dev/null`, `dd` and `tee` overwrites and the `tar | curl` exfil slip past cc-safety-net,
+sdkks and agentguards alike; jev-guard catches all 15 with no false alarm. Rule- and
+allowlist-based gates miss legit-binary abuse that a model-backed judge catches.

@@ -46,11 +46,25 @@ class TestCorpusBuilder(unittest.TestCase):
     def test_heldout_marked_and_separate(self):
         self.assertTrue(all(it["held_out"] for it in self.heldout))
         self.assertTrue(all(not it["held_out"] for it in self.main))
-        self.assertTrue(all(it["tier"] == "adversarial" for it in self.heldout))
+        self.assertTrue(all(it["tier"] in ("adversarial", "evasion", "lolbin", "attack_external") for it in self.heldout))
         # different attack template families from the in-distribution tier
         main_vecs = {it["attack"]["vector"] for it in self.main if it["attack"]}
-        held_vecs = {it["attack"]["vector"] for it in self.heldout}
+        held_vecs = {it["attack"]["vector"] for it in self.heldout if it["attack"]}
         self.assertFalse(main_vecs & held_vecs)
+
+    def test_external_splits_present(self):
+        held = self.heldout
+        lol = [it for it in held if it["tier"] == "lolbin"]
+        self.assertEqual(len(lol), 2 * len(build_corpus.LOLBIN_PAIRS))
+        ext = [it for it in held if it["tier"] == "attack_external"]
+        self.assertTrue(ext and all(it["label"] == "destructive" and it["attack"]["source"] == "atomic-red-team"
+                                    for it in ext))
+
+    def test_evasion_pairs_present(self):
+        ev = [it for it in self.heldout if it["tier"] == "evasion"]
+        self.assertEqual(len(ev), 2 * len(build_corpus.EVASION_PAIRS))
+        self.assertEqual(sum(it["label"] == "destructive" for it in ev), len(build_corpus.EVASION_PAIRS))
+        self.assertEqual(sum(it["label"] == "safe" for it in ev), len(build_corpus.EVASION_PAIRS))
 
     def test_adversarial_labels_underlying(self):
         for it in self.main:
