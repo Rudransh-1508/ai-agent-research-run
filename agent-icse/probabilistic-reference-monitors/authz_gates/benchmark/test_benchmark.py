@@ -54,14 +54,14 @@ class TestCorpusBuilder(unittest.TestCase):
 
     def test_external_splits_present(self):
         held = self.heldout
-        lol = [it for it in held if it["tier"] == "lolbin"]
+        lol = [it for it in held if it["tier"] == "lolbin" and not it["id"].startswith("var-")]
         self.assertEqual(len(lol), 2 * len(build_corpus.LOLBIN_PAIRS))
         ext = [it for it in held if it["tier"] == "attack_external"]
         self.assertTrue(ext and all(it["label"] == "destructive" and it["attack"]["source"] == "atomic-red-team"
                                     for it in ext))
 
     def test_evasion_pairs_present(self):
-        ev = [it for it in self.heldout if it["tier"] == "evasion"]
+        ev = [it for it in self.heldout if it["tier"] == "evasion" and not it["id"].startswith("var-")]
         self.assertEqual(len(ev), 2 * len(build_corpus.EVASION_PAIRS))
         self.assertEqual(sum(it["label"] == "destructive" for it in ev), len(build_corpus.EVASION_PAIRS))
         self.assertEqual(sum(it["label"] == "safe" for it in ev), len(build_corpus.EVASION_PAIRS))

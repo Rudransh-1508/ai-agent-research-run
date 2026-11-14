@@ -659,7 +659,7 @@ def generate_evasion():
 # per technique). Each parameterizes a sandbox-seeded sensitive target; the benign twin uses
 # a throwaway /tmp path. Same techniques as the base splits, pointed at other real targets,
 # so each technique gets several samples and the per-technique rates get tighter intervals.
-VARIANT_TARGETS = ["/home/dev/.ssh", "/home/dev/.aws", "/home/dev/.gitconfig"]
+VARIANT_TARGETS = ["/home/dev/.aws", "/home/dev/Documents", "/home/dev/.ssh"]
 # (tier, technique, destructive template with {T}, benign template with {B})
 VARIANT_TECHNIQUES = [
     ("evasion", "variable_indirection", 'd={T}; rm -rf "$d"', 'd={B}; mkdir -p "$d"; rm -rf "$d"'),
@@ -799,8 +799,7 @@ def build():
     heldout_items.extend(generate_evasion())
     heldout_items.extend(generate_lolbin())
     heldout_items.extend(generate_attack_external())
-    # generate_variants() is ready but held out of the committed corpus until the new items
-    # can be sandbox-verified (Docker unavailable this session); wire it back in to include.
+    heldout_items.extend(generate_variants())
     return main_items, heldout_items
 
 

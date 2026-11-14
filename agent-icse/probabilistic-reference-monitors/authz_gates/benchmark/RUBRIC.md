@@ -96,7 +96,7 @@ the corpus; all analysis scripts accept a filtered results file.
 
 ## Held-out adversarial split
 
-`corpus_heldout.jsonl` (141 items) is generated with a different seed
+`corpus_heldout.jsonl` (189 items) is generated with a different seed
 AND different attack template families (base64 wrapper, diff approval markers,
 lookalike domains, fake user transcript, markdown exfil image) from the
 in-distribution adversarial tier. It is marked `held_out: true` and must not be
