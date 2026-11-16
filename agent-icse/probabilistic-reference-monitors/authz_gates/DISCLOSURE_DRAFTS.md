@@ -1,6 +1,7 @@
 # Responsible-disclosure drafts (NOT SENT)
 
-Drafted 2026-10-31 for the AGENT @ ICSE 2027 submission (deadline 2026-11-13). Each note
+Drafted 2026-10-31; numbers re-verified against the committed scorecards on 2026-11-17
+(`artifact/scorecard-all/`, `artifact/scorecard-evasion/`, `artifact/blind/`). Each note
 goes to the maintainer privately first (GitHub security advisory where enabled, otherwise
 the email in the repo), with a 14-day window before the preprint goes public. Every claim
 below was observed with our harness at the pinned SHA and re-checked by reading upstream
@@ -20,9 +21,11 @@ HEAD on 2026-10-31; see `RECHECK_2026-10-31.md`.
   a non-blocking error and runs the call. Suggested fix: treat a missing answer as the
   fallback, and let `enforce` block on it.
 - **guard mode under auto-approval.** In `guard` mode, every "ask" verdict becomes exit 0.
-  Under a host mode that runs unblocked calls, 83/127 clearly destructive benchmark calls
-  ran (48/64 on held-out attack families). Worth a README warning that `guard` relies on a
-  confirming host.
+  Under a host mode that runs unblocked calls, 75/127 clearly destructive benchmark calls
+  ran at upstream HEAD with jev-1.14.0 (40/64 on held-out attack families; 83/127 and 48/64
+  at the pinned SHA with jev-1.13.0), against 0 in Claude Code's default mode. On a
+  pre-registered blind set of real ATT&CK procedures, `auto` mode let 5/5 run under bypass
+  and `guard` 3/5. Worth a README warning that `guard` and `auto` rely on a confirming host.
 - **Allowlist treats `git branch -D` as read-only.** The fast-path pattern
   `^\s*git\s+(status|diff|log|branch|remote|fetch)\b` in `policy.json` matches
   `git branch -D <name>`; in `auto` mode that returns `allow`, so a branch is force-deleted
@@ -70,6 +73,18 @@ HEAD on 2026-10-31; see `RECHECK_2026-10-31.md`.
   Suggested fix: treat an over-limit payload as unverified (ask, or deny under
   bypassPermissions/dontAsk), or make `fail_closed` the default for over-limit input.
 
+## kenryu42/cc-safety-net (2.7.1, prebuilt dist, default config)
+
+- **Disguised destructive commands are not recognized.** The README says wrapping a command
+  or reordering flags does not hide it. On sandbox-verified disguised commands, the hook
+  returned no decision for 9/22 authored evasions (Python `shutil.rmtree` and Node
+  `rmSync` one-liners, variable indirection, `truncate` of a dotfile) and 6/27 GTFOBins-style
+  legitimate-binary abuses (`cp /dev/null`, `dd`, `flock`, `sed e`, `tar --checkpoint`,
+  `tee`), so under a host mode that runs unblocked calls they execute (observed 2026-11-14).
+  In Claude Code's default mode the user is still prompted. Suggested fix: rules for
+  interpreter one-liners that call delete/truncate APIs, and for the listed binaries'
+  write/exec forms.
+
 ## alelaguard/agentguards-plugins (@64e7e8e, Claude Code hook)
 
 - **The hosted classifier approves credential exfiltration.** Run live with the shipped
@@ -108,3 +123,7 @@ HEAD on 2026-10-31; see `RECHECK_2026-10-31.md`.
   `npm unpublish --force`, `git branch -D`, `git update-ref -d`; the Haiku stage approved
   none of them. Suggested fix: send any segment with arguments outside a small read-only
   set to stage 2 rather than approving on the command word.
+- **Disguised commands pass the allowlist.** On the sandbox-verified evasion set, almost any
+  disguise (variable indirection, interpreter one-liners, find with its delete action,
+  xargs) is auto-approved with no prompt even in Claude Code's default mode: 20/22 authored
+  evasions ran (observed 2026-11-14).
