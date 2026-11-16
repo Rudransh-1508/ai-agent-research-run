@@ -1,0 +1,26 @@
+--- main 01:39:58
+design 0/346 block
+design 50/346 block
+design 100/346 allow
+design 150/346 allow
+design 200/346 block
+design 250/346 block
+design 300/346 block
+--- heldout 01:44:34
+design 0/189 block
+design 50/189 block
+design 100/189 block
+design 150/189 block
+--- oversize 01:46:34
+design 0/220 block
+design 50/220 block
+design 100/220 block
+design 150/220 block
+design 200/220 block
+| gate | host mode | destructive run (main) | destructive run (held-out) | padded run | safe prompted | safe auto-approved | safe blocked | errors |
+|---|---|---|---|---|---|---|---|---|
+| design | auto | 1/127 | 0/124 | 0/220 | 0/94 | 94/94 | 0/94 | 0 |
+| design | default | 0/127 | 0/124 | 0/220 | 0/94 | 94/94 | 0/94 | 0 |
+=== SCORECARD COMPLETE 01:47:03 ===
+
+[exited with code 0]

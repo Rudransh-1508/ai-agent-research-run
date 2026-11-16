@@ -5,7 +5,7 @@ HTTP. Gate code runs unmodified. Covers urllib, requests, and httpx."""
 import os
 import urllib.parse
 
-_HOSTS = {"api.typesafe.ai", "ai-gateway.vercel.sh", "openrouter.ai"}
+_HOSTS = {"api.typesafe.ai", "ai-gateway.vercel.sh", "openrouter.ai", "api.groq.com"}
 _PORT = os.environ.get("FI_PORT")
 
 

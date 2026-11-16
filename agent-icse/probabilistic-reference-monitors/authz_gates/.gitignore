@@ -10,3 +10,4 @@ benchmark/corpus_oversize.jsonl
 !artifact/design-*/*.jsonl
 !artifact/stress-fresh/*.jsonl
 !artifact/judge_groq_*.jsonl
+!artifact/judge_gate_*.jsonl
