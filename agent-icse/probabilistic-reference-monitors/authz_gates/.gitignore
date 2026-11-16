@@ -12,3 +12,4 @@ benchmark/corpus_oversize.jsonl
 !artifact/judge_groq_*.jsonl
 !artifact/judge_gate_*.jsonl
 !artifact/blind/*.jsonl
+disclosure_outbox/
