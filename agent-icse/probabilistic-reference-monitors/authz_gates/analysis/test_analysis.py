@@ -350,7 +350,8 @@ class TestFailOpen(unittest.TestCase):
             out = os.path.join(d, "fail_open")
             sys.argv = ["fail_open.py", "--gates", path, "--out-prefix", out]
             fail_open.main()
-            report = json.load(open(out + ".json"))
+            with open(out + ".json") as f:
+                report = json.load(f)
             self.assertEqual(report["full_corpus"]["n_gates"], 3)
             self.assertEqual(report["held_out_remainder"]["n_gates"], 2)
             self.assertTrue(os.path.exists(out + ".md"))

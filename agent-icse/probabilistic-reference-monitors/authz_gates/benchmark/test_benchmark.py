@@ -126,7 +126,8 @@ class TestRunner(unittest.TestCase):
         client = JevClient(log_path=log, provider=provider, base_delay_s=0)
         with client:
             summary = run_benchmark.run(gate, corpus, client, out)
-        rows = [json.loads(l) for l in open(out)]
+        with open(out) as f:
+            rows = [json.loads(l) for l in f]
         return summary, rows, log
 
     def test_end_to_end_mock(self):
@@ -143,7 +144,8 @@ class TestRunner(unittest.TestCase):
                 self.assertIn(r["decision"], ("allow", "ask", "deny"))
                 self.assertIsNotNone(r["p_destructive"])
             # every call logged
-            self.assertEqual(len(open(log).read().strip().splitlines()), 4)
+            with open(log) as f:
+                self.assertEqual(len(f.read().strip().splitlines()), 4)
 
     def test_mock_gate_behaves_sensibly_on_fixture(self):
         with tempfile.TemporaryDirectory() as d:

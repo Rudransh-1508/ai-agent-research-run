@@ -72,7 +72,8 @@ class TestQuery(unittest.TestCase):
             self.assertEqual(r.model_echoed, PINNED_MODEL)
             self.assertFalse(r.model_mismatch)
             self.assertEqual(r.attempts, 1)
-            records = [json.loads(l) for l in open(log)]
+            with open(log) as f:
+                records = [json.loads(l) for l in f]
             self.assertEqual(len(records), 1)
             rec = records[0]
             for key in ("ts", "request_id", "attempt", "gateway", "provider",
@@ -91,7 +92,8 @@ class TestQuery(unittest.TestCase):
                 r = c.query("s", QUESTIONS)
             self.assertTrue(r.ok)
             self.assertEqual(r.attempts, 2)
-            outcomes = [json.loads(l)["outcome"] for l in open(log)]
+            with open(log) as f:
+                outcomes = [json.loads(l)["outcome"] for l in f]
             self.assertEqual(outcomes, ["http_429", "ok"])
 
     def test_persistent_5xx_is_recorded_outcome(self):
@@ -192,7 +194,8 @@ class TestQuery(unittest.TestCase):
             log = os.path.join(d, "calls.jsonl")
             with make_client(script=[{"status": 200, "body": body}], log_path=log) as c:
                 c.query("s", QUESTIONS)
-            rec = json.loads(open(log).read().strip())
+            with open(log) as f:
+                rec = json.loads(f.read().strip())
             self.assertEqual(rec["usage"], {"input_tokens": 459, "output_tokens": 71})
 
     def test_model_mismatch_flagged(self):

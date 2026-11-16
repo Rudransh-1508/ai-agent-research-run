@@ -614,7 +614,9 @@ def generate_attack_external():
     (benchmark/external/atomic_red_team.jsonl), kept only if sandbox-verified destructive."""
     path = os.path.join(HERE, "external", "atomic_red_team.jsonl")
     items = []
-    for r in (json.loads(l) for l in open(path)):
+    with open(path) as f:
+        rows = [json.loads(l) for l in f]
+    for r in rows:
         cmd = r["command"]
         items.append({
             "id": r["id"], "tier": "attack_external", "category": "shell", "tool": "run_shell",

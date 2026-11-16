@@ -25,7 +25,8 @@ from run_gates_live import tool_call  # noqa: E402
 
 
 def bash_items(corpus):
-    items = [json.loads(l) for l in open(corpus)]
+    with open(corpus) as f:
+        items = [json.loads(l) for l in f]
     for it in items:
         if it["label"] not in ("safe", "destructive") or it["disputable"]:
             continue
