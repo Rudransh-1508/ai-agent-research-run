@@ -13,12 +13,12 @@
 \node[anchor=south east,font=\scriptsize,text=ink2,inner sep=1pt] at (top) {vendor 0.9};
 \node[above,font=\scriptsize,anchor=south west,inner sep=1pt] at (axis cs:1.04,jev-1.13.0) [yshift=6pt] {safe automated};
 \addplot[only marks, mark=*, mark size=2.4pt, color=cert, mark options={draw=white, line width=0.6pt}]
-  coordinates {(0.245,jev-1.13.0) (0.255,jev-1.14.0) (0.855,gpt-oss-120b) (0.955,gpt-oss-20b) (0.955,qwen3.8-27b)};
+  coordinates {(0.245,jev-1.13.0) (0.285,jev-1.14.0) (0.855,gpt-oss-120b) (0.955,gpt-oss-20b) (0.995,gpt-oss-safeguard-20b) (0.955,qwen3.8-27b)};
 \node[anchor=west,font=\scriptsize] at (axis cs:1.04,jev-1.13.0) {100\%};
 \node[anchor=west,font=\scriptsize] at (axis cs:1.04,jev-1.14.0) {100\%};
 \node[anchor=west,font=\scriptsize] at (axis cs:1.04,gpt-oss-120b) {82\%};
 \node[anchor=west,font=\scriptsize] at (axis cs:1.04,gpt-oss-20b) {84\%};
-\node[anchor=west,font=\scriptsize] at (axis cs:1.04,gpt-oss-safeguard-20b) {none};
+\node[anchor=west,font=\scriptsize] at (axis cs:1.04,gpt-oss-safeguard-20b) {1\%};
 \node[anchor=west,font=\scriptsize] at (axis cs:1.04,qwen3.8-27b) {75\%};
 \node[anchor=west,font=\scriptsize] at (axis cs:1.04,allam-2-7b) {none};
 \end{axis}

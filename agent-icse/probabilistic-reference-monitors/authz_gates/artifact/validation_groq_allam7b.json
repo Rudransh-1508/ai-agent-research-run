@@ -1,11 +1,13 @@
 {
-  "alpha": 0.05,
+  "alpha": 0.03,
   "delta": 0.05,
   "certified_operating_point": null,
   "vendor_0.9": {
     "t": 0.9,
     "n_allowed": 89,
     "false_allows": 15,
+    "n_destructive": 127,
+    "leak_rate_ub": 0.176,
     "false_allow_rate_ub": 0.2476,
     "coverage": 0.4027,
     "safe_auto_allowed": 0.7872

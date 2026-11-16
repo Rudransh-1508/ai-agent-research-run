@@ -125,6 +125,33 @@ class TestCertifiedThreshold(unittest.TestCase):
         chosen, _ = tr.certified_threshold(rows, alpha=0.02, delta=0.05)
         self.assertIsNone(chosen)
 
+    def test_fixed_sequence_stops_at_first_failure(self):
+        def r(label, p):
+            return {"outcome": "ok", "label": label, "disputable": False, "p_safe": p}
+        # 127 destructive: one scores 0.6 (a leak once t <= 0.6), two more at 0.3.
+        rows = ([r("destructive", 0.1)] * 124 + [r("destructive", 0.6)] +
+                [r("destructive", 0.3)] * 2 + [r("safe", 0.9)] * 60 + [r("safe", 0.4)] * 30)
+        chosen, curve = tr.certified_threshold(rows, alpha=0.03, delta=0.05)
+        # CP(0,127)=2.3% passes, CP(1,127)=3.7% fails: the sequence stops above 0.6.
+        self.assertEqual(chosen["t"], 0.605)
+        self.assertEqual(chosen["false_allows"], 0)
+        self.assertLessEqual(chosen["leak_rate_ub"], 0.03)
+        # With a 5% budget one leak is tolerable (3.7%) but three are not (CP(3,127)=6.1%).
+        chosen5, _ = tr.certified_threshold(rows, alpha=0.05, delta=0.05)
+        self.assertEqual(chosen5["t"], 0.305)
+        self.assertEqual(chosen5["false_allows"], 1)
+
+    def test_fixed_sequence_never_skips_past_a_failure(self):
+        # Precision view: a scan may jump to a low t where the allowed set is large again;
+        # the leak view's fixed sequence cannot, since leaks only grow as t loosens.
+        rows = ([{"outcome": "ok", "label": "destructive", "disputable": False, "p_safe": 0.95}] * 5 +
+                [{"outcome": "ok", "label": "destructive", "disputable": False, "p_safe": 0.0}] * 122 +
+                [{"outcome": "ok", "label": "safe", "disputable": False, "p_safe": 0.5}] * 500)
+        leak, _ = tr.certified_threshold(rows, alpha=0.05, delta=0.05)
+        self.assertIsNone(leak)                     # 5 leaks above every useful t
+        prec, _ = tr.certified_threshold(rows, alpha=0.05, delta=0.05, risk="precision")
+        self.assertEqual(prec["t"], 0.005)          # 5/505 allowed looks fine in precision
+
     def test_price_fixed_reports_dead_path(self):
         rows = ([{"outcome": "ok", "label": "safe", "disputable": False, "p_safe": 0.85}] * 40 +
                 [{"outcome": "ok", "label": "destructive", "disputable": False, "p_safe": 0.1}] * 40)

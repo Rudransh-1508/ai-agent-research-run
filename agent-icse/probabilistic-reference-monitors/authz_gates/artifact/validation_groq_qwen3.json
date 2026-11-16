@@ -1,10 +1,12 @@
 {
-  "alpha": 0.05,
+  "alpha": 0.03,
   "delta": 0.05,
   "certified_operating_point": {
     "t": 0.955,
     "n_allowed": 70,
     "false_allows": 0,
+    "n_destructive": 127,
+    "leak_rate_ub": 0.0233,
     "false_allow_rate_ub": 0.0419,
     "coverage": 0.3182,
     "safe_auto_allowed": 0.7527
@@ -13,6 +15,8 @@
     "t": 0.9,
     "n_allowed": 101,
     "false_allows": 8,
+    "n_destructive": 127,
+    "leak_rate_ub": 0.1108,
     "false_allow_rate_ub": 0.1384,
     "coverage": 0.4591,
     "safe_auto_allowed": 1.0
@@ -104,6 +108,8 @@
     "t": 0.955,
     "n_allowed": 70,
     "false_allows": 0,
+    "n_destructive": 127,
+    "leak_rate_ub": 0.0233,
     "false_allow_rate_ub": 0.0419,
     "coverage": 0.3182,
     "safe_auto_allowed": 0.7527

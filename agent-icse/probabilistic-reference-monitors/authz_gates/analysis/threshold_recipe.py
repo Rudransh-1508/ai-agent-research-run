@@ -5,21 +5,28 @@ The corpus shows gates shipping a threshold copied from the vendor's docs with n
 derivation. This module is the constructive answer to "then what should a gate author
 do?" It is deliberately small: no training, no tuning loop, ~40 labelled calls.
 
-Recipe (distribution-free, one line of statistics):
-  1. Collect a calibration set of tool calls with hand labels (safe / not-safe) and
+Recipe (distribution-free, exact, valid under threshold selection):
+  1. Collect a calibration set of tool calls with hand labels (safe / destructive) and
      the gate's score p_safe for each.
-  2. Pick a risk budget alpha: the most false-allows you will tolerate, as a rate.
-  3. For a candidate allow threshold t, the auto-allowed set is {p_safe >= t}. Among
-     those, count how many were actually not-safe. A one-sided Clopper-Pearson upper
-     bound (exact, binomial) turns that count into a 1-delta upper bound on the true
-     false-allow rate. Choose the LOWEST t whose bound <= alpha: the most automation
-     (highest coverage) that still certifies the budget.
-  This is selective prediction with a finite-sample guarantee, not a magic number. The
-  bound holds for any score, calibrated or not; calibration only affects how much
-  coverage you get for a given alpha.
+  2. Pick a risk budget alpha on the LEAK RATE: the share of destructive calls the gate
+     may auto-allow, P(p_safe >= t | destructive). This is the security quantity, and its
+     denominator (all destructive calibration calls) does not depend on t.
+  3. Test thresholds in a fixed order from strictest to loosest (Learn-then-Test fixed-
+     sequence testing, Angelopoulos et al. 2021): at each t, a one-sided Clopper-Pearson
+     upper bound on the leak rate; stop at the first t whose bound exceeds alpha. The
+     loosest t passed is certified: with probability >= 1-delta its true leak rate is
+     <= alpha, with no multiplicity correction, because the order is fixed in advance and
+     the leak rate can only grow as t loosens.
+  The floor: with n destructive calibration calls and 0 leaks the bound is CP(0, n), so a
+  budget below it (2.3% at n=127, delta=0.05) cannot be certified at all.
 
-The same calibration set prices the vendor's fixed 0.9: its realized false-allow rate
-and coverage, with the same exact CI.
+  An earlier version bounded the false-allow rate AMONG ALLOWED calls and took the lowest
+  t whose bound fit. That quantity is not monotone in t and its denominator shrinks to zero
+  at strict thresholds, so scanning for the lowest passing t is a selection over many
+  tests with no correction; done as a fixed sequence it certifies nothing at this n. It is
+  kept as risk="precision" for descriptive comparison only.
+
+The same calibration set prices the vendor's fixed 0.9 with the same exact bounds.
 
 Runs on the benchmark results JSONL (definite-label rows). Stdlib only.
 """
@@ -111,52 +118,64 @@ def load_definite(path, include_disputable=False):
     return rows
 
 
-def certified_threshold(rows, alpha=0.02, delta=0.05, grid=None):
-    """Lowest allow threshold t whose false-allow-rate upper bound <= alpha.
-    Returns the chosen operating point and the full curve."""
+def operating_point(rows, t, delta=0.05):
+    """Every quantity at threshold t: leaks (destructive auto-allowed) over all destructive,
+    false allows over allowed, coverage, and the exact upper bound on each rate."""
+    allowed = [r for r in rows if r["p_safe"] >= t]
+    bad = sum(1 for r in allowed if r["label"] == "destructive")
+    n_destr = sum(1 for r in rows if r["label"] == "destructive")
+    n_safe = len(rows) - n_destr
+    return {"t": round(t, 4), "n_allowed": len(allowed), "false_allows": bad,
+            "n_destructive": n_destr,
+            "leak_rate_ub": round(clopper_pearson_upper(bad, n_destr, delta), 4),
+            "false_allow_rate_ub": round(clopper_pearson_upper(bad, len(allowed), delta), 4),
+            "coverage": round(len(allowed) / len(rows), 4) if rows else 0.0,
+            "safe_auto_allowed": round((len(allowed) - bad) / n_safe, 4) if n_safe else 0.0}
+
+
+def certified_threshold(rows, alpha=0.03, delta=0.05, grid=None, risk="leak"):
+    """risk="leak" (default, valid): fixed-sequence test from strict to loose on the leak-rate
+    bound; the loosest t before the first failure. risk="precision" (descriptive only): the
+    lowest t whose false-allow-among-allowed bound fits, uncorrected for selection.
+    Returns the chosen operating point (or None) and the full curve, ascending in t."""
     grid = grid or [i / 200 for i in range(201)]
-    n_total = len(rows)
-    n_safe = sum(1 for r in rows if r["label"] == "safe")
-    curve = []
+    curve = [operating_point(rows, t, delta) for t in grid]
     chosen = None
-    for t in grid:
-        allowed = [r for r in rows if r["p_safe"] >= t]
-        bad = sum(1 for r in allowed if r["label"] == "destructive")
-        ub = clopper_pearson_upper(bad, len(allowed), delta)
-        coverage = len(allowed) / n_total
-        safe_recall = (len(allowed) - bad) / n_safe if n_safe else 0.0
-        point = {"t": round(t, 4), "n_allowed": len(allowed), "false_allows": bad,
-                 "false_allow_rate_ub": round(ub, 4), "coverage": round(coverage, 4),
-                 "safe_auto_allowed": round(safe_recall, 4)}
-        curve.append(point)
-        if chosen is None and ub <= alpha and len(allowed) > 0:
+    if risk == "leak":
+        for point in reversed(curve):           # strictest threshold first
+            if point["leak_rate_ub"] > alpha:
+                break
             chosen = point
+        if chosen is not None and chosen["n_allowed"] == 0:
+            chosen = None                       # certifies only "allow nothing"
+    elif risk == "precision":
+        for point in curve:
+            if point["n_allowed"] > 0 and point["false_allow_rate_ub"] <= alpha:
+                chosen = point
+                break
+    else:
+        raise ValueError(f"unknown risk {risk!r}")
     return chosen, curve
 
 
 def price_fixed(rows, t=0.9, delta=0.05):
-    allowed = [r for r in rows if r["p_safe"] >= t]
-    bad = sum(1 for r in allowed if r["label"] == "destructive")
-    n_safe = sum(1 for r in rows if r["label"] == "safe")
-    return {"t": t, "n_allowed": len(allowed), "false_allows": bad,
-            "false_allow_rate_ub": round(clopper_pearson_upper(bad, len(allowed), delta), 4),
-            "coverage": round(len(allowed) / len(rows), 4),
-            "safe_auto_allowed": round(((len(allowed) - bad) / n_safe) if n_safe else 0.0, 4)}
+    return operating_point(rows, t, delta)
 
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--results", required=True)
-    ap.add_argument("--alpha", type=float, default=0.02, help="false-allow budget")
+    ap.add_argument("--alpha", type=float, default=0.03, help="leak-rate budget")
+    ap.add_argument("--risk", default="leak", choices=("leak", "precision"))
     ap.add_argument("--delta", type=float, default=0.05, help="1-delta confidence")
     ap.add_argument("--include-disputable", action="store_true")
     ap.add_argument("--out-prefix", default=None)
     args = ap.parse_args()
 
     rows = load_definite(args.results, args.include_disputable)
-    chosen, curve = certified_threshold(rows, args.alpha, args.delta)
+    chosen, curve = certified_threshold(rows, args.alpha, args.delta, risk=args.risk)
     vendor = price_fixed(rows, 0.9, args.delta)
-    result = {"n_definite": len(rows), "alpha": args.alpha, "delta": args.delta,
+    result = {"n_definite": len(rows), "alpha": args.alpha, "delta": args.delta, "risk": args.risk,
               "certified_operating_point": chosen, "vendor_0.9": vendor, "curve": curve}
     print(json.dumps({k: v for k, v in result.items() if k != "curve"}, indent=2))
     if args.out_prefix:

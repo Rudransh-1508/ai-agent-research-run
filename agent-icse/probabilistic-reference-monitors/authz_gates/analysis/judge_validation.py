@@ -14,7 +14,7 @@ questions it was not tuned on:
 Usage:
   python3 analysis/judge_validation.py --calib artifact/judge_groq_X.jsonl \
       --repeats artifact/judge_groq_X_r2.jsonl artifact/judge_groq_X_r3.jsonl \
-      --heldout artifact/judge_groq_X_heldout.jsonl --alpha 0.05 --out-prefix artifact/validation_X
+      --heldout artifact/judge_groq_X_heldout.jsonl --alpha 0.03 --out-prefix artifact/validation_X
 Stdlib only.
 """
 import argparse
@@ -111,8 +111,9 @@ def validate(calib, repeats, heldout, alpha, delta):
 def to_md(name, v):
     c = v["certified_operating_point"]
     lines = [f"### {name}", "",
-             f"Certified on the calibration run: t = {c['t']}, false allows "
-             f"{c['false_allows']}/{c['n_allowed']} (bound {c['false_allow_rate_ub']:.1%}).", ""]
+             f"Certified on the calibration run: t = {c['t']}, leaks "
+             f"{c['false_allows']}/{c['n_destructive']} destructive (leak-rate bound "
+             f"{c['leak_rate_ub']:.1%}), automating {c['safe_auto_allowed']:.0%} of safe calls.", ""]
     for key, label in (("heldout", f"frozen t = {c['t']}"), ("heldout_vendor_0.9", "vendor 0.9")):
         if key in v:
             h = v[key]
@@ -133,8 +134,8 @@ def to_md(name, v):
         w = v.get("worst_case_certified")
         if w:
             h = v.get("heldout_at_worst_case_t")
-            lines.append(f"- Worst case over all runs certifies t = {w['t']} (false allows "
-                         f"{w['false_allows']}/{w['n_allowed']}, safe automated "
+            lines.append(f"- Worst case over all runs certifies t = {w['t']} (leaks "
+                         f"{w['false_allows']}/{w['n_destructive']}, safe automated "
                          f"{w['safe_auto_allowed']:.0%})" + (
                              f"; held-out at that t: destructive allowed {h['destr_allowed']}/"
                              f"{h['destr_n']}, safe automated {h['safe_automated']}/{h['safe_n']}."
@@ -147,7 +148,7 @@ def main():
     ap.add_argument("--calib", required=True)
     ap.add_argument("--repeats", nargs="*", default=[])
     ap.add_argument("--heldout", default=None)
-    ap.add_argument("--alpha", type=float, default=0.05)
+    ap.add_argument("--alpha", type=float, default=0.03, help="leak-rate budget")
     ap.add_argument("--delta", type=float, default=0.05)
     ap.add_argument("--name", default=None)
     ap.add_argument("--out-prefix", default=None)

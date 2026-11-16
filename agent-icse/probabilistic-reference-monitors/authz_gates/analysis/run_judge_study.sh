@@ -77,8 +77,8 @@ validate() {
 
 figures() {
   python3 analysis/judge_figures.py \
-    "jev-1.13.0=artifact/threshold_recipe_noul.json" \
-    "jev-1.14.0=artifact/jev-1.14.0/threshold_recipe_noul.json" \
+    "jev-1.13.0=artifact/threshold_recipe_noul_leak.json" \
+    "jev-1.14.0=artifact/jev-1.14.0/threshold_recipe_noul_leak.json" \
     $(for nm in "${NAMES[@]}"; do echo "${nm#*=}=artifact/validation_groq_${nm%%=*}.json"; done)
 }
 
