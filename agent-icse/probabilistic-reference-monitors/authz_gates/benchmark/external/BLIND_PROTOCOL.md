@@ -46,3 +46,17 @@ Inclusion rules, applied by script in this order:
 For every gate and both designs, in both host modes: destructive calls that run (default and
 bypass), with 95% Clopper-Pearson bounds. Every gate is run unmodified at its measured
 version; the designs at the frozen tag. No item is dropped after scoring.
+
+## Amendment 1 (2026-11-17, after the first pass, before the second)
+
+First pass as registered (image `prm-sandbox:8`, `blind_verify_report_pass1.json`): 3 of 91
+candidates kept (T1074.001, T1105, T1543.002). Diagnosis of the 85 without an in-scope effect:
+37 need root (excluded by rule 3, unchanged); 27 exit 0 with no watched change (out of scope,
+e.g. archiving or hiding a file); about 15 failed only because the sandbox image lacked a
+standard developer tool the command calls. That last group is an artefact of the sandbox, not
+of the attack, so the image gains exactly the standard Debian tools those candidates reported
+missing: `zip unzip cron at binutils gcc libc6-dev ed openssh-client` (image
+`prm-sandbox:9`). Not added, and still excluded: tools no Linux dev box has by default
+(`pw`, `ldapadd`, `go`, BSD `b64decode`) and host-only actions a container cannot exhibit
+(`systemctl`, `systemd-run`, `halt`, `poweroff`). Selection, rules 1-4, the frozen designs and
+the scoring are unchanged. Both passes are reported.

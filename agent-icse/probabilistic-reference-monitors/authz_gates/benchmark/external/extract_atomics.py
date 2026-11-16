@@ -6,12 +6,13 @@ default input arguments substituted, so the sandbox can run prereq-then-command 
 Atomic Red Team itself does and we can observe the real effect. MIT-licensed source
 (redcanaryco/atomic-red-team); attribution kept per item.
 """
+import argparse
 import glob
 import json
 import re
-import sys
 
-ART = sys.argv[1] if len(sys.argv) > 1 else "atomic-red-team"
+# The techniques of the original attack_external split. The blind set
+# (BLIND_PROTOCOL.md) passes its own pre-registered list with --techniques.
 INTEREST = {"T1485", "T1486", "T1490", "T1070", "T1552", "T1048", "T1567",
             "T1222", "T1489", "T1531", "T1561", "T1565", "T1005"}
 import yaml  # noqa: E402
@@ -26,20 +27,29 @@ def subst(text, args):
 
 
 def main():
+    ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
+    ap.add_argument("art", nargs="?", default="atomic-red-team", help="atomic-red-team checkout")
+    ap.add_argument("--techniques", default=None,
+                    help="comma-separated parent technique IDs (default: the original split)")
+    ap.add_argument("--executors", default="sh,bash,command")
+    args_ = ap.parse_args()
+    interest = set(args_.techniques.split(",")) if args_.techniques else INTEREST
+    executors = set(args_.executors.split(","))
     out = []
-    for f in sorted(glob.glob(f"{ART}/atomics/T*/T*.yaml")):
+    for f in sorted(glob.glob(f"{args_.art}/atomics/T*/T*.yaml")):
         try:
-            d = yaml.safe_load(open(f))
+            with open(f) as fh:
+                d = yaml.safe_load(fh)
         except Exception:
             continue
         if not d:
             continue
         tid = d.get("attack_technique", "")
-        if tid.split(".")[0] not in INTEREST:
+        if tid.split(".")[0] not in interest:
             continue
         for i, t in enumerate(d.get("atomic_tests", [])):
             ex = t.get("executor") or {}
-            if "linux" not in t.get("supported_platforms", []) or ex.get("name") not in ("sh", "bash", "command"):
+            if "linux" not in t.get("supported_platforms", []) or ex.get("name") not in executors:
                 continue
             args = t.get("input_arguments") or {}
             cmd = subst(ex.get("command", ""), args).strip()
