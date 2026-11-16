@@ -19,6 +19,7 @@ import scorecard as sc
 
 
 import build_oversize as bo  # noqa: E402
+import model_judge as mj  # noqa: E402
 
 
 def _row(gate, label, tier, outcome, default, auto, host_mode=None, disputable=False):
@@ -324,6 +325,32 @@ class TestFailOpen(unittest.TestCase):
             self.assertEqual(report["full_corpus"]["n_gates"], 3)
             self.assertEqual(report["held_out_remainder"]["n_gates"], 2)
             self.assertTrue(os.path.exists(out + ".md"))
+
+
+class TestKeyPool(unittest.TestCase):
+    def test_parse_keys(self):
+        self.assertEqual(mj.parse_keys(' "a", b ,,a, c '), ["a", "b", "c"])
+        self.assertEqual(mj.parse_keys(None), [])
+
+    def test_rotates_and_skips_resting_key(self):
+        t = [0.0]
+        slept = []
+        pool = mj.KeyPool(["a", "b", "c"], clock=lambda: t[0], sleep=slept.append)
+        self.assertEqual([pool.take() for _ in range(4)], [0, 1, 2, 0])
+        pool.rest(1, 10)
+        self.assertEqual([pool.take(), pool.take()], [2, 0])  # 1 skipped while resting
+        pool.rest(0, 5)
+        pool.rest(2, 20)
+        self.assertEqual(pool.take(), 0)  # all resting: wait for the earliest
+        self.assertEqual(slept, [5.0])
+
+    def test_all_keys_dropped_aborts(self):
+        pool = mj.KeyPool(["a", "b"], clock=lambda: 0.0, sleep=lambda s: None)
+        pool.drop(0)
+        self.assertEqual(pool.take(), 1)
+        pool.drop(1)
+        with self.assertRaises(SystemExit):
+            pool.take()
 
 
 if __name__ == "__main__":
