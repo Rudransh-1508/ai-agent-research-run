@@ -43,12 +43,14 @@ certified on exactly what the gate sends the model, not on the benchmark's own r
 For gpt-oss-120b that is t = 0.405; the benchmark rendering gives 0.305, and at 0.305 the
 gate allows `pip uninstall -y requests` (scored 0.2 as `Package: ...`, 0.4 as `Bash: ...`).
 
-**Why the budget exists.** A hook the host kills at its timeout (Claude Code: 60s) is a
-non-blocking error, so the tool call proceeds - under `bypassPermissions` it simply runs.
-Before the budget, a model timeout made the jev path retry past 60s (fault trial
-`artifact/design-faults/fault_trials.jsonl`: `timeout -> host_timeout`), i.e. the failure
-function was bypassed at the host seam. With it, every fault ends in ask/deny within ~20s
-(`fault_trials_fixed.jsonl`). No measured design-v2 row was affected (max hook time 1.9s).
+**Why the budget exists.** A hook the host kills at its timeout is a non-blocking error, so
+the tool call proceeds - under `bypassPermissions` it simply runs (Claude Code documents this;
+`onFailure: "block"` opts out from v2.1.295). Before the budget, a model timeout made the jev
+path retry for ~2 minutes; under the fault harness's 60s hook timeout that was
+`timeout -> host_timeout` (`artifact/design-faults/fault_trials.jsonl`). The documented
+default is 600s, so this needs a shorter configured timeout to bite; the budget makes the
+gate's failure path independent of host configuration either way: every fault ends in
+ask/deny within ~20s (`fault_trials_fixed.jsonl`). No measured design-v2 row was affected (max hook time 1.9s).
 The earlier fault matrix was also vacuous (model never called: no key, and its probe was
 dcg-denied first); the `design` / `design(groq)` recipes now probe a dcg-clear command with
 a stub key and differing controls, so the model path is exercised.

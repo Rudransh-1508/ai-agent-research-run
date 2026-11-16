@@ -131,7 +131,7 @@ def main():
     ap.add_argument("--gates", nargs="*", help="recipe names (default: all)")
     ap.add_argument("--modes", nargs="*", default=CONTROL_MODES + FAULT_MODES)
     ap.add_argument("--host-timeout", type=float, default=60.0,
-                    help="seconds before the host kills the hook (Claude Code default: 60)")
+                    help="seconds before the host kills the hook (Claude Code documents 600 for command hooks as of 2026-11; 60 models a tighter configured timeout)")
     ap.add_argument("--out", default=os.path.join(HERE, "results", "fault_trials.jsonl"))
     ap.add_argument("--padded", choices=("suffix", "prefix"),
                     help="pad each gate's probe command to ~372k chars (benchmark/build_oversize.py)"

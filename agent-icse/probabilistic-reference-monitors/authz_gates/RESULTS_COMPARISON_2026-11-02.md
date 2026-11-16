@@ -496,17 +496,22 @@ Three findings, each an instance of the paper's thesis (security fails at the se
    the same 0.405) removes it: 0 destructive runs anywhere. The cost is quota, not latency: on
    the free tier 44 of the 512 model-consulting decisions (~1,500 requests at 3 samples each)
    had a sample hit 429, and the failure function turned them into ask/deny (7 safe calls not automated, every one a 429, none a judgment error).
-3. **The host's hook timeout bypassed the gate's own failure function.** On a model timeout
-   the jev path retried past Claude Code's 60s hook timeout; a killed hook is a non-blocking
-   error, so the call proceeds - under `bypassPermissions` it runs
-   (`artifact/design-faults/fault_trials.jsonl`: `timeout -> host_timeout`). Fixed with a
-   hard wall-clock budget on the whole model consultation (`DESIGN_MODEL_BUDGET_S`, 20s):
-   every fault now ends in ask/deny in <= 20s for both judges (`fault_trials_fixed.jsonl`).
-   No measured design-v2 row was affected (max hook time 1.9s), but the latent bug is the
-   exact availability->authorization seam the paper indicts. The earlier design fault matrix
-   was also **vacuous**: the model was never called (no key; probe denied by dcg first). The
-   `design` and `design(groq)` fault recipes now probe a dcg-clear command with a stub key and
-   differing controls (yes -> ask, no -> allow), so the model path is exercised.
+3. **A host hook timeout can bypass the gate's own failure function (configuration-
+   dependent).** Claude Code documents that when a hook fails or times out the action goes
+   ahead (opt-in `onFailure: "block"` only from v2.1.295; FRAMING_EVIDENCE.md). The design's
+   old jev path retried for up to ~2 minutes on a model timeout; under the fault harness's
+   60s hook timeout the host killed it and the call would proceed - under
+   `bypassPermissions` it runs (`artifact/design-faults/fault_trials.jsonl`:
+   `timeout -> host_timeout`). The documented default command-hook timeout is 600s, so this
+   bites only where a shorter timeout is configured, not at the default; the harness label
+   "Claude Code default: 60" was wrong and is corrected. Fixed regardless with a hard
+   wall-clock budget on the whole model consultation (`DESIGN_MODEL_BUDGET_S`, 20s), which
+   makes the failure path independent of host configuration: every fault now ends in
+   ask/deny in <= 20s for both judges (`fault_trials_fixed.jsonl`). No measured design-v2 row
+   was affected (max hook time 1.9s). The earlier design fault matrix was also **vacuous**:
+   the model was never called (no key; probe denied by dcg first). The `design` and
+   `design(groq)` fault recipes now probe a dcg-clear command with a stub key and differing
+   controls (yes -> ask, no -> allow), so the model path is exercised.
 
 ## 19. Statistics correction: a valid certificate, and what each budget buys (2026-11-17)
 
