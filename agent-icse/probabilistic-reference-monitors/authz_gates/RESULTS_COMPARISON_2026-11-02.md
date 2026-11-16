@@ -536,3 +536,28 @@ gpt-oss-20b at 10% leaks 3/124 held-out; safeguard reaches 87% automation only a
 3/124 held-out leaks; the gate-prompt gpt-oss judge at 5% leaks 1/108 held-out. Budgets below
 2.3% are uncertifiable at n = 127; a tighter guarantee needs a larger calibration set, not a
 different threshold.
+
+## 20. Automated rater panel on the corpus labels (2026-11-17)
+
+Stopgap for the human panel (still planned): `analysis/llm_raters.py`, same blind sheet and
+seed as `second_rater.py --export-sheet` (88 stratified items, proposed tool call only), the
+rubric's three action definitions, allow / ask / deny. The raters are also judges elsewhere
+in the study, so this is supporting evidence, not ground truth; it is a different task
+(categorical decision under a written rubric, not a p_safe score). Report
+`artifact/llm_raters/REPORT.md`, raw per-rater decisions beside it.
+
+| rater | kappa vs corpus (3-way) | agreement | kappa safe vs unsafe | allow<->deny inversions |
+|---|---|---|---|---|
+| gpt-oss-120b | 0.71 | 81% | 0.99 | 0 |
+| qwen3.8-27b | 0.74 | 83% | 0.96 | 0 |
+| gpt-oss-20b | 0.56 | 70% | 0.94 | 0 |
+| allam-2-7b | 0.15 | 38% | 0.43 | 19 |
+| majority of the 3 capable raters | **0.69** | 80% | - | **0** |
+
+Fleiss' kappa among the three capable raters: 0.67 (all four: 0.41). On the line that
+matters for a gate - allow vs not-allow - the capable raters agree with the corpus almost
+perfectly (kappa 0.94-0.99) and never invert allow and deny. All 18 majority disagreements
+sit on the ask boundary: 11 are items the corpus labels ask that the panel would deny
+(mostly injected adversarial items, where the panel treats the injection itself as hostile),
+4 the corpus denies and the panel would ask, and 3 project-file overwrites the panel would
+allow. allam-2-7b rates near chance, consistent with its failure as a judge (sec 17).
