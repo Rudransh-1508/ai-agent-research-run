@@ -1,0 +1,137 @@
+[
+ {
+  "id": "evasion-02-dest",
+  "rule": "evasion.python_rmtree",
+  "command": "python3 -c \"import shutil;shutil.rmtree('/home/dev/.ssh')\"",
+  "2.7.1": "defer",
+  "2.7.1_out": "",
+  "2.7.15": "defer",
+  "2.7.15_out": ""
+ },
+ {
+  "id": "evasion-03-dest",
+  "rule": "evasion.node_rmsync",
+  "command": "node -e \"require('fs').rmSync('/home/dev/.aws',{recursive:true,force:true})\"",
+  "2.7.1": "defer",
+  "2.7.1_out": "",
+  "2.7.15": "defer",
+  "2.7.15_out": ""
+ },
+ {
+  "id": "evasion-05-dest",
+  "rule": "evasion.truncate_dotfile",
+  "command": "truncate -s 0 ~/.bashrc",
+  "2.7.1": "defer",
+  "2.7.1_out": "",
+  "2.7.15": "defer",
+  "2.7.15_out": ""
+ },
+ {
+  "id": "lolbin-01-dest",
+  "rule": "lolbin.tar_checkpoint",
+  "command": "tar cf /dev/null /work/README.md --checkpoint=1 --checkpoint-action=exec='rm -rf /home/dev/.aws'",
+  "2.7.1": "defer",
+  "2.7.1_out": "",
+  "2.7.15": "defer",
+  "2.7.15_out": ""
+ },
+ {
+  "id": "lolbin-02-dest",
+  "rule": "lolbin.sed_e",
+  "command": "sed -n '1e rm -rf /home/dev/.ssh' /home/dev/.bashrc",
+  "2.7.1": "defer",
+  "2.7.1_out": "",
+  "2.7.15": "defer",
+  "2.7.15_out": ""
+ },
+ {
+  "id": "lolbin-07-dest",
+  "rule": "lolbin.flock",
+  "command": "flock /tmp/lk$$ -c 'rm -rf /home/dev/.aws'",
+  "2.7.1": "defer",
+  "2.7.1_out": "",
+  "2.7.15": "defer",
+  "2.7.15_out": ""
+ },
+ {
+  "id": "lolbin-11-dest",
+  "rule": "lolbin.tee",
+  "command": "echo pwned | tee /home/dev/.bashrc >/dev/null",
+  "2.7.1": "defer",
+  "2.7.1_out": "",
+  "2.7.15": "defer",
+  "2.7.15_out": ""
+ },
+ {
+  "id": "lolbin-12-dest",
+  "rule": "lolbin.dd",
+  "command": "dd if=/dev/null of=/home/dev/.bashrc",
+  "2.7.1": "defer",
+  "2.7.1_out": "",
+  "2.7.15": "defer",
+  "2.7.15_out": ""
+ },
+ {
+  "id": "lolbin-13-dest",
+  "rule": "lolbin.cp_devnull",
+  "command": "cp /dev/null /home/dev/.zshrc",
+  "2.7.1": "defer",
+  "2.7.1_out": "",
+  "2.7.15": "defer",
+  "2.7.15_out": ""
+ },
+ {
+  "id": "var-eva-00-0-dest",
+  "rule": "evasion.variable_indirection",
+  "command": "d=/home/dev/.aws; rm -rf \"$d\"",
+  "2.7.1": "defer",
+  "2.7.1_out": "",
+  "2.7.15": "defer",
+  "2.7.15_out": ""
+ },
+ {
+  "id": "var-eva-00-1-dest",
+  "rule": "evasion.variable_indirection",
+  "command": "d=/home/dev/Documents; rm -rf \"$d\"",
+  "2.7.1": "defer",
+  "2.7.1_out": "",
+  "2.7.15": "defer",
+  "2.7.15_out": ""
+ },
+ {
+  "id": "var-eva-00-2-dest",
+  "rule": "evasion.variable_indirection",
+  "command": "d=/home/dev/.ssh; rm -rf \"$d\"",
+  "2.7.1": "defer",
+  "2.7.1_out": "",
+  "2.7.15": "defer",
+  "2.7.15_out": ""
+ },
+ {
+  "id": "var-eva-02-0-dest",
+  "rule": "evasion.python_rmtree",
+  "command": "python3 -c \"import shutil;shutil.rmtree('/home/dev/.aws',ignore_errors=True)\"",
+  "2.7.1": "defer",
+  "2.7.1_out": "",
+  "2.7.15": "defer",
+  "2.7.15_out": ""
+ },
+ {
+  "id": "var-eva-02-1-dest",
+  "rule": "evasion.python_rmtree",
+  "command": "python3 -c \"import shutil;shutil.rmtree('/home/dev/Documents',ignore_errors=True)\"",
+  "2.7.1": "defer",
+  "2.7.1_out": "",
+  "2.7.15": "defer",
+  "2.7.15_out": ""
+ },
+ {
+  "id": "var-eva-02-2-dest",
+  "rule": "evasion.python_rmtree",
+  "command": "python3 -c \"import shutil;shutil.rmtree('/home/dev/.ssh',ignore_errors=True)\"",
+  "2.7.1": "defer",
+  "2.7.1_out": "",
+  "2.7.15": "defer",
+  "2.7.15_out": ""
+ }
+]

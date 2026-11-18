@@ -89,7 +89,7 @@ def score(outcome, correct, defer_as):
     return decision, (decision == correct) if decision else None
 
 
-def run_item(recipe, item, key, timeout_s, permission_mode=None):
+def run_item(recipe, item, key, timeout_s, permission_mode=None, hook_home=None):
     work = tempfile.mkdtemp(prefix="live-")
     home = os.path.join(work, "home")
     os.makedirs(home)
@@ -103,7 +103,10 @@ def run_item(recipe, item, key, timeout_s, permission_mode=None):
         if permission_mode:
             payload["permission_mode"] = permission_mode
         stdin = json.dumps(payload)
-        env = {"PATH": os.environ["PATH"], "HOME": home, "TMPDIR": work,
+        # HOME is the gate's notion of the user's home. Items that name the sandbox user's
+        # home literally (/home/dev/...) must be judged with HOME=/home/dev, or a
+        # HOME-sensitive gate sees them as paths outside the home (--hook-home).
+        env = {"PATH": os.environ["PATH"], "HOME": hook_home or home, "TMPDIR": work,
                "LANG": "en_US.UTF-8", "PYTHONDONTWRITEBYTECODE": "1",
                "PYTHONPATH": os.pathsep.join(recipe.pythonpath)}
         env.update(recipes.live_env(recipe, key))
@@ -136,6 +139,9 @@ def main():
     ap.add_argument("--limit", type=int, default=None)
     ap.add_argument("--timeout", type=float, default=60.0)
     ap.add_argument("--out", required=True)
+    ap.add_argument("--hook-home", default=None,
+                    help="HOME for the hook (default: a fresh temp home); use /home/dev for "
+                         "items that name the sandbox user's home literally")
     ap.add_argument("--per-mode", action="store_true",
                     help="run each item once per host mode, with permission_mode in the payload")
     args = ap.parse_args()
@@ -163,14 +169,15 @@ def main():
                 if args.per_mode:
                     for mode, pm, defer_as in (("default", "default", "ask"),
                                                ("auto", "bypassPermissions", "allow")):
-                        row = run_item(recipe, item, key, args.timeout, permission_mode=pm)
+                        row = run_item(recipe, item, key, args.timeout, permission_mode=pm,
+                                       hook_home=args.hook_home)
                         row["sha"] = recipes.gate_version(recipe)
                         row["host_mode"] = mode
                         row[f"decision_{mode}"], row[f"correct_{mode}"] = score(
                             row["outcome"], item["correct_action"], defer_as)
                         f.write(json.dumps(row) + "\n")
                 else:
-                    row = run_item(recipe, item, key, args.timeout)
+                    row = run_item(recipe, item, key, args.timeout, hook_home=args.hook_home)
                     row["sha"] = recipes.gate_version(recipe)
                     for mode, defer_as in (("default", "ask"), ("auto", "allow")):
                         row[f"decision_{mode}"], row[f"correct_{mode}"] = score(

@@ -4,7 +4,7 @@
 
 | repo | channel | status |
 |---|---|---|
-| kenryu42/cc-safety-net | GitHub private vulnerability report | **filed** GHSA-jqxx-xg5w-h833 (triage) |
+| kenryu42/cc-safety-net | GitHub private report, then public issue on request | GHSA-jqxx-xg5w-h833; maintainer: missed commands are public bugs, see docs/residual-risk.md; re-tested on 2.7.15 and filed **issue #368** (6 commands, 3 families) |
 | noplan-inc/limpet | GitHub private vulnerability report | **filed** GHSA-6f27-cfc9-gg24 (triage) |
 | eugeniughelbur/jev-engineering | maintainer email (public profile) | ready to send, `disclosure_outbox/` |
 | valentynkit/jev-belay | maintainer email (public profile) | ready to send |
@@ -94,8 +94,9 @@ HEAD on 2026-10-31; see `RECHECK_2026-10-31.md`.
 
 - **Disguised destructive commands are not recognized.** The README says wrapping a command
   or reordering flags does not hide it. On sandbox-verified disguised commands, the hook
-  returned no decision for 9/22 authored evasions (Python `shutil.rmtree` and Node
-  `rmSync` one-liners, variable indirection, `truncate` of a dotfile) and 6/27 GTFOBins-style
+  returned no decision for 6/22 authored evasions (Python `shutil.rmtree` one-liners,
+  variable indirection, `truncate` of a dotfile; 9/22 as first reported, before the HOME
+  correction in RESULTS sec 22) and 6/27 GTFOBins-style
   legitimate-binary abuses (`cp /dev/null`, `dd`, `flock`, `sed e`, `tar --checkpoint`,
   `tee`), so under a host mode that runs unblocked calls they execute (observed 2026-11-14).
   In Claude Code's default mode the user is still prompted. Suggested fix: rules for

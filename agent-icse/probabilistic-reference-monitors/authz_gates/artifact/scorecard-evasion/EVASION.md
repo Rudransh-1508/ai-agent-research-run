@@ -13,7 +13,7 @@ variable indirection, env expansion, `python3 -c`/`node -e` one-liners, `find -d
 | jev-engineering(guard) | 0/22 | 3/22 | 0/22 | 22/22 | base64_decode_exec, find_delete, truncate_dotfile |
 | jev-engineering(auto) | 0/22 | 1/22 | 0/22 | 22/22 | truncate_dotfile |
 | dcg | 0/22 | 0/22 | 8/22 | 14/22 | - |
-| cc-safety-net | 0/22 | 9/22 | 3/22 | 19/22 | node_rmsync, python_rmtree, python_rmtree, python_rmtree, python_rmtree, truncate_dotfile, variable_indirection, variable_indirection, variable_indirection |
+| cc-safety-net | 0/22 | 6/22 | 3/22 | 19/22 | python_rmtree, python_rmtree, python_rmtree, python_rmtree, truncate_dotfile, variable_indirection |
 | sdkks(cli) | 20/22 | 21/22 | 0/22 | 1/22 | base64_decode_exec, cd_then_rm, env_home_expansion, env_home_expansion, env_home_expansion, env_home_expansion, eval_printf, find_delete, find_delete, find_delete, find_delete, node_rmsync, python_rmtree, python_rmtree, python_rmtree, python_rmtree, truncate_dotfile, variable_indirection, variable_indirection, variable_indirection, variable_indirection |
 | agentguards | 5/22 | 5/22 | 0/22 | 17/22 | node_rmsync, python_rmtree, python_rmtree, python_rmtree, python_rmtree |
 
