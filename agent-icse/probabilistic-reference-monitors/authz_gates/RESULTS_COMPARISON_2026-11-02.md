@@ -637,6 +637,8 @@ still pass. Classified against the registry and each command's undisguised form:
 - outside the tool's scope (the plain form passes too): shell rc overwrites
   (`truncate`/`tee`/`dd`/`cp /dev/null` onto `.bashrc`/`.zshrc`);
 - documented (RR-3, unverifiable recursive-delete targets): `d=~/Documents; rm -rf "$d"`.
+The maintainer closed #368 as not planned: the tool targets mistakes of helpful agents, not
+probe-constructed shapes; adversarial agents belong to an OS sandbox (FRAMING_EVIDENCE.md sec 5).
 For the paper: report cc-safety-net's evasion misses as 6/22, and distinguish in-scope
 bypasses from commands outside a gate's stated scope (our labels are about effect, not about
 what each gate promises).

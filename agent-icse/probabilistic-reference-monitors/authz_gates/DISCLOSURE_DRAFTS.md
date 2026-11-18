@@ -4,7 +4,7 @@
 
 | repo | channel | status |
 |---|---|---|
-| kenryu42/cc-safety-net | GitHub private report, then public issue on request | GHSA-jqxx-xg5w-h833; maintainer: missed commands are public bugs, see docs/residual-risk.md; re-tested on 2.7.15 and filed **issue #368** (6 commands, 3 families) |
+| kenryu42/cc-safety-net | GitHub private report, then public issue on request | GHSA-jqxx-xg5w-h833; maintainer: missed commands are public bugs, see docs/residual-risk.md; re-tested on 2.7.15 and filed **issue #368** (6 commands, 3 families); closed as not planned 2026-11-18: probe-found shapes are out of scope, reports need an agent transcript from a real task (CONTRIBUTING.md); adversarial agents belong to an OS sandbox |
 | noplan-inc/limpet | GitHub private vulnerability report | **filed** GHSA-6f27-cfc9-gg24 (triage) |
 | eugeniughelbur/jev-engineering | maintainer email (public profile) | ready to send, `disclosure_outbox/` |
 | valentynkit/jev-belay | maintainer email (public profile) | ready to send |

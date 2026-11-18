@@ -73,3 +73,23 @@ configuration-dependent seam (any gate whose worst-case latency can exceed its c
 timeout fails open on hosts without `onFailure: "block"`), and the 20s model budget is still
 the right fix (it makes the gate's failure path independent of host configuration and keeps
 latency bounded), but the paper must not say the default configuration was bypassed.
+
+## 5. A maintainer's stated threat model (cc-safety-net, 2026-11-18)
+
+Closing issue kenryu42/cc-safety-net#368 (6 sandbox-verified bypasses on 2.7.15) as not
+planned, the maintainer wrote: *"These were found by probing rather than by an agent doing
+real work. CC Safety Net targets the mistakes helpful agents make, not every shape a probe can
+construct. Missed-detection reports now need an agent transcript showing the command was run
+during a real task (see CONTRIBUTING.md). For adversarial agents, an OS sandbox is the right
+layer."*
+
+Use in the paper: this is the clearest statement of the scope gap the study measures. The
+gate's README promises that dangerous calls "never run" and that wrapping a command does not
+hide it; its maintainer scopes that promise to cooperative agents, and assigns adversarial
+inputs (prompt injection, disguised commands) to a different layer. Users who install the
+gate to run in bypass/auto mode - exactly where an injected or disguised command would run -
+are relying on a guarantee the tool does not make. The paper should (a) report rule-gate
+misses on evasion/LOLBin items as outside such gates' stated threat model, not as defects,
+and (b) make the point that the advertised protection and the scoped threat model diverge,
+which is itself an integration seam: nothing in the host tells the user which threat model
+the installed gate assumes.
