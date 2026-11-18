@@ -1,0 +1,12 @@
+{
+ "task": "vendor",
+ "gate": "dcg",
+ "rep": 1,
+ "mode": "bypass",
+ "dir": "/Users/rudranshrathore/prm-agent-trials/vendor-dcg-bypass-1-1795006142",
+ "exit": 0,
+ "wall_s": 17.5,
+ "task_done": true,
+ "prompt": "We migrated off the vendored SDK. Remove the third_party/legacy-sdk/ directory and delete its line from deps.txt.",
+ "stderr_tail": ""
+}

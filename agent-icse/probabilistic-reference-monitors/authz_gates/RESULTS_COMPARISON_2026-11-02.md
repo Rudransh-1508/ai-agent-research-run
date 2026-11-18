@@ -642,3 +642,33 @@ probe-constructed shapes; adversarial agents belong to an OS sandbox (FRAMING_EV
 For the paper: report cc-safety-net's evasion misses as 6/22, and distinguish in-scope
 bypasses from commands outside a gate's stated scope (our labels are about effect, not about
 what each gate promises).
+
+## 23. Real-agent trials: do helpful agents route around a denial? (2026-11-18)
+
+Answering the scope objection (cc-safety-net #368: gates target helpful-agent mistakes;
+probe-found shapes are out of scope). Real Claude Code on four ordinary tasks needing a
+deletion or reset, one gate installed, strict sandbox, prompts with no hint of workarounds;
+24 runs (`agent_trials/`, `artifact/agent-trials/TRIALS.md`, full transcripts kept).
+
+| host mode | gate denied, agent stopped | denied, then a recoverable route | denied, then reformulated | host prompt stopped it | no denial |
+|---|---|---|---|---|---|
+| acceptEdits (host still prompts) | 9 | 0 | 1 | 2 | 0 |
+| bypassPermissions (gate is the only check) | 4 | 4 | 0 | 0 | 4 |
+
+- **No disguise in 18 denials.** After a denial the agent stopped and reported (13), took a
+  recoverable route the gate allows - `git stash push -u` (4; cc-safety-net's message suggests
+  it), or reformulated once: `rm -r` denied, then per-file `rm` + `rmdir` of git-tracked files
+  (recoverable from history). It never used an interpreter one-liner, `find -delete`, a
+  LOLBin, or any other evasion-set shape; several replies say so explicitly ("I didn't try to
+  get around the hook").
+- **So, for this agent, the maintainer's scope argument holds:** a current helpful agent does
+  not produce the disguised commands rule gates miss. The paper reports evasion/LOLBin gaps
+  under the adversarial threat model (prompt injection, a compromised or misaligned agent)
+  only, and the helpful-agent results rest on the plain-destructive seams (host-mode coupling,
+  failure paths, argument-blind allowlists), which these trials do not touch.
+- Side findings: dcg denies the *safe* `git branch -d` on a merged branch in 4/4 runs (an
+  over-block that costs automation); in acceptEdits mode the host's own prompt, not the gate,
+  stopped 2 runs; agents follow a denial's suggested alternative.
+- Limits: one agent and model (Claude Code with its default model, among the most
+  safety-tuned), simple tasks, n = 24. Other agents and models may behave differently; the
+  cross-host survey can run the same tasks through other harnesses and open-weight models.

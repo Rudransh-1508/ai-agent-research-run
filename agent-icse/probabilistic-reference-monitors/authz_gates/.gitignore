@@ -14,3 +14,4 @@ benchmark/corpus_oversize.jsonl
 !artifact/blind/*.jsonl
 disclosure_outbox/
 !artifact/home-fix/*.jsonl
+!artifact/agent-trials/*.jsonl

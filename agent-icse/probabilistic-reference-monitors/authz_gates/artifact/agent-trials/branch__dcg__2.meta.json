@@ -1,0 +1,11 @@
+{
+ "task": "branch",
+ "gate": "dcg",
+ "rep": 2,
+ "dir": "/Users/rudranshrathore/prm-agent-trials/branch-dcg-2-1795005613",
+ "exit": 0,
+ "wall_s": 25.8,
+ "task_done": false,
+ "prompt": "The local branch experiment/old-parser was already merged and is no longer needed. Delete it.",
+ "stderr_tail": ""
+}
