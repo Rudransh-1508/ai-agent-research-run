@@ -1,0 +1,35 @@
+n=2 K= 2  opt=0.7200  dual<=0.7200  OPT  det=True  thm2<=0.8000  blocks=0.7200  0.0s
+n=2 K= 3  opt=0.7600  dual<=0.7600  OPT  det=False  thm2<=0.8000  blocks=0.7200  0.0s
+n=2 K= 4  opt=0.8000  dual<=0.8000  OPT  det=True  thm2<=0.8000  blocks=0.8000  0.0s
+n=3 K= 2  opt=0.6480  dual<=0.6480  OPT  det=True  thm2<=0.8000  blocks=0.6480  0.0s
+n=3 K= 3  opt=0.6978  dual<=0.6978  OPT  det=False  thm2<=0.8000  blocks=0.6480  0.0s
+n=3 K= 4  opt=0.7272  dual<=0.7272  OPT  det=False  thm2<=0.8000  blocks=0.7200  0.1s
+n=3 K= 5  opt=0.7920  dual<=0.7920  OPT  det=True  thm2<=0.8000  blocks=0.7200  0.1s
+n=3 K= 6  opt=0.7924  dual<=0.7924  OPT  det=False  thm2<=0.8000  blocks=0.7200  0.1s
+n=3 K= 7  opt=0.7973  dual<=0.7973  OPT  det=False  thm2<=0.8000  blocks=0.7200  0.1s
+n=3 K= 8  opt=0.8000  dual<=0.8000  OPT  det=True  thm2<=0.8000  blocks=0.8000  0.2s
+n=4 K= 2  opt=0.5832  dual<=0.5832  OPT  det=True  thm2<=0.7849  blocks=0.5832  0.0s
+n=4 K= 3  opt=0.6556  dual<=0.6556  OPT  det=False  thm2<=0.8000  blocks=0.5832  0.4s
+n=4 K= 4  opt=0.7200  dual<=0.7200  OPT  det=True  thm2<=0.8000  blocks=0.7200  0.4s
+n=4 K= 5  opt=0.7207  dual<=0.7207  OPT  det=False  thm2<=0.8000  blocks=0.7200  3.7s
+n=4 K= 6  opt=0.7776  dual<=0.7776  OPT  det=True  thm2<=0.8000  blocks=0.7200  1.9s
+n=4 K= 7  opt=0.7791  dual<=0.7791  OPT  det=False  thm2<=0.8000  blocks=0.7200  6.4s
+n=4 K= 8  opt=0.7852  dual<=0.7852  OPT  det=False  thm2<=0.8000  blocks=0.7200  37.2s
+n=4 K= 9  opt=0.7890  dual<=0.7890  OPT  det=False  thm2<=0.8000  blocks=0.7200  74.8s
+n=4 K=10  opt=0.7920  dual<=0.7939  LIMIT  det=True  thm2<=0.8000  blocks=0.7200  300.0s
+n=4 K=11  opt=0.7933  dual<=0.7974  LIMIT  det=False  thm2<=0.8000  blocks=0.7200  300.1s
+n=4 K=12  opt=0.7992  dual<=0.7992  OPT  det=True  thm2<=0.8000  blocks=0.7200  35.0s
+n=4 K=13  opt=0.7992  dual<=0.7992  OPT  det=False  thm2<=0.8000  blocks=0.7200  250.0s
+n=4 K=14  opt=0.7993  dual<=0.7996  LIMIT  det=False  thm2<=0.8000  blocks=0.7200  300.1s
+n=4 K=15  opt=0.7998  dual<=0.7998  OPT  det=False  thm2<=0.8000  blocks=0.7200  98.3s
+n=4 K=16  opt=0.8000  dual<=0.8000  OPT  det=True  thm2<=0.8000  blocks=0.8000  3.9s
+n=5 K= 2  opt=0.5249  dual<=0.5249  OPT  det=True  thm2<=0.7021  blocks=0.5249  0.1s
+n=5 K= 3  opt=0.6066  dual<=0.6066  OPT  det=False  thm2<=0.8000  blocks=0.5249  1.2s
+n=5 K= 4  opt=0.6603  dual<=0.6603  OPT  det=False  thm2<=0.8000  blocks=0.6480  6.0s
+n=5 K= 5  opt=0.7097  dual<=0.7097  OPT  det=False  thm2<=0.8000  blocks=0.6480  11.4s
+n=5 K= 6  opt=0.7175  dual<=0.7175  OPT  det=False  thm2<=0.8000  blocks=0.6480  184.8s
+n=5 K= 7  opt=0.7582  dual<=0.7582  OPT  det=True  thm2<=0.8000  blocks=0.6480  125.9s
+n=5 K= 8  opt=0.7618  dual<=0.7807  LIMIT  det=False  thm2<=0.8000  blocks=0.7200  300.0s
+n=5 K=10  opt=0.7786  dual<=0.8000  LIMIT  det=False  thm2<=0.8000  blocks=0.7200  300.0s
+n=5 K=12  opt=0.7855  dual<=0.8000  LIMIT  det=True  thm2<=0.8000  blocks=0.7200  300.0s
+n=5 K=16  opt=0.7919  dual<=0.8000  LIMIT  det=False  thm2<=0.8000  blocks=0.7200  300.0s
