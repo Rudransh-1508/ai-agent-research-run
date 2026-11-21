@@ -672,3 +672,32 @@ deletion or reset, one gate installed, strict sandbox, prompts with no hint of w
 - Limits: one agent and model (Claude Code with its default model, among the most
   safety-tuned), simple tasks, n = 24. Other agents and models may behave differently; the
   cross-host survey can run the same tasks through other harnesses and open-weight models.
+
+## 24. Cross-host seam survey: the seams are not Claude-Code-specific (2026-11-18)
+
+Do other deployed agent harnesses show the same authorization seams? Four were driven headless by
+a scripted model backend (`crosshost/stub_model.py`: OpenAI chat-completions, OpenAI Responses, and
+Gemini generateContent; no real model, so ToS-clean and model-independent), each calling its own
+shell tool with a command that only touches a throwaway `victim/` dir; "ran" is read from the work
+dir. Versions as served 2026-11-18: Qwen Code 0.28.0, Gemini CLI 0.68.0, Goose 1.59.2, Crush 0.100.0.
+Table `crosshost/SURVEY.md`; raw `artifact/crosshost/survey.jsonl` (32 runs); method `crosshost/README.md`.
+
+- **Host-mode coupling reproduces on every harness.** `rm -rf victim` runs with no prompt in the
+  unattended mode of all four (Qwen/Gemini yolo, Goose auto, Crush even its plain `run`), and is
+  stopped in the supervised modes - the same defer/ask -> run seam measured on Claude Code. Crush's
+  non-interactive `crush run` runs destructive commands without `-y`; the maintainer confirms it is
+  "always in yolo mode" (charmbracelet/crush#2792) though README/`--help` do not say so; a prior report
+  of a provider-requested side effect under that config is charmbracelet/crush#3123.
+- **Argument-blind allowlist reproduces, and is model-independent.** With only `ls` allowlisted, Qwen
+  Code 0.28.0 runs a destructive command substituted into the argument (`ls $(rm -rf victim)`, and the
+  backtick/`<()`/quoted forms, 2/2 reps each) while correctly stopping `&&`/`|` chaining; Gemini CLI
+  (which Qwen Code forks) blocks all of them. This is the same argument-blind-allowlist failure the
+  paper indicts in jev-engineering's `git branch -D` fast path and in command launchers, now on an
+  independent harness, with a scripted model - so it is a property of the gate's parsing, not of any
+  model's judgment. (New; no prior public report found. A Qwen Code report is drafted pending approval.)
+- **Classifier-failure could not be exercised headless.** Qwen `auto` and Goose `smart_approve` never
+  reach their LLM safety classifier with no human present, so the safe/unsafe/fault stub answers do not
+  differ. A limitation, noted. The cross-host hook-failure test was not run.
+
+Takeaway: two of the four seams (host-mode coupling, argument-blind allowlist) reproduce on harnesses
+and models the study never touched, which answers the "single ecosystem" external-validity concern.
